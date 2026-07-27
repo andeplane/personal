@@ -1,0 +1,1231 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hellas 2026 — Dag for dag</title>
+<style>
+  :root{
+    --ink:#12222b; --ink-soft:#4a656d; --ground:#edf2f0; --card:#fff; --card-soft:#e2ebe8;
+    --line:#c5d5d1; --line-soft:#dbe6e3; --aegean:#0d5c73; --gold:#a96d10; --gold-bright:#d99a34;
+    --clay:#a3401c; --clay-soft:#f6e0d4; --cove:#146b5c; --cove-soft:#d7ebe6;
+    --alert:#a11f1f; --alert-soft:#fadedd;
+    --shadow:0 1px 2px rgba(18,34,43,.05),0 6px 20px rgba(18,34,43,.07);
+    --f-display:'Avenir Next','Segoe UI',Futura,'Trebuchet MS',sans-serif;
+    --f-body:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
+    --f-mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --ink:#e8f0ed; --ink-soft:#9db6b2; --ground:#0a181e; --card:#10222a; --card-soft:#163038;
+    --line:#24424b; --line-soft:#1a343d; --aegean:#58aac4; --gold:#e0a844; --gold-bright:#f0c471;
+    --clay:#e28457; --clay-soft:#2e1d14; --cove:#55bfa8; --cove-soft:#113029;
+    --alert:#f07070; --alert-soft:#331414;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.4);}}
+  :root[data-theme="dark"]{
+    --ink:#e8f0ed; --ink-soft:#9db6b2; --ground:#0a181e; --card:#10222a; --card-soft:#163038;
+    --line:#24424b; --line-soft:#1a343d; --aegean:#58aac4; --gold:#e0a844; --gold-bright:#f0c471;
+    --clay:#e28457; --clay-soft:#2e1d14; --cove:#55bfa8; --cove-soft:#113029;
+    --alert:#f07070; --alert-soft:#331414;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.4);}
+  :root[data-theme="light"]{
+    --ink:#12222b; --ink-soft:#4a656d; --ground:#edf2f0; --card:#fff; --card-soft:#e2ebe8;
+    --line:#c5d5d1; --line-soft:#dbe6e3; --aegean:#0d5c73; --gold:#a96d10; --gold-bright:#d99a34;
+    --clay:#a3401c; --clay-soft:#f6e0d4; --cove:#146b5c; --cove-soft:#d7ebe6;
+    --alert:#a11f1f; --alert-soft:#fadedd;
+    --shadow:0 1px 2px rgba(18,34,43,.05),0 6px 20px rgba(18,34,43,.07);}
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.55}
+  h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0}
+  .mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+  a{color:var(--aegean);text-underline-offset:2px}
+  a:focus-visible,button:focus-visible,.tt:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
+  img{max-width:100%;display:block}
+
+  .rail{position:fixed;top:0;right:0;height:100vh;width:52px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:8px;z-index:60}
+  .rail button{all:unset;width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;
+    transition:background .2s,height .2s,width .2s}
+  .rail button:hover{background:var(--ink-soft)}
+  .rail button.active{background:var(--gold-bright);width:10px;height:22px;border-radius:5px}
+  .counter{position:fixed;bottom:14px;left:14px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;
+    color:var(--ink-soft);background:color-mix(in srgb,var(--card) 88%,transparent);padding:5px 9px;
+    border-radius:3px;border:1px solid var(--line);z-index:60;backdrop-filter:blur(4px)}
+  @media (max-width:760px){.rail{display:none}}
+
+  main{scroll-snap-type:y proximity}
+  section.slide{min-height:100vh;scroll-snap-align:start;padding:54px 6vw 72px;display:flex;
+    flex-direction:column;justify-content:center;border-bottom:1px solid var(--line)}
+  @media (max-width:760px){section.slide{padding:40px 5vw 52px;min-height:auto}}
+
+  /* ---- hover tooltip ---- */
+  .tt{border-bottom:1.5px dotted var(--gold-bright);cursor:help;font-weight:600}
+  #tip{position:fixed;z-index:200;width:300px;background:var(--card);border:1px solid var(--line);
+    border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.24);overflow:hidden;opacity:0;visibility:hidden;
+    transition:opacity .14s;pointer-events:none;font-family:var(--f-body)}
+  #tip.on{opacity:1;visibility:visible}
+  #tip img{width:100%;height:158px;object-fit:cover;background:var(--card-soft)}
+  #tip .tb{padding:11px 13px 13px}
+  #tip h4{font-size:14.5px;margin-bottom:4px}
+  #tip .meta{font-family:var(--f-mono);font-size:10.5px;color:var(--gold);margin-bottom:6px;letter-spacing:.02em}
+  #tip p{margin:0;font-size:13px;color:var(--ink);line-height:1.5}
+  @media (max-width:760px){#tip{width:min(88vw,320px)}}
+
+  /* ---- day header ---- */
+  .dhead{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:14px}
+  .did{display:flex;align-items:baseline;gap:16px}
+  .daybig{font-family:var(--f-display);font-weight:800;font-size:clamp(30px,4.6vw,56px);line-height:1;
+    color:var(--gold-bright);letter-spacing:-.01em;white-space:nowrap}
+  .dmeta{display:flex;flex-direction:column;gap:6px}
+  .ddate{font-family:var(--f-mono);font-size:13.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+  .badges{display:flex;gap:6px;flex-wrap:wrap}
+  .badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--f-mono);font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:3px}
+  .badge .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+  .badge.athen{background:var(--clay-soft);color:var(--clay)}
+  .badge.samos{background:var(--cove-soft);color:var(--cove)}
+  .badge.inne{background:var(--card-soft);color:var(--ink-soft);border:1px solid var(--line)}
+  .badge.ute{background:color-mix(in srgb,var(--gold-bright) 26%,transparent);color:var(--gold)}
+  .badge.done{background:var(--card-soft);color:var(--ink-soft);border:1px solid var(--line)}
+
+  .wx{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:8px 15px;box-shadow:var(--shadow)}
+  .wx svg{width:26px;height:26px;flex-shrink:0}
+  .wx .t{font-family:var(--f-mono);font-size:18px;font-weight:600;font-variant-numeric:tabular-nums}
+  .wx .t .lo{color:var(--ink-soft);font-weight:400}
+  .wx .w{font-family:var(--f-mono);font-size:11px;color:var(--ink-soft);border-left:1px solid var(--line);
+    padding-left:11px;line-height:1.35}
+  .wx .w b{display:block;color:var(--ink);font-size:12.5px}
+
+  h2.head{font-size:clamp(24px,3.4vw,40px);font-weight:800;letter-spacing:-.005em;max-width:26ch;margin-bottom:6px}
+  .lead{font-size:16.5px;color:var(--ink-soft);max-width:78ch;margin:0 0 20px}
+  .lead b{color:var(--ink)}
+
+  /* ---- options ---- */
+  .opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;align-items:start}
+  .opt{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:var(--shadow);
+    display:flex;flex-direction:column}
+  .opt.pick{border:2px solid var(--cove)}
+  .opt img.cover{width:100%;height:152px;object-fit:cover;background:var(--card-soft)}
+  .optbody{padding:15px 17px 17px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .otag{font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:700;color:var(--ink-soft)}
+  .opt.pick .otag{color:var(--cove)}
+  .opt h3{font-size:18.5px;line-height:1.2}
+  .facts{display:flex;flex-wrap:wrap;gap:6px}
+  .facts span{font-family:var(--f-mono);font-size:10.5px;background:var(--card-soft);border:1px solid var(--line-soft);
+    border-radius:3px;padding:3px 7px;color:var(--ink-soft);white-space:nowrap}
+  .opt p{margin:0;font-size:14.5px}
+  .opt .lnk{margin-top:auto;padding-top:6px;font-family:var(--f-mono);font-size:12px}
+
+  /* ---- timeline ---- */
+  .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:36px;align-items:start}
+  @media (max-width:900px){.grid{grid-template-columns:1fr;gap:24px}}
+  .tl{display:flex;flex-direction:column;gap:13px}
+  .tli{display:grid;grid-template-columns:74px 1fr;gap:13px}
+  .tlt{font-family:var(--f-mono);font-size:12px;color:var(--gold);font-weight:700;padding-top:3px}
+  .tlx{font-size:16px}
+  .tlx b{font-family:var(--f-display);font-weight:700}
+  .tlx .m{display:block;font-family:var(--f-mono);font-size:12px;color:var(--ink-soft);margin-top:3px;line-height:1.45}
+
+  .box{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold-bright);
+    border-radius:4px;padding:15px 17px;box-shadow:var(--shadow)}
+  .box+.box{margin-top:13px}
+  .box .lab{font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--gold);
+    margin-bottom:6px;display:block;font-weight:700}
+  .box p{margin:0 0 8px;font-size:14.5px}.box p:last-child{margin-bottom:0}
+  .box.cove{border-left-color:var(--cove)}.box.cove .lab{color:var(--cove)}
+  .box.clay{border-left-color:var(--clay)}.box.clay .lab{color:var(--clay)}
+  .box.alert{border-left-color:var(--alert);background:var(--alert-soft)}.box.alert .lab{color:var(--alert)}
+
+  .figs{display:grid;grid-template-columns:1fr;gap:11px}
+  .figs img{width:100%;height:180px;object-fit:cover;border-radius:5px;border:1px solid var(--line)}
+
+  /* ---- booking ---- */
+  .bk{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:18px}
+  .bkcol{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:18px 20px;box-shadow:var(--shadow)}
+  .bkcol.now{border:2px solid var(--alert)}
+  .bkcol h3{font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:3px}
+  .bkcol.now h3{color:var(--alert)}.bkcol.soon h3{color:var(--gold)}.bkcol.there h3{color:var(--aegean)}
+  .bkcol .when{font-family:var(--f-mono);font-size:11px;color:var(--ink-soft);margin-bottom:12px;display:block}
+  .bkl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+  .bkl li{font-size:14.5px;padding-bottom:12px;border-bottom:1px solid var(--line-soft)}
+  .bkl li:last-child{border-bottom:none;padding-bottom:0}
+  .bkl b{font-family:var(--f-display);font-weight:700;display:block}
+  .bkl .d{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-soft);display:block;margin-top:3px;line-height:1.5}
+  .bkl .price{color:var(--gold);font-weight:700}
+
+  /* ---- reference ---- */
+  .refg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:18px}
+  .refc{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:17px 19px;box-shadow:var(--shadow)}
+  .refc h3{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--aegean);margin-bottom:11px}
+  .refc ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+  .refc li{font-size:14px}
+  .refc .lbl{font-family:var(--f-mono);font-size:11px;color:var(--ink-soft);display:block}
+  .note{margin-top:16px;font-size:13.5px;color:var(--ink-soft);font-style:italic;max-width:70ch}
+
+  .tbl-wrap{overflow-x:auto}
+  table{border-collapse:collapse;width:100%;font-size:14px;min-width:640px}
+  th,td{text-align:left;padding:7px 11px;border-bottom:1px solid var(--line-soft)}
+  th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+  td.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  /* ---- overview ---- */
+  .ov{display:flex;flex-direction:column;gap:2px}
+  .ovr{display:grid;grid-template-columns:88px 120px 1fr auto;gap:14px;align-items:baseline;
+    padding:11px 12px;border-radius:4px}
+  .ovr:nth-child(odd){background:var(--card)}
+  .ovr .d{font-family:var(--f-display);font-weight:800;color:var(--gold-bright);font-size:15px}
+  .ovr .dt{font-family:var(--f-mono);font-size:12px;color:var(--ink-soft)}
+  .ovr .wt{font-size:15px}
+  .ovr .nt{font-family:var(--f-mono);font-size:11px;font-weight:700;text-align:right}
+  @media (max-width:760px){.ovr{grid-template-columns:70px 1fr;row-gap:2px}.ovr .nt{grid-column:2;text-align:left}}
+
+  /* ---- all-activities map ---- */
+  #allmap{height:70vh;min-height:420px;border-radius:8px;border:1px solid var(--line);
+    box-shadow:var(--shadow);background:var(--card-soft);z-index:1}
+  .mapbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+  .mapbar button{all:unset;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.05em;
+    text-transform:uppercase;font-weight:700;padding:7px 15px;border-radius:999px;cursor:pointer;
+    border:1px solid var(--line);background:var(--card);color:var(--ink-soft);transition:.15s}
+  .mapbar button:hover{border-color:var(--ink-soft);color:var(--ink)}
+  .mapbar button.on{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+  .legendctl{background:color-mix(in srgb,var(--card) 94%,transparent);border:1px solid var(--line);
+    border-radius:7px;box-shadow:0 4px 18px rgba(0,0,0,.18);padding:9px 10px;backdrop-filter:blur(6px);
+    font-family:var(--f-mono);min-width:168px}
+  .legendctl h5{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-soft);margin:0 0 7px;font-weight:700}
+  .legendctl .sel{display:flex;gap:5px;margin-bottom:8px}
+  .legendctl .sel button{all:unset;flex:1;text-align:center;font-size:9.5px;letter-spacing:.05em;
+    text-transform:uppercase;font-weight:700;padding:4px 0;border-radius:4px;cursor:pointer;
+    border:1px solid var(--line);color:var(--ink-soft);background:var(--ground)}
+  .legendctl .sel button:hover{color:var(--ink);border-color:var(--ink-soft)}
+  .legendctl .row{display:flex;align-items:center;gap:7px;font-size:10.5px;color:var(--ink);
+    padding:3px 4px;border-radius:4px;cursor:pointer;user-select:none}
+  .legendctl .row:hover{background:var(--card-soft)}
+  .legendctl .row.off{opacity:.34}
+  .legendctl .row i{width:16px;height:4px;border-radius:2px;flex-shrink:0}
+  .legendctl .row .cnt{margin-left:auto;color:var(--ink-soft);font-size:9.5px}
+  .daykeys{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+  .daykey{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:11px;
+    padding:5px 11px;border-radius:999px;border:1px solid var(--line);background:var(--card);
+    cursor:pointer;transition:.15s;color:var(--ink-soft)}
+  .daykey:hover{color:var(--ink);border-color:var(--ink-soft)}
+  .daykey.off{opacity:.32}
+  .daykey b{width:9px;height:9px;border-radius:50%;display:inline-block}
+  #mtip{position:fixed;z-index:400;width:360px;background:var(--card);border:1px solid var(--line);
+    border-radius:8px;box-shadow:0 16px 52px rgba(0,0,0,.3);overflow:hidden;opacity:0;visibility:hidden;
+    transition:opacity .13s;pointer-events:none}
+  #mtip.on{opacity:1;visibility:visible}
+  #mtip img{width:100%;height:180px;object-fit:cover;background:var(--card-soft)}
+  #mtip .mb{padding:13px 15px 15px}
+  #mtip .dayb{font-family:var(--f-mono);font-size:10px;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;padding:3px 9px;border-radius:3px;color:#fff;display:inline-block;margin-bottom:7px}
+  #mtip h4{font-size:17px;margin-bottom:4px}
+  #mtip .meta{font-family:var(--f-mono);font-size:11px;color:var(--gold);margin-bottom:7px}
+  #mtip p{margin:0;font-size:13.5px;line-height:1.5}
+  #mtip .go{margin-top:9px;font-family:var(--f-mono);font-size:11px;color:var(--aegean);
+    border-top:1px solid var(--line-soft);padding-top:8px}
+  @media (max-width:760px){#mtip{width:min(90vw,340px)}#allmap{height:56vh}}
+  .maprow{margin-top:16px}
+  .map{height:270px;border-radius:6px;border:1px solid var(--line);box-shadow:var(--shadow);
+    background:var(--card-soft);z-index:1}
+  .leaflet-container{font-family:var(--f-mono);font-size:11px;border-radius:6px}
+  .maplegend{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;font-family:var(--f-mono);font-size:11px;color:var(--ink-soft)}
+  .maplegend i{display:inline-block;width:16px;height:3px;border-radius:2px;margin-right:5px;vertical-align:middle}
+  .leaflet-popup-content{font-family:var(--f-body);font-size:13px;margin:9px 12px}
+  .leaflet-popup-content b{font-family:var(--f-display)}
+  @media (prefers-color-scheme:dark){.leaflet-tile{filter:brightness(.75) contrast(1.05) saturate(.8)}}
+  #intro{align-items:center;text-align:center;gap:20px;position:relative;overflow:hidden}
+  #intro .heroimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.2}
+  #intro > *:not(.heroimg){position:relative}
+  .eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--aegean)}
+  #intro h1{font-size:clamp(48px,10.5vw,120px);font-weight:800;line-height:.93}
+  #intro .sub{font-style:italic;font-size:clamp(17px,2.3vw,23px);color:var(--ink-soft);max-width:46ch}
+  .horizon{width:min(660px,86vw);height:2px;background:linear-gradient(90deg,transparent,var(--gold-bright),transparent);position:relative}
+  .horizon::before,.horizon::after{content:"";position:absolute;top:-5px;width:12px;height:12px;border-radius:50%;background:var(--gold-bright)}
+  .horizon::before{left:0}.horizon::after{right:0}
+  .mission{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:740px}
+  .tag{font-family:var(--f-display);font-size:12.5px;font-weight:600;padding:7px 15px;border-radius:999px;
+    background:var(--card);border:1px solid var(--line)}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+<div id="tip" role="tooltip" aria-hidden="true"></div>
+<div id="mtip" role="tooltip" aria-hidden="true"></div>
+<div class="rail" id="rail"></div>
+<div class="counter mono" id="counter">00 / 13</div>
+
+<main id="main">
+
+<!-- 0 INTRO -->
+<section class="slide" id="intro" data-label="Intro">
+  <img class="heroimg" alt="" src="img/pithagorion-harbour-panoramio.jpg">
+  <div class="eyebrow">26. juli – 2. august 2026</div>
+  <h1>HELLAS<br>2026</h1>
+  <p class="sub">Athen &amp; Samos — sørkysten, sidevegene, og førti trinn hogd inn i et fjell.</p>
+  <div class="horizon" aria-hidden="true"></div>
+  <div class="mission">
+    <span class="tag">Scooter tir–tor</span>
+    <span class="tag">Båt fredag</span>
+    <span class="tag">Skjulte strender</span>
+    <span class="tag">Pythagoras</span>
+    <span class="tag">Turer i skyggen</span>
+    <span class="tag">Halve kveldene inne</span>
+  </div>
+  <p class="note" style="text-align:center">Hold musepekeren over <span class="tt" data-p="megali-lakka">understrekede stedsnavn</span> for bilde og beskrivelse.</p>
+</section>
+
+<!-- 1 OVERSIKT -->
+<section class="slide" id="oversikt" data-label="Oversikt">
+  <h2 class="head" style="margin-bottom:18px">Uka i ett blikk</h2>
+  <div class="ov">
+    <div class="ovr"><span class="d">DAG 1</span><span class="dt">søn 26. juli</span><span class="wt">Athen — landing 19:40, hotell ved flyplassen</span><span class="nt" style="color:var(--ink-soft)">gjennomført</span></div>
+    <div class="ovr"><span class="d">DAG 2</span><span class="dt">man 27. juli</span><span class="wt">Samos — hent scooter, borgen, <span class="tt" data-p="spiliani">Spiliani-klosteret</span></span><span class="nt" style="color:var(--gold)">I DAG</span></div>
+    <div class="ovr"><span class="d">DAG 3</span><span class="dt">tir 28. juli</span><span class="wt">Scooter — strand og skygge. All arkeologi stengt</span><span class="nt" style="color:var(--cove)">34°, ukas varmeste</span></div>
+    <div class="ovr"><span class="d">DAG 4</span><span class="dt">ons 29. juli</span><span class="wt"><span class="tt" data-p="eupalinos">Eupalinos</span> + <span class="tt" data-p="heraion">Heraion</span>. Live musikk om kvelden</span><span class="nt" style="color:var(--cove)">eneste musikkveld</span></div>
+    <div class="ovr"><span class="d">DAG 5</span><span class="dt">tor 30. juli</span><span class="wt"><span class="tt" data-p="cave">Pythagoras-hulen</span>, <span class="tt" data-p="potami">Potami</span>, eller sørsløyfa</span><span class="nt" style="color:var(--cove)">velg én av tre</span></div>
+    <div class="ovr"><span class="d">DAG 6</span><span class="dt">fre 31. juli</span><span class="wt">Båt fra Pythagorion — privat, fellestur eller egen båt</span><span class="nt" style="color:var(--clay)">book i dag</span></div>
+    <div class="ovr"><span class="d">DAG 7</span><span class="dt">lør 1. aug</span><span class="wt">Samos → Athen 12:25. <span class="tt" data-p="sounion">Kapp Sounion</span> i solnedgang</span><span class="nt" style="color:var(--ink-soft)">reisedag</span></div>
+    <div class="ovr"><span class="d">DAG 8</span><span class="dt">søn 2. aug</span><span class="wt"><span class="tt" data-p="acropolis">Akropolis</span> 08:00, museet, <span class="tt" data-p="anafiotika">Anafiotika</span>. Hjem 20:30</span><span class="nt" style="color:var(--clay)">book billett</span></div>
+  </div>
+</section>
+
+
+<!-- ALLE AKTIVITETER -->
+<section class="slide" id="alt" data-label="Kart">
+  <div class="dhead"><div class="did"><div class="dmeta">
+    <span class="ddate mono">Alt på ett kart</span>
+    <div class="badges"><span class="badge samos"><span class="dot"></span>Farge = dag</span></div>
+  </div></div></div>
+  <h2 class="head" style="margin-bottom:10px">Hele uka, sted for sted</h2>
+  <p class="lead" style="margin-bottom:14px">Hold over et punkt for detaljer og bilde. <b>Klikk for å hoppe til den dagen.</b> Bruk fargeforklaringen på kartet for å vise eller skjule dager. Stiplede linjer viser dagens rute.</p>
+  <div class="mapbar">
+    <button id="mb-samos" class="on">Samos</button>
+    <button id="mb-athen">Athen</button>
+  </div>
+  <div id="allmap"></div>
+</section>
+
+<!-- 2 BOOKING -->
+<section class="slide" id="book" data-label="Book">
+  <div class="dhead"><div class="did"><div class="dmeta">
+    <span class="ddate mono">Mandag 27. juli — i dag</span>
+    <div class="badges"><span class="badge" style="background:var(--alert-soft);color:var(--alert)"><span class="dot"></span>Haster</span></div>
+  </div></div></div>
+  <h2 class="head">Hva må bookes — og når</h2>
+  <p class="lead">Dere er på Samos nå. Det meste her ordner seg på stedet, men <b>tre ting har en frist</b>: båten på fredag, Akropolis på søndag, og tunnelen som ikke har nettbooking i det hele tatt.</p>
+  <div class="bk">
+    <div class="bkcol now">
+      <h3>I dag / i morgen</h3><span class="when mono">disse går tom eller har frist</span>
+      <ul class="bkl">
+        <li><b>Båttur fredag 31.</b><span class="d">Privatbåt fra Pythagorion <span class="price">€400–420</span>, eller fellestur <span class="price">€50 pp</span>. GetYourGuide-varianten har <b>gratis avbestilling i 24 t</b> — book nå for å holde plassen.</span></li>
+        <li><b>Akropolis — luke 08:00–10:00, søndag</b><span class="d"><a href="https://hhticket.gr" target="_blank" rel="noopener">hhticket.gr</a> · <span class="price">€30</span> · tidsbestilt billett er obligatorisk. Anlegget har blitt stengt 12:00–17:00 i hetebølger, varslet samme morgen.</span></li>
+        <li><b>Eupalinos-tunnelen — ring</b><span class="d"><b>+30 22730 62813</b> · <span class="price">€8–10</span> · <b>ingen nettbooking finnes noe sted.</b> Drop-in gir bare de første 185 m.</span></li>
+      </ul>
+    </div>
+    <div class="bkcol soon">
+      <h3>Denne uka</h3><span class="when mono">ring når det passer</span>
+      <ul class="bkl">
+        <li><b>Bord med utsikt i Plaka — lørdag</b><span class="d">Strofi <b>+30 210 921 4130</b> · Electra Roof Garden <b>+30 210 337 0000</b>. Bordet ytterst mot Akropolis er flaskehalsen, ikke restauranten. Ring, ikke bruk skjema.<br>Retirè tar <b>ikke</b> reservasjoner og er en cocktailbar, ikke middagssted.</span></li>
+        <li><b>Pera Vrisi, <span class="tt" data-p="vourliotes">Vourliotes</span></b><span class="d">Fjelltaverna under platantrærne ved kilden. 4,8 av 5 på 117 anmeldelser. <b>Stengt mandag</b>, reserver i juli.</span></li>
+      </ul>
+    </div>
+    <div class="bkcol there">
+      <h3>Trenger ingen booking</h3><span class="when mono">bare møt opp</span>
+      <ul class="bkl">
+        <li><b>Heraion</b> <span class="d">€6–10 · 08:30–15:30 · <b>stengt tirsdag</b></span></li>
+        <li><b>Arkeologisk museum, Vathy</b> <span class="d">€10 · stengt tirsdag · <b>ingen aircondition</b></span></li>
+        <li><b>Pythagoras-hulen</b> <span class="d">gratis, ingen port, ingen åpningstider</span></li>
+        <li><b>Panagia Spiliani</b> <span class="d">gratis · 09:00–14:00 og 17:00–20:00</span></li>
+        <li><b>Vinmuseet, Malagari</b> <span class="d">€5 med smaking · <b>stengt mandag</b></span></li>
+        <li><b>Alle turene</b> <span class="d">gratis, GPX på <a href="https://www.samoshikes.com/" target="_blank" rel="noopener">samoshikes.com</a></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DAG 1 -->
+<section class="slide" id="d1" data-label="Dag 1">
+  <div class="dhead"><div class="did"><span class="daybig">DAG 1</span><div class="dmeta">
+    <span class="ddate mono">Søndag 26. juli</span>
+    <div class="badges"><span class="badge done"><span class="dot"></span>Gjennomført</span><span class="badge athen"><span class="dot"></span>Athen</span></div>
+  </div></div></div>
+  <h2 class="head">Landing i Hellas</h2>
+  <div class="grid">
+    <div class="tl">
+      <div class="tli"><span class="tlt mono">14:50</span><div class="tlx">Avgang <b>Oslo (OSL)</b></div></div>
+      <div class="tli"><span class="tlt mono">19:40</span><div class="tlx">Landing <b>Athen (ATH)</b></div></div>
+      <div class="tli"><span class="tlt mono">Kveld</span><div class="tlx"><b>Seasabelle Hotel</b>, Rafina/Artemida<span class="m">Leoforos Artemidos 2, 190 16</span></div></div>
+    </div>
+    <div><div class="box cove"><span class="lab">Unnagjort</span>
+      <p>Står her bare for helhetens skyld. Resten av dokumentet handler om det som ligger foran dere.</p></div></div>
+  </div>
+</section>
+
+<!-- DAG 2 -->
+<section class="slide" id="d2" data-label="Dag 2">
+  <div class="dhead">
+    <div class="did"><span class="daybig">DAG 2</span><div class="dmeta">
+      <span class="ddate mono">Mandag 27. juli — i dag</span>
+      <div class="badges"><span class="badge samos"><span class="dot"></span>Samos</span><span class="badge ute"><span class="dot"></span>Ute: havn + eldste bar</span></div>
+    </div></div>
+    <div class="wx">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-bright)" stroke-width="1.6"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke-linecap="round"/></svg>
+      <span class="t">31° <span class="lo">/ 22°</span></span><span class="w mono"><b>7 m/s</b>ukas roligste</span>
+    </div>
+  </div>
+  <h2 class="head">Hent scooteren, og hold dagen kort</h2>
+  <div class="grid">
+    <div class="tl">
+      <div class="tli"><span class="tlt mono">Nå</span><div class="tlx">Hent <b>50cc</b>. Dinos <b>+30 698 007 3901</b> (WhatsApp +30 698 284 0310) eller Nicos, Lykourgou Logotheti 40, <b>+30 22730 61094</b>.<span class="m">Johns har bare 125cc og oppover — krever A1, og da faller forsikringen bort. Film scooteren og bensinmåleren ved overlevering</span></div></div>
+      <div class="tli"><span class="tlt mono">Etterm.</span><div class="tlx"><b>Borgen til Lykourgos Logothetis</b> over havna — gratis, et kvarter, utsikt til Tyrkia. Og <b>det antikke teateret</b> fra 300-tallet f.Kr., gratis og døgnåpent.<span class="m">Sjekk om det spilles noe der mens dere er her — det brukes gjennom sommeren</span></div></div>
+      <div class="tli"><span class="tlt mono">17:00</span><div class="tlx"><span class="tt" data-p="spiliani"><b>Panagia Spiliani</b></span> — hulekloster 2 km over byen. <b>95 trinn ned i fjellet</b> til et kapell med en ikon satt inn i berget.<span class="m">Gratis · åpent 17:00–20:00 · glatt gulv, sko med grep · fin i solnedgang</span></div></div>
+      <div class="tli"><span class="tlt mono">Kveld</span><div class="tlx">Middag på havnepromenaden — <b>Cena</b> (4,8) eller <b>Knife &amp; Fork</b> (4,7). Etterpå <b>The Corner Bar</b>, Samos' eldste, over 70 år.<span class="m">€25–40 · cocktails €8–12</span></div></div>
+    </div>
+    <div>
+      <div class="figs"><img alt="Pythagorion" src="img/2019-08-28-pythagorion-kpfc-01.jpg"></div>
+      <div class="box clay" style="margin-top:13px"><span class="lab">Fyll tanken i dag</span>
+        <p><b>Det er ingen bensinstasjon i Pythagorion sentrum.</b> Nærmeste er 2,3 km ut mot marinaen. Fyll nå, ikke på morgenen dere skal langt.</p></div>
+      <div class="box"><span class="lab">Sjekk lyset</span>
+        <p>Test frontlykta i kveld. Torsdag kommer dere ned fra Kerkis i skumring, og det er feil tidspunkt å oppdage at den ikke virker.</p></div>
+    </div>
+  </div>
+  <div class="maprow"><div class="map" id="map2" data-day="2"></div><div class="maplegend" id="leg2"></div></div>
+</section>
+
+<!-- DAG 3 -->
+<section class="slide" id="d3" data-label="Dag 3">
+  <div class="dhead">
+    <div class="did"><span class="daybig">DAG 3</span><div class="dmeta">
+      <span class="ddate mono">Tirsdag 28. juli</span>
+      <div class="badges"><span class="badge samos"><span class="dot"></span>Scooter</span><span class="badge inne"><span class="dot"></span>Kveld inne</span></div>
+    </div></div>
+    <div class="wx">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-bright)" stroke-width="1.6"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke-linecap="round"/></svg>
+      <span class="t">34° <span class="lo">/ 24°</span></span><span class="w mono"><b>9 m/s</b>ukas varmeste</span>
+    </div>
+  </div>
+  <h2 class="head">Strand og skygge — all arkeologi er stengt i dag</h2>
+  <p class="lead">Tirsdag er stengt dag på Samos: <b>Eupalinos, Heraion, begge arkeologiske museer og Megali Panagia</b> holder alle lukket. Det er også ukas varmeste dag. Derfor ligger stranddagen her — det er ikke tilfeldig. <span class="tt" data-p="vin">Vinmuseet</span> er derimot åpent tirsdager.</p>
+  <div class="opts">
+    <article class="opt pick">
+      <img class="cover" alt="Megali Lakka" src="img/katsakas-samiopoula.jpg">
+      <div class="optbody">
+        <span class="otag">Valg A · anbefalt</span>
+        <h3>Rute 29A + <span class="tt" data-p="megali-lakka">Megali Lakka</span></h3>
+        <div class="facts"><span>~20 km kjøring</span><span>4,5 km tur</span><span>2/5</span><span>fersk kilde</span></div>
+        <p>Kort morgentur ned gjennom høye eiker og furuer — <b>den bratte delen er i skygge</b> — som ender på en folketom strand. Fersk kilde i søndre ravine. Bad, så lunsj på taverna i <span class="tt" data-p="posidonio">Posidonio</span> eller Kerveli ti minutter unna.</p>
+        <p class="lnk"><a href="https://www.samoshikes.com/routes/29" target="_blank" rel="noopener">samoshikes.com rute 29 →</a></p>
+      </div>
+    </article>
+    <article class="opt">
+      <img class="cover" alt="Kokkari" src="img/kokkari-719d.jpg">
+      <div class="optbody">
+        <span class="otag">Valg B</span>
+        <h3><span class="tt" data-p="kokkari">Kokkari</span>-sløyfa, rute 21</h3>
+        <div class="facts"><span>~25 km kjøring</span><span>9,4 km</span><span>420 m</span><span>4 t</span></div>
+        <p>Beste skygge per innsats i hele nettverket: <b>utelukkende skogsveier, ingen stiseksjoner</b>, sammenhengende furukronetak. Umulig å gå seg bort. <b>Ingen vannkilde — ta med 2 liter hver.</b> Ned igjen til bad og taverna.</p>
+        <p class="lnk"><a href="https://www.samoshikes.com/routes/21" target="_blank" rel="noopener">samoshikes.com rute 21 →</a></p>
+      </div>
+    </article>
+    <article class="opt">
+      <img class="cover" alt="Tsamadou" src="img/tsamadou-542s.jpg">
+      <div class="optbody">
+        <span class="otag">Valg C · latmannsdagen</span>
+        <h3>Bare bading, ingen tur</h3>
+        <div class="facts"><span>20–25 km</span><span>asfalt hele veien</span></div>
+        <p><span class="tt" data-p="klima">Klima</span> og <span class="tt" data-p="posidonio">Posidonio</span> på østkysten — sørvendte bukter, rolige i nordvind, taverna på begge. Eller <span class="tt" data-p="tsamadou">Tsamadou</span>, øyas eneste offisielle naturiststrand. Parkeringen fylles før kl. 10.</p>
+        <p class="lnk"><a href="https://calmbeach.gr/secluded-beaches/samos/" target="_blank" rel="noopener">calmbeach.gr — vind per bukt →</a></p>
+      </div>
+    </article>
+  </div>
+  <div class="box" style="margin-top:16px"><span class="lab">Uansett valg</span>
+    <p><b>Vinmuseet på Malagari</b> ved Vathy er åpent tirsdager 10:00–16:30, €5 inkludert smaking i et steinbygg fra 1800-tallet. Flat kystvei, ingen hårnålssvinger — den ene smaker, den andre kjører. Grensa er 0,5 ‰. Kjøp med en <b>Anthemis</b> eller <b>Nectar</b> hjem til balkongen.</p></div>
+  <div class="maprow"><div class="map" id="map3" data-day="3"></div><div class="maplegend" id="leg3"></div></div>
+</section>
+
+<!-- DAG 4 -->
+<section class="slide" id="d4" data-label="Dag 4">
+  <div class="dhead">
+    <div class="did"><span class="daybig">DAG 4</span><div class="dmeta">
+      <span class="ddate mono">Onsdag 29. juli</span>
+      <div class="badges"><span class="badge samos"><span class="dot"></span>Scooter</span><span class="badge ute"><span class="dot"></span>Ute: live bouzouki</span></div>
+    </div></div>
+    <div class="wx">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-bright)" stroke-width="1.6"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke-linecap="round"/></svg>
+      <span class="t">33° <span class="lo">/ 24°</span></span><span class="w mono"><b>8 m/s</b>→ sørkysten</span>
+    </div>
+  </div>
+  <h2 class="head">Tunnelen og tempelet — og den eneste musikkvelden</h2>
+  <p class="lead">Alt åpner igjen. Begge hovedsevardighetene stenger <b>15:30</b>, så dette er en morgendag. Og <b>Dionysos har live gresk musikk kun onsdag og lørdag</b> — lørdag flyr dere, så dette er kvelden.</p>
+  <div class="opts">
+    <article class="opt pick">
+      <img class="cover" alt="Eupalinos-tunnelen" src="img/tunnel-of-eupalinos-07.jpg">
+      <div class="optbody">
+        <span class="otag">Valg A · anbefalt</span>
+        <h3>Rute 31 til fots, så <span class="tt" data-p="eupalinos">tunnelen</span></h3>
+        <div class="facts"><span>0 km kjøring</span><span>2,5 km til fots</span><span>fra 07:00</span></div>
+        <p>Gå ut fra hotellet 07:00. <b>Den eneste skiltede biten av rute 31 er nettopp forbindelsen mellom tunnelens sør- og nordutløp</b> — resten er uskiltet av lisensgrunner, så ikke prøv de andre 5,5 km i varmen. Vær ved inngangen 08:30.</p>
+        <p class="lnk"><a href="https://www.samoshikes.com/routes/31" target="_blank" rel="noopener">samoshikes.com rute 31 →</a></p>
+      </div>
+    </article>
+    <article class="opt">
+      <img class="cover" alt="Heraion" src="img/heraion-of-samos.jpg">
+      <div class="optbody">
+        <span class="otag">Valg B</span>
+        <h3>Sov ut, ta bare <span class="tt" data-p="heraion">tempelet</span></h3>
+        <div class="facts"><span>8 km</span><span>€6–10</span><span>stenger 15:30</span></div>
+        <p>Herodot kalte det det største tempelet i Hellas — 155 søyler en gang, én står igjen. Se etter <b>Den hellige vei</b> i nordenden: steinhellene ble lagt på 200-tallet e.Kr., og det var under dem <span class="tt" data-p="kouros">Kouros-statuen</span> lå da den ble funnet.</p>
+        <p class="lnk"><a href="https://whc.unesco.org/en/list/595/" target="_blank" rel="noopener">UNESCO — Pythagoreion &amp; Heraion →</a></p>
+      </div>
+    </article>
+    <article class="opt">
+      <img class="cover" alt="Kouros" src="img/kouros-of-samos-1.jpg">
+      <div class="optbody">
+        <span class="otag">Valg C · tillegg</span>
+        <h3><span class="tt" data-p="kouros">Kouros-en</span> i Vathy</h3>
+        <div class="facts"><span>13 km</span><span>€10</span><span>08:30–15:30</span></div>
+        <p>5,25 meter arkaisk marmor fra ca. 590 f.Kr. Også Geneleos-gruppen og <b>trestatuetter fra 600-tallet f.Kr.</b>, som nesten aldri overlever. <b>Museet har ikke aircondition</b> — dette er en 08:30-aktivitet, ikke en fluktrute fra varmen.</p>
+        <p class="lnk"><a href="https://www.samoshikes.com/routes/26" target="_blank" rel="noopener">Kombiner med rute 26, Ano Vathy →</a></p>
+      </div>
+    </article>
+  </div>
+  <div class="box cove" style="margin-top:16px"><span class="lab">Ettermiddag og kveld</span>
+    <p>Vestover langs sørkysten til Skoureika: <span class="tt" data-p="perri">Psili Ammos «Perri»</span>, 400 m sand og stein uten fasiliteter. 3 km unna ligger <b>Pefkos</b>, «mest ingen folk, mest lokale», med pinjeskygge og badesko-pliktige steiner. Så tilbake til <b>Dionysos</b> i Pythagorion for bouzouki og gitar.</p></div>
+  <div class="maprow"><div class="map" id="map4" data-day="4"></div><div class="maplegend" id="leg4"></div></div>
+</section>
+
+<!-- DAG 5 -->
+<section class="slide" id="d5" data-label="Dag 5">
+  <div class="dhead">
+    <div class="did"><span class="daybig">DAG 5</span><div class="dmeta">
+      <span class="ddate mono">Torsdag 30. juli</span>
+      <div class="badges"><span class="badge samos"><span class="dot"></span>Siste scooterdag</span><span class="badge inne"><span class="dot"></span>Kveld inne</span></div>
+    </div></div>
+    <div class="wx">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-bright)" stroke-width="1.6"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke-linecap="round"/></svg>
+      <span class="t">32° <span class="lo">/ 23°</span></span><span class="w mono"><b>9 m/s</b>ukas kjøligste</span>
+    </div>
+  </div>
+  <h2 class="head">Den store dagen — velg én</h2>
+  <p class="lead">Siste dag med scooter, og den kjøligste. Alle tre er gode; de er bare <b>veldig ulike i lengde</b>. Valg A er turens tittel, valg C er turens beste enkeltrom.</p>
+  <div class="opts">
+    <article class="opt pick">
+      <img class="cover" alt="Pythagoras-hulen" src="img/panagia-sarantaskaliotissa-1.jpg">
+      <div class="optbody">
+        <span class="otag">Valg A · Pythagoras</span>
+        <h3><span class="tt" data-p="kerkis">Mt. Kerkis</span> og <span class="tt" data-p="cave">Pythagoras-hulen</span></h3>
+        <div class="facts"><span>~100 km t/r</span><span>1t45 hver vei</span><span>gratis</span><span>hele dagen</span></div>
+        <p>Ut 07:00. Bad i havgrotten på <span class="tt" data-p="kaladakia">Kaladakia</span>, siesta gjennom verste varmen, så <b>5,1 km ren asfalt opp fra Marathokampos landsby</b> — ikke grusveien fra Votsalakia. Oppe 17:00.</p>
+        <p><b>Vær forberedt:</b> et gjerde stopper dere ved hulemunningen. Dra for stedet, ikke for hulen. <b>To liter vann hver.</b> Start ned 18:30; solnedgang 20:20.</p>
+        <p class="lnk"><a href="https://www.samosoutdoors.com/pythagoras-cave" target="_blank" rel="noopener">samosoutdoors.com — guidet kl. 17:00 →</a></p>
+      </div>
+    </article>
+    <article class="opt">
+      <img class="cover" alt="Potami-fossene" src="img/potami-waterfalls-samos-panoramio.jpg">
+      <div class="optbody">
+        <span class="otag">Valg B · vann</span>
+        <h3><span class="tt" data-p="potami">Potami</span>: fossen og <span class="tt" data-p="seitani">Seitani</span></h3>
+        <div class="facts"><span>~104 km t/r</span><span>rute 2: 4 km</span><span>rute 1: 3,8 km</span><span>1/5</span></div>
+        <p>Ukas beste varmværstur. <b>Rute 2</b> går langs en platanskygget elveseng med trebruer, bare 284 m stigning — og du <b>vasser og svømmer de siste 5–10 minuttene opp til en 5 m foss</b>. Ta med badetøy under klærne; det finnes ingen oppbevaring.</p>
+        <p>Ettermiddag: <b>rute 1</b> ut til Megalo Seitani, med sedertrær som gir ekte skygge og <b>drikkevannskilde i østenden</b>.</p>
+        <p class="lnk"><a href="https://www.samoshikes.com/routes/2" target="_blank" rel="noopener">rute 2 →</a> · <a href="https://www.samoshikes.com/routes/1" target="_blank" rel="noopener">rute 1 →</a></p>
+      </div>
+    </article>
+    <article class="opt">
+      <img class="cover" alt="Megali Panagia" src="img/moni-megali-panagia-samos-12.jpg">
+      <div class="optbody">
+        <span class="otag">Valg C · den korte</span>
+        <h3>Sørsløyfa og <span class="tt" data-p="panagia">freskoene</span></h3>
+        <div class="facts"><span>45 km</span><span>alt asfalt</span><span>gratis</span><span>halv dag</span></div>
+        <p>Pythagorion → Pagondas → Koumaradei → Pyrgos. Nesten ingen trafikk, aldri mer enn 22 km hjemmefra — <b>den letteste dagen på 50cc</b>.</p>
+        <p><b>Avkjørselen er nesten usynlig fra veien</b> — følg GPS. Stengt tirsdag og 13:00–17:00. Ta med sjal og noe som dekker knærne; det håndheves.</p>
+        <p class="lnk"><a href="https://www.samoshikes.com/routes/32" target="_blank" rel="noopener">Rute 32 går samme sted til fots →</a></p>
+      </div>
+    </article>
+  </div>
+  <div class="maprow"><div class="map" id="map5" data-day="5"></div><div class="maplegend" id="leg5"></div></div>
+</section>
+
+<!-- DAG 6 -->
+<section class="slide" id="d6" data-label="Dag 6">
+  <div class="dhead">
+    <div class="did"><span class="daybig">DAG 6</span><div class="dmeta">
+      <span class="ddate mono">Fredag 31. juli</span>
+      <div class="badges"><span class="badge samos"><span class="dot"></span>Båt</span><span class="badge ute"><span class="dot"></span>Siste Samos-kveld</span></div>
+    </div></div>
+    <div class="wx">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-bright)" stroke-width="1.6"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke-linecap="round"/></svg>
+      <span class="t">33° <span class="lo">/ 23°</span></span><span class="w mono"><b>7 m/s</b>lett bris</span>
+    </div>
+  </div>
+  <h2 class="head">På sjøen — alt går fra Pythagorion</h2>
+  <p class="lead">Én ærlig ting først: <b>det finnes ingen seilbåt-dagsturer på Samos.</b> Alt som faktisk går er trekaik, motoryacht eller RIB — «sailing» i navnet viser til trebåten, ikke til seil. Alle alternativene holder seg på <b>sør- og østkysten</b>, som er le-siden i meltemi, så 7 m/s stopper ingen av dem.</p>
+  <div class="opts">
+    <article class="opt pick">
+      <img class="cover" alt="Samiopoula" src="img/katsakas-samiopoula.jpg">
+      <div class="optbody">
+        <span class="otag">Valg A · bare dere to</span>
+        <h3>Privatbåt fra Pythagorion</h3>
+        <div class="facts"><span>€400–420</span><span>6 timer</span><span>snorkel inkl.</span><span>privat</span></div>
+        <p><b>Samos Yachting Cruises</b> — €400 for hele båten, 10:00–15:00, til Mourtia, <span class="tt" data-p="klima">Klima</span>, <span class="tt" data-p="posidonio">Posidonio</span>, Kasonisi-holmen og grottene. Masker, håndklær, frukt.<br>+30 693 25 86 344</p>
+        <p><b>Cruiseways</b> via GetYourGuide er samme idé til ~€420 og kan bookes <b>nå med gratis avbestilling i 24 t</b>.</p>
+        <p class="lnk"><a href="https://samosyachtingcruises.com" target="_blank" rel="noopener">samosyachtingcruises.com →</a></p>
+      </div>
+    </article>
+    <article class="opt">
+      <img class="cover" alt="Pythagorion havn" src="img/pithagorion-harbour-panoramio.jpg">
+      <div class="optbody">
+        <span class="otag">Valg B · billigst</span>
+        <h3>Captain's BBQ — går fredager</h3>
+        <div class="facts"><span>€50 pp</span><span>09:30–17:15</span><span>stor båt</span><span>lunsj inkl.</span></div>
+        <p>Den klassiske Samos-cruisen, og <b>fredag er bekreftet avgangsdag</b> i høysesong. Til <span class="tt" data-p="samiopoula">Samiopoula</span> (ca. 1 t bading) og videre til <b>Kakorema</b>, en privatstrand du ellers bare når med båt.</p>
+        <p>Stor trebåt — dette er fellestur, ikke intimt. <b>Drikke ikke inkludert, ta med kontanter. Ingen snorkelutstyr.</b></p>
+        <p class="lnk"><a href="https://www.samosbooking.gr/samos-excursions-tours/captains-bbq-from-east-samos/" target="_blank" rel="noopener">samosbooking.gr · +30 22730 88800 →</a></p>
+      </div>
+    </article>
+    <article class="opt">
+      <img class="cover" alt="Samos-kysten" src="img/kerkis-samos.jpg">
+      <div class="optbody">
+        <span class="otag">Valg C · kjør selv</span>
+        <h3>Egen båt, uten båtførerbevis</h3>
+        <div class="facts"><span>€250–420</span><span>hele dagen</span><span>maks 30 hk</span></div>
+        <p>Best hvis dere vil være alene. Motorer under 30 hk krever <b>ikke sertifikat</b> i Hellas.</p>
+        <p><b>Salty Tours</b> — €250 for opptil 9 timer fra Pythagorion havn, bensin i tillegg. <b>Samos Watersports</b> — €300–420, <b>bensin inkludert</b>, rekkevidde Ireon–Mourtia.</p>
+        <p><b>NB:</b> 7 m/s er øvre grense for komfort i en liten åpen båt.</p>
+        <p class="lnk"><a href="https://saltytours.gr" target="_blank" rel="noopener">saltytours.gr →</a> · <a href="https://samos-watersports.com/rent-a-boat.html" target="_blank" rel="noopener">samos-watersports.com →</a></p>
+      </div>
+    </article>
+    <article class="opt">
+      <img class="cover" alt="Snorkling" src="img/tsamadou-542s.jpg">
+      <div class="optbody">
+        <span class="otag">Valg D · halv dag</span>
+        <h3>Snorkling med dykkersenteret</h3>
+        <div class="facts"><span>€45 pp</span><span>10:00–15:00</span><span>man–lør</span><span>liten gruppe</span></div>
+        <p><b>Samos Dive Centre</b> i Pythagorion — øyas eldste, siden 2007, og det eneste stedet der snorkling faktisk <i>er</i> produktet og ikke et tillegg. 9 m trebåt, går fredager.</p>
+        <p>Halv dag, så den lar seg kombinere med en rolig ettermiddag i byen før siste kveld.</p>
+        <p class="lnk"><a href="https://www.samosdiving.com/oceanadventures" target="_blank" rel="noopener">samosdiving.com · +30 698 112 2713 →</a></p>
+      </div>
+    </article>
+  </div>
+  <div class="maprow"><div class="map" id="map6" data-day="6"></div><div class="maplegend" id="leg6"></div></div>
+</section>
+
+<!-- DAG 7 -->
+<section class="slide" id="d7" data-label="Dag 7">
+  <div class="dhead">
+    <div class="did"><span class="daybig">DAG 7</span><div class="dmeta">
+      <span class="ddate mono">Lørdag 1. august</span>
+      <div class="badges"><span class="badge samos"><span class="dot"></span>Samos</span><span class="badge athen"><span class="dot"></span>Athen</span><span class="badge ute"><span class="dot"></span>Ute</span></div>
+    </div></div>
+    <div class="wx">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-bright)" stroke-width="1.6"><circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke-linecap="round"/></svg>
+      <span class="t">32° <span class="lo">/ 23°</span></span><span class="w mono"><b>5 m/s</b>roligste sjø</span>
+    </div>
+  </div>
+  <h2 class="head">Siste bad, så over til Athen</h2>
+  <div class="grid">
+    <div class="tl">
+      <div class="tli"><span class="tlt mono">Tidlig</span><div class="tlx">Ukas roligste sjø. Siste bad nær Pythagorion, lever scooteren, frokost på havna.</div></div>
+      <div class="tli"><span class="tlt mono">12:25</span><div class="tlx">Avgang <b>Samos</b> → landing <b>Athen 13:20</b></div></div>
+      <div class="tli"><span class="tlt mono">14:30</span><div class="tlx">Inn på <b>Authentic Plaka Home</b>, rett under Akropolis</div></div>
+    </div>
+    <div class="figs"><img alt="Kapp Sounion" src="img/temple-of-poseidon-from-the-east-june-2012.jpg"></div>
+  </div>
+  <div class="opts" style="margin-top:20px">
+    <article class="opt pick">
+      <div class="optbody">
+        <span class="otag">Valg A · kveldstur</span>
+        <h3><span class="tt" data-p="sounion">Kapp Sounion</span> i solnedgang</h3>
+        <div class="facts"><span>€15 t/r buss</span><span>€20 inngang</span><span>hjemme 23:00</span></div>
+        <p>KTEL-buss <b>16:30 fra Plateia Aigyptou</b>, kystruta, 1t45–2t. <b>Kontant til sjåføren, ingen forhåndssalg.</b> Retur 21:00.</p>
+        <p><b>De stenger porten rundt solnedgang</b>, så gå inn 60–90 min før og se selve solnedgangen fra utsiden; det klassiske bildet tas uansett derfra.</p>
+        <p class="lnk"><a href="http://ktelattikis.gr/en/sounion" target="_blank" rel="noopener">ktelattikis.gr — rutetider →</a></p>
+      </div>
+    </article>
+    <article class="opt">
+      <img class="cover" alt="Plaka" src="img/restaurants-on-mnisikleous-street-in-athens-2024.jpg">
+      <div class="optbody">
+        <span class="otag">Valg B · rolig</span>
+        <h3>Bare <span class="tt" data-p="plaka">Plaka</span></h3>
+        <div class="facts"><span>€20–30</span><span>ingen buss</span><span>live musikk</span></div>
+        <p>Det er en reisedag, og Sounion får dere hjem 23:00. Alternativet: <b>Tavern of Psarras</b> fra 1898, med live gresk musikk. Etterpå <b>Brettos</b> — Europas nest eldste bar, siden 1909, med vegger av opplyste likørflasker.</p>
+        <p>Så kveldsvandring i <span class="tt" data-p="anafiotika">Anafiotika</span> når det er kjølig og tomt.</p>
+        <p class="lnk"><a href="https://psaras-taverna.gr" target="_blank" rel="noopener">psaras-taverna.gr →</a></p>
+      </div>
+    </article>
+  </div>
+  <div class="maprow"><div class="map" id="map7" data-day="7"></div><div class="maplegend" id="leg7"></div></div>
+</section>
+
+<!-- DAG 8 -->
+<section class="slide" id="d8" data-label="Dag 8">
+  <div class="dhead">
+    <div class="did"><span class="daybig">DAG 8</span><div class="dmeta">
+      <span class="ddate mono">Søndag 2. august</span>
+      <div class="badges"><span class="badge athen"><span class="dot"></span>Athen</span><span class="badge inne"><span class="dot"></span>Hjem</span></div>
+    </div></div>
+    <div class="wx">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-bright)" stroke-width="1.6"><circle cx="9" cy="10" r="4"/><path d="M4 17h13a3.5 3.5 0 0 0 0-7 5 5 0 0 0-9.6-1.5" stroke="var(--ink-soft)"/></svg>
+      <span class="t">31° <span class="lo">/ 22°</span></span><span class="w mono"><b>3 m/s</b>Athen</span>
+    </div>
+  </div>
+  <h2 class="head">Stein, søyler, og hjem</h2>
+  <div class="grid">
+    <div class="tl">
+      <div class="tli"><span class="tlt mono">08:00</span><div class="tlx"><span class="tt" data-p="acropolis"><b>Akropolis</b></span> i den bookede morgenluka.<span class="m">€30 · billetten gjelder fra 15 min før til 15 min etter luka · vær der 08:00, ikke 09:45</span></div></div>
+      <div class="tli"><span class="tlt mono">10:30</span><div class="tlx"><b>Akropolis-museet</b> — glassgulvet over utgravningene, Parthenon-frisen i full lengde øverst<span class="m">€20 · søndag 09:00–20:00</span></div></div>
+      <div class="tli"><span class="tlt mono">13:00</span><div class="tlx">Lunsj, så <b>Ancient Agora</b> (€20) med Hefaistos-tempelet — det best bevarte greske tempelet som finnes. <b>Roman Agora</b> (€10) hvis dere orker mer.<span class="m">Kombinasjonsbilletten ble avviklet 1. april 2025 — kjøpes hver for seg nå</span></div></div>
+      <div class="tli"><span class="tlt mono">16:00</span><div class="tlx"><span class="tt" data-p="anafiotika"><b>Anafiotika</b></span> — kvitkalkede hus bygget av arbeidere fra Anafi, klistret opp mot klippen. Ti minutter og dere er ute av Athen.</div></div>
+      <div class="tli"><span class="tlt mono">17:30</span><div class="tlx">Metro fra Monastiraki til flyplassen — regn 45 min</div></div>
+      <div class="tli"><span class="tlt mono">20:30</span><div class="tlx">Avgang <b>Athen</b> → landing <b>Oslo 23:25</b></div></div>
+    </div>
+    <div>
+      <div class="figs">
+        <img alt="Akropolis" src="img/parthenon-east-side-acropolis-athens-greece.jpg">
+        <img alt="Anafiotika" src="img/athens-anafiotika-225876.jpg">
+      </div>
+      <div class="box alert" style="margin-top:13px"><span class="lab">Hetebølge-regelen</span>
+        <p>Departementet stengte Akropolis 12:00–17:00 i hetebølger både i 2024 og 2025, besluttet samme morgen. Det finnes ingen publisert temperaturgrense. <b>En 08:00-luke gjør dere immune.</b></p></div>
+    </div>
+  </div>
+  <div class="maprow"><div class="map" id="map8" data-day="8"></div><div class="maplegend" id="leg8"></div></div>
+</section>
+
+<!-- TURER -->
+<section class="slide" id="turer" data-label="Turer">
+  <div class="dhead"><div class="did"><div class="dmeta">
+    <span class="ddate mono">Turnettverket</span>
+    <div class="badges"><span class="badge samos"><span class="dot"></span>32 ruter, 260 km</span></div>
+  </div></div></div>
+  <h2 class="head">Turene som faktisk funker i 34 grader</h2>
+  <p class="lead"><a href="https://www.samoshikes.com/" target="_blank" rel="noopener">samoshikes.com</a> har <b>32 nummererte ruter</b> med GPX, kart og høydeprofil på hver. Nettstedets egen sesonganbefaling er april–juni og september–november — sommeren er eksplisitt frarådet «på grunn av varmen». Det betyr ikke at dere ikke kan gå; det betyr <b>kort, skyggefullt, lavt, og ute før 09:30</b>.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Rute</th><th>Navn</th><th class="num">km</th><th class="num">Stigning</th><th class="num">Tid</th><th class="num">Grad</th><th>Vann</th><th>Ender ved</th></tr></thead>
+      <tbody>
+        <tr><td class="num">31</td><td>Pythagorio – Antikke Samos <i>(kun skiltet del)</i></td><td class="num">2,5</td><td class="num">—</td><td class="num">1 t</td><td class="num">2/5</td><td>ingen</td><td>Eupalinos-tunnelen</td></tr>
+        <tr><td class="num">29A</td><td>Aghia Zoni – Profitis Elias</td><td class="num">4,5</td><td class="num">247 m</td><td class="num">2 t</td><td class="num">2/5</td><td>kilde i ravinen</td><td>Megali Lakka strand</td></tr>
+        <tr><td class="num">2</td><td>Potami – fossene – Tsourlei</td><td class="num">4,0</td><td class="num">284 m</td><td class="num">1t30</td><td class="num">1/5</td><td>kilde + elva</td><td>5 m foss, svøm inn</td></tr>
+        <tr><td class="num">1</td><td>Potami – Mikro – Megalo Seitani</td><td class="num">3,8</td><td class="num">286 m</td><td class="num">1t40</td><td class="num">1/5</td><td>drikkekilde</td><td>Megalo Seitani</td></tr>
+        <tr><td class="num">21</td><td>Kokkari-sløyfa <i>(kun skogsvei)</i></td><td class="num">9,4</td><td class="num">420 m</td><td class="num">4 t</td><td class="num">2/5</td><td><b>ingen</b></td><td>Kokkari, taverna</td></tr>
+        <tr><td class="num">26</td><td>Vathy – Ano Vathy</td><td class="num">1,8</td><td class="num">104 m</td><td class="num">50 min</td><td class="num">1/5</td><td>by</td><td>gamlebyen i Vathy</td></tr>
+        <tr><td class="num">32A</td><td>Den hegemoniske vei</td><td class="num">3,2</td><td class="num"><b>0 m</b></td><td class="num">1t10</td><td class="num">1/5</td><td>ingen</td><td>antikk brolegning</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="opts" style="margin-top:18px">
+    <article class="opt"><div class="optbody">
+      <span class="otag">Ikke i juli</span><h3>Kerkis og Ampelos</h3>
+      <p><b>Rute 9</b> stiger <b>1 599 m</b> og er «helt eksponert for sola» etter første seksjon. <b>Rute 8</b> kaller nettstedet selv «a dangerous trek» som under ingen omstendigheter må forsøkes i vind eller av uerfarne — den går langs en ryggkant med <b>300 m stup</b>.</p>
+      <p>De lokale guidene går Kerkis <b>i solnedgang og ned i mørket</b> for å unngå varmen, og krever 3 liter vann. Det sier alt.</p>
+    </div></article>
+    <article class="opt"><div class="optbody">
+      <span class="otag">Skadet merking</span><h3>Rute 25 og 25A</h3>
+      <p>Nettverket advarer selv: rute 25 har <b>omfattende hærverk på merkingen</b> og anbefales unngått til den er reparert. 25A er forstyrret av uautorisert skilting satt opp i kommersiell hensikt.</p>
+      <p><b>Rute 22</b> (Kokkari–Vourliotes) er derimot uten anmerkninger og kalles «den mest gåtte ruta på Samos» — men 671 m stigning, så bare hvis dere går innen 06:45.</p>
+    </div></article>
+    <article class="opt"><div class="optbody">
+      <span class="otag">Merk</span><h3>«Nightingale Valley» finnes ikke som rute</h3>
+      <p>Navnet er en guideoperatørs markedsføring. Dalturen er <b>rute 19A</b>, 3,4 km, 1t40, oppgitt med 0 m stigning. Den store runden fra Ag. Konstantinos er <b>rute 19</b>: 11,4 km og <b>1 033 m</b> — tre ganger så mye klatring som folk tror.</p>
+      <p>Og nattergalene synger om våren. I slutten av juli er de tause og bekken kan være tørr.</p>
+    </div></article>
+  </div>
+</section>
+
+<!-- PRAKTISK -->
+<section class="slide" id="praktisk" data-label="Praktisk">
+  <div class="dhead"><div class="did"><div class="dmeta">
+    <span class="ddate mono">Praktisk</span>
+    <div class="badges"><span class="badge samos"><span class="dot"></span>Scooter, varme, vind</span></div>
+  </div></div></div>
+  <h2 class="head">Timeplanen er varmen, ikke vinden</h2>
+  <p class="lead">Vinden i varselet ser dramatisk ut, men er det ikke: på elleve år med målinger har Samos <b>aldri nådd Beaufort 6</b> i denne perioden. Ved 7–10 m/s holder dere 1–2 graders krengning. Det som faktisk styrer dagen er <b>34,4 °C i snitt</b> og UV på 9–10 midt på dagen.</p>
+  <div class="refg">
+    <div class="refc"><h3>Kjør etter klokka</h3>
+      <ul>
+        <li><b>06:15–09:30 — den gode tiden</b><span class="lbl">25–29 °C, UV under 2,5, svakest vind på hele døgnet</span></li>
+        <li><b>11:00–16:30 — ikke kjør</b><span class="lbl">UV 6,8–9,4 og opptil 936 W/m². Vær i vannet eller i skyggen</span></li>
+        <li><b>Etter 18:30 — fint igjen</b><span class="lbl">fortsatt 32 °C, men UV nede i 1,4</span></li>
+        <li><b>Solnedgang 20:20–20:26</b><span class="lbl">ca. 30 min brukbart lys etterpå. Parkert 20:50</span></li>
+      </ul></div>
+    <div class="refc"><h3>På scooteren</h3>
+      <ul>
+        <li><b>Lange bukser, lukkede sko, hansker</b><span class="lbl">shorts og flip-flops er den vanligste måten en lav-fartsvelt blir uker med bandasjer</span></li>
+        <li><b>Mesh over fuktig underlag</b><span class="lbl">kjøligere enn bar hud i fart — bar hud under 936 W/m² varmes opp, ikke ned</span></li>
+        <li><b>Solkrem på lårene</b><span class="lbl">de ligger vannrett mot sola hele turen. Der brenner folk seg på scooter</span></li>
+        <li><b>0,7–1 liter vann i timen</b><span class="lbl">fartsvinden fordamper svetten, så tørsten kommer for sent</span></li>
+      </ul></div>
+    <div class="refc"><h3>Kartet lyver</h3>
+      <ul>
+        <li><b>Ingen nordvestlig kystvei</b><span class="lbl">Potami til Drakei er 40 km rundt massivet</span></li>
+        <li><b>Ingen asfalt Vourliotes–Manolates</b><span class="lbl">direkteruta er merket «4WD required» i kartdata</span></li>
+        <li><b>Kerveli → Posidonio</b><span class="lbl">687 m grus på korteste rute. Asfalten rundt er 8,8 km</span></li>
+        <li><b>Hopp over Manolates</b><span class="lbl">øyas bratteste asfaltvei, maks 24 %, på enfelts ras-omkjøring siden april 2026</span></li>
+        <li><b>Grus = ingen forsikring</b><span class="lbl">gjelder Tsopela, Varsamo, Livadaki og siste bit til Mourtia</span></li>
+      </ul></div>
+    <div class="refc"><h3>Rettelser til det gamle dokumentet</h3>
+      <ul>
+        <li><b>Vinmuseet er åpent igjen</b><span class="lbl">gjenåpnet for individuelle 1. april 2026</span></li>
+        <li><b>Tyrkia-turen er strøket</b><span class="lbl">en hel dag i kø, på bekostning av en scooterdag</span></li>
+        <li><b>Romerske bad: stengt</b><span class="lbl">oppført som stengt for publikum</span></li>
+        <li><b>Tirsdag er stengt dag</b><span class="lbl">Eupalinos, Heraion, begge museer, Megali Panagia</span></li>
+        <li><b>Akropolis koster €30, ikke €20</b><span class="lbl">og kombinasjonsbilletten ble avviklet 1. april 2025</span></li>
+      </ul></div>
+  </div>
+</section>
+
+<!-- REFERANSE -->
+<section class="slide" id="ref" data-label="Oversikt">
+  <div class="dhead"><div class="did"><div class="dmeta"><span class="ddate mono">Hurtigreferanse</span></div></div></div>
+  <h2 class="head">Numre, adresser, lenker</h2>
+  <div class="refg">
+    <div class="refc"><h3>Scooterutleie — 50cc</h3>
+      <ul>
+        <li><span class="lbl">Beste valg 1</span><b>Dinos Rentals</b> — oppgir scootere opptil 50cc. Hovedkontor i Neapoli mot flyplassen; utlevering i Lykourgou Logotheti overfor Doryssa.<br><b>+30 698 007 3901</b> · WhatsApp <b>+30 698 284 0310</b></li>
+        <li><span class="lbl">Beste valg 2</span><b>Nicos Rentals</b>, Lykourgou Logotheti 40 — dokumentert SYM Symphony SR 50 og Piaggio Liberty 50.<br><b>+30 22730 61094</b></li>
+        <li><span class="lbl">Ikke for scooter</span><b>Johns Rentals</b> har 125cc og oppover — krever A1. God for bil.</li>
+        <li><span class="lbl">Ingen publiserer åpningstider</span>Ring heller enn å gå. Vanlig: 09:00–13:30, siesta, 17:00–21:00.</li>
+      </ul></div>
+    <div class="refc"><h3>Telefoner</h3>
+      <ul>
+        <li><span class="lbl">Eupalinos — booking rute 2/3</span><b>+30 22730 62813</b></li>
+        <li><span class="lbl">Heraion</span><b>+30 22730 62811</b></li>
+        <li><span class="lbl">Arkeologisk museum, Vathy</span><b>+30 22730 27469</b></li>
+        <li><span class="lbl">Vinmuseet, Malagari</span><b>+30 22730 87510</b></li>
+        <li><span class="lbl">Captain's BBQ (Rhenia)</span><b>+30 22730 88800</b></li>
+        <li><span class="lbl">Privatbåt (Samos Yachting)</span><b>+30 693 25 86 344</b></li>
+        <li><span class="lbl">Strofi, Athen</span><b>+30 210 921 4130</b></li>
+      </ul></div>
+    <div class="refc"><h3>Kveldene inne</h3>
+      <ul>
+        <li><span class="lbl">tirsdag og torsdag</span>Kjøp med hjem: <b>Anthemis</b> eller <b>Nectar</b> fra vinmuseet, <b>Armagalo</b> — geitosten fra Samos Dairy i Mytilinioi — brød, oliven, tomater og <b>pinjehonning</b></li>
+        <li><span class="lbl">be om dette på taverna</span><b>Revithokeftedes</b> — kikertfritter med fennikel, ouzo og soltørket tomat. Ekte samisk.</li>
+        <li><span class="lbl">tørr vin, ikke bare søt</span><b>Psiles Corfes</b> — tørr muscat fra fjellvinmarkene</li>
+        <li><span class="lbl">ikke be om disse</span>Ladotyri er fra Lesvos, kopanisti fra Kykladene. Ingen av dem er samiske.</li>
+      </ul></div>
+    <div class="refc"><h3>Lenker</h3>
+      <ul>
+        <li><a href="https://hhticket.gr" target="_blank" rel="noopener">hhticket.gr</a><span class="lbl">Akropolis-billetter</span></li>
+        <li><a href="https://www.samoshikes.com/" target="_blank" rel="noopener">samoshikes.com</a><span class="lbl">32 ruter med GPX</span></li>
+        <li><a href="https://calmbeach.gr/secluded-beaches/samos/" target="_blank" rel="noopener">calmbeach.gr</a><span class="lbl">vindskjerming per bukt</span></li>
+        <li><a href="https://www.samoswine.gr" target="_blank" rel="noopener">samoswine.gr</a><span class="lbl">vinmuseet</span></li>
+        <li><a href="https://www.google.com/maps/d/edit?mid=1LIiHjFNL2UqsA_nRKTvp_ufFMMYoico&amp;ll=37.806870041467235%2C25.378633950000005&amp;z=9" target="_blank" rel="noopener">Google Maps</a><span class="lbl">alle steder markert</span></li>
+        <li><a href="https://docs.google.com/document/d/1i_JBweOOcOclBYo5g83KtOm3Ga8XqWW5COvPNIhlojs/edit" target="_blank" rel="noopener">Hellas 2026</a><span class="lbl">fullt dokument</span></li>
+      </ul></div>
+  </div>
+  <p class="note">Bilder: Wikimedia Commons — CC BY, CC BY-SA og public domain. God tur.</p>
+</section>
+
+</main>
+
+<script>
+const PLACES = {
+ "megali-lakka":{n:"Megali Lakka",m:"Østhalvøya · 27 km · 800 m til fots",
+  d:"90 m gyllen sand med tung naturlig skygge og fiskestimer. Foot-only: følg grusveien forbi Mourtia og se etter rødmalte merker. Vender øst, så den er rolig når nordkysten står i brenning. Ingen fasiliteter overhodet."},
+ "spiliani":{n:"Panagia Spiliani",m:"2 km over Pythagorion · gratis · 17:00–20:00",
+  d:"Hulekloster på en ås over byen. 95 trinn ned i fjellet til et kapell med en ikon satt inn i berget og en hellig kilde. Panoramautsikt over Pythagorion og havet. Gulvet er glatt — ta sko med grep.",
+  i:"img/2019-08-28-pythagorion-kpfc-01.jpg"},
+ "eupalinos":{n:"Eupalinos-tunnelen",m:"2 km fra Pythagorion · €8–10 · stengt tirsdag",
+  d:"1036 m lang tunnel fra 500-tallet f.Kr., gravd fra begge sider samtidig og møttes på midten — et av antikkens største ingeniørverk. Inne er det 16,5 °C. Kun de første 185 m er åpne for drop-in; rute 2 og 3 krever telefonbooking.",
+  i:"img/tunnel-of-eupalinos-07.jpg"},
+ "heraion":{n:"Heraion",m:"8 km · €6–10 · 08:30–15:30 · stengt tirsdag",
+  d:"Herodot kalte det det største og mest imponerende tempelet i Hellas. Opprinnelig 155 søyler — nå står én igjen. I nordenden ligger Den hellige vei, brolagt på 200-tallet e.Kr.; det var under de hellene den kolossale Kouros-statuen ble funnet.",
+  i:"img/heraion-of-samos.jpg"},
+ "kouros":{n:"Kouros av Samos",m:"Vathy · €10 · 08:30–15:30 · stengt tirsdag",
+  d:"5,25 meter arkaisk marmor fra ca. 590–580 f.Kr. — den største kouros som har overlevd noenlunde intakt i Hellas. Museet har også Geneleos-gruppen og trestatuetter fra 600-tallet f.Kr. Ingen aircondition, så gå 08:30.",
+  i:"img/kouros-of-samos-1.jpg"},
+ "cave":{n:"Pythagoras-hulen",m:"Mt. Kerkis · gratis · 25–40 min opp",
+  d:"To huler 350 moh. i Kiourka-juvet. Til venstre kapellet Panagia Sarantaskaliotissa, bygget inn i en hulemunn, med førti trinn hogd i berget rundt år 900. Til høyre hulen der Pythagoras skal ha skjult seg for tyrannen Polykrates. Et gjerde stopper deg ved munningen — det er en dyp sjakt bak.",
+  i:"img/panagia-sarantaskaliotissa-1.jpg"},
+ "kerkis":{n:"Mt. Kerkis",m:"1 434 moh · vestenden av øya",
+  d:"Egeerhavets nest høyeste fjell. Sørflanken har den asfalterte veien opp mot Pythagoras-hulen fra Marathokampos. Toppruter er livsfarlige i juli — rute 9 stiger 1 599 m helt eksponert for sola, og lokale guider går bare i solnedgang.",
+  i:"img/kerkis-samos.jpg"},
+ "potami":{n:"Potami-fossene",m:"~52 km · gratis · rute 2, 4 km",
+  d:"Platanskygget elveseng med trebruer, bare 284 m stigning. De siste 5–10 minuttene vasser og svømmer du opp til en 5 m foss — ta badetøy under klærne, det finnes ingen oppbevaring. Ved stien ligger Metamorfosis Sotiros, øyas best bevarte bysantinske kirke fra 1000-tallet.",
+  i:"img/potami-waterfalls-samos-panoramio.jpg"},
+ "seitani":{n:"Megalo Seitani",m:"Rute 1 · 3,8 km til fots · ingen vei",
+  d:"Øyas fineste strand, kun til fots. Hvit sand med en sedergruppe som gir ekte skygge, og drikkevannskilde i østenden. Yngleplass for middelhavsmunkesel — hold avstand. Nordvendt, så den blir choppy når meltemien tar seg opp.",
+  i:"img/megalo-seitani-beach-in-samos.jpg"},
+ "panagia":{n:"Moni Megali Panagia",m:"Ved Koumaradei · gratis · stengt tirsdag",
+  d:"Grunnlagt 1586, hovedkirken 1593. Freskoer fra 1500-tallet og et forgylt utskåret ikonostas fra 1700-tallet — det beste interiøret på øya, og nesten aldri folk i rommet. Avkjørselen er nesten usynlig fra veien. Stengt 13:00–17:00, og dekk knærne.",
+  i:"img/moni-megali-panagia-samos-12.jpg"},
+ "kokkari":{n:"Kokkari",m:"~25 km · nordkysten",
+  d:"Fiskerlandsby med bilfritt sentrum. Utgangspunkt for rute 21, den skyggefulle skogsveisløyfa. Nordkysten er windsurf-kysten — når meltemien blåser er det flott å se på, men dårlig å bade i. Boa Vista cocktailbar ligger på plassen.",
+  i:"img/kokkari-719d.jpg"},
+ "tsamadou":{n:"Tsamadou",m:"~25 km · gratis · €5 solseng",
+  d:"Samos' eneste offisielle naturiststrand. Nakendelen er i østre ende, mot høyre når du ser mot sjøen. Krystallklart vann, bratt grussti ned fra parkeringen som fylles før kl. 10. Nordvendt, så sjekk vinden først.",
+  i:"img/tsamadou-542s.jpg"},
+ "klima":{n:"Klima",m:"~22 km · asfalt hele veien",
+  d:"300 m hvit og farget rullestein i en lukket bukt, «mest få folk». Den best dokumenterte vindskjermingen på øya: en anmelder i juli 2025 skriver rett ut at sjøen er rolig i nordvind fordi bukta vender sørover. Taverna på stedet."},
+ "posidonio":{n:"Posidonio",m:"~24 km · asfalt · taverna",
+  d:"Liten landsby 1,2 km fra Tyrkia, med øyas varmeste vann og pinjeskygge. Sørvendt bukt, altså rolig i meltemi. Bra lunsjstopp etter en morgentur til Megali Lakka."},
+ "perri":{n:"Psili Ammos «Perri»",m:"~33 km · Skoureika · gratis",
+  d:"400 m sand og småstein, 100 % natur, ingen fasiliteter. 250 m smal grusvei og så 200 m til fots. NB: det finnes tre strender som heter Psili Ammos på Samos — denne er ikke den organiserte med badevakt og betalt parkering. Sørvendt og skjermet."},
+ "kaladakia":{n:"Kaladakia",m:"~40 km · sørvestkysten",
+  d:"Stille vik med en havgrotte du kan svømme inn i, ca. fem minutter ut mot venstre, og klipper å hoppe fra. 850 m sementvei og så 250 m til fots. Sørvendt og skjermet. Badesko anbefales — raskt dypt og steinete."},
+ "samiopoula":{n:"Samiopoula",m:"Båttur · ~1 t bading",
+  d:"Liten øy utenfor sørkysten, det klassiske målet for dagscruisene fra Pythagorion. Klart, grunt vann og en taverna. Captain's BBQ kombinerer den med Kakorema, en privatstrand du ellers bare når med båt.",
+  i:"img/katsakas-samiopoula.jpg"},
+ "vourliotes":{n:"Vourliotes",m:"~30 km · 1500-tallet · ca. 500 innb.",
+  d:"Steinlagte smug og bilfri kjerne, roligere og mer autentisk enn Manolates. Taverna Pera Vrisi ligger under platantrærne ved kilden — 4,8 av 5 på 117 anmeldelser, hjemmebakt brød, priser under snittet. Stengt mandag, reserver i juli.",
+  i:"img/vourliotes-samos.jpg"},
+ "vin":{n:"Vinmuseet, Malagari",m:"Ved Vathy · €5 med smaking · stengt mandag",
+  d:"Steinbygg fra 1800-tallet med smaking av Samos-muscat ved store fat. Gjenåpnet for individuelle besøkende 1. april 2026 etter å ha vært gruppebesøk-only siden 2024. Fire smakingsnivåer, €5 til €50. Å kjøpe med hjem: Anthemis eller Nectar.",
+  i:"img/samos-muscat-wine.jpg"},
+ "sounion":{n:"Kapp Sounion",m:"Buss 16:30 · €15 t/r · €20 inngang",
+  d:"Poseidon-tempelet fra ca. 440 f.Kr. på en klippe 60 m over havet. Byron risset navnet sitt i en søyle. De stenger porten rundt solnedgang, så gå inn 60–90 min før og se selve solnedgangen fra utsiden — det klassiske bildet tas uansett derfra.",
+  i:"img/temple-of-poseidon-from-the-east-june-2012.jpg"},
+ "acropolis":{n:"Akropolis",m:"€30 · tidsbestilt · åpner 08:00",
+  d:"Parthenon, Erechtheion, Propylaea og Athena Nike-tempelet. Tidsluke er obligatorisk siden 2024, og billetten gjelder fra 15 min før til 15 min etter. Anlegget har blitt stengt 12:00–17:00 under hetebølger både i 2024 og 2025 — en morgenluke gjør deg immun.",
+  i:"img/parthenon-east-side-acropolis-athens-greece.jpg"},
+ "anafiotika":{n:"Anafiotika",m:"Plaka · gratis · best om kvelden",
+  d:"Kvitkalkede hus i kykladisk stil, bygget av steinhoggere fra øya Anafi som kom for å bygge kongens palass på 1800-tallet. Klistret opp mot Akropolis-klippen. Ti minutters gange og du er ute av Athen.",
+  i:"img/athens-anafiotika-225876.jpg"},
+ "plaka":{n:"Plaka",m:"Under Akropolis · deres nabolag 1.–2. aug",
+  d:"Athens eldste bydel, rett under Akropolis-klippen. Tavern of Psarras fra 1898 har live gresk musikk; Brettos i Kydathineon 41 er Europas nest eldste bar, i drift siden 1909, med vegger av opplyste likørflasker.",
+  i:"img/restaurants-on-mnisikleous-street-in-athens-2024.jpg"}
+};
+
+(function(){
+  const tip = document.getElementById('tip');
+  let hideT = null;
+
+  function show(el){
+    const p = PLACES[el.dataset.p];
+    if(!p) return;
+    clearTimeout(hideT);
+    tip.innerHTML = (p.i ? '<img alt="" src="'+p.i+'">' : '') +
+                    '<div class="tb"><h4>'+p.n+'</h4>'+
+                    '<div class="meta">'+p.m+'</div><p>'+p.d+'</p></div>';
+    tip.classList.add('on');
+    tip.setAttribute('aria-hidden','false');
+    place(el);
+  }
+  function place(el){
+    const r = el.getBoundingClientRect();
+    const tw = tip.offsetWidth, th = tip.offsetHeight;
+    let x = r.left + r.width/2 - tw/2;
+    let y = r.top - th - 10;
+    if (y < 8) y = r.bottom + 10;
+    x = Math.max(8, Math.min(x, window.innerWidth - tw - 8));
+    y = Math.max(8, Math.min(y, window.innerHeight - th - 8));
+    tip.style.left = x + 'px';
+    tip.style.top  = y + 'px';
+  }
+  function hide(){
+    hideT = setTimeout(function(){
+      tip.classList.remove('on');
+      tip.setAttribute('aria-hidden','true');
+    }, 90);
+  }
+
+  document.querySelectorAll('.tt').forEach(function(el){
+    el.setAttribute('tabindex','0');
+    el.addEventListener('mouseenter', function(){ show(el); });
+    el.addEventListener('mouseleave', hide);
+    el.addEventListener('focus',  function(){ show(el); });
+    el.addEventListener('blur',   hide);
+    el.addEventListener('click',  function(e){ e.preventDefault(); show(el); });
+  });
+  document.addEventListener('scroll', function(){ tip.classList.remove('on'); }, {passive:true});
+
+  // ---------- maps ----------
+  const P = {
+    pyth:[37.6905,26.9430], eupa:[37.6947,26.9339], spil:[37.6960,26.9380],
+    hera:[37.6720,26.8853], vathy:[37.7553,26.9770], malag:[37.7640,26.9560],
+    mourtia:[37.7614,27.0283], lakka:[37.7519,27.0241], klima:[37.7096,27.0455],
+    posid:[37.7139,27.0568], kerv:[37.7350,27.0230], kokk:[37.7770,26.8890],
+    tsam:[37.7800,26.8790], karlo:[37.7930,26.7020], potami:[37.7900,26.6720],
+    seit:[37.7930,26.6320], marath:[37.7280,26.6960], cave:[37.7278,26.6588],
+    kalad:[37.7034,26.7315], skour:[37.6900,26.7700], perri:[37.6822,26.7637],
+    pefkos:[37.6929,26.7560], pagon:[37.7050,26.8480], koum:[37.7180,26.8300],
+    mpanagia:[37.7170,26.8290], pyrgos:[37.7150,26.8100], samiop:[37.6350,26.8300],
+    kakor:[37.6378,26.8429], acro:[37.9715,23.7267], anaf:[37.9725,23.7285],
+    plaka:[37.9722,23.7305], soun:[37.6500,24.0250], ath:[37.9364,23.9445]
+  };
+  const C = {a:'#146b5c', b:'#a96d10', c:'#0d5c73', d:'#a3401c'};
+
+  const ROUTES = {
+    '2':{fit:[[37.680,26.925],[37.705,26.960]], legs:[
+      {n:'Dag 2 — i byen', c:C.a, pts:['pyth','spil','pyth'],
+       s:[['pyth','Pythagorion — hent scooter, borgen, antikke teateret'],
+          ['spil','Panagia Spiliani — 95 trinn ned i fjellet, 17:00–20:00']]}]},
+    '3':{fit:[[37.66,26.86],[37.80,27.07]], legs:[
+      {n:'Valg A — Rute 29A + Megali Lakka', c:C.a, pts:['pyth','vathy','mourtia','lakka'],
+       s:[['mourtia','Mourtia — parker der asfalten slutter'],
+          ['lakka','Megali Lakka — 800 m til fots, rødmalte merker'],
+          ['malag','Vinmuseet Malagari — €5 med smaking, åpent tirsdag']]},
+      {n:'Valg B — Kokkari-sløyfa, rute 21', c:C.b, pts:['pyth','vathy','kokk'],
+       s:[['kokk','Kokkari — rute 21, 9,4 km ren skogsvei, ingen vannkilde']]},
+      {n:'Valg C — bare bading', c:C.c, pts:['pyth','vathy','kerv','klima','posid'],
+       s:[['klima','Klima — sørvendt bukt, rolig i nordvind'],
+          ['posid','Posidonio — 1,2 km fra Tyrkia, varmest vann på øya'],
+          ['tsam','Tsamadou — naturiststrand, nakendelen i østre ende']]}]},
+    '4':{fit:[[37.66,26.74],[37.72,26.95]], legs:[
+      {n:'Dag 4 — tunnelen, tempelet, sørkysten', c:C.a,
+       pts:['pyth','eupa','hera','skour','perri','pefkos','pyth'],
+       s:[['eupa','Eupalinos-tunnelen — 08:30, 16,5 °C inne'],
+          ['hera','Heraion — stenger 15:30'],
+          ['perri','Psili Ammos «Perri» — 400 m, ingen fasiliteter'],
+          ['pefkos','Pefkos — «mest ingen folk, mest lokale»'],
+          ['pyth','Dionysos om kvelden — live bouzouki, kun ons/lør']]}]},
+    '5':{fit:[[37.66,26.63],[37.80,26.95]], legs:[
+      {n:'Valg A — Kerkis og Pythagoras-hulen (~100 km t/r)', c:C.a,
+       pts:['pyth','kalad','marath','cave'],
+       s:[['kalad','Kaladakia — havgrotte, svøm inn til venstre'],
+          ['marath','Marathokampos — 5,1 km asfalt opp herfra, IKKE fra Votsalakia'],
+          ['cave','Pythagoras-hulen — 17:00, to liter vann hver']]},
+      {n:'Valg B — Potami: fossen og Seitani (~104 km t/r)', c:C.b,
+       pts:['pyth','vathy','kokk','karlo','potami','seit'],
+       s:[['potami','Potami — rute 2, svøm opp til 5 m foss'],
+          ['seit','Megalo Seitani — rute 1, 3,8 km til fots, drikkekilde']]},
+      {n:'Valg C — sørsløyfa og freskoene (45 km)', c:C.c,
+       pts:['pyth','pagon','koum','pyrgos','pyth'],
+       s:[['mpanagia','Megali Panagia — freskoer fra 1500-tallet, stengt tirsdag'],
+          ['pyrgos','Pyrgos, 750 moh — Taverna Tasos, ring +30 2273 041550']]}]},
+    '6':{fit:[[37.61,26.80],[37.73,27.07]], legs:[
+      {n:'Fellestur — Samiopoula og Kakorema', c:C.b, pts:['pyth','samiop','kakor','pyth'],
+       s:[['samiop','Samiopoula — ca. 1 t bading'],
+          ['kakor','Kakorema — privatstrand, kun med båt']]},
+      {n:'Privatbåt — østkysten', c:C.a, pts:['pyth','posid','klima','mourtia'],
+       s:[['pyth','Avgang Pythagorion havn 10:00'],
+          ['klima','Klima og grottene']]}]},
+    '7':{fit:[[37.62,23.68],[38.00,24.06]], legs:[
+      {n:'Athen → Kapp Sounion', c:C.a, pts:['plaka','soun'],
+       s:[['plaka','Authentic Plaka Home — inn 14:30'],
+          ['soun','Poseidon-tempelet — buss 16:30, retur 21:00']]}]},
+    '8':{fit:[[37.965,23.720],[37.978,23.740]], legs:[
+      {n:'Dag 8 — til fots i Athen', c:C.a, pts:['acro','anaf','plaka'],
+       s:[['acro','Akropolis — luke 08:00–10:00, €30'],
+          ['anaf','Anafiotika — kykladiske hus mot klippen'],
+          ['plaka','Plaka — metro fra Monastiraki 17:30']]}]}
+  };
+
+  // ---------- ALL ACTIVITIES MAP ----------
+  const DAYC = {2:'#0d5c73',3:'#146b5c',4:'#a96d10',5:'#a3401c',6:'#6b3fa0',7:'#b5296d',8:'#2f7d32'};
+  const DAYN = {2:'Man 27.',3:'Tir 28.',4:'Ons 29.',5:'Tor 30.',6:'Fre 31.',7:'Lør 1.',8:'Søn 2.'};
+  const POIS = [
+   {d:2,at:'pyth',n:'Pythagorion',m:'Borgen + antikke teateret · gratis',
+    t:'Borgen til Lykourgos Logothetis over havna, og et teater fra 300-tallet f.Kr. som fortsatt brukes om sommeren. Begge gratis og døgnåpne.',i:'img/pithagorion-harbour-panoramio.jpg'},
+   {d:2,at:'spil',n:'Panagia Spiliani',m:'2 km over byen · gratis · 17:00–20:00',
+    t:'Hulekloster med 95 trinn ned i fjellet til et kapell med en ikon satt inn i berget. Panoramautsikt, og fin i solnedgang. Glatt gulv — ta sko med grep.',i:'img/2019-08-28-pythagorion-kpfc-01.jpg'},
+
+   {d:3,at:'lakka',n:'Megali Lakka',m:'27 km + 800 m til fots · gratis',
+    t:'90 m gyllen sand med tung naturlig skygge. Kun til fots — følg grusveien forbi Mourtia og se etter rødmalte merker. Vender øst, så rolig når nordkysten står i brenning.'},
+   {d:3,at:'mourtia',n:'Mourtia',m:'25 km · liten kantine',
+    t:'Palmer, turkist vann og fortøyde fiskebåter — anmeldere kaller den karibisk. Siste bit er grus, så parker der asfalten slutter; forsikringen gjelder ikke utenfor asfalt.'},
+   {d:3,at:'malag',n:'Vinmuseet, Malagari',m:'€5 med smaking · stengt mandag',
+    t:'Steinbygg fra 1800-tallet med smaking av Samos-muscat ved store fat. Gjenåpnet for individuelle 1. april 2026. Den ene smaker, den andre kjører — grensa er 0,5 ‰.',i:'img/samos-muscat-wine.jpg'},
+   {d:3,at:'kokk',n:'Kokkari — rute 21',m:'25 km · 9,4 km tur · 4 t',
+    t:'Beste skygge per innsats i hele turnettverket: utelukkende skogsveier under sammenhengende furukronetak. Ingen vannkilde — ta med 2 liter hver.',i:'img/kokkari-719d.jpg'},
+   {d:3,at:'tsam',n:'Tsamadou',m:'25 km · naturiststrand',
+    t:'Samos'+"'"+' eneste offisielle naturiststrand. Nakendelen er i østre ende, mot høyre når du ser mot sjøen. Nordvendt — sjekk vinden. Parkeringen fylles før kl. 10.',i:'img/tsamadou-542s.jpg'},
+   {d:3,at:'klima',n:'Klima',m:'22 km · asfalt hele veien',
+    t:'300 m rullestein i en lukket bukt. Den best dokumenterte vindskjermingen på øya — sørvendt, så rolig sjø selv i nordvind. Taverna på stedet.'},
+   {d:3,at:'posid',n:'Posidonio',m:'24 km · taverna',
+    t:'1,2 km fra Tyrkia, med øyas varmeste vann og pinjeskygge. Sørvendt bukt. Bra lunsjstopp etter en morgentur til Megali Lakka.'},
+
+   {d:4,at:'eupa',n:'Eupalinos-tunnelen',m:'2 km · €8–10 · 08:30 · stengt tirsdag',
+    t:'1036 m gravd fra begge sider samtidig på 500-tallet f.Kr. — de møttes på midten. Inne er det 16,5 °C, øyas beste tilfluktssted. Kun de første 185 m uten forhåndsbooking.',i:'img/tunnel-of-eupalinos-07.jpg'},
+   {d:4,at:'hera',n:'Heraion',m:'8 km · €6–10 · stenger 15:30',
+    t:'Herodot kalte det det største tempelet i Hellas. 155 søyler en gang, én står igjen. I nordenden ligger Den hellige vei — det var under de hellene Kouros-statuen ble funnet.',i:'img/heraion-of-samos.jpg'},
+   {d:4,at:'vathy',n:'Kouros av Samos',m:'13 km · €10 · stengt tirsdag',
+    t:'5,25 meter arkaisk marmor fra ca. 590 f.Kr. — den største kouros som har overlevd i Hellas. Museet har ingen aircondition, så gå 08:30.',i:'img/kouros-of-samos-1.jpg'},
+   {d:4,at:'perri',n:'Psili Ammos «Perri»',m:'33 km · gratis · ingen fasiliteter',
+    t:'400 m sand og småstein, 100 % natur. NB: tre strender på Samos heter Psili Ammos — denne er ikke den organiserte med badevakt. Sørvendt og skjermet.'},
+   {d:4,at:'pefkos',n:'Pefkos',m:'33 km · én taverna',
+    t:'«Mest ingen folk, mest lokale.» Pinjeskygge og klart vann. Store steiner i vannkanten, så badesko er nødvendig.'},
+
+   {d:5,at:'cave',n:'Pythagoras-hulen',m:'50 km · gratis · gå 17:00',
+    t:'Kapellet Panagia Sarantaskaliotissa bygget inn i en hulemunn, med førti trinn hogd i berget rundt år 900 — og hulen der Pythagoras skal ha skjult seg for Polykrates. Kjør opp fra Marathokampos, ikke grusveien fra Votsalakia.',i:'img/panagia-sarantaskaliotissa-1.jpg'},
+   {d:5,at:'kalad',n:'Kaladakia',m:'40 km · havgrotte',
+    t:'Stille vik med en havgrotte du kan svømme inn i, fem minutter ut mot venstre, og klipper å hoppe fra. Sørvendt og skjermet. Badesko anbefales.'},
+   {d:5,at:'potami',n:'Potami-fossene',m:'52 km · rute 2 · 4 km · gratis',
+    t:'Platanskygget elveseng med trebruer. De siste 5–10 minuttene vasser og svømmer du opp til en 5 m foss — ta badetøy under klærne, det finnes ingen oppbevaring.',i:'img/potami-waterfalls-samos-panoramio.jpg'},
+   {d:5,at:'seit',n:'Megalo Seitani',m:'rute 1 · 3,8 km til fots',
+    t:'Øyas fineste strand, kun til fots. Sedergruppe som gir ekte skygge og drikkevannskilde i østenden. Yngleplass for middelhavsmunkesel — hold avstand.',i:'img/megalo-seitani-beach-in-samos.jpg'},
+   {d:5,at:'mpanagia',n:'Moni Megali Panagia',m:'gratis · stengt tirsdag og 13–17',
+    t:'Grunnlagt 1586. Freskoer fra 1500-tallet og et forgylt utskåret ikonostas — det beste interiøret på øya, og nesten aldri folk i rommet. Avkjørselen er nesten usynlig fra veien.',i:'img/moni-megali-panagia-samos-12.jpg'},
+   {d:5,at:'pyrgos',n:'Pyrgos',m:'750 moh · Taverna Tasos',
+    t:'Arbeidende jordbrukslandsby med et stort torg under en gammel platan og honningboder langs veien. Taverna Tasos har vedovn, egne grønnsaker, egen honning og raki. Ring +30 2273 041550.',i:'img/vourliotes-samos.jpg'},
+
+   {d:6,at:'samiop',n:'Samiopoula',m:'båt · ca. 1 t bading',
+    t:'Liten øy utenfor sørkysten, det klassiske målet for dagscruisene fra Pythagorion. Klart, grunt vann og en taverna.',i:'img/katsakas-samiopoula.jpg'},
+   {d:6,at:'kakor',n:'Kakorema',m:'kun med båt · BBQ ombord',
+    t:'Privatstrand du ikke kan nå på land. Captain'+"'"+'s BBQ kombinerer den med Samiopoula — fredag er bekreftet avgangsdag, €50 pp fra Pythagorion 09:30.'},
+   {d:6,at:'pyth',n:'Pythagorion havn',m:'avgang alle båtturer',
+    t:'Alle båtalternativene går herfra: privatbåt €400–420, fellestur €50 pp, eller egen båt uten båtførerbevis fra €250. Alt holder seg på sør- og østkysten, som er le-siden i meltemi.',i:'img/pithagorion-harbour-panoramio.jpg'},
+
+   {d:7,at:'soun',n:'Kapp Sounion',m:'buss 16:30 · €15 t/r · €20 inngang',
+    t:'Poseidon-tempelet fra ca. 440 f.Kr. på en klippe 60 m over havet. Byron risset navnet sitt i en søyle. De stenger porten rundt solnedgang — gå inn 60–90 min før og se solnedgangen fra utsiden.',i:'img/temple-of-poseidon-from-the-east-june-2012.jpg'},
+   {d:7,at:'plaka',n:'Plaka',m:'deres nabolag 1.–2. aug',
+    t:'Tavern of Psarras fra 1898 har live gresk musikk. Brettos i Kydathineon 41 er Europas nest eldste bar, i drift siden 1909, med vegger av opplyste likørflasker.',i:'img/restaurants-on-mnisikleous-street-in-athens-2024.jpg'},
+
+   {d:8,at:'acro',n:'Akropolis',m:'€30 · tidsbestilt · luke 08:00',
+    t:'Parthenon, Erechtheion, Propylaea. Tidsluke er obligatorisk, og billetten gjelder fra 15 min før til 15 min etter. Anlegget har blitt stengt 12:00–17:00 i hetebølger — en morgenluke gjør dere immune.',i:'img/parthenon-east-side-acropolis-athens-greece.jpg'},
+   {d:8,at:'anaf',n:'Anafiotika',m:'gratis · best om kvelden',
+    t:'Kvitkalkede hus bygget av steinhoggere fra øya Anafi som kom for å bygge kongens palass. Klistret opp mot Akropolis-klippen. Ti minutter og du er ute av Athen.',i:'img/athens-anafiotika-225876.jpg'}
+  ];
+
+  (function(){
+    const el = document.getElementById('allmap');
+    if(!el || typeof L === 'undefined') return;
+    const mtip = document.getElementById('mtip');
+    const SAMOS = [[37.60,26.55],[37.82,27.09]], ATHEN = [[37.62,23.66],[38.00,24.07]];
+    let map = null, layers = {}, hidden = {};
+
+    function tipHTML(o){
+      const c = DAYC[o.d];
+      return (o.i ? '<img alt="" src="'+o.i+'">' : '') +
+        '<div class="mb"><span class="dayb" style="background:'+c+'">Dag '+o.d+' · '+DAYN[o.d]+'</span>'+
+        '<h4>'+o.n+'</h4><div class="meta">'+o.m+'</div><p>'+o.t+'</p>'+
+        '<div class="go">Klikk for å gå til Dag '+o.d+' →</div></div>';
+    }
+    function showTip(o, ev){
+      mtip.innerHTML = tipHTML(o);
+      mtip.classList.add('on');
+      const w = mtip.offsetWidth, h = mtip.offsetHeight;
+      let x = ev.originalEvent.clientX + 18, y = ev.originalEvent.clientY - h/2;
+      if (x + w > window.innerWidth - 10) x = ev.originalEvent.clientX - w - 18;
+      y = Math.max(10, Math.min(y, window.innerHeight - h - 10));
+      mtip.style.left = x+'px'; mtip.style.top = y+'px';
+    }
+    function hideTip(){ mtip.classList.remove('on'); }
+
+    function init(){
+      if (map) return;
+      map = L.map(el, {scrollWheelZoom:false});
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {maxZoom:17, attribution:'© OpenStreetMap'}).addTo(map);
+      const counts = {};
+      // route lines first, so markers sit on top
+      Object.keys(ROUTES).forEach(function(d){
+        const grp = layers[d] = layers[d] || L.layerGroup().addTo(map);
+        ROUTES[d].legs.forEach(function(leg){
+          L.polyline(leg.pts.map(k => P[k]), {color:DAYC[d], weight:2.5, opacity:.62,
+            dashArray:'6,7', interactive:false}).addTo(grp);
+        });
+      });
+      POIS.forEach(function(o){
+        const c = DAYC[o.d];
+        counts[o.d] = (counts[o.d] || 0) + 1;
+        const mk = L.circleMarker(P[o.at], {radius:8, color:'#fff', weight:2.5,
+          fillColor:c, fillOpacity:1});
+        mk.on('mouseover', function(ev){ showTip(o, ev); mk.setRadius(11); });
+        mk.on('mousemove', function(ev){ showTip(o, ev); });
+        mk.on('mouseout',  function(){ hideTip(); mk.setRadius(8); });
+        mk.on('click', function(){
+          hideTip();
+          const t = document.getElementById('d'+o.d);
+          if (t) t.scrollIntoView({behavior:'smooth'});
+        });
+        (layers[o.d] = layers[o.d] || L.layerGroup().addTo(map)).addLayer(mk);
+      });
+      map.fitBounds(SAMOS, {padding:[26,26]});
+
+      // ---- legend as an on-map control ----
+      const rows = {};
+      function setDay(d, show){
+        hidden[d] = !show;
+        rows[d].classList.toggle('off', !show);
+        if (show) map.addLayer(layers[d]); else map.removeLayer(layers[d]);
+      }
+      const Legend = L.Control.extend({
+        options:{position:'topright'},
+        onAdd: function(){
+          const box = L.DomUtil.create('div','legendctl');
+          box.innerHTML = '<h5>Dager</h5><div class="sel">'+
+            '<button type="button" data-all="1">Velg alle</button>'+
+            '<button type="button" data-all="0">Fjern alle</button></div>';
+          Object.keys(DAYC).forEach(function(d){
+            const r = L.DomUtil.create('div','row', box);
+            r.innerHTML = '<i style="background:'+DAYC[d]+'"></i>Dag '+d+' · '+DAYN[d]+
+                          '<span class="cnt">'+(counts[d]||0)+'</span>';
+            r.addEventListener('click', function(){ setDay(d, hidden[d]); });
+            rows[d] = r;
+          });
+          box.querySelectorAll('button[data-all]').forEach(function(b){
+            b.addEventListener('click', function(){
+              const on = b.dataset.all === '1';
+              Object.keys(DAYC).forEach(function(d){ setDay(d, on); });
+            });
+          });
+          L.DomEvent.disableClickPropagation(box);
+          L.DomEvent.disableScrollPropagation(box);
+          return box;
+        }
+      });
+      map.addControl(new Legend());
+
+      const mbS = document.getElementById('mb-samos'), mbA = document.getElementById('mb-athen');
+      mbS.addEventListener('click', function(){ map.flyToBounds(SAMOS,{padding:[26,26]});
+        mbS.classList.add('on'); mbA.classList.remove('on'); });
+      mbA.addEventListener('click', function(){ map.flyToBounds(ATHEN,{padding:[26,26]});
+        mbA.classList.add('on'); mbS.classList.remove('on'); });
+      setTimeout(function(){ map.invalidateSize(); }, 60);
+    }
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ init(); } });
+    }, {rootMargin:'300px'}).observe(el);
+    document.addEventListener('scroll', hideTip, {passive:true});
+  })();
+
+  const built = {};
+  function buildMap(el){
+    const day = el.dataset.day;
+    if (built[day] || typeof L === 'undefined') return;
+    built[day] = true;
+    const R = ROUTES[day];
+    const map = L.map(el, {scrollWheelZoom:false, attributionControl:true});
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      {maxZoom:17, attribution:'© OpenStreetMap'}).addTo(map);
+    const legend = document.getElementById('leg'+day);
+    R.legs.forEach(function(leg){
+      const line = leg.pts.map(k => P[k]);
+      L.polyline(line, {color:leg.c, weight:3.5, opacity:.85,
+        dashArray: leg.c===C.a ? null : '7,6'}).addTo(map);
+      (leg.s||[]).forEach(function(st){
+        L.circleMarker(P[st[0]], {radius:6, color:'#fff', weight:2,
+          fillColor:leg.c, fillOpacity:1}).addTo(map)
+         .bindPopup('<b>'+st[1].split(' — ')[0]+'</b><br>'+(st[1].split(' — ')[1]||''));
+      });
+      if (legend) legend.insertAdjacentHTML('beforeend',
+        '<span><i style="background:'+leg.c+'"></i>'+leg.n+'</span>');
+    });
+    map.fitBounds(R.fit, {padding:[24,24]});
+  }
+  const mapObs = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) buildMap(e.target); });
+  }, {rootMargin:'240px'});
+  document.querySelectorAll('.map').forEach(function(m){ mapObs.observe(m); });
+
+  // nav
+  const sections = Array.prototype.slice.call(document.querySelectorAll('main .slide'));
+  const rail = document.getElementById('rail'), counter = document.getElementById('counter');
+  sections.forEach(function(sec,i){
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', sec.dataset.label || ('Slide '+(i+1)));
+    b.addEventListener('click', function(){ sec.scrollIntoView({behavior:'smooth'}); });
+    rail.appendChild(b);
+  });
+  const dots = Array.prototype.slice.call(rail.children);
+  const pad = n => n < 10 ? '0'+n : ''+n;
+  const obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        const i = sections.indexOf(e.target);
+        dots.forEach(function(d,j){ d.classList.toggle('active', j===i); });
+        counter.textContent = pad(i)+' / '+pad(sections.length-1);
+      }
+    });
+  }, {threshold:0.4});
+  sections.forEach(function(s){ obs.observe(s); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hellas 2026 — ressurser</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+<style>
+  .back{font-family:var(--f-mono);font-size:12.5px;display:inline-block;margin-bottom:26px}
+  .res{background:var(--card);border:1px solid var(--line);border-radius:10px;
+       box-shadow:var(--shadow);padding:20px 22px;margin-bottom:20px}
+  .res h3{font-size:19px;font-weight:800;margin-bottom:4px}
+  .res .sub{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-soft);
+            letter-spacing:.05em;text-transform:uppercase;margin:0 0 12px}
+  .res p{margin:0 0 12px;max-width:64ch}
+  .filelist{list-style:none;margin:0;padding:0;display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px}
+  .filelist a{font-family:var(--f-mono);font-size:12.5px;display:block;padding:7px 10px;
+              border:1px solid var(--line-soft);border-radius:6px;text-decoration:none;
+              background:var(--bg)}
+  .filelist a:hover{border-color:var(--accent);color:var(--accent)}
+  .note{font-size:14.5px;color:var(--ink-soft);font-style:italic;max-width:64ch}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="back" href="../../">← Alle prosjekter</a>
+    <h1>Hellas 2026 — ressurser</h1>
+    <p class="intro">
+      Alt som ble laget under planleggingen: selve reiseplanen, kartdataene,
+      og research-dokumentet bak. Lagret her så det ikke forsvinner.
+    </p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="res">
+    <h3>Reiseplanen</h3>
+    <p class="sub">Hovedsiden</p>
+    <p>Dag-for-dag med interaktive kart, alternativer per dag og hoverbare stedsnavn.</p>
+    <ul class="filelist"><li><a href="./">Åpne reiseplanen →</a></li></ul>
+  </div>
+
+  <div class="res">
+    <h3>Google Docs &amp; Maps</h3>
+    <p class="sub">Kildene · krever innlogging</p>
+    <p>
+      Det opprinnelige research-dokumentet med alle kategoritabellene — strender, restauranter,
+      historie, vin, musikk — med adresser, priser og lenker. Og My Maps-kartet med alle stedene.
+    </p>
+    <ul class="filelist">
+      <li><a href="https://docs.google.com/document/d/1i_JBweOOcOclBYo5g83KtOm3Ga8XqWW5COvPNIhlojs/edit" target="_blank" rel="noopener">Hellas 2026 (Docs)</a></li>
+      <li><a href="https://www.google.com/maps/d/edit?mid=1LIiHjFNL2UqsA_nRKTvp_ufFMMYoico" target="_blank" rel="noopener">My Maps</a></li>
+    </ul>
+  </div>
+
+  <div class="res">
+    <h3>Kartdata — én fil per dag</h3>
+    <p class="sub">CSV · Navn, Latitude, Longitude, Beskrivelse</p>
+    <p>
+      Importer én fil per lag i <a href="https://mymaps.google.com" target="_blank" rel="noopener">Google My Maps</a>
+      så får hver dag sin egen farge. Kryss av <b>Latitude</b> og <b>Longitude</b> som posisjonskolonner,
+      og <b>Navn</b> som tittel.
+    </p>
+    <ul class="filelist">
+      <li><a href="data/dager/Dag1_26juli_Athen_ankomst.csv">Dag 1 — Athen, ankomst</a></li>
+      <li><a href="data/dager/Dag2_27juli_Pythagorion.csv">Dag 2 — Pythagorion</a></li>
+      <li><a href="data/dager/Dag3_28juli_Ostkysten_og_strender.csv">Dag 3 — Østkysten</a></li>
+      <li><a href="data/dager/Dag4_29juli_Eupalinos_og_Heraion.csv">Dag 4 — Eupalinos &amp; Heraion</a></li>
+      <li><a href="data/dager/Dag5_30juli_Kerkis_Potami_Sorsloyfa.csv">Dag 5 — Kerkis / Potami</a></li>
+      <li><a href="data/dager/Dag6_31juli_Bat.csv">Dag 6 — Båt</a></li>
+      <li><a href="data/dager/Dag7_1august_Athen_Sounion.csv">Dag 7 — Athen &amp; Sounion</a></li>
+      <li><a href="data/dager/Dag8_2august_Akropolis.csv">Dag 8 — Akropolis</a></li>
+    </ul>
+  </div>
+
+  <div class="res">
+    <h3>Kartdata — etter kategori</h3>
+    <p class="sub">CSV · Navn, Adresse, Beskrivelse</p>
+    <p>
+      Den opprinnelige inndelingen: strender, restauranter, historie, vin og drinker, musikk.
+      Disse bruker tekstadresser i stedet for koordinater — kryss av <b>Adresse</b> ved import.
+    </p>
+    <ul class="filelist">
+      <li><a href="data/kategorier/00_Hoteller.csv">Hoteller</a></li>
+      <li><a href="data/kategorier/01_Samos_Strender.csv">Samos — strender</a></li>
+      <li><a href="data/kategorier/02_Samos_Scooterutleie.csv">Samos — scooterutleie</a></li>
+      <li><a href="data/kategorier/03_Samos_Restauranter.csv">Samos — restauranter</a></li>
+      <li><a href="data/kategorier/04_VinOgDrinks.csv">Vin &amp; drinker</a></li>
+      <li><a href="data/kategorier/05_Musikk.csv">Live musikk</a></li>
+      <li><a href="data/kategorier/06_Samos_Historie.csv">Samos — historie</a></li>
+      <li><a href="data/kategorier/07_Samos_Romantikk.csv">Samos — solnedganger</a></li>
+      <li><a href="data/kategorier/08_Samos_DagsturTyrkia.csv">Dagstur Tyrkia</a></li>
+      <li><a href="data/kategorier/09_Athen_Flyplass.csv">Athen — flyplassen</a></li>
+      <li><a href="data/kategorier/10_Athen_Severdigheter.csv">Athen — severdigheter</a></li>
+      <li><a href="data/kategorier/11_Athen_Restauranter.csv">Athen — restauranter</a></li>
+    </ul>
+  </div>
+
+  <p class="note">
+    Bildene på reiseplanen er fra Wikimedia Commons under CC BY, CC BY-SA og public domain.
+    Kartene bruker OpenStreetMap og krever nett — resten av siden fungerer offline.
+  </p>
+
+</main>
+
+<footer class="wrap">
+  <p><a href="../../">← Tilbake</a></p>
+</footer>
+
+</body>
+</html>

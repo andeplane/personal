@@ -138,6 +138,15 @@
   .box.clay{border-left-color:var(--clay)}.box.clay .lab{color:var(--clay)}
   .box.alert{border-left-color:var(--alert);background:var(--alert-soft)}.box.alert .lab{color:var(--alert)}
 
+  .routemap{width:100%;border-radius:6px;border:1px solid var(--line);background:#fff;
+    box-shadow:var(--shadow)}
+  .cap{font-family:var(--f-mono);font-size:11px;color:var(--ink-soft);margin:7px 0 0;line-height:1.5}
+  .keyfacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:5px;overflow:hidden;margin-bottom:13px}
+  .keyfacts div{background:var(--card);padding:9px 11px}
+  .keyfacts .k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ink-soft);display:block}
+  .keyfacts .v{font-family:var(--f-display);font-weight:700;font-size:15px}
   .figs{display:grid;grid-template-columns:1fr;gap:11px}
   .figs img{width:100%;height:180px;object-fit:cover;border-radius:5px;border:1px solid var(--line)}
 
@@ -409,44 +418,75 @@
       <span class="t">34° <span class="lo">/ 24°</span></span><span class="w mono"><b>9 m/s</b>ukas varmeste</span>
     </div>
   </div>
-  <h2 class="head">Strand og skygge — all arkeologi er stengt i dag</h2>
-  <p class="lead">Tirsdag er stengt dag på Samos: <b>Eupalinos, Heraion, begge arkeologiske museer og Megali Panagia</b> holder alle lukket. Det er også ukas varmeste dag. Derfor ligger stranddagen her — det er ikke tilfeldig. <span class="tt" data-p="vin">Vinmuseet</span> er derimot åpent tirsdager.</p>
-  <div class="opts">
-    <article class="opt pick">
-      <img class="cover" alt="Megali Lakka" src="img/katsakas-samiopoula.jpg">
-      <div class="optbody">
-        <span class="otag">Valg A · anbefalt</span>
-        <h3>Rute 29A + <span class="tt" data-p="megali-lakka">Megali Lakka</span></h3>
-        <div class="facts"><span>~20 km kjøring</span><span>4,5 km tur</span><span>2/5</span><span>fersk kilde</span></div>
-        <p>Kort morgentur ned gjennom høye eiker og furuer — <b>den bratte delen er i skygge</b> — som ender på en folketom strand. Fersk kilde i søndre ravine. Bad, så lunsj på taverna i <span class="tt" data-p="posidonio">Posidonio</span> eller Kerveli ti minutter unna.</p>
-        <p class="lnk"><a href="https://www.samoshikes.com/routes/29" target="_blank" rel="noopener">samoshikes.com rute 29 →</a></p>
+  <h2 class="head">Rute 29: opp fra Aghia Zoni, ned til Megali Lakka</h2>
+  <p class="lead">Tirsdag er stengt dag på Samos — <b>Eupalinos, Heraion, begge arkeologiske museer og Megali Panagia</b> holder alle lukket. Det er også ukas varmeste dag. Så i dag går dere tur i stedet, og turen ender på en strand nesten ingen kommer til.</p>
+
+  <div class="grid">
+    <div>
+      <div class="keyfacts">
+        <div><span class="k">Lengde</span><span class="v">8,0 km</span></div>
+        <div><span class="k">Stigning</span><span class="v">376 m</span></div>
+        <div><span class="k">Tid</span><span class="v">2t 30</span></div>
+        <div><span class="k">Grad</span><span class="v">2 / 5</span></div>
+        <div><span class="k">Type</span><span class="v">Rundtur</span></div>
       </div>
-    </article>
+      <div class="tl">
+        <div class="tli"><span class="tlt mono">06:15</span><div class="tlx">Ut fra Pythagorion. Via Vathy og østover mot Kamara — <b>ca. 22 km, 40 min</b>, asfalt hele veien.<span class="m">Last ned GPX-sporet før dere drar — se boksen under kartet</span></div></div>
+        <div class="tli"><span class="tlt mono">07:00</span><div class="tlx">Parker ved <b>Aghia Zoni</b>, ved klosteret Moni Aghias Zonis.<span class="m">Start/mål: <b>37.747202, 27.007047</b> — det er her START/END står på kartet</span></div></div>
+        <div class="tli"><span class="tlt mono">—</span><div class="tlx">Opp fra landsbyen på <b>en smal sti gjennom olivenlunder, furutrær og tett kratt</b>, mot Profitis Elias. Videre traverserer stien østsiden av fjellet med utsikt utover havet.<span class="m">Kilde med friskt vann underveis — men ta med 2 liter hver uansett</span></div></div>
+        <div class="tli"><span class="tlt mono">—</span><div class="tlx"><b>Avstikkeren ned til <span class="tt" data-p="megali-lakka">Megali Lakka</span></b> — det er dette som er poenget. 90 m gyllen sand med tung naturlig skygge, og folketomt fordi den bare nås til fots.<span class="m">Ingen fasiliteter. Alt dere vil ha på stranda må bæres ned</span></div></div>
+        <div class="tli"><span class="tlt mono">Midd.</span><div class="tlx">Tilbake opp og rundt sløyfa til Aghia Zoni. Så ti minutter på scooteren til taverna i <span class="tt" data-p="posidonio">Posidonio</span> eller Kerveli.</div></div>
+        <div class="tli"><span class="tlt mono">15:00</span><div class="tlx"><span class="tt" data-p="vin">Vinmuseet på Malagari</span> på vei hjem — åpent tirsdager til 16:30, €5 med smaking.<span class="m">Den ene smaker, den andre kjører. Grensa er 0,5 ‰</span></div></div>
+      </div>
+    </div>
+    <div>
+      <img class="routemap" src="img/rute29-kart.jpg" alt="Offisielt kart over rute 29, Aghia Zoni til Profitis Elias" loading="lazy">
+      <p class="cap">Offisielt kart fra samoshikes.com. Grønn linje er ruta; START/END ligger ved Aghia Zoni-klosteret, og avstikkeren til Megali Laka B. går nordøst mot kysten.</p>
+      <div class="box alert" style="margin-top:14px">
+        <span class="lab">Ta hele sløyfa — ikke 29A</span>
+        <p><b>29A er ikke en egen tur.</b> Den starter på toppen av Profitis Elias og går ned nordsiden, og finnes bare for å korte rute 29 med 3,5 km.</p>
+        <p>Problemet: rute 29 nevner eksplisitt avstikkeren til Megali Lakka. <b>29A nevner den ikke.</b> Siden 29A hopper over 3,5 km, er det en reell sjanse for at den hopper over nettopp den delen stranda henger på. Gå hele runden.</p>
+      </div>
+      <div class="box" style="margin-top:13px">
+        <span class="lab">Last ned sporet</span>
+        <p>Nettverket merker med trestolper, skilt og NFC-brikker, men <b>mangler det én stolpe står dere på en umerket fjellside i 34 grader.</b> Med sporet på telefonen spiller det ingen rolle.</p>
+        <p class="mono" style="font-size:12px"><a href="https://www.samoshikes.com/gpx/sp29-5fda2397b3641507837878.gpx">GPX for rute 29 →</a><br><a href="https://www.samoshikes.com/routes/29" target="_blank" rel="noopener">samoshikes.com/routes/29 →</a></p>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size:15px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);margin:30px 0 14px;font-family:var(--f-mono)">Hvis dere heller vil noe annet</h3>
+  <div class="opts">
     <article class="opt">
       <img class="cover" alt="Kokkari" src="img/kokkari-719d.jpg">
       <div class="optbody">
-        <span class="otag">Valg B</span>
+        <span class="otag">Alternativ</span>
         <h3><span class="tt" data-p="kokkari">Kokkari</span>-sløyfa, rute 21</h3>
         <div class="facts"><span>~25 km kjøring</span><span>9,4 km</span><span>420 m</span><span>4 t</span></div>
-        <p>Beste skygge per innsats i hele nettverket: <b>utelukkende skogsveier, ingen stiseksjoner</b>, sammenhengende furukronetak. Umulig å gå seg bort. <b>Ingen vannkilde — ta med 2 liter hver.</b> Ned igjen til bad og taverna.</p>
+        <p>Mer skygge enn rute 29: <b>utelukkende skogsveier, ingen stiseksjoner</b>, sammenhengende furukronetak. Umulig å gå seg bort. Men <b>ingen vannkilde</b>, og den ender ikke på en folketom strand.</p>
         <p class="lnk"><a href="https://www.samoshikes.com/routes/21" target="_blank" rel="noopener">samoshikes.com rute 21 →</a></p>
       </div>
     </article>
     <article class="opt">
       <img class="cover" alt="Tsamadou" src="img/tsamadou-542s.jpg">
       <div class="optbody">
-        <span class="otag">Valg C · latmannsdagen</span>
-        <h3>Bare bading, ingen tur</h3>
+        <span class="otag">Alternativ · null innsats</span>
+        <h3>Bare bading</h3>
         <div class="facts"><span>20–25 km</span><span>asfalt hele veien</span></div>
-        <p><span class="tt" data-p="klima">Klima</span> og <span class="tt" data-p="posidonio">Posidonio</span> på østkysten — sørvendte bukter, rolige i nordvind, taverna på begge. Eller <span class="tt" data-p="tsamadou">Tsamadou</span>, øyas eneste offisielle naturiststrand. Parkeringen fylles før kl. 10.</p>
+        <p><span class="tt" data-p="klima">Klima</span> og <span class="tt" data-p="posidonio">Posidonio</span> — sørvendte bukter, rolige i nordvind, taverna på begge. Eller <span class="tt" data-p="tsamadou">Tsamadou</span>, øyas eneste offisielle naturiststrand. Parkeringen fylles før kl. 10.</p>
         <p class="lnk"><a href="https://calmbeach.gr/secluded-beaches/samos/" target="_blank" rel="noopener">calmbeach.gr — vind per bukt →</a></p>
       </div>
     </article>
+    <article class="opt">
+      <div class="optbody">
+        <span class="otag">Snarvei til stranda</span>
+        <h3>Megali Lakka via Mourtia</h3>
+        <div class="facts"><span>~25 km</span><span>800 m til fots</span><span>15 min</span></div>
+        <p>Vil dere bare bade, og droppe turen: kjør til <b>Mourtia</b>, fortsett grusveien 1–2 km og følg <b>rødmalte merker</b> — 800 m til Megali Lakka, 350 m til Mikri Lakka.</p>
+        <p><b>Parker der asfalten slutter</b> og gå det siste. Forsikringen faller uansett bort utenfor asfalt.</p>
+      </div>
+    </article>
   </div>
-  <div class="box" style="margin-top:16px"><span class="lab">Uansett valg</span>
-    <p><b>Vinmuseet på Malagari</b> ved Vathy er åpent tirsdager 10:00–16:30, €5 inkludert smaking i et steinbygg fra 1800-tallet. Flat kystvei, ingen hårnålssvinger — den ene smaker, den andre kjører. Grensa er 0,5 ‰. Kjøp med en <b>Anthemis</b> eller <b>Nectar</b> hjem til balkongen.</p></div>
-  <div class="maprow"><div class="map" id="map3" data-day="3"></div><div class="maplegend" id="leg3"></div></div>
-</section>
 
 <!-- DAG 4 -->
 <section class="slide" id="d4" data-label="Dag 4">
@@ -939,6 +979,7 @@ const PLACES = {
     pyth:[37.6905,26.9430], eupa:[37.6947,26.9339], spil:[37.6960,26.9380],
     hera:[37.6720,26.8853], vathy:[37.7553,26.9770], malag:[37.7640,26.9560],
     mourtia:[37.7614,27.0283], lakka:[37.7519,27.0241], klima:[37.7096,27.0455],
+    aghiazoni:[37.747202,27.007047],
     posid:[37.7139,27.0568], kerv:[37.7350,27.0230], kokk:[37.7770,26.8890],
     tsam:[37.7800,26.8790], karlo:[37.7930,26.7020], potami:[37.7900,26.6720],
     seit:[37.7930,26.6320], marath:[37.7280,26.6960], cave:[37.7278,26.6588],
@@ -956,9 +997,9 @@ const PLACES = {
        s:[['pyth','Pythagorion — hent scooter, borgen, antikke teateret'],
           ['spil','Panagia Spiliani — 95 trinn ned i fjellet, 17:00–20:00']]}]},
     '3':{fit:[[37.66,26.86],[37.80,27.07]], legs:[
-      {n:'Valg A — Rute 29A + Megali Lakka', c:C.a, pts:['pyth','vathy','mourtia','lakka'],
-       s:[['mourtia','Mourtia — parker der asfalten slutter'],
-          ['lakka','Megali Lakka — 800 m til fots, rødmalte merker'],
+      {n:'Rute 29 — Aghia Zoni til Megali Lakka', c:C.a, pts:['pyth','vathy','aghiazoni','lakka'],
+       s:[['aghiazoni','Aghia Zoni — start/mål ved klosteret, 37.747202, 27.007047'],
+          ['lakka','Megali Lakka — avstikkeren ned fra sløyfa'],
           ['malag','Vinmuseet Malagari — €5 med smaking, åpent tirsdag']]},
       {n:'Valg B — Kokkari-sløyfa, rute 21', c:C.b, pts:['pyth','vathy','kokk'],
        s:[['kokk','Kokkari — rute 21, 9,4 km ren skogsvei, ingen vannkilde']]},
@@ -1015,7 +1056,9 @@ const PLACES = {
    {d:2,at:'spil',n:'Panagia Spiliani',m:'2 km over byen · gratis · 17:00–20:00',
     t:'Hulekloster med 95 trinn ned i fjellet til et kapell med en ikon satt inn i berget. Panoramautsikt, og fin i solnedgang. Glatt gulv — ta sko med grep.',i:'img/2019-08-28-pythagorion-kpfc-01.jpg'},
 
-   {d:3,at:'lakka',n:'Megali Lakka',m:'27 km + 800 m til fots · gratis',
+   {d:3,at:'aghiazoni',n:'Aghia Zoni — start rute 29',m:'22 km · 8 km rundtur · 376 m · 2t30',
+    t:'Start og mål for rute 29, ved klosteret Moni Aghias Zonis. Stien går opp gjennom olivenlunder og furu mot Profitis Elias, traverserer østsiden med havutsikt, og har en avstikker ned til Megali Lakka. Kilde med friskt vann underveis. Ta hele sløyfa — 29A-snarveien kutter 3,5 km og kan hoppe over strand-avstikkeren.'},
+   {d:3,at:'lakka',n:'Megali Lakka',m:'via rute 29, eller 800 m fra Mourtia',
     t:'90 m gyllen sand med tung naturlig skygge. Kun til fots — følg grusveien forbi Mourtia og se etter rødmalte merker. Vender øst, så rolig når nordkysten står i brenning.'},
    {d:3,at:'mourtia',n:'Mourtia',m:'25 km · liten kantine',
     t:'Palmer, turkist vann og fortøyde fiskebåter — anmeldere kaller den karibisk. Siste bit er grus, så parker der asfalten slutter; forsikringen gjelder ikke utenfor asfalt.'},

@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pula 2026 — Høstferie i Istria</title>
+<meta name="description" content="Familiens høstferie i Pula, Istria, 26. september – 3. oktober 2026. Fly, leiligheter, strender, mat og dagsturer.">
+<meta name="theme-color" content="#0f2f44">
+<meta property="og:title" content="Pula 2026 — Høstferie i Istria">
+<meta property="og:description" content="Én uke ved Adriaterhavet: romersk amfiteater, trøffelskog, safari på Brijuni og et basseng rett ved sjøen.">
+<meta property="og:image" content="https://andeplane.github.io/personal/posts/2026-pula/img/verudela-coast.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  :root{
+    --ink:#0f2f44; --ink-soft:#4f6a7b; --ground:#f2f5f4; --card:#ffffff; --card-soft:#e6eeec;
+    --line:#c9d8d5; --line-soft:#dde7e4;
+    --sea:#127d8c; --sea-deep:#0b5f6c; --sea-soft:#d5ecee;
+    --pine:#2f6b45; --pine-soft:#dcebe0;
+    --earth:#9c3d2b; --earth-soft:#f4e0da;
+    --sun:#e0a63a; --sun-soft:#fbefd2;
+    --shadow:0 1px 2px rgba(15,47,68,.06),0 8px 24px rgba(15,47,68,.08);
+    --f-display:'Avenir Next','Segoe UI',Futura,'Trebuchet MS',sans-serif;
+    --f-body:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
+    --f-mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --ink:#e6eef0; --ink-soft:#9fb6bf; --ground:#0a1a22; --card:#10242e; --card-soft:#173340;
+    --line:#274452; --line-soft:#1d3742;
+    --sea:#5dbdc9; --sea-deep:#8ad4dc; --sea-soft:#0f3a42;
+    --pine:#6fc28a; --pine-soft:#12301c;
+    --earth:#e2856f; --earth-soft:#3a1c15;
+    --sun:#f0be5c; --sun-soft:#3a2b0e;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.4);}}
+  :root[data-theme="dark"]{
+    --ink:#e6eef0; --ink-soft:#9fb6bf; --ground:#0a1a22; --card:#10242e; --card-soft:#173340;
+    --line:#274452; --line-soft:#1d3742;
+    --sea:#5dbdc9; --sea-deep:#8ad4dc; --sea-soft:#0f3a42;
+    --pine:#6fc28a; --pine-soft:#12301c;
+    --earth:#e2856f; --earth-soft:#3a1c15;
+    --sun:#f0be5c; --sun-soft:#3a2b0e;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.4);}
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6}
+  h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0}
+  a{color:var(--sea-deep);text-underline-offset:2px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:2px}
+  img{max-width:100%;display:block}
+  .mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 clamp(18px,4vw,36px)}
+  .narrow{max-width:720px}
+
+  /* ---- sticky nav ---- */
+  .nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--ground) 88%,transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+  .nav .wrap{display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none;padding-top:9px;padding-bottom:9px}
+  .nav .wrap::-webkit-scrollbar{display:none}
+  .nav a{font-family:var(--f-display);font-size:13.5px;font-weight:600;text-decoration:none;color:var(--ink-soft);
+    padding:6px 11px;border-radius:999px;white-space:nowrap}
+  .nav a:hover{color:var(--ink);background:var(--card-soft)}
+  .nav a.brand{color:var(--ink);font-weight:800;margin-right:auto;padding-left:0}
+
+  /* ---- hero ---- */
+  .hero{position:relative;min-height:clamp(520px,88vh,860px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;
+    background:#0b3a4a}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
+  .hero::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(11,40,55,.05) 0%,rgba(11,40,55,.18) 45%,rgba(11,40,55,.86) 100%)}
+  .hero .wrap{position:relative;z-index:1;padding-bottom:clamp(36px,7vh,72px);padding-top:120px;width:100%}
+  .hero .when{font-family:var(--f-display);font-size:clamp(14px,1.8vw,17px);font-weight:600;letter-spacing:.02em;
+    color:#ffe2a6;margin-bottom:10px}
+  .hero h1{font-size:clamp(54px,11vw,138px);font-weight:800;line-height:.9;letter-spacing:-.025em;
+    text-shadow:0 2px 24px rgba(0,0,0,.35)}
+  .hero h1 small{display:block;font-size:clamp(20px,3.2vw,38px);font-weight:600;letter-spacing:0;line-height:1.15;
+    margin-top:12px;color:#e6f4f5;max-width:22ch}
+  .hero .fam{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+  .hero .fam span{font-family:var(--f-display);font-size:14px;font-weight:600;padding:7px 14px;border-radius:999px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(6px)}
+  .hero .cap{position:absolute;right:14px;bottom:10px;z-index:1;font-family:var(--f-mono);font-size:10px;
+    color:rgba(255,255,255,.55)}
+
+  /* ---- sections ---- */
+  section{padding:clamp(48px,7vw,84px) 0}
+  section+section{border-top:1px solid var(--line-soft)}
+  .kicker{font-family:var(--f-display);font-weight:700;font-size:15px;color:var(--sea);margin-bottom:8px}
+  h2.head{font-size:clamp(30px,4.6vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.05;max-width:22ch}
+  .lead{font-size:clamp(17px,2.1vw,20px);color:var(--ink-soft);max-width:62ch;margin:14px 0 0}
+  .lead b,.prose b{color:var(--ink)}
+  .prose{max-width:66ch}
+  .prose p{margin:0 0 16px}
+
+  /* ---- key facts ---- */
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:30px;box-shadow:var(--shadow)}
+  .facts div{background:var(--card);padding:18px 20px}
+  @media (max-width:700px){.facts{grid-template-columns:1fr 1fr}}
+  @media (max-width:440px){.facts{grid-template-columns:1fr}}
+  .facts .k{font-family:var(--f-display);font-size:13px;font-weight:600;color:var(--ink-soft);display:block;margin-bottom:4px}
+  .facts .v{font-family:var(--f-display);font-weight:800;font-size:clamp(19px,2.3vw,23px);line-height:1.2;letter-spacing:-.01em}
+  .facts .s{display:block;font-size:14px;color:var(--ink-soft);margin-top:4px}
+
+  /* ---- flights ---- */
+  .legs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:28px}
+  .leg{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;box-shadow:var(--shadow)}
+  .leg .dir{font-family:var(--f-display);font-weight:700;font-size:14px;color:var(--sea);margin-bottom:14px}
+  .leg .row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
+  .leg .ap{font-family:var(--f-display);font-weight:800;font-size:clamp(30px,4vw,40px);letter-spacing:-.02em;line-height:1}
+  .leg .ap small{display:block;font-size:13px;font-weight:600;color:var(--ink-soft);letter-spacing:0;margin-top:5px}
+  .leg .ap.r{text-align:right}
+  .leg .tm{font-family:var(--f-mono);font-size:15px;margin-top:8px;font-weight:600}
+  .leg .ap.r .tm{text-align:right}
+  .leg .plane{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--ink-soft);font-family:var(--f-mono);font-size:11px}
+  .leg .plane i{display:block;width:70px;height:2px;background:var(--line);position:relative}
+  .leg .plane i::after{content:"✈";position:absolute;right:-6px;top:-11px;font-style:normal;font-size:16px;color:var(--sea)}
+  .leg .meta{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+  .leg .meta b{color:var(--ink);font-family:var(--f-display)}
+
+  .notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:18px}
+  .note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sun);border-radius:8px;
+    padding:14px 17px;font-size:15px;line-height:1.55}
+  .note b{font-family:var(--f-display);display:block;margin-bottom:3px}
+  .note.sea{border-left-color:var(--sea)}
+  .note.earth{border-left-color:var(--earth)}
+  .note.pine{border-left-color:var(--pine)}
+
+  /* ---- hotel ---- */
+  .hotelhead{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;margin-top:26px}
+  @media (max-width:800px){.hotelhead{grid-template-columns:1fr}}
+  .hotelhead img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;box-shadow:var(--shadow)}
+  .stars{color:var(--sun);letter-spacing:2px;font-size:15px}
+  .apts{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:30px}
+  .apt{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
+    display:flex;flex-direction:column}
+  .apt .top{padding:20px 22px 16px;border-bottom:1px solid var(--line-soft)}
+  .apt .no{font-family:var(--f-display);font-weight:700;font-size:13.5px;color:var(--earth)}
+  .apt h3{font-size:22px;font-weight:800;letter-spacing:-.01em;margin-top:4px}
+  .apt .sub{font-size:14.5px;color:var(--ink-soft);margin-top:4px}
+  .rooms{display:grid;gap:10px;padding:16px 22px;background:var(--card-soft)}
+  .room{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:12px}
+  .room .ico{width:38px;height:38px;border-radius:9px;background:var(--sea-soft);display:grid;place-items:center;font-size:19px;flex-shrink:0}
+  .room .ico.sofa{background:var(--sun-soft)}
+  .room .who{font-family:var(--f-display);font-weight:700;font-size:16px;line-height:1.25}
+  .room .what{font-size:13px;color:var(--ink-soft);display:block;margin-top:2px}
+  .heads{display:flex;gap:-6px}
+  .av{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;
+    font-size:13px;color:#fff;border:2px solid var(--card);margin-left:-8px}
+  .av:first-child{margin-left:0}
+  .av.a{background:#127d8c}.av.l{background:#2f6b45}.av.j{background:#0f2f44}.av.e{background:#9c3d2b}.av.n{background:#e0a63a}.av.o{background:#5b4b9e}
+  .apt .fac{padding:16px 22px 20px;font-size:14px;color:var(--ink-soft);line-height:1.6}
+  .apt .fac b{color:var(--ink);font-family:var(--f-display)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chips span{font-family:var(--f-display);font-size:12px;font-weight:600;background:var(--card-soft);border-radius:6px;padding:4px 9px;color:var(--ink)}
+
+  /* ---- story blocks ---- */
+  .story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:center;margin-top:34px}
+  .story.flip .pic{order:2}
+  .story .pic img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;box-shadow:var(--shadow)}
+  .story .pic figcaption{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-soft);margin-top:7px}
+  .story h3{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.015em;line-height:1.1}
+  .story p{margin:12px 0 0;font-size:16.5px}
+  .story .tips{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+  .story .tips li{font-size:15px;padding-left:22px;position:relative}
+  .story .tips li::before{content:"";position:absolute;left:0;top:9px;width:11px;height:11px;border-radius:50%;background:var(--sun)}
+  @media (max-width:760px){.story{grid-template-columns:1fr;gap:16px}.story.flip .pic{order:0}}
+
+  /* ---- masonry-ish photo strip ---- */
+  .strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:26px}
+  .strip figure{margin:0;position:relative;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:var(--card-soft)}
+  .strip img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .strip figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 11px;color:#fff;
+    font-family:var(--f-display);font-weight:700;font-size:15px;
+    background:linear-gradient(0deg,rgba(0,0,0,.65),transparent)}
+  .strip figcaption small{display:block;font-weight:500;font-size:12.5px;opacity:.9}
+
+  /* ---- restaurant list ---- */
+  .eats{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:28px}
+  .eat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:6px}
+  .eat .type{font-family:var(--f-display);font-size:12.5px;font-weight:700;color:var(--earth)}
+  .eat h3{font-size:19px;font-weight:800;letter-spacing:-.01em}
+  .eat .where{font-size:13.5px;color:var(--ink-soft);font-family:var(--f-mono)}
+  .eat p{margin:4px 0 0;font-size:15px}
+  .eat .price{margin-top:auto;padding-top:8px;font-family:var(--f-display);font-size:13px;color:var(--ink-soft);font-weight:600}
+
+  /* ---- trips ---- */
+  .trips{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:30px}
+  .trip{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+  .trip img{width:100%;aspect-ratio:3/2;object-fit:cover}
+  .trip .b{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .trip .dist{font-family:var(--f-display);font-size:12.5px;font-weight:700;color:var(--pine)}
+  .trip h3{font-size:21px;font-weight:800;letter-spacing:-.01em;line-height:1.15}
+  .trip p{margin:0;font-size:15px}
+  .trip .kid{font-size:14px;background:var(--sun-soft);border-radius:8px;padding:9px 12px;margin-top:4px}
+  .trip .kid b{font-family:var(--f-display)}
+  .trip .fine{margin-top:auto;padding-top:8px;font-size:13px;color:var(--ink-soft);font-family:var(--f-mono);line-height:1.5}
+
+  /* ---- week ---- */
+  .week{margin-top:28px;display:flex;flex-direction:column;gap:2px}
+  .day{display:grid;grid-template-columns:110px 1fr;gap:18px;padding:16px 16px;border-radius:10px;align-items:baseline}
+  .day:nth-child(odd){background:var(--card)}
+  .day .d{font-family:var(--f-display);font-weight:800;font-size:16px;line-height:1.2}
+  .day .d small{display:block;font-family:var(--f-mono);font-size:11.5px;font-weight:400;color:var(--ink-soft);margin-top:3px}
+  .day .t{font-size:16px}
+  .day .t b{font-family:var(--f-display)}
+  .day .t .alt{display:block;font-size:14px;color:var(--ink-soft);margin-top:3px}
+  @media (max-width:600px){.day{grid-template-columns:1fr;gap:4px}}
+
+  /* ---- weather ---- */
+  .wx{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:22px}
+  .wx div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-align:center}
+  .wx .n{font-family:var(--f-display);font-weight:800;font-size:28px;letter-spacing:-.02em;line-height:1}
+  .wx .n small{font-size:14px;font-weight:600;color:var(--ink-soft)}
+  .wx .l{font-size:13px;color:var(--ink-soft);margin-top:6px;display:block}
+
+  /* ---- map ---- */
+  #map{height:520px;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--card-soft);margin-top:24px;z-index:1}
+  @media (max-width:700px){#map{height:420px}}
+  .leaflet-container{font-family:var(--f-body)}
+  .leaflet-popup-content{font-size:14px;margin:10px 13px;line-height:1.45}
+  .leaflet-popup-content b{font-family:var(--f-display)}
+  .leaflet-popup-content img{width:100%;height:120px;object-fit:cover;border-radius:6px;margin-bottom:7px}
+  @media (prefers-color-scheme:dark){.leaflet-tile{filter:brightness(.78) contrast(1.05) saturate(.8)}}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px;font-family:var(--f-display);font-size:13px;color:var(--ink-soft)}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+
+  /* ---- checklist ---- */
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:20px;margin-top:26px}
+  .col{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;box-shadow:var(--shadow)}
+  .col h3{font-size:17px;font-weight:800;margin-bottom:10px}
+  .col ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+  .col li{font-size:15px;padding-left:20px;position:relative}
+  .col li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:2px;background:var(--sea)}
+  .col li small{display:block;font-size:13px;color:var(--ink-soft)}
+
+  footer{padding:36px 0 60px;color:var(--ink-soft);font-size:13.5px;line-height:1.6}
+  footer p{margin:0 0 8px}
+  footer .credits{font-family:var(--f-mono);font-size:11px}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Innhold">
+  <div class="wrap">
+    <a class="brand" href="#top">Pula 2026</a>
+    <a href="#info">Info</a>
+    <a href="#fly">Fly</a>
+    <a href="#hotell">Hotell</a>
+    <a href="#stedet">Stedet</a>
+    <a href="#pula">Pula</a>
+    <a href="#mat">Mat</a>
+    <a href="#turer">Dagsturer</a>
+    <a href="#uka">Uka</a>
+    <a href="#kart">Kart</a>
+    <a href="#praktisk">Praktisk</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <img src="img/verudela-coast.jpg" alt="Turkis sjø og furuskog langs kysten på Verudela-halvøya i Pula" fetchpriority="high">
+  <div class="wrap">
+    <div class="when">Lørdag 26. september – lørdag 3. oktober 2026</div>
+    <h1>PULA<small>Én uke ved Adriaterhavet, med hele gjengen.</small></h1>
+    <div class="fam">
+      <span>Jakob</span><span>Eline</span><span>Anders</span><span>Nikoline</span><span>Åsmund</span><span>Ludwig</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- INFO -->
+<section id="info">
+  <div class="wrap">
+    <div class="kicker">Det viktigste først</div>
+    <h2 class="head">Sju netter i Istria, rett ved sjøen</h2>
+    <p class="lead">Vi bor på <b>Arena Verudela Beach</b>, et feriested på en furukledd halvøy fire kilometer sør for Pula sentrum. Sjøen er tjue meter unna, bassenget enda nærmere, og Roma-rikets sjette største amfiteater ligger ti minutter unna med bil. Seks personer, to leiligheter, ingen planer vi ikke kan droppe.</p>
+
+    <div class="facts">
+      <div><span class="k">Reise ut</span><span class="v">Lør 26. sep</span><span class="s">Oslo 18:25 → Pula 21:05</span></div>
+      <div><span class="k">Reise hjem</span><span class="v">Lør 3. okt</span><span class="s">Pula 21:45 → Oslo 00:20 (natt til søndag)</span></div>
+      <div><span class="k">Bosted</span><span class="v">Arena Verudela Beach</span><span class="s">Verudella 11, 52100 Pula</span></div>
+      <div><span class="k">Hvem</span><span class="v">3 voksne, 3 barn</span><span class="s">Jakob, Eline, Anders + Nikoline, Åsmund, Ludwig</span></div>
+      <div><span class="k">Innsjekk / utsjekk</span><span class="v">Fra 16:00 / innen 10:00</span><span class="s">Vi kommer sent lørdag kveld, hotellet er varslet</span></div>
+      <div><span class="k">Bekreftelse</span><span class="v">6509591792</span><span class="s">Booking.com · hotellets telefon +385 52 590 781</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FLY -->
+<section id="fly">
+  <div class="wrap">
+    <div class="kicker">Flyene</div>
+    <h2 class="head">Direkte med Norwegian, to og en halv time hver vei</h2>
+    <p class="lead">Begge flyene går på kvelden, så vi lander i Pula på lørdagskvelden og har hele hjemreisedagen i sola. Bestillingsreferanse <b class="mono">YHW23A</b>.</p>
+
+    <div class="legs">
+      <div class="leg">
+        <div class="dir">Utreise · lørdag 26. september</div>
+        <div class="row">
+          <div class="ap">OSL<small>Oslo Gardermoen</small><div class="tm">18:25</div></div>
+          <div class="plane"><i></i><span>DY1942 · 2 t 40</span></div>
+          <div class="ap r">PUY<small>Pula</small><div class="tm">21:05</div></div>
+        </div>
+        <div class="meta">Vær på Gardermoen <b>senest 16:30</b>. Landing 21:05, bagasje og taxi, så er vi i leilighetene rundt 22. Kjøkkenet er tomt: ta med litt kveldsmat i håndbagasjen, spesielt til de minste.</div>
+      </div>
+      <div class="leg">
+        <div class="dir">Hjemreise · lørdag 3. oktober</div>
+        <div class="row">
+          <div class="ap">PUY<small>Pula</small><div class="tm">21:45</div></div>
+          <div class="plane"><i></i><span>DY1943 · 2 t 35</span></div>
+          <div class="ap r">OSL<small>Oslo Gardermoen</small><div class="tm">00:20</div></div>
+        </div>
+        <div class="meta">Utsjekk innen 10:00, men flyet går først på kvelden. Vi setter bagasjen på hotellet og tar en hel ekstra dag med strand eller Pula sentrum. Landing natt til søndag 4. oktober.</div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <div class="note"><b>Bagasje</b>LowFare+: én innsjekket kolli (maks 23 kg) per person, pluss liten veske under setet og håndbagasje i hyllen (maks 10 kg til sammen).</div>
+      <div class="note sea"><b>Innsjekking</b>Sjekk inn på nett dagen før. Gyldig pass eller nasjonalt ID-kort for alle, også barna. Kroatia er i Schengen, så ingen passkontroll, men ID må vises ved innsjekk.</div>
+      <div class="note earth"><b>Sjåføren ordner seg</b>Flyplassen ligger 10 km fra hotellet. Taxi tar et kvarter. Med leiebil henter vi den på flyplassen og leverer den samme sted lørdag kveld.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOTELL -->
+<section id="hotell">
+  <div class="wrap">
+    <div class="kicker">Hotellet</div>
+    <h2 class="head">Arena Verudela Beach <span class="stars" aria-label="fire stjerner">★★★★</span></h2>
+    <div class="hotelhead">
+      <div class="prose">
+        <p class="lead" style="margin-top:0">Lave leilighetsbygg mellom furuene på Verudela-halvøya, med sjøen på tre sider. Vi har to leiligheter med eget kjøkken, balkong og aircondition, så frokosten kan spises i pysjen og barna kan legges uten at kvelden er over for de voksne.</p>
+        <p>Feriestedet har utebasseng med barnebasseng, egne strender med trapper ned i sjøen, lekeplass, restaurant og bar, og et lite supermarked. Fem minutter til fots ligger Pulas akvarium i et gammelt østerriksk fort, og på nabotomta ligger Park Plaza Histria med større bassengområde. Sentrum nås med bybuss eller ti minutters taxi.</p>
+        <p><a href="https://www.booking.com/hotel/hr/verudela-beach-and-villa-resort.en-us.html" target="_blank" rel="noopener">Se hotellet på Booking.com</a> · <a href="https://maps.google.com/?q=Verudella+11,+52100+Pula,+Croatia" target="_blank" rel="noopener">Åpne i Google Maps</a></p>
+      </div>
+      <img src="img/verudela-aerial.jpg" alt="Verudela-halvøya sett fra lufta, med feriestedet, bassengene og marinaen">
+    </div>
+
+    <div class="apts">
+      <div class="apt">
+        <div class="top">
+          <div class="no">Leilighet 1</div>
+          <h3>To soverom, utsikt mot gårdsrommet</h3>
+          <div class="sub">Hel leilighet · plass til 5 · stue med spiseplass og kjøkken</div>
+        </div>
+        <div class="rooms">
+          <div class="room"><div class="ico">🛏️</div><div><div class="who">Anders og Ludwig</div><span class="what">Soverom 1</span></div><div class="heads" style="margin-left:auto"><span class="av a">A</span><span class="av l">L</span></div></div>
+          <div class="room"><div class="ico">🛏️</div><div><div class="who">Jakob</div><span class="what">Soverom 2, eget rom og ro om morgenen</span></div><div class="heads" style="margin-left:auto"><span class="av j">J</span></div></div>
+        </div>
+        <div class="fac">
+          <b>Kjøkkenet</b> har kokeplater, mikro, kjøleskap, kaffemaskin og vannkoker. Fellesmiddagene kan lages her, og bordet tar hele gjengen.
+          <div class="chips"><span>Balkong</span><span>Aircondition</span><span>Kjøkken</span><span>Netflix på TV</span><span>Safe</span><span>Hårføner</span><span>Utemøbler</span><span>Trapper, ikke heis</span></div>
+        </div>
+      </div>
+      <div class="apt">
+        <div class="top">
+          <div class="no">Leilighet 2</div>
+          <h3>Ett soverom, utsikt mot sjøen</h3>
+          <div class="sub">Hel leilighet · plass til 4 · balkong med havutsikt</div>
+        </div>
+        <div class="rooms">
+          <div class="room"><div class="ico">🛏️</div><div><div class="who">Eline</div><span class="what">Soverommet</span></div><div class="heads" style="margin-left:auto"><span class="av e">E</span></div></div>
+          <div class="room"><div class="ico sofa">🛋️</div><div><div class="who">Nikoline og Åsmund</div><span class="what">Seng og sovesofa i stua</span></div><div class="heads" style="margin-left:auto"><span class="av n">N</span><span class="av o">Å</span></div></div>
+        </div>
+        <div class="fac">
+          <b>Balkongen</b> vender mot Adriaterhavet, så her er det morgenkaffen skal drikkes. Samme kjøkkenutstyr som leilighet 1.
+          <div class="chips"><span>Balkong med havutsikt</span><span>Aircondition</span><span>Kjøkken</span><span>Netflix på TV</span><span>Safe</span><span>Hårføner</span><span>Utemøbler</span><span>Trapper, ikke heis</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <div class="note earth"><b>Betalt og bekreftet</b>Begge leilighetene er betalt via Booking.com. Ingen frokost inkludert, men vi har to kjøkken og en restaurant på området. Booking er ikke refunderbar.</div>
+      <div class="note pine"><b>Barneseng</b>Sprinkelseng kan bestilles gratis for barn under 2 år, men det trenger vi ikke. Sovesofaen i leilighet 2 er en ordinær dobbeltsovesofa.</div>
+      <div class="note sea"><b>Trapper</b>Begge leilighetene ligger i etasjer uten heis. Vi ber om lavest mulig etasje for leilighet 1 når vi sjekker inn.</div>
+    </div>
+  </div>
+</section>
+
+<!-- STEDET -->
+<section id="stedet">
+  <div class="wrap">
+    <div class="kicker">Rett utenfor døra</div>
+    <h2 class="head">Strand, basseng og en furuskog å gå seg vill i</h2>
+    <p class="lead">Verudela er en halvøy som stikker ut i Adriaterhavet, med stier langs klippene, små buktebadeplasser og et gammelt fort som er blitt akvarium. Alt under ligger innenfor fem til femten minutters gange fra leilighetene.</p>
+
+    <div class="story">
+      <figure class="pic">
+        <img src="img/istria-kids-beach.jpg" alt="Ambrela-stranda i Pula med grunt, klart vann og badende barn" loading="lazy">
+        <figcaption>Ambrela-stranda, ti minutter fra leilighetene</figcaption>
+      </figure>
+      <div>
+        <h3>Tre strender, tre humør</h3>
+        <p><b>Hawaii-bukta</b> ligger rett nedenfor leilighetene: en liten hvit rullesteinsbukt mellom furuene, med det klareste vannet på hele halvøya. Steintrapp ned, snorkling mellom klippene, og det blir fort dypt, så her holder vi treåringen i hånda. <b>Ambrela</b> er den store stranda med Blått flagg, dusjer, livredder og en trampoline i vannet. <b>Histria-stranda</b> under nabohotellet har flate svaberg og det roligste vannet, perfekt for de minste.</p>
+        <ul class="tips">
+          <li>Badesko til alle. Ingen sandstrender her, bare rullestein og svaberg.</li>
+          <li>Sjøen holder rundt 21–22 grader i slutten av september. Fullt badbart for nordmenn.</li>
+          <li>Lungomare-stien langs klippene binder strendene sammen. Fin kveldstur med is.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="story flip">
+      <figure class="pic">
+        <img src="img/verudela-coast.jpg" alt="Hawaii-bukta på Verudela med turkist vann og furuer" loading="lazy">
+        <figcaption>Hawaii-bukta, rett nedenfor leilighetene</figcaption>
+      </figure>
+      <div>
+        <h3>Bassengene på toppen av bakken</h3>
+        <p>Feriestedet deler bassengområde med Park Plaza Verudela: tre utendørs sjøvannsbasseng, et barnebasseng og vannsklier, med pool-baren Oliva rett ved. Det er en liten oppoverbakke fra strandsiden, så vi tar det som formiddagsturen. Sesongen varer ut første uka i oktober, så vi er der akkurat før de stenger, og solsengene er ledige.</p>
+        <ul class="tips">
+          <li>Bassengene er ikke oppvarmet. Solrike dager fra lunsj er best.</li>
+          <li>Park Plaza Histria, fem minutter unna, har innendørs oppvarmet sjøvannsbasseng. Vi spør i resepsjonen om dagpass.</li>
+          <li>Lekeplass, minigolf, bordtennis og tennisbaner ligger på området.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="story">
+      <figure class="pic">
+        <img src="img/pula-old-town.jpg" alt="Augustus-tempelet på Forum i Pula" loading="lazy">
+        <figcaption>Forum i Pula, femten minutter med buss 2A</figcaption>
+      </figure>
+      <div>
+        <h3>Akvariet i fortet, og butikken på hjørnet</h3>
+        <p>Fem minutters gange fra leilighetene ligger <b>Aquarium Pula</b>, Kroatias største, bygget inn i et østerriksk fort fra 1886. Adriaterhavets fisker, hai, maneter, et sjøskilpadde-sykehus og en sommerfuglhage, pluss utsikt fra fortets tak. Et sikkert kort for en regnværsdag eller en ettermiddag der noen trenger noe annet enn strand.</p>
+        <ul class="tips">
+          <li>Åpent 09–21 i september, 09–19 fra 1. oktober. Voksne €25, barn 7–18 €20, barn 3–6 €16, under 3 gratis.</li>
+          <li>Barnevogn må stå igjen i inngangen. Bæresele til minstemann.</li>
+          <li>Minimarked på området med ferskt brød. Lidl ligger et kvarters gange unna, og Konzum på Veruda-markedet.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="strip">
+      <figure><img src="img/pula-sunset.jpg" alt="Solnedgang over sjøen ved Pula" loading="lazy"><figcaption>Solnedgang fra klippene<small>Sola går ned rundt 19 i slutten av september</small></figcaption></figure>
+      <figure><img src="img/medulin-beach.jpg" alt="Bijeca-stranda i Medulin" loading="lazy"><figcaption>Bijeca, Medulin<small>Istrias eneste sandstrand, 20 min med bil</small></figcaption></figure>
+      <figure><img src="img/gelato.jpg" alt="Tre iskremkjegler i barnehender" loading="lazy"><figcaption>Is hver dag<small>Pomaj ved Arenaen og Slastičarna Stoja</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- PULA -->
+<section id="pula">
+  <div class="wrap">
+    <div class="kicker">Byen</div>
+    <h2 class="head">Et romersk amfiteater midt i en havneby</h2>
+    <p class="lead">Pula var romernes by ved Adriaterhavet. Arenaen fra keiser Vespasians tid står nesten komplett, med plass til 23 000 tilskuere, og resten av sentrum er tempel, triumfbue og trange venetianske gater ned mot havna. Barna kan løpe i sanden der gladiatorene sto.</p>
+
+    <div class="story">
+      <figure class="pic">
+        <img src="img/pula-arena.jpg" alt="Amfiteateret i Pula i gyllent kveldslys" loading="lazy">
+        <figcaption>Pula Arena, det sjette største amfiteateret i Romerriket</figcaption>
+      </figure>
+      <div>
+        <h3>Arenaen</h3>
+        <p>Bygget mellom år 27 f.Kr. og 68 e.Kr., og i dag den eneste romerske arenaen der alle fire hjørnetårnene står. Under tribunene er det en utstilling om olivenolje og vin i romersk Istria, med gamle pressverk barna kan studere. Sett av en time, og gå tilbake på kvelden for å se den lyssatt.</p>
+        <ul class="tips">
+          <li>Åpent 08–21 i september, 09–19 i oktober. Voksne €10, barn €5, under 5 gratis. Hele familien: €40.</li>
+          <li>Kjøp billetter på nett (shop.ami-pula.hr) så vi slipper køen.</li>
+          <li>Gladiatorshowene er ferdige for sesongen, men arenaen i seg selv holder lenge.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="story flip">
+      <figure class="pic">
+        <img src="img/pula-lighting-giants.jpg" alt="Kranene på Uljanik-verftet lyssatt i farger om natten" loading="lazy">
+        <figcaption>Lighting Giants, hver hele time etter mørkets frembrudd</figcaption>
+      </figure>
+      <div>
+        <h3>De lysende kjempene</h3>
+        <p>Kranene på det gamle Uljanik-verftet, midt i havna, lyses opp i skiftende farger hver hele time fra skumringen til 22. Vi ser det best fra Riva, havnepromenaden rett nedenfor Arenaen. Etter middag i sentrum, med is i hånda, klokka 20 eller 21. De minste kommer til å snakke om det i ukevis.</p>
+        <ul class="tips">
+          <li>Gratis. Femten minutters show på hel time.</li>
+          <li>Buss 2A går fra sentrum tilbake til Verudela til 22:45. Bolt fungerer i Pula, Uber gjør det ikke.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="story">
+      <figure class="pic">
+        <img src="img/pula-market.jpg" alt="Markedshallen i Pula i jugendstil" loading="lazy">
+        <figcaption>Markedshallen fra 1903</figcaption>
+      </figure>
+      <div>
+        <h3>Markedet, festningen og tunnelene under byen</h3>
+        <p><b>Markedshallen</b> i jern og glass er stedet for frokost: fersk frukt, burek, ost og pršut til kjøkkenet vårt. Åpent fra 07 hver dag, søndag bare til 12. Rett bak ligger <b>Kaštel</b>, den venetianske festningen med utsikt over hele byen, og under den <b>Zerostrasse</b>, kilometervis med tunneler fra første verdenskrig som en heis binder sammen med festningen. Elleveåringen kommer til å elske det.</p>
+        <ul class="tips">
+          <li>Kaštel + Zerostrasse: én billett, voksne €8, barn 5–16 €3, under 5 gratis. Åpent til 21 i september, til 17 fra oktober.</li>
+          <li>Augustus-tempelet på Forum: €2, ti minutter, og kaffe på Cvajner rett ved.</li>
+          <li>Søndag 27. september 18–20:30: kostymert gateteater om det østerriksk-ungarske Pula i sentrum.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="strip">
+      <figure><img src="img/pula-arena-inside.jpg" alt="Inne i amfiteateret i Pula" loading="lazy"><figcaption>Inne i Arenaen<small>Tribunene og de underjordiske gangene</small></figcaption></figure>
+      <figure><img src="img/pula-sunset.jpg" alt="Solnedgang ved Pula" loading="lazy"><figcaption>Lungomare<small>4 km kyststi fra Stoja til Verudela</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- MAT -->
+<section id="mat">
+  <div class="wrap">
+    <div class="kicker">Mat og drikke</div>
+    <h2 class="head">Trøffelsesongen starter akkurat når vi lander</h2>
+    <p class="lead">Istria er Italias kjøkken uten Italias priser: håndrullet fuži-pasta med hvit trøffel, boškarin-okse, grillet fisk fra morgenens fangst, pršut og malvazija-vin. Og pizza så god at barna ikke klager. Hvit trøffel fra Mirna-dalen er i sesong fra slutten av september.</p>
+
+    <div class="story">
+      <figure class="pic">
+        <img src="img/istria-food.jpg" alt="Grillet fisk med poteter på en konoba i Istria" loading="lazy">
+        <figcaption>Dagens fangst på en konoba</figcaption>
+      </figure>
+      <div>
+        <h3>Slik spiser vi</h3>
+        <p>To kjøkken betyr at vi lager frokost og enkle middager selv, og bruker restaurantene på det som er verdt det: én stor Istria-middag med trøffel, én fiskemiddag ved sjøen, pizza når barna bestemmer, og is hver dag. Prisene ligger under Oslo-nivå: pizza €10–15, pasta med trøffel €15–25, hel grillet fisk €25–40.</p>
+        <ul class="tips">
+          <li>Drikkepenger rundt 10 % på restaurant, avrunding på kafé.</li>
+          <li>Kort funker nesten overalt. Batelina tar bare kontanter.</li>
+          <li>Barnemeny finnes på Boschetto og Oliva. Ellers deler vi.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="eats">
+      <div class="eat"><div class="type">Rett ved leilighetene</div><h3>Boschetto</h3><div class="where">Verudela, i furuskogen ved feriestedet</div><p>Pizza, istrisk pasta og calamari, med egen lekesone for barna og barnemeny. Livemusikk noen kvelder. Stedet vi går til første kvelden når ingen orker å tenke.</p><div class="price">€15–35 per person · åpent 11–22:30 · ingen booking nødvendig</div></div>
+      <div class="eat"><div class="type">Ved bassenget</div><h3>Pool Bar Oliva</h3><div class="where">Park Plaza Verudela, ved bassengene</div><p>Pizza fra €6, pasta, salater og grill. Gjestene kaller det feriestedets beste kjøp. Lunsj i badetøy.</p><div class="price">€6–15 · åpent 10–22</div></div>
+      <div class="eat"><div class="type">Fisk ved marinaen</div><h3>Ribarska Koliba</h3><div class="where">Verudela 3, Marina Veruda, 10 min gange</div><p>Michelin-listet fiskerestaurant med glassveranda over båtene. Sjøkreps på grillen eller i busara-saus, dagens fisk i saltskorpe. Kveldsmiddag for de voksne, eller en stor familielunsj.</p><div class="price">€25–60 · reserver</div></div>
+      <div class="eat"><div class="type">Barnas pizza</div><h3>Pizzeria Jupiter</h3><div class="where">Castropola 42, under Kaštel i sentrum</div><p>Vedfyrt pizza, digre porsjoner, terrasser i skråningen under festningen. Over 14 000 Google-anmeldelser og fortsatt 4,7. Etter Arenaen, før de lysende kranene.</p><div class="price">€10–15 · åpent 12–23:30 · drop-in</div></div>
+      <div class="eat"><div class="type">Den store Istria-middagen</div><h3>Konoba Boccaporta</h3><div class="where">Dolinka 18, Pula, 10 min med bil</div><p>Fuži med trøffel, boškarin-okse, kalv under peka-klokka og grill på åpen peis. Ekte konoba med tregulv og lange bord. Her tar vi kvelden med Jakob i hedersetet.</p><div class="price">€45–50 per person · reserver</div></div>
+      <div class="eat"><div class="type">Fiskesplurgen</div><h3>Konoba Batelina</h3><div class="where">Čimulje 25, Banjole, 10 min med bil</div><p>Ingen meny. Kokken David Skoko, en fisker, bestemmer: rå og marinert fisk, haileve, grillet sjøkreps. Michelin Bib Gourmand og 4,7 på tusen anmeldelser. Voksenkveld, mens barna er hos bestefar eller motsatt.</p><div class="price">€25–50 per person · stengt søndag · kun kontant · book uker i forveien</div></div>
+      <div class="eat"><div class="type">Sjømat uten fakter</div><h3>Farabuto</h3><div class="where">Sisplac 15, Veruda, 1,5 km fra hotellet</div><p>Slow food-sjømat i nabolaget: fylt blekksprut, grillet tunfisk, hjemmelaget pasta. Rolig, lokalt, og nært nok til å gå hjem.</p><div class="price">€45–50 per person · reserver · stengt søndag</div></div>
+      <div class="eat"><div class="type">Bak markedet</div><h3>Trattoria Vodnjanka</h3><div class="where">Dinka Vitezića 4, sentrum</div><p>Familiedrevet siden sekstitallet, med en ørliten meny: dagens kjøtt eller dagens fisk, og marinert fisk til forrett. Der lokalbefolkningen spiser.</p><div class="price">€22–45 · åpent 15–22, stengt søndag</div></div>
+      <div class="eat"><div class="type">Lunsj i gågata</div><h3>Kantina</h3><div class="where">Flanatička 16, ved Sergius-buen</div><p>Hvelvet kjeller og uteservering i gågata. Trøffel-fuži, tunfiskbiff og gode kaker. Åpner 07 på hverdager, så også frokost.</p><div class="price">€20–40 · stengt søndag</div></div>
+      <div class="eat"><div class="type">Kaffe og kake</div><h3>Bistro Alighieri</h3><div class="where">Danteov trg 3, ved posthuset</div><p>Pljukanci med trøffel, spaghetti vongole, og kaker til ettermiddagskaffen. Åpent fra 08 på hverdager.</p><div class="price">€15–35</div></div>
+      <div class="eat"><div class="type">Is</div><h3>Pomaj Gelato &amp; Bar</h3><div class="where">Istarska 38, ved Arenaen</div><p>Håndlaget gelato to minutter fra amfiteateret. På Stoja, mellom sentrum og hotellet, ligger Slastičarna Stoja med 4,5 i snitt.</p><div class="price">€2–4 per kule</div></div>
+      <div class="eat"><div class="type">Regnværsdag</div><h3>Peekaboo</h3><div class="where">Sv. Polikarpa 8, ved Arenaen</div><p>Innendørs lekeland for 0–12 år i tre soner, med pizzeria. Åpent 16–21 på hverdager, 12–21 lørdag og 10–21 søndag. Foreldre gratis.</p><div class="price">Pizza €11–15</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DAGSTURER -->
+<section id="turer">
+  <div class="wrap">
+    <div class="kicker">Dagsturer</div>
+    <h2 class="head">Safari, dinosaurer, trøffelskog og en by på en klippe</h2>
+    <p class="lead">Istria er lita: alt under ligger mellom tjue minutter og en drøy time fra leilighetene. Med en sjuseters leiebil kan vi ta tre store turdager, og bruke resten på strand og basseng. <b>Fra 1. oktober faller prisene</b> på både Brijuni og Kamenjak, så de to legger vi til slutten av uka.</p>
+
+    <div class="trips">
+      <div class="trip">
+        <img src="img/brijuni.jpg" alt="Hjort på gresslette med furuer og sjø på Brijuni" loading="lazy">
+        <div class="b">
+          <div class="dist">25 min til Fažana + 15 min båt</div>
+          <h3>Brijuni nasjonalpark</h3>
+          <p>Titos private øyrike. Bilfri øy med turisttog, safaripark med sebraer, lamaer, strutser og elefanten Lanka, en romersk villa i Verige-bukta, og ekte dinosaurfotspor i fjæra. Etter den guidede turen leier vi en seksseters elbil og kjører selv til fotsporene og lengst ut på Kapp Ploče.</p>
+          <div class="kid"><b>For barna:</b> tog, dyr og dinosaurer på samme dag. Flatt og asfaltert, så også fint for bestefar og vogn.</div>
+          <div class="fine">Båt 09:00 eller 10:00 fra Fažana · guidet tur voksne €50 (€35 fra 1. okt), barn 7–18 €20 (€15), under 7 gratis · elbil 6 seter €75/t · book på shop.np-brijuni.hr · ingen butikker på øya, ta med niste</div>
+        </div>
+      </div>
+
+      <div class="trip">
+        <img src="img/kamenjak.jpg" alt="Klipper og turkis sjø på Kapp Kamenjak" loading="lazy">
+        <div class="b">
+          <div class="dist">20 min · halv dag</div>
+          <h3>Kapp Kamenjak</h3>
+          <p>Istrias sørspiss er en naturpark med tretti bukter, grusveier mellom furuene og ikke en eneste bygning utenom Safari Bar, en drivvedbar med en svær huske og kjent limonade. Njive-bukta har småstein og grunt vann for de minste. Ved Mala Kolombarica hopper de store fra klippene, med en voksen ved siden.</p>
+          <div class="kid"><b>For barna:</b> dinosaurstien fra Pinižule til Kapp Grakalovac, 1,5 km med tolv ekte fotspor og modeller i full størrelse.</div>
+          <div class="fine">Bil €10/dag ut september, trolig gratis fra 1. okt · sykkel med barnevogn fra Rex Rent i Premantura €20/dag · Safari Bar +385 91 627 84 67 · grusvei, kjør sakte</div>
+        </div>
+      </div>
+
+      <div class="trip">
+        <img src="img/rovinj.jpg" alt="Rovinj gamleby sett fra sjøen med Sankt Eufemia-kirken" loading="lazy">
+        <div class="b">
+          <div class="dist">45 min · hel dag</div>
+          <h3>Rovinj og Limfjorden</h3>
+          <p>Den vakreste byen på Adriaterhavskysten: en venetiansk gamleby stablet på en halvøy, med kirketårn på toppen, båter i havna og gelato på hvert hjørne. Punta Corrente-parken tjue minutter unna har bukter og furuskygge. På vei hjem svinger vi innom Limfjorden, en ti kilometer lang havarm med hundre meter høye klipper og østersoppdrett.</p>
+          <div class="kid"><b>For barna:</b> det lille akvariet ved havna (åpent til 15. okt), båttur i fjorden med piratgrotte, og Gelateria Italia i gamlebyen.</div>
+          <div class="fine">Parkering Valdibora €3,50/t (€2 fra okt) · kirketårnet €3, 200 bratte tretrinn, unngå kl. 12 · Limfjord-båt fra Vrsar ca. €20, 2,5 t · østers på Fjord (åpent daglig) eller Viking (stengt mandag)</div>
+        </div>
+      </div>
+
+      <div class="trip">
+        <img src="img/dinopark.jpg" alt="Dinosaurmodell i skogen i Dinopark Funtana" loading="lazy">
+        <div class="b">
+          <div class="dist">65 min · hel dag</div>
+          <h3>Dinopark Funtana, Baredine-grotta og Poreč</h3>
+          <p>Den reneste barnedagen. Dinopark har 1,5 km skogssti med bevegelige dinosaurer, femten karuseller, piratshow, fossilgraving og ponniridning. Ti minutter unna ligger <b>Baredine</b>, en dryppsteinsgrotte seksti meter ned i bakken med olm-salamandere, og Poreč har en basilika fra 500-tallet med gullmosaikk som er verdensarv.</p>
+          <div class="kid"><b>For barna:</b> alt sammen. For bestefar: kafeen på toppen av grotta om de 270 trinnene frister lite.</div>
+          <div class="fine">Dinopark 10–18, voksne €32, barn 4–14 €28, under 4 gratis, «happy hour» fra 15 €27/€23 · ring +385 52 445 327 dagen før, stenger i regn · Baredine 10–17 (10–16 i okt), €14/€10, 14 grader, ta jakke · unngå Poreč lørdag 3. okt (sykkelritt)</div>
+        </div>
+      </div>
+
+      <div class="trip">
+        <img src="img/motovun.jpg" alt="Motovun på toppen av åsen over Mirna-dalen" loading="lazy">
+        <div class="b">
+          <div class="dist">75 min · hel dag</div>
+          <h3>Motovun og trøffeldalen</h3>
+          <p>En middelalderby på toppen av en ås, med bymur du kan gå rundt og utsikt over Mirna-dalen der verdens dyreste sopp graves opp. I Livade nedenfor ligger Zigante, trøffelkongens restaurant og butikk. <b>Lørdag 3. oktober åpner Zigante Truffle Days</b> i Livade: gratis inngang, boder, show-cooking og trøffelhunder som viser hvordan de finner dem.</p>
+          <div class="kid"><b>For barna:</b> pendelbussen opp bakken, murene, og pasta med trøffel er faktisk barnemat. Privat trøffeljakt med hund hos Karlić i Buzet tar imot alle aldre.</div>
+          <div class="fine">Parkering under byen ca. €7, bymuren ca. €5 · Zigante: pasta med trøffel €23, book på WhatsApp +385 91 430 12 00 · billigere og like god: Konoba Dolina i Gradinje, 5 min fra Livade · trøffeljakt Karlić ca. €130 pp, book 3 dager før</div>
+        </div>
+      </div>
+
+      <div class="trip">
+        <img src="img/vodnjan.jpg" alt="Torget i Vodnjan" loading="lazy">
+        <div class="b">
+          <div class="dist">20 min · halv dag</div>
+          <h3>Vodnjan, olivenolje og Fažana</h3>
+          <p>Vodnjan har Istrias høyeste kirketårn og tre helgener som ligger uforfalt i glassmontre. To kilometer utenfor ligger <b>Chiavalon</b>, en av verdens beste olivenoljeprodusenter, med gratis smaking i pressa. Rett ved veien til Fažana står Kažun-parken, tørrmurte steinhytter barna kan krype inn i. Avslutt med solnedgang over Brijuni fra promenaden i Fažana.</p>
+          <div class="kid"><b>For barna:</b> Kažun-hyttene, tårnet, og over tretti gatekunstverk å lete etter i Vodnjan.</div>
+          <div class="fine">Mumiene: fra oktober kun etter avtale, +385 97 661 7522 · Chiavalon man–fre 8–20, lør 9–14 · tårnet €5/€2,50 · lunsj på Vodnjanka (stengt søndag)</div>
+        </div>
+      </div>
+
+      <div class="trip">
+        <img src="img/medulin-beach.jpg" alt="Bijeca-stranda i Medulin med sand og furutrær" loading="lazy">
+        <div class="b">
+          <div class="dist">15 min · halv dag</div>
+          <h3>Medulin og sandstranda Bijeca</h3>
+          <p>Istria er rullestein overalt, bortsett fra her: én kilometer gyllen sand, grunt langt ut, furuer som gir skygge, lekeplass og dusjer. Nesten tom i slutten av september. Vižula-halvøya rett ved har en romersk villa, flate stier og to strandbarer.</p>
+          <div class="kid"><b>For barna:</b> bøtte og spade, endelig. Bestefar får en benk i skyggen.</div>
+          <div class="fine">Buss 25 fra Pula eller bil · gratis · Salt &amp; Pepper i Medulin for burgere og blekksprut · båttur til Kamenjak-grotta og Porer-fyret fra havna, €45 med lunsj</div>
+        </div>
+      </div>
+
+      <div class="trip">
+        <img src="img/truffle.jpg" alt="Hvite trøfler på et fat" loading="lazy">
+        <div class="b">
+          <div class="dist">50–70 min · valgfritt</div>
+          <h3>Pazin, Hum og trøffeljakt</h3>
+          <p>Om noen vil dypere inn i landet: Pazin har Istrias best bevarte borg på kanten av et hundre meter dypt juv, en zipline over juvet, og Jules Verne lot helten sin rømme herfra. Tjuefem minutter videre ligger <b>Hum</b>, verdens minste by, med to gater og én konoba. Trøffeljakt med hund hos Karlić eller Prodan i Buzet tar 3 timer inkludert matlaging.</p>
+          <div class="kid"><b>For barna:</b> zipline fra €24 (små rir tandem med guide), og de glagolittiske kjempebokstavene langs veien til Hum kan klatres på.</div>
+          <div class="fine">Borgen tir–søn 10–18, €6/€3 · zipline etter avtale fra 1. okt · Humska konoba: kom før 12 · ikke kombiner med Motovun samme dag, det blir for mye bil</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <div class="note earth"><b>Leiebil hele uka</b>Sjuseter fra Pula lufthavn koster rundt €300–500 for uka utenom sesong. Én taxi-van til Rovinj koster €85 hver vei, så bilen betaler seg på to dager. Vi tar med egne beltestoler til barna og leier bare ett barnesete. Sjekk at kontrakten tillater grusvei (Kamenjak).</div>
+      <div class="note pine"><b>Stengt for sesongen</b>Vannparkene Istralandia og Aquacolors stengte 11. september, Glavani klatrepark la ned 1. september, og gladiatorshowene i Arenaen er over. Alt over er åpent.</div>
+      <div class="note sea"><b>Regnværsplan</b>Akvariet ved hotellet, Zerostrasse-tunnelene under Pula, Peekaboo lekeland med pizza ved Arenaen, bowling på Kooglana, og innebassenget på Park Plaza Histria.</div>
+    </div>
+  </div>
+</section>
+
+<!-- UKA -->
+<section id="uka">
+  <div class="wrap">
+    <div class="kicker">Et forslag</div>
+    <h2 class="head">Slik kan uka se ut</h2>
+    <p class="lead">Tre store turdager, resten ved sjøen. Alt kan byttes om etter vær og humør. Det eneste som er låst er flyene og at Brijuni bør vente til oktober.</p>
+
+    <div class="week">
+      <div class="day"><div class="d">Lørdag<small>26. sep</small></div><div class="t"><b>Reisedag.</b> Landing 21:05, leilighetene rundt 22. Kveldsmat fra håndbagasjen, barna i seng, balkongen for de voksne.</div></div>
+      <div class="day"><div class="d">Søndag<small>27. sep</small></div><div class="t"><b>Rolig start.</b> Handle på minimarkedet, bassenget før lunsj, Hawaii-bukta etterpå. Om kvelden buss til sentrum: Arenaen kl. 16, gateteateret kl. 18, pizza på Jupiter, de lysende kranene kl. 20.<span class="alt">Butikkene kan være søndagsstengt. Minimarkedet på området har brød og det viktigste.</span></div></div>
+      <div class="day"><div class="d">Mandag<small>28. sep</small></div><div class="t"><b>Rovinj og Limfjorden.</b> Hent leiebilen på flyplassen om morgenen, eller be dem levere den til hotellet. Rovinj kl. 10, akvarium og gelato, Punta Corrente etter lunsj, østers på Fjord på vei hjem.<span class="alt">Viking er stengt mandag, Fjord er åpent hver dag.</span></div></div>
+      <div class="day"><div class="d">Tirsdag<small>29. sep</small></div><div class="t"><b>Strand og basseng.</b> Ambrela med de minste, snorkling i Hawaii-bukta med de store. Akvariet om ettermiddagen. Den store Istria-middagen på Konoba Boccaporta.</div></div>
+      <div class="day"><div class="d">Onsdag<small>30. sep</small></div><div class="t"><b>Dinopark, Baredine og Poreč.</b> Grotta kl. 10, Poreč til lunsj, Dinopark fra 15 til stengetid med happy hour-billett.<span class="alt">Alternativ hvis det regner i vest: Motovun og trøffeldalen i stedet.</span></div></div>
+      <div class="day"><div class="d">Torsdag<small>1. okt</small></div><div class="t"><b>Brijuni.</b> Båt kl. 10 fra Fažana, tog og safari, elbil til dinosaurfotsporene, bad ved Bistro Plaža. Solnedgang og middag på Konoba Feral i Fažana.<span class="alt">Book plassene på nett noen dager før. Oktoberpris: €35 per voksen.</span></div></div>
+      <div class="day"><div class="d">Fredag<small>2. okt</small></div><div class="t"><b>Kamenjak og Medulin.</b> Njive-bukta og dinosaurstien om formiddagen, Safari Bar-limonade, sandstranda Bijeca etter lunsj. Om kvelden: voksenmiddag på Batelina mens bestefar og barna har pizzakveld på Boschetto, eller omvendt.</div></div>
+      <div class="day"><div class="d">Lørdag<small>3. okt</small></div><div class="t"><b>Siste dag.</b> Utsjekk innen 10, bagasjen i resepsjonen. Vodnjan, olivenolje hos Chiavalon og Kažun-parken, eller Kaštel og tunnelene i Pula om vi ikke rakk det. Tidlig middag, lever bilen, fly 21:45.<span class="alt">Alternativ for de ivrigste: åpningsdagen av Zigante Truffle Days i Livade, 10–15, tilbake på flyplassen i god tid.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KART -->
+<section id="kart">
+  <div class="wrap">
+    <div class="kicker">Kart</div>
+    <h2 class="head">Alt på ett kart</h2>
+    <p class="lead">Trykk på et punkt for bilde og detaljer.</p>
+    <div class="legend" id="legend" style="margin-top:18px">
+      <button class="zoom" data-z="near" type="button" style="all:unset;cursor:pointer;color:var(--sea-deep);text-decoration:underline;text-underline-offset:2px">Rundt hotellet</button>
+      <button class="zoom" data-z="pula" type="button" style="all:unset;cursor:pointer;color:var(--sea-deep);text-decoration:underline;text-underline-offset:2px">Pula</button>
+      <button class="zoom" data-z="all" type="button" style="all:unset;cursor:pointer;color:var(--sea-deep);text-decoration:underline;text-underline-offset:2px">Hele Istria</button>
+    </div>
+    <div id="map"></div>
+  </div>
+</section>
+
+<!-- PRAKTISK -->
+<section id="praktisk">
+  <div class="wrap">
+    <div class="kicker">Praktisk</div>
+    <h2 class="head">Vær, penger og hva du bør ha i kofferten</h2>
+    <p class="lead">Slutten av september er Istrias fineste uke: sommervarmt på dagen, lune kvelder, sjøen fortsatt varm etter sommeren, og turistene har dratt hjem. En regnskur eller to må vi regne med.</p>
+
+    <div class="wx">
+      <div><span class="n">22<small>°</small></span><span class="l">typisk dagtemperatur</span></div>
+      <div><span class="n">13<small>°</small></span><span class="l">på natta, ta med genser</span></div>
+      <div><span class="n">21<small>°</small></span><span class="l">i sjøen</span></div>
+      <div><span class="n">7<small> t</small></span><span class="l">sol per dag i snitt</span></div>
+      <div><span class="n">19:00</span><span class="l">solnedgang</span></div>
+      <div><span class="n">2<small> av 7</small></span><span class="l">dager med litt regn</span></div>
+    </div>
+
+    <div class="cols">
+      <div class="col">
+        <h3>Pakkeliste utover det vanlige</h3>
+        <ul>
+          <li>Badesko til alle seks<small>Strendene er rullestein og svaberg</small></li>
+          <li>Snorkel og dykkerbriller<small>Hawaii-bukta har det klareste vannet</small></li>
+          <li>Bæresele til minstemann<small>Barnevogn er forbudt inne i akvariet, og Brijuni har mye gress</small></li>
+          <li>Tynn regnjakke og en genser<small>Kveldene er 12–15 grader</small></li>
+          <li>Solkrem, det er fortsatt sommer på dagen</li>
+          <li>EU-adapter trengs ikke<small>Samme stikkontakt som hjemme</small></li>
+          <li>Kveldsmat til første kvelden i håndbagasjen</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Penger og butikker</h3>
+        <ul>
+          <li>Kroatia bruker euro<small>Kort nesten overalt, men ha noen sedler til strandbar og Batelina</small></li>
+          <li>Drikkepenger rundt 10 % på restaurant</li>
+          <li>Butikkene er stengt på søndager fra oktober<small>Søndag 27. sep er trolig åpent, men handle stort på lørdagen uansett</small></li>
+          <li>Lidl 15 min til fots, minimarked på området</li>
+          <li>Døgnåpent apotek: Ljekarna Centar, Giardini 14<small>+385 52 222 544</small></li>
+          <li>Nødnummer 112, fungerer på norsk SIM</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Komme seg rundt</h3>
+        <ul>
+          <li>Buss 2A fra Verudela til sentrum<small>Hvert 20–30. minutt, 14 min, €2,20 hos sjåføren, barn under 6 gratis. Siste buss hjem 22:45</small></li>
+          <li>Bolt-appen fungerer i Pula<small>Uber gjør det ikke. Sentrum til Verudela €10–15</small></li>
+          <li>Leiebil fra flyplassen<small>Fra ca. €30 per dag. Gratis parkering på hotellet. Trengs for Brijuni, Kamenjak, Rovinj og Motovun</small></li>
+          <li>Taxi fra flyplassen<small>13 km, 20 min. Forhåndsbestilt minivan for 6 rundt €47, taxi på holdeplassen ca. €25 per bil</small></li>
+          <li>Flyplassbussen<small>€5, går 30 min etter landing og stopper ved Verudela-hotellene</small></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Før vi drar</h3>
+        <ul>
+          <li>Bestill bord på Batelina<small>Ukene i forveien. +385 52 573 767</small></li>
+          <li>Bestill Brijuni-utflukten<small>izleti@np-brijuni.hr eller +385 52 525 882</small></li>
+          <li>Kjøp arenabilletter på nett<small>shop.ami-pula.hr</small></li>
+          <li>Si fra til hotellet om sen ankomst<small>+385 52 590 781, vi kommer rundt 22</small></li>
+          <li>Sjekk inn på Norwegian dagen før<small>Ref. YHW23A</small></li>
+          <li>Reiseforsikring og europeisk helsetrygdkort til alle</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Laget for familien, september 2026. <a href="../../">Flere sider</a> · <a href="https://github.com/andeplane/personal/tree/main/posts/2026-pula">Kildekode</a>.</p>
+    <p>Priser og åpningstider er hentet fra offisielle nettsider sommeren 2026 og kan endre seg. Sjekk før vi drar.</p>
+    <p class="credits">Bilder fra Wikimedia Commons: <span id="credits"></span></p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+  // ---- credits ----
+  var CR = [{"file": "pula-arena.jpg", "title": "Anfiteatro de Pula, Croacia, 2017-04-17, DD 13-18 HDR PAN.jpg", "author": "Diego Delso", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:Anfiteatro_de_Pula,_Croacia,_2017-04-17,_DD_13-18_HDR_PAN.jpg"}, {"file": "pula-arena-inside.jpg", "title": "Pula Arena, Hrvatska.jpg", "author": "Viktar Palstsiuk", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:Pula_Arena,_Hrvatska.jpg"}, {"file": "verudela-coast.jpg", "title": "Pula Verudela (47052700814).jpg", "author": "Gwenael Saint-Genest", "license": "CC BY-SA 2.0", "source_url": "https://commons.wikimedia.org/wiki/File:Pula_Verudela_(47052700814).jpg"}, {"file": "pula-old-town.jpg", "title": "Croatia Pula 2014-10-11 11-59-26.jpg", "author": "Berthold Werner", "license": "CC BY-SA 3.0", "source_url": "https://commons.wikimedia.org/wiki/File:Croatia_Pula_2014-10-11_11-59-26.jpg"}, {"file": "pula-market.jpg", "title": "Kroatien Pula Markthalle 01.jpg", "author": "Georg Karl Ell", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:Kroatien_Pula_Markthalle_01.jpg"}, {"file": "brijuni.jpg", "title": "Brijuni 20190420.jpg", "author": "David Lukšić", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:Brijuni_20190420.jpg"}, {"file": "brijuni-animals.jpg", "title": "Brijuni - zebra.jpg", "author": "Silverije", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:Brijuni_-_zebra.jpg"}, {"file": "kamenjak.jpg", "title": "Rt Kamenjak, Croatia4.JPG", "author": "Croq", "license": "CC BY-SA 3.0", "source_url": "https://commons.wikimedia.org/wiki/File:Rt_Kamenjak,_Croatia4.JPG"}, {"file": "rovinj.jpg", "title": "Rovinj seen from the sea.jpg", "author": "Giacomo Alessandroni", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:Rovinj_seen_from_the_sea.jpg"}, {"file": "motovun.jpg", "title": "Aerial view to Motovun.jpg", "author": "Ekaterina Polischuk", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:Aerial_view_to_Motovun.jpg"}, {"file": "truffle.jpg", "title": "Truffles white Croatia.jpg", "author": "K. Korlević (Kork, Wikimedia Commons)", "license": "Public domain", "source_url": "https://commons.wikimedia.org/wiki/File:Truffles_white_Croatia.jpg"}, {"file": "limski-kanal.jpg", "title": "Lim bay, Croatia.jpg", "author": "Viktar Palstsiuk", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:Lim_bay,_Croatia.jpg"}, {"file": "fazana.jpg", "title": "Croatia Fazana 2014-10-11 13-37-35.jpg", "author": "Berthold Werner", "license": "CC BY-SA 3.0", "source_url": "https://commons.wikimedia.org/wiki/File:Croatia_Fazana_2014-10-11_13-37-35.jpg"}, {"file": "medulin-beach.jpg", "title": "Croatia Medulin Bijeca beach.jpg", "author": "Liilia Moroz", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:Croatia_Medulin_Bijeca_beach.jpg"}, {"file": "istria-food.jpg", "title": "ISTRA Konoba Restaurant (50390114382).jpg", "author": "Kent Wang from Barcelona, Spain", "license": "CC BY-SA 2.0", "source_url": "https://commons.wikimedia.org/wiki/File:ISTRA_Konoba_Restaurant_(50390114382).jpg"}, {"file": "istria-olive-wine.jpg", "title": "Vineyards of Istria (Croatia).jpg", "author": "Petar Milošević", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:Vineyards_of_Istria_(Croatia).jpg"}, {"file": "porec.jpg", "title": "View to Porec old town in the morning sun.jpg", "author": "Ekaterina Polischuk", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:View_to_Porec_old_town_in_the_morning_sun.jpg"}, {"file": "baredine.jpg", "title": "Baredine-011 (36570678394).jpg", "author": "Bernhard Wintersperger from Graz, Austria", "license": "CC BY 2.0", "source_url": "https://commons.wikimedia.org/wiki/File:Baredine-011_(36570678394).jpg"}, {"file": "vodnjan.jpg", "title": "Vodnjan 2.jpg", "author": "Hienstorfer", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:Vodnjan_2.jpg"}, {"file": "pula-lighting-giants.jpg", "title": "Lighting Giants Pula Croatia.jpg", "author": "Christoph Sammer", "license": "CC BY 2.0", "source_url": "https://commons.wikimedia.org/wiki/File:Lighting_Giants_Pula_Croatia.jpg"}, {"file": "pula-sunset.jpg", "title": "Sunset in Pula (02).jpg", "author": "Orlovic", "license": "CC BY-SA 3.0", "source_url": "https://commons.wikimedia.org/wiki/File:Sunset_in_Pula_(02).jpg"}, {"file": "gelato.jpg", "title": "Ice cream in cones.jpg", "author": "AlphaLemur", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:Ice_cream_in_cones.jpg"}, {"file": "dinopark.jpg", "title": "Dinopark, Funtana, Croatia (dinopark.hr) - panoramio (2).jpg", "author": "Almondox", "license": "CC BY 3.0", "source_url": "https://commons.wikimedia.org/wiki/File:Dinopark,_Funtana,_Croatia_(dinopark.hr)_-_panoramio_(2).jpg"}, {"file": "istria-kids-beach.jpg", "title": "Pula - plaža Ambrela na Verudeli.2.jpg", "author": "Silverije", "license": "CC BY-SA 4.0", "source_url": "https://commons.wikimedia.org/wiki/File:Pula_-_pla%C5%BEa_Ambrela_na_Verudeli.2.jpg"}, {"file": "verudela-aerial.jpg", "title": "Pula Punta Verudela", "author": "Orlovic", "license": "CC BY-SA 3.0", "source_url": "https://commons.wikimedia.org/wiki/File:Pula_Punta_Verudela.JPG"}];
+  var el = document.getElementById('credits');
+  el.innerHTML = CR.map(function(c){
+    return '<a href="'+c.source_url+'" target="_blank" rel="noopener">'+c.title+'</a> ('+c.author+', '+c.license+')';
+  }).join(' · ');
+
+  // ---- map ----
+  var HOME = [44.8355, 13.8365];
+  var KINDS = {
+    hjem:{c:'#9c3d2b', n:'Hotellet'},
+    naer:{c:'#127d8c', n:'Rett ved'},
+    pula:{c:'#0f2f44', n:'Pula sentrum'},
+    mat:{c:'#e0a63a', n:'Mat'},
+    tur:{c:'#2f6b45', n:'Dagstur'}
+  };
+  var P = [{"k": "hjem", "n": "Arena Verudela Beach", "t": "Leilighetene våre. Verudella 11.", "d": "Innsjekk fra 16, utsjekk innen 10", "lat": 44.8352, "lng": 13.8365, "img": "verudela-aerial.jpg"}, {"k": "naer", "n": "Hawaii-bukta", "t": "Liten rullesteinsbukt rett nedenfor leilighetene. Klarest vann, blir fort dypt.", "d": "2 min", "lat": 44.8328, "lng": 13.8388, "img": "verudela-coast.jpg"}, {"k": "naer", "n": "Ambrela-stranda", "t": "Den store stranda med Blått flagg, dusjer og livredder. Trampoline i vannet.", "d": "10 min gange", "lat": 44.8398, "lng": 13.8322, "img": "istria-kids-beach.jpg"}, {"k": "naer", "n": "Bassengene", "t": "Tre sjøvannsbasseng, barnebasseng og sklier ved Park Plaza Verudela. Pool Bar Oliva.", "d": "5 min oppover", "lat": 44.8378, "lng": 13.8348}, {"k": "naer", "n": "Aquarium Pula", "t": "Kroatias største akvarium, i et fort fra 1886. Hai, maneter, skilpadder, sommerfugler.", "d": "09–19 i oktober · €25/€20/€16", "lat": 44.8347, "lng": 13.8398}, {"k": "naer", "n": "Histria-stranda", "t": "Flate svaberg og det roligste vannet. Park Plaza Histria har innendørs oppvarmet basseng.", "d": "5 min", "lat": 44.8318, "lng": 13.833}, {"k": "naer", "n": "Lungomare", "t": "Fire kilometer kyststi langs klippene fra Verudela til Stoja. Kveldstur med is.", "d": "", "lat": 44.847, "lng": 13.826, "img": "pula-sunset.jpg"}, {"k": "mat", "n": "Boschetto", "t": "Pizza, pasta og calamari i furuskogen. Lekesone og barnemeny.", "d": "11–22:30 · €15–35", "lat": 44.8368, "lng": 13.8382}, {"k": "mat", "n": "Ribarska Koliba", "t": "Michelin-listet fiskerestaurant med glassveranda over marinaen.", "d": "€25–60 · reserver", "lat": 44.8395, "lng": 13.8428, "img": "istria-food.jpg"}, {"k": "mat", "n": "Farabuto", "t": "Slow food-sjømat i nabolaget. Fylt blekksprut og grillet tunfisk.", "d": "stengt søndag", "lat": 44.8412, "lng": 13.8452}, {"k": "mat", "n": "Konoba Batelina", "t": "Ingen meny, kokken bestemmer. Michelin Bib Gourmand. Voksenkveld.", "d": "man–lør 17–23 · kontant · +385 52 573 767", "lat": 44.833, "lng": 13.858}, {"k": "mat", "n": "Konoba Boccaporta", "t": "Fuži med trøffel, boškarin og peka. Den store Istria-middagen.", "d": "€45–50 pp · reserver", "lat": 44.8768, "lng": 13.872}, {"k": "pula", "n": "Pula Arena", "t": "Romersk amfiteater, det sjette største i riket. Utstilling om olivenolje og vin under tribunene.", "d": "08–21 sep, 09–19 okt · €10/€5", "lat": 44.8731, "lng": 13.85, "img": "pula-arena.jpg"}, {"k": "pula", "n": "Forum og Augustus-tempelet", "t": "Romersk torg med tempel fra år 2. Kaffe på Cvajner.", "d": "€2", "lat": 44.8697, "lng": 13.844, "img": "pula-old-town.jpg"}, {"k": "pula", "n": "Kaštel og Zerostrasse", "t": "Venetiansk festning med utsikt, og tunnelene fra første verdenskrig under. Heis mellom dem.", "d": "€8/€3 · til 17 fra okt", "lat": 44.8698, "lng": 13.847}, {"k": "pula", "n": "Markedshallen", "t": "Jugendhall fra 1903. Frukt, burek, ost og pršut. Fisk om morgenen.", "d": "07–13:30, søn 07–12", "lat": 44.8676, "lng": 13.848, "img": "pula-market.jpg"}, {"k": "pula", "n": "Lighting Giants", "t": "Kranene på Uljanik-verftet lyses opp hver hele time etter mørkets frembrudd. Se fra Riva.", "d": "gratis · 20:00 og 21:00", "lat": 44.8745, "lng": 13.847, "img": "pula-lighting-giants.jpg"}, {"k": "mat", "n": "Pizzeria Jupiter", "t": "Vedfyrt pizza under festningen. 4,7 på 14 000 anmeldelser.", "d": "12–23:30 · €10–15", "lat": 44.871, "lng": 13.846}, {"k": "pula", "n": "Peekaboo", "t": "Innendørs lekeland 0–12 år med pizzeria. Regnværsplan.", "d": "hverdager 16–21, helg fra 10/12", "lat": 44.8725, "lng": 13.8515}, {"k": "mat", "n": "Pomaj Gelato", "t": "Håndlaget gelato to minutter fra Arenaen.", "d": "", "lat": 44.8722, "lng": 13.848, "img": "gelato.jpg"}, {"k": "tur", "n": "Fažana", "t": "Fiskerlandsby med båtene til Brijuni. Solnedgang over øyene. Konoba Feral.", "d": "25 min", "lat": 44.9277, "lng": 13.8047, "img": "fazana.jpg"}, {"k": "tur", "n": "Brijuni nasjonalpark", "t": "Titos øy: tog, safaripark, romersk villa og dinosaurfotspor.", "d": "båt 09/10 · €35 voksen fra 1. okt", "lat": 44.9145, "lng": 13.766, "img": "brijuni-animals.jpg"}, {"k": "tur", "n": "Kamenjak · Njive-bukta", "t": "Grunn småsteinsbukt for de minste, med bar og parkering rett ved.", "d": "20 min", "lat": 44.7896, "lng": 13.9147, "img": "kamenjak.jpg"}, {"k": "tur", "n": "Safari Bar", "t": "Drivvedbar med svær huske, lekeplass og limonade. Klippehopping ved Mala Kolombarica.", "d": "til skumring", "lat": 44.7717, "lng": 13.9195}, {"k": "tur", "n": "Bijeca, Medulin", "t": "Én kilometer sand, grunt langt ut, furuer, lekeplass. Istrias eneste sandstrand.", "d": "15 min", "lat": 44.8163, "lng": 13.9397, "img": "medulin-beach.jpg"}, {"k": "tur", "n": "Vodnjan", "t": "Istrias høyeste kirketårn, mumier, gatekunst. Vodnjanka til lunsj.", "d": "20 min", "lat": 44.9597, "lng": 13.8519, "img": "vodnjan.jpg"}, {"k": "tur", "n": "Chiavalon olivenolje", "t": "Verdensklasse olivenolje. Gratis smaking i pressa, guidet tur på bestilling.", "d": "man–fre 8–20, lør 9–14", "lat": 44.945, "lng": 13.85, "img": "istria-olive-wine.jpg"}, {"k": "tur", "n": "Rovinj", "t": "Venetiansk gamleby på en halvøy. Akvarium, kirketårn, gelato, Punta Corrente.", "d": "45 min", "lat": 45.0812, "lng": 13.6387, "img": "rovinj.jpg"}, {"k": "tur", "n": "Limfjorden", "t": "Ti kilometer havarm med hundre meter høye klipper. Utsiktspunkt ved veien, østers på Fjord og Viking.", "d": "50 min", "lat": 45.131, "lng": 13.715, "img": "limski-kanal.jpg"}, {"k": "tur", "n": "Dinopark Funtana", "t": "Bevegelige dinosaurer, karuseller, piratshow, fossilgraving og ponnier.", "d": "10–18 · €32/€28 · happy hour fra 15", "lat": 45.1745, "lng": 13.6055, "img": "dinopark.jpg"}, {"k": "tur", "n": "Baredine-grotta", "t": "Dryppsteinsgrotte 60 meter ned. 270 trinn, 14 grader, olm-salamandere.", "d": "10–17 · €14/€10", "lat": 45.2707, "lng": 13.6483, "img": "baredine.jpg"}, {"k": "tur", "n": "Poreč", "t": "Eufrasius-basilikaen fra 500-tallet med gullmosaikk. Flat, romersk gamleby.", "d": "65 min · €10/€5", "lat": 45.2286, "lng": 13.5928, "img": "porec.jpg"}, {"k": "tur", "n": "Motovun", "t": "Middelalderby på åsen over trøffeldalen. Bymur, pendelbuss opp.", "d": "75 min", "lat": 45.3367, "lng": 13.829, "img": "motovun.jpg"}, {"k": "tur", "n": "Livade · Zigante", "t": "Trøffelkongens restaurant og butikk. Zigante Truffle Days åpner lørdag 3. oktober.", "d": "pasta med trøffel €23", "lat": 45.3505, "lng": 13.822, "img": "truffle.jpg"}, {"k": "tur", "n": "Pazin", "t": "Borg på kanten av et hundre meter dypt juv. Zipline over.", "d": "50 min", "lat": 45.2397, "lng": 13.937}, {"k": "tur", "n": "Hum", "t": "Verdens minste by. To gater, én konoba, mistelteinbrennevin.", "d": "70 min", "lat": 45.3494, "lng": 14.053}, {"k": "tur", "n": "Pula lufthavn", "t": "Landing lørdag 21:05, avgang lørdag 21:45 uka etter.", "d": "13 km, 20 min", "lat": 44.8935, "lng": 13.9222}];
+  var mapEl = document.getElementById('map');
+  if (!mapEl || typeof L === 'undefined') return;
+  var map = L.map(mapEl, {scrollWheelZoom:false});
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {maxZoom:18, attribution:'© OpenStreetMap'}).addTo(map);
+  var pts = [];
+  P.forEach(function(p){
+    var k = KINDS[p.k];
+    var m = L.circleMarker([p.lat,p.lng], {radius: p.k==='hjem'?10:7, color:'#fff', weight:2,
+      fillColor:k.c, fillOpacity:1}).addTo(map);
+    var html = (p.img ? '<img src="img/'+p.img+'" alt="">' : '') + '<b>'+p.n+'</b><br>'+p.t +
+      (p.d ? '<br><span style="color:#777;font-size:12px">'+p.d+'</span>' : '');
+    m.bindPopup(html, {maxWidth:260});
+    pts.push([p.lat,p.lng]);
+  });
+  map.fitBounds(pts, {padding:[30,30]});
+  var leg = document.getElementById('legend');
+  Object.keys(KINDS).forEach(function(k){
+    leg.insertAdjacentHTML('beforeend','<span><i style="background:'+KINDS[k].c+'"></i>'+KINDS[k].n+'</span>');
+  });
+  document.querySelectorAll('.zoom').forEach(function(b){
+    b.addEventListener('click', function(){
+      if (b.dataset.z === 'near') map.flyTo(HOME, 15);
+      else if (b.dataset.z === 'pula') map.flyTo([44.862,13.845], 13);
+      else map.fitBounds(pts, {padding:[30,30]});
+    });
+  });
+})();
+</script>
+</body>
+</html>

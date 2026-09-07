@@ -23,6 +23,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Build and validate garage planner
+        run: |
+          python3 garage/build-viewer.py
+          node --check garage/viewer.js
+          python3 -m json.tool garage/design-data.json > /dev/null
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

@@ -1,0 +1,158 @@
+<div id="garage-options">
+  <div class="viz-controls" aria-label="Choose garage layout">
+    <button class="btn" type="button" data-layout="0" aria-pressed="true">A · Family gear wall</button>
+    <button class="btn" type="button" data-layout="1" aria-pressed="false">B · Deep camping store</button>
+    <button class="btn" type="button" data-layout="2" aria-pressed="false">C · Gear bench</button>
+  </div>
+  <div class="viz-row" style="justify-content:space-between;margin-top:12px">
+    <strong id="garage-title">A · Family gear wall</strong><span id="garage-price" class="tabular-nums"></span>
+  </div>
+  <div id="garage-scene" role="img" aria-label="Dimensioned 3D garage model with selected shelving, right-wall hanging storage and Model Y size proxy"></div>
+  <div class="viz-controls">
+    <label class="form-label">View <select id="garage-view" class="form-select"><option value="overview">3D overview</option><option value="rear">Rear storage</option><option value="right">Right wall</option><option value="plan">Floor plan</option></select></label>
+    <label class="form-check"><input id="garage-car" type="checkbox" class="form-check-input" checked><span class="form-check-label">Car in overview / plan</span></label>
+    <label class="form-check"><input id="garage-loft" type="checkbox" class="form-check-input"><span class="form-check-label">Hems underside · assumed 2.10 m</span></label>
+  </div>
+  <div id="garage-metrics" class="viz-row tabular-nums" aria-live="polite" style="margin-top:12px"></div>
+  <div id="garage-equipment" class="text-small" style="margin-top:8px"></div>
+  <div class="text-small" style="margin-top:8px">Dimensioned concept · car shape and stored equipment simplified · door movement and loft access unverified</div>
+  <hr>
+  <details open><summary>Products for this layout · NOK incl. VAT</summary>
+    <div class="table-responsive"><table class="table table-sm"><thead><tr><th>Product</th><th class="text-end">Qty</th><th class="text-end">Each</th><th class="text-end">Total</th></tr></thead><tbody id="garage-products"></tbody><tfoot id="garage-totals"></tfoot></table></div>
+  </details>
+  <div class="text-small">Prices checked 6 Sep 2026 · Jula hook kits on offer; +500 kr if regular price applies · delivery and labour excluded</div>
+</div>
+<style>
+#garage-options{--garage-wood:light-dark(#c7a880,#79634f);--garage-metal:light-dark(#424e51,#697980);--garage-floor:light-dark(#d7d8d4,#4b5259);--garage-white:light-dark(#f3f1e9,#b3b9b9);--garage-glass:light-dark(#47616d,#65828f);--garage-bin:light-dark(#b9d1d4,#75999f);--garage-gear:light-dark(#667c68,#8ca58e);--garage-rubber:light-dark(#293336,#252e32);--garage-accent:light-dark(#44857e,#80beb5)}
+#garage-options #garage-scene{width:100%;height:500px;position:relative;margin:8px 0}
+#garage-options canvas{display:block;width:100%;height:100%;touch-action:pan-y}
+#garage-options strong{font-weight:500}
+#garage-options #garage-metrics{column-gap:24px;row-gap:8px}
+@media(max-width:480px){#garage-options #garage-scene{height:370px}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+<script>
+(function(){
+ const root=document.getElementById('garage-options');
+ const data=__GARAGE_DATA__;
+ const host=root.querySelector('#garage-scene');
+ if(!window.THREE){host.textContent='3D library unavailable. Use the saved renderings in the proposal.';return;}
+ const T=window.THREE, W=data.room.width,L=data.room.length,H=data.room.loftUnderside;
+ let current=0, view='overview', scene,camera,carGroup,loftGroup, furnitureGroup;
+ const renderer=new T.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true});
+ renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.outputColorSpace=T.SRGBColorSpace;
+ host.appendChild(renderer.domElement);
+ let materials={},labels=[];
+ function token(name){const probe=document.createElement('span');probe.style.color='var('+name+')';root.append(probe);const c=getComputedStyle(probe).color;probe.remove();return c;}
+ function mat(key,roughness=.75){return new T.MeshStandardMaterial({color:token('--garage-'+key),roughness,metalness:key==='metal'?.25:0});}
+ function box(w,h,d,x,y,z,m,parent=scene){const mesh=new T.Mesh(new T.BoxGeometry(w,h,d),typeof m==='string'?materials[m]:m);mesh.position.set(x,y,z);mesh.castShadow=true;mesh.receiveShadow=true;parent.add(mesh);return mesh;}
+ function rod(a,b,r,m,parent=scene){const v1=new T.Vector3(...a),v2=new T.Vector3(...b),dir=v2.clone().sub(v1);const mesh=new T.Mesh(new T.CylinderGeometry(r,r,dir.length(),8),materials[m]);mesh.position.copy(v1.add(v2).multiplyScalar(.5));mesh.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),dir.normalize());mesh.castShadow=true;parent.add(mesh);return mesh;}
+ function line(a,b,color=token('--garage-accent'),parent=scene){const g=new T.BufferGeometry().setFromPoints([new T.Vector3(...a),new T.Vector3(...b)]);const l=new T.Line(g,new T.LineBasicMaterial({color}));parent.add(l);return l;}
+ function label(text,pos,width=1.2,parent=scene){const c=document.createElement('canvas');c.width=768;c.height=128;const ctx=c.getContext('2d');ctx.fillStyle=token('--background');ctx.globalAlpha=.92;ctx.fillRect(0,0,768,128);ctx.globalAlpha=1;ctx.fillStyle=token('--foreground');ctx.font='500 80px system-ui';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(text,384,64);const tex=new T.CanvasTexture(c);const s=new T.Sprite(new T.SpriteMaterial({map:tex,depthTest:false}));s.position.set(...pos);s.scale.set(width,width/6,1);s.renderOrder=20;parent.add(s);labels.push(s);return s;}
+ function dimension(a,b,text,pos,width=1){line(a,b);let dv=new T.Vector3(...b).sub(new T.Vector3(...a)).normalize();const tick=dv.y?new T.Vector3(.07,0,0):new T.Vector3(0,.06,0);for(const p of [a,b]){line(new T.Vector3(...p).sub(tick).toArray(),new T.Vector3(...p).add(tick).toArray());}label(text,pos,width);}
+ function bin(x,y,z,w=.39,d=.28,h=.28){box(w,h-.02,d,x,y+(h-.02)/2,z,'bin',furnitureGroup);box(w+.006,.02,d+.006,x,y+h-.01,z,'white',furnitureGroup);box(w*.37,.05,.003,x,y+h/2,z-d/2-.003,'white',furnitureGroup);}
+ function bror(x,w,d,levels,height=1.9){for(const xx of [x-w/2+.016,x+w/2-.016])for(const zz of [L-d+.016,L-.016])box(.032,height,.032,xx,height/2,zz,'metal',furnitureGroup);for(const y of levels)box(w-.01,.05,d-.01,x,y-.025,L-d/2,'metal',furnitureGroup);rod([x-w/2,0.1,L-.02],[x+w/2,height-.05,L-.02],.006,'metal',furnitureGroup);rod([x+w/2,0.1,L-.02],[x-w/2,height-.05,L-.02],.006,'metal',furnitureGroup);}
+ function makeCar(){carGroup=new T.Group();scene.add(carGroup);const cx=data.car.centerX,cz=data.car.entranceGap+data.car.length/2;
+ function hull(rings,m){const arr=[],indices=[];const contour=[[-1,0],[-1,.72],[-.84,1],[.84,1],[1,.72],[1,0]];for(const [z,w,b,t] of rings)for(const [x,v] of contour)arr.push(cx+x*w,b+v*(t-b),cz+z);for(let i=0;i<rings.length-1;i++)for(let k=0;k<6;k++){let a=i*6+k,b=i*6+(k+1)%6,c=b+6,d=a+6;indices.push(a,b,d,b,c,d);}for(let k=1;k<5;k++){indices.push(0,k+1,k);let o=(rings.length-1)*6;indices.push(o,o+k,o+k+1);}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(arr,3));g.setIndex(indices);g.computeVertexNormals();const mm=materials[m].clone();mm.side=T.DoubleSide;const mesh=new T.Mesh(g,mm);mesh.castShadow=true;mesh.receiveShadow=true;carGroup.add(mesh);}
+ hull([[-2.3985,.72,.32,.83],[-2.18,.9,.22,1.02],[-1.4,.96,.19,1.03],[.7,.96,.19,1.03],[1.65,.94,.26,.91],[2.25,.82,.32,.76],[2.3985,.68,.36,.72]],'white');
+ hull([[-1.95,.74,.94,1.04],[-1.1,.79,1.02,1.48],[-.55,.77,1.03,1.624],[.45,.73,1.03,1.59],[1.25,.80,.99,1.03]],'glass');
+ for(const z of [-1.445,1.445])for(const x of [-.82,.82]){let wheel=new T.Mesh(new T.CylinderGeometry(.35,.35,.245,36),materials.rubber);wheel.rotation.z=Math.PI/2;wheel.position.set(cx+x,.35,cz+z);wheel.castShadow=true;carGroup.add(wheel);let hub=new T.Mesh(new T.CylinderGeometry(.225,.225,.252,24),materials.metal);hub.rotation.z=Math.PI/2;hub.position.copy(wheel.position);carGroup.add(hub);}
+ for(const sign of [-1,1])box(.062,.1,.18,cx+sign*(data.car.foldedWidth/2-.031),1.06,cz+.75,'metal',carGroup);
+ box(1.30,.028,.015,cx,.74,cz+2.392,'white',carGroup);box(1.3,.032,.018,cx,.83,cz-2.393,'gear',carGroup);
+ // Dashed footprint encloses official folded-mirror width and full length.
+ const p=[[-.991,-2.3985],[.991,-2.3985],[.991,2.3985],[-.991,2.3985],[-.991,-2.3985]].map(([x,z])=>new T.Vector3(cx+x,.02,cz+z));const geom=new T.BufferGeometry().setFromPoints(p);const env=new T.Line(geom,new T.LineDashedMaterial({color:token('--garage-accent'),dashSize:.10,gapSize:.06}));env.computeLineDistances();carGroup.add(env);carGroup.visible=root.querySelector('#garage-car').checked;
+ }
+
+ function pack(x,y,z,colour='gear',h=.75){
+  const m=new T.Mesh(new T.BoxGeometry(.49,h-.08,.31),materials[colour]);m.position.set(x,y+h/2,z);furnitureGroup.add(m);m.castShadow=true;
+  box(.52,.075,.35,x,y+h-.04,z,colour,furnitureGroup);
+  box(.24,.22,.055,x,y+.20,z-.175,colour,furnitureGroup);
+  for(const xx of [x-.11,x+.11])box(.025,h*.75,.012,xx,y+h*.50,z-.185,'metal',furnitureGroup);
+  for(const yy of [y+.18,y+h-.16])box(.50,.025,.015,x,yy,z-.19,'metal',furnitureGroup);
+ }
+ function boots(x,y,z){for(const dx of [-.21,-.07,.07,.21]){box(.12,.08,.31,x+dx,y+.04,z,'metal',furnitureGroup);box(.115,.34,.17,x+dx,y+.23,z+.055,'white',furnitureGroup);for(const hh of [.10,.20,.28])box(.12,.018,.018,x+dx,y+hh,z-.04,'metal',furnitureGroup);}}
+ function snowRacer(x){
+  // One upright snow racer: conservative 0.60 W × 0.40 D × 1.30 H envelope.
+  const z=L-.22;
+  for(const dx of [-.245,.245]){box(.08,1.08,.04,x+dx,.84,z+.13,'metal',furnitureGroup);rod([x+dx,.3,z+.11],[x+dx,1.34,z-.12],.018,'metal',furnitureGroup);}
+  for(const y of [.50,1.10])rod([x-.245,y,z-.04],[x+.245,y,z-.04],.018,'metal',furnitureGroup);
+  box(.21,.63,.09,x,1.04,z-.07,'rubber',furnitureGroup);
+  box(.10,.36,.045,x,.30,z-.14,'metal',furnitureGroup);
+  const wheel=new T.Mesh(new T.TorusGeometry(.13,.018,8,28),materials.metal);wheel.position.set(x,.58,z-.16);furnitureGroup.add(wheel);
+  for(const xx of [x-.20,x+.20]){rod([xx,1.28,L-.01],[xx,1.28,L-.24],.0125,'metal',furnitureGroup);rod([xx,1.28,L-.24],[xx,1.34,L-.24],.0125,'metal',furnitureGroup);}
+  box(.55,.025,.01,x,1.05,z-.18,'accent',furnitureGroup);
+ }
+ function upperSledShelves(x,bootShelf=false){for(const xx of [x-.405,x+.405])box(.025,1,.02,xx,1.525,L-.01,'white',furnitureGroup);box(.824,.025,.01,x,2.012,L-.02,'white',furnitureGroup);for(const y of [bootShelf?1.55:1.64,2]){box(.80,.02,.38,x,y-.01,L-.21,'white',furnitureGroup);for(const xx of [x-.405,x+.405])box(.014,.055,.40,xx,y-.04,L-.2,'white',furnitureGroup);}if(bootShelf)boots(x,1.55,L-.21);else for(const dx of [-.20,.20])bin(x+dx,1.64,L-.22);}
+ function rightWall(){
+  // Four 60 cm rails carry small tools/cables; direct hooks support the chairs and ladder.
+  for(let i=0;i<4;i++)box(.017,.06,.6,W-.009,1.62,2.05+i*.6,'metal',furnitureGroup);
+  for(let i=0;i<20;i++){const z=1.78+i*.122;rod([W-.02,1.62,z],[W-.09,1.62,z],.008,'metal',furnitureGroup);rod([W-.09,1.62,z],[W-.09,1.65,z],.008,'metal',furnitureGroup);}
+  for(const z of [2.1,2.75,3.24,3.66])rod([W-.01,1.5,z],[W-.08,1.5,z],.01,'metal',furnitureGroup);
+  for(const z of [2.1,2.75]){box(.08,.47,.40,W-.095,1.05,z,'rubber',furnitureGroup);for(const zz of [z-.22,z+.22])rod([W-.14,.50,zz],[W-.14,1.5,zz],.014,'metal',furnitureGroup);for(const y of [.50,1.5])rod([W-.14,y,z-.22],[W-.14,y,z+.22],.014,'metal',furnitureGroup);}
+  // Gardintrapp upright, not stacked behind the snow racer.
+  for(const z of [3.24,3.66])rod([W-.10,.05,z],[W-.10,1.95,z],.022,'white',furnitureGroup);for(let y=.18;y<1.9;y+=.26)rod([W-.10,y,3.24],[W-.10,y,3.66],.020,'white',furnitureGroup);
+  // Existing folded table held flat, bottom on floor. Retaining strap is in the BOM.
+  box(.07,1.25,.75,W-.05,.65,4.35,'white',furnitureGroup);box(.009,.03,.76,W-.095,1.05,4.35,'accent',furnitureGroup);
+  for(const z of [2.35,3.90]){rod([W-.02,1.94,z],[W-.24,1.94,z],.0125,'metal',furnitureGroup);rod([W-.24,1.94,z],[W-.24,2.0,z],.0125,'metal',furnitureGroup);}
+  for(let i=0;i<3;i++)box(.045,.024,2.15,W-.055-i*.065,1.965,3.10,'gear',furnitureGroup);
+ }
+ function storage(){const a=data.layouts[current];furnitureGroup=new T.Group();scene.add(furnitureGroup);
+ if(a.id==='A'){
+  const centers=[.505,1.215,1.825,2.435],widths=[.8,.6,.6,.6],rails=[.10,.91,1.52,2.13,2.74];for(const x of rails)box(.025,2,.02,x,1.025,L-.01,'white',furnitureGroup);
+  for(let i=0;i<4;i++)box(widths[i]+.01,.025,.012,centers[i],2.012,L-.02,'white',furnitureGroup);
+  const brackets=new Set();a.shelves.forEach((levels,i)=>{for(const h of levels){box(widths[i],.02,.38,centers[i],h-.01,L-.21,'white',furnitureGroup);brackets.add(i+':'+h);brackets.add((i+1)+':'+h);}});for(const key of brackets){const [i,h]=key.split(':').map(Number);box(.014,.055,.4,rails[i],h-.04,L-.2,'white',furnitureGroup);}
+  snowRacer(centers[0]);for(const dx of [-.20,.20])bin(centers[0]+dx,1.64,L-.22);
+  pack(1.215,.1,L-.1975);pack(1.825,.1,L-.1975);pack(1.215,1.0,L-.1975,'accent');box(.32,.35,.28,1.75,1.175,L-.21,'gear',furnitureGroup);
+  for(const y of [.1,.55,1.0])boots(centers[3],y,L-.21);bin(centers[3],1.45,L-.22);for(const dx of [-.15,.15])bin(centers[3]+dx,1.8,L-.22,.28,.20,.14);
+  for(let i=0;i<2;i++){const m=new T.Mesh(new T.CylinderGeometry(.065,.065,.65,16),materials.gear);m.position.set(2.025,1.325,L-.12-i*.15);furnitureGroup.add(m);}
+ }else if(a.id==='B'){
+  bror(.56,.85,.55,a.shelves[0]);bror(1.42,.85,.55,a.shelves[1]);for(const y of [.1,.58])boots(.56,y,L-.28);
+  pack(.415,1.06,L-.29);bin(.835,1.06,L-.28,.28,.39);
+  for(const y of [.1,.95]){pack(1.275,y,L-.29,y===.95?'accent':'gear');bin(1.695,y,L-.28,.28,.39);}
+  for(const x of [.56,1.42])for(const dx of [-.20,.20])bin(x+dx,1.9,L-.28,.39,.28,.14);
+  snowRacer(2.27);upperSledShelves(2.27,true);
+ }else{
+  for(const x of [.56,1.42])bror(x,.85,.55,[.1,.6,1.1],1.1);
+  for(const y of [.1,.6])boots(.56,y,L-.28);boots(1.42,.1,L-.28);box(.55,.35,.4,1.42,.775,L-.29,'gear',furnitureGroup);
+  pack(.415,1.1,L-.29);pack(.99,1.1,L-.29);pack(1.565,1.1,L-.29,'accent');
+  snowRacer(2.27);upperSledShelves(2.27);
+ }
+ if(a.id!=='A')for(let i=0;i<2;i++){let m=new T.Mesh(new T.CylinderGeometry(.065,.065,.70,16),materials.gear);m.position.set(2.745,.40,L-.17-i*.15);furnitureGroup.add(m);}
+ box(.055,1.90,.035,.065,.95,L-.12,'wood',furnitureGroup);
+ rightWall();
+ }
+ function build(){if(scene)scene.traverse(o=>{if(o.geometry)o.geometry.dispose();});labels=[];scene=new T.Scene();scene.scale.x=-1;materials={};for(const k of ['wood','metal','floor','white','glass','bin','gear','rubber','accent'])materials[k]=mat(k,k==='glass'?.18:.8);
+ scene.add(new T.HemisphereLight(0xffffff,0x737b80,1.6));const light=new T.DirectionalLight(0xfff4e7,1.7);light.position.set(-3,8,-1);light.castShadow=true;light.shadow.mapSize.set(2048,2048);Object.assign(light.shadow.camera,{left:-7,right:7,top:7,bottom:-7,near:.1,far:25});light.shadow.bias=-.0004;scene.add(light);
+ box(W+.16,.1,L+.1,W/2,-.055,L/2,'floor');box(W+.16,H,.07,W/2,H/2,L+.035,'wood');box(.07,H,L,W+.035,H/2,L/2,'wood');box(.07,.13,L,-.035,.065,L/2,'wood');
+ for(let z=.12;z<L;z+=.145){box(.009,H,.006,W-.003,H/2,z,'wood');}
+ for(let x=.08;x<W;x+=.145){box(.005,H,.007,x,H/2,L-.003,'wood');}
+ for(let z=0;z<L;z+=.61)box(.045,H,.055,W-.01,H/2,z,'wood');
+ const accent=materials.accent.clone();accent.transparent=true;accent.opacity=.10;box(.58,.005,4.797,.29,.008,2.6485,accent);
+ const a=data.layouts[current];box(W,.005,a.frontGap,W/2,.009,5.047+a.frontGap/2,accent);
+ loftGroup=new T.Group();scene.add(loftGroup);let lm=materials.wood.clone();lm.transparent=true;lm.opacity=.13;lm.depthWrite=false;box(W,.04,L,W/2,H+.02,L/2,lm,loftGroup);for(let z=.6;z<6;z+=1.2)line([0,H,z],[W,H,z],token('--garage-metal'),loftGroup);loftGroup.visible=root.querySelector('#garage-loft').checked;
+ storage();makeCar();
+ dimension([0,.04,-.35],[W,.04,-.35],'2.83 m',[W/2,.05,-.55],1.8);
+ dimension([-.30,.03,0],[-.30,.03,L],'6.10 m',[-.45,.10,3.0],1.8);
+ updateCamera(); updateTable();renderer.render(scene,camera);root.dataset.ready='true';
+ }
+ function updateCamera(){const w=host.clientWidth,h=host.clientHeight,aspect=w/h;renderer.setSize(w,h,false);const a=data.layouts[current];let span=Math.max(6.8,6.6/aspect),target=new T.Vector3(W/2,.65,3.05),pos=new T.Vector3(-5.8,7.8,-7.8);
+ if(view==='rear'){span=3.8;target.set(W/2,1.05,5.87);pos.set(W/2,2.1,1.3);}if(view==='right'){span=4.2;target.set(W-.03,1.18,3.9);pos.set(-4.5,2.5,3.6);}if(view==='plan'){span=7.4;target.set(W/2,0,3.05);pos.set(W/2,12,3.05);}
+ // Keep scale comfortable on narrow screens without clipping the width.
+ if(view==='rear'&&aspect<1)span=Math.max(span,3.5/aspect);if(view==='right'&&aspect<1)span=Math.max(span,3.4/aspect);
+ camera=new T.OrthographicCamera(-span*aspect/2,span*aspect/2,span/2,-span/2,.01,50);pos.x*=-1;target.x*=-1;camera.position.copy(pos);if(view==='plan')camera.up.set(0,0,1);camera.lookAt(target);
+ for(const l of labels)l.visible=view==='overview'||view==='plan';
+ if(view==='rear'||view==='right')carGroup.visible=false;else carGroup.visible=root.querySelector('#garage-car').checked;
+ renderer.render(scene,camera);
+ }
+ const money=v=>new Intl.NumberFormat('nb-NO',{maximumFractionDigits:2}).format(v)+' kr';
+ function updateTable(){const a=data.layouts[current];root.querySelector('#garage-title').textContent=a.id+' · '+a.name;root.querySelector('#garage-price').textContent=money(a.productsTotal)+' products';root.querySelector('#garage-metrics').innerHTML='<span>Rear gap <strong>'+Math.round(a.frontGap*100)+' cm</strong></span><span>Rear depth <strong>'+Math.round(a.depth*100)+' cm</strong></span><span>Starter boxes <strong>'+a.binLitres+' L</strong></span>';
+ root.querySelector('#garage-equipment').textContent=a.equipment;root.querySelector('#garage-products').innerHTML=[...a.items,...data.common].map(([k,n])=>{const p=data.products[k];return '<tr><td><a href="'+p.url+'" target="_blank" rel="noopener noreferrer">'+p.name+'</a></td><td class="text-end">'+n+'</td><td class="text-end text-nowrap">'+money(p.price)+'</td><td class="text-end text-nowrap">'+money(n*p.price)+'</td></tr>'}).join('');root.querySelector('#garage-totals').innerHTML='<tr><th colspan="3">Product total</th><th class="text-end text-nowrap">'+money(a.productsTotal)+'</th></tr><tr><td colspan="3">Fixings / backing allowance (estimate)</td><td class="text-end text-nowrap">'+money(a.allowance)+'</td></tr><tr><th colspan="3">Planning budget</th><th class="text-end text-nowrap">'+money(a.budgetTotal)+'</th></tr>';
+ }
+ root.querySelectorAll('[data-layout]').forEach(b=>b.addEventListener('click',()=>{current=Number(b.dataset.layout);root.querySelectorAll('[data-layout]').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));build();}));
+ root.querySelector('#garage-view').addEventListener('change',e=>{view=e.target.value;updateCamera();});root.querySelector('#garage-car').addEventListener('change',()=>updateCamera());root.querySelector('#garage-loft').addEventListener('change',e=>{loftGroup.visible=e.target.checked;renderer.render(scene,camera);});
+ new ResizeObserver(()=>{if(scene)updateCamera();}).observe(host);
+ const observer=new MutationObserver(()=>build());observer.observe(document.documentElement,{attributes:true,attributeFilter:['class','style','data-theme']});window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',build);
+ build();
+ window.garageModel={data,setLayout:i=>{root.querySelector('[data-layout="'+i+'"]').click()},setView:v=>{root.querySelector('#garage-view').value=v;root.querySelector('#garage-view').dispatchEvent(new Event('change'))},capture:()=>renderer.domElement.toDataURL('image/png'),getScene:()=>scene};
+})();
+</script>

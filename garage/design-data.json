@@ -1,0 +1,608 @@
+{
+  "date": "2026-09-06",
+  "room": {
+    "width": 2.83,
+    "length": 6.1,
+    "loftUnderside": 2.1,
+    "shelfHeightLimit": 2.0
+  },
+  "car": {
+    "length": 4.797,
+    "bodyWidth": 1.92,
+    "foldedWidth": 1.982,
+    "mirrorsWidth": 2.129,
+    "height": 1.624,
+    "centerX": 1.54,
+    "entranceGap": 0.25,
+    "direction": "nose-first (assumption)",
+    "source": "https://www.tesla.com/ownersmanual/modely/en_eu/GUID-1E76B638-7B12-4D9A-8767-94B7F1E92A0E.html"
+  },
+  "products": {
+    "upright": {
+      "name": "BOAXEL wall upright, white, 200 cm",
+      "sku": "804.487.32",
+      "price": 100,
+      "url": "https://www.ikea.com/no/no/p/boaxel-veggskinne-hvit-80448732/"
+    },
+    "rail": {
+      "name": "BOAXEL mounting rail, white, 82 cm",
+      "sku": "104.487.40",
+      "price": 90,
+      "url": "https://www.ikea.com/no/no/p/boaxel-monteringsskinne-hvit-10448740/"
+    },
+    "shelf": {
+      "name": "BOAXEL metal shelf, white, 80×40 cm",
+      "sku": "104.487.35",
+      "price": 140,
+      "url": "https://www.ikea.com/no/no/p/boaxel-hylleplate-metall-hvit-10448735/"
+    },
+    "bracket": {
+      "name": "BOAXEL bracket, white, 40 cm",
+      "sku": "604.487.33",
+      "price": 20,
+      "url": "https://www.ikea.com/no/no/p/boaxel-hylleknekt-hvit-60448733/"
+    },
+    "deep": {
+      "name": "BROR shelving unit, black, 85×55×190 cm; 5 shelves included",
+      "sku": "896.174.43",
+      "price": 1670,
+      "url": "https://www.ikea.com/no/no/p/bror-hylle-svart-s89617443/"
+    },
+    "small": {
+      "name": "SAMLA box with lid, 22 L, 39×28×28 cm",
+      "sku": "694.408.22",
+      "price": 109,
+      "url": "https://www.ikea.com/no/no/p/samla-kasse-med-lokk-transparent-s69440822/"
+    },
+    "hookKit": {
+      "name": "Hard Head aluminium rails + hooks, 12 pieces (2×60 cm rails + 10 hooks)",
+      "sku": "005797",
+      "price": 199,
+      "regularPrice": 449,
+      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/verktoyoppheng/opphengskroker/aluminiumskinner-kroker-005797/"
+    },
+    "shortHook": {
+      "name": "Hard Head double tool hook, 7 cm; direct wall mounting",
+      "sku": "313376",
+      "price": 49.9,
+      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/verktoyoppheng/opphengskroker/verktoykrok-313376/"
+    },
+    "skiHook": {
+      "name": "Hard Head EVA-covered wall hook, 330×240 mm; rear snow-racer supports",
+      "sku": "019594",
+      "price": 99.9,
+      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/verktoyoppheng/opphengskroker/veggkrok-019594/"
+    },
+    "shortUpright": {
+      "name": "BOAXEL wall upright, white, 100 cm",
+      "sku": "004.487.31",
+      "price": 80,
+      "url": "https://www.ikea.com/no/no/p/boaxel-veggskinne-hvit-00448731/"
+    },
+    "low": {
+      "name": "BROR shelving unit, black, 85×55×110 cm; 3 shelves included",
+      "sku": "392.726.55",
+      "price": 1070,
+      "url": "https://www.ikea.com/no/no/p/bror-hylle-svart-s39272655/"
+    },
+    "flat": {
+      "name": "SAMLA box with lid, 11 L, 39×28×14 cm",
+      "sku": "694.408.36",
+      "price": 89,
+      "url": "https://www.ikea.com/no/no/p/samla-kasse-med-lokk-transparent-s69440836/"
+    },
+    "straps": {
+      "name": "Hamron retaining straps, 2-pack, 2.5 m",
+      "sku": "029210",
+      "price": 49.9,
+      "url": "https://www.jula.no/catalog/bil-og-garasje/transport/lastsikring/spennband/spennrem-029210/"
+    },
+    "shelf60": {
+      "name": "BOAXEL metal shelf, white, 60×40 cm",
+      "sku": "404.487.34",
+      "price": 130,
+      "url": "https://www.ikea.com/no/no/p/boaxel-hylleplate-metall-hvit-40448734/"
+    },
+    "rail62": {
+      "name": "BOAXEL mounting rail, white, 62 cm",
+      "sku": "304.487.39",
+      "price": 70,
+      "url": "https://www.ikea.com/no/no/p/boaxel-monteringsskinne-hvit-30448739/"
+    },
+    "tiny": {
+      "name": "SAMLA box with lid, 5 L, 28×20×14 cm",
+      "sku": "094.408.39",
+      "price": 59,
+      "url": "https://www.ikea.com/no/no/p/samla-kasse-med-lokk-transparent-s09440839/"
+    },
+    "rack60": {
+      "name": "Biltema galvanized storage rack",
+      "sku": "87-7606",
+      "price": 799,
+      "url": "https://www.biltema.no/hjem/oppbevaring/oppbevaringshyller/oppbevaringshylle-2000043842",
+      "dimensionsText": "160 × 60 × 180 cm; 4 shelves",
+      "vendor": "Biltema"
+    },
+    "rack80": {
+      "name": "Gerdmans Adrian wide-load shelving",
+      "sku": "12-832180",
+      "price": 6993.75,
+      "url": "https://www.gerdmans.no/lager-og-industri/hyller-stativ/lagerhyller/lagerhyller-for-bred-last-adrian-belastning-per-seksjon-4000-kg-hxbxd-2000-x-1448-x-800-mm-grunnseksjon",
+      "dimensionsText": "144.8 × 80 × 200 cm; 3 shelves",
+      "vendor": "Gerdmans"
+    },
+    "plank": {
+      "name": "FixBoard solid pine shelf board",
+      "sku": "379072",
+      "price": 139,
+      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/hyller/hylleplater/hylleplate-av-furu-379072/",
+      "dimensionsText": "240 × 30 × 1.8 cm",
+      "vendor": "Jula"
+    },
+    "pineBracket": {
+      "name": "Hard Head galvanized shelf bracket",
+      "sku": "349829",
+      "price": 39.9,
+      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/hyller/hyllekonsoller/hylleknekt-349829/",
+      "dimensionsText": "20 cm high × 30 cm projection",
+      "vendor": "Jula"
+    },
+    "pegboard": {
+      "name": "Hard Head steel perforated tool board",
+      "sku": "665027",
+      "price": 379,
+      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/verktoyoppheng/verktoytavler-og-tilbehor/verktoytavle-665027/",
+      "dimensionsText": "95.5 × 82 cm; 4 mm holes, 12 mm pitch",
+      "vendor": "Jula"
+    },
+    "tray": {
+      "name": "Hard Head magnetic shelf",
+      "sku": "030552",
+      "price": 99.9,
+      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/verktoyoppheng/verktoytavler-og-tilbehor/magnethylle-030552/",
+      "dimensionsText": "36 × 13.5 × 11 cm",
+      "vendor": "Jula"
+    }
+  },
+  "common": [
+    [
+      "hookKit",
+      2
+    ],
+    [
+      "shortHook",
+      4
+    ],
+    [
+      "straps",
+      1
+    ],
+    [
+      "plank",
+      2
+    ],
+    [
+      "pineBracket",
+      8
+    ],
+    [
+      "pegboard",
+      2
+    ],
+    [
+      "tray",
+      2
+    ]
+  ],
+  "layouts": [
+    {
+      "id": "A",
+      "name": "Family gear wall",
+      "system": "BOAXEL",
+      "depth": 0.4,
+      "rearWidth": 2.65,
+      "top": 2.0,
+      "binLitres": 76,
+      "allowance": 600,
+      "items": [
+        [
+          "upright",
+          5
+        ],
+        [
+          "rail",
+          1
+        ],
+        [
+          "rail62",
+          3
+        ],
+        [
+          "shelf",
+          2
+        ],
+        [
+          "shelf60",
+          12
+        ],
+        [
+          "bracket",
+          21
+        ],
+        [
+          "small",
+          3
+        ],
+        [
+          "tiny",
+          2
+        ],
+        [
+          "skiHook",
+          2
+        ]
+      ],
+      "summary": "four rear bays, with individual wide backpack spaces, a snow-racer bay and flexible small-item shelves. Shallow wall-mounted shelves preserve the best rear access.",
+      "equipment": "3 large backpacks + flexible fourth opening; footwear shelves left empty (count unknown); 3×22 L + 2×5 L boxes; 1 snow racer; shared right-wall gear.",
+      "shelves": [
+        [
+          1.64,
+          2.0
+        ],
+        [
+          0.1,
+          1.0,
+          2.0
+        ],
+        [
+          0.1,
+          1.0,
+          2.0
+        ],
+        [
+          0.1,
+          0.55,
+          1.0,
+          1.45,
+          1.8,
+          2.0
+        ]
+      ],
+      "productsTotal": 5907.3,
+      "budgetTotal": 6507.3,
+      "frontGap": 0.653
+    },
+    {
+      "id": "B",
+      "name": "Deep camping store",
+      "system": "BROR + BOAXEL",
+      "depth": 0.55,
+      "rearWidth": 2.56,
+      "top": 2.0,
+      "binLitres": 110,
+      "allowance": 600,
+      "items": [
+        [
+          "deep",
+          2
+        ],
+        [
+          "shortUpright",
+          2
+        ],
+        [
+          "rail",
+          1
+        ],
+        [
+          "shelf",
+          2
+        ],
+        [
+          "bracket",
+          4
+        ],
+        [
+          "small",
+          3
+        ],
+        [
+          "flat",
+          4
+        ],
+        [
+          "skiHook",
+          2
+        ]
+      ],
+      "summary": "Two deep towers accommodate three individual large-pack positions and flexible small-item shelves; a separate sled bay has upper shelves. Two supplied BROR shelves remain spare to preserve tall openings.",
+      "equipment": "3 large backpacks; footwear shelves left empty (count unknown); 3×22 L + 4×11 L boxes; 1 snow racer; shared right-wall gear.",
+      "shelves": [
+        [
+          0.1,
+          0.58,
+          1.06,
+          1.9
+        ],
+        [
+          0.1,
+          0.95,
+          1.8,
+          1.9
+        ],
+        [
+          1.55,
+          2.0
+        ]
+      ],
+      "productsTotal": 7035.3,
+      "budgetTotal": 7635.3,
+      "frontGap": 0.503
+    },
+    {
+      "id": "C",
+      "name": "Grab-and-go gear bench",
+      "system": "Low BROR + BOAXEL",
+      "depth": 0.55,
+      "rearWidth": 2.56,
+      "top": 2.0,
+      "binLitres": 44,
+      "allowance": 600,
+      "items": [
+        [
+          "low",
+          2
+        ],
+        [
+          "shortUpright",
+          2
+        ],
+        [
+          "rail",
+          1
+        ],
+        [
+          "shelf",
+          2
+        ],
+        [
+          "bracket",
+          4
+        ],
+        [
+          "small",
+          2
+        ],
+        [
+          "skiHook",
+          2
+        ]
+      ],
+      "summary": "Three wide backpacks sit at 1.10 m pickup height on two low racks. Flexible storage below; snow racer and upper boxes to the right. Best handling access, least boxed storage.",
+      "equipment": "3 large backpacks + a duffel below; footwear shelves left empty (count unknown); 2×22 L boxes; 1 snow racer; shared right-wall gear.",
+      "shelves": [
+        [
+          0.1,
+          0.6,
+          1.1
+        ],
+        [
+          0.1,
+          0.6,
+          1.1
+        ],
+        [
+          1.64,
+          2.0
+        ]
+      ],
+      "productsTotal": 5370.3,
+      "budgetTotal": 5970.3,
+      "frontGap": 0.503
+    },
+    {
+      "id": "D",
+      "name": "Budget 60 cm rack",
+      "system": "Biltema galvanized storage rack",
+      "depth": 0.6,
+      "rearWidth": 2.68,
+      "top": 1.8,
+      "binLitres": 0,
+      "allowance": 2100,
+      "items": [
+        [
+          "rack60",
+          1
+        ],
+        [
+          "skiHook",
+          2
+        ]
+      ],
+      "shelves": [
+        [
+          0.1,
+          0.95,
+          1.8
+        ]
+      ],
+      "summary": "Rear storage now spans 268 cm of the 283 cm wall. The stock rack is joined by a 106.0 cm wide custom timber bay at the same 60 cm depth: two full-width upper shelves, two narrow lower shelves and a 65 cm clear upright snow-racer slot. Upper shelf surfaces are 145 and 195 cm.",
+      "equipment": "Backpacks in the main rack; boxes / smaller bags in the narrow shelves; snow racer in its dedicated slot with storage above it. Custom extension is a dimensioned concept, not a catalogue product or engineered load rating. Budget includes a provisional 1,500 kr materials allowance plus 600 kr for fixings/backing; labour and delivery excluded. Three of four supplied rack shelves are installed to preserve loaded-backpack openings; one remains spare.",
+      "frontGap": 0.453,
+      "productsTotal": 3201.3,
+      "budgetTotal": 5301.3,
+      "rackWidth": 1.6,
+      "extensionWidth": 1.06
+    },
+    {
+      "id": "E",
+      "name": "Industrial 80 cm rack",
+      "system": "Gerdmans Adrian wide-load shelving",
+      "depth": 0.8,
+      "rearWidth": 2.68,
+      "top": 2,
+      "binLitres": 0,
+      "allowance": 2100,
+      "items": [
+        [
+          "rack80",
+          1
+        ],
+        [
+          "skiHook",
+          2
+        ]
+      ],
+      "shelves": [
+        [
+          0.1,
+          0.95,
+          1.8
+        ]
+      ],
+      "summary": "Rear storage now spans 268 cm of the 283 cm wall. The stock rack is joined by a 121.2 cm wide custom timber bay at the same 80 cm depth: two full-width upper shelves, two narrow lower shelves and a 65 cm clear upright snow-racer slot. Upper shelf surfaces are 145 and 195 cm.",
+      "equipment": "Backpacks in the main rack; boxes / smaller bags in the narrow shelves; snow racer in its dedicated slot with storage above it. Custom extension is a dimensioned concept, not a catalogue product or engineered load rating. Budget includes a provisional 1,500 kr materials allowance plus 600 kr for fixings/backing; labour and delivery excluded.",
+      "frontGap": 0.253,
+      "productsTotal": 9396.05,
+      "budgetTotal": 11496.05,
+      "rackWidth": 1.448,
+      "extensionWidth": 1.212
+    },
+    {
+      "id": "F",
+      "name": "Bikes under raised shelves",
+      "system": "Pine shelves on steel brackets",
+      "depth": 0.3,
+      "bikeBlockingDepth": 0,
+      "rearWidth": 2.4,
+      "top": 1.95,
+      "binLitres": 0,
+      "allowance": 600,
+      "items": [
+        [
+          "plank",
+          2
+        ],
+        [
+          "pineBracket",
+          8
+        ]
+      ],
+      "shelves": [
+        [
+          1.45,
+          1.95
+        ]
+      ],
+      "summary": "Rear shelf surfaces at 145 and 195 cm; no rear uprights or floor rack. Lower bracket tips at approximately 123 cm clear the 110 cm bike envelope. Less storage: a separate location for the snow racer and large loaded backpacks is still unresolved.",
+      "equipment": "Bike-priority study. Rear shelves are for smaller / flatter gear. This is not yet a complete solution for all existing belongings.",
+      "frontGap": 1.053,
+      "productsTotal": 2799.7,
+      "budgetTotal": 3399.7
+    }
+  ],
+  "inventory": [
+    {
+      "item": "Large hiking backpacks",
+      "observed": "At least 3 visible: green on floor, dark pack near back, red/grey at rear right.",
+      "envelope_m": [
+        0.55,
+        0.4,
+        0.75
+      ],
+      "status": "Provisional empty/packed envelope; exact sizes unmeasured"
+    },
+    {
+      "item": "Smaller backpacks / duffels / boot bags",
+      "observed": "Several visible; count and contents unclear.",
+      "envelope_m": [
+        0.4,
+        0.35,
+        0.35
+      ],
+      "status": "Allow flexible shelf space; not all contents can be counted from photos"
+    },
+    {
+      "item": "Ski boots / winter footwear",
+      "observed": "Count unknown; shelves stay empty by default.",
+      "envelope_m": [
+        0.3,
+        0.34,
+        0.4
+      ],
+      "status": "No assumed shoe count"
+    },
+    {
+      "item": "Snow racer",
+      "observed": "One visibly hanging on right wall.",
+      "envelope_m": [
+        0.6,
+        0.4,
+        1.3
+      ],
+      "status": "Stored vertically; includes steering/frame projection, not just hooks"
+    },
+    {
+      "item": "Folding chairs",
+      "observed": "A stack of at least 2 visible.",
+      "envelope_m": [
+        0.5,
+        0.15,
+        1.0
+      ],
+      "status": "Store individually; no stacked thickness alongside car"
+    },
+    {
+      "item": "Folding table",
+      "observed": "White folded table against right wall.",
+      "envelope_m": [
+        0.75,
+        0.08,
+        1.25
+      ],
+      "status": "Provisional folded envelope"
+    },
+    {
+      "item": "Stepladder / gardintrapp",
+      "observed": "Aluminium folded ladder behind snow racer.",
+      "envelope_m": [
+        0.5,
+        0.15,
+        1.9
+      ],
+      "status": "Provisional; hang upright with feet close to floor"
+    },
+    {
+      "item": "Skis and poles",
+      "observed": "Several pairs along upper right shelf.",
+      "envelope_m": [
+        2.15,
+        0.2,
+        0.06
+      ],
+      "status": "Length and pair count unmeasured; horizontal storage"
+    },
+    {
+      "item": "Camping rolls / mats / long bags",
+      "observed": "Several rolls at rear left; one hanging fabric bag.",
+      "envelope_m": [
+        0.18,
+        0.18,
+        0.75
+      ],
+      "status": "Reserve vertical side gaps and flexible backpack shelf opening"
+    },
+    {
+      "item": "Boards / long poles / racket / cables",
+      "observed": "Visible on left and at rear.",
+      "envelope_m": null,
+      "status": "Boards in rear side gap; small items on right hook rails"
+    },
+    {
+      "item": "Cardboard boxes / paint / bottles / small tools",
+      "observed": "Several boxes and small containers visible.",
+      "envelope_m": null,
+      "status": "Contents unknown; bin quantities are a starter allocation, not proof every box is absorbed"
+    }
+  ]
+}

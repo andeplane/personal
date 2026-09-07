@@ -33,3 +33,7 @@ posts/<år>-<navn>/      én mappe per post
 Posten kan like gjerne peke til et annet repo eller en ekstern side; kortet trenger bare
 en lenke. Tåsen ligger for eksempel i [andeplane/taasen](https://github.com/andeplane/taasen)
 og lenkes bare til herfra.
+
+## Garasjeplanlegger
+
+[Åpne 3D-planleggeren](https://andeplane.github.io/personal/garage/) · [Kode og utvikling](garage/README.md). Pages bygger garasjevisningen automatisk før publisering.

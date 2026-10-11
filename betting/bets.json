@@ -1,24 +1,20 @@
 {
  "_readme": "Alle Oddsen-spill. 'active' = ikke avgjort ennå (live-score hentes med nifsId). 'settled' = avgjorte kuponger, én rad per kupongnummer. pick i active: home | away | draw. Flytt et spill fra active til settled når det er avgjort.",
- "active": [
+ "active": [],
+ "settled": [
   {
-   "coupons": [
-    "318940875.1"
-   ],
+   "coupon": "318940875.1",
    "kickoff": "2026-10-11 19:15",
    "sport": "football",
    "league": "Eliteserien",
-   "home": "Lillestrøm",
-   "away": "Molde",
+   "match": "Lillestrøm SK v Molde",
    "market": "HUB",
-   "pick": "home",
+   "pick": "Lillestrøm",
    "odds": 2.9,
    "stake": 500,
-   "nifsId": 2713736,
-   "fotmobId": 5105023
-  }
- ],
- "settled": [
+   "result": "lost",
+   "payout": 0
+  },
   {
    "coupon": "318940968.1",
    "kickoff": "2026-10-11 17:00",

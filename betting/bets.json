@@ -1,89 +1,85 @@
 {
  "_readme": "Alle Oddsen-spill. 'active' = ikke avgjort ennå (live-score hentes med nifsId). 'settled' = avgjorte kuponger, én rad per kupongnummer. pick i active: home | away | draw. Flytt et spill fra active til settled når det er avgjort.",
- "active": [
+ "active": [],
+ "settled": [
   {
-   "coupons": [
-    "318940968.1"
-   ],
+   "coupon": "318940968.1",
    "kickoff": "2026-10-11 17:00",
    "sport": "football",
    "league": "OBOS-ligaen",
-   "home": "Odd",
-   "away": "Bryne",
+   "match": "Odd v Bryne",
    "market": "HUB",
-   "pick": "away",
+   "pick": "Bryne",
    "odds": 3.2,
    "stake": 500,
-   "nifsId": 2713989,
-   "fotmobId": 5105277
+   "result": "lost",
+   "payout": 0
   },
   {
-   "coupons": [
-    "318962735.1",
-    "318962704.1"
-   ],
+   "coupon": "318962735.1",
    "kickoff": "2026-10-11 17:00",
    "sport": "football",
    "league": "Eliteserien",
-   "home": "Start",
-   "away": "HamKam",
+   "match": "Start v HamKam",
    "market": "HUB",
-   "pick": "home",
+   "pick": "Start",
    "odds": 2.0,
-   "stake": 1000,
-   "nifsId": 2713738,
-   "fotmobId": 5105021
+   "stake": 500,
+   "result": "lost",
+   "payout": 0
   },
   {
-   "coupons": [
-    "319031193.1"
-   ],
+   "coupon": "318962704.1",
+   "kickoff": "2026-10-11 17:00",
+   "sport": "football",
+   "league": "Eliteserien",
+   "match": "Start v HamKam",
+   "market": "HUB",
+   "pick": "Start",
+   "odds": 2.0,
+   "stake": 500,
+   "result": "lost",
+   "payout": 0
+  },
+  {
+   "coupon": "319031193.1",
    "kickoff": "2026-10-11 17:00",
    "sport": "football",
    "league": "OBOS-ligaen",
-   "home": "Kongsvinger",
-   "away": "Ranheim",
+   "match": "Kongsvinger v Ranheim",
    "market": "HUB",
-   "pick": "away",
+   "pick": "Ranheim",
    "odds": 4.8,
    "stake": 500,
-   "nifsId": 2713991,
-   "fotmobId": 5105275
+   "result": "lost",
+   "payout": 0
   },
   {
-   "coupons": [
-    "319081228.1"
-   ],
+   "coupon": "319081228.1",
    "kickoff": "2026-10-11 17:00",
    "sport": "football",
    "league": "OBOS-ligaen",
-   "home": "Åsane",
-   "away": "Sogndal",
+   "match": "Åsane v Sogndal",
    "market": "HUB",
-   "pick": "away",
+   "pick": "Sogndal",
    "odds": 2.4,
    "stake": 500,
-   "nifsId": 2714006,
-   "fotmobId": 5105281
+   "result": "lost",
+   "payout": 0
   },
   {
-   "coupons": [
-    "318940875.1"
-   ],
+   "coupon": "318940875.1",
    "kickoff": "2026-10-11 19:15",
    "sport": "football",
    "league": "Eliteserien",
-   "home": "Lillestrøm",
-   "away": "Molde",
+   "match": "Lillestrøm SK v Molde",
    "market": "HUB",
-   "pick": "home",
+   "pick": "Lillestrøm",
    "odds": 2.9,
    "stake": 500,
-   "nifsId": 2713736,
-   "fotmobId": 5105023
-  }
- ],
- "settled": [
+   "result": "lost",
+   "payout": 0
+  },
   {
    "coupon": "318385880.1",
    "kickoff": "2026-10-09 19:00",

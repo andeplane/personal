@@ -1,0 +1,283 @@
+{
+ "_readme": "Alle Oddsen-spill. 'active' = ikke avgjort ennå (live-score hentes med nifsId). 'settled' = avgjorte kuponger, én rad per kupongnummer. pick i active: home | away | draw. Flytt et spill fra active til settled når det er avgjort.",
+ "active": [
+  {
+   "coupons": [
+    "318940968.1"
+   ],
+   "kickoff": "2026-10-11 17:00",
+   "sport": "football",
+   "league": "OBOS-ligaen",
+   "home": "Odd",
+   "away": "Bryne",
+   "market": "HUB",
+   "pick": "away",
+   "odds": 3.2,
+   "stake": 500,
+   "nifsId": 2713989,
+   "fotmobId": 5105277
+  },
+  {
+   "coupons": [
+    "318962735.1",
+    "318962704.1"
+   ],
+   "kickoff": "2026-10-11 17:00",
+   "sport": "football",
+   "league": "Eliteserien",
+   "home": "Start",
+   "away": "HamKam",
+   "market": "HUB",
+   "pick": "home",
+   "odds": 2.0,
+   "stake": 1000,
+   "nifsId": 2713738,
+   "fotmobId": 5105021
+  },
+  {
+   "coupons": [
+    "319031193.1"
+   ],
+   "kickoff": "2026-10-11 17:00",
+   "sport": "football",
+   "league": "OBOS-ligaen",
+   "home": "Kongsvinger",
+   "away": "Ranheim",
+   "market": "HUB",
+   "pick": "away",
+   "odds": 4.8,
+   "stake": 500,
+   "nifsId": 2713991,
+   "fotmobId": 5105275
+  },
+  {
+   "coupons": [
+    "319081228.1"
+   ],
+   "kickoff": "2026-10-11 17:00",
+   "sport": "football",
+   "league": "OBOS-ligaen",
+   "home": "Åsane",
+   "away": "Sogndal",
+   "market": "HUB",
+   "pick": "away",
+   "odds": 2.4,
+   "stake": 500,
+   "nifsId": 2714006,
+   "fotmobId": 5105281
+  },
+  {
+   "coupons": [
+    "318940875.1"
+   ],
+   "kickoff": "2026-10-11 19:15",
+   "sport": "football",
+   "league": "Eliteserien",
+   "home": "Lillestrøm",
+   "away": "Molde",
+   "market": "HUB",
+   "pick": "home",
+   "odds": 2.9,
+   "stake": 500,
+   "nifsId": 2713736,
+   "fotmobId": 5105023
+  }
+ ],
+ "settled": [
+  {
+   "coupon": "318385880.1",
+   "kickoff": "2026-10-09 19:00",
+   "sport": "football",
+   "league": "Eliteserien",
+   "match": "Brann v Viking",
+   "market": "HUB",
+   "pick": "Viking",
+   "odds": 2.15,
+   "stake": 500,
+   "result": "won",
+   "payout": 1075
+  },
+  {
+   "coupon": "318311658.1",
+   "kickoff": "2026-10-08 19:00",
+   "sport": "hockey",
+   "league": "SHL",
+   "match": "Brynäs IF v IF Björklöven",
+   "market": "Vinner (inkl. OT/straffer)",
+   "pick": "Brynäs IF",
+   "odds": 1.37,
+   "stake": 500,
+   "result": "won",
+   "payout": 685
+  },
+  {
+   "coupon": "318311648.1",
+   "kickoff": "2026-10-08 19:00",
+   "sport": "hockey",
+   "league": "SHL",
+   "match": "Brynäs IF v IF Björklöven",
+   "market": "Vinner (inkl. OT/straffer)",
+   "pick": "Brynäs IF",
+   "odds": 1.37,
+   "stake": 500,
+   "result": "won",
+   "payout": 685
+  },
+  {
+   "coupon": "318307810.1",
+   "kickoff": "2026-10-08 19:00",
+   "sport": "hockey",
+   "league": "SHL",
+   "match": "Timrå IK v Frölunda HC",
+   "market": "Vinner (inkl. OT/straffer)",
+   "pick": "Timrå IK",
+   "odds": 2.45,
+   "stake": 500,
+   "result": "won",
+   "payout": 1225
+  },
+  {
+   "coupon": "318307798.1",
+   "kickoff": "2026-10-08 19:00",
+   "sport": "hockey",
+   "league": "SHL",
+   "match": "Timrå IK v Frölunda HC",
+   "market": "Vinner (inkl. OT/straffer)",
+   "pick": "Timrå IK",
+   "odds": 2.45,
+   "stake": 10,
+   "result": "won",
+   "payout": 24.5
+  },
+  {
+   "coupon": "318307784.1",
+   "kickoff": "2026-10-08 19:00",
+   "sport": "hockey",
+   "league": "SHL",
+   "match": "Timrå IK v Frölunda HC",
+   "market": "Vinner (inkl. OT/straffer)",
+   "pick": "Timrå IK",
+   "odds": 2.45,
+   "stake": 500,
+   "result": "won",
+   "payout": 1225
+  },
+  {
+   "coupon": "317753719.1",
+   "kickoff": "2026-10-04 20:45",
+   "sport": "football",
+   "league": "UEFA Nations League",
+   "match": "Portugal v Norge",
+   "market": "HUB",
+   "pick": "Portugal",
+   "odds": 1.65,
+   "stake": 500,
+   "result": "won",
+   "payout": 825
+  },
+  {
+   "coupon": "317749236.1",
+   "kickoff": "2026-10-04 20:45",
+   "sport": "football",
+   "league": "UEFA Nations League",
+   "match": "Portugal v Norge",
+   "market": "HUB",
+   "pick": "Portugal",
+   "odds": 1.65,
+   "stake": 500,
+   "result": "won",
+   "payout": 825
+  },
+  {
+   "coupon": "317374128.1",
+   "kickoff": "2026-10-03 18:00",
+   "sport": "hockey",
+   "league": "SHL",
+   "match": "Linköpings HC v IF Björklöven",
+   "market": "Vinner (inkl. OT/straffer)",
+   "pick": "Linköpings HC",
+   "odds": 1.55,
+   "stake": 500,
+   "result": "lost",
+   "payout": 0
+  },
+  {
+   "coupon": "317374051.1",
+   "kickoff": "2026-10-03 18:00",
+   "sport": "hockey",
+   "league": "SHL",
+   "match": "Linköpings HC v IF Björklöven",
+   "market": "Vinner (inkl. OT/straffer)",
+   "pick": "Linköpings HC",
+   "odds": 1.55,
+   "stake": 500,
+   "result": "lost",
+   "payout": 0
+  },
+  {
+   "coupon": "317373963.1",
+   "kickoff": "2026-10-03 18:00",
+   "sport": "hockey",
+   "league": "SHL",
+   "match": "Linköpings HC v IF Björklöven",
+   "market": "Vinner (inkl. OT/straffer)",
+   "pick": "Linköpings HC",
+   "odds": 1.55,
+   "stake": 10,
+   "result": "lost",
+   "payout": 0
+  },
+  {
+   "coupon": "317300082.1",
+   "kickoff": "2026-10-03 14:30",
+   "sport": "football",
+   "league": "OBOS-ligaen",
+   "match": "Strømmen v Sandnes Ulf",
+   "market": "HUB",
+   "pick": "Uavgjort",
+   "odds": 3.7,
+   "stake": 500,
+   "result": "won",
+   "payout": 1850
+  },
+  {
+   "coupon": "317299973.1",
+   "kickoff": "2026-10-03 14:30",
+   "sport": "football",
+   "league": "OBOS-ligaen",
+   "match": "Strømmen v Sandnes Ulf",
+   "market": "HUB",
+   "pick": "Uavgjort",
+   "odds": 3.7,
+   "stake": 500,
+   "result": "won",
+   "payout": 1850
+  },
+  {
+   "coupon": "315433910.1",
+   "kickoff": "2026-09-24 19:00",
+   "sport": "hockey",
+   "league": "SHL",
+   "match": "Färjestad BK v Rögle BK",
+   "market": "Vinner (inkl. OT/straffer)",
+   "pick": "Färjestad BK",
+   "odds": 1.55,
+   "stake": 500,
+   "result": "won",
+   "payout": 775
+  },
+  {
+   "coupon": "315433827.1",
+   "kickoff": "2026-09-24 19:00",
+   "sport": "hockey",
+   "league": "SHL",
+   "match": "Färjestad BK v Rögle BK",
+   "market": "Vinner (inkl. OT/straffer)",
+   "pick": "Färjestad BK",
+   "odds": 1.55,
+   "stake": 500,
+   "result": "won",
+   "payout": 775
+  }
+ ]
+}

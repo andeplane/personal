@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oddsen-spill</title>
+<meta name="description" content="Mine Oddsen-spill: live-stilling på aktive spill og historikk over avgjorte kuponger.">
+<meta name="theme-color" content="#101a20">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  :root{ --win:#1d7a43; --win-soft:#dcefe2; --lose:#b3402f; --lose-soft:#f6e1dc; --live:#b4761b; }
+  @media (prefers-color-scheme:dark){ :root{ --win:#6fc28a; --win-soft:#12301c; --lose:#e2856f; --lose-soft:#3a1c15; --live:#e0aa4c; } }
+
+  .top{padding:44px 0 6px}
+  .back{font-family:var(--f-mono);font-size:13px}
+  .top h1{margin-top:10px}
+  .meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:12px;
+        font-family:var(--f-mono);font-size:12.5px;color:var(--ink-soft)}
+  .meta button{font:inherit;padding:5px 11px;border-radius:7px;border:1px solid var(--line);
+        background:var(--card);color:var(--ink);cursor:pointer}
+  .meta button:hover{border-color:var(--accent)}
+
+  section.year{margin:30px 0 8px}
+  .tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 14px;box-shadow:var(--shadow)}
+  .tile .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+  .tile .v{font-family:var(--f-display);font-size:23px;font-weight:800;font-variant-numeric:tabular-nums;margin-top:2px}
+  .pos{color:var(--win)} .neg{color:var(--lose)}
+
+  .bet{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--line);
+       border-radius:10px;padding:13px 16px;margin-bottom:10px;box-shadow:var(--shadow)}
+  .bet.winning{border-left-color:var(--win)} .bet.losing{border-left-color:var(--lose)}
+  .bet .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .league{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-soft)}
+  .teams{font-family:var(--f-display);font-size:18px;font-weight:700;margin:3px 0 5px}
+  .teams .pick{text-decoration:underline;text-decoration-color:var(--accent-warm);text-decoration-thickness:2px;text-underline-offset:4px}
+  .score{font-family:var(--f-display);font-size:28px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+  .clock{font-family:var(--f-mono);font-size:12.5px;font-weight:700;color:var(--live);text-align:right}
+  .clock.done{color:var(--ink-soft)}
+  .slip{font-family:var(--f-mono);font-size:12px;color:var(--ink-soft);margin-top:7px}
+  .badge{display:inline-block;font-family:var(--f-mono);font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;
+         background:var(--line-soft);color:var(--ink-soft)}
+  .badge.winning,.badge.won{background:var(--win-soft);color:var(--win)}
+  .badge.losing,.badge.lost{background:var(--lose-soft);color:var(--lose)}
+  .err{font-family:var(--f-mono);font-size:12.5px;color:var(--lose);margin:6px 0}
+  .empty{font-family:var(--f-mono);font-size:13px;color:var(--ink-soft)}
+
+  table.hist{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+             border-radius:10px;overflow:hidden;box-shadow:var(--shadow);font-size:14.5px}
+  .hist th{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+           color:var(--ink-soft);text-align:left;font-weight:600;padding:9px 10px;border-bottom:1px solid var(--line)}
+  .hist td{padding:8px 10px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  .hist tr:last-child td{border-bottom:0}
+  .hist .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .hist .d{font-family:var(--f-mono);font-size:12px;color:var(--ink-soft);white-space:nowrap}
+  .hist .m{font-family:var(--f-display);font-weight:600}
+  .hist .sub{display:block;font-family:var(--f-mono);font-size:11px;color:var(--ink-soft);font-weight:400}
+
+  @media (max-width:600px){
+    .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .tile .v{font-size:19px}
+    .score{font-size:24px}
+    .hist thead{display:none}
+    .hist,.hist tbody,.hist tr,.hist td{display:block;width:100%}
+    .hist tr{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:10px 12px;border-bottom:1px solid var(--line-soft)}
+    .hist td{padding:0;border:0}
+    .hist td.c-date{grid-column:1 / -1}
+    .hist td.c-match{grid-column:1}
+    .hist td.c-res{grid-column:2;grid-row:2;text-align:right}
+    .hist td.c-odds,.hist td.c-stake,.hist td.c-pay{display:none}
+    .hist td.c-pl{grid-column:1 / -1;text-align:left;font-family:var(--f-mono);font-size:12px}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="back" href="../">← Forsiden</a>
+    <h1>Oddsen-spill</h1>
+    <div class="meta">
+      <span id="updated">Laster …</span>
+      <span>Neste oppdatering om <span id="countdown">–</span></span>
+      <button id="refresh" type="button">Oppdater nå</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="year">
+    <h2><span>Aktive spill</span></h2>
+    <div class="tiles">
+      <div class="tile"><div class="k">Hvis det endte nå</div><div class="v" id="a-pl">–</div></div>
+      <div class="tile"><div class="k">Utbetaling nå</div><div class="v" id="a-pay">–</div></div>
+      <div class="tile"><div class="k">Leder</div><div class="v" id="a-count">–</div></div>
+      <div class="tile"><div class="k">Innsats</div><div class="v" id="a-stake">–</div></div>
+      <div class="tile"><div class="k">Beste utfall</div><div class="v" id="a-best">–</div></div>
+      <div class="tile"><div class="k">Beste gevinst</div><div class="v" id="a-bestpl">–</div></div>
+    </div>
+    <div id="active"></div>
+    <div class="err" id="error"></div>
+  </section>
+
+  <section class="year">
+    <h2><span>Historikk</span></h2>
+    <div class="tiles">
+      <div class="tile"><div class="k">Resultat totalt</div><div class="v" id="h-pl">–</div></div>
+      <div class="tile"><div class="k">Innsats</div><div class="v" id="h-stake">–</div></div>
+      <div class="tile"><div class="k">Utbetalt</div><div class="v" id="h-pay">–</div></div>
+      <div class="tile"><div class="k">Vunnet / tapt</div><div class="v" id="h-wl">–</div></div>
+      <div class="tile"><div class="k">Treffprosent</div><div class="v" id="h-hit">–</div></div>
+      <div class="tile"><div class="k">Inkl. aktive nå</div><div class="v" id="h-all">–</div></div>
+    </div>
+    <table class="hist">
+      <thead><tr><th>Dato</th><th>Kamp</th><th class="num">Odds</th><th class="num">Innsats</th><th>Utfall</th><th class="num">Utbetalt</th><th class="num">+/−</th></tr></thead>
+      <tbody id="history"></tbody>
+    </table>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>Live-stilling fra NIFS. Spillene ligger i <a href="bets.json">bets.json</a>. <a href="https://github.com/andeplane/personal/tree/main/betting">Kildekode</a>.</p>
+</footer>
+
+<script>
+const REFRESH_MS = 60 * 1000;
+const NIFS = 'https://api.nifs.no';
+
+const fmt = n => (n < 0 ? '−' : '') + Math.abs(n).toLocaleString('nb-NO', { maximumFractionDigits: 2 }) + ' kr';
+const signed = n => (n > 0 ? '+' : '') + fmt(n);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const setV = (id, text, cls) => { const el = document.getElementById(id); el.textContent = text; el.className = 'v' + (cls ? ' ' + cls : ''); };
+const tone = n => n > 0 ? 'pos' : n < 0 ? 'neg' : '';
+
+// NIFS ids for bets without one, looked up once per page load by date + team names.
+const nifsIdCache = {};
+async function findNifsId(bet) {
+  const key = bet.kickoff + bet.home + bet.away;
+  if (key in nifsIdCache) return nifsIdCache[key];
+  const date = bet.kickoff.slice(0, 10);
+  const r = await fetch(`${NIFS}/matches/?date=${date}`);
+  if (!r.ok) throw new Error('NIFS ' + r.status);
+  const norm = s => s.toLowerCase().replace(/\s+(sk|fk|il|bk|if)$/,'').trim();
+  const m = (await r.json()).find(m => m.homeTeam && m.awayTeam &&
+    norm(m.homeTeam.name) === norm(bet.home) && norm(m.awayTeam.name) === norm(bet.away));
+  return (nifsIdCache[key] = m ? m.id : null);
+}
+
+// Minute from NIFS half start times. NIFS has no live clock field.
+// matchStatusId seen: 1 = finished, 2 = not started, 9 = half-time.
+function clockFor(m, finished) {
+  if (finished) return 'Slutt';
+  if (m.matchStatusId === 9) return 'Pause';
+  const now = Date.now();
+  const t1 = m.timeStartFirstHalf && Date.parse(m.timeStartFirstHalf);
+  const t2 = m.timeStartSecondHalf && Date.parse(m.timeStartSecondHalf);
+  if (t2) { const min = 45 + Math.floor((now - t2) / 60000) + 1; return min > 90 ? '90+' : min + '′'; }
+  if (t1) { const min = Math.floor((now - t1) / 60000) + 1; return min > 50 ? 'Pause' : min > 45 ? '45+' : min + '′'; }
+  return null;
+}
+
+async function liveState(bet) {
+  const id = bet.nifsId || await findNifsId(bet);
+  if (!id) return null;
+  const r = await fetch(`${NIFS}/matches/${id}/`);
+  if (!r.ok) throw new Error('NIFS ' + r.status);
+  const m = await r.json();
+  const res = m.result || {};
+  const h = res.homeScore90, a = res.awayScore90;
+  const finished = m.matchStatusId === 1;
+  const started = h != null || !!m.timeStartFirstHalf;
+  return { h: h ?? 0, a: a ?? 0, started, finished, clock: clockFor(m, finished) };
+}
+
+const kickoffLabel = k => 'Avspark ' + k.slice(11, 16);
+
+function renderActive(active, states) {
+  let plNow = 0, payNow = 0, leading = 0, live = 0, stake = 0, best = 0;
+  const html = active.map((b, i) => {
+    const s = states[i];
+    const ret = b.stake * b.odds;
+    stake += b.stake; best += ret;
+    let state = 'pending', label = 'Ikke startet', score = '–', clock = kickoffLabel(b.kickoff), now = '–';
+    if (s && s.started) {
+      live++;
+      const diff = s.h - s.a;
+      const ahead = b.pick === 'home' ? diff > 0 : b.pick === 'away' ? diff < 0 : diff === 0;
+      state = ahead ? 'winning' : 'losing';
+      label = s.finished ? (ahead ? 'Vunnet' : 'Tapt') : (ahead ? 'Leder' : (diff === 0 ? 'Uavgjort nå' : 'Ligger under'));
+      score = `${s.h} – ${s.a}`;
+      clock = s.clock || 'Live';
+      if (ahead) { leading++; payNow += ret; plNow += ret - b.stake; now = signed(ret - b.stake); }
+      else { plNow -= b.stake; now = signed(-b.stake); }
+    } else if (s === null) {
+      clock = kickoffLabel(b.kickoff) + ' · ingen live-data';
+    }
+    const pickName = b.pick === 'home' ? b.home : b.pick === 'away' ? b.away : 'Uavgjort';
+    const teams = `<span class="${b.pick === 'home' ? 'pick' : ''}">${esc(b.home)}</span> – <span class="${b.pick === 'away' ? 'pick' : ''}">${esc(b.away)}</span>`;
+    return `<article class="bet ${state}">
+      <div class="row">
+        <div>
+          <div class="league">${esc(b.league)} · ${esc(b.market)}</div>
+          <div class="teams">${teams}</div>
+          <span class="badge ${state}">${label}</span>
+        </div>
+        <div>
+          <div class="score">${score}</div>
+          <div class="clock ${s && s.finished ? 'done' : ''}">${esc(clock)}</div>
+        </div>
+      </div>
+      <div class="slip">${esc(pickName)} @ ${b.odds.toFixed(2)} · innsats ${fmt(b.stake)} · gir ${fmt(ret)} · nå ${now}</div>
+    </article>`;
+  }).join('');
+  document.getElementById('active').innerHTML = html || '<p class="empty">Ingen aktive spill.</p>';
+  setV('a-pl', live ? signed(plNow) : '–', tone(plNow));
+  setV('a-pay', live ? fmt(payNow) : '–');
+  setV('a-count', `${leading} / ${live}`);
+  setV('a-stake', fmt(stake));
+  setV('a-best', fmt(best));
+  setV('a-bestpl', signed(best - stake), 'pos');
+  return live ? plNow : 0;
+}
+
+function renderHistory(settled, activePl) {
+  const rows = [...settled].sort((x, y) => y.kickoff.localeCompare(x.kickoff) || y.coupon.localeCompare(x.coupon));
+  let stake = 0, pay = 0, won = 0;
+  document.getElementById('history').innerHTML = rows.map(b => {
+    stake += b.stake; pay += b.payout; if (b.result === 'won') won++;
+    const pl = b.payout - b.stake;
+    const d = new Date(b.kickoff.replace(' ', 'T'));
+    const date = d.toLocaleDateString('nb-NO', { day: 'numeric', month: 'short' });
+    return `<tr>
+      <td class="d c-date">${date}</td>
+      <td class="c-match"><span class="m">${esc(b.match)}</span><span class="sub">${esc(b.pick)} @ ${b.odds.toFixed(2)} · ${fmt(b.stake)} · ${esc(b.league)}</span></td>
+      <td class="num c-odds">${b.odds.toFixed(2)}</td>
+      <td class="num c-stake">${fmt(b.stake)}</td>
+      <td class="c-res"><span class="badge ${b.result}">${b.result === 'won' ? 'Vunnet' : 'Tapt'}</span></td>
+      <td class="num c-pay">${b.payout ? fmt(b.payout) : '–'}</td>
+      <td class="num c-pl ${tone(pl)}">${signed(pl)}</td>
+    </tr>`;
+  }).join('');
+  const pl = pay - stake;
+  setV('h-pl', signed(pl), tone(pl));
+  setV('h-stake', fmt(stake));
+  setV('h-pay', fmt(pay));
+  setV('h-wl', `${won} / ${settled.length - won}`);
+  setV('h-hit', settled.length ? Math.round(100 * won / settled.length) + ' %' : '–');
+  setV('h-all', signed(pl + activePl), tone(pl + activePl));
+}
+
+let nextAt = 0;
+async function refresh() {
+  const err = document.getElementById('error');
+  err.textContent = '';
+  nextAt = Date.now() + REFRESH_MS;
+  let data;
+  try {
+    const r = await fetch('bets.json?t=' + Date.now());
+    data = await r.json();
+  } catch (e) { err.textContent = 'Fant ikke bets.json: ' + e.message; return; }
+  const active = data.active || [];
+  const states = await Promise.all(active.map(b => liveState(b).catch(e => { err.textContent = 'Live-data feilet: ' + e.message; return undefined; })));
+  const activePl = renderActive(active, states);
+  renderHistory(data.settled || [], activePl);
+  document.getElementById('updated').textContent =
+    'Oppdatert ' + new Date().toLocaleTimeString('nb-NO', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+}
+setInterval(() => {
+  const s = Math.max(0, Math.round((nextAt - Date.now()) / 1000));
+  document.getElementById('countdown').textContent = s + ' s';
+  if (s === 0 && nextAt) { nextAt = 0; refresh(); }
+}, 1000);
+document.getElementById('refresh').onclick = refresh;
+refresh();
+</script>
+</body>
+</html>

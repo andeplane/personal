@@ -3,6 +3,7 @@
   const key = 'bookshelf-lighting-v1-owned';
   const products = [...document.querySelectorAll('.product')];
   const boxes = products.map(p => p.querySelector('input[type=checkbox]'));
+  const ownedKey = box => box.dataset.ownershipKey || box.id;
   let owned = new Set();
   try { const saved = JSON.parse(localStorage.getItem(key) || '[]'); if (Array.isArray(saved)) owned = new Set(saved.filter(v => typeof v === 'string')); } catch { /* Private browsing or malformed old data. */ }
   const search = document.querySelector('#search');
@@ -72,9 +73,9 @@
     const bar = document.querySelector('#shopping-progress'); bar.max = products.length; bar.value = checked;
   }
   boxes.forEach(box => {
-    box.checked = owned.has(box.id);
+    box.checked = owned.has(ownedKey(box));
     box.addEventListener('change', () => {
-      if (box.checked) owned.add(box.id); else owned.delete(box.id);
+      if (box.checked) owned.add(ownedKey(box)); else owned.delete(ownedKey(box));
       try { localStorage.setItem(key, JSON.stringify([...owned])); } catch { /* Checklist still works for this visit. */ }
       update();
     });
@@ -90,7 +91,7 @@
   includeExtras.addEventListener('change', updateBudget);
   document.querySelector('#own-tools').addEventListener('click', () => {
     products.forEach((product, i) => {
-      if (product.dataset.budgetCategory === 'tools') { boxes[i].checked = true; owned.add(boxes[i].id); }
+      if (product.dataset.budgetCategory === 'tools') { boxes[i].checked = true; owned.add(ownedKey(boxes[i])); }
     });
     try { localStorage.setItem(key, JSON.stringify([...owned])); } catch { /* No persistence available. */ }
     update();

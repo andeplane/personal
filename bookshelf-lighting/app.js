@@ -12,7 +12,7 @@
   const batteryReserve = document.querySelector('#battery-reserve');
   const shippingReserve = document.querySelector('#shipping-reserve');
   const includeExtras = document.querySelector('#include-extras');
-  const budgetKey = 'bookshelf-lighting-budget-v1';
+  const budgetKey = 'bookshelf-lighting-budget-v2';
   const money = ore => new Intl.NumberFormat('nb-NO', { style: 'currency', currency: 'NOK', minimumFractionDigits: 2 }).format(ore / 100);
   const lineCost = product => Number(product.dataset.lineOre);
   const included = product => product.dataset.budgetCategory !== 'extras' || includeExtras.checked;
@@ -49,7 +49,7 @@
     document.querySelector('#budget-total').textContent = money(goods + reserves);
     document.querySelector('#budget-remaining').textContent = money(goods - ownedCost + reserves);
     document.querySelector('#budget-with-tools').textContent = money(goods - toolCost + reserves);
-    document.querySelector('#budget-formula').textContent = `Varer ${money(goods)} + batterireserve ${money(battery)} + fraktreserve ${money(shipping)}.`;
+    document.querySelector('#budget-formula').textContent = `Varer ${money(goods)} + fraktreserve ${money(shipping)}.`;
     document.querySelector('#budget-owned').textContent = `${money(ownedCost)} trukket fra for ting som er kjøpt / finnes fra før. Reserver ${money(reserves)} kommer i tillegg til gjenstående varer.`;
     document.querySelector('.price-peek').textContent = `Budsjett: ${money(goods - toolCost + reserves)} med egne verktøy · ${money(goods + reserves)} fra null ↓`;
     try { localStorage.setItem(budgetKey, JSON.stringify({ battery: battery / 100, shipping: shipping / 100, extras: includeExtras.checked })); } catch { /* Totals still work without persistence. */ }
@@ -136,7 +136,7 @@ async function createViewer() {
   });
   observer.observe(container);
   return async function showPart(part, version) {
-    const geometry = await loader.loadAsync(`downloads/print-files/${part}.stl`);
+    const geometry = await loader.loadAsync(`downloads/print-files/${part}.stl?v=controller-v2`);
     if (version !== selectionVersion) { geometry.dispose(); return; }
     geometry.center(); geometry.computeVertexNormals(); geometry.computeBoundingSphere();
     if (mesh) { scene.remove(mesh); mesh.geometry.dispose(); mesh.material.dispose(); }

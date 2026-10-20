@@ -1,21 +1,53 @@
 {
+  "revision": 2,
+  "assembled_controller_mm": [
+    180.0,
+    112.0,
+    34.4
+  ],
+  "assumptions": [
+    "Battery dimensions published by Akyga",
+    "Other envelopes are conservative reservations, not measured models",
+    "Fuse holder exterior and charger board dimensions are not published by these stores",
+    "Physical fit, strain relief, lamp attachment and thermal/electrical operation untested"
+  ],
   "controller-base": {
     "dimensions_mm": [
-      110.0,
-      58.0,
-      36.0
+      180.0,
+      112.0,
+      32.0
     ],
-    "volume_mm3": 50768.7,
+    "volume_mm3": 110219.3,
     "watertight": true,
     "connected_solids": 1
   },
   "controller-lid": {
     "dimensions_mm": [
-      110.0,
-      58.0,
+      180.0,
+      112.0,
       4.0
     ],
-    "volume_mm3": 14992.5,
+    "volume_mm3": 48746.5,
+    "watertight": true,
+    "connected_solids": 1
+  },
+  "battery-guard": {
+    "dimensions_mm": [
+      88.0,
+      64.0,
+      2.4
+    ],
+    "volume_mm3": 10325.4,
+    "watertight": true,
+    "connected_solids": 1
+  },
+  "pcb-rail": {
+    "dimensions_mm": [
+      44.0,
+      14.0,
+      6.0
+    ],
+    "volume_mm3": 1522.9,
     "watertight": true,
     "connected_solids": 1
   },
@@ -42,20 +74,105 @@
   "fit-coupon": {
     "dimensions_mm": [
       72.0,
-      26.0,
+      28.0,
       9.4
     ],
-    "volume_mm3": 3708.7,
+    "volume_mm3": 4802.0,
     "watertight": true,
     "connected_solids": 1
   },
-  "lid_base_intersection_mm3": 0,
-  "switch_base_intersection_mm3": 0,
-  "switch_floor_clearance_mm": 10.4,
-  "component_base_and_switch_intersections_mm3": {
-    "regulator": 0,
-    "input-capacitor": 0,
-    "output-fuse-and-insulation": 0
+  "intersection_mm3": {
+    "base_lid": 0.0,
+    "base_guard": 0.0,
+    "lid_guard": 0.0,
+    "base_battery_AKY0627_published": 0.0,
+    "guard_battery_AKY0627_published": 0.0,
+    "lid_battery_AKY0627_published": 0.0,
+    "base_charger_reserved_34x22x12": 0.0,
+    "guard_charger_reserved_34x22x12": 0.0,
+    "lid_charger_reserved_34x22x12": 0.0,
+    "base_USB_plug_reserved_24x14x12": 0.0,
+    "guard_USB_plug_reserved_24x14x12": 0.0,
+    "lid_USB_plug_reserved_24x14x12": 0.0,
+    "base_boost_reserved_38x26x12": 0.0,
+    "guard_boost_reserved_38x26x12": 0.0,
+    "lid_boost_reserved_38x26x12": 0.0,
+    "base_battery_fuse_reserved_60x18x18": 0.0,
+    "guard_battery_fuse_reserved_60x18x18": 0.0,
+    "lid_battery_fuse_reserved_60x18x18": 0.0,
+    "base_output_fuse_reserved_60x18x18": 0.0,
+    "guard_output_fuse_reserved_60x18x18": 0.0,
+    "lid_output_fuse_reserved_60x18x18": 0.0,
+    "base_switch_wiring_reserved_20x20x24": 0.0,
+    "guard_switch_wiring_reserved_20x20x24": 0.0,
+    "base_rail_0": 0.0,
+    "lid_rail_0": 0.0,
+    "guard_rail_0": 0.0,
+    "rail_0_battery_AKY0627_published": 0.0,
+    "rail_0_charger_reserved_34x22x12": 0.0,
+    "rail_0_USB_plug_reserved_24x14x12": 0.0,
+    "rail_0_boost_reserved_38x26x12": 0.0,
+    "rail_0_battery_fuse_reserved_60x18x18": 0.0,
+    "rail_0_output_fuse_reserved_60x18x18": 0.0,
+    "rail_0_switch_wiring_reserved_20x20x24": 0.0,
+    "base_rail_1": 0.0,
+    "lid_rail_1": 0.0,
+    "guard_rail_1": 0.0,
+    "rail_1_battery_AKY0627_published": 0.0,
+    "rail_1_charger_reserved_34x22x12": 0.0,
+    "rail_1_USB_plug_reserved_24x14x12": 0.0,
+    "rail_1_boost_reserved_38x26x12": 0.0,
+    "rail_1_battery_fuse_reserved_60x18x18": 0.0,
+    "rail_1_output_fuse_reserved_60x18x18": 0.0,
+    "rail_1_switch_wiring_reserved_20x20x24": 0.0,
+    "rail_1_0": 0.0,
+    "base_rail_2": 0.0,
+    "lid_rail_2": 0.0,
+    "guard_rail_2": 0.0,
+    "rail_2_battery_AKY0627_published": 0.0,
+    "rail_2_charger_reserved_34x22x12": 0.0,
+    "rail_2_USB_plug_reserved_24x14x12": 0.0,
+    "rail_2_boost_reserved_38x26x12": 0.0,
+    "rail_2_battery_fuse_reserved_60x18x18": 0.0,
+    "rail_2_output_fuse_reserved_60x18x18": 0.0,
+    "rail_2_switch_wiring_reserved_20x20x24": 0.0,
+    "rail_2_0": 0.0,
+    "rail_2_1": 0.0,
+    "base_rail_3": 0.0,
+    "lid_rail_3": 0.0,
+    "guard_rail_3": 0.0,
+    "rail_3_battery_AKY0627_published": 0.0,
+    "rail_3_charger_reserved_34x22x12": 0.0,
+    "rail_3_USB_plug_reserved_24x14x12": 0.0,
+    "rail_3_boost_reserved_38x26x12": 0.0,
+    "rail_3_battery_fuse_reserved_60x18x18": 0.0,
+    "rail_3_output_fuse_reserved_60x18x18": 0.0,
+    "rail_3_switch_wiring_reserved_20x20x24": 0.0,
+    "rail_3_0": 0.0,
+    "rail_3_1": 0.0,
+    "rail_3_2": 0.0,
+    "battery_AKY0627_published__charger_reserved_34x22x12": 0.0,
+    "battery_AKY0627_published__USB_plug_reserved_24x14x12": 0.0,
+    "battery_AKY0627_published__boost_reserved_38x26x12": 0.0,
+    "battery_AKY0627_published__battery_fuse_reserved_60x18x18": 0.0,
+    "battery_AKY0627_published__output_fuse_reserved_60x18x18": 0.0,
+    "battery_AKY0627_published__switch_wiring_reserved_20x20x24": 0.0,
+    "charger_reserved_34x22x12__USB_plug_reserved_24x14x12": 0.0,
+    "charger_reserved_34x22x12__boost_reserved_38x26x12": 0.0,
+    "charger_reserved_34x22x12__battery_fuse_reserved_60x18x18": 0.0,
+    "charger_reserved_34x22x12__output_fuse_reserved_60x18x18": 0.0,
+    "charger_reserved_34x22x12__switch_wiring_reserved_20x20x24": 0.0,
+    "USB_plug_reserved_24x14x12__boost_reserved_38x26x12": 0.0,
+    "USB_plug_reserved_24x14x12__battery_fuse_reserved_60x18x18": 0.0,
+    "USB_plug_reserved_24x14x12__output_fuse_reserved_60x18x18": 0.0,
+    "USB_plug_reserved_24x14x12__switch_wiring_reserved_20x20x24": 0.0,
+    "boost_reserved_38x26x12__battery_fuse_reserved_60x18x18": 0.0,
+    "boost_reserved_38x26x12__output_fuse_reserved_60x18x18": 0.0,
+    "boost_reserved_38x26x12__switch_wiring_reserved_20x20x24": 0.0,
+    "battery_fuse_reserved_60x18x18__output_fuse_reserved_60x18x18": 0.0,
+    "battery_fuse_reserved_60x18x18__switch_wiring_reserved_20x20x24": 0.0,
+    "output_fuse_reserved_60x18x18__switch_wiring_reserved_20x20x24": 0.0
   },
-  "status": "CAD and mesh checked; physical fit, lamp current and thermal test pending"
+  "battery_guard_vertical_clearance_mm": 3.9,
+  "status": "CAD/mesh checked; no physical or electrical validation claimed"
 }

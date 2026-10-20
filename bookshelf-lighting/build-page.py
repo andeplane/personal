@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parent
 data = json.loads((ROOT / 'components.json').read_text())
 items = data['items']
 assert len({item['id'] for item in items}) == len(items)
+assert all(item['origin'] == 'no' for item in items), 'Purchase links must be Norwegian stores'
 e = lambda value: html.escape(str(value), quote=True)
 groups = list(dict.fromkeys(item['group'] for item in items))
 sections = []
@@ -25,7 +26,7 @@ for group in groups:
     if group == 'Har du dette fra før?':
         section.append('<p class="group-note">Kjøp bare det som mangler. Disse postene er valgfrie tillegg til startpakken.</p>')
     for item in rows:
-        badge = '<span class="optional-badge">VALGFRITT</span>' if item['optional'] else ''
+        badge = '<span class="optional-badge">AVVENT KJØP</span>' if item.get('pending') else ('<span class="optional-badge">VALGFRITT</span>' if item['optional'] else '')
         extra = f'<p class="product-extra">{e(item["extra"])}</p>' if item['extra'] else ''
         origin = 'Norsk butikk' if item['origin'] == 'no' else 'Utenlandsk butikk / distributør'
         section.append(f'''<article class="product" data-origin="{e(item['origin'])}">
@@ -53,13 +54,13 @@ for item in items:
 # Keep the downloadable instructions in sync with the page instead of shipping an older US-only list.
 readme = ROOT / 'downloads/README.md'
 guide = readme.read_text()
-shopping = ['## Buy list', '', 'Shopping list checked 20 October 2026. Product-page prices and availability may change. Norway delivery, freight, checkout VAT and import charges have not been verified. No purchase has been made. The exact resistor value is pending a first-lamp test.', '']
+shopping = ['## Buy list', '', 'Norwegian purchase links checked 20 October 2026. Prices and availability may change. Pending controller candidates are not a complete shopping list. Battery, holder and battery-side protection remain unresolved. No purchase has been made.', '']
 for group in groups:
     shopping.extend([f'### {group}', ''])
     for item in items:
         shopping.append(f"- **{item['qty']} — [{item['name']}]({item['url']})** ({item['store']}). {item['description']} {item['extra']} Price: {item['price']}. Availability: {item['stock']}.")
     shopping.append('')
-shopping.extend(['The bank stays outside the enclosure. Use its supplied charging cable and an existing compatible USB charger, or the optional charger listed above. USB-A is the always-on output. Confirm the charging input against the manual for the revision received; the top USB-C PD port is not always-on compatible.', ''])
+shopping.extend(['Controller candidates marked AVVENT KJØP must be resolved together before ordering. The v1 controller CAD is archived and does not fit the revised components.', ''])
 guide, count = re.subn(r'## Buy list\n.*?(?=## Box dimensions)', '\n'.join(shopping) + '\n', guide, count=1, flags=re.S)
 assert count == 1
 guide = guide.replace('insulate unused green/white data wires separately', 'identify and individually insulate all unused data/shield conductors')

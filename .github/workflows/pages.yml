@@ -23,6 +23,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Build bookshelf lighting guide
+        run: |
+          python3 bookshelf-lighting/build-page.py
+          node --check bookshelf-lighting/app.js
+
       - name: Build and validate garage planner
         run: |
           python3 garage/build-viewer.py

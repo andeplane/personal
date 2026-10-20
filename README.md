@@ -37,3 +37,7 @@ og lenkes bare til herfra.
 ## Garasjeplanlegger
 
 [Åpne 3D-planleggeren](https://andeplane.github.io/personal/garage/) · [Kode og utvikling](garage/README.md). Pages bygger garasjevisningen automatisk før publisering.
+
+## Bokhyllelys
+
+[Åpne byggeguiden](https://andeplane.github.io/personal/bookshelf-lighting/) · [Filer og utvikling](bookshelf-lighting/README.md). Printfiler, koblingsskjema og handleliste med norske butikker og verktøy.

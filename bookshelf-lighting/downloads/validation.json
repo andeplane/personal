@@ -1,0 +1,61 @@
+{
+  "controller-base": {
+    "dimensions_mm": [
+      110.0,
+      58.0,
+      36.0
+    ],
+    "volume_mm3": 50768.7,
+    "watertight": true,
+    "connected_solids": 1
+  },
+  "controller-lid": {
+    "dimensions_mm": [
+      110.0,
+      58.0,
+      4.0
+    ],
+    "volume_mm3": 14992.5,
+    "watertight": true,
+    "connected_solids": 1
+  },
+  "tap-base": {
+    "dimensions_mm": [
+      48.0,
+      22.0,
+      10.0
+    ],
+    "volume_mm3": 4162.4,
+    "watertight": true,
+    "connected_solids": 1
+  },
+  "tap-lid": {
+    "dimensions_mm": [
+      48.0,
+      22.0,
+      1.8
+    ],
+    "volume_mm3": 1861.9,
+    "watertight": true,
+    "connected_solids": 1
+  },
+  "fit-coupon": {
+    "dimensions_mm": [
+      72.0,
+      26.0,
+      9.4
+    ],
+    "volume_mm3": 3708.7,
+    "watertight": true,
+    "connected_solids": 1
+  },
+  "lid_base_intersection_mm3": 0,
+  "switch_base_intersection_mm3": 0,
+  "switch_floor_clearance_mm": 10.4,
+  "component_base_and_switch_intersections_mm3": {
+    "regulator": 0,
+    "input-capacitor": 0,
+    "output-fuse-and-insulation": 0
+  },
+  "status": "CAD and mesh checked; physical fit, lamp current and thermal test pending"
+}

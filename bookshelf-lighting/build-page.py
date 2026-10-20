@@ -30,21 +30,29 @@ def amount(category):
 parts, tools, extras = amount('parts'), amount('tools'), amount('extras')
 reserve = data['budget']['batteryReserveOre'] + data['budget']['shippingReserveOre']
 e = lambda value: html.escape(str(value), quote=True)
-groups = list(dict.fromkeys(item['group'] for item in items))
+routes = data['purchasePlan']['routes']
+route_by_id = {r['id']: r for r in routes}
+assert set(route_by_id) == {'storo', 'city', 'online', 'hold'}
+assert all(i['purchaseRoute'] in route_by_id for i in items)
+assert all(i['purchaseRoute'] == 'hold' for i in items if i.get('pending'))
+groups = list(route_by_id)
+
 sections = []
 for group in groups:
-    rows = [item for item in items if item['group'] == group]
-    section = [f'<div class="shopping-group"><div class="group-heading"><h3>{e(group)}</h3><span>{len(rows):02d} POSTER</span></div>']
+    rows = [item for item in items if item['purchaseRoute'] == group]
+    route = route_by_id[group]
+    route_subtotal = sum(i['unitPriceOre'] * i['buyQuantity'] for i in rows if not i['optional'])
+    section = [f'<div class="shopping-group" id="route-{e(group)}"><div class="group-heading"><h3>{e(route["title"])}</h3><span>{len(rows):02d} POSTER</span><strong data-route-total="{e(group)}">{money(route_subtotal)}</strong></div><p class="group-note">{e(route["location"])}. Beløpet viser gjenstående varer i denne gruppen; valgfrie tillegg er utelatt til de velges.</p>']
     if group == 'Har du dette fra før?':
         section.append('<p class="group-note">Kjøp bare det som mangler. Disse postene er valgfrie tillegg til startpakken.</p>')
     for item in rows:
         badge = '<span class="optional-badge">AVVENT KJØP</span>' if item.get('pending') else ('<span class="optional-badge">VALGFRITT</span>' if item['optional'] else '')
         extra = f'<p class="product-extra">{e(item["extra"])}</p>' if item['extra'] else ''
         origin = 'Norsk butikk' if item['origin'] == 'no' else 'Utenlandsk butikk / distributør'
-        section.append(f'''<article class="product" data-origin="{e(item['origin'])}" data-line-ore="{item['unitPriceOre'] * item['buyQuantity']}" data-budget-category="{item['budgetCategory']}" data-store="{e(item['store'])}">
+        section.append(f'''<article class="product" data-origin="{e(item['origin'])}" data-line-ore="{item['unitPriceOre'] * item['buyQuantity']}" data-budget-category="{item['budgetCategory']}" data-store="{e(item['store'])}" data-purchase-route="{item['purchaseRoute']}">
           <input type="checkbox" id="buy-{e(item['id'])}" aria-label="På plass: {e(item['name'])}">
-          <div><h4><label for="buy-{e(item['id'])}">{e(item['name'])}</label>{badge}</h4><p>{e(item['description'])}</p>{extra}<div class="product-meta"><span class="quantity">{e(item['qty'])}</span><span class="origin">{origin}</span></div></div>
-          <div class="product-buy"><a href="{e(item['url'])}" target="_blank" rel="noopener noreferrer" aria-label="Se {e(item['name'])} hos {e(item['store'])} (ny fane)">{e(item['store'])} ↗</a><strong class="line-price">{money(item['unitPriceOre'] * item['buyQuantity'])} totalt</strong><span class="price">{item['buyQuantity']} × {money(item['unitPriceOre'])} · {e(item['unitLabel'])}</span><span>{e(item['stock'])}</span><span>Kontrollert {e(item['priceChecked'])} · inkl. mva.</span></div>
+          <div><h4><label for="buy-{e(item['id'])}">{e(item['name'])}</label>{badge}</h4><p>{e(item['description'])}</p>{extra}<div class="product-meta"><span class="quantity">{e(item['qty'])}</span><span class="origin">{origin}</span><span class="purchase-route">{e(item['purchaseLocation'])}</span></div></div>
+          <div class="product-buy"><a href="{e(item['url'])}" target="_blank" rel="noopener noreferrer" aria-label="Se {e(item['name'])} hos {e(item['store'])} (ny fane)">{e(item['store'])} ↗</a><strong class="line-price">{money(item['unitPriceOre'] * item['buyQuantity'])} totalt</strong><span class="price">{item['buyQuantity']} × {money(item['unitPriceOre'])} · {e(item['unitLabel'])}</span><span class="local-stock">{e(item['localStock'])}</span><span>{e(item['stock'])}</span><span>Kontrollert {e(item['priceChecked'])} · inkl. mva.</span></div>
         </article>''')
     section.append('</div>')
     sections.append('\n'.join(section))
@@ -66,6 +74,17 @@ budget_html = f'''<section id="budsjett" class="budget-panel" aria-labelledby="b
  <div class="budget-remaining"><div><span>Gjenstår å kjøpe · inkl. valgte reserver</span><strong id="budget-remaining" aria-live="polite">{money(parts+tools+reserve)}</strong><small id="budget-owned">Kryss av «har fra før / kjøpt» i listen; beløpet trekkes fra her.</small></div><div class="budget-shortcuts"><button class="small-button" id="own-tools" type="button">Jeg har verktøyene</button><a href="#handleliste">Gå til kjøpslisten ↓</a></div></div>
  <details><summary>Fordeling per butikk · varer som gjenstår</summary><table class="store-totals"><thead><tr><th scope="col">Butikk</th><th scope="col">Varer inkl. mva.</th></tr></thead><tbody>{store_rows}</tbody></table><p class="small-note">Frakt og batterireserve står separat over. Kontrollboksens kandidatdeler er med i budsjettet, men merket «avvent kjøp». Søk og butikkfilter endrer ikke totalsummen.</p></details>
 </section>'''
+trip_cards = []
+for route in routes:
+    rid = route['id']
+    base = sum(i['unitPriceOre'] * i['buyQuantity'] for i in items if i['purchaseRoute'] == rid and not i['optional'])
+    optional = sum(i['unitPriceOre'] * i['buyQuantity'] for i in items if i['purchaseRoute'] == rid and i['optional'])
+    link = f'<a href="{e(route["url"])}" target="_blank" rel="noopener noreferrer">Butikk, adresse og åpningstider ↗</a>' if route['url'] else ''
+    trip_cards.append(f'''<article class="trip-card"><h3>{e(route['title'])}</h3><p>{e(route['location'])}</p><strong data-route-total="{rid}">{money(base)}</strong><small>Varer inkl. mva. · ekstra valgfrie varer: {money(optional)}</small><p>{e(route['details'])}</p>{link}<a class="trip-list-link" href="#route-{rid}">Se varene og kryss av ↓</a></article>''')
+trip_html = '<section id="handletur" class="trip-panel" aria-labelledby="trip-heading"><p class="eyebrow">LOKAL HANDLEPLAN · KONTROLLERT 20. OKTOBER 2026</p><h2 id="trip-heading">Storo, sentrum eller nett?</h2><p>Handle listen som en konkret tur: Storo for det som faktisk er på lager der, Torggata 6 som alternativ for tre varer, og nettbestilling for resten. Kjøp bare verktøy du mangler. Knappene går til samme avkryssingsliste som budsjettet bruker.</p><div class="trip-cards">' + ''.join(trip_cards) + '</div><p class="small-note">Lagerstatus er et øyeblikksbilde fra butikkvelgerne, ikke fra kjedenes nettlager. Ingen reservasjon eller ordre er lagt inn. Sjekk/velg hentebutikken på produktlenken før avreise, særlig der bare ett eksemplar er oppgitt. Frakt og batterireserve står separat i budsjettet. Ingen kampanjerabatt er forutsatt.</p></section>'
+ts, te = '<!-- TRIP_START -->', '<!-- TRIP_END -->'
+assert source.count(ts) == source.count(te) == 1
+source = source.split(ts)[0] + ts + '\n' + trip_html + '\n' + te + source.split(te)[1]
 bs, be = '<!-- BUDGET_START -->', '<!-- BUDGET_END -->'
 assert source.count(bs) == source.count(be) == 1
 source = source.split(bs)[0] + bs + '\n' + budget_html + '\n' + be + source.split(be)[1]
@@ -76,9 +95,9 @@ page.write_text(source)
 
 csv_text = io.StringIO()
 writer = csv.writer(csv_text, lineterminator='\n')
-writer.writerow(['Kategori', 'Produkt', 'Kjøp antall', 'Butikk', 'Butikktype', 'Enhetspris inkl. mva. (øre)', 'Antall kjøpsenheter', 'Linjesum inkl. mva. (øre)', 'Prisgrunnlag', 'Lager kontrollert 2026-10-20', 'Valgfritt', 'Bruk', 'Merknad', 'Lenke'])
+writer.writerow(['Kategori', 'Kjøpsmåte', 'Kjøpssted', 'Lokal lagerstatus', 'Produkt', 'Kjøp antall', 'Butikk', 'Butikktype', 'Enhetspris inkl. mva. (øre)', 'Antall kjøpsenheter', 'Linjesum inkl. mva. (øre)', 'Prisgrunnlag', 'Lager kontrollert 2026-10-20', 'Valgfritt', 'Bruk', 'Merknad', 'Lenke'])
 for item in items:
-    writer.writerow([item['group'], item['name'], item['qty'], item['store'], item['origin'], item['unitPriceOre'], item['buyQuantity'], item['unitPriceOre'] * item['buyQuantity'], item['price'], item['stock'], 'Ja' if item['optional'] else 'Nei', item['description'], item['extra'], item['url']])
+    writer.writerow([item['group'], item['purchaseRoute'], item['purchaseLocation'], item['localStock'], item['name'], item['qty'], item['store'], item['origin'], item['unitPriceOre'], item['buyQuantity'], item['unitPriceOre'] * item['buyQuantity'], item['price'], item['stock'], 'Ja' if item['optional'] else 'Nei', item['description'], item['extra'], item['url']])
 (ROOT / 'downloads/shopping-list.csv').write_text(csv_text.getvalue(), encoding='utf-8-sig')
 
 # Keep the downloadable instructions in sync with the page instead of shipping an older US-only list.
@@ -87,9 +106,11 @@ guide = readme.read_text()
 shopping = ['## Buy list', '', 'Norwegian purchase links checked 20 October 2026. Prices and availability may change. Pending controller candidates are not a complete shopping list. Battery, holder and battery-side protection remain unresolved. No purchase has been made.', '']
 shopping.extend([f"Build parts: {money(parts)}. Tools: {money(tools)}. Base-list goods total: {money(parts+tools)} including VAT. Optional extras: {money(extras)} (not included by default).", '', f"Planning total from zero: {money(parts+tools+reserve)}, including a battery/holder/protection reserve of {money(data['budget']['batteryReserveOre'])} and a shipping reserve of {money(data['budget']['shippingReserveOre'])}. With existing tools: {money(parts+reserve)}. Reserves are estimates, not quoted prices. Original lanterns and printer excluded. No campaign discount assumed.", ''])
 for group in groups:
-    shopping.extend([f'### {group}', ''])
-    for item in items:
-        shopping.append(f"- **{item['qty']} — [{item['name']}]({item['url']})** ({item['store']}). {item['description']} {item['extra']} Price: {item['buyQuantity']} x {money(item['unitPriceOre'])} = {money(item['unitPriceOre'] * item['buyQuantity'])} including VAT. Unit basis: {item['unitLabel']}. Availability: {item['stock']}.")
+    route = route_by_id[group]
+    subtotal = sum(i['unitPriceOre'] * i['buyQuantity'] for i in items if i['purchaseRoute'] == group and not i['optional'])
+    shopping.extend([f'### {route["title"]} — {money(subtotal)} excluding optional items', '', route['location'] + '. ' + route['details'], ''])
+    for item in [i for i in items if i['purchaseRoute'] == group]:
+        shopping.append(f"- **{item['qty']} — [{item['name']}]({item['url']})** ({item['store']}). {item['description']} {item['extra']} Price: {item['buyQuantity']} x {money(item['unitPriceOre'])} = {money(item['unitPriceOre'] * item['buyQuantity'])} including VAT. Unit basis: {item['unitLabel']}. Local purchase plan: {item['purchaseLocation']}. Local stock: {item['localStock']}. Online availability: {item['stock']}.")
     shopping.append('')
 shopping.extend(['Controller candidates marked AVVENT KJØP must be resolved together before ordering. The v1 controller CAD is archived and does not fit the revised components.', ''])
 guide, count = re.subn(r'## Buy list\n.*?(?=## Box dimensions)', '\n'.join(shopping) + '\n', guide, count=1, flags=re.S)

@@ -23,77 +23,84 @@
       "purchaseRoute": "storo",
       "purchaseLocation": "Kjell & Company Storo",
       "localStock": "Storo: 1 stk.",
-      "localStockChecked": "2026-10-20"
+      "localStockChecked": "2026-10-20",
+      "sparesNote": "Én pakke er allerede et lager: 1 460 motstander, 20 av hver verdi. Derfor kjøpes ett sortiment, ikke flere store sett."
     },
     {
       "id": "usb",
       "group": "Ledninger og montering",
       "name": "USB-A-kabel med 1×5-pins hunnkontakt · 30 cm",
-      "qty": "1 stk.",
+      "qty": "5 stk.",
       "store": "MrSmart",
       "origin": "no",
       "url": "https://mrsmart.no/usb-a-kabel-med-1x5-pin-hunnkontakt-30cm-id533",
       "description": "USB-A med løse ledere etter at pinnesokkelen klippes av. Identifiser +5 V og GND med måling og isoler andre ledere hver for seg. Endelig tilkobling avhenger av valgt ladekrets.",
       "price": "79,00 kr per stk./sett inkl. mva.",
-      "stock": "På lager · sendes fra Norge",
+      "stock": "Antallskontroll i handlekurv: 1 stk. på lager; 4 restbestilles. Samlet ordre oppgitt sendt senest 30.10.2026.",
       "extra": "Mål kabeldiameteren før den nye kontrollboksen tegnes ferdig.",
       "optional": false,
       "unitPriceOre": 7900,
-      "buyQuantity": 1,
+      "buyQuantity": 5,
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
       "budgetCategory": "parts",
       "purchaseRoute": "online",
       "purchaseLocation": "Nettbestilling · MrSmart",
-      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt.",
+      "sparesNote": "Én USB-ledning til første kontrollboks, fire i reserve til feil og senere maskiner.",
+      "ownershipKey": "buy-usb:stock-v2"
     },
     {
       "id": "wire",
       "group": "Ledninger og montering",
       "name": "Svart koblingstråd · 0,14 mm² / ca. AWG 26",
-      "qty": "2 ruller à 10 m",
+      "qty": "4 ruller à 10 m",
       "store": "Kjell & Company",
       "origin": "no",
       "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/maleinstrumenter/malekabler-sonder-kontakter/koblingstrad/isolert-koblingstrad-014-mm-svart-p45060",
-      "description": "To svarte ledere, lett tvinnet. Oppgitt ytterdiameter 1,1 mm hver. 20 ledermeter gir 10 meter ledningspar; ca. 15 ledermeter brukes i planlagt oppsett, resten er margin.",
+      "description": "To svarte ledere tvinnes lett sammen. Oppgitt ytterdiameter 1,1 mm hver. Fire 10 m-ruller gir 40 ledermeter / 20 m ledningspar; første hylleoppsett bruker opptil ca. 15 ledermeter.",
       "price": "49,00 kr per rull à 10 m inkl. mva.",
       "stock": "Nettlager: 100+ · levering 22.–23. okt.",
       "extra": "",
       "optional": false,
       "unitPriceOre": 4900,
-      "buyQuantity": 2,
+      "buyQuantity": 4,
       "unitLabel": "per rull à 10 m",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
       "budgetCategory": "parts",
       "purchaseRoute": "city",
       "purchaseLocation": "Kjell Torggata",
-      "localStock": "Kjell Torggata: 5+ stk. · kjøp 2 ruller · Storo: bestillingsvare",
-      "localStockChecked": "2026-10-20"
+      "localStock": "Kjell Torggata: 5+ ruller · kjøp 4 ruller · Storo: bestillingsvare",
+      "localStockChecked": "2026-10-20",
+      "sparesNote": "40 ledermeter gir 20 meter ledningspar. Første oppsett bruker opptil ca. 15 ledermeter; resten er margin og lager til senere prosjekter.",
+      "ownershipKey": "buy-wire:stock-v2"
     },
     {
       "id": "connectors",
       "group": "Ledninger og montering",
       "name": "JST-SM · ferdigloddet 2-polet kontaktpar",
-      "qty": "6 komplette par",
+      "qty": "10 komplette kontaktpar",
       "store": "MrSmart",
       "origin": "no",
       "url": "https://mrsmart.no/jst-sm-kontaktsett-led-strips-2-polet-id1362",
-      "description": "Fem avtakbare lamper pluss ett reservepar. Begge kontakthalvdeler følger med, hver med 10 cm / 20 AWG ledning. Ingen krympetang for kontaktpinner nødvendig.",
+      "description": "Fem komplette par monteres, fem beholdes som reserve. Hver kontakthalvdel har 10 cm / 20 AWG ledning. Ingen krympetang for kontaktpinner nødvendig.",
       "price": "99,00 kr per komplett kontaktpar inkl. mva.",
-      "stock": "Bestillingsvare · oppgitt utsending innen 30. okt. 2026",
+      "stock": "Antallskontroll i handlekurv: alle 10 par er bestillingsvare. Samlet ordre oppgitt sendt senest 30.10.2026.",
       "extra": "Tykkere kontaktledninger beholdes utenfor de smale kabelutgangene. Skjøt til den tynne svarte ledningen; kontroller polaritet med kontinuitetsmåling.",
       "optional": false,
       "unitPriceOre": 9900,
-      "buyQuantity": 6,
+      "buyQuantity": 10,
       "unitLabel": "per komplett kontaktpar",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
       "budgetCategory": "parts",
       "purchaseRoute": "online",
       "purchaseLocation": "Nettbestilling · MrSmart",
-      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt.",
+      "sparesNote": "Fem par til lyktene og fem reservepar til feil eller senere maskiner. Hvert par inneholder begge kontakthalvdeler med ferdig ledning.",
+      "ownershipKey": "buy-connectors:stock-v2"
     },
     {
       "id": "shrink",
@@ -117,30 +124,33 @@
       "purchaseRoute": "storo",
       "purchaseLocation": "Kjell & Company Storo",
       "localStock": "Storo: 1+ stk.",
-      "localStockChecked": "2026-10-20"
+      "localStockChecked": "2026-10-20",
+      "sparesNote": "Én pakke har 40 lengder à 120 mm, som klippes til mange korte skjøter. Det gir reserve til flere bygg."
     },
     {
       "id": "screws",
       "group": "Ledninger og montering",
       "name": "M3 × 8 mm · ISO 14580 A2 Torx",
-      "qty": "20 skruer totalt",
+      "qty": "100 skruer totalt",
       "store": "Motorkondensator",
       "origin": "no",
       "url": "https://www.motorkondensator.no/product/639/",
-      "description": "TX10-hode, Ø5,5 × 2,4 mm. Ti skruer brukes i fem T-bokser. Resten reserveres til kontrollboksen og passformprøver; antallet i ny kontrollboks er ikke fastlagt.",
-      "price": "1,00 kr per skrue inkl. mva.",
+      "description": "TX10-hode, Ø5,5 × 2,4 mm. Kjøp 100 skruer til første bygg, tap, feil og videre prototyping; skru forsiktig i printet plast.",
+      "price": "0,75 kr per skrue inkl. mva. ved 100+ stk.",
       "stock": "300 på lager",
-      "extra": "Siden viser også 10 kr / 10 stk. Kontroller at handlekurven tilsvarer 20 skruer totalt. Ingen muttere eller gjengeinnsatser i denne prototypen.",
+      "extra": "Butikken oppgir 0,75 kr per skrue ved 100 stk. eller mer, mot ordinært 1 kr. Budsjettet bruker denne publiserte mengdeprisen: 100 × 0,75 kr = 75 kr. Kontroller antall og rabatt i kassen.",
       "optional": false,
-      "unitPriceOre": 100,
-      "buyQuantity": 20,
+      "unitPriceOre": 75,
+      "buyQuantity": 100,
       "unitLabel": "per skrue",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
       "budgetCategory": "parts",
       "purchaseRoute": "online",
       "purchaseLocation": "Nettbestilling · Motorkondensator",
-      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt.",
+      "sparesNote": "Ti skruer til fem T-bokser; resten til kontrollboks, tapte skruer og senere maskiner. Endelig skruebehov i ny kontrollboks er ikke fastlagt.",
+      "ownershipKey": "buy-screws:stock-v2"
     },
     {
       "id": "ties",
@@ -164,7 +174,8 @@
       "purchaseRoute": "storo",
       "purchaseLocation": "Kjell & Company Storo",
       "localStock": "Storo: 1 stk.",
-      "localStockChecked": "2026-10-20"
+      "localStockChecked": "2026-10-20",
+      "sparesNote": "Én pakke har 300 strips totalt, hvorav 25 svarte 2,5 × 100 mm. Ikke 300 svarte. Bruk fargene til andre maskiner; første oppsett trenger bare en del av pakken."
     },
     {
       "id": "marking",
@@ -188,30 +199,33 @@
       "purchaseRoute": "storo",
       "purchaseLocation": "Kjell & Company Storo",
       "localStock": "Storo: 5+ stk.",
-      "localStockChecked": "2026-10-20"
+      "localStockChecked": "2026-10-20",
+      "sparesNote": "Én rull har 20 meter teip, langt mer enn merkene i første bygg. Behold resten som verkstedlager."
     },
     {
       "id": "filament",
       "group": "Ledninger og montering",
       "name": "Bambu Lab PLA Basic Black · 1,75 mm",
-      "qty": "1 rull / fra før",
+      "qty": "2 ruller à 1 kg",
       "store": "Polyalkemi",
       "origin": "no",
       "url": "https://polyalkemi.no/bambu-lab/a00-k0-1-dot-75-1000-spl/bambu-lab-pla-basic-black",
-      "description": "Svart PLA, 1 kg med spole. Bruk eksisterende egnet filament hvis du har. Forbruket for ny kontrollboks er ikke beregnet.",
+      "description": "Svart PLA, to 1 kg-ruller med spole. Kjøp bare det som mangler hvis du allerede har filament. Mengden er verkstedlager og feilprintmargin, ikke beregnet forbruk i én kontrollboks.",
       "price": "175,00 kr per 1 kg med spole inkl. mva.",
       "stock": "20+ på lager · kampanjepris",
       "extra": "",
       "optional": false,
       "unitPriceOre": 17500,
-      "buyQuantity": 1,
+      "buyQuantity": 2,
       "unitLabel": "per 1 kg med spole",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
       "budgetCategory": "parts",
       "purchaseRoute": "online",
       "purchaseLocation": "Nettbestilling · Polyalkemi",
-      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt.",
+      "sparesNote": "To kilo svart PLA med spole: én rull til prototyper og en reserve. Det gir rom for feilprint og senere maskiner; forbruket for ny kontrollboks er ikke beregnet.",
+      "ownershipKey": "buy-filament:stock-v2"
     },
     {
       "id": "iron",
@@ -235,7 +249,8 @@
       "purchaseRoute": "storo",
       "purchaseLocation": "Kjell & Company Storo",
       "localStock": "Storo: 1+ stk.",
-      "localStockChecked": "2026-10-20"
+      "localStockChecked": "2026-10-20",
+      "sparesNote": "Ett verktøy/sett. Bruk det du allerede har; ingen ekstra eksemplarer til lager."
     },
     {
       "id": "multimeter",
@@ -259,7 +274,8 @@
       "purchaseRoute": "city",
       "purchaseLocation": "Kjell Torggata",
       "localStock": "Kjell Torggata: 1 stk. · Storo: ikke på lager",
-      "localStockChecked": "2026-10-20"
+      "localStockChecked": "2026-10-20",
+      "sparesNote": "Ett verktøy/sett. Bruk det du allerede har; ingen ekstra eksemplarer til lager."
     },
     {
       "id": "stripper",
@@ -282,7 +298,8 @@
       "budgetCategory": "tools",
       "purchaseRoute": "online",
       "purchaseLocation": "Nettbestilling · Elektroimportøren",
-      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt.",
+      "sparesNote": "Ett verktøy/sett. Bruk det du allerede har; ingen ekstra eksemplarer til lager."
     },
     {
       "id": "cutters",
@@ -305,7 +322,8 @@
       "budgetCategory": "tools",
       "purchaseRoute": "online",
       "purchaseLocation": "Nettbestilling · Bygghjemme",
-      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt.",
+      "sparesNote": "Ett verktøy/sett. Bruk det du allerede har; ingen ekstra eksemplarer til lager."
     },
     {
       "id": "drivers",
@@ -328,7 +346,8 @@
       "budgetCategory": "tools",
       "purchaseRoute": "online",
       "purchaseLocation": "Nettbestilling · Jula",
-      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt.",
+      "sparesNote": "Ett verktøy/sett. Bruk det du allerede har; ingen ekstra eksemplarer til lager."
     },
     {
       "id": "heatgun",
@@ -352,7 +371,8 @@
       "purchaseRoute": "city",
       "purchaseLocation": "Clas Ohlson Torggata",
       "localStock": "Clas Ohlson Torggata: 4 stk. · butikkhylle 619 · Clas Storo: tomt",
-      "localStockChecked": "2026-10-20"
+      "localStockChecked": "2026-10-20",
+      "sparesNote": "Ett verktøy/sett. Bruk det du allerede har; ingen ekstra eksemplarer til lager."
     },
     {
       "id": "charger",
@@ -376,7 +396,8 @@
       "purchaseRoute": "storo",
       "purchaseLocation": "Kjell & Company Storo",
       "localStock": "Storo: 50+ stk.",
-      "localStockChecked": "2026-10-20"
+      "localStockChecked": "2026-10-20",
+      "sparesNote": "Én vegglader holder til dette prosjektet. Ingen ekstra ladere som reservedeler nå."
     },
     {
       "id": "solder",
@@ -400,7 +421,8 @@
       "purchaseRoute": "online",
       "purchaseLocation": "Nettbestilling · Kjell & Company",
       "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt. Kjell Storo: ikke på lager.",
-      "localStockChecked": "2026-10-20"
+      "localStockChecked": "2026-10-20",
+      "sparesNote": "Én rull har 100 g loddetinn. Dette er allerede et forbrukslager; startpakken har dessuten 10 g."
     },
     {
       "id": "caliper",
@@ -424,7 +446,8 @@
       "purchaseRoute": "storo",
       "purchaseLocation": "Kjell & Company Storo",
       "localStock": "Storo: 1 stk.",
-      "localStockChecked": "2026-10-20"
+      "localStockChecked": "2026-10-20",
+      "sparesNote": "Ett måleverktøy, ingen dublett."
     },
     {
       "id": "mat",
@@ -447,13 +470,14 @@
       "budgetCategory": "extras",
       "purchaseRoute": "online",
       "purchaseLocation": "Nettbestilling · Motorkondensator",
-      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt.",
+      "sparesNote": "Én arbeidsmatte, ingen dublett."
     },
     {
       "id": "charge-boost",
       "group": "Kontrollboks · avklares før kjøp",
       "name": "USB-C-lader + justerbar spenningsomformer",
-      "qty": "1 stk.",
+      "qty": "3 stk. · avvent",
       "store": "Elkim",
       "origin": "no",
       "url": "https://elkim.no/produkt/2a-usb-lithium-li-ion-18650-batterilader/",
@@ -464,20 +488,22 @@
       "optional": false,
       "pending": true,
       "unitPriceOre": 3900,
-      "buyQuantity": 1,
+      "buyQuantity": 3,
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
       "budgetCategory": "parts",
       "purchaseRoute": "hold",
       "purchaseLocation": "Avvent – ikke bestill ennå",
-      "localStock": "Ingen lokal kjøpsanbefaling før kontrollboksen er avklart."
+      "localStock": "Ingen lokal kjøpsanbefaling før kontrollboksen er avklart.",
+      "sparesNote": "Målantall etter at første løsning er validert: ett kort til prototypen og to reservekort. Avvent bestilling av alle tre til batteri-/ladekretsen er avklart.",
+      "ownershipKey": "buy-charge-boost:stock-v2"
     },
     {
       "id": "switch-no",
       "group": "Kontrollboks · avklares før kjøp",
       "name": "Kjell 36027 · rund av/på-bryter uten lys",
-      "qty": "1 stk.",
+      "qty": "5 stk. · avvent",
       "store": "Kjell & Company",
       "origin": "no",
       "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektronikk/electromechanics/strombryter-for-elektronikk/vuggebrytere/strombryter-250-v-5-a-1-polet-uten-lys-p36027",
@@ -488,7 +514,7 @@
       "optional": false,
       "pending": true,
       "unitPriceOre": 2990,
-      "buyQuantity": 1,
+      "buyQuantity": 5,
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
@@ -496,7 +522,9 @@
       "purchaseRoute": "hold",
       "purchaseLocation": "Avvent – ikke bestill ennå",
       "localStock": "Kjell Storo: ikke på lager. Avvent fortsatt kjøp.",
-      "localStockChecked": "2026-10-20"
+      "localStockChecked": "2026-10-20",
+      "sparesNote": "Målantall etter passformkontroll: én bryter til første boks og fire til feil eller senere maskiner. Avvent kjøp til ny kontrollboks er avklart.",
+      "ownershipKey": "buy-switch-no:stock-v2"
     },
     {
       "id": "fuse-no",
@@ -520,13 +548,14 @@
       "budgetCategory": "parts",
       "purchaseRoute": "hold",
       "purchaseLocation": "Avvent – ikke bestill ennå",
-      "localStock": "Ingen lokal kjøpsanbefaling før kontrollboksen er avklart."
+      "localStock": "Ingen lokal kjøpsanbefaling før kontrollboksen er avklart.",
+      "sparesNote": "Én pakke inneholder 10 sikringer. Én til første bygg og ni i reserve, dersom 250 mA godkjennes etter strømmåling."
     },
     {
       "id": "fuse-holder",
       "group": "Kontrollboks · avklares før kjøp",
       "name": "Isolert sikringsholder · 5 × 20 mm",
-      "qty": "1 stk.",
+      "qty": "5 stk. · avvent",
       "store": "Motorkondensator",
       "origin": "no",
       "url": "https://www.motorkondensator.no/product/793/",
@@ -537,14 +566,16 @@
       "optional": false,
       "pending": true,
       "unitPriceOre": 900,
-      "buyQuantity": 1,
+      "buyQuantity": 5,
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
       "budgetCategory": "parts",
       "purchaseRoute": "hold",
       "purchaseLocation": "Avvent – ikke bestill ennå",
-      "localStock": "Ingen lokal kjøpsanbefaling før kontrollboksen er avklart."
+      "localStock": "Ingen lokal kjøpsanbefaling før kontrollboksen er avklart.",
+      "sparesNote": "Målantall etter dimensjonering: én holder til ledningsnettets sikring og fire i reserve. Dette er ikke vern på batterisiden; det er fortsatt uavklart.",
+      "ownershipKey": "buy-fuse-holder:stock-v2"
     }
   ],
   "budget": {
@@ -566,14 +597,14 @@
         "id": "city",
         "title": "Alternativ: Torggata 6",
         "location": "Kjell & Company + Clas Ohlson · Torggata 6",
-        "details": "To butikker på samme adresse i sentrum: svart koblingstråd og multimeter hos Kjell, varmluftpistol hos Clas. De eksakte varene er ikke på lager på Storo. Hverdager 09–20. Dette er en egen sentrumstur, ikke en butikk på Storo. Multimeteret har bare ett eksemplar oppgitt.",
+        "details": "To butikker på samme adresse i sentrum: fire ruller svart koblingstråd og ett multimeter hos Kjell, varmluftpistol hos Clas. De eksakte varene er ikke på lager på Storo. Hverdager 09–20. Dette er en egen sentrumstur, ikke en butikk på Storo. Multimeteret har bare ett eksemplar oppgitt.",
         "url": "https://www.kjell.com/no/butikker/torggata"
       },
       {
         "id": "online",
         "title": "Bestill på nett",
         "location": "Norske nettbutikker · resten av den kjøpsklare listen",
-        "details": "USB-ledning, seks kontaktpar, skruer, filament og resterende verktøy. Kontaktparene er bestillingsvare med oppgitt utsending innen 30. oktober. Ekstra loddetinn og loddematte er valgfrie. Nettbestilling er valgt for disse varene; dette betyr ikke at de bare finnes på nett.",
+        "details": "Fem USB-ledninger, ti kontaktpar, 100 skruer, to filamentruller og resterende verktøy. MrSmart-kurven er kontrollert med fem USB-ledninger og ti kontaktpar: hele ordren oppgis sendt senest 30. oktober. Ekstra loddetinn og loddematte er valgfrie. Dette er valgt nettplan, ikke en påstand om at varene bare finnes på nett.",
         "url": null
       },
       {
@@ -581,6 +612,107 @@
         "title": "Avvent kjøp",
         "location": "Kandidatdeler til kontrollboksen",
         "details": "Lade-/omformerkort, bryter, sikringer og sikringsholder. De står i budsjettet, men er ikke en ferdig kompatibel pakke. Batteri, holder og batterisidens vern er fortsatt ikke valgt.",
+        "url": null
+      }
+    ]
+  },
+  "quantityPlan": {
+    "summary": "Løse deler og filament har reserve til feil og senere maskiner. Verktøy kjøpes én gang. Pakker med mange deler dobles ikke automatisk.",
+    "items": [
+      {
+        "name": "USB-ledninger",
+        "quantity": "5",
+        "reason": "1 nå + 4 til feil / senere maskiner"
+      },
+      {
+        "name": "2-polede kontaktpar",
+        "quantity": "10 komplette par",
+        "reason": "5 nå + 5 i reserve"
+      },
+      {
+        "name": "Svart koblingstråd",
+        "quantity": "4 × 10 m",
+        "reason": "40 ledermeter; ca. 15 m til første oppsett"
+      },
+      {
+        "name": "M3 × 8-skruer",
+        "quantity": "100",
+        "reason": "Publisert 100+-pris: 0,75 kr/stk."
+      },
+      {
+        "name": "Svart PLA",
+        "quantity": "2 × 1 kg",
+        "reason": "Feilprintmargin og verkstedlager"
+      },
+      {
+        "name": "Lade-/omformerkort, brytere, sikringsholdere",
+        "quantity": "3 / 5 / 5 · avvent",
+        "reason": "Målantall først etter at løsning og passform er avklart"
+      },
+      {
+        "name": "Store sortimenter og forbruksruller",
+        "quantity": "1 pakke/rull hver",
+        "reason": "Allerede 1 460 motstander, 300 strips, 40 krympelengder, 20 m teip eller 10 sikringer"
+      },
+      {
+        "name": "Verktøy",
+        "quantity": "1 av hver",
+        "reason": "Ingen verktøydubletter"
+      }
+    ]
+  },
+  "deliveryPlan": {
+    "checked": "2026-10-20",
+    "orderAssumption": "Bestilling og lokal handletur onsdag 21. oktober 2026. Ingen ordre er lagt inn.",
+    "summary": "Planlegg med tilgjengelige deler og verktøy i starten av november, omtrent 2.–6. november 2026. Det er et planleggingsanslag, ikke lovet leveringsdato.",
+    "blocking": "Dette gjelder bare den tilgjengelige kjøpslisten. Ferdig batteri-/ladeløsning og ny kontrollboks mangler fortsatt, så full byggestart kan ikke loves til denne datoen.",
+    "entries": [
+      {
+        "name": "Storo og Torggata",
+        "eta": "21. oktober · kjøp i butikk",
+        "basis": "Lokalt lager kontrollert 20. oktober. Forutsetter at varene fortsatt er der; ingenting er reservert.",
+        "url": "https://www.kjell.com/no/butikker/thon-senter-storo"
+      },
+      {
+        "name": "MrSmart · 10 kontaktpar + 5 USB-ledninger",
+        "eta": "Sendes senest 30. oktober; planlegg ankomst 2.–6. november",
+        "basis": "Handlekurv med de faktiske antallene bekrefter samlet utsending senest 30.10.2026. USB-ledningen har bare 1 stk. på lager, resten restbestilles; alle 10 kontaktpar restbestilles. Transportvinduet etterpå er vårt konservative anslag for Oslo, ikke et tilbud fra butikken. En samlet ordre venter på siste vare.",
+        "url": "https://mrsmart.no/frakt"
+      },
+      {
+        "name": "Motorkondensator · 100 skruer",
+        "eta": "Planleggingsanslag 23.–28. oktober",
+        "basis": "300 stk. oppgitt på lager. Butikken oppgir normalt utsending samme/neste dag for lagervarer; transportdato er ikke innhentet i kassen.",
+        "url": "https://www.motorkondensator.no/product/639/"
+      },
+      {
+        "name": "Polyalkemi · 2 filamentruller",
+        "eta": "Planleggingsanslag 23.–30. oktober",
+        "basis": "20+ ruller oppgitt på lager. Ankomstvinduet er vårt anslag; ingen leveringsdato fra kassen er bekreftet.",
+        "url": "https://polyalkemi.no/bambu-lab/a00-k0-1-dot-75-1000-spl/bambu-lab-pla-basic-black"
+      },
+      {
+        "name": "Elektroimportøren · avisoleringstang",
+        "eta": "Planleggingsanslag 23.–30. oktober",
+        "basis": "260+ oppgitt på lager. Butikkens vilkår sier at transportørens leveringsestimat vises ved valg av frakt; dette er ikke bekreftet i kassen.",
+        "url": "https://www.elektroimportoren.no/infosenter-leveringstid/leveringstid/Document.html"
+      },
+      {
+        "name": "Jula · skrutrekkersett",
+        "eta": "26.–30. oktober · beregnet fra 3–7 virkedager",
+        "basis": "Produktsiden viste 3–7 virkedager. Datovinduet er beregnet fra bestilling 21. oktober, uten helgedager.",
+        "url": "https://www.jula.no/catalog/verktoy-og-maskiner/handverktoy/skrutrekkere/skrutrekkersett/presisjonsskrutrekkersett-019268/"
+      },
+      {
+        "name": "Bygghjemme · sideavbiter",
+        "eta": "28. oktober–4. november · beregnet fra 5–10 hverdager",
+        "basis": "Produktsiden oppgir normalt 5–10 hverdager. Verktøyet trenger du bare hvis den eksisterende avbiteren eller tangen i loddesettet ikke dekker behovet.",
+        "url": "https://www.bygghjemme.no/verktoy-och-maskiner/handverktoy/tang-og-saks/avbitertang/sideavbiter-boxer-elektronikk-110-mm-crni-stal/p-1274778"
+      },
+      {
+        "name": "Batteri, lading og ny kontrollboks",
+        "eta": "Ingen fullstendig ETA ennå",
+        "basis": "Batteri, holder og beskyttelse må velges sammen og ny boks må tegnes rundt dem. Ikke bestill flere kandidatkort bare fordi de har lagerstatus.",
         "url": null
       }
     ]

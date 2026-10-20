@@ -10,10 +10,16 @@
       "origin": "no",
       "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektronikk/motstander/luxorparts-motstandssats-1460-stk-p80216",
       "description": "0,25 W, ±1 %. Inneholder 1 kΩ, 680 Ω, 470 Ω og 330 Ω. Fem endelige motstander monteres, én i hver gren. Start prøven med 1 kΩ per lampe.",
-      "price": "Sjekk butikk",
-      "stock": "Pris/lager: sjekk butikk",
+      "price": "199,90 kr per pakke inkl. mva.",
+      "stock": "Nettlager: 100+ · levering 22.–23. okt.",
       "extra": "Endelig verdi velges etter måling av lampen. Sortimentet gir verdier å prøve; ikke en forhåndsgodkjent sluttdimensjonering.",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 19990,
+      "buyQuantity": 1,
+      "unitLabel": "per pakke",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "parts"
     },
     {
       "id": "usb",
@@ -24,10 +30,16 @@
       "origin": "no",
       "url": "https://mrsmart.no/usb-a-kabel-med-1x5-pin-hunnkontakt-30cm-id533",
       "description": "USB-A med løse ledere etter at pinnesokkelen klippes av. Identifiser +5 V og GND med måling og isoler andre ledere hver for seg. Endelig tilkobling avhenger av valgt ladekrets.",
-      "price": "79 kr vist",
-      "stock": "Oppgitt på lager",
+      "price": "79,00 kr per stk./sett inkl. mva.",
+      "stock": "På lager · sendes fra Norge",
       "extra": "Mål kabeldiameteren før den nye kontrollboksen tegnes ferdig.",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 7900,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "parts"
     },
     {
       "id": "wire",
@@ -38,10 +50,16 @@
       "origin": "no",
       "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/maleinstrumenter/malekabler-sonder-kontakter/koblingstrad/isolert-koblingstrad-014-mm-svart-p45060",
       "description": "To svarte ledere, lett tvinnet. Oppgitt ytterdiameter 1,1 mm hver. 20 ledermeter gir 10 meter ledningspar; ca. 15 ledermeter brukes i planlagt oppsett, resten er margin.",
-      "price": "Sjekk butikk",
-      "stock": "Pris/lager: sjekk butikk",
+      "price": "49,00 kr per rull à 10 m inkl. mva.",
+      "stock": "Nettlager: 100+ · levering 22.–23. okt.",
       "extra": "",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 4900,
+      "buyQuantity": 2,
+      "unitLabel": "per rull à 10 m",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "parts"
     },
     {
       "id": "connectors",
@@ -52,10 +70,16 @@
       "origin": "no",
       "url": "https://mrsmart.no/jst-sm-kontaktsett-led-strips-2-polet-id1362",
       "description": "Fem avtakbare lamper pluss ett reservepar. Begge kontakthalvdeler følger med, hver med 10 cm / 20 AWG ledning. Ingen krympetang for kontaktpinner nødvendig.",
-      "price": "99 kr per par",
-      "stock": "Oppgitt utsending innen 26.10.2026",
+      "price": "99,00 kr per komplett kontaktpar inkl. mva.",
+      "stock": "Bestillingsvare · oppgitt utsending innen 30. okt. 2026",
       "extra": "Tykkere kontaktledninger beholdes utenfor de smale kabelutgangene. Skjøt til den tynne svarte ledningen; kontroller polaritet med kontinuitetsmåling.",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 9900,
+      "buyQuantity": 6,
+      "unitLabel": "per komplett kontaktpar",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "parts"
     },
     {
       "id": "shrink",
@@ -66,10 +90,16 @@
       "origin": "no",
       "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektrisk-installasjon/krympeslanger/luxorparts-krympeslangeutvalg-40-stk-svart-p40147",
       "description": "40 lengder à 120 mm, i seks diametre: 1, 2, 4, 6, 9 og 12 mm. Isoler hver skjøt og motstand enkeltvis. Tre slangen på før du lodder.",
-      "price": "Sjekk butikk",
-      "stock": "Pris/lager: sjekk butikk",
+      "price": "119,90 kr per pakke inkl. mva.",
+      "stock": "Nettlager: 100+ · levering 22.–23. okt.",
       "extra": "",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 11990,
+      "buyQuantity": 1,
+      "unitLabel": "per pakke",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "parts"
     },
     {
       "id": "screws",
@@ -80,10 +110,16 @@
       "origin": "no",
       "url": "https://www.motorkondensator.no/product/639/",
       "description": "TX10-hode, Ø5,5 × 2,4 mm. Ti skruer brukes i fem T-bokser. Resten reserveres til kontrollboksen og passformprøver; antallet i ny kontrollboks er ikke fastlagt.",
-      "price": "1 kr per skrue vist",
-      "stock": "Oppgitt på lager",
+      "price": "1,00 kr per skrue inkl. mva.",
+      "stock": "300 på lager",
       "extra": "Siden viser også 10 kr / 10 stk. Kontroller at handlekurven tilsvarer 20 skruer totalt. Ingen muttere eller gjengeinnsatser i denne prototypen.",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 100,
+      "buyQuantity": 20,
+      "unitLabel": "per skrue",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "parts"
     },
     {
       "id": "ties",
@@ -94,10 +130,16 @@
       "origin": "no",
       "url": "https://www.kjell.com/no/produkter/data/kabler-og-adaptere/kabelhandtering/bunteband/bunteband-300-pk.-p37720",
       "description": "Pakken har 25 svarte 2,5 × 100 mm-strips. Brukes til strekkavlastning i T-boksene og til ledningsføringen. Antall i ny kontrollboks er ikke fastlagt.",
-      "price": "Sjekk butikk",
-      "stock": "Pris/lager: sjekk butikk",
+      "price": "129,90 kr per pakke inkl. mva.",
+      "stock": "Nettlager: 50+ · levering 22.–23. okt.",
       "extra": "",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 12990,
+      "buyQuantity": 1,
+      "unitLabel": "per pakke",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "parts"
     },
     {
       "id": "marking",
@@ -108,10 +150,16 @@
       "origin": "no",
       "url": "https://www.kjell.com/no/produkter/kontor/teip/el-teip-20-m-hvit-p40105",
       "description": "Små merker inne i boksene skiller + fra − når begge ledninger er svarte. Egne etiketter kan brukes i stedet. Alle elektriske skjøter isoleres med krympeslange; merketeipen er for identifikasjon.",
-      "price": "Sjekk butikk",
-      "stock": "Pris/lager: sjekk butikk",
+      "price": "34,90 kr per stk./sett inkl. mva.",
+      "stock": "Nettlager: 100+ · levering 22.–23. okt.",
       "extra": "",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 3490,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "parts"
     },
     {
       "id": "filament",
@@ -122,10 +170,16 @@
       "origin": "no",
       "url": "https://polyalkemi.no/bambu-lab/a00-k0-1-dot-75-1000-spl/bambu-lab-pla-basic-black",
       "description": "Svart PLA, 1 kg med spole. Bruk eksisterende egnet filament hvis du har. Forbruket for ny kontrollboks er ikke beregnet.",
-      "price": "249 kr / 1 kg vist",
-      "stock": "50+ oppgitt på lager",
+      "price": "175,00 kr per 1 kg med spole inkl. mva.",
+      "stock": "20+ på lager · kampanjepris",
       "extra": "",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 17500,
+      "buyQuantity": 1,
+      "unitLabel": "per 1 kg med spole",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "parts"
     },
     {
       "id": "iron",
@@ -136,10 +190,16 @@
       "origin": "no",
       "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/verktoy/lodding/loddebolter/luxorparts-loddestasjon-startpakke-48-w-p40712",
       "description": "48 W, 230 V og temperaturjustering 160–480 °C. Startpakken har rengjøringssvamp, hjelpende hånd med lupe, pinsett, tang, tinnsuger, loddelisse og 10 g loddetinn.",
-      "price": "Sjekk butikk",
-      "stock": "Pris/lager: sjekk butikk",
+      "price": "699,00 kr per stk./sett inkl. mva.",
+      "stock": "Nettlager: 100+ · levering 22.–23. okt.",
       "extra": "Bruk holderen til den varme bolten og et varmebestandig underlag. Luft godt ved lodding. Egen tilsvarende stasjon kan brukes.",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 69900,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "tools"
     },
     {
       "id": "multimeter",
@@ -150,10 +210,16 @@
       "origin": "no",
       "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/maleinstrumenter/multimetere/uni-t-ut139a-multimeter-p48385",
       "description": "Måler DC-spenning, lav DC-strøm og kontinuitet. Måleledninger og to AA-batterier følger med. Brukes til å stille regulatoren, måle lampestrøm og kontrollere polaritet.",
-      "price": "Sjekk butikk",
-      "stock": "Pris/lager: sjekk butikk",
+      "price": "599,00 kr per stk./sett inkl. mva.",
+      "stock": "Nettlager: 20+ · levering om 2–6 dager",
       "extra": "Ved strømmåling står meteret i serie med lampen, med riktig inngang og område. Ikke mål strøm ved å legge prober direkte over batteriet.",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 59900,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "tools"
     },
     {
       "id": "stripper",
@@ -164,10 +230,16 @@
       "origin": "no",
       "url": "https://www.elektroimportoren.no/avisoleringstang-0-08-10mm2/8809575/Product.html",
       "description": "Område 0,08–10 mm² dekker 0,14 mm²-ledningen. En eksisterende tang kan brukes dersom den faktisk støtter så tynn flertrådet ledning.",
-      "price": "599 kr inkl. mva.",
-      "stock": "270+ oppgitt på lager",
+      "price": "599,00 kr per stk./sett inkl. mva.",
+      "stock": "260+ på lager",
       "extra": "",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 59900,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "tools"
     },
     {
       "id": "cutters",
@@ -178,10 +250,16 @@
       "origin": "no",
       "url": "https://www.bygghjemme.no/verktoy-och-maskiner/handverktoy/tang-og-saks/avbitertang/sideavbiter-boxer-elektronikk-110-mm-crni-stal/p-1274778",
       "description": "Til å klippe tynn kobberledning, motstandsben og strips. Kan sløyfes hvis du allerede har en egnet liten avbiter eller den medfølgende tangen dekker behovet.",
-      "price": "80 kr vist",
-      "stock": "Lagervare; 5–10 dager oppgitt",
+      "price": "60,00 kr per stk./sett inkl. mva.",
+      "stock": "Lagervare · normalt 5–10 hverdager",
       "extra": "Produktsiden dokumenterer elektronikk-sideavbiter, men lover ikke helt plant snitt (flush cut). Det er ikke nødvendig for disse skjøtene.",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 6000,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "tools"
     },
     {
       "id": "drivers",
@@ -192,10 +270,16 @@
       "origin": "no",
       "url": "https://www.jula.no/catalog/verktoy-og-maskiner/handverktoy/skrutrekkere/skrutrekkersett/presisjonsskrutrekkersett-019268/",
       "description": "Inneholder TT10 til de vanlige TX10-skruehodene samt små flate SL1,5 og SL2 til regulatorjustering. Ett sett dekker begge oppgaver.",
-      "price": "149 kr inkl. mva.",
-      "stock": "Lager: sjekk butikk",
+      "price": "149,00 kr per stk./sett inkl. mva.",
+      "stock": "Nettlager: 100+ · levering 3–7 virkedager",
       "extra": "",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 14900,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "tools"
     },
     {
       "id": "heatgun",
@@ -206,10 +290,16 @@
       "origin": "no",
       "url": "https://www.clasohlson.com/no/Cocraft-HH-2000-E-varmluftpistol-/p/40-8762",
       "description": "230 V, justerbar 50–600 °C. Bruk moderat varme og beveg luftstrømmen når krympeslangen krympes, før skjøtene legges i plastboksene.",
-      "price": "399,90 kr inkl. mva.",
-      "stock": "Lager: sjekk butikk",
+      "price": "399,90 kr per stk./sett inkl. mva.",
+      "stock": "Nettlager: 100+",
       "extra": "",
-      "optional": false
+      "optional": false,
+      "unitPriceOre": 39990,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "tools"
     },
     {
       "id": "charger",
@@ -220,10 +310,16 @@
       "origin": "no",
       "url": "https://www.kjell.com/no/produkter/mobilt/mobiltelefonladere/usb-ladere/linocell-mini-usb-lader-24-a-12-w-hvit-p90218",
       "description": "Linocell 12 W USB-A, 5 V / 2,4 A. En eksisterende 5 V USB-lader kan brukes. Dette er veggladeren til en fremtidig USB-ladekrets; batteriløsningen er ennå ikke ferdig valgt.",
-      "price": "Sjekk butikk",
-      "stock": "Pris/lager: sjekk butikk",
+      "price": "149,90 kr per stk./sett inkl. mva.",
+      "stock": "Nettlager: 100+ · levering 22.–23. okt.",
       "extra": "",
-      "optional": true
+      "optional": true,
+      "unitPriceOre": 14990,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "extras"
     },
     {
       "id": "solder",
@@ -234,10 +330,16 @@
       "origin": "no",
       "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/verktoy/lodding/loddetinn-lodde/blyfritt-loddetinn-o056-mm-100-g-p40811",
       "description": "Fluxfylt, 100 g. Startpakken har allerede 10 g loddetinn, så denne rullen er valgfri. Kjøp ved behov eller dersom egen loddebolt ikke har egnet tinn.",
-      "price": "Sjekk butikk",
-      "stock": "Pris/lager: sjekk butikk",
+      "price": "219,90 kr per stk./sett inkl. mva.",
+      "stock": "Nettlager: 5+ · levering om 2–6 dager",
       "extra": "",
-      "optional": true
+      "optional": true,
+      "unitPriceOre": 21990,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "extras"
     },
     {
       "id": "caliper",
@@ -248,10 +350,16 @@
       "origin": "no",
       "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/verktoy/maleverktoy/digital-skyvelaere-p40131",
       "description": "Til å måle USB-kabel, bryter og prøvens hull. Batteri følger med. Nyttig ved tilpasning, men du kan også prøve de faktiske delene direkte i passformprøven.",
-      "price": "Sjekk butikk",
-      "stock": "Pris/lager: sjekk butikk",
+      "price": "349,90 kr per stk./sett inkl. mva.",
+      "stock": "Nettlager: 20+ · levering 22.–23. okt.",
       "extra": "",
-      "optional": true
+      "optional": true,
+      "unitPriceOre": 34990,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "extras"
     },
     {
       "id": "mat",
@@ -262,10 +370,16 @@
       "origin": "no",
       "url": "https://www.motorkondensator.no/product/850/",
       "description": "Varmebestandig arbeidsunderlag med rom til smådeler. Oppgitt til 480 °C. Bruk eksisterende egnet loddeunderlag hvis du har; legg den varme bolten i holderen.",
-      "price": "129 kr inkl. mva.",
-      "stock": "4 oppgitt på lager",
+      "price": "129,00 kr per stk./sett inkl. mva.",
+      "stock": "4 på lager",
       "extra": "",
-      "optional": true
+      "optional": true,
+      "unitPriceOre": 12900,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "extras"
     },
     {
       "id": "charge-boost",
@@ -276,11 +390,17 @@
       "origin": "no",
       "url": "https://elkim.no/produkt/2a-usb-lithium-li-ion-18650-batterilader/",
       "description": "Kandidat til USB-lading av én Li-ion-celle og ca. 4,5 V ut til lampene. Butikken oppgir 4,3–27 V justerbar utgang, opptil 1 A ladestrøm og ca. 33 × 24 × 4 mm.",
-      "price": "39 kr inkl. mva.",
-      "stock": "Oppgitt på lager",
+      "price": "39,00 kr per stk./sett inkl. mva.",
+      "stock": "89 på lager · oppgitt levering 1–3 dager",
       "extra": "AVVENT KJØP: komplett batteripakke, beskyttelse og lading/drift er ikke ferdig kontrollert. Underspenningsvern og lastdeling er ikke dokumentert. Ikke bruk dette som et ferdig koblingsskjema.",
       "optional": false,
-      "pending": true
+      "pending": true,
+      "unitPriceOre": 3900,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "parts"
     },
     {
       "id": "switch-no",
@@ -291,11 +411,17 @@
       "origin": "no",
       "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektronikk/electromechanics/strombryter-for-elektronikk/vuggebrytere/strombryter-250-v-5-a-1-polet-uten-lys-p36027",
       "description": "Énpolet av/på-bryter, nominelt Ø20 mm monteringshull. Norsk alternativ til den tidligere importbryteren.",
-      "price": "29,90 kr vist",
-      "stock": "Oppgitt på nettlager",
+      "price": "29,90 kr per stk./sett inkl. mva.",
+      "stock": "Nettlager: 100+ · levering 22.–23. okt.",
       "extra": "AVVENT KJØP: kropp, klips og ledningsterminaler må få plass i den reviderte kontrollboksen. V1-lokket er ikke verifisert for denne modellen.",
       "optional": false,
-      "pending": true
+      "pending": true,
+      "unitPriceOre": 2990,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "parts"
     },
     {
       "id": "fuse-no",
@@ -306,11 +432,17 @@
       "origin": "no",
       "url": "https://www.motorkondensator.no/product/478/",
       "description": "Kandidat som utskiftbart vern på positiv utgang til ledningsnettet. Erstatning for den importerte selvtilbakestillende sikringen.",
-      "price": "49 kr / 10 stk.",
-      "stock": "3 pakker oppgitt på lager",
+      "price": "49,00 kr per pakke à 10 stk. inkl. mva.",
+      "stock": "3 pakker på lager",
       "extra": "AVVENT KJØP: endelig sikringsverdi må bekreftes mot målt totalstrøm og oppstart. Dette er ikke vern eller laderegulering for selve batteriet.",
       "optional": false,
-      "pending": true
+      "pending": true,
+      "unitPriceOre": 4900,
+      "buyQuantity": 1,
+      "unitLabel": "per pakke à 10 stk.",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "parts"
     },
     {
       "id": "fuse-holder",
@@ -321,11 +453,22 @@
       "origin": "no",
       "url": "https://www.motorkondensator.no/product/793/",
       "description": "Ledningsmontert holder for glassikringen over. Butikken oppgir 25 cm total ledningslengde og 0,129 mm² ledere.",
-      "price": "9 kr inkl. mva.",
-      "stock": "13 oppgitt på lager",
+      "price": "9,00 kr per stk./sett inkl. mva.",
+      "stock": "13 på lager",
       "extra": "AVVENT KJØP: ytre kroppsmål er ikke publisert; ny kontrollboks må dimensjoneres etter holderen.",
       "optional": false,
-      "pending": true
+      "pending": true,
+      "unitPriceOre": 900,
+      "buyQuantity": 1,
+      "unitLabel": "per stk./sett",
+      "priceChecked": "2026-10-20",
+      "stockChecked": "2026-10-20",
+      "budgetCategory": "parts"
     }
-  ]
+  ],
+  "budget": {
+    "batteryReserveOre": 35000,
+    "shippingReserveOre": 40000,
+    "note": "Reserver er redigerbare budsjettanslag, ikke innhentede tilbud. Batteri, holder og batterisidens vern er ikke valgt. Frakt er ikke beregnet i butikkassen."
+  }
 }

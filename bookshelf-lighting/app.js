@@ -8,8 +8,50 @@
   const search = document.querySelector('#search');
   const store = document.querySelector('#store-filter');
   const missing = document.querySelector('#missing-only');
+  const batteryReserve = document.querySelector('#battery-reserve');
+  const shippingReserve = document.querySelector('#shipping-reserve');
+  const includeExtras = document.querySelector('#include-extras');
+  const budgetKey = 'bookshelf-lighting-budget-v1';
+  const money = ore => new Intl.NumberFormat('nb-NO', { style: 'currency', currency: 'NOK', minimumFractionDigits: 2 }).format(ore / 100);
+  const lineCost = product => Number(product.dataset.lineOre);
+  const included = product => product.dataset.budgetCategory !== 'extras' || includeExtras.checked;
+  try {
+    const prefs = JSON.parse(localStorage.getItem(budgetKey) || 'null');
+    if (prefs && Number.isFinite(prefs.battery) && prefs.battery >= 0 && prefs.battery <= 100000) batteryReserve.value = prefs.battery;
+    if (prefs && Number.isFinite(prefs.shipping) && prefs.shipping >= 0 && prefs.shipping <= 100000) shippingReserve.value = prefs.shipping;
+    if (typeof prefs?.extras === 'boolean') includeExtras.checked = prefs.extras;
+  } catch { /* Defaults remain available when browser storage is unavailable. */ }
+  function updateBudget() {
+    const selected = products.filter(included);
+    const goods = selected.reduce((sum, product) => sum + lineCost(product), 0);
+    const ownedCost = selected.reduce((sum, product) => sum + (product.querySelector('input').checked ? lineCost(product) : 0), 0);
+    document.querySelectorAll('[data-store-total]').forEach(cell => {
+      const total = selected.filter(product => product.dataset.store === cell.dataset.storeTotal && !product.querySelector('input').checked).reduce((sum, product) => sum + lineCost(product), 0);
+      cell.textContent = money(total);
+    });
+    if (!batteryReserve.value || !shippingReserve.value || !batteryReserve.checkValidity() || !shippingReserve.checkValidity()) {
+      document.querySelector('#budget-total').textContent = 'Fyll inn reservene';
+      document.querySelector('#budget-remaining').textContent = 'Fyll inn reservene';
+      document.querySelector('#budget-formula').textContent = 'Begge reservefeltene trenger et beløp fra 0 til 100 000 kr. Tomme felt regnes ikke som 0 kr.';
+      document.querySelector('#budget-with-tools').textContent = 'Fyll inn reservene';
+      document.querySelector('.price-peek').textContent = 'Se og fullfør kostnadsbudsjettet ↓';
+      return;
+    }
+    const battery = Math.round(batteryReserve.valueAsNumber * 100);
+    const shipping = Math.round(shippingReserve.valueAsNumber * 100);
+    const reserves = battery + shipping;
+    const toolCost = selected.filter(product => product.dataset.budgetCategory === 'tools').reduce((sum, product) => sum + lineCost(product), 0);
+    document.querySelector('#budget-total').textContent = money(goods + reserves);
+    document.querySelector('#budget-remaining').textContent = money(goods - ownedCost + reserves);
+    document.querySelector('#budget-with-tools').textContent = money(goods - toolCost + reserves);
+    document.querySelector('#budget-formula').textContent = `Varer ${money(goods)} + batterireserve ${money(battery)} + fraktreserve ${money(shipping)}.`;
+    document.querySelector('#budget-owned').textContent = `${money(ownedCost)} trukket fra for ting som er kjøpt / finnes fra før. Reserver ${money(reserves)} kommer i tillegg til gjenstående varer.`;
+    document.querySelector('.price-peek').textContent = `Budsjett: ${money(goods - toolCost + reserves)} med egne verktøy · ${money(goods + reserves)} fra null ↓`;
+    try { localStorage.setItem(budgetKey, JSON.stringify({ battery: battery / 100, shipping: shipping / 100, extras: includeExtras.checked })); } catch { /* Totals still work without persistence. */ }
+  }
   const normalize = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   function update() {
+    updateBudget();
     const query = normalize(search.value.trim());
     let visible = 0;
     let checked = 0;
@@ -37,6 +79,16 @@
   document.querySelector('#reset-list').addEventListener('click', () => {
     owned.clear(); boxes.forEach(box => { box.checked = false; });
     try { localStorage.removeItem(key); } catch { /* No persistence available. */ }
+    update();
+  });
+  batteryReserve.addEventListener('input', updateBudget);
+  shippingReserve.addEventListener('input', updateBudget);
+  includeExtras.addEventListener('change', updateBudget);
+  document.querySelector('#own-tools').addEventListener('click', () => {
+    products.forEach((product, i) => {
+      if (product.dataset.budgetCategory === 'tools') { boxes[i].checked = true; owned.add(boxes[i].id); }
+    });
+    try { localStorage.setItem(key, JSON.stringify([...owned])); } catch { /* No persistence available. */ }
     update();
   });
   document.querySelector('#print-list').addEventListener('click', () => window.print());

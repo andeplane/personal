@@ -19,7 +19,11 @@
       "unitLabel": "per pakke",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "parts"
+      "budgetCategory": "parts",
+      "purchaseRoute": "storo",
+      "purchaseLocation": "Kjell & Company Storo",
+      "localStock": "Storo: 1 stk.",
+      "localStockChecked": "2026-10-20"
     },
     {
       "id": "usb",
@@ -39,7 +43,10 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "parts"
+      "budgetCategory": "parts",
+      "purchaseRoute": "online",
+      "purchaseLocation": "Nettbestilling · MrSmart",
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
     },
     {
       "id": "wire",
@@ -59,7 +66,11 @@
       "unitLabel": "per rull à 10 m",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "parts"
+      "budgetCategory": "parts",
+      "purchaseRoute": "city",
+      "purchaseLocation": "Kjell Torggata",
+      "localStock": "Kjell Torggata: 5+ stk. · kjøp 2 ruller · Storo: bestillingsvare",
+      "localStockChecked": "2026-10-20"
     },
     {
       "id": "connectors",
@@ -79,7 +90,10 @@
       "unitLabel": "per komplett kontaktpar",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "parts"
+      "budgetCategory": "parts",
+      "purchaseRoute": "online",
+      "purchaseLocation": "Nettbestilling · MrSmart",
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
     },
     {
       "id": "shrink",
@@ -99,7 +113,11 @@
       "unitLabel": "per pakke",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "parts"
+      "budgetCategory": "parts",
+      "purchaseRoute": "storo",
+      "purchaseLocation": "Kjell & Company Storo",
+      "localStock": "Storo: 1+ stk.",
+      "localStockChecked": "2026-10-20"
     },
     {
       "id": "screws",
@@ -119,7 +137,10 @@
       "unitLabel": "per skrue",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "parts"
+      "budgetCategory": "parts",
+      "purchaseRoute": "online",
+      "purchaseLocation": "Nettbestilling · Motorkondensator",
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
     },
     {
       "id": "ties",
@@ -139,7 +160,11 @@
       "unitLabel": "per pakke",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "parts"
+      "budgetCategory": "parts",
+      "purchaseRoute": "storo",
+      "purchaseLocation": "Kjell & Company Storo",
+      "localStock": "Storo: 1 stk.",
+      "localStockChecked": "2026-10-20"
     },
     {
       "id": "marking",
@@ -159,7 +184,11 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "parts"
+      "budgetCategory": "parts",
+      "purchaseRoute": "storo",
+      "purchaseLocation": "Kjell & Company Storo",
+      "localStock": "Storo: 5+ stk.",
+      "localStockChecked": "2026-10-20"
     },
     {
       "id": "filament",
@@ -179,7 +208,10 @@
       "unitLabel": "per 1 kg med spole",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "parts"
+      "budgetCategory": "parts",
+      "purchaseRoute": "online",
+      "purchaseLocation": "Nettbestilling · Polyalkemi",
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
     },
     {
       "id": "iron",
@@ -199,7 +231,11 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "tools"
+      "budgetCategory": "tools",
+      "purchaseRoute": "storo",
+      "purchaseLocation": "Kjell & Company Storo",
+      "localStock": "Storo: 1+ stk.",
+      "localStockChecked": "2026-10-20"
     },
     {
       "id": "multimeter",
@@ -219,7 +255,11 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "tools"
+      "budgetCategory": "tools",
+      "purchaseRoute": "city",
+      "purchaseLocation": "Kjell Torggata",
+      "localStock": "Kjell Torggata: 1 stk. · Storo: ikke på lager",
+      "localStockChecked": "2026-10-20"
     },
     {
       "id": "stripper",
@@ -239,7 +279,10 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "tools"
+      "budgetCategory": "tools",
+      "purchaseRoute": "online",
+      "purchaseLocation": "Nettbestilling · Elektroimportøren",
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
     },
     {
       "id": "cutters",
@@ -259,7 +302,10 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "tools"
+      "budgetCategory": "tools",
+      "purchaseRoute": "online",
+      "purchaseLocation": "Nettbestilling · Bygghjemme",
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
     },
     {
       "id": "drivers",
@@ -279,7 +325,10 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "tools"
+      "budgetCategory": "tools",
+      "purchaseRoute": "online",
+      "purchaseLocation": "Nettbestilling · Jula",
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
     },
     {
       "id": "heatgun",
@@ -299,7 +348,11 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "tools"
+      "budgetCategory": "tools",
+      "purchaseRoute": "city",
+      "purchaseLocation": "Clas Ohlson Torggata",
+      "localStock": "Clas Ohlson Torggata: 4 stk. · butikkhylle 619 · Clas Storo: tomt",
+      "localStockChecked": "2026-10-20"
     },
     {
       "id": "charger",
@@ -319,7 +372,11 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "extras"
+      "budgetCategory": "extras",
+      "purchaseRoute": "storo",
+      "purchaseLocation": "Kjell & Company Storo",
+      "localStock": "Storo: 50+ stk.",
+      "localStockChecked": "2026-10-20"
     },
     {
       "id": "solder",
@@ -339,7 +396,11 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "extras"
+      "budgetCategory": "extras",
+      "purchaseRoute": "online",
+      "purchaseLocation": "Nettbestilling · Kjell & Company",
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt. Kjell Storo: ikke på lager.",
+      "localStockChecked": "2026-10-20"
     },
     {
       "id": "caliper",
@@ -359,7 +420,11 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "extras"
+      "budgetCategory": "extras",
+      "purchaseRoute": "storo",
+      "purchaseLocation": "Kjell & Company Storo",
+      "localStock": "Storo: 1 stk.",
+      "localStockChecked": "2026-10-20"
     },
     {
       "id": "mat",
@@ -379,7 +444,10 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "extras"
+      "budgetCategory": "extras",
+      "purchaseRoute": "online",
+      "purchaseLocation": "Nettbestilling · Motorkondensator",
+      "localStock": "Valgt for nettbestilling i denne planen; andre fysiske butikker er ikke kartlagt."
     },
     {
       "id": "charge-boost",
@@ -400,7 +468,10 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "parts"
+      "budgetCategory": "parts",
+      "purchaseRoute": "hold",
+      "purchaseLocation": "Avvent – ikke bestill ennå",
+      "localStock": "Ingen lokal kjøpsanbefaling før kontrollboksen er avklart."
     },
     {
       "id": "switch-no",
@@ -421,7 +492,11 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "parts"
+      "budgetCategory": "parts",
+      "purchaseRoute": "hold",
+      "purchaseLocation": "Avvent – ikke bestill ennå",
+      "localStock": "Kjell Storo: ikke på lager. Avvent fortsatt kjøp.",
+      "localStockChecked": "2026-10-20"
     },
     {
       "id": "fuse-no",
@@ -442,7 +517,10 @@
       "unitLabel": "per pakke à 10 stk.",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "parts"
+      "budgetCategory": "parts",
+      "purchaseRoute": "hold",
+      "purchaseLocation": "Avvent – ikke bestill ennå",
+      "localStock": "Ingen lokal kjøpsanbefaling før kontrollboksen er avklart."
     },
     {
       "id": "fuse-holder",
@@ -463,12 +541,48 @@
       "unitLabel": "per stk./sett",
       "priceChecked": "2026-10-20",
       "stockChecked": "2026-10-20",
-      "budgetCategory": "parts"
+      "budgetCategory": "parts",
+      "purchaseRoute": "hold",
+      "purchaseLocation": "Avvent – ikke bestill ennå",
+      "localStock": "Ingen lokal kjøpsanbefaling før kontrollboksen er avklart."
     }
   ],
   "budget": {
     "batteryReserveOre": 35000,
     "shippingReserveOre": 40000,
     "note": "Reserver er redigerbare budsjettanslag, ikke innhentede tilbud. Batteri, holder og batterisidens vern er ikke valgt. Frakt er ikke beregnet i butikkassen."
+  },
+  "purchasePlan": {
+    "checked": "2026-10-20",
+    "routes": [
+      {
+        "id": "storo",
+        "title": "Kjøp på Storo",
+        "location": "Kjell & Company · Vitaminveien 7–9",
+        "details": "Sju listede varer har lokal lagerstatus; to av dem er valgfrie. Hverdager 10–21. Lagerstatus er kontrollert, ingen varer er reservert. Flere poster har bare 1 eller 1+ igjen.",
+        "url": "https://www.kjell.com/no/butikker/thon-senter-storo"
+      },
+      {
+        "id": "city",
+        "title": "Alternativ: Torggata 6",
+        "location": "Kjell & Company + Clas Ohlson · Torggata 6",
+        "details": "To butikker på samme adresse i sentrum: svart koblingstråd og multimeter hos Kjell, varmluftpistol hos Clas. De eksakte varene er ikke på lager på Storo. Hverdager 09–20. Dette er en egen sentrumstur, ikke en butikk på Storo. Multimeteret har bare ett eksemplar oppgitt.",
+        "url": "https://www.kjell.com/no/butikker/torggata"
+      },
+      {
+        "id": "online",
+        "title": "Bestill på nett",
+        "location": "Norske nettbutikker · resten av den kjøpsklare listen",
+        "details": "USB-ledning, seks kontaktpar, skruer, filament og resterende verktøy. Kontaktparene er bestillingsvare med oppgitt utsending innen 30. oktober. Ekstra loddetinn og loddematte er valgfrie. Nettbestilling er valgt for disse varene; dette betyr ikke at de bare finnes på nett.",
+        "url": null
+      },
+      {
+        "id": "hold",
+        "title": "Avvent kjøp",
+        "location": "Kandidatdeler til kontrollboksen",
+        "details": "Lade-/omformerkort, bryter, sikringer og sikringsholder. De står i budsjettet, men er ikke en ferdig kompatibel pakke. Batteri, holder og batterisidens vern er fortsatt ikke valgt.",
+        "url": null
+      }
+    ]
   }
 }

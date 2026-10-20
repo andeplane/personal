@@ -29,6 +29,10 @@
       const total = selected.filter(product => product.dataset.store === cell.dataset.storeTotal && !product.querySelector('input').checked).reduce((sum, product) => sum + lineCost(product), 0);
       cell.textContent = money(total);
     });
+    document.querySelectorAll('[data-route-total]').forEach(cell => {
+      const total = selected.filter(product => product.dataset.purchaseRoute === cell.dataset.routeTotal && !product.querySelector('input').checked).reduce((sum, product) => sum + lineCost(product), 0);
+      cell.textContent = money(total);
+    });
     if (!batteryReserve.value || !shippingReserve.value || !batteryReserve.checkValidity() || !shippingReserve.checkValidity()) {
       document.querySelector('#budget-total').textContent = 'Fyll inn reservene';
       document.querySelector('#budget-remaining').textContent = 'Fyll inn reservene';
@@ -59,7 +63,7 @@
       const done = boxes[i].checked;
       checked += Number(done);
       product.classList.toggle('checked', done);
-      product.hidden = (query && !normalize(product.textContent).includes(query)) || (store.value !== 'all' && product.dataset.origin !== store.value) || (missing.checked && done);
+      product.hidden = (query && !normalize(product.textContent).includes(query)) || (store.value !== 'all' && product.dataset.purchaseRoute !== store.value) || (missing.checked && done);
       visible += Number(!product.hidden);
     });
     document.querySelectorAll('.shopping-group').forEach(group => { group.hidden = ![...group.querySelectorAll('.product')].some(p => !p.hidden); });

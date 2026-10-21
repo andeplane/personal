@@ -1,36 +1,31 @@
 # Garage storage planner
 
-Live: https://andeplane.github.io/personal/garage/
+Static Three.js planner at <https://andeplane.github.io/personal/garage/>. Plans use real catalogue components: original IKEA BOAXEL (40 cm), original BROR + BOAXEL (55 cm), and AJ TRANSFORM starter / extensions at 60 and 80 cm. Every selectable new component has a SKU, current Norwegian retailer link and VAT-inclusive price. Existing room / belongings are context, not invented purchase products.
 
-Four coordinated whole-garage plans compare 40, 50, 60 and 80 cm rear storage. Each uses the existing left-wall recesses, optional high baskets, right-wall gear storage and existing loft. The default is the 50 cm comparison. Switching layouts preserves the camera, pan and zoom; presets and Reset view change it explicitly.
+Switching plans preserves the camera, pan and zoom. View presets and Reset view change the camera explicitly.
 
-## Develop
-
-From the repository root:
+## Build and checks
 
 ```sh
 python3 garage/build-viewer.py
-python3 -m http.server 8766
-```
-
-Open http://localhost:8766/garage/. The viewer imports pinned Three.js 0.158.0 modules from jsDelivr and needs internet / WebGL. There is no build-time Python dependency.
-
-Edit `design-data.json` for layout and evidence data. Source modules: `materials.js`, `room.js`, `products.js` (object inspection), `bikes.js`, `expanded-storage.js` (right wall), `example-contents.js`, `left-wall.js`, `space.js` (loft and access), `storage.js`, `summary.js`, `interaction.js`. `source/visual-template.html` supplies the base geometry; `build-viewer.py` combines the sources into committed `viewer.js` and updates its cache-busting URL. Do not edit generated `viewer.js` directly.
-
-## Validate
-
-```sh
+node --check garage/viewer.js
 python3 garage/validate-design.py
-npm install --prefix /tmp/garage-check --ignore-scripts --no-audit --no-fund three@0.158.0
-node garage/check-storage.mjs /tmp/garage-check/node_modules/three
+npm install --prefix .garage-check --ignore-scripts --no-audit --no-fund three@0.158.0
+node garage/check-storage.mjs "$PWD/.garage-check/node_modules/three"
 ```
 
-The Pages workflow rebuilds and checks the model before deploying the whole existing site. Geometry checks cover 64 combinations using actual Three.js without WebGL. They establish internal consistency, not physical fit or loading. See `alternatives.md` for measurements, assumptions, allocation and proof boundaries.
+Run heavier geometry verification on home-mini via `codex-home` per the workspace instructions. `viewer.js` is generated; edit the modules and rebuild. The builder also updates its hash in `index.html`.
 
-The representative left-wall opening is 54.5 × 63.5 cm and about 9 cm deep. Lower inserts remain flush; high basket projection and clear height are adjustable. Bracing and the charger span remain intact. Whole-wall placement, loft footprint / loading, roof profile, equipment sizes and real passability remain provisional. Original photos and scans stay local.
+The geometry check covers 48 combinations: four plans, five roof heights, baskets on / off, and two extra loft / parked-mode cases. It checks actual stock basket geometry, model-to-shopping quantities, shelf / equipment collisions, mixed openings, one sled and ladder, retained braces, the local charger keepout, rear footprints / assumed roof clearance, comparison areas and loft approach status. It does not establish a physical installation, structural backing, loading or measured fit of the belongings.
 
-## Photorealistic concepts
+## Left wall
 
-Each selected plan has a car-free photo concept below the interactive model. These were generated from that plan's entrance-perspective 3D rendering and the supplied garage photos using ImageGen CLI / gpt-image-2. Selected generated JPEGs are in `assets/`; generation and targeted refinement prompts are in `photo-prompts.json`. Original photographs remain local.
+Retain all 27 schematic existing ledges / mini shelves in the representative 54.5 × 63.5 cm openings, about 9 cm deep. Seven 198 cm Elfa rails and one stock 316 mm rail above the charger carry 27 small and eight large baskets in the default model. Small baskets are 435 × 80 × 70 mm; large baskets 435 × 135 × 140 mm. They never resize to fit a brace or ceiling. Installed projections include the rail / mounting gap: 98 mm low down and 153 mm at 186 cm height. Rails attach to the existing stud faces, in front of the retained braces; the recess shelves stay behind.
 
-The images show default settings and do not update with the sliders. AI-generated shelf details and perspective can differ; use the interactive model and design notes for dimensions. No photo is evidence of physical fit or a completed installation.
+The charger reservation is local in height and length rather than an empty two-metre wall span. Actual whole-wall stud, brace and charger locations are photo-based, so installation needs those positions checked. There are no bespoke inserts, fake baskets, custom timber extensions or fractional material purchase quantities.
+
+## Sources and images
+
+`design-data.json` records product identities, prices, fixed stock dimensions, source links and the original catalogue baseline commit. `alternatives.md` explains installation assumptions and scope.
+
+The retained car-free generated images belong to the earlier concepts. The page labels them as appearance references, not the current retail installation or product photographs. Original garage photographs remain private; no original is published.

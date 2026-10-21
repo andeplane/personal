@@ -12,17 +12,17 @@ const dir=fileURLToPath(new URL('..',import.meta.url)),viewer=fs.readFileSync(di
 const segment=(start,end)=>{const a=viewer.indexOf(start),b=viewer.indexOf(end,a);assert(a>=0&&b>a,`Missing generated helper: ${start}`);return viewer.slice(a,b);};
 const data=JSON.parse(fs.readFileSync(dir+'/garage/design-data.json','utf8')),controls={};
 const context=vm.createContext({T,RoundedBoxGeometry,data,console,root:{querySelector:key=>controls[key]??(controls[key]={checked:false,value:'',textContent:'',innerHTML:'',hidden:true})}});
-vm.runInContext(`const W=data.room.width,L=data.room.length,H=data.room.loftUnderside;let current=0,view='overview',scene,furnitureGroup,carGroup,loftGroup,objects=[],equipmentMeshes=[],selected,selectionBox;let materials={};const fabricMaterial=k=>materials[k];const token=()=>'#667766';const random=()=>.5;`+
+vm.runInContext(`const W=data.room.width,L=data.room.length,H=data.room.loftUnderside;let current=0,view='overview',scene,furnitureGroup,carGroup,loftGroup,objects=[],equipmentMeshes=[],selected,selectionBox;let materials={};const money=v=>v.toFixed(2)+' kr';const fabricMaterial=k=>materials[k];const token=()=>'#667766';const random=()=>.5;`+
 segment(' function box(',' function rod(')+segment(' function rod(',' function line(')+segment(' function line(',' function label(')+segment(' function makeCar(',' function snowRacerBase(')+segment(' function snowRacerBase(','function register(')+
 ['products.js','expanded-storage.js','example-contents.js','left-wall.js','space.js','storage.js','summary.js'].map(f=>fs.readFileSync(dir+'/garage/'+f,'utf8')).join('\n')+`
- globalThis.buildCase=(i,p)=>{current=i;view='overview';for(const [key,value] of Object.entries({'garage-upper':p.height>210,'rear-height':p.height,'garage-left-inserts':p.inserts,'garage-left-baskets':p.baskets,'basket-projection':p.projection,'basket-clearance':p.clearance,'loft-length':p.loftLength,'garage-car':p.parked,'garage-loft':true,'garage-access':true})){const c=root.querySelector('#'+key);if(typeof value==='boolean')c.checked=value;else c.value=String(value);}scene=new T.Scene();scene.scale.x=-1;objects=[];equipmentMeshes=[];materials={};for(const k of ['wood','metal','floor','white','glass','bin','gear','rubber','accent'])materials[k]=new T.MeshStandardMaterial();leftWallFrame();makeLoft();storage();makeCar();updateSpaceStatus();scene.updateMatrixWorld(true);return {scene,objects,equipmentMeshes,shelfZones,leftWallStats,loftStats,area:rearSurface(data.layouts[i]),carGroup};};`,context);
+ globalThis.buildCase=(i,p)=>{current=i;view='overview';for(const [key,value] of Object.entries({'garage-upper':p.height>210,'rear-height':p.height,'garage-left-baskets':p.baskets,'loft-length':p.loftLength,'garage-car':p.parked,'garage-loft':true,'garage-access':true})){const c=root.querySelector('#'+key);if(typeof value==='boolean')c.checked=value;else c.value=String(value);}scene=new T.Scene();scene.scale.x=-1;objects=[];equipmentMeshes=[];materials={};for(const k of ['wood','metal','floor','white','glass','bin','gear','rubber','accent'])materials[k]=new T.MeshStandardMaterial();leftWallFrame();makeLoft();storage();makeCar();updateSpaceStatus();scene.updateMatrixWorld(true);return {scene,objects,equipmentMeshes,shelfZones,leftWallStats,loftStats,area:rearSurface(data.layouts[i]),shopping:shoppingList(data.layouts[i]),carGroup};};`,context);
 const profiles=[];
-for(const height of [210,240,245,275,300])for(const inserts of [false,true])profiles.push({height,inserts});
-profiles.push({baskets:false},{projection:0,clearance:180},{projection:25,clearance:180},{projection:25,clearance:200},{loftLength:200,parked:false},{loftLength:540,parked:false});
+for(const height of [210,240,245,275,300])for(const baskets of [false,true])profiles.push({height,baskets});
+profiles.push({loftLength:200,parked:false},{loftLength:540,parked:false});
 const results=[];
 for(let i=0;i<data.layouts.length;i++)for(const variant of profiles){
- const p={height:245,inserts:true,baskets:true,projection:15,clearance:190,loftLength:420,parked:true,...variant};
- const {objects,shelfZones,leftWallStats,loftStats,area,carGroup}=context.buildCase(i,p),a=data.layouts[i];
+ const p={height:245,baskets:true,loftLength:420,parked:true,...variant};
+ const {objects,shelfZones,leftWallStats,loftStats,area,shopping,carGroup}=context.buildCase(i,p),a=data.layouts[i];
  const bounds=o=>{const b=new T.Box3();for(const m of o.meshes)b.expandByObject(m);return b;};
  const exampleObjects=objects.filter(o=>o.meta.kind==='example'),hardware=[];
  for(const o of objects){
@@ -43,38 +43,46 @@ for(let i=0;i<data.layouts.length;i++)for(const variant of profiles){
  assert.equal(sleds.length,1);assert.equal(objects.filter(o=>o.meta.title?.includes('stepladder')).length,1);
  assert(!objects.some(o=>o.meta.title?.includes('SAMLA')));
  const sledBounds=bounds(sleds[0]);
- for(const h of hardware.filter(h=>h.title.startsWith('Above sled'))){const s=sledBounds.clone().intersect(h.bounds).getSize(new T.Vector3());assert(s.x*s.y*s.z<.000001,'Tall sled slot stays clear');}
+ for(const h of hardware.filter(h=>h.title.startsWith('Above sled')||h.title.startsWith('Rear bay 3'))){const s=sledBounds.clone().intersect(h.bounds).getSize(new T.Vector3());assert(s.x*s.y*s.z<.000001,'Tall sled slot stays clear');}
  assert(shelfZones.some(z=>z.clear>.5),'Keep some larger shelf openings');
  assert(shelfZones.some(z=>z.clear>.2&&z.clear<.4),'Keep smaller shelf openings');
  assert(Math.abs(area-shelfZones.reduce((s,z)=>s+z.area,0))<1e-8,'Comparison surface matches actual shelf geometry');
  const carBounds=new T.Box3().setFromObject(carGroup);
  assert(Math.abs(carBounds.min.x+data.car.centerX+data.car.foldedWidth/2)<.001,'Car parking envelope unchanged');
- const added=objects.filter(o=>o.meta.title?.startsWith('Left wall · added shallow shelf'));
- const baskets=objects.filter(o=>o.meta.basket);
- assert.equal(added.length,leftWallStats.added);assert.equal(added.length>0,p.inserts);
+ const added=objects.filter(o=>o.meta.insert),baskets=objects.filter(o=>o.meta.basket);
+ assert.equal(added.length,0,'No bespoke inserts');
  assert.equal(baskets.length,leftWallStats.baskets);assert.equal(baskets.length>0,p.baskets);
  assert(objects.some(o=>o.meta.title==='Left wall · existing charger / cable space'));
  assert.equal(objects.filter(o=>o.meta.title==='Left wall · retained diagonal brace').length,data.leftWall.braces.length);
  assert.equal(objects.filter(o=>o.meta.title?.startsWith('Left wall · existing ledge')).length,27);
+ if(p.baskets){assert.equal(leftWallStats.rails,8);assert.equal(baskets.length,35);assert(leftWallStats.aboveCharger>=3,'Use the wall above the charger');}
  const braces=hardware.filter(h=>h.title==='Left wall · retained diagonal brace');
- for(const o of [...added,...baskets]){
-  const b=bounds(o),zone=data.leftWall.chargerZone;
-  assert(b.max.z<=data.room.length-a.depth-.04+.00001,'No additions hidden behind rear rack');
-  assert(b.max.z<=zone[0]||b.min.z>=zone[1],'Charger / cable span remains open');
-  if(o.meta.basket){
-   assert(b.min.x>=-p.projection/100-.00001&&b.max.x<=data.leftWall.recessDepth+.001,'Basket projection bounded');
-   const roof=data.room.loftUnderside+(p.height/100-data.room.loftUnderside)*Math.max(0,(b.min.z-4)/(data.room.length-4));
-   const limit=b.min.z<loftStats.length?data.room.loftUnderside:roof;
-   assert(b.min.y>=p.clearance/100-.00001&&b.max.y<=limit-.018,'Keep selected headroom and local loft / roof clearance');
-   assert(b.min.y>data.car.height+.05,'High baskets clear nominal car height');
-  }else assert(b.min.x>=-.00001&&b.max.x<=data.leftWall.recessDepth+.001,'Lower insert stays behind stud faces');
-  for(const root of o.meshes)root.traverse(m=>{if(m.isMesh){m.geometry.computeBoundingBox();const obb=new OBB().fromBox3(m.geometry.boundingBox).applyMatrix4(m.matrixWorld);for(const brace of braces)assert(!obb.intersectsOBB(brace.obb),'New storage must not cut a retained brace');}});
+ for(const o of baskets){
+  const b=bounds(o),k=data.leftWall.chargerKeepout,sku=data.products[o.key],size=b.getSize(new T.Vector3());
+  assert(b.max.z<=data.room.length-a.depth-a.standOff-.04+.00001,'No baskets behind rear rack');
+  assert(b.max.z<=k.z[0]||b.min.z>=k.z[1]||b.max.y<=k.y[0]||b.min.y>=k.y[1],'Local charger keepout stays open');
+  assert(Math.abs(size.z-sku.dimensions[0])<.002&&Math.abs(size.x-sku.dimensions[1])<.002&&Math.abs(size.y-sku.dimensions[2])<.002,'Basket geometry retains actual retail dimensions');
+  assert(b.min.x>=-(sku.dimensions[1]+.018)-.00001,'Installed basket projection includes the rail');
+  if(o.key==='basketSmall')assert(-b.min.x<.125,'Lower baskets stay within charger projection');
+  else assert(b.min.y>data.car.height+.20,'Deeper baskets clear nominal car height');
+  const roof=data.room.loftUnderside+(p.height/100-data.room.loftUnderside)*Math.max(0,(b.min.z-4)/(data.room.length-4));
+  assert(b.max.y<=(b.min.z<loftStats.length?data.room.loftUnderside:roof)-.059,'Basket loading gap below local roof / loft');
+  for(const root of o.meshes)root.traverse(m=>{if(m.isMesh){m.geometry.computeBoundingBox();const obb=new OBB().fromBox3(m.geometry.boundingBox).applyMatrix4(m.matrixWorld);for(const brace of braces)assert(!obb.intersectsOBB(brace.obb),'Stock baskets must not cut a retained brace');}});
  }
- for(const basket of baskets)for(const insert of added){const s=bounds(basket).intersect(bounds(insert)).getSize(new T.Vector3());assert(s.x*s.y*s.z<.000001,'Basket and flush insert do not occupy the same space');}
+ const purchaseCounts=new Map();for(const o of objects.filter(o=>o.key))purchaseCounts.set(o.key,(purchaseCounts.get(o.key)||0)+1);
+ for(const [key,count] of purchaseCounts){assert(data.products[key].url.startsWith('https://'));assert.equal(shopping.find(r=>r.key===key)?.qty,count,'Shopping quantity matches model instances: '+key);}
+ assert(shopping.every(r=>Number.isInteger(r.qty)&&r.qty>0),'No fractional / negative purchase quantities');
+ for(const o of objects.filter(o=>o.key)){for(const m of o.meshes)m.traverse(n=>{if(n.isMesh)assert.equal(n.userData.objectId,o.id,'Every selectable component has a catalogue key');});}
+ for(const h of hardware.filter(h=>h.title.startsWith('Rear bay')||h.title.startsWith('Above sled')||h.title.startsWith('Upper rear'))){
+  assert(h.bounds.min.z>=data.room.length-a.footprintDepth-.001,'Rear storage footprint includes every shelf / bracket');
+  assert(h.bounds.min.x>=-data.room.width-.001&&h.bounds.max.x<=.001,'Retail rear parts stay within room width');
+  const front=h.bounds.min.z,roof=data.room.loftUnderside+(p.height/100-data.room.loftUnderside)*Math.max(0,(front-4)/(data.room.length-4));
+  assert(h.bounds.max.y<=roof+.001,'Retail rear component fits assumed sloping roof: '+h.title);
+ }
  assert.equal(loftStats.length,p.loftLength/100);
  assert.equal(loftStats.accessEnd,loftStats.length+data.loft.accessDepth);
  const status=controls['#loft-status'].textContent;
- assert(status.includes(loftStats.accessEnd>data.room.length-a.depth-.03?'overlaps':p.parked?'Move car out':'clear of rear storage'),'Access status follows actual assumed footprint and parked mode');
- results.push({layout:a.id,...p,inserts:added.length,baskets:baskets.length,rearSurface:Number(area.toFixed(2)),examples:exampleObjects.length});
+ assert(status.includes(loftStats.accessEnd>data.room.length-a.footprintDepth-.03?'overlaps':p.parked?'Move car out':'clear of rear storage'),'Access status follows actual assumed footprint and parked mode');
+ results.push({layout:a.id,...p,baskets:baskets.length,rearSurface:Number(area.toFixed(2)),examples:exampleObjects.length});
 }
-console.log(JSON.stringify({checks:'Actual Three.js bounds: mixed shelf openings and examples; one sled and ladder; flush inserts; bounded high baskets; retained braces / charger; loft approach and parked mode; comparison areas',results},null,2));
+console.log(JSON.stringify({checks:'Actual Three.js bounds: mixed shelf openings and examples; one sled and ladder; stock product dimensions and BOM counts; shallow / high baskets; retained braces / charger; loft approach and parked mode; comparison areas',results},null,2));

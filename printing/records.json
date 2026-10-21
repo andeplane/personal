@@ -1,5 +1,108 @@
 [
   {
+    "id": "enigma-release-cam-pla-20261021-a1",
+    "title": "Enigma · utløserkam i PLA (ubelastet passformprøve)",
+    "project": "Enigma Doublestep",
+    "printer": "Bambu Lab X2D",
+    "status": "planned",
+    "preparationState": "CANDIDATE_UNRELEASED_MANUFACTURING_HOLD",
+    "recordedAt": "2026-10-21T12:30:35.336344+00:00",
+    "updatedAt": "2026-10-21T12:30:35.336344+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "jobName": "ENIGMA_RELEASE_CAM_PLA_ceafe2e7 · kandidat, ikke startet",
+    "plate": 1,
+    "parts": [
+      "REFLECTOR_RELEASE_CAM"
+    ],
+    "estimatedSeconds": 1319.9012451171875,
+    "actualSeconds": null,
+    "estimatedGrams": 3.9362094402313232,
+    "actualGrams": null,
+    "estimatedMeters": 1.2988,
+    "material": "PLA Basic · svart · planlagt AMS A3, ikke kontrollert mot live mapping",
+    "color": "#161616",
+    "layerHeightMm": 0.08,
+    "firstLayerHeightMm": 0.2,
+    "nozzleMm": 0.4,
+    "layers": 86,
+    "preview": "assets/enigma-release-cam-pla-20261021-a1/plan.png",
+    "layout": "assets/enigma-release-cam-pla-20261021-a1/layout.png",
+    "snapshots": [],
+    "evidenceImages": [
+      {
+        "src": "assets/enigma-release-cam-pla-20261021-a1/actual-toolpath-zooms.png",
+        "kind": "slicer-toolpath-review",
+        "caption": "Verktøybanekontroll fra den eksakte slicen: bue- og breddebevisste utsnitt av boring, brim, forbindelsesmateriale, spor og bro. Dette er ikke et kamerabilde eller bevis på fysisk passform, kontakt, løft eller kraft.",
+        "sha256": "c10136a878bb8173d028159ed41f3a788c25faacb1633acfaed4f45a643c2827"
+      }
+    ],
+    "source": {
+      "file": "sliced.3mf",
+      "sha256": "ceafe2e7a7336bb7a18472b610751daa771765a6081105e98b6f45cd16d122eb",
+      "repository": "https://github.com/andeplane/openenigma",
+      "commit": null,
+      "baseCommit": "b127cad62f0a1b5d579722abdefe5aa96ce55cfb",
+      "branch": "Local candidate; selected trial not released",
+      "job": "mechanical-cam-pla",
+      "trialReleaseStatus": "UNCOMMITTED_MANUFACTURING_HOLD",
+      "editableProject": {
+        "file": "ONE_PLA_RELEASE_CAM_X2D.3mf",
+        "sha256": "32c578e4f47b1f8a95fbb93a246225e8a9002b855cf97c55355f9ae18030ee48"
+      },
+      "nativeSha256": "56ee565420bd7c329da42464fb9ca19762303b683286b8e4b1d045dc7cf808c8",
+      "stlSha256": "adff592e86c17b7984f6d4458a637091d7d5a82a1a764bb5e0fad5a7a5ed5080",
+      "gcodeMember": "Metadata/plate_1.gcode",
+      "gcodeSha256": "d08fa76660d11c8d9f7667d1e8e24104a425fa5bd4c400f1627d056325390ee0",
+      "reviewEvidence": [
+        {
+          "file": "review-summary.json",
+          "sha256": "55f430b9d2ccf1e822f241ce30e042ebb22bba2dddcf2870c6b3e6feea49640d"
+        },
+        {
+          "file": "actual-slice-evidence.json",
+          "sha256": "e018ee917665f4532caf760944b0b81b441d0e91c2c06316139ebf8b26080373"
+        },
+        {
+          "file": "source-slice-mesh-comparison.json",
+          "sha256": "a53fdb12d484fe6a27390e56b25a2b633645af285ee8d44c9429e6ee70380118"
+        },
+        {
+          "file": "slice-review-criteria.json",
+          "sha256": "11fb58bfff03fffa398b1cd1d5017cdb4f128a55dba6696105114238f33622d8"
+        },
+        {
+          "file": "orientation-mesh-evidence.json",
+          "sha256": "26f96354c0fe3478a67d3e38cd9f04b76940068df1055fc18ef5909248721b0f"
+        },
+        {
+          "file": "independent-selected-trial-source-review.json",
+          "sha256": "507be90ce09c8fc8b9c298993a7dd8ad812790c5b549636cedb9bd6788fe7ecb"
+        }
+      ],
+      "evidence": "Eksakt en-dels kandidat med beholdt mesh, .08mm lag/.2mm første lag, fire vegger,30% gyroid,8mm ytre brim og uten støtte. Native eksportrettelsen er integrert i kildehistorikken, men denne valgte PLA-prøven er fortsatt lokal, upublisert og holdt tilbake mens kilde-, guide- og uavhengig utgivelseskontroll pågår. Ingen staging fra frigitt main, opplastingsnedlasting eller start er godkjent av denne posten. Native/geometri/verktøybanekontroll gjelder begrenset kandidatprøve; ikke fysisk virkemåte."
+    },
+    "notes": "Kun ubelastet kontroll av journal/boring, kappe og overordnet passform samt grov inspeksjon av spor. Ingen fjærforspenning, belastet drift, detent-/kontaktlov, presist løft eller kraft er kvalifisert. Nominelle banebredder og et lite beregnet dekningsgap ved én prøvelinje beviser ikke fysisk utflating; nabobaner ved topper finnes i begge spor. ETA og filament er slicerestimater, ikke faktisk tid/forbruk. Svart PLA og AMS A3 er hensikt, ikke verifisert live materialtilordning. Ingen printerstart eller kamerabilde finnes for denne kjøringen. Printerlagring, gjeldende main/live guide, release-port og eksakt opplastingsnedlasting må kontrolleres før eventuell start.",
+    "sequence": 9,
+    "settings": {
+      "wallLoops": 4,
+      "sparseInfillPercent": 30,
+      "sparseInfillPattern": "gyroid",
+      "supports": "none",
+      "outerBrimMm": 8,
+      "orientation": "ramps up"
+    },
+    "evidencePending": [
+      "Selected trial release to current main with independent final-head review and successful CI",
+      "Source-bound live guide and canonical print gate",
+      "Fresh printer storage status and material/AMS mapping",
+      "Exact upload-readback and fresh pre-start camera/telemetry",
+      "Accepted job and start identity",
+      "During-print and completion camera",
+      "Physical unloaded fit, bore and support/brim cleanup inspection"
+    ]
+  },
+  {
     "id": "enigma-rocker-pla-plate2-20261021-a1",
     "title": "Enigma · vippemekanisme, plate 2 (PLA-passformprøve)",
     "project": "Enigma Doublestep",

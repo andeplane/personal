@@ -23,9 +23,11 @@ function shoppingList(a){
 function updateTable(){
  const a=data.layouts[current],rows=shoppingList(a),total=rows.reduce((s,r)=>s+r.qty*data.products[r.key].price,0);
  root.querySelector('#garage-title').textContent=a.id+' · '+a.name;
- const photo='assets/garage-plan-'+a.id.toLowerCase()+'.jpg',photoAlt='Imagegen image of the earlier Plan '+a.id+', without a car';
- root.querySelector('#photo-title').textContent='Plan '+a.id+' · earlier generated image';root.querySelector('#photo-preview-title').textContent='Imagegen image · Plan '+a.id;
+ const preview=photoPlans.find(p=>p.id===a.id.toLowerCase()),photo=preview.output+'?v='+preview.outputSHA256.slice(0,12),source=preview.source3D+'?v='+preview.source3DHash.slice(0,12),photoAlt='Imagegen rendering of current Plan '+a.id+', '+preview.depthCm+' cm shelves, without a car';
+ root.querySelector('#photo-title').textContent='Plan '+a.id+' · '+a.name;root.querySelector('#photo-preview-title').textContent='Imagegen · '+a.id+' · '+preview.depthCm+' cm';
  for(const image of root.querySelectorAll('#plan-photo, #plan-photo-preview')){image.src=photo;image.alt=photoAlt;}root.querySelector('#photo-link').href=photo;
+ root.querySelector('#plan-photo-source').src=source;root.querySelector('#plan-photo-source').alt='Current Plan '+a.id+' 3D source, '+preview.depthCm+' cm shelves, without a car';root.querySelector('#photo-source-link').href=source;
+ for(const imagePlan of photoPlans){const link=root.querySelector('[data-photo-plan="'+imagePlan.id+'"]'),url=imagePlan.output+'?v='+imagePlan.outputSHA256.slice(0,12);link.href=url;link.querySelector('img').src=url;}
  root.querySelector('#garage-equipment').textContent=a.summary;
  root.querySelector('#garage-metrics').innerHTML='<span>Rear gap <strong>'+Math.round(a.frontGap*100)+' cm</strong></span><span>Rear system <strong>'+a.system+'</strong></span><span>Rear shelf surface <strong>'+shelfZones.reduce((s,z)=>s+z.area,0).toFixed(1)+' m²</strong></span><span>Left wall <strong>'+leftWallStats.existing+' existing ledges + '+leftWallStats.baskets+' real baskets</strong></span><span>Loft <strong>existing · '+loftStats.length.toFixed(1)+' m assumed length</strong></span>';
  const priceText=money(total)+' · products incl. VAT';root.querySelector('#garage-price').textContent=priceText;root.querySelector('#price-top').textContent=priceText;

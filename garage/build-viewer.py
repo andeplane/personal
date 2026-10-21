@@ -59,9 +59,21 @@ s=s.replace('camera.aspect=w/h;camera.updateProjectionMatrix();', 'if(camera.isO
 a=s.index(' function updateTable()');b=s.index(" root.querySelectorAll('[data-layout]')",a)
 s=s[:a]+(p/'summary.js').read_text()+s[b:]
 s=s.replace("root.querySelector('#garage-loft').addEventListener('change',e=>{loftGroup.visible=e.target.checked;render();});", "root.querySelector('#garage-loft').addEventListener('change',applyVisibility);")
+import json
+photo_plans=json.loads((p/'photo-prompts.json').read_text())['plans']
+photo_metadata=[{k:plan[k] for k in ['id','depthCm','output','outputSHA256','source3D','source3DHash']} for plan in photo_plans]
+imports+='const photoPlans='+json.dumps(photo_metadata,separators=(',',':'))+';\n'
 (p/'viewer.js').write_text(imports+s)
 
 import hashlib,re
 revision=hashlib.sha256((imports+s).encode()).hexdigest()[:12]
 page=p/'index.html'
 page.write_text(re.sub(r'src="viewer.js[^"]*"', 'src="viewer.js?v='+revision+'"',page.read_text()))
+style_revision=hashlib.sha256((p/'style.css').read_bytes()).hexdigest()[:12]
+page.write_text(re.sub(r'href="style.css[^"]*"','href="style.css?v='+style_revision+'"',page.read_text()))
+html=page.read_text()
+for plan in photo_plans:
+ for field,hash_field in [('output','outputSHA256'),('source3D','source3DHash')]:
+  url=plan[field]+'?v='+plan[hash_field][:12]
+  html=re.sub(r'((?:href|src)=")'+re.escape(plan[field])+r'(?:\?v=[^"]*)?"',lambda m:m[1]+url+'"',html)
+page.write_text(html)

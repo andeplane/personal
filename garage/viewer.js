@@ -7,6 +7,7 @@ import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {SSAOPass} from 'three/addons/postprocessing/SSAOPass.js';
 import {SMAAPass} from 'three/addons/postprocessing/SMAAPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
+const photoPlans=[{"id":"a","depthCm":40,"output":"assets/garage-plan-a.jpg","outputSHA256":"d1631edfd68f51a127dd84bd89ab1d90adc5f742c217aad429f4cc24a7c43c46","source3D":"assets/garage-plan-a-source.png","source3DHash":"3c38a82a0248de7839653ec48eb9358ba14bc4a4e01a751dec34b516ff19faaa"},{"id":"b","depthCm":55,"output":"assets/garage-plan-b.jpg","outputSHA256":"f406053159d669a2223edc08a670cd75a716be65b090ea2185b5216149dca768","source3D":"assets/garage-plan-b-source.png","source3DHash":"8d83e619ac8360088a06ed860dc4df654c96ddfe8fde40845cc985249e54778c"},{"id":"c","depthCm":60,"output":"assets/garage-plan-c.jpg","outputSHA256":"d23e5fa5b9e0f8c2e8f510aa07145be539571fb5c834ae9edd281a46f40b0cbb","source3D":"assets/garage-plan-c-source.png","source3DHash":"ae3fb0d476730abd51b6b9597e5735bb4659e53afe7d8f9d066e61d754095a1d"},{"id":"d","depthCm":80,"output":"assets/garage-plan-d.jpg","outputSHA256":"f95aa099ad7d7e75dd7418a38c37a59b9a3a4ee315129fcbece8953f69ca5816","source3D":"assets/garage-plan-d-source.png","source3DHash":"8202aca7da55cff2654c09fdb92a23110cb42352b9ab20fdc3158f4e49d1d4f1"}];
 
 
  const root=document.getElementById('garage-options');
@@ -511,9 +512,11 @@ function shoppingList(a){
 function updateTable(){
  const a=data.layouts[current],rows=shoppingList(a),total=rows.reduce((s,r)=>s+r.qty*data.products[r.key].price,0);
  root.querySelector('#garage-title').textContent=a.id+' · '+a.name;
- const photo='assets/garage-plan-'+a.id.toLowerCase()+'.jpg',photoAlt='Imagegen image of the earlier Plan '+a.id+', without a car';
- root.querySelector('#photo-title').textContent='Plan '+a.id+' · earlier generated image';root.querySelector('#photo-preview-title').textContent='Imagegen image · Plan '+a.id;
+ const preview=photoPlans.find(p=>p.id===a.id.toLowerCase()),photo=preview.output+'?v='+preview.outputSHA256.slice(0,12),source=preview.source3D+'?v='+preview.source3DHash.slice(0,12),photoAlt='Imagegen rendering of current Plan '+a.id+', '+preview.depthCm+' cm shelves, without a car';
+ root.querySelector('#photo-title').textContent='Plan '+a.id+' · '+a.name;root.querySelector('#photo-preview-title').textContent='Imagegen · '+a.id+' · '+preview.depthCm+' cm';
  for(const image of root.querySelectorAll('#plan-photo, #plan-photo-preview')){image.src=photo;image.alt=photoAlt;}root.querySelector('#photo-link').href=photo;
+ root.querySelector('#plan-photo-source').src=source;root.querySelector('#plan-photo-source').alt='Current Plan '+a.id+' 3D source, '+preview.depthCm+' cm shelves, without a car';root.querySelector('#photo-source-link').href=source;
+ for(const imagePlan of photoPlans){const link=root.querySelector('[data-photo-plan="'+imagePlan.id+'"]'),url=imagePlan.output+'?v='+imagePlan.outputSHA256.slice(0,12);link.href=url;link.querySelector('img').src=url;}
  root.querySelector('#garage-equipment').textContent=a.summary;
  root.querySelector('#garage-metrics').innerHTML='<span>Rear gap <strong>'+Math.round(a.frontGap*100)+' cm</strong></span><span>Rear system <strong>'+a.system+'</strong></span><span>Rear shelf surface <strong>'+shelfZones.reduce((s,z)=>s+z.area,0).toFixed(1)+' m²</strong></span><span>Left wall <strong>'+leftWallStats.existing+' existing ledges + '+leftWallStats.baskets+' real baskets</strong></span><span>Loft <strong>existing · '+loftStats.length.toFixed(1)+' m assumed length</strong></span>';
  const priceText=money(total)+' · products incl. VAT';root.querySelector('#garage-price').textContent=priceText;root.querySelector('#price-top').textContent=priceText;

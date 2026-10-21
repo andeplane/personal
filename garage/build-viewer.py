@@ -4,7 +4,7 @@ s=(p/'source/visual-template.html').read_text().split('<script>')[1].split('</sc
 s=s.replace('(function(){','').replace('})();','')
 s=s.replace("const data=__GARAGE_DATA__;", "const data=await (await fetch('./design-data.json',{cache:'no-store'})).json();")
 s=s.replace(" if(!window.THREE){host.textContent='3D library unavailable. Use the saved renderings in the proposal.';return;}\n const T=window.THREE,", ' const ')
-s=s.replace("view='overview'", "view='rear'")
+s=s.replace("current=0, view='overview'", "current=1, view='overview'")
 s=s.replace("const renderer=new T.WebGLRenderer", "const renderer=new T.WebGLRenderer")
 s=s.replace(" host.appendChild(renderer.domElement);", " host.replaceChildren(renderer.domElement); renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;\n const pmrem=new T.PMREMGenerator(renderer), environment=pmrem.fromScene(new RoomEnvironment(),.04).texture;\n let controls,composer,ao,selected=null,selectionBox,objects=[],equipmentMeshes=[],dimensionGroup,bikeGroup;\n const render=()=>{if(composer)composer.render();else if(scene&&camera)renderer.render(scene,camera);};")
 s=s.replace(" function token(name){", " function oldToken(name){")
@@ -34,7 +34,11 @@ s=s.replace(" build();\n window.garageModel", " build();\n renderer.setAnimation
 s=s.replace("getScene:()=>scene", "getScene:()=>scene,getObjects:()=>objects.map(({id,key,meta})=>({id,key,meta})),select:id=>selectObject(objects.find(o=>o.id===id)),project:id=>{const o=objects.find(o=>o.id===id);const b=objectBounds(o);return b.getCenter(new T.Vector3()).project(camera).toArray();}")
 s=s.replace("storage();makeCar();", "storage();makeCar();register(carGroup.children.filter(m=>m.isMesh),null,{title:'Model Y parking envelope',dimensions:[data.car.foldedWidth,data.car.length,data.car.height],note:'Official planning dimensions; simplified body shape. Folded mirrors: 198.2 cm; body: 192 cm; open mirrors: 212.9 cm. Driver-door and hatch movement are not modelled.'});carGroup.traverse(m=>{if(m.isMesh){m.material=m.material.clone();m.material.transparent=true;m.material.opacity=.27;m.material.depthWrite=false;}});")
 s=s.replace("dimension([0,.04,-.35]", "dimension([0,2.18,L-.20],[W,2.18,L-.20],'2.83 m',[W/2,2.24,L-.20],.8);dimension([0,.04,-.35]")
-s=s.replace("let lm=materials.wood.clone();", "let lm=materials.wood.clone();")
+# Replace the old full-ceiling reference plane and fixed floor highlights with
+# the separate existing-loft and usable-space studies.
+a=s.index(' const accent=materials.accent.clone()');b=s.index(' storage();makeCar();',a)
+s=s[:a]+' makeLoft();\n'+s[b:]
+s=s.replace(" dimension([-.30,.03,0]", " const carEnd=data.car.entranceGap+data.car.length,rearGap=data.layouts[current].frontGap;dimension([W+.16,.04,carEnd],[W+.16,.04,carEnd+rearGap],Math.round(rearGap*100)+' cm rear gap',[W+.62,.08,carEnd+rearGap/2],1.05);labels.at(-1).userData.floorGap=true;\n dimension([-.30,.03,0]")
 s=s.replace("new T.BoxGeometry(.49,h-.08,.31)", "new RoundedBoxGeometry(.49,h-.08,.31,4,.065)")
 s=s.replace("addEventListener('change',()=>updateCamera())", "addEventListener('change',applyVisibility)")
 imports="""import * as T from 'three';
@@ -49,12 +53,12 @@ import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 """
 # Product helpers need declaration before build; function declarations are hoisted.
 a=s.index(' function storage(){');b=s.index(' function build(){',a)
-s=s[:a]+(p/'products.js').read_text()+(p/'bikes.js').read_text()+(p/'expanded-storage.js').read_text()+(p/'example-contents.js').read_text()+(p/'left-wall.js').read_text()+(p/'storage.js').read_text()+s[b:]
+s=s[:a]+''.join((p/f).read_text() for f in ['products.js','bikes.js','expanded-storage.js','example-contents.js','left-wall.js','space.js','storage.js'])+s[b:]
 s=s.replace('updateCamera(); updateTable(); populateObjects();', 'makeBikes();if(camera)updateComposer();else updateCamera(); updateTable(); populateObjects();')
 s=s.replace('camera.aspect=w/h;camera.updateProjectionMatrix();', 'if(camera.isOrthographicCamera){const span=camera.userData.span;camera.left=-span*w/h/2;camera.right=span*w/h/2;}else camera.aspect=w/h;camera.updateProjectionMatrix();')
-s=s.replace("textContent=a.equipment", "textContent=a.summary+' '+a.equipment")
-s=s.replace("Rear gap <strong>", "Floor rear gap <strong>")
-s=s.replace('Fixings / backing allowance (estimate)', 'Construction / fixings allowance (estimate)')
+a=s.index(' function updateTable()');b=s.index(" root.querySelectorAll('[data-layout]')",a)
+s=s[:a]+(p/'summary.js').read_text()+s[b:]
+s=s.replace("root.querySelector('#garage-loft').addEventListener('change',e=>{loftGroup.visible=e.target.checked;render();});", "root.querySelector('#garage-loft').addEventListener('change',applyVisibility);")
 (p/'viewer.js').write_text(imports+s)
 
 import hashlib,re

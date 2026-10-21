@@ -1,5 +1,5 @@
 // The bay opening is measured. Whole-wall positions / brace locations remain a photo-based study.
-let leftWallStats={existing:0,added:0,area:0};
+let leftWallStats={existing:0,added:0,baskets:0,area:0,basketLitres:0};
 function leftWallBays(){
  const wall=data.leftWall,bays=[];
  const pitch=wall.clearWidth+wall.studWidth;
@@ -38,7 +38,7 @@ function leftWallFrame(){
 }
 function leftWallStorage(){
  const wall=data.leftWall,d=wall.recessDepth,bays=leftWallBays(),group=new T.Group();group.userData.wall='left';furnitureGroup.add(group);
- leftWallStats={existing:0,added:0,area:0};
+ leftWallStats={existing:0,added:0,baskets:0,area:0,basketLitres:0};
  const charger=wall.chargerZone;
  const overlapsCharger=b=>b.end>charger[0]&&b.start<charger[1];
  const rearLimit=L-data.layouts[current].depth-.04;
@@ -53,7 +53,9 @@ function leftWallStorage(){
    leftWallStats.existing++;
   }
   // Keep all charging equipment / cable handling space and bays masked by rear storage unallocated.
-  if(!addition||overlapsCharger(bay)||bay.end>rearLimit)continue;
+  if(overlapsCharger(bay)||bay.end>rearLimit)continue;
+  if(root.querySelector('#garage-left-baskets').checked)leftWallBasket(bay,index,group,captureInWall);
+  if(!addition)continue;
   for(let row=0;row<wall.ledgeTops.length;row++){
    const lower=wall.ledgeTops[row],upper=row+1<wall.ledgeTops.length?wall.ledgeTops[row+1]-.045:H-.045;
    const y=(lower+upper)/2;
@@ -85,4 +87,29 @@ function leftWallStorage(){
   const c=new T.CatmullRomCurve3([new T.Vector3(.10,1.04,cz),new T.Vector3(.10,.40,cz-.12),new T.Vector3(.10,.40,cz-.70),new T.Vector3(.10,1.30,cz-.75),new T.Vector3(.10,1.35,cz-.36),new T.Vector3(.10,.58,cz-.46)]);
   const cable=new T.Mesh(new T.TubeGeometry(c,48,.014,8,false),materials.rubber);group.add(cable);
  },{title:'Left wall · existing charger / cable space',kind:'existing-storage',side:'left',note:'Observed in IMG_0754 and IMG_0758. Keep this zone open for the charger, cable loop and handling. The model placement is approximate; new shelves are excluded from the whole reserved span.'});
+}
+function leftWallBasket(bay,index,group,captureInWall){
+ const bottom=Number(root.querySelector('#basket-clearance').value)/100;
+ const projection=Number(root.querySelector('#basket-projection').value)/100;
+ const belowLoft=bay.start<loftStats.length;
+ const roof=H+(storageHeight()-H)*Math.max(0,(bay.start-4)/(L-4));
+ const limit=belowLoft?H:roof;
+ const height=Math.min(.25,limit-.02-bottom),top=bottom+height;
+ const braced=leftWallBraceCrosses(bay,(top+bottom)/2,height/2+.045);
+ // In a braced opening the basket sits in front of the brace, without cutting it.
+ const rear=braced?.008:-data.leftWall.recessDepth+.006,front=projection,width=bay.width-.02,depth=front-rear;
+ if(height<.06||depth<.065)return;
+ const z0=bay.center-width/2,z1=bay.center+width/2,r=.003;
+ captureInWall(()=>{
+  for(const y of [bottom+r,top-r]){
+   for(const z of [z0+r,z1-r])rod([rear+r,y,z],[front-r,y,z],r,'metal',group);
+   for(const x of [rear+r,front-r])rod([x,y,z0+r],[x,y,z1-r],r,'metal',group);
+  }
+  for(let z=z0+.025;z<z1-.01;z+=.065){
+   rod([rear+r,bottom+r,z],[front-r,bottom+r,z],.002,'metal',group);
+   for(const x of [rear+r,front-r])rod([x,bottom+r,z],[x,top-r,z],.002,'metal',group);
+  }
+  for(const z of [z0+r,z1-r])for(const x of [rear+r,front-r])rod([x,bottom+r,z],[x,top-r,z],r,'metal',group);
+ },{title:'Left wall · high basket '+(index+1),kind:'concept',side:'left',dimensions:[width,depth,height],dimensionLabel:'Along wall × basket depth × height',height:bottom,projection,basket:true,note:'Removable wire basket / retaining tray concept. '+Math.round(projection*100)+' cm maximum projection beyond the stud faces; '+Math.round(bottom*100)+' cm clear below. '+(braced?'This bay is braced, so the basket uses only the shallow space in front of the brace.':'The basket uses the recess plus a modest projection.')+' Keep contents within its rim. Charger and rear-rack spans are excluded. Fixings and load capacity are unspecified.'});
+ leftWallStats.baskets++;leftWallStats.basketLitres+=width*depth*height*1000;
 }

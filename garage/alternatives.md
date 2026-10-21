@@ -1,88 +1,75 @@
-# Garage storage review — 21 October 2026
+# Whole-garage storage plans
 
-The brief is **flexible storage capacity for changing belongings**, with some larger openings, plenty of smaller compartments and useful storage up to the available height. Backpacks are example contents, with a mix of packed and compressed storage; they do not each get a dedicated tall bay. Keep a specific place for one rattkjelke and the gardintrapp. Assume no storage boxes.
+The brief is flexible capacity for changing belongings, with useful small compartments, some large openings, one rattkjelke and an accessible gardintrapp. Use the existing left-wall recesses, right-wall shelf, taller rear roof area and loft. Backpacks are mixed example contents; no opening is dedicated to an individual backpack. No storage boxes are assumed.
 
-The source is the user-provided garage photo, the user's corrections and the earlier 2.83 × 6.10 m room measurements. Item counts and dimensions are not a measured inventory. Source photos and the Polycam scan remain local.
+The four plans replace the earlier six product-led alternatives. They compare the same coordinated rear shelving and side-wall / loft strategy at different depths. The model opens with **B, 50 cm**, as the starting comparison. A 40 cm alternative prioritizes floor space; 60 and 80 cm offer progressively deeper lower storage. There is no complete retail specification or purchase budget at this stage.
 
-## What needs space
+## Shared arrangement
 
-| Category | What the evidence supports | Design implication |
-|---|---|---|
-| Rattkjelke | One, confirmed by the user and visible hanging on the right | Dedicated tall slot; shelves above it. Current 60 × 40 × 130 cm stored envelope is provisional. |
-| Gardintrapp | One visible | Keep a tall, shallow, accessible side-wall position; current 50 × 15 × 190 cm envelope is provisional. |
-| Skis and poles | Several visible overhead on the right; exact count / lengths unclear | Long horizontal supports, with door-track and beam clearance checked in reality. |
-| Skates, ski boots and other footwear | Skates confirmed by the user; winter footwear visible at the rear | Smaller compartments; the model shows example pairs, not an invented pair count. |
-| Backpacks and soft bags | Several different sizes visible; user confirms a mix of packed and compressed | General shelf openings. Bags can lie down, stand or hang; the current hanging arrangement is optional. |
-| Folded chairs / table | At least two chairs and one white folded table visible | Compact wall storage outside the rear rack footprint. |
-| Long fabric bundles / cases | Visible, contents unclear | Some larger openings; do not assert that every bundle is a sleeping mat. |
-| Small equipment / supplies | Racket, cables, cans / bottles and miscellaneous gear visible | Reuse or extend the small rear shelf compartments; reserve spare capacity. |
-| Future / other things | Explicit part of the brief | Keep open, adaptable space. Do not assign every compartment to an existing object. |
-| Storage boxes | Excluded by the user | No box proxies, assumed box inventory, plastic-box purchases or box-litre capacity metric. |
+- **Rear:** two 90 cm clear bays with adjustable shelves, plus a 71 cm clear sled slot with two shelves above. One main opening is about 90 cm wide × 104 cm clear height for larger belongings. The other bay has smaller and medium openings. Suitable existing small cabinets / shelves can be reused within the final system after their real dimensions are checked.
+- **Left:** keep the existing ledges and diagonal bracing. Add removable flush inserts in unobstructed openings, and modestly projecting high baskets. Preserve the charger / cable zone. The lower walking route is not spent on deep shelves or hanging backpacks.
+- **Right:** reuse the existing high ski shelf. Keep the folded ladder, chairs and table shallow and individually accessible. A shallow entrance tool zone and long-tool position use the remaining wall.
+- **Loft / hems:** reserve for seasonal and bulky belongings that are practical to lift. Storage zones leave a central access strip; a floor approach is marked at the assumed deck edge. At the default location, the car must be out for loft access and working space.
+- **Taller rear roof area:** independent 28 cm deep compartments use an adjustable, explicitly assumed roof clearance. They are separate from the loft.
 
-## Corrections to the earlier model
+These allocations leave spare flexible capacity. The current arrangement of hanging backpacks is optional. The viewer's small bags, lying rucksack, skates, boots, rolled case and supplies illustrate mixed sizes; they are not a measured inventory or proof that every belonging fits.
 
-- Every backpack used the same estimated 55 × 40 × 75 cm envelope. Several openings were designed around those repeated upright packs. That is not a sensible basis for the full storage system.
-- The low-rack option put three packs on top and left the wall height unused. C now tests reused / extended small shelf compartments above the low units.
-- The industrial option displayed only three rack shelves. E now shows five levels with mixed spacing; the stock product only supplies three, so the two additional levels remain unpriced and compatibility is unverified.
-- The 60 cm rack now uses all four supplied shelves. The tall BROR racks each use all five supplied shelves. A has more shelf levels with varied openings. All six options now also retain and use the left-wall recesses.
-- The fitted D/E bay now has four smaller shelf levels beside the tall sled slot, plus two full-width shelves above it.
-- Footwear was omitted from the rendering. The new mixed example contents include skates and winter footwear, alongside a lying rucksack, a smaller pack, soft bags, a rolled bag and small supplies. These are examples of use, not a promise that the entire real inventory fits.
-- The 2.10 m reference was applied across the garage as though all overhead space were identical. It is an earlier assumption. The photo shows varying roof / beam geometry, whose heights are not measured.
+## Depth and usable space
 
-## Capacity comparison
+Approximate rear shelf surface is the sum of shelf planes. It excludes side-wall storage and the loft. It is not storage volume, rated capacity or a count of belongings. Values below include the default 245 cm rear-clearance study; disabling upper storage removes about 0.73 m².
 
-Approximate rear shelf surface sums the horizontal shelf surfaces at the back of the model. It excludes the existing right-wall ski shelf and the left-wall recess storage. It is **not storage volume, clear usable shelf width, a load rating or a count of items that fit**. The optional upper study is excluded below.
-
-| Layout | Rear depth | Rear shelf surface | Floor gap to assumed parked car | Storage approach |
+| Plan | Lower / upper rear depth | Rear shelf surface | Gap to assumed parked car | Use |
 |---|---:|---:|---:|---|
-| A — Family gear wall | 40 cm | 4.0 m² | 65.3 cm | More shallow shelf levels; smaller and larger openings; separate sled slot |
-| B — Deep camping store | 55 cm | 4.8 m² | 50.3 cm | Two tall racks using their supplied shelves; separate sled slot |
-| C — Low racks + small shelves | 55 cm | 4.0 m² | 50.3 cm | Low racks plus proposed reuse / extension of the existing small rear shelf compartments |
-| D — Budget 60 cm rack | 60 cm | 5.3 m² | 45.3 cm | Four supplied rack levels, fitted small compartments, sled slot |
-| E — Industrial 80 cm rack | 80 cm | 8.4 m² | 25.3 cm | Five rack levels, fitted small compartments, sled slot; two extra industrial levels unpriced |
-| F — Bikes under raised shelves | 30 cm raised shelves | 1.4 m² | 105.3 cm at floor | Bike-clearance study; does not provide a sled slot or solve the full storage brief |
+| A — open floor | 40 / 40 cm | 4.2 m² | 65.3 cm | Smaller / medium belongings; most rear floor space |
+| B — balanced | 50 / 40 cm | 4.7 m² | 55.3 cm | Starting point for mixed bulky and small storage |
+| C — stepped shelves | 60 / 35 cm | 4.7 m² | 45.3 cm | Deeper lower objects; upper shelves stay shallow |
+| D — bulky storage | 80 / 40 cm | 5.6 m² | 25.3 cm | Deliberately deep lower storage; rear retrieval generally needs the car out |
 
-E gains substantial surface without increasing its existing footprint. Its depth can accommodate longer / bulkier things; small items still need visible, reachable positions. D offers less surface and 20 cm more floor space ahead of the assumed car. There is no capacity claim based on buying more plastic boxes.
+B and C offer similar total shelf surface because C deliberately reduces upper depth. C's benefit is accommodating deeper objects low down. D adds about 0.9 m² of rear shelf surface over B while costing 30 cm of the rear gap. It is retained as an option, rather than treated as the best default.
 
-The D/E fitted sections are still custom concepts, rather than verified matching retail extensions. The earlier 144.8 cm rack width is too wide to repeat twice inside the 283 cm wall (289.6 cm total). The mixed appearance is not a requirement of the storage brief; a final matched system would need compatible real bay sizes verified separately.
+The 2.83 × 6.10 m room measurements and earlier nominal Model Y envelope are retained. With the assumed car centre, the left side has about 55 cm to folded mirrors, narrowing to about 42 cm at the modelled charger. This is a narrow passage, not proof of comfortable entry, door opening or safe physical passability. Turn off **Car parked** to see working / retrieval space. Door and hatch movement remain unmodelled. The optional three-bike packing study does not claim that all three bikes fit alongside the car and stored equipment.
 
-## Use of upper space
+## Left-wall measurements and high baskets
 
-Base plans use the earlier 2.10 m reference conservatively. Upper surfaces around 1.75–1.85 m leave useful storage space above; a shelf surface at 2.00 m is not treated as a full-height storage tier below a 2.10 m obstruction.
+The existing stud recesses are part of the building, distinct from the cabinets on the rear wall.
 
-“Upper shelves · clearance study” adds independent shallow compartments above that reference. Its slider changes an **assumed** rear clearance between 2.40 and 3.00 m; 2.45 m is only an initial study value. The changing wall profile is schematic, not a reconstruction or measurement of the real roof. Do not extend a commercial rack or count loft capacity on this basis. Check the lowest roof / beam point across the whole shelf depth, wall supports, door movement and access before specifying upper shelves.
+| Dimension | Evidence |
+|---|---|
+| 54.5 cm clear opening width | User-confirmed IMG_0751 reading |
+| 63.5 cm clear opening height | User-confirmed IMG_0752 reading |
+| About 9 cm recess depth | Approximate tape reading in IMG_0750 |
 
-The existing small rear shelves may be reused or extended, but their width, depth, fixing method and condition need checking. The rendered compartments are a fit study; they are not an assertion that the existing units have those dimensions.
+The representative opening is measured; whole-wall stud count, absolute heights, brace positions and charger span are schematic from IMG_0753, IMG_0754 and IMG_0758. Each actual bay can differ. Original photos remain local.
 
-## Products and cost boundary
+Lower removable shelves and retaining lips stay behind the stud faces. Inserts skip diagonal braces, the full charger / cable span, and bays obscured by rear shelving. Existing ledges remain visible with inserts disabled.
 
-The linked product prices remain a **6 September 2026 snapshot**, not a current quote. The viewer now labels them “known products” and separately states what remains unpriced. It does not present an incomplete component list as a final purchase budget.
+High baskets default to **15 cm maximum projection** and **190 cm clear below**. Projection adjusts from 0–25 cm; clear height from 180–200 cm. Their depth uses the recess where unobstructed. In braced bays they sit in front of the brace, with less depth. No brace is cut or notched. Baskets remain below the assumed loft underside, or the local roof profile behind the loft; contents must stay below the rim. The counts are schematic proposal counts, not a cut list. Fixings, loads and actual headroom need checking.
 
-- A's shelf and bracket counts are updated to match its drawn hardware.
-- B uses the five shelves supplied with each tall rack; C retains the low racks and separately shows unpriced reused / extended compartments.
-- D uses four supplied levels. E draws five levels while pricing the original three-level rack; the two additional levels require a compatible component specification and price.
-- D/E retain a provisional 1,500 kr custom-material allowance plus 600 kr for fixings / backing. This is not a designed joint or loading specification.
-- Optional upper shelves and their supports are unpriced. Labour and delivery are excluded.
+## Loft and roof assumptions
 
-Current catalogue links remain available in the viewer. No products have been ordered or components structurally verified in this review.
+The existing loft and roof slope are visible in IMG_0762. Its footprint, clear headroom, deck condition, load rating and access method are not measured. The model starts with a full-width deck extending **4.2 m** from the entrance, an earlier assumed **2.10 m underside**, and assumed 18 cm joists plus a 2.5 cm deck. The length slider changes 2.0–5.4 m to test the arrangement; it does not propose physically extending the deck.
 
-## Verification
+Green patches mark storage allocations on the deck. An amber 65 cm central strip and an 85 × 90 cm floor approach reserve access. These are diagrammatic allowances, not a specified ladder, opening, guardrail or safe walkway. The floor approach overlaps the default parked-car envelope. If changing the assumed deck length makes it overlap rear shelving or the rear wall, the viewer reports that the access arrangement needs revision. Top floor-plan view hides the loft deck for comparison of the floor below.
 
-The generated JavaScript is syntax-checked. Data validation checks the priced subsets, removal of box purchases, supplied shelf counts, and parking / height arithmetic. Geometry checks use pinned Three.js 0.158.0 across all six plans at 2.10 m and four upper-clearance study settings: representative item sizes, overlaps with shelf geometry, overlaps between examples, height, hardware counts, one sled in A–E and one ladder in every plan. Browser checks cover all six layouts, optional upper storage, object selection and camera preservation. These checks establish the model's internal consistency, not physical fit, wall strength, door access or the capacity of real belongings.
+The roof-clearance slider assumes 2.40–3.00 m at the rear, with 2.45 m as its starting value. The last part of the wall rises schematically from the 2.10 m reference. Upper compartments respect that assumed profile across their 28 cm depth. This is a space study, not a roof survey or engineered addition. The loft is not added to the rear shelf surface or assigned an invented cubic storage volume.
 
-## Left-wall recesses — supplied photos and measurements
+## Observed belongings
 
-The exposed left-wall framing creates shallow storage throughout the garage. These recesses, horizontal ledges and diagonal braces are part of the existing building; they must not be replaced in the plan by an invented flat wall or confused with the cabinets on the rear wall.
+| Category | Evidence / allocation |
+|---|---|
+| Rattkjelke | One confirmed and photographed; one dedicated rear slot. Current 60 × 40 × 130 cm stored envelope is provisional. |
+| Gardintrapp | One photographed; accessible folded right-wall place. Current 50 × 15 × 190 cm envelope is provisional. It is not specified as loft access. |
+| Skis / poles | Several photographed on the existing high right shelf; count and lengths unmeasured. Preserve beam / door-track clearance. |
+| Ice skates / ski boots / footwear | Confirmed / visible; flexible smaller compartments. Example pairs do not set an inventory count. |
+| Backpacks / soft bags / long cases | Several shapes and sizes; packed and compressed mix confirmed. Store flat, upright or optionally hanging. |
+| Folded chairs / table | Visible; shallow separate wall places, with provisional dimensions. |
+| Tow-hitch bike carrier | Visible folded on the floor in IMG_0755. The large rear opening is a candidate; folded depth, weight and handling are unknown, so fit is not claimed. |
+| Shovel / long tools | Shallow entrance wall place; provisional proxy. |
+| Racket / cables / bottles / supplies | Use left-wall ledges / baskets and small shelves; leave charger handling accessible. |
+| Future belongings | Keep adjustable openings and spare capacity. |
 
-- **54.5 cm clear width:** user confirmed the reading in IMG_0751.
-- **63.5 cm clear height:** user confirmed the reading in IMG_0752.
-- **About 9 cm depth:** read from the tape in IMG_0750; this is an approximate photo reading.
-- IMG_0753, IMG_0754 and IMG_0758 show the left wall and its charger / cable route. IMG_0755–0757 show the existing high ski shelf on the right.
+## Specification and verification boundary
 
-The measured opening is representative, not a survey of every bay. The model repeats that width with an assumed 4.5 cm stud face, and uses an assumed base ledge height to place two 63.5 cm clear rows. Whole-wall stud count, absolute heights, diagonal-brace positions and the reserved charger span are schematic from the photos. The top row remains bounded by the earlier assumed 2.10 m reference. The original photos stay local.
+The retired rack combinations and incomplete prices are removed from the active comparison. The new matching rear system, inserts and baskets are dimensional concepts. Reuse and purchases can be specified after selecting a depth and checking actual furniture / equipment / fixing dimensions. No components have been ordered and no load rating is implied.
 
-The existing ledges are visible with “Left-wall shelf inserts” both on and off. Proposed removable inserts divide some unobstructed openings for small accessories and supplies. The inserts and their front lips stay entirely behind the stud-face line, so the model does not spend aisle width on them. Inserts skip the whole reserved charger / cable span, avoid diagonal braces, and stop before bays obscured by the selected rear rack. This produces seven inserts in E and nine in the other current studies; those are proposal counts from the schematic arrangement, not a cut list or a count of existing shelves.
-
-The earlier proposed 30 cm left-hand ski shelf has been removed. Skis now stay on the existing right-hand high shelf. The two previously priced common boards and eight brackets have been removed from the shared shopping list; F's separate new rear shelves retain their own product entries. Left-wall insert material, cleats, fixing details and loads remain unpriced / unspecified. No building brace is cut or altered.
-
-Use the **Left wall** camera button to inspect the whole wall, then select an existing ledge, proposed insert, diagonal brace or the charger space for its evidence and dimensions. Changing the insert toggle or switching layouts preserves the camera. Geometry checks now cover 60 combinations, adding inserts on/off, front-face containment, charger exclusion, rear-rack exclusion and oriented brace-intersection checks to the existing validations.
+`validate-design.py` checks the four depths, shelf heights, measured opening, parking arithmetic and default loft approach. `check-storage.mjs` uses the actual pinned Three.js geometry across 64 cases: all four plans, upper heights, inserts on/off, baskets on/off and projection / height extremes, different loft lengths and parked modes. It checks example bounds, shelf collisions, mixed opening sizes, one sled / ladder, retained bracing and charger space, bounded baskets, loft approach status and agreement between drawn shelf surface and the comparison table. Browser verification separately covers rendering, controls, object inspection and preserved comparison cameras. These checks establish internal model consistency; physical installation, loading, real passability and complete inventory fit remain unverified.

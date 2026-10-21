@@ -4,7 +4,7 @@
     "width": 2.83,
     "length": 6.1,
     "loftUnderside": 2.1,
-    "shelfHeightLimit": 2.0
+    "shelfHeightLimit": 2.04
   },
   "car": {
     "length": 4.797,
@@ -17,469 +17,136 @@
     "direction": "nose-first (assumption)",
     "source": "https://www.tesla.com/ownersmanual/modely/en_eu/GUID-1E76B638-7B12-4D9A-8767-94B7F1E92A0E.html"
   },
-  "products": {
-    "upright": {
-      "name": "BOAXEL wall upright, white, 200 cm",
-      "sku": "804.487.32",
-      "price": 100,
-      "url": "https://www.ikea.com/no/no/p/boaxel-veggskinne-hvit-80448732/"
-    },
-    "rail": {
-      "name": "BOAXEL mounting rail, white, 82 cm",
-      "sku": "104.487.40",
-      "price": 90,
-      "url": "https://www.ikea.com/no/no/p/boaxel-monteringsskinne-hvit-10448740/"
-    },
-    "shelf": {
-      "name": "BOAXEL metal shelf, white, 80×40 cm",
-      "sku": "104.487.35",
-      "price": 140,
-      "url": "https://www.ikea.com/no/no/p/boaxel-hylleplate-metall-hvit-10448735/"
-    },
-    "bracket": {
-      "name": "BOAXEL bracket, white, 40 cm",
-      "sku": "604.487.33",
-      "price": 20,
-      "url": "https://www.ikea.com/no/no/p/boaxel-hylleknekt-hvit-60448733/"
-    },
-    "deep": {
-      "name": "BROR shelving unit, black, 85×55×190 cm; 5 shelves included",
-      "sku": "896.174.43",
-      "price": 1670,
-      "url": "https://www.ikea.com/no/no/p/bror-hylle-svart-s89617443/"
-    },
-    "small": {
-      "name": "SAMLA box with lid, 22 L, 39×28×28 cm",
-      "sku": "694.408.22",
-      "price": 109,
-      "url": "https://www.ikea.com/no/no/p/samla-kasse-med-lokk-transparent-s69440822/"
-    },
-    "hookKit": {
-      "name": "Hard Head aluminium rails + hooks, 12 pieces (2×60 cm rails + 10 hooks)",
-      "sku": "005797",
-      "price": 199,
-      "regularPrice": 449,
-      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/verktoyoppheng/opphengskroker/aluminiumskinner-kroker-005797/"
-    },
-    "shortHook": {
-      "name": "Hard Head double tool hook, 7 cm; direct wall mounting",
-      "sku": "313376",
-      "price": 49.9,
-      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/verktoyoppheng/opphengskroker/verktoykrok-313376/"
-    },
-    "skiHook": {
-      "name": "Hard Head EVA-covered wall hook, 330×240 mm; rear snow-racer supports",
-      "sku": "019594",
-      "price": 99.9,
-      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/verktoyoppheng/opphengskroker/veggkrok-019594/"
-    },
-    "shortUpright": {
-      "name": "BOAXEL wall upright, white, 100 cm",
-      "sku": "004.487.31",
-      "price": 80,
-      "url": "https://www.ikea.com/no/no/p/boaxel-veggskinne-hvit-00448731/"
-    },
-    "low": {
-      "name": "BROR shelving unit, black, 85×55×110 cm; 3 shelves included",
-      "sku": "392.726.55",
-      "price": 1070,
-      "url": "https://www.ikea.com/no/no/p/bror-hylle-svart-s39272655/"
-    },
-    "flat": {
-      "name": "SAMLA box with lid, 11 L, 39×28×14 cm",
-      "sku": "694.408.36",
-      "price": 89,
-      "url": "https://www.ikea.com/no/no/p/samla-kasse-med-lokk-transparent-s69440836/"
-    },
-    "straps": {
-      "name": "Hamron retaining straps, 2-pack, 2.5 m",
-      "sku": "029210",
-      "price": 49.9,
-      "url": "https://www.jula.no/catalog/bil-og-garasje/transport/lastsikring/spennband/spennrem-029210/"
-    },
-    "shelf60": {
-      "name": "BOAXEL metal shelf, white, 60×40 cm",
-      "sku": "404.487.34",
-      "price": 130,
-      "url": "https://www.ikea.com/no/no/p/boaxel-hylleplate-metall-hvit-40448734/"
-    },
-    "rail62": {
-      "name": "BOAXEL mounting rail, white, 62 cm",
-      "sku": "304.487.39",
-      "price": 70,
-      "url": "https://www.ikea.com/no/no/p/boaxel-monteringsskinne-hvit-30448739/"
-    },
-    "tiny": {
-      "name": "SAMLA box with lid, 5 L, 28×20×14 cm",
-      "sku": "094.408.39",
-      "price": 59,
-      "url": "https://www.ikea.com/no/no/p/samla-kasse-med-lokk-transparent-s09440839/"
-    },
-    "rack60": {
-      "name": "Biltema galvanized storage rack",
-      "sku": "87-7606",
-      "price": 799,
-      "url": "https://www.biltema.no/hjem/oppbevaring/oppbevaringshyller/oppbevaringshylle-2000043842",
-      "dimensionsText": "160 × 60 × 180 cm; 4 shelves",
-      "vendor": "Biltema"
-    },
-    "rack80": {
-      "name": "Gerdmans Adrian wide-load shelving",
-      "sku": "12-832180",
-      "price": 6993.75,
-      "url": "https://www.gerdmans.no/lager-og-industri/hyller-stativ/lagerhyller/lagerhyller-for-bred-last-adrian-belastning-per-seksjon-4000-kg-hxbxd-2000-x-1448-x-800-mm-grunnseksjon",
-      "dimensionsText": "144.8 × 80 × 200 cm; 3 shelves",
-      "vendor": "Gerdmans"
-    },
-    "plank": {
-      "name": "FixBoard solid pine shelf board",
-      "sku": "379072",
-      "price": 139,
-      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/hyller/hylleplater/hylleplate-av-furu-379072/",
-      "dimensionsText": "240 × 30 × 1.8 cm",
-      "vendor": "Jula"
-    },
-    "pineBracket": {
-      "name": "Hard Head galvanized shelf bracket",
-      "sku": "349829",
-      "price": 39.9,
-      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/hyller/hyllekonsoller/hylleknekt-349829/",
-      "dimensionsText": "20 cm high × 30 cm projection",
-      "vendor": "Jula"
-    },
-    "pegboard": {
-      "name": "Hard Head steel perforated tool board",
-      "sku": "665027",
-      "price": 379,
-      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/verktoyoppheng/verktoytavler-og-tilbehor/verktoytavle-665027/",
-      "dimensionsText": "95.5 × 82 cm; 4 mm holes, 12 mm pitch",
-      "vendor": "Jula"
-    },
-    "tray": {
-      "name": "Hard Head magnetic shelf",
-      "sku": "030552",
-      "price": 99.9,
-      "url": "https://www.jula.no/catalog/bygg-og-maling/oppbevaring/verktoyoppheng/verktoytavler-og-tilbehor/magnethylle-030552/",
-      "dimensionsText": "36 × 13.5 × 11 cm",
-      "vendor": "Jula"
-    }
-  },
-  "common": [
-    [
-      "hookKit",
-      2
-    ],
-    [
-      "shortHook",
-      4
-    ],
-    [
-      "straps",
-      1
-    ],
-    [
-      "pegboard",
-      2
-    ],
-    [
-      "tray",
-      2
-    ]
-  ],
+  "products": {},
+  "common": [],
   "layouts": [
     {
       "id": "A",
-      "name": "Family gear wall",
-      "system": "BOAXEL",
+      "name": "40 cm · open floor",
+      "system": "Coordinated adjustable rear shelving · concept",
       "depth": 0.4,
-      "rearWidth": 2.65,
-      "top": 2.0,
-      "allowance": 600,
-      "items": [
-        [
-          "upright",
-          5
-        ],
-        [
-          "rail",
-          1
-        ],
-        [
-          "rail62",
-          3
-        ],
-        [
-          "shelf",
-          2
-        ],
-        [
-          "shelf60",
-          16
-        ],
-        [
-          "bracket",
-          31
-        ],
-        [
-          "skiHook",
-          2
-        ]
-      ],
-      "summary": "Mixed shelf openings across the rear wall: smaller compartments, a larger opening, and one tall sled slot with shelves above. No backpack-specific bays.",
-      "equipment": "Mixed example contents leave room for changing belongings. Reuse the left-wall recesses and the existing right-wall ski shelf; ladder, chairs and table retain side-wall places. Left-wall inserts and any adaptations are unpriced.",
+      "upperDepth": 0.4,
+      "stepHeight": 2.1,
+      "rearWidth": 2.67,
+      "top": 2.04,
       "shelves": [
         [
+          0.12,
+          0.46,
+          0.8,
+          1.28,
+          1.65
+        ],
+        [
+          0.12,
+          1.22,
+          1.65
+        ],
+        [
           1.45,
-          1.8
-        ],
-        [
-          0.1,
-          0.8,
-          1.15,
-          1.5,
-          1.85
-        ],
-        [
-          0.1,
-          0.45,
-          0.8,
-          1.3,
-          1.8
-        ],
-        [
-          0.1,
-          0.45,
-          0.8,
-          1.15,
-          1.5,
-          1.85
+          1.82
         ]
       ],
-      "productsTotal": 5585.1,
-      "budgetTotal": 6185.1,
+      "summary": "Most room at the rear. Shallow, visible shelves suit smaller and medium belongings; bulky seasonal things use the loft.",
+      "equipment": "Every option also uses the left-wall ledges and high baskets, the existing right-wall ski shelf, accessible folded ladder / chairs / table, and the existing loft with a reserved approach. Shelf contents are mixed examples; no bay is assigned to a particular backpack.",
       "frontGap": 0.653,
-      "unpriced": "Any adaptation of existing small shelves, and optional shelves above the 2.10 m reference."
+      "unpriced": "Rear shelving, removable inserts and baskets are dimensional concepts. Reuse suitable existing small shelves where they fit. Final components, fixings and loads are unspecified; no complete purchase budget is claimed."
     },
     {
       "id": "B",
-      "name": "Deep camping store",
-      "system": "BROR + BOAXEL",
-      "depth": 0.55,
-      "rearWidth": 2.56,
-      "top": 2.0,
-      "allowance": 600,
-      "items": [
-        [
-          "deep",
-          2
-        ],
-        [
-          "shortUpright",
-          2
-        ],
-        [
-          "rail",
-          1
-        ],
-        [
-          "shelf",
-          2
-        ],
-        [
-          "bracket",
-          4
-        ],
-        [
-          "skiHook",
-          2
-        ]
-      ],
-      "summary": "All five supplied shelves in each 190 cm rack are used. Mixed heights provide small and larger openings; the sled keeps a separate tall slot with storage above.",
-      "equipment": "Mixed example contents leave room for changing belongings. Reuse the left-wall recesses and the existing right-wall ski shelf; ladder, chairs and table retain side-wall places. Left-wall inserts and any adaptations are unpriced.",
+      "name": "50 cm · balanced",
+      "system": "Coordinated adjustable rear shelving · concept",
+      "depth": 0.5,
+      "upperDepth": 0.4,
+      "stepHeight": 1.3,
+      "rearWidth": 2.67,
+      "top": 2.04,
       "shelves": [
         [
-          0.1,
-          0.45,
-          0.85,
-          1.4,
-          1.8
+          0.12,
+          0.46,
+          0.8,
+          1.28,
+          1.65
         ],
         [
-          0.1,
-          0.45,
-          1.1,
-          1.45,
-          1.8
+          0.12,
+          1.22,
+          1.65
         ],
         [
           1.45,
-          1.8
+          1.82
         ]
       ],
-      "productsTotal": 5755.1,
-      "budgetTotal": 6355.1,
-      "frontGap": 0.503,
-      "unpriced": "Reuse / adaptation of small compartments and optional upper storage."
+      "summary": "A balanced starting point: deeper lower shelves for mixed larger belongings, shallower upper shelves for visibility and reach.",
+      "equipment": "Every option also uses the left-wall ledges and high baskets, the existing right-wall ski shelf, accessible folded ladder / chairs / table, and the existing loft with a reserved approach. Shelf contents are mixed examples; no bay is assigned to a particular backpack.",
+      "frontGap": 0.553,
+      "unpriced": "Rear shelving, removable inserts and baskets are dimensional concepts. Reuse suitable existing small shelves where they fit. Final components, fixings and loads are unspecified; no complete purchase budget is claimed."
     },
     {
       "id": "C",
-      "name": "Low racks + small shelves",
-      "system": "Low BROR + BOAXEL",
-      "depth": 0.55,
-      "rearWidth": 2.56,
-      "top": 2.0,
-      "allowance": 600,
-      "items": [
-        [
-          "low",
-          2
-        ],
-        [
-          "shortUpright",
-          2
-        ],
-        [
-          "rail",
-          1
-        ],
-        [
-          "shelf",
-          2
-        ],
-        [
-          "bracket",
-          4
-        ],
-        [
-          "skiHook",
-          2
-        ]
-      ],
-      "summary": "Low racks below, small shelf compartments above: use the wall height instead of dedicating the open top to three upright backpacks. Existing rear cabinets could supply the smaller compartments after measuring.",
-      "equipment": "Mixed example contents leave room for changing belongings. Reuse the left-wall recesses and the existing right-wall ski shelf; ladder, chairs and table retain side-wall places. Left-wall inserts and any adaptations are unpriced.",
+      "name": "60 cm · stepped shelves",
+      "system": "Coordinated adjustable rear shelving · concept",
+      "depth": 0.6,
+      "upperDepth": 0.35,
+      "stepHeight": 0.9,
+      "rearWidth": 2.67,
+      "top": 2.04,
       "shelves": [
         [
-          0.1,
-          0.6,
-          1.1
+          0.12,
+          0.46,
+          0.8,
+          1.28,
+          1.65
         ],
         [
-          0.1,
-          0.6,
-          1.1
+          0.12,
+          1.22,
+          1.65
         ],
         [
           1.45,
-          1.8
+          1.82
         ]
       ],
-      "productsTotal": 4555.1,
-      "budgetTotal": 5155.1,
-      "frontGap": 0.503,
-      "unpriced": "The proposed reused / extended small shelf compartments above the low racks. Their real sizes and attachment points remain unmeasured."
+      "summary": "Extra depth low down for bulky gear, with shallower shelves above. More floor space is spent on storage than in A or B.",
+      "equipment": "Every option also uses the left-wall ledges and high baskets, the existing right-wall ski shelf, accessible folded ladder / chairs / table, and the existing loft with a reserved approach. Shelf contents are mixed examples; no bay is assigned to a particular backpack.",
+      "frontGap": 0.453,
+      "unpriced": "Rear shelving, removable inserts and baskets are dimensional concepts. Reuse suitable existing small shelves where they fit. Final components, fixings and loads are unspecified; no complete purchase budget is claimed."
     },
     {
       "id": "D",
-      "name": "Budget 60 cm rack",
-      "system": "Biltema galvanized storage rack",
-      "depth": 0.6,
-      "rearWidth": 2.68,
-      "top": 1.8,
-      "allowance": 2100,
-      "items": [
-        [
-          "rack60",
-          1
-        ],
-        [
-          "skiHook",
-          2
-        ]
-      ],
-      "shelves": [
-        [
-          0.1,
-          0.5,
-          1.15,
-          1.75
-        ]
-      ],
-      "summary": "Four supplied rack shelves at mixed spacing. The fitted bay has four small compartments plus two full-width shelves above the dedicated sled slot.",
-      "equipment": "Mixed example contents leave room for changing belongings. Reuse the left-wall recesses and the existing right-wall ski shelf; ladder, chairs and table retain side-wall places. Left-wall inserts and any adaptations are unpriced.",
-      "frontGap": 0.453,
-      "productsTotal": 2604.1,
-      "budgetTotal": 4704.1,
-      "rackWidth": 1.6,
-      "extensionWidth": 1.06,
-      "unpriced": "Custom-bay materials and connections have only a provisional allowance; optional upper storage is unpriced."
-    },
-    {
-      "id": "E",
-      "name": "Industrial 80 cm rack",
-      "system": "Gerdmans Adrian wide-load shelving",
+      "name": "80 cm · bulky storage",
+      "system": "Coordinated adjustable rear shelving · concept",
       "depth": 0.8,
-      "rearWidth": 2.68,
-      "top": 2,
-      "allowance": 2100,
-      "items": [
-        [
-          "rack80",
-          1
-        ],
-        [
-          "skiHook",
-          2
-        ]
-      ],
+      "upperDepth": 0.4,
+      "stepHeight": 0.9,
+      "rearWidth": 2.67,
+      "top": 2.04,
       "shelves": [
         [
-          0.1,
-          0.45,
-          1.1,
+          0.12,
+          0.46,
+          0.8,
+          1.28,
+          1.65
+        ],
+        [
+          0.12,
+          1.22,
+          1.65
+        ],
+        [
           1.45,
-          1.8
+          1.82
         ]
       ],
-      "summary": "Five rack levels give a mix of small and larger openings. The 80 cm deep fitted bay adds four narrow shelf levels and two full-width levels above a 65 cm clear sled slot. More flexible capacity; no fixed backpack allocation.",
-      "equipment": "Mixed example contents leave room for changing belongings. Reuse the left-wall recesses and the existing right-wall ski shelf; ladder, chairs and table retain side-wall places. Left-wall inserts and any adaptations are unpriced.",
+      "summary": "Deep lower storage for genuinely bulky belongings. Only about 25 cm remains ahead of the assumed parked car, so rear retrieval generally means moving the car out.",
+      "equipment": "Every option also uses the left-wall ledges and high baskets, the existing right-wall ski shelf, accessible folded ladder / chairs / table, and the existing loft with a reserved approach. Shelf contents are mixed examples; no bay is assigned to a particular backpack.",
       "frontGap": 0.253,
-      "productsTotal": 8798.85,
-      "budgetTotal": 10898.85,
-      "rackWidth": 1.448,
-      "extensionWidth": 1.212,
-      "unpriced": "Two additional industrial shelf levels are shown beyond the three supplied. Exact compatible components and their prices are unverified. The fitted bay has a provisional materials allowance."
-    },
-    {
-      "id": "F",
-      "name": "Bikes under raised shelves",
-      "system": "Pine shelves on steel brackets",
-      "depth": 0.3,
-      "bikeBlockingDepth": 0,
-      "rearWidth": 2.4,
-      "top": 1.95,
-      "allowance": 600,
-      "items": [
-        [
-          "plank",
-          2
-        ],
-        [
-          "pineBracket",
-          8
-        ]
-      ],
-      "shelves": [
-        [
-          1.45,
-          1.95
-        ]
-      ],
-      "summary": "A bike-clearance study with raised shallow shelves. This leaves substantially less storage and does not provide a dedicated place for the sled or larger belongings.",
-      "equipment": "Mixed example contents leave room for changing belongings. Reuse the left-wall recesses and the existing right-wall ski shelf; ladder, chairs and table retain side-wall places. Left-wall inserts and any adaptations are unpriced.",
-      "frontGap": 1.053,
-      "productsTotal": 2202.5,
-      "budgetTotal": 2802.5,
-      "unpriced": "A complete storage solution for the other belongings."
+      "unpriced": "Rear shelving, removable inserts and baskets are dimensional concepts. Reuse suitable existing small shelves where they fit. Final components, fixings and loads are unspecified; no complete purchase budget is claimed."
     }
   ],
   "inventory": [
@@ -520,6 +187,18 @@
       "count": "2+ chairs; 1 table"
     },
     {
+      "name": "Folded tow-hitch bike carrier",
+      "count": "1 visible",
+      "evidence": "Visible on the floor in IMG_0755. Folded dimensions and weight are unknown.",
+      "storage": "The large adjustable rear opening is a candidate. Check its depth and lifting / retrieval before allocating the carrier; it is not claimed to fit."
+    },
+    {
+      "name": "Snow shovel / long tools",
+      "count": "Visible; count unconfirmed",
+      "evidence": "Long tools are visible with the right-wall equipment.",
+      "storage": "A shallow, accessible wall position near the entrance, away from the rear shelving and charger."
+    },
+    {
       "name": "Long bags / rolled gear",
       "evidence": "Long fabric bundles and soft cases visible; contents unclear.",
       "storage": "Larger shelf openings or upper space when measured.",
@@ -534,8 +213,14 @@
     {
       "name": "Left-wall recesses and ledges",
       "evidence": "IMG_0750–0754 and IMG_0758 show existing shallow storage between studs. One opening confirmed 54.5 cm across × 63.5 cm high; depth about 9 cm from the tape photo.",
-      "storage": "Retain existing ledges; add shallow inserts in unobstructed bays. Keep diagonal braces and the charger / cable area clear.",
+      "storage": "Retain ledges, add flush small shelves, and fit modestly projecting baskets only high up. Preserve braces and charger access.",
       "count": "Existing wall storage"
+    },
+    {
+      "name": "Existing loft / hems",
+      "count": "Existing storage",
+      "evidence": "Loft edge, stored objects and sloping roof visible in IMG_0762. Footprint, clear headroom and load capacity are unmeasured.",
+      "storage": "Bulky seasonal belongings; reserve a clear access strip and approach. Move the car out for the modelled access position."
     },
     {
       "name": "Storage boxes",
@@ -617,6 +302,17 @@
         ]
       ]
     ],
-    "positionEvidence": "Stud count / spacing, absolute ledge heights, brace and charger locations are a schematic photo-based arrangement. The representative measured opening is not proof that every bay is identical."
+    "positionEvidence": "Stud count / spacing, absolute ledge heights, brace and charger locations are a schematic photo-based arrangement. The representative measured opening is not proof that every bay is identical.",
+    "basketProjection": 0.15,
+    "basketClearance": 1.9
+  },
+  "loft": {
+    "length": 4.2,
+    "joistDepth": 0.18,
+    "deckThickness": 0.025,
+    "accessWidth": 0.85,
+    "accessDepth": 0.9,
+    "clearStrip": 0.65,
+    "evidence": "Existing loft is visible in IMG_0762. Full-width deck length 4.2 m, underside 2.10 m, joists and access position are adjustable or schematic assumptions, not a survey. Roof headroom and load capacity are unknown."
   }
 }

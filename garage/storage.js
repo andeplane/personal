@@ -1,54 +1,45 @@
-// Shelf capacity drives the layout. Example belongings never determine the bays.
+// Four whole-garage studies share a coherent rear system. Mixed openings are
+// independent of the belongings used to illustrate them.
 let shelfZones=[];
-function shelfZone(x,width,depth,y,next,thickness=.02){
- const clear=next-y-thickness;
- shelfZones.push({x,width,depth,y,clear,area:width*depth});
-}
-function smallShelves(x,width,bottom,top,depth=.28,columns=2,title='Small shelf compartments'){
- const levels=[bottom,top];if(top-bottom>.6)levels.splice(1,0,(bottom+top)/2);
- capture(()=>{
-  for(const y of levels)box(width,.018,depth,x,y-.009,L-depth/2,'white',furnitureGroup);
-  for(let i=0;i<=columns;i++)box(.018,top-bottom,depth,x-width/2+i*width/columns,(bottom+top)/2,L-depth/2,'white',furnitureGroup);
- },null,{title,dimensions:[width,depth,top-bottom],height:bottom,kind:'concept',note:'Reuse / extend the small shelf compartments seen at the left rear. This is a fit study: measure the existing units before reusing them. Supports, added shelves and adaptations are unpriced.'});
- for(let i=0;i<levels.length-1;i++)for(let j=0;j<columns;j++)shelfZone(x-width/2+(j+.5)*width/columns,width/columns-.025,depth,levels[i],levels[i+1]);
+function shelfZone(x,width,depth,y,next,thickness=.024){
+ shelfZones.push({x,width,depth,y,clear:next-y-thickness,area:width*depth});
 }
 function storageHeight(){return root.querySelector('#garage-upper').checked?Number(root.querySelector('#rear-height').value)/100:H;}
+function upperClearance(){return H+(storageHeight()-H)*(L-.28-4)/(L-4);}
+function rearShelf(x,width,depth,y,next,title){
+ const board=materials.wood.clone();board.color.set('#dbc3a0');
+ capture(()=>{
+  box(width,.024,depth,x,y-.012,L-depth/2,board,furnitureGroup);
+  for(const xx of [x-width/2+.012,x+width/2-.012])box(.024,.035,depth,xx,y-.0415,L-depth/2,'metal',furnitureGroup);
+ },null,{title,kind:'concept',dimensions:[width,depth,.024],height:y,note:'Adjustable shelf concept in a coordinated system. Nominal clear width and top surface shown. Reuse suitable existing shelf units or specify a matching system later; supports, fixings and loads are unverified.'});
+ shelfZone(x,width,depth,y,next,.06);
+}
 function upperStorage(){
- const h=storageHeight();if(h<2.4)return;
- // This independent, shallow wall shelf is a conditional study above the 2.10 m reference.
- // Do not extend the selected commercial rack or imply a verified roof profile.
- smallShelves(W/2,2.4,2.12,h-.12,.28,3,'Upper small shelves · assumed clearance');
+ if(storageHeight()<2.4)return;const h=upperClearance();
+ const x0=.08,width=2.67,depth=.28,bottom=2.06,top=h-.06,cols=3;
+ const levels=[bottom];while(levels.at(-1)+.38+.25<=h)levels.push(levels.at(-1)+.38);
+ capture(()=>{
+  for(let i=0;i<=cols;i++)box(.018,top-bottom,depth,x0+i*width/cols,(bottom+top)/2,L-depth/2,'white',furnitureGroup);
+ },null,{title:'Rear upper compartments · assumed roof clearance',kind:'concept',dimensions:[width,depth,top-bottom],height:bottom,note:'Independent shallow compartments using the taller rear roof space. Roof profile, clear height and support locations are unmeasured. Reuse / extend existing small shelves where suitable; do not infer a loft load rating.'});
+ for(let i=0;i<cols;i++)for(let j=0;j<levels.length;j++)rearShelf(x0+(i+.5)*width/cols,width/cols-.025,depth,levels[j],levels[j+1]??h,'Rear upper shelf · '+Math.round(levels[j]*100)+' cm');
 }
 function storage(){
  const a=data.layouts[current];furnitureGroup=new T.Group();scene.add(furnitureGroup);shelfZones=[];
- if(['D','E','F'].includes(a.id))expandedStorage(a);
- else if(a.id==='A'){
-  const centers=[.505,1.215,1.825,2.435],widths=[.8,.6,.6,.6],rails=[.10,.91,1.52,2.13,2.74];
-  for(const x of rails)box(.025,2,.02,x,1.025,L-.01,'white',furnitureGroup);
-  for(let i=0;i<4;i++)box(widths[i]+.01,.025,.012,centers[i],2.012,L-.02,'white',furnitureGroup);
-  const brackets=new Set();a.shelves.forEach((levels,i)=>{for(let j=0;j<levels.length;j++){
-   const y=levels[j];box(widths[i],.02,.38,centers[i],y-.01,L-.21,'white',furnitureGroup);
-   brackets.add(i+':'+y);brackets.add((i+1)+':'+y);
-   shelfZone(centers[i],widths[i]-.04,.38,y,levels[j+1]??H);
-  }});
-  for(const key of brackets){const [i,y]=key.split(':').map(Number);box(.014,.055,.4,rails[i],y-.04,L-.2,'white',furnitureGroup);}
-  snowRacer(centers[0]);
- }else{
-  const height=a.id==='B'?1.9:1.1;
-  for(const [i,x] of [.56,1.42].entries()){
-   const levels=a.shelves[i];bror(x,.85,.55,levels,height);
-   levels.forEach((y,j)=>shelfZone(x,.79,.53,y,levels[j+1]??(a.id==='C'?1.2:H),.05));
-  }
-  if(a.id==='C')smallShelves(.99,1.69,1.23,1.98,.28,3,'Reused / extended small shelf compartments');
-  const sx=2.27;for(const xx of [sx-.405,sx+.405])box(.025,1,.02,xx,1.525,L-.01,'white',furnitureGroup);
-  box(.824,.025,.01,sx,2.012,L-.02,'white',furnitureGroup);
-  const levels=a.shelves[2];for(const [i,y] of levels.entries()){
-   box(.80,.02,.38,sx,y-.01,L-.21,'white',furnitureGroup);
-   for(const xx of [sx-.405,sx+.405])box(.014,.055,.4,xx,y-.04,L-.2,'white',furnitureGroup);
-   shelfZone(sx,.76,.38,y,levels[i+1]??H);
-  }
-  snowRacer(sx);
+ const posts=[.10,1.04,1.98,2.73];
+ capture(()=>{
+  // Rear-mounted uprights leave a continuous front edge, including the sled slot.
+  for(const x of posts)box(.04,a.top,.035,x,a.top/2,L-.0175,'metal',furnitureGroup);
+ },null,{title:'Rear shelving · matching adjustable uprights',kind:'concept',dimensions:[a.rearWidth,.035,a.top],note:'One consistent shelving concept across the whole rear wall. No mixed retail rack and timber extension is required by the design. Final system, attachment and load rating remain to be specified.'});
+ for(let bay=0;bay<2;bay++){
+  const x=(posts[bay]+posts[bay+1])/2,width=posts[bay+1]-posts[bay]-.04;
+  a.shelves[bay].forEach((y,i)=>{
+   const depth=y>a.stepHeight?a.upperDepth:a.depth;
+   rearShelf(x,width,depth,y,a.shelves[bay][i+1]??(storageHeight()>H?2.06:H),'Rear bay '+(bay+1)+' · '+Math.round(depth*100)+' cm deep / '+Math.round(y*100)+' cm high');
+  });
  }
+ const sx=(posts[2]+posts[3])/2,sw=posts[3]-posts[2]-.04;
+ a.shelves[2].forEach((y,i)=>rearShelf(sx,sw,.4,y,a.shelves[2][i+1]??(storageHeight()>H?2.06:H),'Above sled · '+Math.round(y*100)+' cm high'));
+ snowRacer(sx);
  rightWall();upperStorage();exampleContents();leftWallStorage();
  root.querySelector('#rear-height-value').textContent=Math.round(storageHeight()*100)+' cm';
  root.querySelector('#upper-controls').hidden=!root.querySelector('#garage-upper').checked;

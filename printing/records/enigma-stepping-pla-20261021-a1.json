@@ -4,7 +4,7 @@
   "project": "Enigma Doublestep",
   "printer": "Bambu Lab X2D",
   "status": "printing",
-  "preparationState": "ACCEPTED_PREPARING",
+  "preparationState": "PRINTING",
   "recordedAt": "2026-10-21T08:52:16Z",
   "startedAt": "2026-10-21T09:13:26.069277+00:00",
   "finishedAt": null,
@@ -43,7 +43,15 @@
   "layers": 54,
   "preview": "assets/enigma-stepping-pla-20261021-a1/plan.png",
   "layout": "assets/enigma-stepping-pla-20261021-a1/layout.png",
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-10-21T09:20:39.468289+00:00",
+      "caption": "Etter akseptert start · platen og verktøyhodet i tidlig fase. Ingen tydelige løse deler eller klumper; første lag og vedheft kan ennå ikke vurderes fra bildet.",
+      "sha256": "af6bbe7bad9669e2f3641efe9ce263b378ff74515fff54a9aaebebacbd2aa898",
+      "stage": "during-print-initial",
+      "src": "assets/enigma-stepping-pla-20261021-a1/during-20261021T092039Z.jpg"
+    }
+  ],
   "source": {
     "file": "sliced.3mf",
     "sha256": "82893d4b62cc8d4ba711e6d430b174e3c83f698744e8d626ef438b32f9f6c125",
@@ -84,10 +92,9 @@
       "reportedTotalLayers": 54
     }
   },
-  "notes": "Printeren har godtatt og startet forberedelsen til en ubelastet PLA-passformprøve med 18 separate deler. Tre foreslåtte seter er fortsatt ukvalifiserte; ingen fjærer, belastet drift, holdbarhet eller funksjon er godkjent. Kamerabilde etter start er foreløpig utilgjengelig under ny tilkobling; ingen gammel bildefil er brukt. Faktisk sluttid, varighet og filamentforbruk mangler fortsatt.",
+  "notes": "Printeren har godtatt jobben og rapporterer RUNNING. En fersk kameraramme er bevart fra tidlig fase etter start; den viser platen/verktøyhodet og bekrefter ikke første lag eller vedheft. En ubelastet PLA-passformprøve med 18 separate deler; tre foreslåtte seter er fortsatt ukvalifiserte. Ingen fjærer, belastet drift, holdbarhet eller funksjon er godkjent. Faktisk sluttid, varighet og filamentforbruk mangler fortsatt.",
   "sequence": 5,
   "evidencePending": [
-    "Fresh during-print camera",
     "Fresh terminal-state camera and reported outcome",
     "Actual duration or usage only when reliably observed/measured"
   ],
@@ -98,5 +105,5 @@
     "supports": "normal(auto), snug, including above-bed supports",
     "outerBrimMm": 8
   },
-  "updatedAt": "2026-10-21T09:16:02.105027+00:00"
+  "updatedAt": "2026-10-21T09:22:15.360609+00:00"
 }

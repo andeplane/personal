@@ -3,8 +3,8 @@
   "title": "Enigma · 18 deler til trinnmekanismen (PLA-prøve)",
   "project": "Enigma Doublestep",
   "printer": "Bambu Lab X2D",
-  "status": "printing",
-  "preparationState": "PRINTING",
+  "status": "completed",
+  "preparationState": "REPORTED_COMPLETED",
   "recordedAt": "2026-10-21T08:52:16Z",
   "startedAt": "2026-10-21T09:13:26.069277+00:00",
   "finishedAt": null,
@@ -31,7 +31,7 @@
     "DETENT_ROLLER_R"
   ],
   "estimatedSeconds": 4205.0,
-  "actualSeconds": null,
+  "actualSeconds": 4440,
   "estimatedGrams": 26.31,
   "actualGrams": null,
   "estimatedMeters": 8.68,
@@ -57,6 +57,13 @@
       "caption": "Ny tidlig kamerakontroll · printeren rapporterer lag 1. Svart ekstrudering er ikke tydelig nok over hele platen til å bekrefte vedheft; ingen åpenbare klumper eller løse deler er synlige. Dette er ikke et bilde av et ferdig første lag.",
       "sha256": "b8adfd91b30e663be1ae6308c9e19ca1d2c83d9626c0ac578863b581172e3c81",
       "stage": "during-print-initial"
+    },
+    {
+      "src": "assets/enigma-stepping-pla-20261021-a1/completed-20261021T103103Z.jpg",
+      "capturedAt": "2026-10-21T10:31:03.664910+00:00",
+      "caption": "Etter printerrapportert fullføring · små deler og brimmer er synlige på platen. Ingen tydelige løsrevne deler, filamentfloker eller store klumper; støttemateriale er synlig i noen seteboringer. Fjerning av støtte, passform og samlet kvalitet er ikke kontrollert.",
+      "sha256": "db103ba011020832fe6db4f59439da31a93825b6355deba1354db17da3641950",
+      "stage": "reported-complete"
     }
   ],
   "source": {
@@ -97,13 +104,36 @@
       "amsSlot": "A3",
       "reportedStage": "Homing toolhead",
       "reportedTotalLayers": 54
+    },
+    "terminalObservation": {
+      "observedAtMinuteUTC": "2026-10-21T10:31Z",
+      "observedTimePrecision": "minute",
+      "source": "Fresh printer-task report at 10:31 UTC, corroborated by sanitized terminal receipt",
+      "jobName": "ENIGMA_STEPPING_PLA_82893d4b",
+      "state": "FINISH",
+      "progressPercent": 100,
+      "completedLayers": 54,
+      "totalLayers": 54,
+      "reportedElapsedMinutes": 74,
+      "remainingMinutes": 0,
+      "connection": "CONNECTED",
+      "recentUpdate": true,
+      "bedCelsius": 48,
+      "bedTargetCelsius": 0,
+      "exactEndTimeKnown": false,
+      "receiptSha256": "b24ff70df7a4699a0a91b570ccb48f72f7ec05288d45abd5cbf7fa26ba51669c",
+      "corroboratedAt": "2026-10-21T10:34:49+00:00",
+      "corroboratingBedCelsius": 40,
+      "hmsErrors": [],
+      "printError": 0
     }
   },
-  "notes": "Printeren har godtatt jobben og rapporterer RUNNING. To ferske kamerarammer er bevart fra tidlig fase etter start; de viser platen/verktøyhodet og bekrefter ikke et ferdig første lag eller vedheft. En ubelastet PLA-passformprøve med 18 separate deler; tre foreslåtte seter er fortsatt ukvalifiserte. Ingen fjærer, belastet drift, holdbarhet eller funksjon er godkjent. Faktisk sluttid, varighet og filamentforbruk mangler fortsatt.",
+  "notes": "Printeren rapporterte FINISH, 100 % og 54 av 54 lag ved kontrollen kl. 10:31 UTC (12:31 i Oslo). Rapportert forløpt tid var 74 minutter, med minuttpresisjon; dette er ikke en uavhengig målt veggklokkevarighet. Nøyaktig sluttid er ukjent og faktisk filamentforbruk er ikke målt. Ferskt sluttbilde viser små deler og brimmer på platen, med støtte i noen seteboringer; rydding, passform og kvalitet er ikke godkjent. Platen var 48 °C ved kontrollen, ikke en bekreftelse på at den var avkjølt nok for uttak. Ubelastet PLA-prøve: tre foreslåtte seter er fortsatt ukvalifiserte; ingen fjærer, belastet drift, holdbarhet eller funksjon er godkjent.",
   "sequence": 5,
   "evidencePending": [
-    "Fresh terminal-state camera and reported outcome",
-    "Actual duration or usage only when reliably observed/measured"
+    "Exact completion timestamp unavailable",
+    "Actual filament usage only when reliably observed/measured",
+    "Physical support cleanup and fit inspection not yet recorded"
   ],
   "settings": {
     "wallLoops": 4,
@@ -112,5 +142,12 @@
     "supports": "normal(auto), snug, including above-bed supports",
     "outerBrimMm": 8
   },
-  "updatedAt": "2026-10-21T09:25:33.071502+00:00"
+  "updatedAt": "2026-10-21T10:35:47.604696+00:00",
+  "actualMinutes": 74,
+  "actualDurationEvidence": {
+    "source": "printer-reported elapsed counter at FINISH",
+    "reportedMinutes": 74,
+    "precisionSeconds": 60,
+    "wallClockDurationIndependentlyMeasured": false
+  }
 }

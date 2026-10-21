@@ -10,7 +10,7 @@ fetch('items.json').then(r => { if (!r.ok) throw Error('data'); return r.json();
   const row=el('div',null,'item'); row.dataset.id=x.id;
   const box=el('input'); box.type='checkbox'; box.id=x.id; box.checked=checked.has(x.id);
   const body=el('div'); const label=el('label',x.name);label.htmlFor=x.id;
-  body.append(label,el('p',x.quantity,'quantity'));
+  body.append(label,el('p',x.project,'project'),el('p',x.purpose,'purpose'),el('p',x.quantity,'quantity'));
   const bottom=el('div',null,'item-bottom');const link=el('a','Se produkt ↗');link.href=x.url;bottom.append(link,el('strong',money(x.ore)));body.append(bottom);
   if(x.note)body.append(el('p',x.note,'note'));row.append(box,body);
   box.addEventListener('change',()=>{box.checked?checked.add(x.id):checked.delete(x.id);save();update();});return row;

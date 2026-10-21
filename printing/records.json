@@ -51,9 +51,9 @@
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
     "status": "planned",
-    "preparationState": "SAME_FILE_NEW_ATTEMPT_LATEST_SOURCE_AND_FRESH_START_GATES_PENDING",
+    "preparationState": "DEFERRED_BY_HUMAN_OTHER_PRINT_FIRST",
     "recordedAt": "2026-10-21T17:40:31.192010+00:00",
-    "updatedAt": "2026-10-21T17:40:31.192010+00:00",
+    "updatedAt": "2026-10-21T18:05:48.925646+00:00",
     "startedAt": null,
     "finishedAt": null,
     "jobName": "ENIGMA_REFLECTOR_RETRY_eadfe61c · nytt forsøk, ikke startet",
@@ -168,14 +168,20 @@
       "supportOnBuildPlateOnly": false,
       "outerBrimMm": 8
     },
-    "notes": "Nytt separat forsøk med samme fil, modell, støtteinnstillinger og estimater etter a2 FAILED. Mennesket opplyser å ha ryddet platen og autoriserte ny prøve, men kameraklarering ved senket/croppet plate er ikke fullført. Ingen a3-start er registrert. Oppdatert kilde og alle ferske startporter må være bestått, og startintensjon må være varig lagret før én kommando kan sendes. Den fysiske årsaken til første-lagsfeilen er ikke fastslått; samme fil er ikke en designrettelse.",
+    "notes": "Nytt separat forsøk med samme fil, modell, støtteinnstillinger og estimater etter a2 FAILED. Mennesket opplyser å ha ryddet platen og autoriserte ny prøve, men kameraklarering ved senket/croppet plate er ikke fullført. Ingen a3-start er registrert. Oppdatert kilde og alle ferske startporter må være bestått, og startintensjon må være varig lagret før én kommando kan sendes. Den fysiske årsaken til første-lagsfeilen er ikke fastslått; samme fil er ikke en designrettelse. Mennesket har nå prioritert en annen utskrift først. Dette forsøket er utsatt og skal ikke startes under den gjeldende prioriteringen; det er fortsatt bare planlagt.",
     "evidencePending": [
       "Clean latest-main/live guide refresh after PR185",
       "Current exact printer file/readback and live filament mapping",
       "New fully visible clear-bed camera <=60s and durable intent BEFORE any start publication",
       "Accepted a3 job identity and during-print camera",
       "Terminal camera and physical result/cleanup inspection"
-    ]
+    ],
+    "priorityOverride": {
+      "status": "deferred",
+      "reason": "Mennesket opplyste at en annen ting skal skrives ut først.",
+      "startAllowedUnderCurrentPriority": false,
+      "acceptedStartObserved": false
+    }
   },
   {
     "id": "enigma-reflector-body-retry-20261021-a2",
@@ -185,9 +191,9 @@
     "status": "failed",
     "preparationState": "ACCEPTED_THEN_FAILED_FIRST_LAYER_TRIAL",
     "recordedAt": "2026-10-21T15:45:13.310364+00:00",
-    "updatedAt": "2026-10-21T17:40:31.192010+00:00",
+    "updatedAt": "2026-10-21T18:05:48.925646+00:00",
     "startedAt": "2026-10-21T17:07:06.140Z",
-    "finishedAt": null,
+    "finishedAt": "2026-10-21T17:26:37.233401+00:00",
     "jobName": "ENIGMA_REFLECTOR_RETRY_eadfe61c",
     "plate": 1,
     "parts": [
@@ -288,6 +294,10 @@
         {
           "file": "publication-reconciliation.json",
           "sha256": "a21609bec97eefe4ed1ec75c363b14ff7da721708ac2a3da2d9c12187113f007"
+        },
+        {
+          "file": "failed-terminal-observation.json",
+          "sha256": "4b45f4294e7fced7b3e1eec5a695274897d87d0398739e7d07cda9ac8973756e"
         }
       ],
       "evidence": "PR184 integrerte den uendrede reflektorkroppen med ny støtteresept. Ren main og publisert guide ble kontrollert; beholdt mesh, prosess, faktiske verktøybaner og eksakt opplastingsnedlasting ble bundet før kommandoen. Dette beviser ikke fysisk stabilitet, feste eller støttefjerning. Startprosedyren hadde et separat dokumentert avvik, se startEvidence.procedureGap.",
@@ -327,9 +337,9 @@
       "supportOnBuildPlateOnly": false,
       "outerBrimMm": 8
     },
-    "notes": "Forsøket startet med eksakt eadfe61c-fil og akseptert AMS A3 [2], men endte FAILED etter et problem ved første lag. Menneskets bilde er bevart med ukjent opptakstid og uten privat metadata. Dette er et eget mislykket forsøk; tidligere delvis fullført fire-dels forsøk er ikke endret. Kilde-/geometri-/bane-/readback-evidens var bestått. Startprosedyren hadde et separat avvik: varig intensjon manglet og kameraets alder var ikke godkjent før den ene publiserte startkommandoen. Avviket hevdes ikke å være årsaken til den fysiske feilen. Faktisk presis varighet og materialbruk er ukjent.",
+    "notes": "Forsøket startet med eksakt eadfe61c-fil og akseptert AMS A3 [2], men endte FAILED etter et problem ved første lag. Menneskets bilde er bevart med ukjent opptakstid og uten privat metadata. Dette er et eget mislykket forsøk; tidligere delvis fullført fire-dels forsøk er ikke endret. Kilde-/geometri-/bane-/readback-evidens var bestått. Startprosedyren hadde et separat avvik: varig intensjon manglet og kameraets alder var ikke godkjent før den ene publiserte startkommandoen. Avviket hevdes ikke å være årsaken til den fysiske feilen. Faktisk presis varighet og materialbruk er ukjent. Fersk FAILED ble observert 17:26:37 UTC med seng 52 °C og mål 0 °C; finishedAt viser denne observasjonen, ikke nøyaktig fysisk feiltid. Kamera etter menneskets rydding brukes ikke som feil-/sluttbilde.",
     "evidencePending": [
-      "Exact observed FAILED timestamp, bed temperature and after-failure camera if available",
+      "No timestamped after-failure camera before cleanup; the later cropped/cleaned-bed view is not failure evidence",
       "Physical cause and adhesion assessment; support stability and cleanup unqualified",
       "Measured actual material and reliable full duration"
     ],
@@ -354,12 +364,20 @@
     },
     "terminalEvidence": {
       "printerState": "FAILED",
-      "observedAt": null,
+      "observedAt": "2026-10-21T17:26:37.233401+00:00",
       "reportedElapsedMinutes": 9,
-      "elapsedScope": "Omtrent ni minutter rapportert av rotkontroller; presis varighet er ikke verifisert.",
+      "elapsedScope": "Ni minutter rapportert av printerens minutteller; presis veggklokkevarighet er ikke verifisert.",
       "automaticOrHumanStopCommandSentByRoot": false,
-      "description": "Mennesket ba om avbrudd. Fersk telemetri rapporterte allerede FAILED, så rotkontroller sendte ingen stopkommando. Eksakt terminaltid/temperatur avventes; ingen presis faktisk tid eller materialmåling er registrert.",
-      "physicalSuccessVerified": false
+      "description": "Mennesket ba om avbrudd. Printeren rapporterte allerede FAILED da fersk telemetri ble lest, så rotkontroller sendte ingen stopkommando. Observert 0 %, lag 0/238, ni rapporterte minutter og seng 52 °C med mål 0 °C; ingen HMS-meldinger eller separat print_error. Dette fastslår ikke årsaken eller presis fysisk feiltid.",
+      "physicalSuccessVerified": false,
+      "timestampScope": "Tidspunktet da fersk FAILED-telemetri ble observert; ikke nøyaktig fysisk feiltid.",
+      "progressPercent": 0,
+      "currentLayer": 0,
+      "totalLayers": 238,
+      "bedCelsius": 52,
+      "bedTargetCelsius": 0,
+      "hmsErrors": [],
+      "printError": 0
     }
   },
   {

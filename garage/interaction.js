@@ -9,8 +9,8 @@
  composer?.dispose();composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));ao=new SSAOPass(scene,camera,w,h);ao.enabled=!camera.isOrthographicCamera;ao.kernelRadius=8;ao.minDistance=.002;ao.maxDistance=.12;composer.addPass(ao);composer.addPass(new OutputPass());composer.addPass(new SMAAPass(w,h));composer.setSize(w,h);}
  function applyVisibility(){if(!scene)return;if(bikeGroup)bikeGroup.visible=root.querySelector('#garage-bikes').checked;root.querySelector('#bike-controls').hidden=!root.querySelector('#garage-bikes').checked;root.querySelector('#bike-status').hidden=!root.querySelector('#garage-bikes').checked;updateWalls();carGroup.visible=root.querySelector('#garage-car').checked;for(const o of equipmentMeshes)o.visible=root.querySelector('#garage-gear').checked;labels.forEach((l,i)=>{l.visible=root.querySelector('#garage-dims').checked&&(l.userData.floorGap?view==='plan':['overview','plan'].includes(view)||['rear','front','back'].includes(view)&&i===0);});updateSpaceStatus();render();}
  function focusObject(){if(!selected)return;const b=objectBounds(selected),center=b.getCenter(new T.Vector3()),size=b.getSize(new T.Vector3());const distance=Math.max(.85,size.length()*1.35);const dir=new T.Vector3(.2,.32,-1).normalize();camera.up.set(0,1,0);camera.position.copy(center).addScaledVector(dir,distance);controls.target.copy(center);controls.update();render();}
- for(const id of ['garage-left-inserts','garage-left-baskets','garage-upper'])root.querySelector('#'+id).addEventListener('change',build);
- for(const id of ['basket-projection','basket-clearance','loft-length']){
+ for(const id of ['garage-left-baskets','garage-upper'])root.querySelector('#'+id).addEventListener('change',build);
+ for(const id of ['loft-length']){
   root.querySelector('#'+id).addEventListener('change',build);
   root.querySelector('#'+id).addEventListener('input',e=>{root.querySelector('#'+id+'-value').textContent=(id==='loft-length'?(e.target.value/100).toFixed(1)+' m':e.target.value+' cm');});
  }
@@ -20,7 +20,7 @@
  for(const id of ['garage-gear','garage-dims','garage-bikes','garage-cutaway','garage-access'])root.querySelector('#'+id).addEventListener('change',()=>{if(id==='garage-bikes'&&root.querySelector('#garage-bikes').checked)root.querySelector('#garage-car').checked=true;applyVisibility();});
  const raycaster=new T.Raycaster(),pointer=new T.Vector2();let down=null;
  renderer.domElement.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY,time:performance.now()};});
- function pick(e){const r=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);raycaster.setFromCamera(pointer,camera);const hits=raycaster.intersectObjects(scene.children,true);for(const hit of hits){let o=hit.object,visible=true;while(o){if(!o.visible)visible=false;o=o.parent;}if(!visible||!hit.object.isMesh)continue;return objects.find(o=>o.id===hit.object.userData.objectId)||null;}return null;}
+ function pick(e){const r=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);raycaster.setFromCamera(pointer,camera);const hits=raycaster.intersectObjects(scene.children,true);for(const hit of hits){let o=hit.object,visible=true;while(o){if(!o.visible)visible=false;o=o.parent;}if(!visible||!hit.object.isMesh)continue;const product=objects.find(o=>o.key&&o.id===hit.object.userData.objectId);return product||null;}return null;}
  renderer.domElement.addEventListener('pointerup',e=>{if(down&&Math.hypot(e.clientX-down.x,e.clientY-down.y)<6&&performance.now()-down.time<700)selectObject(pick(e));down=null;});
  renderer.domElement.addEventListener('pointermove',e=>{if(e.buttons)return;renderer.domElement.style.cursor=pick(e)?'pointer':'grab';});
 

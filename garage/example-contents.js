@@ -44,7 +44,7 @@ function exampleContents(){
     for(const x of [-w*.2,w*.2])soft(.015,h*.65,.009,x,h*.52,-d*.47,materials.rubber);
    }
   }
-  group.position.set(px,slot.y+.003,L-slot.depth+d/2+.005);
+  group.position.set(px,slot.y+.003,(slot.zBack??L)-slot.depth+d/2+.005);
   furnitureGroup.add(group);
   register([group],null,{title:item.title,kind:'example',dimensions:item.size,height:slot.y,note:'Representative size only; not a measurement of your belongings or a fixed quantity. Mixed packed / compressed bags can stand, lie down or hang. Remaining space is intentionally unallocated.'});equipmentMeshes.push(group);
  }

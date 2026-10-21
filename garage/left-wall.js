@@ -26,90 +26,65 @@ function leftWallFrame(){
   box(.034,hh,len-.003,-d-.017,hh/2,z,mat,group);
  }
  for(let z=wall.firstStud;z<L;z+=pitch)box(d,H,wall.studWidth,-d/2,H/2,z,'wood',group);
- // Braces are retained whole. Added shelf inserts skip their path rather than cutting through them.
+ // Retain the complete existing braces behind all new retail baskets.
  for(const ends of wall.braces){
   const [a,b]=ends,dy=b[1]-a[1],dz=b[0]-a[0],length=Math.hypot(dy,dz);
   const mesh=new T.Mesh(new RoundedBoxGeometry(d*.8,length,.065,2,.003),materials.wood);
   mesh.position.set(-d/2,(a[1]+b[1])/2,(a[0]+b[0])/2);
   mesh.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),new T.Vector3(0,dy,dz).normalize());
   mesh.castShadow=mesh.receiveShadow=true;group.add(mesh);
-  register([mesh],null,{title:'Left wall · retained diagonal brace',kind:'existing-storage',side:'left',note:'Existing bracing is visible in the new photos. Its placement is schematic; the shelf inserts skip its path. No brace is removed, notched or altered.'});
+  register([mesh],null,{title:'Left wall · retained diagonal brace',kind:'existing-storage',side:'left',note:'Existing bracing is visible in the new photos. Its placement is schematic; new baskets sit in front of the stud faces. No brace is removed, notched or altered.'});
  }
+}
+function leftWallBlocked(z0,z1,y0,y1){
+ const k=data.leftWall.chargerKeepout;return z1>k.z[0]&&z0<k.z[1]&&y1>k.y[0]&&y0<k.y[1];
 }
 function leftWallStorage(){
  const wall=data.leftWall,d=wall.recessDepth,bays=leftWallBays(),group=new T.Group();group.userData.wall='left';furnitureGroup.add(group);
- leftWallStats={existing:0,added:0,baskets:0,area:0,basketLitres:0};
- const charger=wall.chargerZone;
- const overlapsCharger=b=>b.end>charger[0]&&b.start<charger[1];
- const rearLimit=L-data.layouts[current].depth-.04;
- const addition=root.querySelector('#garage-left-inserts').checked;
- const note='Measured representative opening: 54.5 cm across × 63.5 cm clear height. Recess depth about 9 cm, read from IMG_0750. Bay count, floor heights, brace and charger positions are schematic from the photos. Verify each actual bay before cutting shelves.';
- function captureInWall(fn,meta){const n=group.children.length;fn();const meshes=group.children.slice(n);register(meshes,null,meta);return meshes;}
+ leftWallStats={existing:0,added:0,baskets:0,small:0,large:0,rails:0,area:0,basketLitres:0,aboveCharger:0};
+ const rearLimit=L-data.layouts[current].depth-data.layouts[current].standOff-.04;
+ function item(fn,key,meta){const n=group.children.length;fn();return register(group.children.slice(n),key,meta);}
  for(const [index,bay] of bays.entries()){
   for(const y of wall.ledgeTops){
-   captureInWall(()=>box(d,.045,bay.width,-d/2,y-.0225,bay.center,'wood',group),{
-    title:'Left wall · existing ledge '+(index+1)+' / '+Math.round(y*100)+' cm',kind:'existing-storage',side:'left',dimensions:[bay.width,d,.045],dimensionLabel:'Along wall × recess depth × thickness',height:y,note
-   });
-   leftWallStats.existing++;
+   item(()=>box(d,.045,bay.width,-d/2,y-.0225,bay.center,'wood',group),null,{title:'Left wall · existing ledge '+(index+1)+' / '+Math.round(y*100)+' cm',kind:'existing-storage',side:'left'});leftWallStats.existing++;
   }
-  // Keep all charging equipment / cable handling space and bays masked by rear storage unallocated.
-  if(overlapsCharger(bay)||bay.end>rearLimit)continue;
-  if(root.querySelector('#garage-left-baskets').checked)leftWallBasket(bay,index,group,captureInWall);
-  if(!addition)continue;
-  for(let row=0;row<wall.ledgeTops.length;row++){
-   const lower=wall.ledgeTops[row],upper=row+1<wall.ledgeTops.length?wall.ledgeTops[row+1]-.045:H-.045;
-   const y=(lower+upper)/2;
-   if(upper-lower<.3||leftWallBraceCrosses(bay,y))continue;
-   const inset=.006,width=bay.width-2*inset,depth=d-.008;
-   captureInWall(()=>{
-    box(depth,.018,width,-d/2,y-.009,bay.center,'wood',group);
-    // Small front lip stays within the stud-face line x=0.
-    box(.008,.018,width,-.008,y+.009,bay.center,'wood',group);
-   },{title:'Left wall · added shallow shelf '+(index+1)+' / '+Math.round(y*100)+' cm',kind:'concept',side:'left',dimensions:[width,depth,.018],dimensionLabel:'Along wall × shelf depth × thickness',height:y,note:note+' Proposed removable insert with a retaining lip. Keep its front behind the stud faces. Fixings / loading and material quantity remain to be specified; no building brace is altered.'});
-   leftWallStats.added++;leftWallStats.area+=width*depth;
+
+ }
+ if(root.querySelector('#garage-left-baskets').checked){
+  const pitch=wall.clearWidth+wall.studWidth;
+  for(let index=0,z=wall.firstStud;z<L;index++,z+=pitch){
+   const w=data.products.basketSmall.dimensions[0];if(z-w/2<.04||z+w/2>rearLimit)continue;
+   // Use the actual short 316 mm retail rail above the charger.
+   const cut=wall.railOmitStuds.includes(index),length=cut?.316:1.98,bottom=cut?1.72:.06;
+   item(()=>box(.016,length,.025,.010,bottom+length/2,z,'white',group),cut?'shortWallRail':'wallRail',{title:'Left wall · Elfa rail '+index+(cut?' / 316 mm upper rail':''),kind:'product',side:'left',dimensions:[.025,.016,length],height:bottom,shortRail:cut,note:cut?'Uncut 316 mm retail rail mounted above the charger keepout.':'Direct fixing to the existing stud face. The basket spans adjacent recesses; the original 9 cm deep ledges remain usable behind it.'});leftWallStats.rails++;
+   if(!cut)for(const y of wall.basketRows)leftRetailBasket(z,index,y,'basketSmall',group,item,rearLimit);
+   leftRetailBasket(z,index,wall.highBasketBottom,'basketLarge',group,item,rearLimit);
   }
  }
- // Show a few small accessories on the existing ledges without allocating every recess to specific items.
- const exampleBay=bays.find(b=>!overlapsCharger(b)&&b.end<rearLimit&&!leftWallBraceCrosses(b,wall.ledgeTops[1]+.1,.12));
- if(exampleBay){
-  const y=wall.ledgeTops[1],n=group.children.length;
-  for(const [i,h] of [.15,.18,.13].entries()){
-   const mesh=new T.Mesh(new T.CylinderGeometry(.026,.026,h,16),materials.white);mesh.position.set(-d/2,y+h/2+.002,exampleBay.center-.13+i*.12);mesh.castShadow=true;group.add(mesh);
-   box(.022,.018,.022,-d/2,y+h+.011,exampleBay.center-.13+i*.12,'rubber',group);
-  }
-  const meshes=group.children.slice(n);
-  register(meshes,null,{title:'Left recess · small supplies example',kind:'example',side:'left',dimensions:[.35,.052,.22],dimensionLabel:'Along wall × depth × height',height:y,note:'Illustrative small bottles / accessories. Left-wall recesses are shallow storage; no box, bag or footwear count is assumed.'});equipmentMeshes.push(...meshes);
- }
- // Existing charger and hanging cable loop remain visible as a reserved area in the left-wall view.
- const cx=.065,cz=(charger[0]+charger[1])/2+.18;
- captureInWall(()=>{
-  box(.12,.32,.19,cx,1.13,cz,'rubber',group);
+ // Charger shape and cable loop are retained as context. Keepout is local in height AND length.
+ const cz=2.28;
+ item(()=>{
+  box(.12,.32,.19,.065,1.13,cz,'rubber',group);
   const c=new T.CatmullRomCurve3([new T.Vector3(.10,1.04,cz),new T.Vector3(.10,.40,cz-.12),new T.Vector3(.10,.40,cz-.70),new T.Vector3(.10,1.30,cz-.75),new T.Vector3(.10,1.35,cz-.36),new T.Vector3(.10,.58,cz-.46)]);
-  const cable=new T.Mesh(new T.TubeGeometry(c,48,.014,8,false),materials.rubber);group.add(cable);
- },{title:'Left wall · existing charger / cable space',kind:'existing-storage',side:'left',note:'Observed in IMG_0754 and IMG_0758. Keep this zone open for the charger, cable loop and handling. The model placement is approximate; new shelves are excluded from the whole reserved span.'});
+  group.add(new T.Mesh(new T.TubeGeometry(c,48,.014,8,false),materials.rubber));
+ },null,{title:'Left wall · existing charger / cable space',kind:'existing-storage',side:'left'});
 }
-function leftWallBasket(bay,index,group,captureInWall){
- const bottom=Number(root.querySelector('#basket-clearance').value)/100;
- const projection=Number(root.querySelector('#basket-projection').value)/100;
- const belowLoft=bay.start<loftStats.length;
- const roof=H+(storageHeight()-H)*Math.max(0,(bay.start-4)/(L-4));
- const limit=belowLoft?H:roof;
- const height=Math.min(.25,limit-.02-bottom),top=bottom+height;
- const braced=leftWallBraceCrosses(bay,(top+bottom)/2,height/2+.045);
- // In a braced opening the basket sits in front of the brace, without cutting it.
- const rear=braced?.008:-data.leftWall.recessDepth+.006,front=projection,width=bay.width-.02,depth=front-rear;
- if(height<.06||depth<.065)return;
- const z0=bay.center-width/2,z1=bay.center+width/2,r=.003;
- captureInWall(()=>{
+function leftRetailBasket(z,index,bottom,key,group,item,rearLimit){
+ const [width,depth,height]=data.products[key].dimensions,rear=.018,front=rear+depth,top=bottom+height;
+ const bay={start:z-width/2,end:z+width/2},limit=bay.start<loftStats.length?H:H+(storageHeight()-H)*Math.max(0,(bay.start-4)/(L-4));
+ if(top>limit-.06||leftWallBlocked(bay.start,bay.end,bottom,top))return;
+ const z0=z-width/2,z1=z+width/2,r=.003;
+ item(()=>{
   for(const y of [bottom+r,top-r]){
-   for(const z of [z0+r,z1-r])rod([rear+r,y,z],[front-r,y,z],r,'metal',group);
-   for(const x of [rear+r,front-r])rod([x,y,z0+r],[x,y,z1-r],r,'metal',group);
+   for(const zz of [z0+r,z1-r])rod([rear+r,y,zz],[front-r,y,zz],r,'white',group);
+   for(const x of [rear+r,front-r])rod([x,y,z0+r],[x,y,z1-r],r,'white',group);
   }
-  for(let z=z0+.025;z<z1-.01;z+=.065){
-   rod([rear+r,bottom+r,z],[front-r,bottom+r,z],.002,'metal',group);
-   for(const x of [rear+r,front-r])rod([x,bottom+r,z],[x,top-r,z],.002,'metal',group);
+  for(let zz=z0+.025;zz<z1-.01;zz+=.045){
+   rod([rear+r,bottom+r,zz],[front-r,bottom+r,zz],.002,'white',group);
+   for(const x of [rear+r,front-r])rod([x,bottom+r,zz],[x,top-r,zz],.002,'white',group);
   }
-  for(const z of [z0+r,z1-r])for(const x of [rear+r,front-r])rod([x,bottom+r,z],[x,top-r,z],r,'metal',group);
- },{title:'Left wall · high basket '+(index+1),kind:'concept',side:'left',dimensions:[width,depth,height],dimensionLabel:'Along wall × basket depth × height',height:bottom,projection,basket:true,note:'Removable wire basket / retaining tray concept. '+Math.round(projection*100)+' cm maximum projection beyond the stud faces; '+Math.round(bottom*100)+' cm clear below. '+(braced?'This bay is braced, so the basket uses only the shallow space in front of the brace.':'The basket uses the recess plus a modest projection.')+' Keep contents within its rim. Charger and rear-rack spans are excluded. Fixings and load capacity are unspecified.'});
- leftWallStats.baskets++;leftWallStats.basketLitres+=width*depth*height*1000;
+  for(const zz of [z0+r,z1-r])for(const x of [rear+r,front-r])rod([x,bottom+r,zz],[x,top-r,zz],r,'white',group);
+ },key,{title:'Left wall · Elfa '+(key==='basketSmall'?'8 cm basket':'13.5 cm high basket')+' / rail '+index+' / '+Math.round(bottom*100)+' cm',kind:'product',side:'left',basket:true,dimensions:[width,depth,height],dimensionLabel:'Along wall × retail basket depth × height',height:bottom,projection:front,note:'Fixed-size catalogue basket on its matching stud-mounted rail. Mounts in front of the intact braces; the recess and existing ledges remain behind it. '+(key==='basketSmall'?'9.8 cm installed projection, within the charger’s approximate 12.5 cm projection.':'15.3 cm installed projection, high above the nominal car envelope. Keep contents within the front edge; leave retrieval space above.')});
+ leftWallStats.baskets++;leftWallStats[key==='basketSmall'?'small':'large']++;leftWallStats.basketLitres+=width*depth*height*1000;
+ if(z+width/2>data.leftWall.chargerKeepout.z[0]&&z-width/2<data.leftWall.chargerKeepout.z[1]&&bottom>=data.leftWall.chargerKeepout.y[1])leftWallStats.aboveCharger++;
 }

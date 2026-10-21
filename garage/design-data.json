@@ -17,136 +17,434 @@
     "direction": "nose-first (assumption)",
     "source": "https://www.tesla.com/ownersmanual/modely/en_eu/GUID-1E76B638-7B12-4D9A-8767-94B7F1E92A0E.html"
   },
-  "products": {},
+  "products": {
+    "base60": {
+      "name": "Lagerreol TRANSFORM, grunnseksjon, 4 hyller, H1972 B975 D600 mm",
+      "sku": "21398",
+      "url": "https://www.ajprodukter.no/p/lagerreol-15068-15074",
+      "price": 2837.5,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.975,
+        0.6,
+        1.972
+      ],
+      "checked": "2026-10-21",
+      "retailer": "AJ Produkter",
+      "note": "Includes four adjustable steel shelves. 32 mm height increments. Starter has two end frames.",
+      "availability": "Listed for ordering; delivery date depends on checkout",
+      "includedShelves": 4,
+      "priceEvidence": "Retailer structured offer includes 25% VAT; headline on the page excludes VAT."
+    },
+    "base80": {
+      "name": "Lagerreol TRANSFORM, grunnseksjon, 4 hyller, H1972 B975 D800 mm",
+      "sku": "21669",
+      "url": "https://www.ajprodukter.no/p/lagerreol-15068-15076",
+      "price": 3562.5,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.975,
+        0.8,
+        1.972
+      ],
+      "checked": "2026-10-21",
+      "retailer": "AJ Produkter",
+      "note": "Includes four adjustable steel shelves. 32 mm height increments. Starter has two end frames.",
+      "availability": "Listed for ordering; delivery date depends on checkout",
+      "includedShelves": 4,
+      "priceEvidence": "Retailer structured offer includes 25% VAT; headline on the page excludes VAT."
+    },
+    "extension60": {
+      "name": "Lagerreol TRANSFORM, påbyggseksjon, 4 hyller, H1972 B910 D600 mm",
+      "sku": "21416",
+      "url": "https://www.ajprodukter.no/p/lagerreol-15128-15134",
+      "price": 2193.75,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.91,
+        0.6,
+        1.972
+      ],
+      "checked": "2026-10-21",
+      "retailer": "AJ Produkter",
+      "note": "Includes four adjustable steel shelves. 32 mm height increments. Requires a starter; one end frame included.",
+      "availability": "Listed for ordering; delivery date depends on checkout",
+      "includedShelves": 4,
+      "priceEvidence": "Retailer structured offer includes 25% VAT; headline on the page excludes VAT."
+    },
+    "extension80": {
+      "name": "Lagerreol TRANSFORM, påbyggseksjon, 4 hyller, H1972 B910 D800 mm",
+      "sku": "21679",
+      "url": "https://www.ajprodukter.no/p/lagerreol-15128-15136",
+      "price": 2937.5,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.91,
+        0.8,
+        1.972
+      ],
+      "checked": "2026-10-21",
+      "retailer": "AJ Produkter",
+      "note": "Includes four adjustable steel shelves. 32 mm height increments. Requires a starter; one end frame included.",
+      "availability": "Listed for ordering; delivery date depends on checkout",
+      "includedShelves": 4,
+      "priceEvidence": "Retailer structured offer includes 25% VAT; headline on the page excludes VAT."
+    },
+    "basketSmall": {
+      "name": "Elfa Door & Wall small basket",
+      "sku": "333210",
+      "url": "https://www.obsbygg.no/hjem-rengjoring-og-hvitevarer/garderobeinnredning/kurver/2363315?v=ObsBygg-7315493332105",
+      "price": 207.0,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.435,
+        0.08,
+        0.07
+      ],
+      "checked": "2026-10-21",
+      "retailer": "Obs BYGG",
+      "note": "Hooks onto Elfa wallband. Fixed retail size; no stretching or trimming. Mounting rail adds up to 16 mm to projection.",
+      "availability": "Online stock reported; quantity and delivery need checking"
+    },
+    "basketLarge": {
+      "name": "Elfa Door & Wall large basket",
+      "sku": "333010",
+      "url": "https://www.obsbygg.no/hjem-rengjoring-og-hvitevarer/garderobeinnredning/kurver/2363315?v=ObsBygg-7315493330101",
+      "price": 234.0,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.435,
+        0.135,
+        0.14
+      ],
+      "checked": "2026-10-21",
+      "retailer": "Obs BYGG",
+      "note": "Hooks onto Elfa wallband. Fixed retail size; no stretching or trimming. Mounting rail adds up to 16 mm to projection.",
+      "availability": "Online stock reported; quantity and delivery need checking"
+    },
+    "wallRail": {
+      "name": "Elfa wallband 1980 mm",
+      "sku": "400810",
+      "url": "https://www.megaflis.no/elfa/elfa-veggskinne-1980-mm-hvit",
+      "price": 149.0,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.025,
+        0.016,
+        1.98
+      ],
+      "checked": "2026-10-21",
+      "retailer": "Megaflis",
+      "note": "Screw directly to the existing structural stud faces; baskets hook onto this rail. No brace is cut.",
+      "availability": "Online stock reported; planned quantity may require replenishment"
+    },
+    "upperBracket": {
+      "name": "BOAXEL 40 cm bracket",
+      "sku": "604.487.33",
+      "url": "https://www.ikea.com/no/en/p/boaxel-bracket-white-60448733/",
+      "price": 20.0,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.01,
+        0.4,
+        0.08
+      ],
+      "checked": "2026-10-21",
+      "retailer": "IKEA Norway",
+      "note": "Separate wall-mounted upper storage. Matching BOAXEL component. Mounting rail is an alignment aid; each upright must be fastened to the wall. Steel member profiles / thicknesses are simplified in the model; the retailer publishes the dimensions stated above.",
+      "availability": "Delivery / store stock depends on location",
+      "dimensionsText": "40 cm projection"
+    },
+    "upperRail": {
+      "name": "BOAXEL wall upright · 100 cm",
+      "sku": "004.487.31",
+      "url": "https://www.ikea.com/no/no/p/boaxel-veggskinne-hvit-00448731/",
+      "price": 80.0,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.02,
+        0.026,
+        1.0
+      ],
+      "checked": "2026-10-21",
+      "retailer": "IKEA Norway",
+      "note": "Separate wall-mounted upper storage. Matching BOAXEL component. Mounting rail is an alignment aid; each upright must be fastened to the wall. Steel member profiles / thicknesses are simplified in the model; the retailer publishes the dimensions stated above.",
+      "availability": "Delivery / store stock depends on location",
+      "dimensionsText": "100 cm high × 2 cm wide"
+    },
+    "upperMount": {
+      "name": "BOAXEL mounting rail · 82.4 cm",
+      "sku": "104.487.40",
+      "url": "https://www.ikea.com/no/no/p/boaxel-monteringsskinne-hvit-10448740/",
+      "price": 90.0,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.824,
+        0.01,
+        0.02
+      ],
+      "checked": "2026-10-21",
+      "retailer": "IKEA Norway",
+      "note": "Separate wall-mounted upper storage. Matching BOAXEL component. Mounting rail is an alignment aid; each upright must be fastened to the wall. Steel member profiles / thicknesses are simplified in the model; the retailer publishes the dimensions stated above.",
+      "availability": "Delivery / store stock depends on location",
+      "dimensionsText": "82.4 cm length"
+    },
+    "railFixings": {
+      "name": "Elfa screws / plugs · 10 pack",
+      "sku": "470696",
+      "url": "https://www.staypro.no/bygg-interior/innfesting/elfa-470696-skrue-og-pluggsett-forsinket-10-pakning-2980128",
+      "price": 38,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.01,
+        0.064,
+        0.01
+      ],
+      "checked": "2026-10-21",
+      "retailer": "Staypro",
+      "note": "4.8 × 64 mm screws. Use screws directly in sound timber; do not use masonry plugs in wood. Allow five screws per Elfa rail. Final attachment points must avoid wiring.",
+      "packSize": 10,
+      "availability": "Listed for ordering"
+    },
+    "upright": {
+      "name": "BOAXEL wall upright · 200 cm",
+      "sku": "804.487.32",
+      "url": "https://www.ikea.com/no/no/p/boaxel-veggskinne-hvit-80448732/",
+      "price": 100,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.02,
+        0.026,
+        2
+      ],
+      "checked": "2026-10-21",
+      "retailer": "IKEA Norway",
+      "note": "Original catalogue component; full retail size retained. Matching BOAXEL components, wall-fixed according to IKEA instructions. Steel member profiles / thicknesses are simplified in the model; the retailer publishes the dimensions stated above.",
+      "availability": "Delivery / store stock depends on location",
+      "dimensionsText": "200 cm high × 2 cm wide"
+    },
+    "deep": {
+      "name": "BROR shelving unit, black, 85×55×190 cm; 5 shelves included",
+      "sku": "896.174.43",
+      "url": "https://www.ikea.com/no/no/p/bror-hylle-svart-s89617443/",
+      "price": 1670,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.85,
+        0.55,
+        1.9
+      ],
+      "checked": "2026-10-21",
+      "retailer": "IKEA Norway",
+      "note": "Original catalogue component; full retail size retained. All five supplied shelves are shown.",
+      "availability": "Delivery / store stock depends on location"
+    },
+    "shelf": {
+      "name": "BOAXEL metal shelf, white, 80×40 cm",
+      "sku": "104.487.35",
+      "url": "https://www.ikea.com/no/no/p/boaxel-hylleplate-metall-hvit-10448735/",
+      "price": 140,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.8,
+        0.38,
+        0.02
+      ],
+      "checked": "2026-10-21",
+      "retailer": "IKEA Norway",
+      "note": "Original catalogue component; full retail size retained. Matching BOAXEL components, wall-fixed according to IKEA instructions. Steel member profiles / thicknesses are simplified in the model; the retailer publishes the dimensions stated above.",
+      "availability": "Delivery / store stock depends on location",
+      "dimensionsText": "80 × 38 cm shelf surface · nominal 80 × 40 cm system"
+    },
+    "shortWallRail": {
+      "name": "Elfa wallband · 316 mm",
+      "sku": "400310",
+      "url": "https://www.megaflis.no/garderobe/garderobeinnredning/elfa-veggskinne-316-mm-hvit",
+      "price": 33,
+      "currency": "NOK",
+      "vatIncluded": true,
+      "dimensions": [
+        0.025,
+        0.016,
+        0.316
+      ],
+      "checked": "2026-10-21",
+      "retailer": "Megaflis",
+      "note": "Uncut stock rail above the charger, screwed to the stud face. Takes the same Elfa Door & Wall basket.",
+      "availability": "Delivery / store stock depends on location"
+    }
+  },
   "common": [],
   "layouts": [
     {
       "id": "A",
       "name": "40 cm · open floor",
-      "system": "Coordinated adjustable rear shelving · concept",
+      "system": "IKEA BOAXEL · original catalogue",
       "depth": 0.4,
       "upperDepth": 0.4,
       "stepHeight": 2.1,
-      "rearWidth": 2.67,
-      "top": 2.04,
+      "rearWidth": 2.504,
+      "top": 2,
       "shelves": [
         [
-          0.12,
-          0.46,
-          0.8,
+          0.128,
+          0.448,
+          0.832,
+          1.216,
+          1.6,
+          1.92
+        ],
+        [
+          0.128,
+          0.704,
           1.28,
-          1.65
+          1.92
         ],
         [
-          0.12,
-          1.22,
-          1.65
-        ],
-        [
-          1.45,
-          1.82
+          1.472,
+          1.92
         ]
       ],
-      "summary": "Most room at the rear. Shallow, visible shelves suit smaller and medium belongings; bulky seasonal things use the loft.",
-      "equipment": "Every option also uses the left-wall ledges and high baskets, the existing right-wall ski shelf, accessible folded ladder / chairs / table, and the existing loft with a reserved approach. Shelf contents are mixed examples; no bay is assigned to a particular backpack.",
-      "frontGap": 0.653,
-      "unpriced": "Rear shelving, removable inserts and baskets are dimensional concepts. Reuse suitable existing small shelves where they fit. Final components, fixings and loads are unspecified; no complete purchase budget is claimed."
+      "summary": "The original 40 cm BOAXEL system, using full-size metal shelves and 200 cm uprights raised into the available rear roof height. About 63 cm remains behind the assumed parked car, allowing for the estimated sled depth.",
+      "equipment": "Reuse the existing left-wall ledges and mini shelves, use fixed-size Elfa baskets on real wall rails, retain the right-wall shelf / folded gear and keep the loft accessible. No custom shelf or made-up basket is included.",
+      "frontGap": 0.633,
+      "unpriced": "Listed products incl. VAT and whole fixing packs. Shipping, labour and site-specific rear / upper wall anchors are excluded. All shelf / basket / rail sizes are catalogue sizes. Wall backing, roof profile and actual fixing locations still need checking before ordering.",
+      "standOff": 0,
+      "baseKey": null,
+      "extensionKey": null,
+      "type": "boaxel",
+      "footprintDepth": 0.42
     },
     {
       "id": "B",
-      "name": "50 cm · balanced",
-      "system": "Coordinated adjustable rear shelving · concept",
-      "depth": 0.5,
+      "name": "55 cm · BROR + BOAXEL",
+      "system": "IKEA BROR + BOAXEL · original catalogue",
+      "depth": 0.55,
       "upperDepth": 0.4,
-      "stepHeight": 1.3,
-      "rearWidth": 2.67,
-      "top": 2.04,
+      "stepHeight": 2.1,
+      "rearWidth": 2.6,
+      "top": 1.9,
       "shelves": [
         [
-          0.12,
-          0.46,
-          0.8,
-          1.28,
-          1.65
+          0.1,
+          0.45,
+          0.85,
+          1.4,
+          1.8
         ],
         [
-          0.12,
-          1.22,
-          1.65
-        ],
-        [
+          0.1,
+          0.45,
+          1.1,
           1.45,
-          1.82
+          1.8
+        ],
+        [
+          1.472,
+          1.792
         ]
       ],
-      "summary": "A balanced starting point: deeper lower shelves for mixed larger belongings, shallower upper shelves for visibility and reach.",
-      "equipment": "Every option also uses the left-wall ledges and high baskets, the existing right-wall ski shelf, accessible folded ladder / chairs / table, and the existing loft with a reserved approach. Shelf contents are mixed examples; no bay is assigned to a particular backpack.",
-      "frontGap": 0.553,
-      "unpriced": "Rear shelving, removable inserts and baskets are dimensional concepts. Reuse suitable existing small shelves where they fit. Final components, fixings and loads are unspecified; no complete purchase budget is claimed."
+      "summary": "The original 55 cm BROR racks, all five included shelves in each. Real BOAXEL shelves above the sled and racks use more height. About 46 cm remains behind the parked car.",
+      "equipment": "Reuse the existing left-wall ledges and mini shelves, use fixed-size Elfa baskets on real wall rails, retain the right-wall shelf / folded gear and keep the loft accessible. No custom shelf or made-up basket is included.",
+      "frontGap": 0.463,
+      "unpriced": "Listed products incl. VAT and whole fixing packs. Shipping, labour and site-specific rear / upper wall anchors are excluded. All shelf / basket / rail sizes are catalogue sizes. Wall backing, roof profile and actual fixing locations still need checking before ordering.",
+      "standOff": 0.04,
+      "baseKey": null,
+      "extensionKey": null,
+      "type": "bror",
+      "footprintDepth": 0.5900000000000001
     },
     {
       "id": "C",
-      "name": "60 cm · stepped shelves",
-      "system": "Coordinated adjustable rear shelving · concept",
+      "name": "60 cm · deeper shelves",
+      "system": "AJ TRANSFORM · one starter + two extensions",
       "depth": 0.6,
-      "upperDepth": 0.35,
-      "stepHeight": 0.9,
-      "rearWidth": 2.67,
-      "top": 2.04,
+      "upperDepth": 0.4,
+      "stepHeight": 2.1,
+      "rearWidth": 2.795,
+      "top": 1.972,
       "shelves": [
         [
-          0.12,
-          0.46,
-          0.8,
+          0.128,
+          0.448,
+          0.832,
+          1.92
+        ],
+        [
+          0.128,
+          0.704,
           1.28,
-          1.65
+          1.92
         ],
         [
-          0.12,
-          1.22,
-          1.65
-        ],
-        [
-          1.45,
-          1.82
+          0.128,
+          1.472,
+          1.696,
+          1.92
         ]
       ],
-      "summary": "Extra depth low down for bulky gear, with shallower shelves above. More floor space is spent on storage than in A or B.",
-      "equipment": "Every option also uses the left-wall ledges and high baskets, the existing right-wall ski shelf, accessible folded ladder / chairs / table, and the existing loft with a reserved approach. Shelf contents are mixed examples; no bay is assigned to a particular backpack.",
-      "frontGap": 0.453,
-      "unpriced": "Rear shelving, removable inserts and baskets are dimensional concepts. Reuse suitable existing small shelves where they fit. Final components, fixings and loads are unspecified; no complete purchase budget is claimed."
+      "summary": "More depth for larger belongings, with about 41 cm behind the parked car. Expect tighter rear retrieval.",
+      "equipment": "Reuse the existing left-wall ledges and mini shelves, use fixed-size Elfa baskets on real wall rails, retain the right-wall shelf / folded gear and keep the loft accessible. No custom shelf or made-up basket is included.",
+      "frontGap": 0.413,
+      "unpriced": "Listed products incl. VAT and whole fixing packs. Shipping, labour and site-specific rear / upper wall anchors are excluded. All shelf / basket / rail sizes are catalogue sizes. The 279.5 cm TRANSFORM run leaves 3.5 cm total fitting allowance. Wall backing, roof profile and actual fixing locations still need checking before ordering.",
+      "standOff": 0.04,
+      "baseKey": "base60",
+      "extensionKey": "extension60",
+      "type": "transform",
+      "footprintDepth": 0.64
     },
     {
       "id": "D",
       "name": "80 cm · bulky storage",
-      "system": "Coordinated adjustable rear shelving · concept",
+      "system": "AJ TRANSFORM · one starter + two extensions",
       "depth": 0.8,
       "upperDepth": 0.4,
-      "stepHeight": 0.9,
-      "rearWidth": 2.67,
-      "top": 2.04,
+      "stepHeight": 2.1,
+      "rearWidth": 2.795,
+      "top": 1.972,
       "shelves": [
         [
-          0.12,
-          0.46,
-          0.8,
+          0.128,
+          0.448,
+          0.832,
+          1.92
+        ],
+        [
+          0.128,
+          0.704,
           1.28,
-          1.65
+          1.92
         ],
         [
-          0.12,
-          1.22,
-          1.65
-        ],
-        [
-          1.45,
-          1.82
+          0.128,
+          1.472,
+          1.696,
+          1.92
         ]
       ],
-      "summary": "Deep lower storage for genuinely bulky belongings. Only about 25 cm remains ahead of the assumed parked car, so rear retrieval generally means moving the car out.",
-      "equipment": "Every option also uses the left-wall ledges and high baskets, the existing right-wall ski shelf, accessible folded ladder / chairs / table, and the existing loft with a reserved approach. Shelf contents are mixed examples; no bay is assigned to a particular backpack.",
-      "frontGap": 0.253,
-      "unpriced": "Rear shelving, removable inserts and baskets are dimensional concepts. Reuse suitable existing small shelves where they fit. Final components, fixings and loads are unspecified; no complete purchase budget is claimed."
+      "summary": "Deep storage for bulky belongings, with about 21 cm behind the parked car. Move the car out for rear retrieval.",
+      "equipment": "Reuse the existing left-wall ledges and mini shelves, use fixed-size Elfa baskets on real wall rails, retain the right-wall shelf / folded gear and keep the loft accessible. No custom shelf or made-up basket is included.",
+      "frontGap": 0.213,
+      "unpriced": "Listed products incl. VAT and whole fixing packs. Shipping, labour and site-specific rear / upper wall anchors are excluded. All shelf / basket / rail sizes are catalogue sizes. The 279.5 cm TRANSFORM run leaves 3.5 cm total fitting allowance. Wall backing, roof profile and actual fixing locations still need checking before ordering.",
+      "standOff": 0.04,
+      "baseKey": "base80",
+      "extensionKey": "extension80",
+      "type": "transform",
+      "footprintDepth": 0.8400000000000001
     }
   ],
   "inventory": [
@@ -213,7 +511,7 @@
     {
       "name": "Left-wall recesses and ledges",
       "evidence": "IMG_0750–0754 and IMG_0758 show existing shallow storage between studs. One opening confirmed 54.5 cm across × 63.5 cm high; depth about 9 cm from the tape photo.",
-      "storage": "Retain ledges, add flush small shelves, and fit modestly projecting baskets only high up. Preserve braces and charger access.",
+      "storage": "Reuse every existing ledge and mini shelf. Several rows of fixed 8 cm baskets add capacity on stud-mounted rails; 13.5 cm baskets go high. The charger keepout is local. No custom-cut insert is modelled.",
       "count": "Existing wall storage"
     },
     {
@@ -303,8 +601,28 @@
       ]
     ],
     "positionEvidence": "Stud count / spacing, absolute ledge heights, brace and charger locations are a schematic photo-based arrangement. The representative measured opening is not proof that every bay is identical.",
-    "basketProjection": 0.15,
-    "basketClearance": 1.9
+    "basketRows": [
+      0.28,
+      0.56,
+      0.96,
+      1.24,
+      1.62
+    ],
+    "highBasketBottom": 1.86,
+    "chargerKeepout": {
+      "z": [
+        1.36,
+        2.48
+      ],
+      "y": [
+        0.32,
+        1.48
+      ]
+    },
+    "railOmitStuds": [
+      3
+    ],
+    "railStandOff": 0.002
   },
   "loft": {
     "length": 4.2,
@@ -314,5 +632,18 @@
     "accessDepth": 0.9,
     "clearStrip": 0.65,
     "evidence": "Existing loft is visible in IMG_0762. Full-width deck length 4.2 m, underside 2.10 m, joists and access position are adjustable or schematic assumptions, not a survey. Roof headroom and load capacity are unknown."
+  },
+  "priceDate": "2026-10-21",
+  "purchaseBaseline": {
+    "commit": "f7e120c",
+    "restoredSkus": [
+      "804.487.32",
+      "104.487.40",
+      "104.487.35",
+      "604.487.33",
+      "896.174.43",
+      "004.487.31"
+    ],
+    "note": "Restored the original BOAXEL / BROR catalogue entries, rechecked against current Norwegian product pages. Boxes and unverified custom extensions are excluded."
   }
 }

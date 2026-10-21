@@ -60,34 +60,39 @@ import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
   for(const xx of [x-.20,x+.20]){rod([xx,1.28,L-.01],[xx,1.28,L-.24],.0125,'metal',furnitureGroup);rod([xx,1.28,L-.24],[xx,1.34,L-.24],.0125,'metal',furnitureGroup);}
   box(.55,.025,.01,x,1.05,z-.18,'accent',furnitureGroup);
  }
-// Selectable model objects. These studies do not claim a retail component list.
-function register(meshes,key,meta={}){const id='object-'+objects.length;const record={id,key,meta,meshes};objects.push(record);for(const m of meshes)m.traverse(n=>{n.userData.objectId=id;});return record;}
+// Only verified purchase components are selectable. Existing room / belongings
+// remain in the scene as context and cannot open an invented product card.
+function register(meshes,key,meta={}){
+ const id='object-'+objects.length,record={id,key,meta,meshes};objects.push(record);
+ if(key){if(!data.products[key])throw new Error('Unknown product: '+key);for(const m of meshes)m.traverse(n=>{n.userData.objectId=id;});}
+ return record;
+}
 function autoTag(){}
 function capture(fn,key,meta,gear=false){const n=furnitureGroup.children.length;fn();const meshes=furnitureGroup.children.slice(n);register(meshes,key,meta);if(gear)equipmentMeshes.push(...meshes);}
-function snowRacer(x){
+function snowRacer(x,base=.128){
  const before=furnitureGroup.children.length;snowRacerBase(x);const g=new T.Group();
  for(const m of furnitureGroup.children.slice(before))g.add(m);
- g.scale.y=1.3/1.38;furnitureGroup.add(g);
- register([g],null,{title:'Rattkjelke · one existing snow racer',kind:'existing',dimensions:[.60,.40,1.30],note:'One confirmed by you. Upright storage envelope is estimated; check the steering wheel and ski tips. Kept in a 71 cm clear rear slot with shelves above.'});equipmentMeshes.push(g);
+ g.scale.y=1.3/1.38;g.position.y=base;g.position.z=-data.layouts[current].standOff-.006;furnitureGroup.add(g);
+ register([g],null,{title:'Rattkjelke · one existing snow racer',kind:'existing',dimensions:[.60,.40,1.30],note:'One existing sled, estimated upright envelope. Stored on the lowest shelf; the next shelf is above its ski tips.'});equipmentMeshes.push(g);
 }
 function objectBounds(o){scene.updateMatrixWorld(true);const b=new T.Box3();for(const m of o.meshes)b.expandByObject(m);return b;}
+const productLink=(key,label)=>'<a href="'+data.products[key].url+'" target="_blank" rel="noopener">'+(label||data.products[key].name)+' ↗</a>';
 function populateObjects(){
- const sel=root.querySelector('#object-list');sel.innerHTML='<option value="">Choose a shelf or object</option>';
- for(const o of objects){const op=document.createElement('option');op.value=o.id;op.textContent=o.meta.title;sel.append(op);}
- root.querySelector('#selection').innerHTML='<h2>Click a shelf.</h2><p>Inspect its size, height and assumptions.</p>';root.querySelector('#focus-item').disabled=true;
+ const sel=root.querySelector('#object-list');sel.innerHTML='<option value="">Choose a product</option>';
+ for(const o of objects.filter(o=>o.key)){const op=document.createElement('option');op.value=o.id;op.textContent=o.meta.title;sel.append(op);}
+ root.querySelector('#selection').innerHTML='<h2>Click a storage product.</h2><p>Every selectable item has a retailer, SKU, price and direct buying link. Existing walls and belongings are context.</p>';root.querySelector('#focus-item').disabled=true;
 }
 function selectObject(o){
  if(selectionBox){scene.remove(selectionBox);selectionBox.traverse(m=>{m.geometry?.dispose();});selectionBox=null;}
+ if(o&&!o.key)o=null;
  selected=o||null;const panel=root.querySelector('#selection');root.querySelector('#focus-item').disabled=!o;root.querySelector('#object-list').value=o?.id||'';
- if(!o){panel.innerHTML='<h2>Click a shelf.</h2><p>Select an object to inspect its size and assumptions.</p>';render();return;}
+ if(!o){panel.innerHTML='<h2>Click a storage product.</h2><p>Choose a shelf, basket or rail for its price and purchase link.</p>';render();return;}
  root.querySelector('#object-panel').open=true;
- const m=o.meta,kind=m.kind==='example'?'Example contents · provisional size':m.kind==='existing-storage'?'Existing storage · placement study':m.kind==='concept'?'Proposed storage · unpriced adaptations':'Existing equipment · estimated dimensions';
- let html='<h2>'+m.title+'</h2><p>'+kind+'</p>',rows=[];
- if(m.dimensions)rows.push([m.dimensionLabel||'Shown W × D × H',m.dimensions.map(v=>Number((v*100).toFixed(1))).join(' × ')+' cm']);
+ const m=o.meta,p=data.products[o.key],rows=[['Retailer / SKU',p.retailer+' · '+p.sku],['Price incl. VAT',(p.priceQualifier?'From ':'')+money(p.price)+(p.packSize?' / '+p.packSize+' pack':' / item')],['Retail dimensions',p.dimensionsText||p.dimensions.map(v=>Number((v*100).toFixed(1))).join(' × ')+' cm']];
+ if(m.dimensions)rows.push([m.dimensionLabel||'Model W × D × H',m.dimensions.map(v=>Number((v*100).toFixed(1))).join(' × ')+' cm']);
  if(m.height!==undefined)rows.push(['Above floor',Number((m.height*100).toFixed(1))+' cm']);
- if(m.projection!==undefined)rows.push(['Beyond stud faces',Math.round(m.projection*100)+' cm']);
- html+='<dl>'+rows.map(([k,v])=>'<div><dt>'+k+'</dt><dd>'+v+'</dd></div>').join('')+'</dl>';
- if(m.note)html+='<p>'+m.note+'</p>';panel.innerHTML=html;
+ if(m.projection!==undefined)rows.push(['Beyond stud faces',Number((m.projection*100).toFixed(1))+' cm']);
+ panel.innerHTML='<h2>'+m.title+'</h2><p class="purchase-link">'+productLink(o.key,'View / buy at '+p.retailer)+'</p><dl>'+rows.map(([k,v])=>'<div><dt>'+k+'</dt><dd>'+v+'</dd></div>').join('')+'</dl><p>'+p.note+'</p>'+(m.note?'<p>'+m.note+'</p>':'')+'<p class="fine">Price checked '+p.checked+'. '+p.availability+'. Shipping is extra where applicable.</p>';
  selectionBox=new T.Group();selectionBox.scale.x=-1;const outline=new T.Box3Helper(objectBounds(o),0xc58639);outline.material.depthTest=false;outline.material.transparent=true;outline.material.opacity=.85;outline.renderOrder=100;selectionBox.add(outline);scene.add(selectionBox);render();
 }
  // Typical adult hybrid-bike planning proxies, not measured user bikes.
@@ -117,15 +122,11 @@ function rightWall(){
   }
  },null,{title:'Right wall · existing high ski shelf',kind:'existing-storage',side:'right',dimensions:[2.4,.3,.218],dimensionLabel:'Along wall × projection × shelf/support height',height:1.95,note:'Reuse the existing shelf visible in the photos. The model estimates 240 cm length, 30 cm depth and 195 cm top height. Preserve clearance to the door track and the loft; actual location / dimensions are unmeasured.'});
  capture(()=>{
-  box(.025,.68,1.35,W-.015,1.24,1.16,'metal',furnitureGroup);
-  for(const z of [.65,.92,1.19,1.46,1.73])rod([W-.03,1.4,z],[W-.10,1.4,z],.006,'metal',furnitureGroup);
- },null,{title:'Right wall · shallow tool strip',kind:'concept',side:'right',dimensions:[1.35,.11,.68],dimensionLabel:'Along wall × maximum projection × height',height:.90,note:'An optional shallow board / rail for small tools and accessories near the entrance. Keep the main walking route on the left. Hook selection and exact placement are unpriced.'});
- capture(()=>{
   box(.055,.35,.30,W-.085,.20,1.65,'rubber',furnitureGroup);
   rod([W-.085,.32,1.65],[W-.085,1.50,1.65],.016,'wood',furnitureGroup);
   rod([W-.085,1.50,1.56],[W-.085,1.50,1.74],.018,'rubber',furnitureGroup);
  },null,{title:'Existing snow shovel / long tool · estimated envelope',side:'right',dimensions:[.32,.12,1.55],dimensionLabel:'Along wall × projection × height',note:'Long-tool example for the observed equipment category, using a shallow wall position. Exact shape, length and placement are unmeasured.'},true);
- for(const z of [2.6,3.2,4.15,4.95])capture(()=>rod([W-.01,1.5,z],[W-.08,1.5,z],.01,'metal',furnitureGroup),null,{title:'Right wall · folded-gear mounting point',kind:'concept',height:1.5,note:'Retain / adapt existing hooks and straps. About 15 cm total folded-gear projection is assumed; actual gear and fixing locations need checking.'});
+ for(const z of [2.6,3.2,4.15,4.95])capture(()=>rod([W-.01,1.5,z],[W-.08,1.5,z],.01,'metal',furnitureGroup),null,{title:'Right wall · folded-gear mounting point',kind:'existing-storage',height:1.5,note:'Reuse the observed hooks and straps. About 15 cm total folded-gear projection is assumed; actual gear and fixing locations need checking.'});
  for(const z of [2.6,3.2])capture(()=>{
   box(.08,.47,.4,W-.095,1.05,z,'rubber',furnitureGroup);
   for(const zz of [z-.22,z+.22])rod([W-.14,.5,zz],[W-.14,1.5,zz],.014,'metal',furnitureGroup);
@@ -135,9 +136,10 @@ function rightWall(){
   for(const z of [3.94,4.36])rod([W-.10,.05,z],[W-.10,1.95,z],.022,'white',furnitureGroup);
   for(let y=.18;y<1.9;y+=.26)rod([W-.10,y,3.94],[W-.10,y,4.36],.02,'white',furnitureGroup);
  },null,{title:'Existing stepladder / gardintrapp',side:'right',dimensions:[.5,.15,1.9],dimensionLabel:'Along wall × projection × height',note:'Accessible folded wall position; estimated dimensions. This is not a specified loft-access ladder.'},true);
+ const tableZ=Math.min(4.92,L-data.layouts[current].footprintDepth-.45);
  capture(()=>{
-  box(.07,1.25,.75,W-.05,.65,4.92,'white',furnitureGroup);
-  box(.009,.03,.76,W-.095,1.05,4.92,'accent',furnitureGroup);
+  box(.07,1.25,.75,W-.05,.65,tableZ,'white',furnitureGroup);
+  box(.009,.03,.76,W-.095,1.05,tableZ,'accent',furnitureGroup);
  },null,{title:'Existing folding table',side:'right',dimensions:[.76,.10,1.25],dimensionLabel:'Along wall × projection × height',note:'Estimated folded envelope. Removable straps keep the table shallow and accessible.'},true);
  capture(()=>{for(let i=0;i<2;i++)box(.055,.025,2.15,W-.10-i*.09,1.9675,3.35,'gear',furnitureGroup);},null,{title:'Right shelf · existing ski bundle',side:'right',dimensions:[2.15,.20,.025],dimensionLabel:'Along wall × depth × height',note:'Illustrative bundle only; ski lengths and quantities are unmeasured.'},true);
 }
@@ -187,7 +189,7 @@ function exampleContents(){
     for(const x of [-w*.2,w*.2])soft(.015,h*.65,.009,x,h*.52,-d*.47,materials.rubber);
    }
   }
-  group.position.set(px,slot.y+.003,L-slot.depth+d/2+.005);
+  group.position.set(px,slot.y+.003,(slot.zBack??L)-slot.depth+d/2+.005);
   furnitureGroup.add(group);
   register([group],null,{title:item.title,kind:'example',dimensions:item.size,height:slot.y,note:'Representative size only; not a measurement of your belongings or a fixed quantity. Mixed packed / compressed bags can stand, lie down or hang. Remaining space is intentionally unallocated.'});equipmentMeshes.push(group);
  }
@@ -220,92 +222,67 @@ function leftWallFrame(){
   box(.034,hh,len-.003,-d-.017,hh/2,z,mat,group);
  }
  for(let z=wall.firstStud;z<L;z+=pitch)box(d,H,wall.studWidth,-d/2,H/2,z,'wood',group);
- // Braces are retained whole. Added shelf inserts skip their path rather than cutting through them.
+ // Retain the complete existing braces behind all new retail baskets.
  for(const ends of wall.braces){
   const [a,b]=ends,dy=b[1]-a[1],dz=b[0]-a[0],length=Math.hypot(dy,dz);
   const mesh=new T.Mesh(new RoundedBoxGeometry(d*.8,length,.065,2,.003),materials.wood);
   mesh.position.set(-d/2,(a[1]+b[1])/2,(a[0]+b[0])/2);
   mesh.quaternion.setFromUnitVectors(new T.Vector3(0,1,0),new T.Vector3(0,dy,dz).normalize());
   mesh.castShadow=mesh.receiveShadow=true;group.add(mesh);
-  register([mesh],null,{title:'Left wall · retained diagonal brace',kind:'existing-storage',side:'left',note:'Existing bracing is visible in the new photos. Its placement is schematic; the shelf inserts skip its path. No brace is removed, notched or altered.'});
+  register([mesh],null,{title:'Left wall · retained diagonal brace',kind:'existing-storage',side:'left',note:'Existing bracing is visible in the new photos. Its placement is schematic; new baskets sit in front of the stud faces. No brace is removed, notched or altered.'});
  }
+}
+function leftWallBlocked(z0,z1,y0,y1){
+ const k=data.leftWall.chargerKeepout;return z1>k.z[0]&&z0<k.z[1]&&y1>k.y[0]&&y0<k.y[1];
 }
 function leftWallStorage(){
  const wall=data.leftWall,d=wall.recessDepth,bays=leftWallBays(),group=new T.Group();group.userData.wall='left';furnitureGroup.add(group);
- leftWallStats={existing:0,added:0,baskets:0,area:0,basketLitres:0};
- const charger=wall.chargerZone;
- const overlapsCharger=b=>b.end>charger[0]&&b.start<charger[1];
- const rearLimit=L-data.layouts[current].depth-.04;
- const addition=root.querySelector('#garage-left-inserts').checked;
- const note='Measured representative opening: 54.5 cm across × 63.5 cm clear height. Recess depth about 9 cm, read from IMG_0750. Bay count, floor heights, brace and charger positions are schematic from the photos. Verify each actual bay before cutting shelves.';
- function captureInWall(fn,meta){const n=group.children.length;fn();const meshes=group.children.slice(n);register(meshes,null,meta);return meshes;}
+ leftWallStats={existing:0,added:0,baskets:0,small:0,large:0,rails:0,area:0,basketLitres:0,aboveCharger:0};
+ const rearLimit=L-data.layouts[current].depth-data.layouts[current].standOff-.04;
+ function item(fn,key,meta){const n=group.children.length;fn();return register(group.children.slice(n),key,meta);}
  for(const [index,bay] of bays.entries()){
   for(const y of wall.ledgeTops){
-   captureInWall(()=>box(d,.045,bay.width,-d/2,y-.0225,bay.center,'wood',group),{
-    title:'Left wall · existing ledge '+(index+1)+' / '+Math.round(y*100)+' cm',kind:'existing-storage',side:'left',dimensions:[bay.width,d,.045],dimensionLabel:'Along wall × recess depth × thickness',height:y,note
-   });
-   leftWallStats.existing++;
+   item(()=>box(d,.045,bay.width,-d/2,y-.0225,bay.center,'wood',group),null,{title:'Left wall · existing ledge '+(index+1)+' / '+Math.round(y*100)+' cm',kind:'existing-storage',side:'left'});leftWallStats.existing++;
   }
-  // Keep all charging equipment / cable handling space and bays masked by rear storage unallocated.
-  if(overlapsCharger(bay)||bay.end>rearLimit)continue;
-  if(root.querySelector('#garage-left-baskets').checked)leftWallBasket(bay,index,group,captureInWall);
-  if(!addition)continue;
-  for(let row=0;row<wall.ledgeTops.length;row++){
-   const lower=wall.ledgeTops[row],upper=row+1<wall.ledgeTops.length?wall.ledgeTops[row+1]-.045:H-.045;
-   const y=(lower+upper)/2;
-   if(upper-lower<.3||leftWallBraceCrosses(bay,y))continue;
-   const inset=.006,width=bay.width-2*inset,depth=d-.008;
-   captureInWall(()=>{
-    box(depth,.018,width,-d/2,y-.009,bay.center,'wood',group);
-    // Small front lip stays within the stud-face line x=0.
-    box(.008,.018,width,-.008,y+.009,bay.center,'wood',group);
-   },{title:'Left wall · added shallow shelf '+(index+1)+' / '+Math.round(y*100)+' cm',kind:'concept',side:'left',dimensions:[width,depth,.018],dimensionLabel:'Along wall × shelf depth × thickness',height:y,note:note+' Proposed removable insert with a retaining lip. Keep its front behind the stud faces. Fixings / loading and material quantity remain to be specified; no building brace is altered.'});
-   leftWallStats.added++;leftWallStats.area+=width*depth;
+
+ }
+ if(root.querySelector('#garage-left-baskets').checked){
+  const pitch=wall.clearWidth+wall.studWidth;
+  for(let index=0,z=wall.firstStud;z<L;index++,z+=pitch){
+   const w=data.products.basketSmall.dimensions[0];if(z-w/2<.04||z+w/2>rearLimit)continue;
+   // Use the actual short 316 mm retail rail above the charger.
+   const cut=wall.railOmitStuds.includes(index),length=cut?.316:1.98,bottom=cut?1.72:.06;
+   item(()=>box(.016,length,.025,.010,bottom+length/2,z,'white',group),cut?'shortWallRail':'wallRail',{title:'Left wall · Elfa rail '+index+(cut?' / 316 mm upper rail':''),kind:'product',side:'left',dimensions:[.025,.016,length],height:bottom,shortRail:cut,note:cut?'Uncut 316 mm retail rail mounted above the charger keepout.':'Direct fixing to the existing stud face. The basket spans adjacent recesses; the original 9 cm deep ledges remain usable behind it.'});leftWallStats.rails++;
+   if(!cut)for(const y of wall.basketRows)leftRetailBasket(z,index,y,'basketSmall',group,item,rearLimit);
+   leftRetailBasket(z,index,wall.highBasketBottom,'basketLarge',group,item,rearLimit);
   }
  }
- // Show a few small accessories on the existing ledges without allocating every recess to specific items.
- const exampleBay=bays.find(b=>!overlapsCharger(b)&&b.end<rearLimit&&!leftWallBraceCrosses(b,wall.ledgeTops[1]+.1,.12));
- if(exampleBay){
-  const y=wall.ledgeTops[1],n=group.children.length;
-  for(const [i,h] of [.15,.18,.13].entries()){
-   const mesh=new T.Mesh(new T.CylinderGeometry(.026,.026,h,16),materials.white);mesh.position.set(-d/2,y+h/2+.002,exampleBay.center-.13+i*.12);mesh.castShadow=true;group.add(mesh);
-   box(.022,.018,.022,-d/2,y+h+.011,exampleBay.center-.13+i*.12,'rubber',group);
-  }
-  const meshes=group.children.slice(n);
-  register(meshes,null,{title:'Left recess · small supplies example',kind:'example',side:'left',dimensions:[.35,.052,.22],dimensionLabel:'Along wall × depth × height',height:y,note:'Illustrative small bottles / accessories. Left-wall recesses are shallow storage; no box, bag or footwear count is assumed.'});equipmentMeshes.push(...meshes);
- }
- // Existing charger and hanging cable loop remain visible as a reserved area in the left-wall view.
- const cx=.065,cz=(charger[0]+charger[1])/2+.18;
- captureInWall(()=>{
-  box(.12,.32,.19,cx,1.13,cz,'rubber',group);
+ // Charger shape and cable loop are retained as context. Keepout is local in height AND length.
+ const cz=2.28;
+ item(()=>{
+  box(.12,.32,.19,.065,1.13,cz,'rubber',group);
   const c=new T.CatmullRomCurve3([new T.Vector3(.10,1.04,cz),new T.Vector3(.10,.40,cz-.12),new T.Vector3(.10,.40,cz-.70),new T.Vector3(.10,1.30,cz-.75),new T.Vector3(.10,1.35,cz-.36),new T.Vector3(.10,.58,cz-.46)]);
-  const cable=new T.Mesh(new T.TubeGeometry(c,48,.014,8,false),materials.rubber);group.add(cable);
- },{title:'Left wall · existing charger / cable space',kind:'existing-storage',side:'left',note:'Observed in IMG_0754 and IMG_0758. Keep this zone open for the charger, cable loop and handling. The model placement is approximate; new shelves are excluded from the whole reserved span.'});
+  group.add(new T.Mesh(new T.TubeGeometry(c,48,.014,8,false),materials.rubber));
+ },null,{title:'Left wall · existing charger / cable space',kind:'existing-storage',side:'left'});
 }
-function leftWallBasket(bay,index,group,captureInWall){
- const bottom=Number(root.querySelector('#basket-clearance').value)/100;
- const projection=Number(root.querySelector('#basket-projection').value)/100;
- const belowLoft=bay.start<loftStats.length;
- const roof=H+(storageHeight()-H)*Math.max(0,(bay.start-4)/(L-4));
- const limit=belowLoft?H:roof;
- const height=Math.min(.25,limit-.02-bottom),top=bottom+height;
- const braced=leftWallBraceCrosses(bay,(top+bottom)/2,height/2+.045);
- // In a braced opening the basket sits in front of the brace, without cutting it.
- const rear=braced?.008:-data.leftWall.recessDepth+.006,front=projection,width=bay.width-.02,depth=front-rear;
- if(height<.06||depth<.065)return;
- const z0=bay.center-width/2,z1=bay.center+width/2,r=.003;
- captureInWall(()=>{
+function leftRetailBasket(z,index,bottom,key,group,item,rearLimit){
+ const [width,depth,height]=data.products[key].dimensions,rear=.018,front=rear+depth,top=bottom+height;
+ const bay={start:z-width/2,end:z+width/2},limit=bay.start<loftStats.length?H:H+(storageHeight()-H)*Math.max(0,(bay.start-4)/(L-4));
+ if(top>limit-.06||leftWallBlocked(bay.start,bay.end,bottom,top))return;
+ const z0=z-width/2,z1=z+width/2,r=.003;
+ item(()=>{
   for(const y of [bottom+r,top-r]){
-   for(const z of [z0+r,z1-r])rod([rear+r,y,z],[front-r,y,z],r,'metal',group);
-   for(const x of [rear+r,front-r])rod([x,y,z0+r],[x,y,z1-r],r,'metal',group);
+   for(const zz of [z0+r,z1-r])rod([rear+r,y,zz],[front-r,y,zz],r,'white',group);
+   for(const x of [rear+r,front-r])rod([x,y,z0+r],[x,y,z1-r],r,'white',group);
   }
-  for(let z=z0+.025;z<z1-.01;z+=.065){
-   rod([rear+r,bottom+r,z],[front-r,bottom+r,z],.002,'metal',group);
-   for(const x of [rear+r,front-r])rod([x,bottom+r,z],[x,top-r,z],.002,'metal',group);
+  for(let zz=z0+.025;zz<z1-.01;zz+=.045){
+   rod([rear+r,bottom+r,zz],[front-r,bottom+r,zz],.002,'white',group);
+   for(const x of [rear+r,front-r])rod([x,bottom+r,zz],[x,top-r,zz],.002,'white',group);
   }
-  for(const z of [z0+r,z1-r])for(const x of [rear+r,front-r])rod([x,bottom+r,z],[x,top-r,z],r,'metal',group);
- },{title:'Left wall · high basket '+(index+1),kind:'concept',side:'left',dimensions:[width,depth,height],dimensionLabel:'Along wall × basket depth × height',height:bottom,projection,basket:true,note:'Removable wire basket / retaining tray concept. '+Math.round(projection*100)+' cm maximum projection beyond the stud faces; '+Math.round(bottom*100)+' cm clear below. '+(braced?'This bay is braced, so the basket uses only the shallow space in front of the brace.':'The basket uses the recess plus a modest projection.')+' Keep contents within its rim. Charger and rear-rack spans are excluded. Fixings and load capacity are unspecified.'});
- leftWallStats.baskets++;leftWallStats.basketLitres+=width*depth*height*1000;
+  for(const zz of [z0+r,z1-r])for(const x of [rear+r,front-r])rod([x,bottom+r,zz],[x,top-r,zz],r,'white',group);
+ },key,{title:'Left wall · Elfa '+(key==='basketSmall'?'8 cm basket':'13.5 cm high basket')+' / rail '+index+' / '+Math.round(bottom*100)+' cm',kind:'product',side:'left',basket:true,dimensions:[width,depth,height],dimensionLabel:'Along wall × retail basket depth × height',height:bottom,projection:front,note:'Fixed-size catalogue basket on its matching stud-mounted rail. Mounts in front of the intact braces; the recess and existing ledges remain behind it. '+(key==='basketSmall'?'9.8 cm installed projection, within the charger’s approximate 12.5 cm projection.':'15.3 cm installed projection, high above the nominal car envelope. Keep contents within the front edge; leave retrieval space above.')});
+ leftWallStats.baskets++;leftWallStats[key==='basketSmall'?'small':'large']++;leftWallStats.basketLitres+=width*depth*height*1000;
+ if(z+width/2>data.leftWall.chargerKeepout.z[0]&&z-width/2<data.leftWall.chargerKeepout.z[1]&&bottom>=data.leftWall.chargerKeepout.y[1])leftWallStats.aboveCharger++;
 }
 // The existing loft is a separate storage surface, never added to rack capacity.
 let accessGroup,parkingPath,emptyFloor,loftStats;
@@ -340,9 +317,9 @@ function makeAccessZones(){
  const approach=planPatch(accessGroup,x0,x1,loftStats.accessStart,loftStats.accessEnd,.025,'#b77637',.22);
  register([approach],null,{title:'Loft · reserved floor approach',kind:'concept',dimensions:[a.accessWidth,a.accessDepth,.003],height:0,note:'Keep this floor area available when accessing the loft. It overlaps the parked-car envelope at the default loft edge, so move the car out first. The final access method, ladder footprint and required opening are unmeasured.'});
  parkingPath=new T.Group();accessGroup.add(parkingPath);
- const carLeft=data.car.centerX-data.car.foldedWidth/2,z0=data.car.entranceGap,z1=L-data.layouts[current].depth;
+ const carLeft=data.car.centerX-data.car.foldedWidth/2,z0=data.car.entranceGap,z1=L-data.layouts[current].footprintDepth;
  planPatch(parkingPath,.14,carLeft-.02,z0,z1,.018,'#3d7162',.13);
- const clear=Number(root.querySelector('#basket-clearance').value)/100;
+ const clear=data.leftWall.highBasketBottom;
  for(const x of [.14,carLeft-.02]){
   line([x,clear,z0],[x,clear,z1],'#3d7162',parkingPath);
   for(const z of [z0,z1])line([x,.025,z],[x,clear,z],'#3d7162',parkingPath);
@@ -352,7 +329,7 @@ function makeAccessZones(){
 }
 function updateSpaceStatus(){
  const parked=root.querySelector('#garage-car').checked,loft=root.querySelector('#garage-loft').checked;
- const rearStart=L-data.layouts[current].depth;
+ const rearStart=L-data.layouts[current].footprintDepth;
  const blocked=loftStats.accessEnd>rearStart-.03;
  accessGroup.visible=root.querySelector('#garage-access').checked;
  loftGroup.userData.allocation.visible=accessGroup.visible;
@@ -362,54 +339,97 @@ function updateSpaceStatus(){
  root.querySelector('#plan-note').hidden=view!=='plan';
  parkingPath.visible=parked;emptyFloor.visible=!parked;
  root.querySelector('#loft-length-value').textContent=loftStats.length.toFixed(1)+' m';
- root.querySelector('#basket-projection-value').textContent=root.querySelector('#basket-projection').value+' cm';
- root.querySelector('#basket-clearance-value').textContent=root.querySelector('#basket-clearance').value+' cm';
- root.querySelector('#basket-controls').hidden=!root.querySelector('#garage-left-baskets').checked;
  root.querySelector('#loft-status').textContent=blocked?'The assumed loft approach overlaps rear storage / the rear wall. Revise the loft edge or access arrangement.':parked?'Move car out for the reserved loft approach and a usable work area.':'The reserved loft approach is clear of rear storage in this model. Final access method still needs checking.';
  root.querySelector('#space-status').innerHTML=parked?'<strong>Car parked:</strong> '+Math.round(data.layouts[current].frontGap*100)+' cm rear gap. Left side: about 55 cm to folded mirrors, narrowing to about 42 cm at the charger. A narrow passage; door movement is unmodelled.':'<strong>Car out:</strong> the centre becomes working and retrieval space; keep the marked loft approach available.';
 }
-// Four whole-garage studies share a coherent rear system. Mixed openings are
-// independent of the belongings used to illustrate them.
+// Retail rear units: one 975 mm starter + two 910 mm extensions.
 let shelfZones=[];
-function shelfZone(x,width,depth,y,next,thickness=.024){
- shelfZones.push({x,width,depth,y,clear:next-y-thickness,area:width*depth});
-}
+function shelfZone(x,width,depth,y,next,thickness=.032,zBack=L){shelfZones.push({x,width,depth,y,clear:next-y-thickness,area:width*depth,zBack});}
 function storageHeight(){return root.querySelector('#garage-upper').checked?Number(root.querySelector('#rear-height').value)/100:H;}
-function upperClearance(){return H+(storageHeight()-H)*(L-.28-4)/(L-4);}
-function rearShelf(x,width,depth,y,next,title){
- const board=materials.wood.clone();board.color.set('#dbc3a0');
- capture(()=>{
-  box(width,.024,depth,x,y-.012,L-depth/2,board,furnitureGroup);
-  for(const xx of [x-width/2+.012,x+width/2-.012])box(.024,.035,depth,xx,y-.0415,L-depth/2,'metal',furnitureGroup);
- },null,{title,kind:'concept',dimensions:[width,depth,.024],height:y,note:'Adjustable shelf concept in a coordinated system. Nominal clear width and top surface shown. Reuse suitable existing shelf units or specify a matching system later; supports, fixings and loads are unverified.'});
- shelfZone(x,width,depth,y,next,.06);
+function upperClearance(){return H+(storageHeight()-H)*(L-.4-4)/(L-4);}
+function upperLevels(){
+ if(storageHeight()<2.4)return [];
+ const levels=[],top=storageHeight()-.1;
+ for(let y=2.15;y<=top-.06&&y+.20<=upperClearance();y+=.32)levels.push(y);
+ return levels;
 }
 function upperStorage(){
- if(storageHeight()<2.4)return;const h=upperClearance();
- const x0=.08,width=2.67,depth=.28,bottom=2.06,top=h-.06,cols=3;
- const levels=[bottom];while(levels.at(-1)+.38+.25<=h)levels.push(levels.at(-1)+.38);
- capture(()=>{
-  for(let i=0;i<=cols;i++)box(.018,top-bottom,depth,x0+i*width/cols,(bottom+top)/2,L-depth/2,'white',furnitureGroup);
- },null,{title:'Rear upper compartments · assumed roof clearance',kind:'concept',dimensions:[width,depth,top-bottom],height:bottom,note:'Independent shallow compartments using the taller rear roof space. Roof profile, clear height and support locations are unmeasured. Reuse / extend existing small shelves where suitable; do not infer a loft load rating.'});
- for(let i=0;i<cols;i++)for(let j=0;j<levels.length;j++)rearShelf(x0+(i+.5)*width/cols,width/cols-.025,depth,levels[j],levels[j+1]??h,'Rear upper shelf · '+Math.round(levels[j]*100)+' cm');
-}
-function storage(){
- const a=data.layouts[current];furnitureGroup=new T.Group();scene.add(furnitureGroup);shelfZones=[];
- const posts=[.10,1.04,1.98,2.73];
- capture(()=>{
-  // Rear-mounted uprights leave a continuous front edge, including the sled slot.
-  for(const x of posts)box(.04,a.top,.035,x,a.top/2,L-.0175,'metal',furnitureGroup);
- },null,{title:'Rear shelving · matching adjustable uprights',kind:'concept',dimensions:[a.rearWidth,.035,a.top],note:'One consistent shelving concept across the whole rear wall. No mixed retail rack and timber extension is required by the design. Final system, attachment and load rating remain to be specified.'});
- for(let bay=0;bay<2;bay++){
-  const x=(posts[bay]+posts[bay+1])/2,width=posts[bay+1]-posts[bay]-.04;
-  a.shelves[bay].forEach((y,i)=>{
-   const depth=y>a.stepHeight?a.upperDepth:a.depth;
-   rearShelf(x,width,depth,y,a.shelves[bay][i+1]??(storageHeight()>H?2.06:H),'Rear bay '+(bay+1)+' · '+Math.round(depth*100)+' cm deep / '+Math.round(y*100)+' cm high');
+ const levels=upperLevels();if(!levels.length||data.layouts[current].type==='boaxel')return;
+ const top=storageHeight()-.1,bottom=top-1;
+ // Three independent 80 cm bays use stock 82.4 cm alignment rails.
+ for(let bay=0;bay<(data.layouts[current].type==='bror'?2:3);bay++){
+  const x=.575+bay*.84;
+  capture(()=>box(.824,.02,.01,x,top-.01,L-.005,'white',furnitureGroup),'upperMount',{title:'Upper rear · BOAXEL alignment rail '+(bay+1),kind:'product',height:top-.02,note:'Alignment aid only. Each upright is independently fastened to structural backing.'});
+  for(const xx of [x-.4,x+.4])capture(()=>box(.02,1,.026,xx,bottom+.5,L-.013,'white',furnitureGroup),'upperRail',{title:'Upper rear · BOAXEL upright / bay '+(bay+1),kind:'product',height:bottom});
+  levels.forEach((y,i)=>{
+   capture(()=>box(.8,.02,.38,x,y-.01,L-.21,'white',furnitureGroup),'shelf',{title:'Upper rear · BOAXEL shelf / bay '+(bay+1)+' / '+Math.round(y*100)+' cm',kind:'product',dimensions:[.8,.38,.02],height:y,note:'Uses the taller rear roof space. 38 cm shelf in a 40 cm system. Roof profile and structural wall fixing positions are assumed, so check them before ordering.'});
+   for(const xx of [x-.4,x+.4])capture(()=>{
+    box(.01,.075,.026,xx,y-.05,L-.013,'white',furnitureGroup);box(.01,.015,.4,xx,y-.0275,L-.2,'white',furnitureGroup);
+   },'upperBracket',{title:'Upper rear · BOAXEL bracket / '+Math.round(y*100)+' cm',kind:'product',height:y-.08});
+   shelfZone(x,.8,.38,y,levels[i+1]??upperClearance(),.10,L-.02);
   });
  }
- const sx=(posts[2]+posts[3])/2,sw=posts[3]-posts[2]-.04;
- a.shelves[2].forEach((y,i)=>rearShelf(sx,sw,.4,y,a.shelves[2][i+1]??(storageHeight()>H?2.06:H),'Above sled · '+Math.round(y*100)+' cm high'));
- snowRacer(sx);
+}
+function transformStorage(){
+ const a=data.layouts[current];furnitureGroup=new T.Group();scene.add(furnitureGroup);shelfZones=[];
+ const start=(W-a.rearWidth)/2,zBack=L-a.standOff;
+ const centers=[start+.4875,start+.975+.455,start+.975+.91+.455];
+ for(let bay=0;bay<3;bay++){
+  const x=centers[bay],key=bay===0?a.baseKey:a.extensionKey;
+  capture(()=>{
+   // Nominal rack members; outer width / depth / height follow the retail specification.
+   const ends=bay===0?[start+.0175,start+.9575]:[start+.975+bay*.91-.0175];
+   for(const xx of ends){
+    for(const z of [zBack-.0175,zBack-a.depth+.0175])box(.035,a.top,.035,xx,a.top/2,z,'metal',furnitureGroup);
+    for(const y of [.3,1.05,1.8]){box(.025,.025,a.depth,xx,y,zBack-a.depth/2,'metal',furnitureGroup);}
+    rod([xx,.32,zBack-.03],[xx,1.78,zBack-a.depth+.03],.007,'metal',furnitureGroup);
+   }
+   a.shelves[bay].forEach(y=>{
+    box(.9,.032,a.depth,x,y-.016,zBack-a.depth/2,'metal',furnitureGroup);
+   });
+  },key,{title:'Rear bay '+(bay+1)+' · TRANSFORM '+(bay===0?'starter':'extension')+' / '+Math.round(a.depth*100)+' cm',kind:'product',dimensions:[bay===0?.975:.91,a.depth,a.top],note:'Four included shelves are repositioned in this bay; no extra shelf is assumed. Heights are nominal positions on the 32 mm grid. Complete run: 279.5 cm wide, with 4 cm behind it for the separate upper wall rails. Outer rack members are simplified.'});
+  a.shelves[bay].forEach((y,i)=>shelfZone(x,.9,a.depth,y,a.shelves[bay][i+1]??(upperLevels().length?2.15:storageHeight()),.032,zBack));
+ }
+ snowRacer(centers[2]);
+
+}
+function boaxelBay(x,width,levels,railBottom,railKey='upright',title='BOAXEL rear bay'){
+ const rail=data.products[railKey],height=rail.dimensions[2],top=railBottom+height;
+ capture(()=>box(.824,.02,.01,x,top-.01,L-.005,'white',furnitureGroup),'upperMount',{title:title+' · 82.4 cm mounting rail',kind:'product',height:top-.02});
+ for(const xx of [x-width/2,x+width/2])capture(()=>box(.02,height,.026,xx,railBottom+height/2,L-.013,'white',furnitureGroup),railKey,{title:title+' · '+Math.round(height*100)+' cm upright',kind:'product',height:railBottom});
+ levels.forEach((y,i)=>{
+  capture(()=>box(width,.02,.38,x,y-.01,L-.21,'white',furnitureGroup),'shelf',{title:title+' · metal shelf / '+Math.round(y*100)+' cm',kind:'product',dimensions:[width,.38,.02],height:y});
+  for(const xx of [x-width/2,x+width/2])capture(()=>{
+   box(.01,.075,.026,xx,y-.05,L-.013,'white',furnitureGroup);box(.01,.015,.4,xx,y-.0275,L-.2,'white',furnitureGroup);
+  },'upperBracket',{title:title+' · 40 cm bracket / '+Math.round(y*100)+' cm',kind:'product',height:y-.08});
+  shelfZone(x,width,.38,y,levels[i+1]??upperClearance(),.10,L-.02);
+ });
+}
+function boaxelLift(){return Math.max(0,Math.min(.25,upperClearance()-2.08));}
+function boaxelStorage(){
+ const a=data.layouts[current],lift=boaxelLift();
+ for(let bay=0;bay<3;bay++)boaxelBay(.575+bay*.84,.8,a.shelves[bay].map(y=>y+lift),.025+lift,'upright','Rear bay '+(bay+1)+' · BOAXEL');
+ snowRacer(2.255,0);
+}
+function brorStorage(){
+ const a=data.layouts[current];
+ for(let bay=0;bay<2;bay++){
+  const x=.48+bay*.87,zBack=L-a.standOff;
+  capture(()=>{
+   for(const xx of [x-.4125,x+.4125])for(const z of [zBack-.0125,zBack-.5375])box(.025,1.9,.025,xx,.95,z,'metal',furnitureGroup);
+   for(const xx of [x-.4125,x+.4125])for(const y of [.2,1.0,1.85])box(.02,.02,.55,xx,y,zBack-.275,'metal',furnitureGroup);
+   for(const y of a.shelves[bay])box(.84,.02,.54,x,y-.01,zBack-.275,'metal',furnitureGroup);
+   rod([x-.40,.15,zBack-.0125],[x+.4,1.85,zBack-.0125],.006,'metal',furnitureGroup);
+  },'deep',{title:'Rear bay '+(bay+1)+' · BROR 85 × 55 × 190 cm',kind:'product',dimensions:[.85,.55,1.9],note:'All five supplied 84 × 54 cm shelves are used, at nominal mixed heights. Stock outside size is 85 × 55 × 190 cm. Two units remain independent and wall-anchored; no connection kit is assumed.'});
+  a.shelves[bay].forEach((y,i)=>shelfZone(x,.84,.54,y,a.shelves[bay][i+1]??(upperLevels().length?2.15:storageHeight()),.04,zBack-.005));
+ }
+ const top=upperLevels().length?Math.max(2.32,upperLevels().at(-1)+.10):2.0,levels=[...a.shelves[2],...upperLevels()];
+ boaxelBay(2.24,.8,levels,top-2,'upright','Above sled · BOAXEL');snowRacer(2.24,0);
+}
+function storage(){
+ const a=data.layouts[current];
+ if(a.type==='transform')transformStorage();
+ else{furnitureGroup=new T.Group();scene.add(furnitureGroup);shelfZones=[];if(a.type==='boaxel')boaxelStorage();else brorStorage();}
  rightWall();upperStorage();exampleContents();leftWallStorage();
  root.querySelector('#rear-height-value').textContent=Math.round(storageHeight()*100)+' cm';
  root.querySelector('#upper-controls').hidden=!root.querySelector('#garage-upper').checked;
@@ -447,8 +467,8 @@ function storage(){
  composer?.dispose();composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));ao=new SSAOPass(scene,camera,w,h);ao.enabled=!camera.isOrthographicCamera;ao.kernelRadius=8;ao.minDistance=.002;ao.maxDistance=.12;composer.addPass(ao);composer.addPass(new OutputPass());composer.addPass(new SMAAPass(w,h));composer.setSize(w,h);}
  function applyVisibility(){if(!scene)return;if(bikeGroup)bikeGroup.visible=root.querySelector('#garage-bikes').checked;root.querySelector('#bike-controls').hidden=!root.querySelector('#garage-bikes').checked;root.querySelector('#bike-status').hidden=!root.querySelector('#garage-bikes').checked;updateWalls();carGroup.visible=root.querySelector('#garage-car').checked;for(const o of equipmentMeshes)o.visible=root.querySelector('#garage-gear').checked;labels.forEach((l,i)=>{l.visible=root.querySelector('#garage-dims').checked&&(l.userData.floorGap?view==='plan':['overview','plan'].includes(view)||['rear','front','back'].includes(view)&&i===0);});updateSpaceStatus();render();}
  function focusObject(){if(!selected)return;const b=objectBounds(selected),center=b.getCenter(new T.Vector3()),size=b.getSize(new T.Vector3());const distance=Math.max(.85,size.length()*1.35);const dir=new T.Vector3(.2,.32,-1).normalize();camera.up.set(0,1,0);camera.position.copy(center).addScaledVector(dir,distance);controls.target.copy(center);controls.update();render();}
- for(const id of ['garage-left-inserts','garage-left-baskets','garage-upper'])root.querySelector('#'+id).addEventListener('change',build);
- for(const id of ['basket-projection','basket-clearance','loft-length']){
+ for(const id of ['garage-left-baskets','garage-upper'])root.querySelector('#'+id).addEventListener('change',build);
+ for(const id of ['loft-length']){
   root.querySelector('#'+id).addEventListener('change',build);
   root.querySelector('#'+id).addEventListener('input',e=>{root.querySelector('#'+id+'-value').textContent=(id==='loft-length'?(e.target.value/100).toFixed(1)+' m':e.target.value+' cm');});
  }
@@ -458,7 +478,7 @@ function storage(){
  for(const id of ['garage-gear','garage-dims','garage-bikes','garage-cutaway','garage-access'])root.querySelector('#'+id).addEventListener('change',()=>{if(id==='garage-bikes'&&root.querySelector('#garage-bikes').checked)root.querySelector('#garage-car').checked=true;applyVisibility();});
  const raycaster=new T.Raycaster(),pointer=new T.Vector2();let down=null;
  renderer.domElement.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY,time:performance.now()};});
- function pick(e){const r=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);raycaster.setFromCamera(pointer,camera);const hits=raycaster.intersectObjects(scene.children,true);for(const hit of hits){let o=hit.object,visible=true;while(o){if(!o.visible)visible=false;o=o.parent;}if(!visible||!hit.object.isMesh)continue;return objects.find(o=>o.id===hit.object.userData.objectId)||null;}return null;}
+ function pick(e){const r=renderer.domElement.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);raycaster.setFromCamera(pointer,camera);const hits=raycaster.intersectObjects(scene.children,true);for(const hit of hits){let o=hit.object,visible=true;while(o){if(!o.visible)visible=false;o=o.parent;}if(!visible||!hit.object.isMesh)continue;const product=objects.find(o=>o.key&&o.id===hit.object.userData.objectId);return product||null;}return null;}
  renderer.domElement.addEventListener('pointerup',e=>{if(down&&Math.hypot(e.clientX-down.x,e.clientY-down.y)<6&&performance.now()-down.time<700)selectObject(pick(e));down=null;});
  renderer.domElement.addEventListener('pointermove',e=>{if(e.buttons)return;renderer.domElement.style.cursor=pick(e)?'pointer':'grab';});
 
@@ -467,28 +487,39 @@ function storage(){
  function updateWalls(){if(!scene||!camera)return;const cut=root.querySelector('#garage-cutaway').checked;scene.traverse(m=>{const side=m.userData.wall;if(side)m.visible=!(cut&&(side==='left'&&camera.position.x>0||side==='right'&&camera.position.x<-W||side==='back'&&camera.position.z>L));});}
  const money=v=>new Intl.NumberFormat('nb-NO',{maximumFractionDigits:2}).format(v)+' kr';
 function rearSurface(a){
- let area=0;for(let i=0;i<2;i++)for(const y of a.shelves[i])area+=.9*(y>a.stepHeight?a.upperDepth:a.depth);
- area+=.71*.4*a.shelves[2].length;
- if(storageHeight()>H){let levels=1;while(2.06+levels*.38+.25<=upperClearance())levels++;area+=3*(2.67/3-.025)*.28*levels;}
- return area;
+ if(a.type==='boaxel')return a.shelves.flat().length*.8*.38;
+ if(a.type==='bror')return 10*.84*.54+2*.8*.38+upperLevels().length*3*.8*.38;
+ return a.shelves.flat().length*.9*a.depth+upperLevels().length*3*.8*.38;
+}
+function shoppingList(a){
+ const rows=[];const add=(key,qty,use)=>{if(qty)rows.push({key,qty,use});};
+ const levels=upperLevels().length;
+ if(a.type==='boaxel'){
+  add('upright',6,'Rear · three independent BOAXEL bays, two full 200 cm uprights each');add('upperMount',3,'Rear · one uncut 82.4 cm alignment rail per bay');add('shelf',a.shelves.flat().length,'Rear · mixed openings and two shelves above the sled');add('upperBracket',a.shelves.flat().length*2,'Rear · two matching 40 cm brackets per shelf');
+ }else if(a.type==='bror'){
+  add('deep',2,'Rear · both stock BROR units, all ten supplied shelves used');add('upright',2,'Sled bay · two full 200 cm uprights');add('upperMount',1,'Sled bay · uncut 82.4 cm alignment rail');add('shelf',2+levels,'Sled bay · two shelves + roof-space tier(s)');add('upperBracket',(2+levels)*2,'Sled bay · two matching brackets per shelf');
+ }else{add(a.baseKey,1,'Rear starter · four shelves included');add(a.extensionKey,2,'Two rear extensions · eight shelves included');}
+ add('wallRail',Math.max(0,leftWallStats.rails-1),'Left wall · uncut 198 cm rails on stud faces');add('shortWallRail',leftWallStats.rails?1:0,'Above charger · uncut 316 mm rail');
+ add('basketSmall',leftWallStats.small,'Left wall · fixed 43.5 × 8 × 7 cm baskets');add('basketLarge',leftWallStats.large,'Left wall · fixed 43.5 × 13.5 × 14 cm high baskets');
+ add('railFixings',Math.ceil(((leftWallStats.rails?leftWallStats.rails-1:0)*5+(leftWallStats.rails?2:0))/10),'Left rails · five timber screws per full rail, two for the short rail');
+ if(levels&&a.type!=='boaxel'){
+  const bays=a.type==='bror'?2:3;add('upperMount',bays,'Above racks · uncut alignment rails');add('upperRail',bays*2,'Above racks · two 100 cm uprights per bay');add('shelf',bays*levels,'Above racks · metal BOAXEL shelves');add('upperBracket',bays*levels*2,'Above racks · two brackets per shelf');
+ }
+ // Merge identical catalogue components while preserving all allocations.
+ const combined=new Map();for(const r of rows){const old=combined.get(r.key);if(old){old.qty+=r.qty;old.use+='; '+r.use;}else combined.set(r.key,{...r});}return [...combined.values()];
 }
 function updateTable(){
- const a=data.layouts[current];
+ const a=data.layouts[current],rows=shoppingList(a),total=rows.reduce((s,r)=>s+r.qty*data.products[r.key].price,0);
  root.querySelector('#garage-title').textContent=a.id+' · '+a.name;
- const photo='assets/garage-plan-'+a.id.toLowerCase()+'.jpg';root.querySelector('#photo-title').textContent=a.id+' · '+a.name;root.querySelector('#plan-photo').src=photo;root.querySelector('#photo-link').href=photo;root.querySelector('#plan-photo').alt='Photorealistic concept · '+a.name+' · without a car';
+ const photo='assets/garage-plan-'+a.id.toLowerCase()+'.jpg';root.querySelector('#photo-title').textContent=a.id+' · '+a.name;root.querySelector('#plan-photo').src=photo;root.querySelector('#photo-link').href=photo;root.querySelector('#plan-photo').alt='Earlier appearance concept · '+a.name+' · without a car';
  root.querySelector('#garage-equipment').textContent=a.summary;
- root.querySelector('#garage-metrics').innerHTML='<span>Rear gap <strong>'+Math.round(a.frontGap*100)+' cm</strong></span><span>Rear depth <strong>'+Math.round(a.depth*100)+' / '+Math.round(a.upperDepth*100)+' cm</strong></span><span>Rear shelf surface <strong>'+shelfZones.reduce((s,z)=>s+z.area,0).toFixed(1)+' m²</strong></span><span>Left wall <strong>'+leftWallStats.added+' inserts + '+leftWallStats.baskets+' high baskets</strong></span><span>Loft <strong>existing · '+loftStats.length.toFixed(1)+' m assumed length</strong></span>';
- root.querySelector('#garage-price').textContent='Layout study · components unpriced';
- root.querySelector('#garage-unpriced').textContent=a.unpriced;
+ root.querySelector('#garage-metrics').innerHTML='<span>Rear gap <strong>'+Math.round(a.frontGap*100)+' cm</strong></span><span>Rear system <strong>'+a.system+'</strong></span><span>Rear shelf surface <strong>'+shelfZones.reduce((s,z)=>s+z.area,0).toFixed(1)+' m²</strong></span><span>Left wall <strong>'+leftWallStats.existing+' existing ledges + '+leftWallStats.baskets+' real baskets</strong></span><span>Loft <strong>existing · '+loftStats.length.toFixed(1)+' m assumed length</strong></span>';
+ const priceText=money(total)+' · products incl. VAT';root.querySelector('#garage-price').textContent=priceText;root.querySelector('#price-top').textContent=priceText;
+ root.querySelector('#garage-unpriced').textContent='Prices checked '+data.priceDate+'. '+a.unpriced;
+ root.querySelector('#left-capacity').textContent=leftWallStats.rails+' basket rails, '+leftWallStats.small+' shallow + '+leftWallStats.large+' high baskets, and '+leftWallStats.existing+' existing ledges / mini shelves retained. '+leftWallStats.aboveCharger+' baskets use space above the charger. No bespoke basket or custom-cut shelf is included.';
  root.querySelector('#inventory-rows').innerHTML=data.inventory.map(i=>'<tr><td>'+i.name+'<br><small>'+i.count+'</small></td><td>'+i.evidence+'</td><td>'+i.storage+'</td></tr>').join('');
- root.querySelector('#comparison-rows').innerHTML=data.layouts.map(p=>'<tr'+(p===a?' class="selected-plan"':'')+'><td>'+p.id+' · '+p.name+'</td><td>'+Math.round(p.depth*100)+' / '+Math.round(p.upperDepth*100)+' cm</td><td>'+rearSurface(p).toFixed(1)+' m²</td><td>'+Math.round(p.frontGap*100)+' cm</td><td>'+(p.depth>=.8?'Car out for rear retrieval':p.depth>=.6?'Tighter rear retrieval':p.depth>=.5?'Balanced starting point':'Most rear floor space')+'</td></tr>').join('');
- root.querySelector('#garage-products').innerHTML=[
-  ['Rear wall','8 adjustable main shelves + 2 above the sled; a 90 cm wide × 104 cm high opening for bulky things','Proposed system / reuse suitable existing small units; folded bike-carrier depth still needs checking'],
-  ['Upper rear','28 cm deep compartments in the taller roof area','Conditional on the assumed clearance'],
-  ['Left wall',leftWallStats.added+' flush inserts + '+leftWallStats.baskets+' high baskets','Existing ledges, braces and charger kept'],
-  ['Right wall','High ski shelf; shallow tools; ladder, folded chairs and table','Reuse existing shelf and adapt hooks / straps'],
-  ['Loft / hems','Seasonal / bulky storage; clear strip and approach','Existing deck; footprint / loading unmeasured']
- ].map(r=>'<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>').join('');
+ root.querySelector('#comparison-rows').innerHTML=data.layouts.map(p=>'<tr'+(p===a?' class="selected-plan"':'')+'><td>'+p.id+' · '+p.name+'</td><td>'+Math.round(p.depth*100)+' cm</td><td>'+rearSurface(p).toFixed(1)+' m²</td><td>'+Math.round(p.frontGap*100)+' cm</td><td>'+money(shoppingList(p).reduce((s,r)=>s+r.qty*data.products[r.key].price,0))+'</td></tr>').join('');
+ root.querySelector('#garage-products').innerHTML=rows.map(r=>{const p=data.products[r.key];return '<tr><td>'+productLink(r.key)+'<br><small>'+p.retailer+' · '+p.sku+'</small></td><td>'+r.qty+'</td><td>'+money(p.price)+'</td><td>'+money(r.qty*p.price)+'</td><td>'+r.use+'</td></tr>';}).join('');
 }
  root.querySelectorAll('[data-layout]').forEach(b=>b.addEventListener('click',()=>{current=Number(b.dataset.layout);root.querySelectorAll('[data-layout]').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));build();}));
  root.querySelector('#garage-view').addEventListener('change',e=>{view=e.target.value;updateCamera();});root.querySelector('#garage-car').addEventListener('change',applyVisibility);root.querySelector('#garage-loft').addEventListener('change',applyVisibility);

@@ -31,9 +31,9 @@ function makeAccessZones(){
  const approach=planPatch(accessGroup,x0,x1,loftStats.accessStart,loftStats.accessEnd,.025,'#b77637',.22);
  register([approach],null,{title:'Loft · reserved floor approach',kind:'concept',dimensions:[a.accessWidth,a.accessDepth,.003],height:0,note:'Keep this floor area available when accessing the loft. It overlaps the parked-car envelope at the default loft edge, so move the car out first. The final access method, ladder footprint and required opening are unmeasured.'});
  parkingPath=new T.Group();accessGroup.add(parkingPath);
- const carLeft=data.car.centerX-data.car.foldedWidth/2,z0=data.car.entranceGap,z1=L-data.layouts[current].depth;
+ const carLeft=data.car.centerX-data.car.foldedWidth/2,z0=data.car.entranceGap,z1=L-data.layouts[current].footprintDepth;
  planPatch(parkingPath,.14,carLeft-.02,z0,z1,.018,'#3d7162',.13);
- const clear=Number(root.querySelector('#basket-clearance').value)/100;
+ const clear=data.leftWall.highBasketBottom;
  for(const x of [.14,carLeft-.02]){
   line([x,clear,z0],[x,clear,z1],'#3d7162',parkingPath);
   for(const z of [z0,z1])line([x,.025,z],[x,clear,z],'#3d7162',parkingPath);
@@ -43,7 +43,7 @@ function makeAccessZones(){
 }
 function updateSpaceStatus(){
  const parked=root.querySelector('#garage-car').checked,loft=root.querySelector('#garage-loft').checked;
- const rearStart=L-data.layouts[current].depth;
+ const rearStart=L-data.layouts[current].footprintDepth;
  const blocked=loftStats.accessEnd>rearStart-.03;
  accessGroup.visible=root.querySelector('#garage-access').checked;
  loftGroup.userData.allocation.visible=accessGroup.visible;
@@ -53,9 +53,6 @@ function updateSpaceStatus(){
  root.querySelector('#plan-note').hidden=view!=='plan';
  parkingPath.visible=parked;emptyFloor.visible=!parked;
  root.querySelector('#loft-length-value').textContent=loftStats.length.toFixed(1)+' m';
- root.querySelector('#basket-projection-value').textContent=root.querySelector('#basket-projection').value+' cm';
- root.querySelector('#basket-clearance-value').textContent=root.querySelector('#basket-clearance').value+' cm';
- root.querySelector('#basket-controls').hidden=!root.querySelector('#garage-left-baskets').checked;
  root.querySelector('#loft-status').textContent=blocked?'The assumed loft approach overlaps rear storage / the rear wall. Revise the loft edge or access arrangement.':parked?'Move car out for the reserved loft approach and a usable work area.':'The reserved loft approach is clear of rear storage in this model. Final access method still needs checking.';
  root.querySelector('#space-status').innerHTML=parked?'<strong>Car parked:</strong> '+Math.round(data.layouts[current].frontGap*100)+' cm rear gap. Left side: about 55 cm to folded mirrors, narrowing to about 42 cm at the charger. A narrow passage; door movement is unmodelled.':'<strong>Car out:</strong> the centre becomes working and retrieval space; keep the marked loft approach available.';
 }

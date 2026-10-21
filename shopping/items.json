@@ -1,0 +1,242 @@
+{
+  "updated": "21. oktober 2026",
+  "stockChecked": "20. oktober 2026",
+  "groups": [
+    {
+      "id": "clas-storo",
+      "name": "Clas Ohlson Storo",
+      "location": "Storo Storsenter · Vitaminveien 7–9",
+      "area": "Storo",
+      "note": "Handlekurv tidligere godkjent. Ingen bekreftet reservasjon.",
+      "items": [
+        {
+          "id": "halloween-colours",
+          "name": "PLA: oransje, gul, hvit og Nebula Purple",
+          "quantity": "4 × 1 kg · én av hver",
+          "ore": 94970,
+          "url": "https://www.clasohlson.com/no/p/39-2658",
+          "note": "Samlet pris etter tidligere 3-for-2-rabatt. Purple er fargeskiftende. Bekreft kampanjen i kassen."
+        },
+        {
+          "id": "petg-black",
+          "name": "Svart PETG, 1,75 mm",
+          "quantity": "1 × 1 kg",
+          "ore": 29990,
+          "url": "https://www.clasohlson.com/no/p/38-9247-1",
+          "note": "Til bruk med én gang. Grå PETG er allerede bestilt på nett."
+        },
+        {
+          "id": "hex",
+          "name": "Metriske unbrakonøkler",
+          "quantity": "1 sett",
+          "ore": 4990,
+          "url": "https://www.clasohlson.com/no/p/40-7490"
+        },
+        {
+          "id": "pliers",
+          "name": "Elektronikktangsett",
+          "quantity": "1 sett",
+          "ore": 16990,
+          "url": "https://www.clasohlson.com/no/p/40-8298"
+        },
+        {
+          "id": "caliper",
+          "name": "Skyvelære i stål",
+          "quantity": "1 stk.",
+          "ore": 19990,
+          "url": "https://www.clasohlson.com/no/p/40-8746",
+          "note": "Felles til Enigma og lampene. Ikke kjøp et ekstra digitalt skyvelære."
+        }
+      ]
+    },
+    {
+      "id": "kjell-storo",
+      "name": "Kjell & Company Storo",
+      "location": "Storo Storsenter · Vitaminveien 7–9",
+      "area": "Storo",
+      "note": "Ikke reservert. Sist sjekket 20. oktober.",
+      "items": [
+        {
+          "id": "lamp-resistors",
+          "name": "Luxorparts 80216 · motstandssortiment",
+          "quantity": "1 sett",
+          "ore": 19990,
+          "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektronikk/motstander/luxorparts-motstandssats-1460-stk-p80216",
+          "note": "Storo: 1 stk."
+        },
+        {
+          "id": "lamp-shrink",
+          "name": "Luxorparts 40147 · svart krympeslange",
+          "quantity": "1 sortiment",
+          "ore": 11990,
+          "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektrisk-installasjon/krympeslanger/luxorparts-krympeslangeutvalg-40-stk-svart-p40147",
+          "note": "Storo: 1+ stk."
+        },
+        {
+          "id": "lamp-ties",
+          "name": "Strips · sortiment med svarte 2,5 × 100 mm",
+          "quantity": "1 pakke",
+          "ore": 12990,
+          "url": "https://www.kjell.com/no/produkter/data/kabler-og-adaptere/kabelhandtering/bunteband/bunteband-300-pk.-p37720",
+          "note": "Storo: 1 stk."
+        },
+        {
+          "id": "lamp-marking",
+          "name": "Hvit el-teip · merking av positiv leder",
+          "quantity": "1 rull / fra før",
+          "ore": 3490,
+          "url": "https://www.kjell.com/no/produkter/kontor/teip/el-teip-20-m-hvit-p40105",
+          "note": "Storo: 5+ stk."
+        },
+        {
+          "id": "lamp-iron",
+          "name": "Luxorparts 40712 · loddebolt / loddestasjon",
+          "quantity": "1 startpakke",
+          "ore": 69900,
+          "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/verktoy/lodding/loddebolter/luxorparts-loddestasjon-startpakke-48-w-p40712",
+          "note": "Storo: 1+ stk."
+        }
+      ]
+    },
+    {
+      "id": "kjell-torggata",
+      "name": "Kjell & Company Torggata",
+      "location": "Torggata 6, Oslo",
+      "area": "Torggata",
+      "note": "Disse produktene var ikke på lager på Storo 20. oktober. Ikke reservert.",
+      "items": [
+        {
+          "id": "lamp-wire",
+          "name": "Svart koblingstråd · 0,14 mm² / ca. AWG 26",
+          "quantity": "4 ruller à 10 m",
+          "ore": 19600,
+          "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/maleinstrumenter/malekabler-sonder-kontakter/koblingstrad/isolert-koblingstrad-014-mm-svart-p45060",
+          "note": "Kjell Torggata: 5+ ruller · kjøp 4 ruller · Storo: bestillingsvare"
+        },
+        {
+          "id": "lamp-multimeter",
+          "name": "UNI-T UT139A · multimeter",
+          "quantity": "1 stk.",
+          "ore": 59900,
+          "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/maleinstrumenter/multimetere/uni-t-ut139a-multimeter-p48385",
+          "note": "Kjell Torggata: 1 stk. · Storo: ikke på lager"
+        }
+      ]
+    },
+    {
+      "id": "clas-torggata",
+      "name": "Clas Ohlson Torggata",
+      "location": "Torggata 6, Oslo",
+      "area": "Torggata",
+      "note": "Ikke reservert. Sist sjekket: 4 stk., hylle 619, 20. oktober.",
+      "items": [
+        {
+          "id": "lamp-heatgun",
+          "name": "Cocraft HH 2000-E · varmluftpistol",
+          "quantity": "1 stk. / fra før",
+          "ore": 39990,
+          "url": "https://www.clasohlson.com/no/Cocraft-HH-2000-E-varmluftpistol-/p/40-8762",
+          "note": "Clas Ohlson Torggata: 4 stk. · butikkhylle 619 · Clas Storo: tomt"
+        }
+      ]
+    }
+  ],
+  "online": [
+    {
+      "id": "lamp-usb",
+      "name": "Goobay 45735 · USB-A til USB-C, 1 m",
+      "quantity": "5 stk.",
+      "ore": 19500,
+      "url": "https://www.motorkondensator.no/product/896/",
+      "note": "Motorkondensator · 1 til boksen + 4 til reserve og senere maskiner."
+    },
+    {
+      "id": "lamp-screws",
+      "name": "M3 × 8 mm · ISO 14580 A2 Torx",
+      "quantity": "100 skruer totalt",
+      "ore": 7500,
+      "url": "https://www.motorkondensator.no/product/639/",
+      "note": "Motorkondensator · Kjøp 100 med mengdepris 0,75 kr/stk. Førstebygg-sammenligningen bruker 30 stk. til ordinær 1 kr/stk. Alle fester bruker disse skruene; ingen ekstra avstandsstykker, muttere eller innsatser."
+    },
+    {
+      "id": "lamp-stripper",
+      "name": "Nemiq 8809575 · avisoleringstang",
+      "quantity": "1 stk.",
+      "ore": 59900,
+      "url": "https://www.elektroimportoren.no/avisoleringstang-0-08-10mm2/8809575/Product.html",
+      "note": "Elektroimportøren · Ett verktøy/sett. Bruk det du allerede har; ingen ekstra eksemplarer til lager."
+    },
+    {
+      "id": "lamp-drivers",
+      "name": "Meec 019268 · presisjonsskrutrekkersett",
+      "quantity": "1 sett",
+      "ore": 14900,
+      "url": "https://www.jula.no/catalog/verktoy-og-maskiner/handverktoy/skrutrekkere/skrutrekkersett/presisjonsskrutrekkersett-019268/",
+      "note": "Jula · Ett verktøy/sett. Bruk det du allerede har; ingen ekstra eksemplarer til lager."
+    },
+    {
+      "id": "lamp-charge-boost",
+      "name": "Elkim · justerbar boost til 4,5 V",
+      "quantity": "3 stk.",
+      "ore": 11700,
+      "url": "https://elkim.no/produkt/2a-usb-lithium-li-ion-18650-batterilader/",
+      "note": "Elkim · 1 i boksen + 2 reservekort."
+    },
+    {
+      "id": "lamp-switch-no",
+      "name": "På–av–på-minibryter · Lade / Av / Lys",
+      "quantity": "5 stk.",
+      "ore": 6000,
+      "url": "https://www.motorkondensator.no/product/351/",
+      "note": "Motorkondensator · 1 i boksen + 4 til feil og senere maskiner."
+    },
+    {
+      "id": "lamp-fuse-no",
+      "name": "250 mA · trege glassikringer, 5 × 20 mm",
+      "quantity": "1 pakke à 10 stk.",
+      "ore": 4900,
+      "url": "https://www.motorkondensator.no/product/478/",
+      "note": "Motorkondensator · 1 installert + 9 reservesikringer."
+    },
+    {
+      "id": "lamp-fuse-holder",
+      "name": "Isolert sikringsholder · 5 × 20 mm",
+      "quantity": "5 stk.",
+      "ore": 4500,
+      "url": "https://www.motorkondensator.no/product/793/",
+      "note": "Motorkondensator · 2 i første boks + 3 reserveholdere."
+    },
+    {
+      "id": "lamp-battery",
+      "name": "Akyga AKY0627 / LP675568 · 3 500 mAh med PCM",
+      "quantity": "2 stk.",
+      "ore": 45800,
+      "url": "https://mrsmart.no/akyga-li-pol-batteri-3500mah-1s-3-7v-jst-bec-kontakt-rasterkontakt-68x55x6mm-id80",
+      "note": "MrSmart · 1 installert + 1 reserve til senere maskin eller utskifting."
+    },
+    {
+      "id": "lamp-charge-only",
+      "name": "TP4056 · separat USB-C-lader, opptil 1 A",
+      "quantity": "3 stk.",
+      "ore": 17700,
+      "url": "https://elkim.no/produkt/tp4056-usb-c-lademodul-beskyttelse/",
+      "note": "Elkim · 1 installert + 2 reservekort."
+    },
+    {
+      "id": "lamp-battery-fuse",
+      "name": "1,6 A · treg 5 × 20 mm, 10-pakning",
+      "quantity": "1 stk.",
+      "ore": 4900,
+      "url": "https://www.motorkondensator.no/product/486/",
+      "note": "Motorkondensator · 1 installert + 9 reserve. Én pakke er nok."
+    },
+    {
+      "id": "lamp-thermometer",
+      "name": "Bright 021352 · termometer med 145 cm sensorledning",
+      "quantity": "1 stk. / fra før",
+      "ore": 5990,
+      "url": "https://www.jula.no/catalog/hjem-og-husholdning/hjemmeelektronikk/termometre-og-varstasjoner/digitale-termometre/termometer-021352/",
+      "note": "Jula · Ett gjenbrukbart måleverktøy, ingen dublett."
+    }
+  ]
+}

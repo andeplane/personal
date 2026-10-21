@@ -7,7 +7,7 @@
       "name": "Clas Ohlson Storo",
       "location": "Storo Storsenter · Vitaminveien 7–9",
       "area": "Storo",
-      "note": "Bestilt og betalt · ordre 404518737 · 2 128,70 kr inkl. mva. Gratis henting på Thon Senter Storo. Vent på SMS om at ordren er klar.",
+      "note": "Hentet og betalt 21, oktober 2026 · ordre 404518737 · 2 128,70 kr inkl, mva, Alle varene er i beholdningen; ikke kjøp dem på nytt,",
       "items": [
         {
           "id": "halloween-colours",
@@ -17,7 +17,11 @@
           "url": "https://www.clasohlson.com/no/p/39-2658",
           "note": "Betalt pris etter 3-for-2-rabatt. Purple er fargeskiftende.",
           "project": "Halloween-print",
-          "purpose": "Gresskar, spøkelser og andre Halloween-modeller."
+          "purpose": "Gresskar, spøkelser og andre Halloween-modeller.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         },
         {
           "id": "petg-black",
@@ -27,7 +31,11 @@
           "url": "https://www.clasohlson.com/no/p/38-9247-1",
           "note": "Til bruk med én gang. Grå PETG er allerede bestilt på nett.",
           "project": "Enigma",
-          "purpose": "PETG til bevegelige mekaniske deler; PLA brukes til den første passformprøven."
+          "purpose": "PETG til bevegelige mekaniske deler; PLA brukes til den første passformprøven.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         },
         {
           "id": "hex",
@@ -36,7 +44,11 @@
           "ore": 4990,
           "url": "https://www.clasohlson.com/no/p/40-7490",
           "project": "Enigma",
-          "purpose": "Stramme små skruer med innvendig sekskant i rotorene og mekanikken."
+          "purpose": "Stramme små skruer med innvendig sekskant i rotorene og mekanikken.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         },
         {
           "id": "pliers",
@@ -45,7 +57,11 @@
           "ore": 16990,
           "url": "https://www.clasohlson.com/no/p/40-8298",
           "project": "Enigma + bokhyllelys · felles verktøy",
-          "purpose": "Holde små mekaniske deler og klippe tynn ledning og komponentben."
+          "purpose": "Holde små mekaniske deler og klippe tynn ledning og komponentben.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         },
         {
           "id": "caliper",
@@ -55,7 +71,11 @@
           "url": "https://www.clasohlson.com/no/p/40-8746",
           "note": "Felles til Enigma og lampene. Ikke kjøp et ekstra digitalt skyvelære.",
           "project": "Enigma + bokhyllelys · felles verktøy",
-          "purpose": "Måle printede hull, aksler og delene som skal passe i lampeboksen."
+          "purpose": "Måle printede hull, aksler og delene som skal passe i lampeboksen.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         },
         {
           "id": "storage-outer",
@@ -65,7 +85,11 @@
           "url": "https://www.clasohlson.com/no/p/34-1552-31",
           "project": "Enigma + bokhyllelys · felles oppbevaring",
           "purpose": "Ytterboks for prosjektbokser, smådeler og felles verktøy.",
-          "note": "Bestilt og betalt. Prøv hele oppsettet med lokket på før det tas i bruk; fysisk passform er ikke verifisert."
+          "note": "Hentet og betalt. Prøv hele oppsettet med lokket på før det tas i bruk; fysisk passform er ikke verifisert.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         },
         {
           "id": "storage-projects",
@@ -75,7 +99,11 @@
           "url": "https://www.clasohlson.com/no/p/34-1552-150",
           "project": "Enigma + bokhyllelys · én boks per prosjekt",
           "purpose": "Hold Enigma-delene og lampedeler adskilt. Merk hver boks med prosjektnavn.",
-          "note": "Bestilt og betalt. Den ferdigmonterte Enigma-maskinen er ikke beregnet oppbevart i denne lille boksen."
+          "note": "Hentet og betalt. Den ferdigmonterte Enigma-maskinen er ikke beregnet oppbevart i denne lille boksen.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         },
         {
           "id": "storage-organisers",
@@ -85,7 +113,11 @@
           "url": "https://www.clasohlson.com/no/p/41-1602",
           "project": "Enigma + bokhyllelys · smådeler",
           "purpose": "Én til skruer og innsatser, én til små elektronikkdeler. Flyttbare skillevegger.",
-          "note": "Bestilt og betalt. Disse er større enn 4 L-prosjektboksene og må ligge separat i ytterboksen, ikke inni de små boksene."
+          "note": "Hentet og betalt. Disse er større enn 4 L-prosjektboksene og må ligge separat i ytterboksen, ikke inni de små boksene.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         },
         {
           "id": "storage-labels",
@@ -95,16 +127,25 @@
           "url": "https://www.clasohlson.com/no/p/44-5614-1",
           "project": "Enigma + bokhyllelys · merking av oppbevaring",
           "purpose": "Skriv prosjektnavn og innhold på de små boksene og sortimentsboksene. Vanlig penn holder.",
-          "note": "Bestilt og betalt. Ingen etikettskriver eller ekstra merkepenn."
+          "note": "Hentet og betalt. Ingen etikettskriver eller ekstra merkepenn.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         }
-      ]
+      ],
+      "status": "owned",
+      "collected": true,
+      "paid": true,
+      "collectedOn": "2026-10-21",
+      "orderReference": "404518737"
     },
     {
       "id": "kjell-storo",
       "name": "Kjell & Company Storo",
       "location": "Storo Storsenter · Vitaminveien 7–9",
       "area": "Storo",
-      "note": "Reservert · nr. 11356970 · 953,86 kr inkl. mva. Betales i butikk. Vent på SMS/e-post om at varene er klare. Reservasjonen gjelder 1 dag fra butikkens bekreftelse.",
+      "note": "Hentet og betalt 21, oktober 2026 · ordre 11356970 · 953,86 kr inkl, mva, Alle varene er i beholdningen; ikke kjøp dem på nytt,",
       "items": [
         {
           "id": "lamp-resistors",
@@ -112,9 +153,13 @@
           "quantity": "1 sett",
           "ore": 15992,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektronikk/motstander/luxorparts-motstandssats-1460-stk-p80216",
-          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Reservert; se reservasjonsnummer over.",
+          "note": "Hentet og betalt 21. oktober 2026. Finnes i beholdningen.",
           "project": "Bokhyllelys",
-          "purpose": "Begrense strømmen i hver av de fem lampene; verdi velges etter måling."
+          "purpose": "Begrense strømmen i hver av de fem lampene; verdi velges etter måling.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         },
         {
           "id": "lamp-shrink",
@@ -122,9 +167,13 @@
           "quantity": "1 sortiment",
           "ore": 9592,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektrisk-installasjon/krympeslanger/luxorparts-krympeslangeutvalg-40-stk-svart-p40147",
-          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Reservert; se reservasjonsnummer over.",
+          "note": "Hentet og betalt 21. oktober 2026. Finnes i beholdningen.",
           "project": "Bokhyllelys",
-          "purpose": "Isolere loddeskjøter og motstandsben i lampeledningene."
+          "purpose": "Isolere loddeskjøter og motstandsben i lampeledningene.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         },
         {
           "id": "lamp-ties",
@@ -132,19 +181,27 @@
           "quantity": "1 pakke",
           "ore": 10392,
           "url": "https://www.kjell.com/no/produkter/data/kabler-og-adaptere/kabelhandtering/bunteband/bunteband-300-pk.-p37720",
-          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Reservert; se reservasjonsnummer over.",
+          "note": "Hentet og betalt 21. oktober 2026. Finnes i beholdningen.",
           "project": "Bokhyllelys",
-          "purpose": "Feste kort, sikringsholdere og ledninger i de printede boksene."
+          "purpose": "Feste kort, sikringsholdere og ledninger i de printede boksene.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         },
         {
           "id": "lamp-marking",
           "name": "Hvit el-teip · merking av positiv leder",
-          "quantity": "1 rull / fra før",
+          "quantity": "1 rull",
           "ore": 3490,
           "url": "https://www.kjell.com/no/produkter/kontor/teip/el-teip-20-m-hvit-p40105",
-          "note": "På lager på Storo, kontrollert 21. oktober. Reservert; se reservasjonsnummer over.",
+          "note": "Hentet og betalt 21. oktober 2026. Finnes i beholdningen.",
           "project": "Bokhyllelys",
-          "purpose": "Merke plusslederen når begge ledningene er svarte."
+          "purpose": "Merke plusslederen når begge ledningene er svarte.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         },
         {
           "id": "lamp-iron",
@@ -152,18 +209,27 @@
           "quantity": "1 startpakke",
           "ore": 55920,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/verktoy/lodding/loddebolter/luxorparts-loddestasjon-startpakke-48-w-p40712",
-          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Reservert; se reservasjonsnummer over.",
+          "note": "Hentet og betalt 21. oktober 2026. Finnes i beholdningen.",
           "project": "Enigma + bokhyllelys · felles verktøy",
-          "purpose": "Lodde lampenes ledninger og elektronikk; også aktuell til Enigmaens gjengeinnsatser."
+          "purpose": "Lodde lampenes ledninger og elektronikk; også aktuell til Enigmaens gjengeinnsatser.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         }
-      ]
+      ],
+      "status": "owned",
+      "collected": true,
+      "paid": true,
+      "collectedOn": "2026-10-21",
+      "orderReference": "11356970"
     },
     {
       "id": "kjell-torggata",
       "name": "Kjell & Company Torggata",
       "location": "Torggata 6, Oslo",
       "area": "Torggata",
-      "note": "Reservert · nr. 11356973 · 795 kr inkl. mva. Betales i butikk. Vent på SMS/e-post om at varene er klare. Reservasjonen gjelder 1 dag fra butikkens bekreftelse.",
+      "note": "Hentet og betalt 21, oktober 2026 · ordre 11356973 · 795,00 kr inkl, mva, Alle varene er i beholdningen; ikke kjøp dem på nytt,",
       "items": [
         {
           "id": "lamp-wire",
@@ -171,9 +237,13 @@
           "quantity": "4 ruller à 10 m",
           "ore": 19600,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/maleinstrumenter/malekabler-sonder-kontakter/koblingstrad/isolert-koblingstrad-014-mm-svart-p45060",
-          "note": "Antallet er bekreftet i separat hentekurv for Torggata 21. oktober. Reservert; se reservasjonsnummer over.",
+          "note": "Hentet og betalt 21. oktober 2026. Finnes i beholdningen.",
           "project": "Bokhyllelys",
-          "purpose": "Ledningspar mellom kontrollboksen og de fem lyktene."
+          "purpose": "Ledningspar mellom kontrollboksen og de fem lyktene.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         },
         {
           "id": "lamp-multimeter",
@@ -181,18 +251,27 @@
           "quantity": "1 stk.",
           "ore": 59900,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/maleinstrumenter/multimetere/uni-t-ut139a-multimeter-p48385",
-          "note": "Antallet er bekreftet i separat hentekurv for Torggata 21. oktober. Reservert; se reservasjonsnummer over.",
+          "note": "Hentet og betalt 21. oktober 2026. Finnes i beholdningen.",
           "project": "Bokhyllelys · gjenbrukbart verktøy",
-          "purpose": "Stille regulatoren til 4,5 V og måle lampestrøm, polaritet og kontinuitet."
+          "purpose": "Stille regulatoren til 4,5 V og måle lampestrøm, polaritet og kontinuitet.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         }
-      ]
+      ],
+      "status": "owned",
+      "collected": true,
+      "paid": true,
+      "collectedOn": "2026-10-21",
+      "orderReference": "11356973"
     },
     {
       "id": "clas-torggata",
       "name": "Clas Ohlson Torggata",
       "location": "Torggata 6, Oslo",
       "area": "Torggata",
-      "note": "Bestilt og betalt med Vipps · ordre 404537669 · 399,90 kr inkl. mva. Gratis henting på Torggata. Vent på SMS om at ordren er klar.",
+      "note": "Hentet og betalt 21, oktober 2026 · ordre 404537669 · 399,90 kr inkl, mva, Alle varene er i beholdningen; ikke kjøp dem på nytt,",
       "items": [
         {
           "id": "lamp-heatgun",
@@ -200,11 +279,20 @@
           "quantity": "1 stk.",
           "ore": 39990,
           "url": "https://www.clasohlson.com/no/Cocraft-HH-2000-E-varmluftpistol-/p/40-8762",
-          "note": "Bestilt og betalt. Hentes på Torggata når hentemeldingen kommer.",
+          "note": "Hentet og betalt 21. oktober 2026. Finnes i beholdningen.",
           "project": "Bokhyllelys · gjenbrukbart verktøy",
-          "purpose": "Krympe isolasjon over loddeskjøtene før de legges i plastboksene."
+          "purpose": "Krympe isolasjon over loddeskjøtene før de legges i plastboksene.",
+          "status": "owned",
+          "collected": true,
+          "paid": true,
+          "collectedOn": "2026-10-21"
         }
-      ]
+      ],
+      "status": "owned",
+      "collected": true,
+      "paid": true,
+      "collectedOn": "2026-10-21",
+      "orderReference": "404537669"
     }
   ],
   "online": [
@@ -217,7 +305,11 @@
       "note": "Kjøpt og betalt hos Proshop · ordre 69973994. Totalt 1 022 kr inkludert 109 kr frakt. PostNord pakkeboks; oppgitt utsending 22.–26. oktober. Vent på hentemelding.",
       "project": "Personlig lagring · USB",
       "purpose": "USB-minne med USB-C og USB-A til filoverføring. Erstatter ønsket om Kingston; ikke kjøp begge.",
-      "paid": true
+      "paid": true,
+      "status": "ordered",
+      "collected": false,
+      "received": false,
+      "orderReference": "69973994"
     },
     {
       "id": "lamp-usb",

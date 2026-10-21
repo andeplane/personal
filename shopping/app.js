@@ -5,19 +5,23 @@ try { const saved = JSON.parse(localStorage.getItem(key) || '[]'); if (Array.isA
 const el = (tag, text, cls) => { const n = document.createElement(tag); if (text) n.textContent = text; if (cls) n.className = cls; return n; };
 fetch('items.json').then(r => { if (!r.ok) throw Error('data'); return r.json(); }).then(data => {
  const all = [...data.groups.flatMap(g=>g.items), ...data.online];
+ const owned = new Set(all.filter(x=>x.collected || x.status==='owned').map(x=>x.id));
+ const done = id => owned.has(id) || checked.has(id);
  function save() {try {localStorage.setItem(key,JSON.stringify([...checked]));} catch {document.querySelector('#save-note').textContent='Avkryssing virker, men denne nettleseren tillater ikke lagring.';}}
  function item(x) {
   const row=el('div',null,'item'); row.dataset.id=x.id;
-  const box=el('input'); box.type='checkbox'; box.id=x.id; box.checked=checked.has(x.id);
+  const box=el('input'); box.type='checkbox'; box.id=x.id; box.checked=done(x.id); box.disabled=owned.has(x.id);
   const body=el('div'); const label=el('label',x.name);label.htmlFor=x.id;
   body.append(label,el('p',x.project,'project'),el('p',x.purpose,'purpose'),el('p',x.quantity,'quantity'));
+  if(owned.has(x.id))body.append(el('p','Hentet og betalt · i beholdningen','ownership'));
+  else if(x.status==='ordered')body.append(el('p','Bestilt og betalt · mottak ikke bekreftet','ownership'));
   const bottom=el('div',null,'item-bottom');const link=el('a','Se produkt ↗');link.href=x.url;bottom.append(link,el('strong',money(x.ore)));body.append(bottom);
   if(x.note)body.append(el('p',x.note,'note'));row.append(box,body);
   box.addEventListener('change',()=>{box.checked?checked.add(x.id):checked.delete(x.id);save();update();});return row;
  }
  const stores=document.querySelector('#stores');
  for(const area of ['Storo','Torggata']){
-  const section=el('section',null,'area');section.id=area.toLowerCase();section.append(el('p',area==='Storo'?'01 / FØRSTE STOPP':'02 / VIDERE I SENTRUM','eyebrow'),el('h2',area));
+  const section=el('section',null,'area');section.id=area.toLowerCase();section.append(el('p',area==='Storo'?'01 / HENTET PÅ STORO':'02 / HENTET I SENTRUM','eyebrow'),el('h2',area));
   for(const group of data.groups.filter(g=>g.area===area)){
    const card=el('article',null,'store'); const head=el('div',null,'store-head');head.append(el('h3',group.name),el('p',group.location,'location'));
    const links=el('div',null,'store-links');const map=el('a','Åpne kart ↗');map.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(group.name+' '+group.location);const total=el('strong');total.dataset.group=group.id;links.append(map,total);head.append(links,el('p',group.note,'status'));card.append(head,...group.items.map(item));section.append(card);
@@ -26,12 +30,12 @@ fetch('items.json').then(r => { if (!r.ok) throw Error('data'); return r.json();
  document.querySelector('#paid-online').append(...data.online.filter(x=>x.paid).map(item));
  document.querySelector('#online-items').append(...data.online.filter(x=>!x.paid).map(item));
  function update(){
-  const local=data.groups.flatMap(g=>g.items);const left=local.filter(x=>!checked.has(x.id));
+  const local=data.groups.flatMap(g=>g.items);const left=local.filter(x=>!done(x.id));
   document.querySelector('#remaining').textContent=money(left.reduce((s,x)=>s+x.ore,0));
-  document.querySelector('#progress').textContent=`${local.length-left.length} av ${local.length} varelinjer avkrysset`;
-  for(const g of data.groups)document.querySelector(`[data-group="${g.id}"]`).textContent=money(g.items.filter(x=>!checked.has(x.id)).reduce((s,x)=>s+x.ore,0));
+  document.querySelector('#progress').textContent=`${local.filter(x=>owned.has(x.id)).length} av ${local.length} varelinjer hentet og i beholdningen`;
+  for(const g of data.groups)document.querySelector(`[data-group="${g.id}"]`).textContent=g.collected?'Hentet · '+money(g.items.reduce((s,x)=>s+x.ore,0)):money(g.items.filter(x=>!done(x.id)).reduce((s,x)=>s+x.ore,0));
   document.querySelector('#online-total').textContent=money(data.online.filter(x=>!x.paid&&!checked.has(x.id)).reduce((s,x)=>s+x.ore,0))+' gjenstår + frakt';
-  for(const row of document.querySelectorAll('.item')){const done=checked.has(row.dataset.id);row.classList.toggle('done',done);row.hidden=done&&document.querySelector('#hide-done').checked;row.querySelector('input').checked=done;}
+  for(const row of document.querySelectorAll('.item')){const complete=done(row.dataset.id);row.classList.toggle('owned',owned.has(row.dataset.id));row.classList.toggle('done',complete&&!owned.has(row.dataset.id));row.hidden=complete&&document.querySelector('#hide-done').checked;row.querySelector('input').checked=complete;}
  }
  document.querySelector('#hide-done').addEventListener('change',update);
  document.querySelector('#reset').addEventListener('click',()=>{if(confirm('Nullstille alle avkryssinger på denne enheten?')){checked.clear();save();update();}});

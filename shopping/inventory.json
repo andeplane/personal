@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 1,
+  "updatedOn": "2026-10-21",
+  "currency": "NOK",
+  "note": "Durable purchase inventory. Only collected/received items are owned; paid orders awaiting receipt stay ordered. Remaining lamp BOM is not included.",
+  "orders": [
+    {
+      "id": "clas-storo-2026-10-21",
+      "merchant": "Clas Ohlson Storo",
+      "orderReference": "404518737",
+      "status": "collected",
+      "paid": true,
+      "received": true,
+      "collectedOn": "2026-10-21",
+      "confirmationSource": "User confirmed all four store orders collected on 2026-10-21.",
+      "totalOre": 212870,
+      "items": [
+        {
+          "id": "halloween-colours",
+          "name": "PLA: oransje, gul, hvit og Nebula Purple",
+          "quantity": "4 × 1 kg · én av hver",
+          "quantityCount": 4,
+          "project": "Halloween-print",
+          "purpose": "Gresskar, spøkelser og andre Halloween-modeller.",
+          "url": "https://www.clasohlson.com/no/p/39-2658",
+          "lineTotalOre": 94970,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        },
+        {
+          "id": "petg-black",
+          "name": "Svart PETG, 1,75 mm",
+          "quantity": "1 × 1 kg",
+          "quantityCount": 1,
+          "project": "Enigma",
+          "purpose": "PETG til bevegelige mekaniske deler; PLA brukes til den første passformprøven.",
+          "url": "https://www.clasohlson.com/no/p/38-9247-1",
+          "lineTotalOre": 29990,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        },
+        {
+          "id": "hex",
+          "name": "Metriske unbrakonøkler",
+          "quantity": "1 sett",
+          "quantityCount": 1,
+          "project": "Enigma",
+          "purpose": "Stramme små skruer med innvendig sekskant i rotorene og mekanikken.",
+          "url": "https://www.clasohlson.com/no/p/40-7490",
+          "lineTotalOre": 4990,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        },
+        {
+          "id": "pliers",
+          "name": "Elektronikktangsett",
+          "quantity": "1 sett",
+          "quantityCount": 1,
+          "project": "Enigma + bokhyllelys · felles verktøy",
+          "purpose": "Holde små mekaniske deler og klippe tynn ledning og komponentben.",
+          "url": "https://www.clasohlson.com/no/p/40-8298",
+          "lineTotalOre": 16990,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        },
+        {
+          "id": "caliper",
+          "name": "Skyvelære i stål",
+          "quantity": "1 stk.",
+          "quantityCount": 1,
+          "project": "Enigma + bokhyllelys · felles verktøy",
+          "purpose": "Måle printede hull, aksler og delene som skal passe i lampeboksen.",
+          "url": "https://www.clasohlson.com/no/p/40-8746",
+          "lineTotalOre": 19990,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        },
+        {
+          "id": "storage-outer",
+          "name": "SmartStore Home · transparent boks med lokk, 31 L",
+          "quantity": "1 stk. · 50 × 39 × 26 cm",
+          "quantityCount": 1,
+          "project": "Enigma + bokhyllelys · felles oppbevaring",
+          "purpose": "Ytterboks for prosjektbokser, smådeler og felles verktøy.",
+          "url": "https://www.clasohlson.com/no/p/34-1552-31",
+          "lineTotalOre": 15990,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        },
+        {
+          "id": "storage-projects",
+          "name": "SmartStore Home · prosjektbokser med lokk, 4 L",
+          "quantity": "2 stk. · 30 × 19 × 11 cm",
+          "quantityCount": 2,
+          "project": "Enigma + bokhyllelys · én boks per prosjekt",
+          "purpose": "Hold Enigma-delene og lampedeler adskilt. Merk hver boks med prosjektnavn.",
+          "url": "https://www.clasohlson.com/no/p/34-1552-150",
+          "lineTotalOre": 13980,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        },
+        {
+          "id": "storage-organisers",
+          "name": "Cocraft FSS · sortimentsbokser, 13 rom",
+          "quantity": "2 stk. · 323 × 180 × 52 mm",
+          "quantityCount": 2,
+          "project": "Enigma + bokhyllelys · smådeler",
+          "purpose": "Én til skruer og innsatser, én til små elektronikkdeler. Flyttbare skillevegger.",
+          "url": "https://www.clasohlson.com/no/p/41-1602",
+          "lineTotalOre": 11980,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        },
+        {
+          "id": "storage-labels",
+          "name": "Hvite selvheftende skriveetiketter · 7 × 4 cm",
+          "quantity": "1 pakke à 150 etiketter",
+          "quantityCount": 1,
+          "project": "Enigma + bokhyllelys · merking av oppbevaring",
+          "purpose": "Skriv prosjektnavn og innhold på de små boksene og sortimentsboksene. Vanlig penn holder.",
+          "url": "https://www.clasohlson.com/no/p/44-5614-1",
+          "lineTotalOre": 3990,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        }
+      ]
+    },
+    {
+      "id": "kjell-storo-2026-10-21",
+      "merchant": "Kjell & Company Storo",
+      "orderReference": "11356970",
+      "status": "collected",
+      "paid": true,
+      "received": true,
+      "collectedOn": "2026-10-21",
+      "confirmationSource": "User confirmed all four store orders collected on 2026-10-21.",
+      "totalOre": 95386,
+      "items": [
+        {
+          "id": "lamp-resistors",
+          "name": "Luxorparts 80216 · motstandssortiment",
+          "quantity": "1 sett",
+          "quantityCount": 1,
+          "project": "Bokhyllelys",
+          "purpose": "Begrense strømmen i hver av de fem lampene; verdi velges etter måling.",
+          "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektronikk/motstander/luxorparts-motstandssats-1460-stk-p80216",
+          "lineTotalOre": 15992,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        },
+        {
+          "id": "lamp-shrink",
+          "name": "Luxorparts 40147 · svart krympeslange",
+          "quantity": "1 sortiment",
+          "quantityCount": 1,
+          "project": "Bokhyllelys",
+          "purpose": "Isolere loddeskjøter og motstandsben i lampeledningene.",
+          "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektrisk-installasjon/krympeslanger/luxorparts-krympeslangeutvalg-40-stk-svart-p40147",
+          "lineTotalOre": 9592,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        },
+        {
+          "id": "lamp-ties",
+          "name": "Strips · sortiment med svarte 2,5 × 100 mm",
+          "quantity": "1 pakke",
+          "quantityCount": 1,
+          "project": "Bokhyllelys",
+          "purpose": "Feste kort, sikringsholdere og ledninger i de printede boksene.",
+          "url": "https://www.kjell.com/no/produkter/data/kabler-og-adaptere/kabelhandtering/bunteband/bunteband-300-pk.-p37720",
+          "lineTotalOre": 10392,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        },
+        {
+          "id": "lamp-marking",
+          "name": "Hvit el-teip · merking av positiv leder",
+          "quantity": "1 rull",
+          "quantityCount": 1,
+          "project": "Bokhyllelys",
+          "purpose": "Merke plusslederen når begge ledningene er svarte.",
+          "url": "https://www.kjell.com/no/produkter/kontor/teip/el-teip-20-m-hvit-p40105",
+          "lineTotalOre": 3490,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        },
+        {
+          "id": "lamp-iron",
+          "name": "Luxorparts 40712 · loddebolt / loddestasjon",
+          "quantity": "1 startpakke",
+          "quantityCount": 1,
+          "project": "Enigma + bokhyllelys · felles verktøy",
+          "purpose": "Lodde lampenes ledninger og elektronikk; også aktuell til Enigmaens gjengeinnsatser.",
+          "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/verktoy/lodding/loddebolter/luxorparts-loddestasjon-startpakke-48-w-p40712",
+          "lineTotalOre": 55920,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        }
+      ]
+    },
+    {
+      "id": "kjell-torggata-2026-10-21",
+      "merchant": "Kjell & Company Torggata",
+      "orderReference": "11356973",
+      "status": "collected",
+      "paid": true,
+      "received": true,
+      "collectedOn": "2026-10-21",
+      "confirmationSource": "User confirmed all four store orders collected on 2026-10-21.",
+      "totalOre": 79500,
+      "items": [
+        {
+          "id": "lamp-wire",
+          "name": "Svart koblingstråd · 0,14 mm² / ca. AWG 26",
+          "quantity": "4 ruller à 10 m",
+          "quantityCount": 4,
+          "project": "Bokhyllelys",
+          "purpose": "Ledningspar mellom kontrollboksen og de fem lyktene.",
+          "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/maleinstrumenter/malekabler-sonder-kontakter/koblingstrad/isolert-koblingstrad-014-mm-svart-p45060",
+          "lineTotalOre": 19600,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        },
+        {
+          "id": "lamp-multimeter",
+          "name": "UNI-T UT139A · multimeter",
+          "quantity": "1 stk.",
+          "quantityCount": 1,
+          "project": "Bokhyllelys · gjenbrukbart verktøy",
+          "purpose": "Stille regulatoren til 4,5 V og måle lampestrøm, polaritet og kontinuitet.",
+          "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/maleinstrumenter/multimetere/uni-t-ut139a-multimeter-p48385",
+          "lineTotalOre": 59900,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        }
+      ]
+    },
+    {
+      "id": "clas-torggata-2026-10-21",
+      "merchant": "Clas Ohlson Torggata",
+      "orderReference": "404537669",
+      "status": "collected",
+      "paid": true,
+      "received": true,
+      "collectedOn": "2026-10-21",
+      "confirmationSource": "User confirmed all four store orders collected on 2026-10-21.",
+      "totalOre": 39990,
+      "items": [
+        {
+          "id": "lamp-heatgun",
+          "name": "Cocraft HH 2000-E · varmluftpistol",
+          "quantity": "1 stk.",
+          "quantityCount": 1,
+          "project": "Bokhyllelys · gjenbrukbart verktøy",
+          "purpose": "Krympe isolasjon over loddeskjøtene før de legges i plastboksene.",
+          "url": "https://www.clasohlson.com/no/Cocraft-HH-2000-E-varmluftpistol-/p/40-8762",
+          "lineTotalOre": 39990,
+          "status": "owned",
+          "collected": true,
+          "received": true
+        }
+      ]
+    },
+    {
+      "id": "proshop-69973994",
+      "merchant": "Proshop",
+      "orderReference": "69973994",
+      "status": "ordered",
+      "paid": true,
+      "received": false,
+      "totalOre": 102200,
+      "shippingOre": 10900,
+      "expectedDispatch": "2026-10-22/2026-10-26",
+      "note": "Receipt not confirmed. Do not purchase again.",
+      "items": [
+        {
+          "id": "sandisk-dual-drive-go-512",
+          "name": "SanDisk Ultra Dual Drive Go · 512 GB",
+          "quantity": "1 stk.",
+          "quantityCount": 1,
+          "project": "Personlig lagring · USB",
+          "purpose": "USB-minne med USB-C og USB-A til filoverføring. Erstatter ønsket om Kingston; ikke kjøp begge.",
+          "status": "ordered",
+          "received": false
+        }
+      ]
+    },
+    {
+      "id": "polyalkemi-1049698",
+      "merchant": "Polyalkemi",
+      "orderReference": "1049698",
+      "status": "ordered",
+      "paid": true,
+      "received": false,
+      "totalOre": 134200,
+      "note": "Receipt not confirmed. Do not purchase again.",
+      "items": [
+        {
+          "id": "polyalkemi-pva",
+          "name": "PVA · 500 g",
+          "quantity": "2 × 500 g",
+          "quantityCount": 2,
+          "project": "Molekylmodeller",
+          "purpose": "Midlertidig vannløselig støttemateriale.",
+          "status": "ordered",
+          "received": false
+        },
+        {
+          "id": "polyalkemi-grey-petg",
+          "name": "Grå PETG Basic · 1 kg",
+          "quantity": "1 × 1 kg",
+          "quantityCount": 1,
+          "project": "Enigma",
+          "purpose": "PETG til mekaniske deler.",
+          "status": "ordered",
+          "received": false
+        }
+      ]
+    }
+  ]
+}

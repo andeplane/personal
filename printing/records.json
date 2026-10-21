@@ -51,6 +51,13 @@
         "sha256": "af6bbe7bad9669e2f3641efe9ce263b378ff74515fff54a9aaebebacbd2aa898",
         "stage": "during-print-initial",
         "src": "assets/enigma-stepping-pla-20261021-a1/during-20261021T092039Z.jpg"
+      },
+      {
+        "src": "assets/enigma-stepping-pla-20261021-a1/during-20261021T092233Z.jpg",
+        "capturedAt": "2026-10-21T09:22:33.920026+00:00",
+        "caption": "Ny tidlig kamerakontroll · printeren rapporterer lag 1. Svart ekstrudering er ikke tydelig nok over hele platen til å bekrefte vedheft; ingen åpenbare klumper eller løse deler er synlige. Dette er ikke et bilde av et ferdig første lag.",
+        "sha256": "b8adfd91b30e663be1ae6308c9e19ca1d2c83d9626c0ac578863b581172e3c81",
+        "stage": "during-print-initial"
       }
     ],
     "source": {
@@ -93,7 +100,7 @@
         "reportedTotalLayers": 54
       }
     },
-    "notes": "Printeren har godtatt jobben og rapporterer RUNNING. En fersk kameraramme er bevart fra tidlig fase etter start; den viser platen/verktøyhodet og bekrefter ikke første lag eller vedheft. En ubelastet PLA-passformprøve med 18 separate deler; tre foreslåtte seter er fortsatt ukvalifiserte. Ingen fjærer, belastet drift, holdbarhet eller funksjon er godkjent. Faktisk sluttid, varighet og filamentforbruk mangler fortsatt.",
+    "notes": "Printeren har godtatt jobben og rapporterer RUNNING. To ferske kamerarammer er bevart fra tidlig fase etter start; de viser platen/verktøyhodet og bekrefter ikke et ferdig første lag eller vedheft. En ubelastet PLA-passformprøve med 18 separate deler; tre foreslåtte seter er fortsatt ukvalifiserte. Ingen fjærer, belastet drift, holdbarhet eller funksjon er godkjent. Faktisk sluttid, varighet og filamentforbruk mangler fortsatt.",
     "sequence": 5,
     "evidencePending": [
       "Fresh terminal-state camera and reported outcome",
@@ -106,7 +113,7 @@
       "supports": "normal(auto), snug, including above-bed supports",
       "outerBrimMm": 8
     },
-    "updatedAt": "2026-10-21T09:22:15.360609+00:00"
+    "updatedAt": "2026-10-21T09:25:33.071502+00:00"
   },
   {
     "id": "enigma-five-9f68de72",

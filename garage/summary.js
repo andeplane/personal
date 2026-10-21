@@ -23,7 +23,9 @@ function shoppingList(a){
 function updateTable(){
  const a=data.layouts[current],rows=shoppingList(a),total=rows.reduce((s,r)=>s+r.qty*data.products[r.key].price,0);
  root.querySelector('#garage-title').textContent=a.id+' · '+a.name;
- const photo='assets/garage-plan-'+a.id.toLowerCase()+'.jpg';root.querySelector('#photo-title').textContent=a.id+' · '+a.name;root.querySelector('#plan-photo').src=photo;root.querySelector('#photo-link').href=photo;root.querySelector('#plan-photo').alt='Earlier appearance concept · '+a.name+' · without a car';
+ const photo='assets/garage-plan-'+a.id.toLowerCase()+'.jpg',photoAlt='Imagegen image of the earlier Plan '+a.id+', without a car';
+ root.querySelector('#photo-title').textContent='Plan '+a.id+' · earlier generated image';root.querySelector('#photo-preview-title').textContent='Imagegen image · Plan '+a.id;
+ for(const image of root.querySelectorAll('#plan-photo, #plan-photo-preview')){image.src=photo;image.alt=photoAlt;}root.querySelector('#photo-link').href=photo;
  root.querySelector('#garage-equipment').textContent=a.summary;
  root.querySelector('#garage-metrics').innerHTML='<span>Rear gap <strong>'+Math.round(a.frontGap*100)+' cm</strong></span><span>Rear system <strong>'+a.system+'</strong></span><span>Rear shelf surface <strong>'+shelfZones.reduce((s,z)=>s+z.area,0).toFixed(1)+' m²</strong></span><span>Left wall <strong>'+leftWallStats.existing+' existing ledges + '+leftWallStats.baskets+' real baskets</strong></span><span>Loft <strong>existing · '+loftStats.length.toFixed(1)+' m assumed length</strong></span>';
  const priceText=money(total)+' · products incl. VAT';root.querySelector('#garage-price').textContent=priceText;root.querySelector('#price-top').textContent=priceText;

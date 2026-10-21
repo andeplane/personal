@@ -45,3 +45,8 @@ Historical entry `enigma-five-9f68de72` was recovered from the printer's last-jo
 state. Its print dates and actual duration/usage are unknown; the two camera
 captures show the empty plate after parts were removed. It is not a full backfill
 of earlier print history.
+
+Optional `evidenceImages` holds derived slicer/toolpath images separately from
+camera `snapshots`. Each entry has `src`, `kind`, a caption explaining its proof
+boundary and SHA-256. The builder verifies exact bytes. Do not invent camera
+capture timestamps or put a derived rendering in the camera collection.

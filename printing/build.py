@@ -1,5 +1,5 @@
 """Validate append-only print records and assemble the public index. No dependencies."""
-import json, re
+import json, re, hashlib
 from pathlib import Path
 from datetime import datetime
 ROOT = Path(__file__).resolve().parent
@@ -21,12 +21,16 @@ def build():
             assert run[key] is None or isinstance(run[key], (int, float)) and run[key] >= 0, (path, key)
         # An unsliced planned record has no preview; listed captures must still be real files.
         images = [i for i in (run['preview'], run['layout']) if i is not None]
-        for image in images + [s['src'] for s in run['snapshots']]:
+        for image in images + [s['src'] for s in run['snapshots']] + [s['src'] for s in run.get('evidenceImages', [])]:
             resolved = (ROOT / image).resolve()
             assert image.startswith('assets/') and resolved.is_relative_to(ROOT / 'assets') and resolved.is_file(), image
         for shot in run['snapshots']:
             datetime.fromisoformat(shot['capturedAt'].replace('Z', '+00:00'))
             assert shot['caption'], path
+        for image in run.get('evidenceImages', []):
+            assert image['caption'] and image['kind'], path
+            assert re.fullmatch(r'[0-9a-f]{64}', image['sha256']), path
+            assert hashlib.sha256((ROOT / image['src']).read_bytes()).hexdigest() == image['sha256'], path
         records.append(run)
     records.sort(key=lambda r: (r['startedAt'] or r.get('printDate') or r['recordedAt'], r.get('sequence', 0)), reverse=True)
     (ROOT / 'records.json').write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n')

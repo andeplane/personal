@@ -41,3 +41,9 @@ og lenkes bare til herfra.
 ## Bokhyllelys
 
 [Åpne byggeguiden](https://andeplane.github.io/personal/bookshelf-lighting/) · [Filer og utvikling](bookshelf-lighting/README.md). Printfiler, koblingsskjema og handleliste med norske butikker og verktøy.
+
+## 3D-printing
+
+[Printlogg](https://andeplane.github.io/personal/printing/) med én post per kjøring,
+platevisning, kamerabilder og estimert/faktisk tid og forbruk.
+Se [logging workflow](printing/README.md) og [AGENTS.md](AGENTS.md).

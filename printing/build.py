@@ -1,0 +1,32 @@
+"""Validate append-only print records and assemble the public index. No dependencies."""
+import json, re
+from pathlib import Path
+from datetime import datetime
+ROOT = Path(__file__).resolve().parent
+STATUSES = {'planned', 'printing', 'completed', 'failed', 'cancelled'}
+def build():
+    records = []
+    for path in sorted((ROOT / 'records').glob('*.json')):
+        run = json.loads(path.read_text())
+        assert run['id'] == path.stem and re.fullmatch(r'[a-z0-9-]+', run['id']), path
+        assert run['status'] in STATUSES, path
+        for key in ['title', 'project', 'printer', 'jobName', 'material', 'notes']:
+            assert isinstance(run[key], str) and run[key], (path, key)
+        assert run['parts'] and all(isinstance(p, str) for p in run['parts']), path
+        assert re.fullmatch(r'#[0-9a-fA-F]{6}', run['color']), path
+        assert run['source']['sha256'] is None or re.fullmatch(r'[0-9a-f]{64}', run['source']['sha256']), path
+        for key in ['recordedAt', 'startedAt', 'finishedAt']:
+            if run[key] is not None: datetime.fromisoformat(run[key].replace('Z', '+00:00'))
+        for key in ['estimatedSeconds', 'actualSeconds', 'estimatedGrams', 'actualGrams', 'estimatedMeters']:
+            assert run[key] is None or isinstance(run[key], (int, float)) and run[key] >= 0, (path, key)
+        for image in [run['preview'], run['layout']] + [s['src'] for s in run['snapshots']]:
+            resolved = (ROOT / image).resolve()
+            assert image.startswith('assets/') and resolved.is_relative_to(ROOT / 'assets') and resolved.is_file(), image
+        for shot in run['snapshots']:
+            datetime.fromisoformat(shot['capturedAt'].replace('Z', '+00:00'))
+            assert shot['caption'], path
+        records.append(run)
+    records.sort(key=lambda r: (r['startedAt'] or r.get('printDate') or r['recordedAt'], r.get('sequence', 0)), reverse=True)
+    (ROOT / 'records.json').write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n')
+    print(f'Validated {len(records)} print records and all referenced images.')
+if __name__ == '__main__': build()

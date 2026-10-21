@@ -34,6 +34,12 @@ jobs:
           node --check garage/viewer.js
           python3 -m json.tool garage/design-data.json > /dev/null
 
+      - name: Validate print history
+        run: |
+          python3 printing/build.py
+          node --check printing/printing.js
+          git diff --exit-code -- printing/records.json
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

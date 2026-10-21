@@ -1,0 +1,42 @@
+{
+  "id": "enigma-rotor-ii-20261020",
+  "title": "Rotor II · komplett plastsett",
+  "project": "OpenEnigma",
+  "printer": "Bambu Lab X2D",
+  "status": "completed",
+  "recordedAt": "2026-10-21T08:40:00Z",
+  "startedAt": null,
+  "finishedAt": null,
+  "printDate": "2026-10-20",
+  "jobName": "ENIGMA_DOUBLESTEP_-_THREE_COMPLETE_ROTOR_PLASTIC_KITS",
+  "plate": 2,
+  "parts": [
+    "ROTOR_II_LEFT_SPINE",
+    "ROTOR_II_RIGHT_SPINE",
+    "ROTOR_II_LEFT_OUTER_PLUS",
+    "ROTOR_II_LEFT_OUTER_MINUS",
+    "ROTOR_II_RIGHT_OUTER_PLUS",
+    "ROTOR_II_RIGHT_OUTER_MINUS",
+    "ROTOR_II_NUMBERED_RING"
+  ],
+  "estimatedSeconds": 14772,
+  "actualSeconds": null,
+  "estimatedGrams": 71.17,
+  "actualGrams": null,
+  "estimatedMeters": 23.48,
+  "material": "PLA Basic · svart",
+  "color": "#161616",
+  "layerHeightMm": 0.1,
+  "nozzleMm": 0.4,
+  "layers": 199,
+  "preview": "assets/enigma-rotor-ii-20261020/plan.png",
+  "layout": "assets/enigma-rotor-ii-20261020/layout.png",
+  "snapshots": [],
+  "source": {
+    "file": "ENIGMA_DOUBLESTEP_-_THREE_COMPLETE_ROTOR_PLASTIC_KITS.gcode.3mf",
+    "sha256": "41d64462cdabc65407dbd008b26fbd4c533b89f182d53760ea41de792f11c40a",
+    "evidence": "Tilbakeført fra chatten «Configure printer MCP and choose a 3». Alle tre kittene ble slicet til ca. 4 t 6 min og 71,17 g hver. Platevisningene er bevart i den nedlastede prosjektfilen. Bare plate 2 sin G-kode er bevart i denne filen; identiske byte for de to andre kjøringene er ikke dokumentert."
+  },
+  "notes": "Historisk utskrift. Kamerakontroll ble omtalt i chatten, men bildene fra denne kjøringen er ikke bevart i loggen. Faktisk varighet og forbruk er ukjent. Rotoroppsettet fikk senere en hold etter skader ved supportfjerning; fullført betyr ikke godkjent passform eller kvalitet.",
+  "sequence": 2
+}

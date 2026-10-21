@@ -1,0 +1,14 @@
+name: Validate print history
+on:
+  pull_request:
+    paths: ['printing/**', '.github/workflows/print-history.yml']
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 printing/build.py
+      - run: node --check printing/printing.js
+      - run: git diff --exit-code -- printing/records.json

@@ -1,0 +1,51 @@
+{
+  "id": "enigma-five-9f68de72",
+  "title": "Enigma · ramme og reflektor",
+  "project": "OpenEnigma",
+  "printer": "Bambu Lab X2D",
+  "status": "completed",
+  "recordedAt": "2026-10-21T08:29:55Z",
+  "startedAt": null,
+  "finishedAt": null,
+  "jobName": "ENIGMA_FIVE_PLA_SUPPORTS_9f68de72",
+  "plate": 1,
+  "parts": [
+    "FRAME_LEFT",
+    "FRAME_RIGHT",
+    "ENTRY_WHEEL_BODY",
+    "REFLECTOR_CABINET",
+    "REFLECTOR_CAM_CAP"
+  ],
+  "estimatedSeconds": 14570,
+  "actualSeconds": null,
+  "estimatedGrams": 136.69,
+  "actualGrams": null,
+  "estimatedMeters": 45.1032,
+  "material": "PLA Basic · svart",
+  "color": "#161616",
+  "layerHeightMm": 0.2,
+  "nozzleMm": 0.4,
+  "layers": 336,
+  "preview": "assets/enigma-five-9f68de72/plan.png",
+  "layout": "assets/enigma-five-9f68de72/layout.png",
+  "snapshots": [
+    {
+      "src": "assets/enigma-five-9f68de72/camera-1.jpg",
+      "capturedAt": "2026-10-21T08:29:55Z",
+      "caption": "Etter fullføring · delene er fjernet, platen er tom."
+    },
+    {
+      "src": "assets/enigma-five-9f68de72/camera-2.jpg",
+      "capturedAt": "2026-10-21T08:30:29Z",
+      "caption": "Ny kamerakontroll · delene er fjernet, platen er tom."
+    }
+  ],
+  "source": {
+    "file": "ENIGMA_FIVE_PLA_SUPPORTS_9f68de72.gcode.3mf",
+    "sha256": "9f68de72b2eba6b859696699d5b8390d28875f97a478920ecf3985c18e827156",
+    "evidence": "Printeren rapporterte FINISH, 100 %, 336/336 lag. Tid, gram og meter er slicerestimater fra den nedlastede 3MF-filen (slice_info.config og G-kode). Chatten bekrefter svart PLA i A3; grønn er kun slicerens visningsfarge. Jobben startet ca. 21:39 norsk tid 20. oktober og var rapportert ferdig ved kontroll 02:01 21. oktober, men nøyaktige start/slutt-tider er ikke bevart."
+  },
+  "notes": "Etterregistrert fra siste jobb på printeren. Start- og sluttid og faktisk forbruk ble ikke lagret. Kamerabildene ble tatt ved registrering, ikke under utskriften. Printerens fullført-status dokumenterer ikke delenes kvalitet eller passform.",
+  "printDate": "2026-10-20",
+  "sequence": 4
+}

@@ -1,13 +1,13 @@
 {
   "updated": "21. oktober 2026",
-  "stockChecked": "20. oktober 2026",
+  "stockChecked": "21. oktober 2026",
   "groups": [
     {
       "id": "clas-storo",
       "name": "Clas Ohlson Storo",
       "location": "Storo Storsenter · Vitaminveien 7–9",
       "area": "Storo",
-      "note": "Handlekurv tidligere godkjent. Ingen bekreftet reservasjon.",
+      "note": "Handlekurv fylt: 2 128,70 kr inkl. mva. Samlet Storo-henting kontrolleres. Venter på din godkjenning; ingen bestilling sendt.",
       "items": [
         {
           "id": "halloween-colours",
@@ -56,6 +56,46 @@
           "note": "Felles til Enigma og lampene. Ikke kjøp et ekstra digitalt skyvelære.",
           "project": "Enigma + bokhyllelys · felles verktøy",
           "purpose": "Måle printede hull, aksler og delene som skal passe i lampeboksen."
+        },
+        {
+          "id": "storage-outer",
+          "name": "SmartStore Home · transparent boks med lokk, 31 L",
+          "quantity": "1 stk. · 50 × 39 × 26 cm",
+          "ore": 15990,
+          "url": "https://www.clasohlson.com/no/p/34-1552-31",
+          "project": "Enigma + bokhyllelys · felles oppbevaring",
+          "purpose": "Ytterboks for prosjektbokser, smådeler og felles verktøy.",
+          "note": "Lagt i handlekurven. Prøv hele oppsettet med lokket på før det tas i bruk; fysisk passform er ikke verifisert."
+        },
+        {
+          "id": "storage-projects",
+          "name": "SmartStore Home · prosjektbokser med lokk, 4 L",
+          "quantity": "2 stk. · 30 × 19 × 11 cm",
+          "ore": 13980,
+          "url": "https://www.clasohlson.com/no/p/34-1552-150",
+          "project": "Enigma + bokhyllelys · én boks per prosjekt",
+          "purpose": "Hold Enigma-delene og lampedeler adskilt. Merk hver boks med prosjektnavn.",
+          "note": "Lagt i handlekurven. Den ferdigmonterte Enigma-maskinen er ikke beregnet oppbevart i denne lille boksen."
+        },
+        {
+          "id": "storage-organisers",
+          "name": "Cocraft FSS · sortimentsbokser, 13 rom",
+          "quantity": "2 stk. · 323 × 180 × 52 mm",
+          "ore": 11980,
+          "url": "https://www.clasohlson.com/no/p/41-1602",
+          "project": "Enigma + bokhyllelys · smådeler",
+          "purpose": "Én til skruer og innsatser, én til små elektronikkdeler. Flyttbare skillevegger.",
+          "note": "Lagt i handlekurven. Disse er større enn 4 L-prosjektboksene og må ligge separat i ytterboksen, ikke inni de små boksene."
+        },
+        {
+          "id": "storage-labels",
+          "name": "Hvite selvheftende skriveetiketter · 7 × 4 cm",
+          "quantity": "1 pakke à 150 etiketter",
+          "ore": 3990,
+          "url": "https://www.clasohlson.com/no/p/44-5614-1",
+          "project": "Enigma + bokhyllelys · merking av oppbevaring",
+          "purpose": "Skriv prosjektnavn og innhold på de små boksene og sortimentsboksene. Vanlig penn holder.",
+          "note": "Lagt i handlekurven. Ingen etikettskriver eller ekstra merkepenn."
         }
       ]
     },
@@ -64,15 +104,15 @@
       "name": "Kjell & Company Storo",
       "location": "Storo Storsenter · Vitaminveien 7–9",
       "area": "Storo",
-      "note": "Ikke reservert. Sist sjekket 20. oktober.",
+      "note": "Hentekurv klar: 953,86 kr inkl. mva etter 229,74 kr rabatt. Betales i butikk. Venter på godkjenning; ingen reservasjon sendt.",
       "items": [
         {
           "id": "lamp-resistors",
           "name": "Luxorparts 80216 · motstandssortiment",
           "quantity": "1 sett",
-          "ore": 19990,
+          "ore": 15992,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektronikk/motstander/luxorparts-motstandssats-1460-stk-p80216",
-          "note": "Storo: 1 stk.",
+          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Ikke reservert.",
           "project": "Bokhyllelys",
           "purpose": "Begrense strømmen i hver av de fem lampene; verdi velges etter måling."
         },
@@ -80,9 +120,9 @@
           "id": "lamp-shrink",
           "name": "Luxorparts 40147 · svart krympeslange",
           "quantity": "1 sortiment",
-          "ore": 11990,
+          "ore": 9592,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektrisk-installasjon/krympeslanger/luxorparts-krympeslangeutvalg-40-stk-svart-p40147",
-          "note": "Storo: 1+ stk.",
+          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Ikke reservert.",
           "project": "Bokhyllelys",
           "purpose": "Isolere loddeskjøter og motstandsben i lampeledningene."
         },
@@ -90,9 +130,9 @@
           "id": "lamp-ties",
           "name": "Strips · sortiment med svarte 2,5 × 100 mm",
           "quantity": "1 pakke",
-          "ore": 12990,
+          "ore": 10392,
           "url": "https://www.kjell.com/no/produkter/data/kabler-og-adaptere/kabelhandtering/bunteband/bunteband-300-pk.-p37720",
-          "note": "Storo: 1 stk.",
+          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Ikke reservert.",
           "project": "Bokhyllelys",
           "purpose": "Feste kort, sikringsholdere og ledninger i de printede boksene."
         },
@@ -102,7 +142,7 @@
           "quantity": "1 rull / fra før",
           "ore": 3490,
           "url": "https://www.kjell.com/no/produkter/kontor/teip/el-teip-20-m-hvit-p40105",
-          "note": "Storo: 5+ stk.",
+          "note": "På lager på Storo, kontrollert 21. oktober. Ikke reservert.",
           "project": "Bokhyllelys",
           "purpose": "Merke plusslederen når begge ledningene er svarte."
         },
@@ -110,9 +150,9 @@
           "id": "lamp-iron",
           "name": "Luxorparts 40712 · loddebolt / loddestasjon",
           "quantity": "1 startpakke",
-          "ore": 69900,
+          "ore": 55920,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/verktoy/lodding/loddebolter/luxorparts-loddestasjon-startpakke-48-w-p40712",
-          "note": "Storo: 1+ stk.",
+          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Ikke reservert.",
           "project": "Enigma + bokhyllelys · felles verktøy",
           "purpose": "Lodde lampenes ledninger og elektronikk; også aktuell til Enigmaens gjengeinnsatser."
         }
@@ -123,7 +163,7 @@
       "name": "Kjell & Company Torggata",
       "location": "Torggata 6, Oslo",
       "area": "Torggata",
-      "note": "Disse produktene var ikke på lager på Storo 20. oktober. Ikke reservert.",
+      "note": "Separat hentekurv klar: 795 kr inkl. mva. Betales i butikk. Venter på godkjenning; ingen reservasjon sendt.",
       "items": [
         {
           "id": "lamp-wire",
@@ -131,7 +171,7 @@
           "quantity": "4 ruller à 10 m",
           "ore": 19600,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/maleinstrumenter/malekabler-sonder-kontakter/koblingstrad/isolert-koblingstrad-014-mm-svart-p45060",
-          "note": "Kjell Torggata: 5+ ruller · kjøp 4 ruller · Storo: bestillingsvare",
+          "note": "Antallet er bekreftet i separat hentekurv for Torggata 21. oktober. Ikke reservert.",
           "project": "Bokhyllelys",
           "purpose": "Ledningspar mellom kontrollboksen og de fem lyktene."
         },
@@ -141,7 +181,7 @@
           "quantity": "1 stk.",
           "ore": 59900,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/maleinstrumenter/multimetere/uni-t-ut139a-multimeter-p48385",
-          "note": "Kjell Torggata: 1 stk. · Storo: ikke på lager",
+          "note": "Antallet er bekreftet i separat hentekurv for Torggata 21. oktober. Ikke reservert.",
           "project": "Bokhyllelys · gjenbrukbart verktøy",
           "purpose": "Stille regulatoren til 4,5 V og måle lampestrøm, polaritet og kontinuitet."
         }
@@ -152,7 +192,7 @@
       "name": "Clas Ohlson Torggata",
       "location": "Torggata 6, Oslo",
       "area": "Torggata",
-      "note": "Ikke reservert. Sist sjekket: 4 stk., hylle 619, 20. oktober.",
+      "note": "Egen handlekurv med gratis Torggata-henting. Venter på godkjenning; ingen bestilling sendt.",
       "items": [
         {
           "id": "lamp-heatgun",
@@ -160,7 +200,7 @@
           "quantity": "1 stk. / fra før",
           "ore": 39990,
           "url": "https://www.clasohlson.com/no/Cocraft-HH-2000-E-varmluftpistol-/p/40-8762",
-          "note": "Clas Ohlson Torggata: 4 stk. · butikkhylle 619 · Clas Storo: tomt",
+          "note": "I egen handlekurv. Gratis henting på Torggata, oppgitt innen 2 timer etter bestilling. Ikke bestilt.",
           "project": "Bokhyllelys · gjenbrukbart verktøy",
           "purpose": "Krympe isolasjon over loddeskjøtene før de legges i plastboksene."
         }

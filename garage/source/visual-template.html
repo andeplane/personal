@@ -50,7 +50,6 @@
  function line(a,b,color=token('--garage-accent'),parent=scene){const g=new T.BufferGeometry().setFromPoints([new T.Vector3(...a),new T.Vector3(...b)]);const l=new T.Line(g,new T.LineBasicMaterial({color}));parent.add(l);return l;}
  function label(text,pos,width=1.2,parent=scene){const c=document.createElement('canvas');c.width=768;c.height=128;const ctx=c.getContext('2d');ctx.fillStyle=token('--background');ctx.globalAlpha=.92;ctx.fillRect(0,0,768,128);ctx.globalAlpha=1;ctx.fillStyle=token('--foreground');ctx.font='500 80px system-ui';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(text,384,64);const tex=new T.CanvasTexture(c);const s=new T.Sprite(new T.SpriteMaterial({map:tex,depthTest:false}));s.position.set(...pos);s.scale.set(width,width/6,1);s.renderOrder=20;parent.add(s);labels.push(s);return s;}
  function dimension(a,b,text,pos,width=1){line(a,b);let dv=new T.Vector3(...b).sub(new T.Vector3(...a)).normalize();const tick=dv.y?new T.Vector3(.07,0,0):new T.Vector3(0,.06,0);for(const p of [a,b]){line(new T.Vector3(...p).sub(tick).toArray(),new T.Vector3(...p).add(tick).toArray());}label(text,pos,width);}
- function bin(x,y,z,w=.39,d=.28,h=.28){box(w,h-.02,d,x,y+(h-.02)/2,z,'bin',furnitureGroup);box(w+.006,.02,d+.006,x,y+h-.01,z,'white',furnitureGroup);box(w*.37,.05,.003,x,y+h/2,z-d/2-.003,'white',furnitureGroup);}
  function bror(x,w,d,levels,height=1.9){for(const xx of [x-w/2+.016,x+w/2-.016])for(const zz of [L-d+.016,L-.016])box(.032,height,.032,xx,height/2,zz,'metal',furnitureGroup);for(const y of levels)box(w-.01,.05,d-.01,x,y-.025,L-d/2,'metal',furnitureGroup);rod([x-w/2,0.1,L-.02],[x+w/2,height-.05,L-.02],.006,'metal',furnitureGroup);rod([x+w/2,0.1,L-.02],[x-w/2,height-.05,L-.02],.006,'metal',furnitureGroup);}
  function makeCar(){carGroup=new T.Group();scene.add(carGroup);const cx=data.car.centerX,cz=data.car.entranceGap+data.car.length/2;
  function hull(rings,m){const arr=[],indices=[];const contour=[[-1,0],[-1,.72],[-.84,1],[.84,1],[1,.72],[1,0]];for(const [z,w,b,t] of rings)for(const [x,v] of contour)arr.push(cx+x*w,b+v*(t-b),cz+z);for(let i=0;i<rings.length-1;i++)for(let k=0;k<6;k++){let a=i*6+k,b=i*6+(k+1)%6,c=b+6,d=a+6;indices.push(a,b,d,b,c,d);}for(let k=1;k<5;k++){indices.push(0,k+1,k);let o=(rings.length-1)*6;indices.push(o,o+k,o+k+1);}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(arr,3));g.setIndex(indices);g.computeVertexNormals();const mm=materials[m].clone();mm.side=T.DoubleSide;const mesh=new T.Mesh(g,mm);mesh.castShadow=true;mesh.receiveShadow=true;carGroup.add(mesh);}
@@ -63,14 +62,6 @@
  const p=[[-.991,-2.3985],[.991,-2.3985],[.991,2.3985],[-.991,2.3985],[-.991,-2.3985]].map(([x,z])=>new T.Vector3(cx+x,.02,cz+z));const geom=new T.BufferGeometry().setFromPoints(p);const env=new T.Line(geom,new T.LineDashedMaterial({color:token('--garage-accent'),dashSize:.10,gapSize:.06}));env.computeLineDistances();carGroup.add(env);carGroup.visible=root.querySelector('#garage-car').checked;
  }
 
- function pack(x,y,z,colour='gear',h=.75){
-  const m=new T.Mesh(new T.BoxGeometry(.49,h-.08,.31),materials[colour]);m.position.set(x,y+h/2,z);furnitureGroup.add(m);m.castShadow=true;
-  box(.52,.075,.35,x,y+h-.04,z,colour,furnitureGroup);
-  box(.24,.22,.055,x,y+.20,z-.175,colour,furnitureGroup);
-  for(const xx of [x-.11,x+.11])box(.025,h*.75,.012,xx,y+h*.50,z-.185,'metal',furnitureGroup);
-  for(const yy of [y+.18,y+h-.16])box(.50,.025,.015,x,yy,z-.19,'metal',furnitureGroup);
- }
- function boots(x,y,z){for(const dx of [-.21,-.07,.07,.21]){box(.12,.08,.31,x+dx,y+.04,z,'metal',furnitureGroup);box(.115,.34,.17,x+dx,y+.23,z+.055,'white',furnitureGroup);for(const hh of [.10,.20,.28])box(.12,.018,.018,x+dx,y+hh,z-.04,'metal',furnitureGroup);}}
  function snowRacer(x){
   // One upright snow racer: conservative 0.60 W × 0.40 D × 1.30 H envelope.
   const z=L-.22;
@@ -81,20 +72,6 @@
   const wheel=new T.Mesh(new T.TorusGeometry(.13,.018,8,28),materials.metal);wheel.position.set(x,.58,z-.16);furnitureGroup.add(wheel);
   for(const xx of [x-.20,x+.20]){rod([xx,1.28,L-.01],[xx,1.28,L-.24],.0125,'metal',furnitureGroup);rod([xx,1.28,L-.24],[xx,1.34,L-.24],.0125,'metal',furnitureGroup);}
   box(.55,.025,.01,x,1.05,z-.18,'accent',furnitureGroup);
- }
- function upperSledShelves(x,bootShelf=false){for(const xx of [x-.405,x+.405])box(.025,1,.02,xx,1.525,L-.01,'white',furnitureGroup);box(.824,.025,.01,x,2.012,L-.02,'white',furnitureGroup);for(const y of [bootShelf?1.55:1.64,2]){box(.80,.02,.38,x,y-.01,L-.21,'white',furnitureGroup);for(const xx of [x-.405,x+.405])box(.014,.055,.40,xx,y-.04,L-.2,'white',furnitureGroup);}if(bootShelf)boots(x,1.55,L-.21);else for(const dx of [-.20,.20])bin(x+dx,1.64,L-.22);}
- function rightWall(){
-  // Four 60 cm rails carry small tools/cables; direct hooks support the chairs and ladder.
-  for(let i=0;i<4;i++)box(.017,.06,.6,W-.009,1.62,2.05+i*.6,'metal',furnitureGroup);
-  for(let i=0;i<20;i++){const z=1.78+i*.122;rod([W-.02,1.62,z],[W-.09,1.62,z],.008,'metal',furnitureGroup);rod([W-.09,1.62,z],[W-.09,1.65,z],.008,'metal',furnitureGroup);}
-  for(const z of [2.1,2.75,3.24,3.66])rod([W-.01,1.5,z],[W-.08,1.5,z],.01,'metal',furnitureGroup);
-  for(const z of [2.1,2.75]){box(.08,.47,.40,W-.095,1.05,z,'rubber',furnitureGroup);for(const zz of [z-.22,z+.22])rod([W-.14,.50,zz],[W-.14,1.5,zz],.014,'metal',furnitureGroup);for(const y of [.50,1.5])rod([W-.14,y,z-.22],[W-.14,y,z+.22],.014,'metal',furnitureGroup);}
-  // Gardintrapp upright, not stacked behind the snow racer.
-  for(const z of [3.24,3.66])rod([W-.10,.05,z],[W-.10,1.95,z],.022,'white',furnitureGroup);for(let y=.18;y<1.9;y+=.26)rod([W-.10,y,3.24],[W-.10,y,3.66],.020,'white',furnitureGroup);
-  // Existing folded table held flat, bottom on floor. Retaining strap is in the BOM.
-  box(.07,1.25,.75,W-.05,.65,4.35,'white',furnitureGroup);box(.009,.03,.76,W-.095,1.05,4.35,'accent',furnitureGroup);
-  for(const z of [2.35,3.90]){rod([W-.02,1.94,z],[W-.24,1.94,z],.0125,'metal',furnitureGroup);rod([W-.24,1.94,z],[W-.24,2.0,z],.0125,'metal',furnitureGroup);}
-  for(let i=0;i<3;i++)box(.045,.024,2.15,W-.055-i*.065,1.965,3.10,'gear',furnitureGroup);
  }
  function storage(){const a=data.layouts[current];furnitureGroup=new T.Group();scene.add(furnitureGroup);
  if(a.id==='A'){
@@ -145,8 +122,8 @@
  renderer.render(scene,camera);
  }
  const money=v=>new Intl.NumberFormat('nb-NO',{maximumFractionDigits:2}).format(v)+' kr';
- function updateTable(){const a=data.layouts[current];root.querySelector('#garage-title').textContent=a.id+' · '+a.name;root.querySelector('#garage-price').textContent=money(a.productsTotal)+' products';root.querySelector('#garage-metrics').innerHTML='<span>Rear gap <strong>'+Math.round(a.frontGap*100)+' cm</strong></span><span>Rear depth <strong>'+Math.round(a.depth*100)+' cm</strong></span><span>Starter boxes <strong>'+a.binLitres+' L</strong></span>';
- root.querySelector('#garage-equipment').textContent=a.equipment;root.querySelector('#garage-products').innerHTML=[...a.items,...data.common].map(([k,n])=>{const p=data.products[k];return '<tr><td><a href="'+p.url+'" target="_blank" rel="noopener noreferrer">'+p.name+'</a></td><td class="text-end">'+n+'</td><td class="text-end text-nowrap">'+money(p.price)+'</td><td class="text-end text-nowrap">'+money(n*p.price)+'</td></tr>'}).join('');root.querySelector('#garage-totals').innerHTML='<tr><th colspan="3">Product total</th><th class="text-end text-nowrap">'+money(a.productsTotal)+'</th></tr><tr><td colspan="3">Fixings / backing allowance (estimate)</td><td class="text-end text-nowrap">'+money(a.allowance)+'</td></tr><tr><th colspan="3">Planning budget</th><th class="text-end text-nowrap">'+money(a.budgetTotal)+'</th></tr>';
+ function updateTable(){const a=data.layouts[current];root.querySelector('#garage-unpriced').textContent='Still to price / verify: '+a.unpriced;root.querySelector('#inventory-rows').innerHTML=data.inventory.map(i=>'<tr><td>'+i.name+'<br><small>'+i.count+'</small></td><td>'+i.evidence+'</td><td>'+i.storage+'</td></tr>').join('');root.querySelector('#garage-title').textContent=a.id+' · '+a.name;root.querySelector('#garage-price').textContent=money(a.productsTotal)+' known products';root.querySelector('#garage-metrics').innerHTML='<span>Rear gap <strong>'+Math.round(a.frontGap*100)+' cm</strong></span><span>Rear depth <strong>'+Math.round(a.depth*100)+' cm</strong></span><span>Rear shelf surface <strong>'+shelfZones.reduce((sum,z)=>sum+z.area,0).toFixed(1)+' m²</strong></span>';
+ root.querySelector('#garage-equipment').textContent=a.equipment;root.querySelector('#garage-products').innerHTML=[...a.items,...data.common].map(([k,n])=>{const p=data.products[k];return '<tr><td><a href="'+p.url+'" target="_blank" rel="noopener noreferrer">'+p.name+'</a></td><td class="text-end">'+n+'</td><td class="text-end text-nowrap">'+money(p.price)+'</td><td class="text-end text-nowrap">'+money(n*p.price)+'</td></tr>'}).join('');root.querySelector('#garage-totals').innerHTML='<tr><th colspan="3">Known product subtotal</th><th class="text-end text-nowrap">'+money(a.productsTotal)+'</th></tr><tr><td colspan="3">Fixings / backing allowance (estimate)</td><td class="text-end text-nowrap">'+money(a.allowance)+'</td></tr><tr><th colspan="3">Known products + allowance</th><th class="text-end text-nowrap">'+money(a.budgetTotal)+'</th></tr>';
  }
  root.querySelectorAll('[data-layout]').forEach(b=>b.addEventListener('click',()=>{current=Number(b.dataset.layout);root.querySelectorAll('[data-layout]').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));build();}));
  root.querySelector('#garage-view').addEventListener('change',e=>{view=e.target.value;updateCamera();});root.querySelector('#garage-car').addEventListener('change',()=>updateCamera());root.querySelector('#garage-loft').addEventListener('change',e=>{loftGroup.visible=e.target.checked;renderer.render(scene,camera);});

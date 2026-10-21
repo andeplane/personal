@@ -202,7 +202,6 @@
       "depth": 0.4,
       "rearWidth": 2.65,
       "top": 2.0,
-      "binLitres": 76,
       "allowance": 600,
       "items": [
         [
@@ -223,54 +222,51 @@
         ],
         [
           "shelf60",
-          12
+          16
         ],
         [
           "bracket",
-          21
-        ],
-        [
-          "small",
-          3
-        ],
-        [
-          "tiny",
-          2
+          31
         ],
         [
           "skiHook",
           2
         ]
       ],
-      "summary": "four rear bays, with individual wide backpack spaces, a snow-racer bay and flexible small-item shelves. Shallow wall-mounted shelves preserve the best rear access.",
-      "equipment": "3 large backpacks + flexible fourth opening; footwear shelves left empty (count unknown); 3×22 L + 2×5 L boxes; 1 snow racer; shared right-wall gear.",
+      "summary": "Mixed shelf openings across the rear wall: smaller compartments, a larger opening, and one tall sled slot with shelves above. No backpack-specific bays.",
+      "equipment": "Example contents show a mix of larger and smaller things. Open shelves remain available for changing and future belongings. Ladder, folded chairs, table and skis retain separate side-wall positions. Counts and item sizes are provisional.",
       "shelves": [
         [
-          1.64,
-          2.0
-        ],
-        [
-          0.1,
-          1.0,
-          2.0
-        ],
-        [
-          0.1,
-          1.0,
-          2.0
-        ],
-        [
-          0.1,
-          0.55,
-          1.0,
           1.45,
-          1.8,
-          2.0
+          1.8
+        ],
+        [
+          0.1,
+          0.8,
+          1.15,
+          1.5,
+          1.85
+        ],
+        [
+          0.1,
+          0.45,
+          0.8,
+          1.3,
+          1.8
+        ],
+        [
+          0.1,
+          0.45,
+          0.8,
+          1.15,
+          1.5,
+          1.85
         ]
       ],
-      "productsTotal": 5907.3,
-      "budgetTotal": 6507.3,
-      "frontGap": 0.653
+      "productsTotal": 6182.3,
+      "budgetTotal": 6782.3,
+      "frontGap": 0.653,
+      "unpriced": "Any adaptation of existing small shelves, and optional shelves above the 2.10 m reference."
     },
     {
       "id": "B",
@@ -279,7 +275,6 @@
       "depth": 0.55,
       "rearWidth": 2.56,
       "top": 2.0,
-      "binLitres": 110,
       "allowance": 600,
       "items": [
         [
@@ -303,50 +298,44 @@
           4
         ],
         [
-          "small",
-          3
-        ],
-        [
-          "flat",
-          4
-        ],
-        [
           "skiHook",
           2
         ]
       ],
-      "summary": "Two deep towers accommodate three individual large-pack positions and flexible small-item shelves; a separate sled bay has upper shelves. Two supplied BROR shelves remain spare to preserve tall openings.",
-      "equipment": "3 large backpacks; footwear shelves left empty (count unknown); 3×22 L + 4×11 L boxes; 1 snow racer; shared right-wall gear.",
+      "summary": "All five supplied shelves in each 190 cm rack are used. Mixed heights provide small and larger openings; the sled keeps a separate tall slot with storage above.",
+      "equipment": "Example contents show a mix of larger and smaller things. Open shelves remain available for changing and future belongings. Ladder, folded chairs, table and skis retain separate side-wall positions. Counts and item sizes are provisional.",
       "shelves": [
         [
           0.1,
-          0.58,
-          1.06,
-          1.9
+          0.45,
+          0.85,
+          1.4,
+          1.8
         ],
         [
           0.1,
-          0.95,
-          1.8,
-          1.9
+          0.45,
+          1.1,
+          1.45,
+          1.8
         ],
         [
-          1.55,
-          2.0
+          1.45,
+          1.8
         ]
       ],
-      "productsTotal": 7035.3,
-      "budgetTotal": 7635.3,
-      "frontGap": 0.503
+      "productsTotal": 6352.3,
+      "budgetTotal": 6952.3,
+      "frontGap": 0.503,
+      "unpriced": "Reuse / adaptation of small compartments and optional upper storage."
     },
     {
       "id": "C",
-      "name": "Grab-and-go gear bench",
+      "name": "Low racks + small shelves",
       "system": "Low BROR + BOAXEL",
       "depth": 0.55,
       "rearWidth": 2.56,
       "top": 2.0,
-      "binLitres": 44,
       "allowance": 600,
       "items": [
         [
@@ -370,16 +359,12 @@
           4
         ],
         [
-          "small",
-          2
-        ],
-        [
           "skiHook",
           2
         ]
       ],
-      "summary": "Three wide backpacks sit at 1.10 m pickup height on two low racks. Flexible storage below; snow racer and upper boxes to the right. Best handling access, least boxed storage.",
-      "equipment": "3 large backpacks + a duffel below; footwear shelves left empty (count unknown); 2×22 L boxes; 1 snow racer; shared right-wall gear.",
+      "summary": "Low racks below, small shelf compartments above: use the wall height instead of dedicating the open top to three upright backpacks. Existing rear cabinets could supply the smaller compartments after measuring.",
+      "equipment": "Example contents show a mix of larger and smaller things. Open shelves remain available for changing and future belongings. Ladder, folded chairs, table and skis retain separate side-wall positions. Counts and item sizes are provisional.",
       "shelves": [
         [
           0.1,
@@ -392,13 +377,14 @@
           1.1
         ],
         [
-          1.64,
-          2.0
+          1.45,
+          1.8
         ]
       ],
-      "productsTotal": 5370.3,
-      "budgetTotal": 5970.3,
-      "frontGap": 0.503
+      "productsTotal": 5152.3,
+      "budgetTotal": 5752.3,
+      "frontGap": 0.503,
+      "unpriced": "The proposed reused / extended small shelf compartments above the low racks. Their real sizes and attachment points remain unmeasured."
     },
     {
       "id": "D",
@@ -407,7 +393,6 @@
       "depth": 0.6,
       "rearWidth": 2.68,
       "top": 1.8,
-      "binLitres": 0,
       "allowance": 2100,
       "items": [
         [
@@ -422,17 +407,19 @@
       "shelves": [
         [
           0.1,
-          0.95,
-          1.8
+          0.5,
+          1.15,
+          1.75
         ]
       ],
-      "summary": "Rear storage now spans 268 cm of the 283 cm wall. The stock rack is joined by a 106.0 cm wide custom timber bay at the same 60 cm depth: two full-width upper shelves, two narrow lower shelves and a 65 cm clear upright snow-racer slot. Upper shelf surfaces are 145 and 195 cm.",
-      "equipment": "Backpacks in the main rack; boxes / smaller bags in the narrow shelves; snow racer in its dedicated slot with storage above it. Custom extension is a dimensioned concept, not a catalogue product or engineered load rating. Budget includes a provisional 1,500 kr materials allowance plus 600 kr for fixings/backing; labour and delivery excluded. Three of four supplied rack shelves are installed to preserve loaded-backpack openings; one remains spare.",
+      "summary": "Four supplied rack shelves at mixed spacing. The fitted bay has four small compartments plus two full-width shelves above the dedicated sled slot.",
+      "equipment": "Example contents show a mix of larger and smaller things. Open shelves remain available for changing and future belongings. Ladder, folded chairs, table and skis retain separate side-wall positions. Counts and item sizes are provisional.",
       "frontGap": 0.453,
       "productsTotal": 3201.3,
       "budgetTotal": 5301.3,
       "rackWidth": 1.6,
-      "extensionWidth": 1.06
+      "extensionWidth": 1.06,
+      "unpriced": "Custom-bay materials and connections have only a provisional allowance; optional upper storage is unpriced."
     },
     {
       "id": "E",
@@ -441,7 +428,6 @@
       "depth": 0.8,
       "rearWidth": 2.68,
       "top": 2,
-      "binLitres": 0,
       "allowance": 2100,
       "items": [
         [
@@ -456,17 +442,20 @@
       "shelves": [
         [
           0.1,
-          0.95,
+          0.45,
+          1.1,
+          1.45,
           1.8
         ]
       ],
-      "summary": "Rear storage now spans 268 cm of the 283 cm wall. The stock rack is joined by a 121.2 cm wide custom timber bay at the same 80 cm depth: two full-width upper shelves, two narrow lower shelves and a 65 cm clear upright snow-racer slot. Upper shelf surfaces are 145 and 195 cm.",
-      "equipment": "Backpacks in the main rack; boxes / smaller bags in the narrow shelves; snow racer in its dedicated slot with storage above it. Custom extension is a dimensioned concept, not a catalogue product or engineered load rating. Budget includes a provisional 1,500 kr materials allowance plus 600 kr for fixings/backing; labour and delivery excluded.",
+      "summary": "Five rack levels give a mix of small and larger openings. The 80 cm deep fitted bay adds four narrow shelf levels and two full-width levels above a 65 cm clear sled slot. More flexible capacity; no fixed backpack allocation.",
+      "equipment": "Example contents show a mix of larger and smaller things. Open shelves remain available for changing and future belongings. Ladder, folded chairs, table and skis retain separate side-wall positions. Counts and item sizes are provisional.",
       "frontGap": 0.253,
       "productsTotal": 9396.05,
       "budgetTotal": 11496.05,
       "rackWidth": 1.448,
-      "extensionWidth": 1.212
+      "extensionWidth": 1.212,
+      "unpriced": "Two additional industrial shelf levels are shown beyond the three supplied. Exact compatible components and their prices are unverified. The fitted bay has a provisional materials allowance."
     },
     {
       "id": "F",
@@ -476,7 +465,6 @@
       "bikeBlockingDepth": 0,
       "rearWidth": 2.4,
       "top": 1.95,
-      "binLitres": 0,
       "allowance": 600,
       "items": [
         [
@@ -494,115 +482,69 @@
           1.95
         ]
       ],
-      "summary": "Rear shelf surfaces at 145 and 195 cm; no rear uprights or floor rack. Lower bracket tips at approximately 123 cm clear the 110 cm bike envelope. Less storage: a separate location for the snow racer and large loaded backpacks is still unresolved.",
-      "equipment": "Bike-priority study. Rear shelves are for smaller / flatter gear. This is not yet a complete solution for all existing belongings.",
+      "summary": "A bike-clearance study with raised shallow shelves. This leaves substantially less storage and does not provide a dedicated place for the sled or larger belongings.",
+      "equipment": "Example contents show a mix of larger and smaller things. Open shelves remain available for changing and future belongings. Ladder, folded chairs, table and skis retain separate side-wall positions. Counts and item sizes are provisional.",
       "frontGap": 1.053,
       "productsTotal": 2799.7,
-      "budgetTotal": 3399.7
+      "budgetTotal": 3399.7,
+      "unpriced": "A complete storage solution for the other belongings."
     }
   ],
   "inventory": [
     {
-      "item": "Large hiking backpacks",
-      "observed": "At least 3 visible: green on floor, dark pack near back, red/grey at rear right.",
-      "envelope_m": [
-        0.55,
-        0.4,
-        0.75
-      ],
-      "status": "Provisional empty/packed envelope; exact sizes unmeasured"
+      "name": "Rattkjelke / snow racer",
+      "evidence": "One confirmed by you; visible hanging on the right wall.",
+      "storage": "Keep one tall slot; use the space above it.",
+      "count": "1"
     },
     {
-      "item": "Smaller backpacks / duffels / boot bags",
-      "observed": "Several visible; count and contents unclear.",
-      "envelope_m": [
-        0.4,
-        0.35,
-        0.35
-      ],
-      "status": "Allow flexible shelf space; not all contents can be counted from photos"
+      "name": "Gardintrapp / stepladder",
+      "evidence": "One visible on the right wall.",
+      "storage": "Keep an accessible tall, shallow side-wall position.",
+      "count": "1 visible"
     },
     {
-      "item": "Ski boots / winter footwear",
-      "observed": "Count unknown; shelves stay empty by default.",
-      "envelope_m": [
-        0.3,
-        0.34,
-        0.4
-      ],
-      "status": "No assumed shoe count"
+      "name": "Skis and poles",
+      "evidence": "Several visible on the high right-wall shelf; exact count and lengths unclear.",
+      "storage": "Long horizontal supports; preserve door-track clearance.",
+      "count": "Several"
     },
     {
-      "item": "Snow racer",
-      "observed": "One visibly hanging on right wall.",
-      "envelope_m": [
-        0.6,
-        0.4,
-        1.3
-      ],
-      "status": "Stored vertically; includes steering/frame projection, not just hooks"
+      "name": "Ice skates, ski boots and other footwear",
+      "evidence": "Skates confirmed by you; winter footwear visible in the rear cabinets. Types and pairs need checking.",
+      "storage": "Several low compartments; leave room for drying and retrieval.",
+      "count": "Unconfirmed"
     },
     {
-      "item": "Folding chairs",
-      "observed": "A stack of at least 2 visible.",
-      "envelope_m": [
-        0.5,
-        0.15,
-        1.0
-      ],
-      "status": "Store individually; no stacked thickness alongside car"
+      "name": "Backpacks, sports bags and soft bags",
+      "evidence": "Different sizes visible; you confirm a mix of packed and compressed storage. Current hanging arrangement is optional.",
+      "storage": "Flexible openings; bags can stand, lie down or hang. No dedicated bay per backpack.",
+      "count": "Several"
     },
     {
-      "item": "Folding table",
-      "observed": "White folded table against right wall.",
-      "envelope_m": [
-        0.75,
-        0.08,
-        1.25
-      ],
-      "status": "Provisional folded envelope"
+      "name": "Folded chairs and table",
+      "evidence": "At least two chairs and one white folded table visible on the right.",
+      "storage": "Retain compact wall storage outside the shelving footprint.",
+      "count": "2+ chairs; 1 table"
     },
     {
-      "item": "Stepladder / gardintrapp",
-      "observed": "Aluminium folded ladder behind snow racer.",
-      "envelope_m": [
-        0.5,
-        0.15,
-        1.9
-      ],
-      "status": "Provisional; hang upright with feet close to floor"
+      "name": "Long bags / rolled gear",
+      "evidence": "Long fabric bundles and soft cases visible; contents unclear.",
+      "storage": "Larger shelf openings or upper space when measured.",
+      "count": "Unconfirmed"
     },
     {
-      "item": "Skis and poles",
-      "observed": "Several pairs along upper right shelf.",
-      "envelope_m": [
-        2.15,
-        0.2,
-        0.06
-      ],
-      "status": "Length and pair count unmeasured; horizontal storage"
+      "name": "Small equipment, racket, cables and supplies",
+      "evidence": "Racket, cables, cans / bottles and loose items visible on the left and rear.",
+      "storage": "Reuse / extend small shelf compartments; keep flexible spare capacity.",
+      "count": "Mixed"
     },
     {
-      "item": "Camping rolls / mats / long bags",
-      "observed": "Several rolls at rear left; one hanging fabric bag.",
-      "envelope_m": [
-        0.18,
-        0.18,
-        0.75
-      ],
-      "status": "Reserve vertical side gaps and flexible backpack shelf opening"
-    },
-    {
-      "item": "Boards / long poles / racket / cables",
-      "observed": "Visible on left and at rear.",
-      "envelope_m": null,
-      "status": "Boards in rear side gap; small items on right hook rails"
-    },
-    {
-      "item": "Cardboard boxes / paint / bottles / small tools",
-      "observed": "Several boxes and small containers visible.",
-      "envelope_m": null,
-      "status": "Contents unknown; bin quantities are a starter allocation, not proof every box is absorbed"
+      "name": "Storage boxes",
+      "evidence": "Excluded from the new brief at your request, including proposed plastic boxes.",
+      "storage": "No assumed box inventory or box shopping list.",
+      "count": "0 assumed"
     }
-  ]
+  ],
+  "reviewDate": "2026-10-21"
 }

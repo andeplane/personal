@@ -1,43 +1,71 @@
-# Garage alternatives A–F
+# Garage storage review — 21 October 2026
 
-Measured usable room: 2.83 × 6.10 m. Shelf surface limit 2.00 m; hems underside assumed 2.10 m. This viewer is the current proposal; older A–C renders and exports are superseded.
+The brief is **flexible storage capacity for changing belongings**, with some larger openings, plenty of smaller compartments and useful storage up to the available height. Backpacks are example contents, with a mix of packed and compressed storage; they do not each get a dedicated tall bay. Keep a specific place for one rattkjelke and the gardintrapp. Assume no storage boxes.
 
-| Layout | Rear storage | Floor gap ahead of car | Function / compromise |
-|---|---|---:|---|
-| A | BOAXEL, 40 cm | 65.3 cm | Flexible shallow rear bays |
-| B | BROR, 55 cm + BOAXEL sled bay | 50.3 cm | Taller camping storage |
-| C | Low BROR, 55 cm + BOAXEL | 50.3 cm | Backpacks at pickup height |
-| D | Biltema, 60 cm | 45.3 cm | 60 cm rack plus fitted full-depth storage bay |
-| E | Gerdmans Adrian, 80 cm | 25.3 cm | 80 cm rack plus fitted full-depth storage bay |
-| F | Raised pine shelves, 30 cm | 105.3 cm at floor | Bikes below; large backpacks and snow racer need another location |
+The source is the user-provided garage photo, the user's corrections and the earlier 2.83 × 6.10 m room measurements. Item counts and dimensions are not a measured inventory. Source photos and the Polycam scan remain local.
 
-Gaps assume a 479.7 cm car parked 25 cm from the entrance. They are rectangular planning clearances, not proof of access or door/hatch operation.
+## What needs space
 
-## All six options: side-wall storage
+| Category | What the evidence supports | Design implication |
+|---|---|---|
+| Rattkjelke | One, confirmed by the user and visible hanging on the right | Dedicated tall slot; shelves above it. Current 60 × 40 × 130 cm stored envelope is provisional. |
+| Gardintrapp | One visible | Keep a tall, shallow, accessible side-wall position; current 50 × 15 × 190 cm envelope is provisional. |
+| Skis and poles | Several visible overhead on the right; exact count / lengths unclear | Long horizontal supports, with door-track and beam clearance checked in reality. |
+| Skates, ski boots and other footwear | Skates confirmed by the user; winter footwear visible at the rear | Smaller compartments; the model shows example pairs, not an invented pair count. |
+| Backpacks and soft bags | Several different sizes visible; user confirms a mix of packed and compressed | General shelf openings. Bags can lie down, stand or hang; the current hanging arrangement is optional. |
+| Folded chairs / table | At least two chairs and one white folded table visible | Compact wall storage outside the rear rack footprint. |
+| Long fabric bundles / cases | Visible, contents unclear | Some larger openings; do not assert that every bundle is a sleeping mat. |
+| Small equipment / supplies | Racket, cables, cans / bottles and miscellaneous gear visible | Reuse or extend the small rear shelf compartments; reserve spare capacity. |
+| Future / other things | Explicit part of the brief | Keep open, adaptable space. Do not assign every compartment to an existing object. |
+| Storage boxes | Excluded by the user | No box proxies, assumed box inventory, plastic-box purchases or box-litre capacity metric. |
 
-Left: a continuous 240 × 30 cm ski shelf at 195 cm, on four 30 cm steel brackets. Right: another high shelf, two perforated steel boards (95.5 × 82 cm each), two magnetic trays, four 60 cm rails and separate hooks for two folding chairs and the stepladder. The folding table is kept flat with a strap. Equipment defaults to hidden; hardware remains visible. Use the “Right wall” and “Left ski shelf” views to inspect the wall faces.
+## Corrections to the earlier model
 
-The right board has 4 mm holes at 12 mm centres. Generic 25 mm pitch pegboard hooks are incompatible. The magnetic trays avoid this pitch issue; choose additional hole-mounted accessories only after confirming the fastening pattern. Bulky gear uses separate direct mounts. Loaded trays project about 16 cm, leaving about 14 cm to the assumed folded-mirror envelope: this is storage clearance, not a walking aisle.
+- Every backpack used the same estimated 55 × 40 × 75 cm envelope. Several openings were designed around those repeated upright packs. That is not a sensible basis for the full storage system.
+- The low-rack option put three packs on top and left the wall height unused. C now tests reused / extended small shelf compartments above the low units.
+- The industrial option displayed only three rack shelves. E now shows five levels with mixed spacing; the stock product only supplies three, so the two additional levels remain unpriced and compatibility is unverified.
+- The 60 cm rack now uses all four supplied shelves. The tall BROR racks each use all five supplied shelves. A has more shelf levels with varied openings.
+- The fitted D/E bay now has four smaller shelf levels beside the tall sled slot, plus two full-width shelves above it.
+- Footwear was omitted from the rendering. The new mixed example contents include skates and winter footwear, alongside a lying rucksack, a smaller pack, soft bags, a rolled bag and small supplies. These are examples of use, not a promise that the entire real inventory fits.
+- The 2.10 m reference was applied across the garage as though all overhead space were identical. It is an earlier assumption. The photo shows varying roof / beam geometry, whose heights are not measured.
 
-## Products researched 6 September 2026
+## Capacity comparison
 
-- [Biltema 87-7606](https://www.biltema.no/hjem/oppbevaring/oppbevaringshyller/oppbevaringshylle-2000043842): 160 × 60 × 180 cm, four adjustable chipboard shelves, 799 kr incl. VAT. Protect boards against moisture and anchor as instructed. Proposed levels can be adjusted for the actual packs.
-- [Gerdmans Adrian 12-832180](https://www.gerdmans.no/lager-og-industri/hyller-stativ/lagerhyller/lagerhyller-for-bred-last-adrian-belastning-per-seksjon-4000-kg-hxbxd-2000-x-1448-x-800-mm-grunnseksjon): 144.8 × 80 × 200 cm; three shelves. Listed 5,595 kr excluding VAT = 6,993.75 kr including VAT. Two complete units need 289.6 cm and exceed this garage's width. Geometry uses the external dimensions, not the 133.5 cm clear shelf span.
-- [FixBoard pine board 379072](https://www.jula.no/catalog/bygg-og-maling/oppbevaring/hyller/hylleplater/hylleplate-av-furu-379072/): 240 × 30 × 1.8 cm, 139 kr promotional snapshot.
-- [Hard Head bracket 349829](https://www.jula.no/catalog/bygg-og-maling/oppbevaring/hyller/hyllekonsoller/hylleknekt-349829/): 20 × 30 cm, 39.90 kr promotional snapshot. Actual wall capacity depends on backing, fixings and load distribution.
-- [Hard Head pegboard 665027](https://www.jula.no/catalog/bygg-og-maling/oppbevaring/verktoyoppheng/verktoytavler-og-tilbehor/verktoytavle-665027/): 95.5 × 82 cm, 379 kr.
-- [Magnetic shelf 030552](https://www.jula.no/catalog/bygg-og-maling/oppbevaring/verktoyoppheng/verktoytavler-og-tilbehor/magnethylle-030552/): 36 × 13.5 × 11 cm, 99.90 kr; suitable for repositioning on steel surfaces.
+Approximate rear shelf surface sums the horizontal shelf surfaces in the model. It excludes the common side-wall shelves. It is **not storage volume, clear usable shelf width, a load rating or a count of items that fit**. The optional upper study is excluded below.
 
-Prices are snapshots, not a checkout quote. Viewer budgets include both side walls and a 600 kr fixings/backing allowance. D/E also include a provisional 1,500 kr materials allowance for their custom extension; labour and delivery excluded. Clicking a product shows its dimensions, quantity and source.
+| Layout | Rear depth | Rear shelf surface | Floor gap to assumed parked car | Storage approach |
+|---|---:|---:|---:|---|
+| A — Family gear wall | 40 cm | 4.0 m² | 65.3 cm | More shallow shelf levels; smaller and larger openings; separate sled slot |
+| B — Deep camping store | 55 cm | 4.8 m² | 50.3 cm | Two tall racks using their supplied shelves; separate sled slot |
+| C — Low racks + small shelves | 55 cm | 4.0 m² | 50.3 cm | Low racks plus proposed reuse / extension of the existing small rear shelf compartments |
+| D — Budget 60 cm rack | 60 cm | 5.3 m² | 45.3 cm | Four supplied rack levels, fitted small compartments, sled slot |
+| E — Industrial 80 cm rack | 80 cm | 8.4 m² | 25.3 cm | Five rack levels, fitted small compartments, sled slot; two extra industrial levels unpriced |
+| F — Bikes under raised shelves | 30 cm raised shelves | 1.4 m² | 105.3 cm at floor | Bike-clearance study; does not provide a sled slot or solve the full storage brief |
 
-## Bikes and the raised-shelf study
+E gains substantial surface without increasing its existing footprint. Its depth can accommodate longer / bulkier things; small items still need visible, reachable positions. D offers less surface and 20 cm more floor space ahead of the assumed car. There is no capacity claim based on buying more plastic boxes.
 
-The three bike proxies are each 180 × 65 × 110 cm. They face across the garage, alternate directions and have a small longitudinal stagger to help nest bars. Adjust frame spacing: group depth = 65 cm + twice the spacing, plus 5 cm to the rear obstruction. This is not a mechanical nesting solver.
+The D/E fitted sections are still custom concepts, rather than verified matching retail extensions. The earlier 144.8 cm rack width is too wide to repeat twice inside the 283 cm wall (289.6 cm total). The mixed appearance is not a requirement of the storage brief; a final matched system would need compatible real bay sizes verified separately.
 
-At 15 cm spacing the group requires 95 + 5 = 100 cm. F leaves 105.3 cm, a nominal 5.3 cm margin to the car envelope. At the default 20 cm spacing, it overlaps by 4.7 cm. Actual pedals, handlebars, cables and bike dimensions determine whether tighter nesting works. F's lower shelf is at 145 cm, with bracket bottoms at approximately 123 cm, above the assumed 110 cm bikes. It does not solve storage of every bulky possession.
+## Use of upper space
 
-Next measurements that change the decision: actual bike/bar widths and a physically nested three-bike footprint, loaded backpack depths, snow-racer dimensions, garage-door track sweep, hems beams and real parking position. We should choose shelf depths from these measurements rather than filling every possible volume.
+Base plans use the earlier 2.10 m reference conservatively. Upper surfaces around 1.75–1.85 m leave useful storage space above; a shelf surface at 2.00 m is not treated as a full-height storage tier below a 2.10 m obstruction.
 
-## Revised rear-wall use in D and E
+“Upper shelves · clearance study” adds independent shallow compartments above that reference. Its slider changes an **assumed** rear clearance between 2.40 and 3.00 m; 2.45 m is only an initial study value. The changing wall profile is schematic, not a reconstruction or measurement of the real roof. Do not extend a commercial rack or count loft capacity on this basis. Check the lowest roof / beam point across the whole shelf depth, wall supports, door movement and access before specifying upper shelves.
 
-Both now span 268 cm (95% of the 283 cm wall), leaving 10 cm left, 5 cm right and a 2 cm gap between the stock rack and custom frame. D adds a 106 cm wide × 60 cm deep bay; E adds a 121.2 cm wide × 80 cm deep bay. Each has upper shelves at 145 and 195 cm, plus two narrow lower shelves beside a 65 cm clear snow-racer slot. The custom bay is not a catalogue product, and its load capacity and connections require design. The added storage occupies the existing depth band, so it does not further reduce the stated bike gap.
+The existing small rear shelves may be reused or extended, but their width, depth, fixing method and condition need checking. The rendered compartments are a fit study; they are not an assertion that the existing units have those dimensions.
+
+## Products and cost boundary
+
+The linked product prices remain a **6 September 2026 snapshot**, not a current quote. The viewer now labels them “known products” and separately states what remains unpriced. It does not present an incomplete component list as a final purchase budget.
+
+- A's shelf and bracket counts are updated to match its drawn hardware.
+- B uses the five shelves supplied with each tall rack; C retains the low racks and separately shows unpriced reused / extended compartments.
+- D uses four supplied levels. E draws five levels while pricing the original three-level rack; the two additional levels require a compatible component specification and price.
+- D/E retain a provisional 1,500 kr custom-material allowance plus 600 kr for fixings / backing. This is not a designed joint or loading specification.
+- Optional upper shelves and their supports are unpriced. Labour and delivery are excluded.
+
+Current catalogue links remain available in the viewer. No products have been ordered or components structurally verified in this review.
+
+## Verification
+
+The generated JavaScript is syntax-checked. Data validation checks the priced subsets, removal of box purchases, supplied shelf counts, and parking / height arithmetic. Geometry checks use pinned Three.js 0.158.0 across all six plans at 2.10 m and four upper-clearance study settings: representative item sizes, overlaps with shelf geometry, overlaps between examples, height, hardware counts, one sled in A–E and one ladder in every plan. Browser checks cover all six layouts, optional upper storage, object selection and camera preservation. These checks establish the model's internal consistency, not physical fit, wall strength, door access or the capacity of real belongings.

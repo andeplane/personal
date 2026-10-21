@@ -354,12 +354,17 @@
     {
       "id": "lamp-charge-boost",
       "name": "Elkim · justerbar boost til 4,5 V",
-      "quantity": "3 stk.",
-      "ore": 11700,
+      "quantity": "1 stk.",
+      "ore": 3900,
       "url": "https://elkim.no/produkt/2a-usb-lithium-li-ion-18650-batterilader/",
-      "note": "Elkim · 1 i boksen + 2 reservekort.",
+      "note": "Kjøpt og betalt med Vipps hos Elkim · ordre 23715. Én til første bygg; ingen reservekort er bestilt. Felles ordretotal for lader og boost: 226 kr, inkludert 69 kr frakt og 59 kr småordregebyr. Mottak er ikke bekreftet.",
       "project": "Bokhyllelys",
-      "purpose": "Omforme batterispenningen til 4,5 V for lampene."
+      "purpose": "Omforme batterispenningen til 4,5 V for lampene.",
+      "paid": true,
+      "status": "ordered",
+      "received": false,
+      "collected": false,
+      "orderReference": "23715"
     },
     {
       "id": "lamp-switch-no",
@@ -394,22 +399,32 @@
     {
       "id": "lamp-battery",
       "name": "Akyga AKY0627 / LP675568 · 3 500 mAh med PCM",
-      "quantity": "2 stk.",
-      "ore": 45800,
+      "quantity": "1 stk. med tilhørende kontakt og ledning",
+      "ore": 32500,
       "url": "https://mrsmart.no/akyga-li-pol-batteri-3500mah-1s-3-7v-jst-bec-kontakt-rasterkontakt-68x55x6mm-id80",
-      "note": "MrSmart · 1 installert + 1 reserve til senere maskin eller utskifting.",
+      "note": "Kjøpt og betalt hos MrSmart · ordre ORD261021101804 · 325 kr inkludert 96 kr frakt. Batteriet inkluderer tilhørende BEC-kontakt med ledning. Én er nok til første bygg; ingen ekstra reserve er bestilt. Bring sporet postkasselevering; utsending og mottak er ikke bekreftet.",
       "project": "Bokhyllelys",
-      "purpose": "Oppladbar strøm til de fem lyktene; én installert og én reserve."
+      "purpose": "Oppladbar strøm til de fem lyktene; én installert og én reserve.",
+      "paid": true,
+      "status": "ordered",
+      "received": false,
+      "collected": false,
+      "orderReference": "ORD261021101804"
     },
     {
       "id": "lamp-charge-only",
       "name": "TP4056 · separat USB-C-lader, opptil 1 A",
-      "quantity": "3 stk.",
-      "ore": 17700,
+      "quantity": "1 stk.",
+      "ore": 5900,
       "url": "https://elkim.no/produkt/tp4056-usb-c-lademodul-beskyttelse/",
-      "note": "Elkim · 1 installert + 2 reservekort.",
+      "note": "Kjøpt og betalt med Vipps hos Elkim · ordre 23715. Én til første bygg; ingen reservekort er bestilt. Felles ordretotal for lader og boost: 226 kr, inkludert 69 kr frakt og 59 kr småordregebyr. Mottak er ikke bekreftet.",
       "project": "Bokhyllelys",
-      "purpose": "Lade batteriet fra USB; separat fra regulatoren som driver lampene."
+      "purpose": "Lade batteriet fra USB; separat fra regulatoren som driver lampene.",
+      "paid": true,
+      "status": "ordered",
+      "received": false,
+      "collected": false,
+      "orderReference": "23715"
     },
     {
       "id": "lamp-battery-fuse",

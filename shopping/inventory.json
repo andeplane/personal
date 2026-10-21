@@ -332,6 +332,80 @@
           "received": false
         }
       ]
+    },
+    {
+      "id": "mrsmart-ORD261021101804",
+      "merchant": "MrSmart",
+      "orderReference": "ORD261021101804",
+      "invoiceReference": "INV10152121",
+      "orderedOn": "2026-10-21",
+      "status": "ordered",
+      "paid": true,
+      "received": false,
+      "shipped": false,
+      "totalOre": 32500,
+      "goodsOre": 22900,
+      "shippingOre": 9600,
+      "vatOre": 6500,
+      "shippingMethod": "Bring sporet postkasselevering",
+      "confirmationSource": "Merchant order email and invoice on 2026-10-21; user confirmed Vipps approval.",
+      "items": [
+        {
+          "id": "lamp-battery",
+          "name": "Akyga AKY0627 / LP675568 · 3 500 mAh med PCM",
+          "quantity": "1 stk. med tilhørende BEC-kontakt med ledning",
+          "quantityCount": 1,
+          "project": "Bokhyllelys",
+          "purpose": "Oppladbar strøm til de fem lyktene; én installert og én reserve.",
+          "url": "https://mrsmart.no/akyga-li-pol-batteri-3500mah-1s-3-7v-jst-bec-kontakt-rasterkontakt-68x55x6mm-id80",
+          "lineTotalOre": 22900,
+          "status": "ordered",
+          "received": false
+        }
+      ],
+      "note": "Only one battery for the first build. No spare battery or extra connector ordered. Receipt not confirmed."
+    },
+    {
+      "id": "elkim-23715",
+      "merchant": "Elkim",
+      "orderReference": "23715",
+      "orderedOn": "2026-10-21",
+      "status": "ordered",
+      "paid": true,
+      "received": false,
+      "totalOre": 22600,
+      "goodsOre": 9800,
+      "shippingOre": 6900,
+      "smallOrderFeeOre": 5900,
+      "vatOre": 4520,
+      "confirmationSource": "Merchant processing email on 2026-10-21 after payment hold; paid with Vipps.",
+      "items": [
+        {
+          "id": "lamp-charge-boost",
+          "name": "Elkim · justerbar boost til 4,5 V",
+          "quantity": "1 stk.",
+          "quantityCount": 1,
+          "project": "Bokhyllelys",
+          "purpose": "Omforme batterispenningen til 4,5 V for lampene.",
+          "url": "https://elkim.no/produkt/2a-usb-lithium-li-ion-18650-batterilader/",
+          "lineTotalOre": 3900,
+          "status": "ordered",
+          "received": false
+        },
+        {
+          "id": "lamp-charge-only",
+          "name": "TP4056 · separat USB-C-lader, opptil 1 A",
+          "quantity": "1 stk.",
+          "quantityCount": 1,
+          "project": "Bokhyllelys",
+          "purpose": "Lade batteriet fra USB; separat fra regulatoren som driver lampene.",
+          "url": "https://elkim.no/produkt/tp4056-usb-c-lademodul-beskyttelse/",
+          "lineTotalOre": 5900,
+          "status": "ordered",
+          "received": false
+        }
+      ],
+      "note": "One charger and one boost for first build. No spare boards ordered. Receipt not confirmed."
     }
   ]
 }

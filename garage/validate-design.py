@@ -1,37 +1,28 @@
-"""Validate the priced subset and the space-study inputs, not physical installation."""
-from decimal import Decimal
+"""Validate space-study inputs. This does not establish physical installation."""
 import json
 from pathlib import Path
 
 root = Path(__file__).resolve().parent
 data = json.loads((root / 'design-data.json').read_text())
-for layout in data['layouts']:
-    total = sum(Decimal(str(data['products'][key]['price'])) * count
-                for key, count in layout['items'] + data['common'])
-    assert total == Decimal(str(layout['productsTotal'])), layout['id']
-    assert total + Decimal(str(layout['allowance'])) == Decimal(str(layout['budgetTotal']))
-    assert not any(key in {'small', 'tiny', 'flat', 'large'}
-                   for key, _ in layout['items'] + data['common']), 'No assumed box purchases'
-    assert abs(layout['frontGap'] - (data['room']['length'] - (0 if layout['id'] == 'F' else layout['depth']) -
-               data['car']['length'] - data['car']['entranceGap'])) < 1e-9
-    assert layout['rearWidth'] < data['room']['width']
-    assert layout['unpriced'], 'Keep additions outside the priced subset explicit'
-    for levels in layout['shelves']:
+assert [a['id'] for a in data['layouts']] == list('ABCD')
+assert [a['depth'] for a in data['layouts']] == [.4, .5, .6, .8]
+for a in data['layouts']:
+    expected = data['room']['length'] - a['depth'] - data['car']['length'] - data['car']['entranceGap']
+    assert abs(a['frontGap'] - expected) < 1e-9
+    assert a['rearWidth'] < data['room']['width']
+    assert .28 <= a['upperDepth'] <= a['depth']
+    assert len(a['shelves']) == 3 and min(a['shelves'][2]) >= 1.4
+    for levels in a['shelves']:
         assert levels == sorted(set(levels))
-        assert min(levels) > 0 and max(levels) <= data['room']['shelfHeightLimit']
-    if layout['id'] == 'B':
-        assert len(layout['shelves'][0]) == len(layout['shelves'][1]) == 5
-    if layout['id'] == 'D':
-        assert len(layout['shelves'][0]) == 4
-    if layout['id'] == 'E':
-        assert len(layout['shelves'][0]) == 5
-        assert 'Two additional' in layout['unpriced']
-print('All six layouts: priced subsets, no boxes, shelf counts, height and parking arithmetic pass.')
-
+        assert 0 < min(levels) <= max(levels) <= a['top']
+    assert a['unpriced'] and 'loft' in a['equipment']
+assert not data['products'] and not data['common'], 'Retired price lists must not imply a complete new specification'
 wall = data['leftWall']
 assert wall['clearWidth'] == .545 and wall['clearHeight'] == .635
 assert 0 < wall['recessDepth'] < .12
 for lower, upper in zip(wall['ledgeTops'], wall['ledgeTops'][1:]):
     assert abs(upper - .045 - lower - wall['clearHeight']) < 1e-9
-assert not any(key in {'plank', 'pineBracket'} for key, _ in data['common']), 'Reuse the existing right-wall ski shelf'
-print('Left-wall measured opening, flush recess depth and reuse pricing checks pass.')
+assert wall['basketClearance'] > data['car']['height']
+assert wall['basketProjection'] <= .25
+assert data['loft']['length'] + data['loft']['accessDepth'] < data['room']['length'] - .8
+print('Four coordinated plans: shelf heights, depth tradeoffs, parking arithmetic, wall measurements and default loft approach pass.')

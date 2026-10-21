@@ -1,22 +1,30 @@
- function register(meshes,key,meta={}){const id='object-'+objects.length;const record={id,key,meta,meshes};objects.push(record);for(const m of meshes)m.traverse(n=>{n.userData.objectId=id;});return record;}
- function autoTag(mesh,w,h,d,x,y,z,m,parent){if(parent!==furnitureGroup||!furnitureGroup)return;
- if(m==='white'&&Math.abs(h-.02)<.0001&&Math.abs(d-.38)<.0001){register([mesh],w>.7?'shelf':'shelf60',{title:(w>.7?'80':'60')+' cm shelf · '+Math.round((y+.01)*100)+' cm high',height:y+.01,dimensions:[w,.38,.02],note:'Nominal system depth 40 cm; shelf plate depth 38 cm. Height shown is the proposed top surface; thickness and fittings are simplified.'});
- // A shallow folded lip gives the thin steel plate a readable manufactured edge.
- const lip=new T.Mesh(new RoundedBoxGeometry(w,.014,.008,1,.002),materials.white);lip.position.set(x,y-.008,z-d/2+.004);furnitureGroup.add(lip);lip.userData.objectId=mesh.userData.objectId;objects.at(-1).meshes.push(lip);
- }else if(m==='white'&&Math.abs(w-.025)<.0001&&(h===2||h===1)){register([mesh],h===2?'upright':'shortUpright',{title:'BOAXEL upright · '+Math.round(h*100)+' cm',dimensions:[w,d,h],note:'Vertical rail. Exact fixing positions must follow the manufacturer’s installation instructions.'});for(let sy=y-h/2+.04;sy<y+h/2-.025;sy+=.05){const slot=new T.Mesh(new T.PlaneGeometry(.006,.016),materials.metal);slot.rotation.y=Math.PI;slot.position.set(x,sy,z-d/2-.001);furnitureGroup.add(slot);slot.userData.objectId=mesh.userData.objectId;objects.at(-1).meshes.push(slot);}
- }else if(m==='white'&&h===.025&&w>.6){register([mesh],w>.8?'rail':'rail62',{title:'BOAXEL mounting rail',note:'Alignment rail; fix the uprights to suitable structural backing.'});
- }else if(m==='white'&&w===.014&&d===.4){register([mesh],'bracket',{title:'BOAXEL shelf bracket',height:y+.04,note:'40 cm bracket. Can support adjacent shelves on both sides.'});
- }else if(m==='metal'&&w===.017&&d===.6){register([mesh],'hookKit',{title:'60 cm tool rail',note:'Sold as a kit: two 60 cm rails and ten hooks. Two kits provide four rails in this layout.'});}}
- function capture(fn,key,meta,gear=false){const n=furnitureGroup.children.length;fn();const meshes=furnitureGroup.children.slice(n);register(meshes,key,meta);if(gear)equipmentMeshes.push(...meshes);}
- function bror(x,w,d,levels,height=1.9){capture(()=>brorBase(x,w,d,levels,height),height>1.5?'deep':'low',{title:'BROR '+Math.round(height*100)+' cm unit',dimensions:[w,d,height],levels,note:height>1.5?'Five supplied shelves used; spacing serves a mix of small and larger objects.':'Three supplied shelves, with proposed reused small shelf compartments above.'});}
- function snowRacer(x){const before=furnitureGroup.children.length;snowRacerBase(x);const g=new T.Group();for(const m of furnitureGroup.children.slice(before))g.add(m);g.scale.y=1.3/1.38;furnitureGroup.add(g);register([g],null,{title:'Rattkjelke · one existing snow racer',kind:'existing',dimensions:[.60,.40,1.30],note:'One confirmed by you. Upright storage envelope remains an estimate; check the steering wheel and ski tips. Kept in its own tall slot with shelves above.'});equipmentMeshes.push(g);}
- function objectBounds(o){scene.updateMatrixWorld(true);const b=new T.Box3();for(const m of o.meshes)b.expandByObject(m);return b;}
- function populateObjects(){const sel=root.querySelector('#object-list');sel.innerHTML='<option value="">Choose a shelf or product</option>';for(const o of objects){const op=document.createElement('option');op.value=o.id;op.textContent=o.meta.title||data.products[o.key]?.name;sel.append(op);}root.querySelector('#selection').innerHTML='<h2>Click a shelf.</h2><p>Inspect its size, height above the floor, price and exact product link. Switch off equipment to see every shelf.</p>';root.querySelector('#focus-item').disabled=true;}
- const dimensionText=k=>({upright:'200 cm high',shortUpright:'100 cm high',rail:'82 cm long',rail62:'62 cm long',shelf:'80 × 40 cm system size',shelf60:'60 × 40 cm system size',bracket:'40 cm deep',deep:'85 × 55 × 190 cm',low:'85 × 55 × 110 cm',small:'39 × 28 × 28 cm',tiny:'28 × 20 × 14 cm',flat:'39 × 28 × 14 cm',hookKit:'2 × 60 cm rails + 10 hooks',shortHook:'7 cm projection',skiHook:'33 × 24 cm',straps:'2 × 2.5 m straps'}[k]||data.products[k]?.dimensionsText||'See product page');
- function selectObject(o){if(selected)for(const m of selected.meshes){if(m.userData.baseMaterial){m.material.dispose();m.material=m.userData.baseMaterial;delete m.userData.baseMaterial;}}if(selectionBox){scene.remove(selectionBox);selectionBox.traverse(m=>{if(m.geometry)m.geometry.dispose();});selectionBox=null;}selected=o||null;const panel=root.querySelector('#selection');root.querySelector('#focus-item').disabled=!o;root.querySelector('#object-list').value=o?.id||'';if(!o){panel.innerHTML='<h2>Click a shelf.</h2><p>Select an object to inspect its size and product details.</p>';render();return;}const p=data.products[o.key],m=o.meta;let html='<h2>'+m.title+'</h2>'+(p?'<p>'+p.name+'</p>':'<p>'+(m.kind==='example'?'Example contents · provisional size':m.kind==='existing-storage'?'Existing wall storage':m.kind==='concept'||(m.title||'').startsWith('Custom')||(m.title||'').startsWith('Divider')?'Proposed storage · unpriced adaptations':'Existing equipment · estimated dimensions')+'</p>');let rows=[];
- if(p)rows.push(['Product size',dimensionText(o.key)]);
+// Selectable model objects. These studies do not claim a retail component list.
+function register(meshes,key,meta={}){const id='object-'+objects.length;const record={id,key,meta,meshes};objects.push(record);for(const m of meshes)m.traverse(n=>{n.userData.objectId=id;});return record;}
+function autoTag(){}
+function capture(fn,key,meta,gear=false){const n=furnitureGroup.children.length;fn();const meshes=furnitureGroup.children.slice(n);register(meshes,key,meta);if(gear)equipmentMeshes.push(...meshes);}
+function snowRacer(x){
+ const before=furnitureGroup.children.length;snowRacerBase(x);const g=new T.Group();
+ for(const m of furnitureGroup.children.slice(before))g.add(m);
+ g.scale.y=1.3/1.38;furnitureGroup.add(g);
+ register([g],null,{title:'Rattkjelke · one existing snow racer',kind:'existing',dimensions:[.60,.40,1.30],note:'One confirmed by you. Upright storage envelope is estimated; check the steering wheel and ski tips. Kept in a 71 cm clear rear slot with shelves above.'});equipmentMeshes.push(g);
+}
+function objectBounds(o){scene.updateMatrixWorld(true);const b=new T.Box3();for(const m of o.meshes)b.expandByObject(m);return b;}
+function populateObjects(){
+ const sel=root.querySelector('#object-list');sel.innerHTML='<option value="">Choose a shelf or object</option>';
+ for(const o of objects){const op=document.createElement('option');op.value=o.id;op.textContent=o.meta.title;sel.append(op);}
+ root.querySelector('#selection').innerHTML='<h2>Click a shelf.</h2><p>Inspect its size, height and assumptions.</p>';root.querySelector('#focus-item').disabled=true;
+}
+function selectObject(o){
+ if(selectionBox){scene.remove(selectionBox);selectionBox.traverse(m=>{m.geometry?.dispose();});selectionBox=null;}
+ selected=o||null;const panel=root.querySelector('#selection');root.querySelector('#focus-item').disabled=!o;root.querySelector('#object-list').value=o?.id||'';
+ if(!o){panel.innerHTML='<h2>Click a shelf.</h2><p>Select an object to inspect its size and assumptions.</p>';render();return;}
+ root.querySelector('#object-panel').open=true;
+ const m=o.meta,kind=m.kind==='example'?'Example contents · provisional size':m.kind==='existing-storage'?'Existing storage · placement study':m.kind==='concept'?'Proposed storage · unpriced adaptations':'Existing equipment · estimated dimensions';
+ let html='<h2>'+m.title+'</h2><p>'+kind+'</p>',rows=[];
  if(m.dimensions)rows.push([m.dimensionLabel||'Shown W × D × H',m.dimensions.map(v=>Number((v*100).toFixed(1))).join(' × ')+' cm']);
- if(m.height!==undefined)rows.push(['Above floor',Number((m.height*100).toFixed(1))+' cm']);if(m.levels)rows.push(['Shelf heights',m.levels.map(v=>Math.round(v*100)).join(', ')+' cm']);
- if(p){const n=[...data.layouts[current].items,...data.common].filter(([k])=>k===o.key).reduce((s,[k,q])=>s+q,0);rows.push(['Article number',p.sku],['Unit price',money(p.price)],['In this layout',n+' '+(o.key==='deep'||o.key==='low'?'units':'items')],['Total for product',money(p.price*n)]);}
- html+='<dl>'+rows.map(([k,v])=>'<div><dt>'+k+'</dt><dd>'+v+'</dd></div>').join('')+'</dl>';if(m.note)html+='<p>'+m.note+'</p>';if(p)html+='<a class="product-link" target="_blank" rel="noopener" href="'+p.url+'">View product at '+(p.vendor||(p.url.includes('ikea')?'IKEA':'Jula'))+' ↗</a><p class="fine">Price snapshot: 6 September 2026.</p>';panel.innerHTML=html;
- const bounds=objectBounds(o);selectionBox=new T.Group();selectionBox.scale.x=-1;const outline=new T.Box3Helper(bounds,0xc58639);outline.material.depthTest=false;outline.material.transparent=true;outline.material.opacity=.85;outline.renderOrder=100;selectionBox.add(outline);scene.add(selectionBox);for(const m of o.meshes){if(m.material?.emissive){m.userData.baseMaterial=m.material;m.material=m.material.clone();m.material.emissive.set('#b38345');m.material.emissiveIntensity=.15;}}render();}
+ if(m.height!==undefined)rows.push(['Above floor',Number((m.height*100).toFixed(1))+' cm']);
+ if(m.projection!==undefined)rows.push(['Beyond stud faces',Math.round(m.projection*100)+' cm']);
+ html+='<dl>'+rows.map(([k,v])=>'<div><dt>'+k+'</dt><dd>'+v+'</dd></div>').join('')+'</dl>';
+ if(m.note)html+='<p>'+m.note+'</p>';panel.innerHTML=html;
+ selectionBox=new T.Group();selectionBox.scale.x=-1;const outline=new T.Box3Helper(objectBounds(o),0xc58639);outline.material.depthTest=false;outline.material.transparent=true;outline.material.opacity=.85;outline.renderOrder=100;selectionBox.add(outline);scene.add(selectionBox);render();
+}

@@ -108,7 +108,7 @@
     "terminalObservation": {
       "observedAtMinuteUTC": "2026-10-21T10:31Z",
       "observedTimePrecision": "minute",
-      "source": "Fresh printer telemetry reported by the printer task",
+      "source": "Fresh printer-task report at 10:31 UTC, corroborated by sanitized terminal receipt",
       "jobName": "ENIGMA_STEPPING_PLA_82893d4b",
       "state": "FINISH",
       "progressPercent": 100,
@@ -120,7 +120,12 @@
       "recentUpdate": true,
       "bedCelsius": 48,
       "bedTargetCelsius": 0,
-      "exactEndTimeKnown": false
+      "exactEndTimeKnown": false,
+      "receiptSha256": "b24ff70df7a4699a0a91b570ccb48f72f7ec05288d45abd5cbf7fa26ba51669c",
+      "corroboratedAt": "2026-10-21T10:34:49+00:00",
+      "corroboratingBedCelsius": 40,
+      "hmsErrors": [],
+      "printError": 0
     }
   },
   "notes": "Printeren rapporterte FINISH, 100 % og 54 av 54 lag ved kontrollen kl. 10:31 UTC (12:31 i Oslo). Rapportert forløpt tid var 74 minutter, med minuttpresisjon; dette er ikke en uavhengig målt veggklokkevarighet. Nøyaktig sluttid er ukjent og faktisk filamentforbruk er ikke målt. Ferskt sluttbilde viser små deler og brimmer på platen, med støtte i noen seteboringer; rydding, passform og kvalitet er ikke godkjent. Platen var 48 °C ved kontrollen, ikke en bekreftelse på at den var avkjølt nok for uttak. Ubelastet PLA-prøve: tre foreslåtte seter er fortsatt ukvalifiserte; ingen fjærer, belastet drift, holdbarhet eller funksjon er godkjent.",
@@ -137,7 +142,7 @@
     "supports": "normal(auto), snug, including above-bed supports",
     "outerBrimMm": 8
   },
-  "updatedAt": "2026-10-21T10:34:26.413357+00:00",
+  "updatedAt": "2026-10-21T10:35:47.604696+00:00",
   "actualMinutes": 74,
   "actualDurationEvidence": {
     "source": "printer-reported elapsed counter at FINISH",

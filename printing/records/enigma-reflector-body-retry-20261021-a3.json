@@ -4,9 +4,9 @@
   "project": "Enigma Doublestep",
   "printer": "Bambu Lab X2D",
   "status": "planned",
-  "preparationState": "SAME_FILE_NEW_ATTEMPT_LATEST_SOURCE_AND_FRESH_START_GATES_PENDING",
+  "preparationState": "DEFERRED_BY_HUMAN_OTHER_PRINT_FIRST",
   "recordedAt": "2026-10-21T17:40:31.192010+00:00",
-  "updatedAt": "2026-10-21T17:40:31.192010+00:00",
+  "updatedAt": "2026-10-21T18:05:48.925646+00:00",
   "startedAt": null,
   "finishedAt": null,
   "jobName": "ENIGMA_REFLECTOR_RETRY_eadfe61c · nytt forsøk, ikke startet",
@@ -121,12 +121,18 @@
     "supportOnBuildPlateOnly": false,
     "outerBrimMm": 8
   },
-  "notes": "Nytt separat forsøk med samme fil, modell, støtteinnstillinger og estimater etter a2 FAILED. Mennesket opplyser å ha ryddet platen og autoriserte ny prøve, men kameraklarering ved senket/croppet plate er ikke fullført. Ingen a3-start er registrert. Oppdatert kilde og alle ferske startporter må være bestått, og startintensjon må være varig lagret før én kommando kan sendes. Den fysiske årsaken til første-lagsfeilen er ikke fastslått; samme fil er ikke en designrettelse.",
+  "notes": "Nytt separat forsøk med samme fil, modell, støtteinnstillinger og estimater etter a2 FAILED. Mennesket opplyser å ha ryddet platen og autoriserte ny prøve, men kameraklarering ved senket/croppet plate er ikke fullført. Ingen a3-start er registrert. Oppdatert kilde og alle ferske startporter må være bestått, og startintensjon må være varig lagret før én kommando kan sendes. Den fysiske årsaken til første-lagsfeilen er ikke fastslått; samme fil er ikke en designrettelse. Mennesket har nå prioritert en annen utskrift først. Dette forsøket er utsatt og skal ikke startes under den gjeldende prioriteringen; det er fortsatt bare planlagt.",
   "evidencePending": [
     "Clean latest-main/live guide refresh after PR185",
     "Current exact printer file/readback and live filament mapping",
     "New fully visible clear-bed camera <=60s and durable intent BEFORE any start publication",
     "Accepted a3 job identity and during-print camera",
     "Terminal camera and physical result/cleanup inspection"
-  ]
+  ],
+  "priorityOverride": {
+    "status": "deferred",
+    "reason": "Mennesket opplyste at en annen ting skal skrives ut først.",
+    "startAllowedUnderCurrentPriority": false,
+    "acceptedStartObserved": false
+  }
 }

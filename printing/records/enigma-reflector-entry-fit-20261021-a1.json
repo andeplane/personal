@@ -3,12 +3,12 @@
   "title": "Enigma · fire ende-deler til mekanisk passformprøve",
   "project": "Enigma Doublestep",
   "printer": "Bambu Lab X2D",
-  "status": "printing",
-  "preparationState": "PRINTING_REFLECTOR_BODY_SKIPPED_AFTER_LOCAL_EXTRUSION_FAILURE",
+  "status": "completed_partial",
+  "preparationState": "TERMINAL_PARTIAL_REFLECTOR_BODY_FAILED_AND_SKIPPED",
   "recordedAt": "2026-10-21T10:49:58.845524+00:00",
-  "updatedAt": "2026-10-21T14:42:06.701213+00:00",
+  "updatedAt": "2026-10-21T15:01:26.264044+00:00",
   "startedAt": "2026-10-21T14:04:24.827692Z",
-  "finishedAt": null,
+  "finishedAt": "2026-10-21T14:52:44.362784+00:00",
   "jobName": "ENIGMA_DOUBLESTEP_-_FOUR_PLA_REFLECTOR_AND_ENTRY-WHEEL_FIT_PARTS",
   "plate": 1,
   "parts": [
@@ -65,6 +65,13 @@
       "sha256": "a472e7534fcaca94b50009e85c8d648c1c328683a78937804aa176d9ce2c3b82",
       "stage": "local-reflector-body-extrusion-anomaly",
       "src": "assets/enigma-reflector-entry-fit-20261021-a1/anomaly-camera-1436.jpg"
+    },
+    {
+      "capturedAt": "2026-10-21T14:48:46.150619+00:00",
+      "caption": "Sluttbilde etter hopp over reflektorkroppen: tre andre deler er synlige på platen, med den delvis utskrevne, hoppede kroppen foran. Deler og brim ligger fortsatt på platen; den er ikke ryddet. Bildet bekrefter ikke støttefjerning, mål, passform eller fysisk suksess.",
+      "sha256": "073b114b99fedb22cc570353df1b035429c3362b5d747f11265cf00eb7354689",
+      "stage": "after-partial-completion-body-skipped",
+      "src": "assets/enigma-reflector-entry-fit-20261021-a1/after-skip-completion-camera.jpg"
     }
   ],
   "source": {
@@ -163,13 +170,12 @@
       ]
     }
   },
-  "notes": "Senere observasjon: menneskets nærfoto og et nytt printerkamerabilde viser lokal oppstående, sammenfiltret ekstrudering på reflektorkroppens ringformede indre område. Støtteregionen er en mulig forklaring, ikke en bekreftet årsak. Printerens ferske rapport bekrefter nå skipped_objects=[112]. Objekt 112 er uavhengig knyttet til REFLECTOR_B_BODY i det faktiske arkivet, så menneskets hopp over riktig objekt er akseptert. De tre andre objektene er ikke markert for hopp; fysisk resultat er fortsatt ukjent. Hele jobben er ikke erklært mislykket eller fullført, og andre deler er ikke fysisk godkjent. Starttidspunktet er første observerte jobbaksept kl.14:04:24 UTC, ikke et målt tidspunkt for første ekstrudering. Denne samme kjøringen ble startet manuelt i Bambu Studio etter at mennesket satte USB-lagringen inn igjen. Faktisk akseptert arkiv 7c5b97b7 erstatter den ustartede, forberedte f9f5c47b-filen som gjeldende printidentitet; opprinnelig forberedelse og bilder er bevart i historikken. Forhåndsvisning og toppbilde er hentet fra det faktiske Studio-arkivet; grønn prosjektfarge er ikke bevis på filamentfarge. Fire navngitte deler, 281 lag, 1 t 59 m 58 s og 55,77 g er faktisk slice-metadata, ikke målt printtid eller forbruk. Studio fjernet beholdte mesher: full geometri-/transform-sammenligning mot kildeprosjektet mangler, og den faktiske filen ble først lastet ned og gransket etter manuell sending. De to første oppstartsbildene viser ennå ikke klart observerbare modellbaner. Et senere bilde kl.14:20:13 viser tidlige svarte lag og brim uten åpenbar stor feil i synlige områder; skjulte områder og gjenskinn begrenser vurderingen. Visuell vurdering av første lag avventes; ingen fysisk passform, støttefjerning, elektrisk isolasjon eller belastet drift er godkjent. Separat PLA-utløserkam er nå frigitt for ubelastet passformprøve, mens arbeidende PETG-kam og belastet drift fortsatt er holdt tilbake. Rotor-reprint er fortsatt holdt etter støtteryddeskade.",
+  "notes": "Delvis avsluttet: printeren rapporterer FINISH/100% etter at REFLECTOR_B_BODY fikk lokal løs ekstrudering og mennesket hoppet over riktig objekt 112. De tre andre objektene er ikke hoppet over, men fysisk resultat og passform er ikke godkjent. Siste observerte FINISH-rapport er kl. 14:52:44 UTC, med seng 43 °C og varme satt til 0. Printeren rapporterte 37 minutter; presis veggklokkevarighet og faktisk filamentforbruk er ukjent, så faktiske målefelt forblir tomme. Slicerestimatene gjelder opprinnelig fire-dels jobb før hoppet. Senere observasjon: menneskets nærfoto og et nytt printerkamerabilde viser lokal oppstående, sammenfiltret ekstrudering på reflektorkroppens ringformede indre område. Støtteregionen er en mulig forklaring, ikke en bekreftet årsak. Printerens ferske rapport bekrefter nå skipped_objects=[112]. Objekt 112 er uavhengig knyttet til REFLECTOR_B_BODY i det faktiske arkivet, så menneskets hopp over riktig objekt er akseptert. De tre andre objektene er ikke markert for hopp; fysisk resultat er fortsatt ukjent. Hele jobben er ikke erklært fysisk vellykket; sluttstatusen beskriver en delvis avsluttet kjøring. Starttidspunktet er første observerte jobbaksept kl. 14:04:24 UTC, ikke et målt tidspunkt for første ekstrudering. Denne samme kjøringen ble startet manuelt i Bambu Studio etter at mennesket satte USB-lagringen inn igjen. Faktisk akseptert arkiv 7c5b97b7 erstatter den ustartede, forberedte f9f5c47b-filen som gjeldende printidentitet; opprinnelig forberedelse og bilder er bevart i historikken. Forhåndsvisning og toppbilde er hentet fra det faktiske Studio-arkivet; grønn prosjektfarge er ikke bevis på filamentfarge. Fire navngitte deler, 281 lag, 1 t 59 m 58 s og 55,77 g er faktisk slice-metadata, ikke målt printtid eller forbruk. Studio fjernet beholdte mesher: full geometri-/transform-sammenligning mot kildeprosjektet mangler, og den faktiske filen ble først lastet ned og gransket etter manuell sending. De to første oppstartsbildene viser ennå ikke klart observerbare modellbaner. Et senere bilde kl. 14:20:13 viser tidlige svarte lag og brim uten åpenbar stor feil i synlige områder; skjulte områder og gjenskinn begrenser vurderingen. Visuell vurdering av første lag avventes; ingen fysisk passform, støttefjerning, elektrisk isolasjon eller belastet drift er godkjent. Separat PLA-utløserkam er nå frigitt for ubelastet passformprøve, mens arbeidende PETG-kam og belastet drift fortsatt er holdt tilbake. Rotor-reprint er fortsatt holdt etter støtteryddeskade.",
   "sequence": 6,
   "evidencePending": [
-    "Fresh post-decision camera and physical outcome of remaining parts",
-    "During-print and completion camera",
-    "Physical support removal and unloaded fit inspection",
-    "Full retained-mesh comparison unavailable for this actual meshless archive; gap must remain explicit"
+    "Physical inspection and cleanup of the three not-skipped parts",
+    "Physical support/strand inspection of failed partial reflector body",
+    "Precise actual wall duration and measured filament use unavailable"
   ],
   "sourceVerificationHistory": [
     {
@@ -330,8 +336,8 @@
         "145": "ENTRY_WHEEL_CABLE_BUSH"
       },
       "actualArchiveObjectMappingIndependentlyVerified": true,
-      "skipAcceptanceObservedAt": null,
-      "skipAcceptanceEvidence": "Fresh root MCP report RUNNING, skipped_objects=[112]; exact timestamp not supplied to logger"
+      "skipAcceptanceObservedAt": "2026-10-21T14:52:44.362784+00:00",
+      "skipAcceptanceEvidence": "Fresh connected/recent root FINISH report includes skipped_objects=[112]; receipt recorded in terminalEvidence"
     }
   ],
   "objectOutcomes": [
@@ -344,20 +350,49 @@
     {
       "part": "REFLECTOR_REAR_COVER",
       "actualArchiveObjectId": 123,
-      "status": "not_skipped_physical_outcome_unverified",
+      "status": "not_skipped_job_finish_reported_physical_outcome_unverified",
       "physicalFitVerified": false
     },
     {
       "part": "ENTRY_WHEEL_INSULATOR",
       "actualArchiveObjectId": 134,
-      "status": "not_skipped_physical_outcome_unverified",
+      "status": "not_skipped_job_finish_reported_physical_outcome_unverified",
       "physicalFitVerified": false
     },
     {
       "part": "ENTRY_WHEEL_CABLE_BUSH",
       "actualArchiveObjectId": 145,
-      "status": "not_skipped_physical_outcome_unverified",
+      "status": "not_skipped_job_finish_reported_physical_outcome_unverified",
       "physicalFitVerified": false
     }
-  ]
+  ],
+  "skippedParts": [
+    "REFLECTOR_B_BODY"
+  ],
+  "notSkippedParts": [
+    "REFLECTOR_REAR_COVER",
+    "ENTRY_WHEEL_INSULATOR",
+    "ENTRY_WHEEL_CABLE_BUSH"
+  ],
+  "terminalEvidence": {
+    "printerState": "FINISH",
+    "observedAt": "2026-10-21T14:52:44.362784+00:00",
+    "timestampMeaning": "Observed FINISH report, not precise physical completion time",
+    "connected": true,
+    "recentUpdate": true,
+    "progressPercent": 100,
+    "layer": 281,
+    "totalLayers": 281,
+    "skippedObjectIds": [
+      112
+    ],
+    "reportedElapsedMinutes": 37,
+    "preciseWallDurationVerified": false,
+    "bedC": 43,
+    "bedTargetC": 0,
+    "hmsErrors": [],
+    "actualArchiveSha256": "7c5b97b7bf6a2f3884c1dd7c16555be6b65e1cd6816eaa844bf9ca623d8d5d27",
+    "receiptSha256": "bae0c494ae5ee7818b5fd989481d09e22dbbda41ced383f69861594328a581ee",
+    "physicalFitVerified": false
+  }
 }

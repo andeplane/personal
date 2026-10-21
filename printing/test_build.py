@@ -1,0 +1,56 @@
+"""Partial terminal records must not turn selection or live progress into completion."""
+import contextlib
+import importlib.util
+import io
+import json
+from pathlib import Path
+import tempfile
+import unittest
+from unittest.mock import patch
+
+spec = importlib.util.spec_from_file_location('print_history_build', Path(__file__).with_name('build.py'))
+ledger = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(ledger)
+
+class PartialOutcomeTests(unittest.TestCase):
+    def record(self):
+        return {
+            'id': 'trial', 'status': 'completed_partial', 'title': 'Trial',
+            'project': 'Example', 'printer': 'Example printer', 'jobName': 'Trial',
+            'material': 'PLA', 'notes': 'Physical fit remains unverified.',
+            'parts': ['body', 'cover'], 'color': '#161616', 'source': {'sha256': None},
+            'recordedAt': '2026-10-21T00:00:00Z', 'startedAt': None, 'finishedAt': None,
+            'estimatedSeconds': 60, 'actualSeconds': None, 'estimatedGrams': 1,
+            'actualGrams': None, 'estimatedMeters': 1,
+            'preview': None, 'layout': None, 'snapshots': [],
+            'terminalEvidence': {'printerState': 'FINISH'}, 'skippedParts': ['body'],
+        }
+
+    def build_record(self, record):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / 'records').mkdir()
+            (root / 'records/trial.json').write_text(json.dumps(record))
+            with patch.object(ledger, 'ROOT', root), contextlib.redirect_stdout(io.StringIO()):
+                ledger.build()
+            return json.loads((root / 'records.json').read_text())[0]
+
+    def test_partial_finish_remains_distinct_from_all_parts_completed(self):
+        self.assertEqual(self.build_record(self.record())['status'], 'completed_partial')
+
+    def test_running_or_paused_skip_selection_is_not_terminal(self):
+        for state in ['RUNNING', 'PAUSE']:
+            run = self.record()
+            run['terminalEvidence']['printerState'] = state
+            with self.subTest(state=state), self.assertRaises(AssertionError):
+                self.build_record(run)
+
+    def test_skipped_parts_must_be_a_nonempty_proper_inventory_subset(self):
+        for skipped in [[], ['unknown'], ['body', 'cover']]:
+            run = self.record()
+            run['skippedParts'] = skipped
+            with self.subTest(skipped=skipped), self.assertRaises(AssertionError):
+                self.build_record(run)
+
+if __name__ == '__main__':
+    unittest.main()

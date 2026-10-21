@@ -52,3 +52,8 @@ Label an actual human photo explicitly and state that its capture time is unknow
 never substitute its receipt time or label it as a derived image. Each entry has `src`, `kind`, a caption explaining its proof
 boundary and SHA-256. The builder verifies exact bytes. Do not invent camera
 capture timestamps or put a derived rendering in the camera collection.
+
+Use `completed_partial` when a fresh printer FINISH report follows skipping a
+failed object. Keep the skipped parts and terminal evidence explicit; the other
+parts remain physically unverified until inspected. Report minute-resolution
+printer elapsed time separately when precise wall duration is unavailable.

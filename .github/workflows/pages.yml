@@ -34,6 +34,8 @@ jobs:
           node --check garage/viewer.js
           python3 -m json.tool garage/design-data.json > /dev/null
           python3 garage/validate-design.py
+          python3 garage/validate-images.py
+          python3 garage/test-image-freshness.py
           npm install --prefix "$RUNNER_TEMP/garage-check" --ignore-scripts --no-audit --no-fund three@0.158.0
           node garage/check-storage.mjs "$RUNNER_TEMP/garage-check/node_modules/three"
 

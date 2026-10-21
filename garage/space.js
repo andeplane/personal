@@ -49,7 +49,7 @@ function updateSpaceStatus(){
  loftGroup.userData.allocation.visible=accessGroup.visible;
  // A top comparison hides the deck by view, while the floor plan remains visible.
  loftGroup.visible=loft&&view!=='plan';
- loftGroup.userData.structure[0].material.opacity=view==='loft'?1:.12;
+ loftGroup.userData.structure[0].material.opacity=['loft','photo'].includes(view)?1:.12;
  root.querySelector('#plan-note').hidden=view!=='plan';
  parkingPath.visible=parked;emptyFloor.visible=!parked;
  root.querySelector('#loft-length-value').textContent=loftStats.length.toFixed(1)+' m';

@@ -33,3 +33,7 @@ Before publishing a human-supplied photo, inspect its metadata without logging
 private values. Remove location/device metadata from the public copy while
 preserving image pixels and orientation; keep the original privately and record
 the sanitization. Never invent a missing capture timestamp.
+
+When changing `printing/printing.js`, update its content-hash query in
+`printing/index.html`; the regression check must bind the renderer bytes so
+a cached script cannot hide a newly recorded outcome.

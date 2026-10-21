@@ -1,5 +1,6 @@
 """Partial terminal records must not turn selection or live progress into completion."""
 import contextlib
+import hashlib
 import importlib.util
 import io
 import json
@@ -35,7 +36,11 @@ class PartialOutcomeTests(unittest.TestCase):
                 ledger.build()
             return json.loads((root / 'records.json').read_text())[0]
 
-    def test_partial_finish_remains_distinct_from_all_parts_completed(self):
+    def test_index_binds_current_renderer_bytes(self):
+        folder = Path(__file__).parent
+        version = hashlib.sha256((folder / 'printing.js').read_bytes()).hexdigest()[:12]
+        self.assertIn('src="printing.js?v=' + version + '"', (folder / 'index.html').read_text())
+
         self.assertEqual(self.build_record(self.record())['status'], 'completed_partial')
 
     def test_running_or_paused_skip_selection_is_not_terminal(self):

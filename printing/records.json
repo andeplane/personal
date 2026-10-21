@@ -4,7 +4,7 @@
     "title": "Plastic bed scraper · first attempt",
     "project": "Printer tools",
     "printer": "Bambu Lab X2D",
-    "status": "printing",
+    "status": "completed",
     "recordedAt": "2026-10-21T17:45:27.873414+00:00",
     "startedAt": "2026-10-21T17:49:35.221811+00:00",
     "finishedAt": null,
@@ -36,6 +36,21 @@
         "src": "assets/plastic-scraper-20261021-a1/camera-start.jpg",
         "capturedAt": "2026-10-21T17:49:54.484714+00:00",
         "caption": "After acknowledged start, during preparation: no printed scraper layer yet. Not a finished-part image."
+      },
+      {
+        "src": "assets/plastic-scraper-20261021-a1/camera-during-1757.jpg",
+        "capturedAt": "2026-10-21T17:57:13.125873+00:00",
+        "caption": "During printing: telemetry reports layer 1/50, 25%, about 18 minutes remaining. The toolhead partly obscures the rear-center print area; this frame does not establish first-layer quality. No obvious loose filament is visible."
+      },
+      {
+        "src": "assets/plastic-scraper-20261021-a1/camera-during-1800.jpg",
+        "capturedAt": "2026-10-21T18:00:16.487326+00:00",
+        "caption": "During printing: telemetry reports layer 5/50, 37%, about 16 minutes remaining. A scraper-shaped print with visible infill is on the plate; the moving toolhead obscures part of it. No obvious detached part or spaghetti is visible; final quality and tool strength remain unverified."
+      },
+      {
+        "src": "assets/plastic-scraper-20261021-a1/camera-terminal.jpg",
+        "capturedAt": "2026-10-21T18:18:55.204592+00:00",
+        "caption": "After fresh FINISH telemetry (100%, layer 50/50, no skipped objects or printer errors): a single scraper-shaped part remains on the plate with no obvious detachment or spaghetti. This camera image does not establish underside/edge quality, strength or usefulness for removing prints."
       }
     ],
     "source": {
@@ -43,7 +58,7 @@
       "sha256": "fb5514ab6454ba20566e7849563ca392e2fd0c968c34f7bc8c86254f8e11edc8",
       "evidence": "Original: https://makerworld.com/en/models/1284581-bambu-lab-bed-scraper#profileId-1313425 ; downloaded source SHA256 649545e0e0ceff6529ec18a0723d2d93c972151b8fc96f2f50e7f7d0ba406509. Sliced using Bambu Studio 02.08.02.61 and resolved bundled X2D 0.4 mm machine/process/PLA Basic profiles. Four walls, 25% infill, supports off. Actual X2D start/end code verified in final G-code. Preview/top view extracted from this exact final 3MF."
     },
-    "notes": "User confirmed full plate clearance and authorized this print. Successful printer acknowledgement and RUNNING observed, initially during bed identification/calibration with no deposited layer yet. Explicit AMS mapping [2] selects physical slot 3; telemetry labels it black/Bambu PLA Basic, but the user corrected the actual material brand to Clas Ohlson and reported orange. Physical color remains uncertain; the color field is the telemetry label, not visual verification. No printer spool metadata was changed. Slicer estimates remain estimates; quality and actual usage are unverified. Initial /cache upload was rejected and reconciled as absent. Root-folder upload succeeded and a full download matched the recorded SHA256."
+    "notes": "User confirmed full plate clearance and authorized this print. Successful printer acknowledgement and RUNNING observed, initially during bed identification/calibration with no deposited layer yet. Explicit AMS mapping [2] selects physical slot 3; telemetry labels it black/Bambu PLA Basic. The user corrected the actual material brand to Clas Ohlson, then clarified that orange referred to a UI misunderstanding and explicitly accepted black. No printer spool metadata was changed. Slicer estimates remain estimates; quality and actual usage are unverified. Initial /cache upload was rejected and reconciled as absent. Root-folder upload succeeded and a full download matched the recorded SHA256. Terminal check at approximately 2026-10-21T18:18Z reported FINISH, 100%, 50/50 layers, zero remaining minutes, no skipped objects, and no HMS/print errors. Printer-reported elapsed time was 26 minutes (minute resolution). The exact finish time and precise duration were not observed, so finishedAt and actualSeconds remain null. Actual grams were not measured. Terminal camera capture succeeded at 18:18:55Z after transient SSH connection failures. Physical strength, blade edge quality and real scraping performance remain untested."
   },
   {
     "id": "enigma-reflector-body-retry-20261021-a3",

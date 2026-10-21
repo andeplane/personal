@@ -4,12 +4,12 @@
     "title": "Enigma · 18 deler til trinnmekanismen (PLA-prøve)",
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
-    "status": "planned",
-    "preparationState": "PREPARED_NOT_STARTED",
+    "status": "printing",
+    "preparationState": "ACCEPTED_PREPARING",
     "recordedAt": "2026-10-21T08:52:16Z",
-    "startedAt": null,
+    "startedAt": "2026-10-21T09:13:26.069277+00:00",
     "finishedAt": null,
-    "jobName": "EIGHTEEN_PLA_STEPPING_COMPONENTS_X2D",
+    "jobName": "ENIGMA_STEPPING_PLA_82893d4b",
     "plate": 1,
     "parts": [
       "BENT_1",
@@ -55,7 +55,7 @@
         "file": "EIGHTEEN_PLA_STEPPING_COMPONENTS_X2D.3mf",
         "sha256": "63668f40fd46d4d2874c987c0ffb96ecea1d63b8714b032af1d89c95d40f6766"
       },
-      "evidence": "Klargjort, ikke startet. PR #178 er slått inn i main e52f4829156babcd36f1984d55f6680b90e5ac99. Ren, publisert hovedgren og ingen åpne PR-er ble bekreftet av print-porten. Veiledningens synkronisering er kontrollert lokalt og på den publiserte siden. Den gjennomgåtte slicerfilen ble lastet opp med et unikt navn og deretter lastet ned igjen; SHA-256 er identisk. Slicerfilens 18 objektnavn samsvarer med valgt inventar; figurene er hentet direkte fra samme fil. Slicerestimat: 4205 s, 26.31 g, 8.68 m og 54 lag. Svart PLA i AMS A3 er bekreftet av fersk printerkontroll rapportert i arbeidet; grønn er kun slicerens generiske visningsfarge. Endelig oppsummering er vist, men brukerens etterfølgende startgodkjenning, printeraksept, start, faktisk tid og faktisk forbruk mangler fortsatt.",
+      "evidence": "Brukeren godkjente start etter endelig oppsummering. Printeren godtok den opplastede filen med SUCCESS, plate 1 og samsvarende MD5; filens SHA-256 er tidligere kontrollert mot gjennomgått slice. Starttid er printerens rapporterte veggklokketid. Fersk status etter aksept viste forberedelse/homing; dette er ikke bevis på påbegynt materialavsetning eller fysisk kvalitet. Kilde er hovedgren e52f4829156babcd36f1984d55f6680b90e5ac99, med print-port og identisk opplastingsnedlasting dokumentert. De 18 delene og slicerestimatene er uendret; estimater er ikke faktisk tidsbruk eller forbruk.",
       "branch": "main",
       "pullRequest": "https://github.com/andeplane/openenigma/pull/178",
       "gcodeMember": "Metadata/plate_1.gcode",
@@ -70,14 +70,24 @@
         "uploadReadbackStatus": "UPLOADED_BYTES_MATCH_REVIEWED_ARTIFACT",
         "uploadReadbackReceiptSha256": "367cfbaac2c78888897dc3cf0d146d3fa0e3a77ac73c8f67a9388276d494435c",
         "uploadReadbackSha256": "82893d4b62cc8d4ba711e6d430b174e3c83f698744e8d626ef438b32f9f6c125",
-        "printerStartAuthorized": false,
+        "printerStartAuthorized": true,
         "physicalFitVerified": false
+      },
+      "acceptedStart": {
+        "observedAt": "2026-10-21T09:14:46+00:00",
+        "receiptSha256": "515cfd156df969df17c1189385a0109220ff1a5808556759aa4c668dfdec750e",
+        "result": "SUCCESS",
+        "file": "ENIGMA_STEPPING_PLA_82893d4b.gcode.3mf",
+        "plate": 1,
+        "md5": "273f714bea1a357cfbc30f665765c3b1",
+        "amsSlot": "A3",
+        "reportedStage": "Homing toolhead",
+        "reportedTotalLayers": 54
       }
     },
-    "notes": "Klargjort for en ubelastet PLA-passformprøve med 18 separate deler. Ikke startet eller rapportert fullført. Tre foreslåtte seter er fortsatt ukvalifiserte; ingen fjærer, belastet drift, holdbarhet eller funksjon er godkjent. Total tid og filament er slicerestimater, ikke målt forbruk. Kilde-/printkontroll og identisk opplastingsnedlasting er dokumentert; brukerens startgodkjenning etter den endelige oppsummeringen håndteres separat. Kamerabilder under og etter printing mangler fordi jobben ikke er startet.",
+    "notes": "Printeren har godtatt og startet forberedelsen til en ubelastet PLA-passformprøve med 18 separate deler. Tre foreslåtte seter er fortsatt ukvalifiserte; ingen fjærer, belastet drift, holdbarhet eller funksjon er godkjent. Kamerabilde etter start er foreløpig utilgjengelig under ny tilkobling; ingen gammel bildefil er brukt. Faktisk sluttid, varighet og filamentforbruk mangler fortsatt.",
     "sequence": 5,
     "evidencePending": [
-      "Explicit authorized start and fresh accepted job identity",
       "Fresh during-print camera",
       "Fresh terminal-state camera and reported outcome",
       "Actual duration or usage only when reliably observed/measured"
@@ -89,7 +99,7 @@
       "supports": "normal(auto), snug, including above-bed supports",
       "outerBrimMm": 8
     },
-    "updatedAt": "2026-10-21T09:10:55.355952+00:00"
+    "updatedAt": "2026-10-21T09:16:02.105027+00:00"
   },
   {
     "id": "enigma-five-9f68de72",

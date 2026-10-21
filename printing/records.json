@@ -1,16 +1,16 @@
 [
   {
-    "id": "enigma-reflector-body-retry-20261021-a2",
-    "title": "Enigma · ny prøve av reflektorkropp B med tettere støtte",
+    "id": "enigma-reflector-body-retry-20261021-a3",
+    "title": "Enigma · reflektorkropp B, tredje forsøk",
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
     "status": "planned",
-    "preparationState": "CANDIDATE_SOURCE_RELEASE_AND_DEVICE_GATES_PENDING",
-    "recordedAt": "2026-10-21T15:45:13.310364+00:00",
-    "updatedAt": "2026-10-21T15:45:13.310364+00:00",
+    "preparationState": "SAME_FILE_NEW_ATTEMPT_LATEST_SOURCE_AND_FRESH_START_GATES_PENDING",
+    "recordedAt": "2026-10-21T17:40:31.192010+00:00",
+    "updatedAt": "2026-10-21T17:40:31.192010+00:00",
     "startedAt": null,
     "finishedAt": null,
-    "jobName": "REFLECTOR_B_BODY · én-dels ny prøve, ikke startet",
+    "jobName": "ENIGMA_REFLECTOR_RETRY_eadfe61c · nytt forsøk, ikke startet",
     "plate": 1,
     "parts": [
       "REFLECTOR_B_BODY"
@@ -43,7 +43,7 @@
       "repository": "https://github.com/andeplane/openenigma",
       "commit": null,
       "branch": null,
-      "releaseStatus": "UNRELEASED_CANDIDATE_SOURCE_AND_GATE_REVIEW_PENDING",
+      "releaseStatus": "SAME_REVIEWED_ARTIFACT_LATEST_MAIN_AND_DEVICE_RECHECK_PENDING",
       "gcodeMember": "Metadata/plate_1.gcode",
       "gcodeSha256": "be01a0eb7ed08e3a40ffe0ac3202f50c4d9faf7257b532e5552d82f584a6b2d8",
       "reviewEvidence": [
@@ -62,9 +62,206 @@
         {
           "file": "result.json",
           "sha256": "10a6bc2738943e81c79c1eaf8461b6d923e901ab8bb5ed8c868133e4c6cbeb31"
+        },
+        {
+          "file": "released-source-ready.json",
+          "sha256": "64375418a9bbadc6400c5a031e3dc3400e2ef14cc578c16f6770455368d1c096"
+        },
+        {
+          "file": "staged-main-0ed6b122/receipt.json",
+          "sha256": "e290bad7f366a0eb3761a9b4fa9bf1ba2e79c706c89c862609d356e7bb05e87c"
+        },
+        {
+          "file": "final-content-audit.json",
+          "sha256": "a0a90f91801b46406460ed35e78817a46035f17a71691ece62946753fef20efe"
+        },
+        {
+          "file": "final-source-0178a400-review.json",
+          "sha256": "7d2d189a08d17f78ece024bac640f43b6069fc2caef651b08f11de9376ccc555"
+        },
+        {
+          "file": "upload-receipt.json",
+          "sha256": "c1608ad0baed7bf6d81233408d2f1e27c60c5c6c03fbc888bf046cc90c4b3c00"
+        },
+        {
+          "file": "upload-readback-audit.json",
+          "sha256": "47dae3d993ca134a9aa93eb88b4101c8fecae3c56cbe044739a60abd6431eb9d"
+        },
+        {
+          "file": "accepted-job.json",
+          "sha256": "05240281b602ca39cb1e84a9d9a90e4a115d84a257e6096ecc17c29b822b470d"
+        },
+        {
+          "file": "publication-reconciliation.json",
+          "sha256": "a21609bec97eefe4ed1ec75c363b14ff7da721708ac2a3da2d9c12187113f007"
         }
       ],
-      "evidence": "Kandidat med beholdt mesh i arkivet og én navngitt kropp. Kildeutgivelse, uavhengig endelig kontroll, publisert guide, eksakt opplastingsnedlasting, live materialtilordning, kameraklarering og akseptert printerjobb er ennå ikke bundet for dette nye forsøket."
+      "evidence": "Samme eksakte eadfe61c-artifakt og uendrede geometri/prosess som det mislykkede a2-forsøket, etter ny uttrykkelig autorisasjon. Dette er et NYTT planlagt forsøk. Oppdatert main/guide, eksakt enhetsfil og materialtilordning samt varig startintensjon og en nylig sett klar plate må kontrolleres på nytt. Tidligere a2-evidens er ikke en akseptert start for a3.",
+      "previousReviewedCommit": "0ed6b122de6548f870e3149ff58beac5b2401cd4",
+      "latestMainTarget": "fd1b0a062090641decd766dc9447ef4e7ce0e793",
+      "editableProject": {
+        "file": "ONE_REFLECTOR_B_BODY_SUPPORT_RETRY_X2D.3mf",
+        "sha256": "4101e38f479b0b6f969d4ac03ec2488da2a5ed70f8f374c508a93ae2af67d41d"
+      }
+    },
+    "retryOf": "enigma-reflector-body-retry-20261021-a2",
+    "sequence": 11,
+    "settings": {
+      "wallLoops": 4,
+      "sparseInfillPercent": 30,
+      "supportType": "normal(auto)",
+      "supportStyle": "snug",
+      "supportBasePatternSpacingMm": 1.2,
+      "supportSpeedMmPerSecond": 60,
+      "supportInterfaceSpeedMmPerSecond": 40,
+      "supportTopZGapMm": 0.2,
+      "supportBottomZGapMm": 0.2,
+      "supportInterfaceTopLayers": 3,
+      "supportInterfaceBottomLayers": 0,
+      "independentSupportLayerHeight": false,
+      "supportOnBuildPlateOnly": false,
+      "outerBrimMm": 8
+    },
+    "notes": "Nytt separat forsøk med samme fil, modell, støtteinnstillinger og estimater etter a2 FAILED. Mennesket opplyser å ha ryddet platen og autoriserte ny prøve, men kameraklarering ved senket/croppet plate er ikke fullført. Ingen a3-start er registrert. Oppdatert kilde og alle ferske startporter må være bestått, og startintensjon må være varig lagret før én kommando kan sendes. Den fysiske årsaken til første-lagsfeilen er ikke fastslått; samme fil er ikke en designrettelse.",
+    "evidencePending": [
+      "Clean latest-main/live guide refresh after PR185",
+      "Current exact printer file/readback and live filament mapping",
+      "New fully visible clear-bed camera <=60s and durable intent BEFORE any start publication",
+      "Accepted a3 job identity and during-print camera",
+      "Terminal camera and physical result/cleanup inspection"
+    ]
+  },
+  {
+    "id": "enigma-reflector-body-retry-20261021-a2",
+    "title": "Enigma · ny prøve av reflektorkropp B med tettere støtte",
+    "project": "Enigma Doublestep",
+    "printer": "Bambu Lab X2D",
+    "status": "failed",
+    "preparationState": "ACCEPTED_THEN_FAILED_FIRST_LAYER_TRIAL",
+    "recordedAt": "2026-10-21T15:45:13.310364+00:00",
+    "updatedAt": "2026-10-21T17:40:31.192010+00:00",
+    "startedAt": "2026-10-21T17:07:06.140Z",
+    "finishedAt": null,
+    "jobName": "ENIGMA_REFLECTOR_RETRY_eadfe61c",
+    "plate": 1,
+    "parts": [
+      "REFLECTOR_B_BODY"
+    ],
+    "estimatedSeconds": 6621.87158203125,
+    "actualSeconds": null,
+    "estimatedGrams": 48.00498962402344,
+    "actualGrams": null,
+    "estimatedMeters": 15.83981,
+    "material": "PLA Basic · svart · akseptert AMS A3 [2] for denne kjøringen",
+    "color": "#161616",
+    "layerHeightMm": 0.2,
+    "firstLayerHeightMm": 0.2,
+    "nozzleMm": 0.4,
+    "layers": 238,
+    "preview": "assets/enigma-reflector-body-retry-20261021-a2/plan.png",
+    "layout": "assets/enigma-reflector-body-retry-20261021-a2/layout.png",
+    "snapshots": [
+      {
+        "src": "assets/enigma-reflector-body-retry-20261021-a2/accepted-start-camera.jpg",
+        "capturedAt": "2026-10-21T17:00:54.564260+00:00",
+        "sha256": "9378a281abb65742b2a7c96a8ec73b58a1c1a183d5f17975beeb6a47f06ea5d8",
+        "stage": "accepted-start-before-visible-model-extrusion",
+        "caption": "Ny kamerafangst etter startkommandoen: platen er uten tydelige modellag. Dette er oppstartsbilde, ikke bevis på første lags feste, vellykket utskrift eller bestått kamerakrav før start."
+      }
+    ],
+    "evidenceImages": [
+      {
+        "src": "assets/enigma-reflector-body-retry-20261021-a2/critical-support-planes.png",
+        "kind": "exact-candidate-slicer-toolpath-review",
+        "caption": "Tolv buebevisste verktøybaneplan fra den eksakte nye én-dels slicen, fra første støttelag til modellgulvet. Dette er avledede baner, ikke kamera eller fysisk bevis på stabilitet, støttefjerning eller passform.",
+        "sha256": "9a4dbe8eb9ab0dd407ba11dc9ba27dc0fd04072097d1939be87d9a56b550dcfb"
+      },
+      {
+        "src": "assets/enigma-reflector-body-retry-20261021-a2/human-first-layer-failure.png",
+        "kind": "human-supplied-printer-camera-image-capture-time-unknown",
+        "caption": "Kamerabilde levert av mennesket ved problemet med første lag: ringformede baner og brim ses under verktøyhodet, med ujevne/løse linjer. Nøyaktig opptakstid er ukjent. Utskriften ble senere rapportert FAILED; bildet fastslår ikke årsaken. Steds-/enhetsmetadata er fjernet uten å endre bildets piksler.",
+        "sha256": "c97af41ad28bc74e7326711db54b68203b89359b082732ebb017e1d8e15eece4",
+        "metadataSanitized": true,
+        "decodedPixelsUnchanged": true
+      }
+    ],
+    "source": {
+      "file": "sliced.3mf",
+      "sha256": "eadfe61c7ce941667f6efaa0ce0f159e1ab26cef6d99be99f7b523e8c2bcbc5a",
+      "repository": "https://github.com/andeplane/openenigma",
+      "commit": "0ed6b122de6548f870e3149ff58beac5b2401cd4",
+      "branch": "main",
+      "releaseStatus": "SOURCE_RELEASED_AND_AUDITED_BEFORE_THIS_ACCEPTED_ATTEMPT",
+      "gcodeMember": "Metadata/plate_1.gcode",
+      "gcodeSha256": "be01a0eb7ed08e3a40ffe0ac3202f50c4d9faf7257b532e5552d82f584a6b2d8",
+      "reviewEvidence": [
+        {
+          "file": "root-visual-review.json",
+          "sha256": "5b040631110c18bbdebbf93492361f6f3c3b4314e81bf8d4d0077957335cb594"
+        },
+        {
+          "file": "critical-body-toolpaths-final.json",
+          "sha256": "cd26ca7746f76bf540698248dd6e93ff0bce40c0bd158b970dbe5ca5f0d50e09"
+        },
+        {
+          "file": "render_retry_planes.py",
+          "sha256": "07fc2ff33a96e79ae25970cbd91c0b4fd9aa98491f10d2b7d081d7b9e83cde97"
+        },
+        {
+          "file": "result.json",
+          "sha256": "10a6bc2738943e81c79c1eaf8461b6d923e901ab8bb5ed8c868133e4c6cbeb31"
+        },
+        {
+          "file": "released-source-ready.json",
+          "sha256": "64375418a9bbadc6400c5a031e3dc3400e2ef14cc578c16f6770455368d1c096"
+        },
+        {
+          "file": "staged-main-0ed6b122/receipt.json",
+          "sha256": "e290bad7f366a0eb3761a9b4fa9bf1ba2e79c706c89c862609d356e7bb05e87c"
+        },
+        {
+          "file": "final-content-audit.json",
+          "sha256": "a0a90f91801b46406460ed35e78817a46035f17a71691ece62946753fef20efe"
+        },
+        {
+          "file": "final-source-0178a400-review.json",
+          "sha256": "7d2d189a08d17f78ece024bac640f43b6069fc2caef651b08f11de9376ccc555"
+        },
+        {
+          "file": "upload-receipt.json",
+          "sha256": "c1608ad0baed7bf6d81233408d2f1e27c60c5c6c03fbc888bf046cc90c4b3c00"
+        },
+        {
+          "file": "upload-readback-audit.json",
+          "sha256": "47dae3d993ca134a9aa93eb88b4101c8fecae3c56cbe044739a60abd6431eb9d"
+        },
+        {
+          "file": "accepted-job.json",
+          "sha256": "05240281b602ca39cb1e84a9d9a90e4a115d84a257e6096ecc17c29b822b470d"
+        },
+        {
+          "file": "publication-reconciliation.json",
+          "sha256": "a21609bec97eefe4ed1ec75c363b14ff7da721708ac2a3da2d9c12187113f007"
+        }
+      ],
+      "evidence": "PR184 integrerte den uendrede reflektorkroppen med ny støtteresept. Ren main og publisert guide ble kontrollert; beholdt mesh, prosess, faktiske verktøybaner og eksakt opplastingsnedlasting ble bundet før kommandoen. Dette beviser ikke fysisk stabilitet, feste eller støttefjerning. Startprosedyren hadde et separat dokumentert avvik, se startEvidence.procedureGap.",
+      "pullRequest": "https://github.com/andeplane/openenigma/pull/184",
+      "editableProject": {
+        "file": "ONE_REFLECTOR_B_BODY_SUPPORT_RETRY_X2D.3mf",
+        "sha256": "4101e38f479b0b6f969d4ac03ec2488da2a5ed70f8f374c508a93ae2af67d41d"
+      },
+      "nativeSha256": "0007bfcfd1e7a54d21fe9fa86061dee04a3d554a1742a9fe3389b2d4e029179b",
+      "stlSha256": "4f38964880c3236313af5601992161293d57d91bb45c25de605190ffcd39b2ca",
+      "sourceVerification": {
+        "commit": "0ed6b122de6548f870e3149ff58beac5b2401cd4",
+        "checkedAt": "2026-10-21T16:51:08.893249+00:00",
+        "cleanCanonicalMain": true,
+        "openPullRequests": [],
+        "livePreparationPassed": true,
+        "geometryComparisonTriangles": 78308,
+        "maxSerializationCoordinateErrorMm": 2.828342058336375e-06,
+        "criticalAuditStatus": "REVIEWED_REFLECTOR_RETRY_SUPPORT_STACK_AND_TOOLPATHS"
+      }
     },
     "retryOf": "enigma-reflector-entry-fit-20261021-a1",
     "sequence": 10,
@@ -84,14 +281,40 @@
       "supportOnBuildPlateOnly": false,
       "outerBrimMm": 8
     },
-    "notes": "Nytt separat forsøk etter at REFLECTOR_B_BODY ble hoppet over ved lokal løs ekstrudering i den tidligere fire-dels kjøringen. Bare reflektorkroppen gjentas; de tre andre delene gjentas ikke. Tettere støttestillas (1,2 mm avstand) og lavere støttehastigheter (60/40 mm/s), med jevne 0,2 mm lag. Modellgeometrien skal bevares, og øvre støtteklaring 0,2 mm / tre grensesjikt beholdes. Endelig geometri-/kilde-/baneintegritet og enhetsporter er ikke frigitt her. Tettere støtte kan bli vanskeligere å fjerne; fysisk stabilitet, rengjøring, mål, passform og elektrisk funksjon er ikke bekreftet. Tid og materiale er slicerestimater. Dette forsøket er planlagt, ikke startet.",
+    "notes": "Forsøket startet med eksakt eadfe61c-fil og akseptert AMS A3 [2], men endte FAILED etter et problem ved første lag. Menneskets bilde er bevart med ukjent opptakstid og uten privat metadata. Dette er et eget mislykket forsøk; tidligere delvis fullført fire-dels forsøk er ikke endret. Kilde-/geometri-/bane-/readback-evidens var bestått. Startprosedyren hadde et separat avvik: varig intensjon manglet og kameraets alder var ikke godkjent før den ene publiserte startkommandoen. Avviket hevdes ikke å være årsaken til den fysiske feilen. Faktisk presis varighet og materialbruk er ukjent.",
     "evidencePending": [
-      "Final merged source identity and synchronized guide",
-      "Independent final source/profile/native-mesh/toolpath release review",
-      "Exact upload-readback, live filament mapping and fresh clear-bed camera/telemetry",
-      "Accepted start identity and during-print camera",
-      "Completion camera and physical support removal/fit inspection"
-    ]
+      "Exact observed FAILED timestamp, bed temperature and after-failure camera if available",
+      "Physical cause and adhesion assessment; support stability and cleanup unqualified",
+      "Measured actual material and reliable full duration"
+    ],
+    "startEvidence": {
+      "firstAcceptedObservedAt": "2026-10-21T17:07:06.140Z",
+      "timestampScope": "Første lagrede observasjon av akseptert RUNNING-jobb; ikke nøyaktig kommando- eller første-ekstruderingstid.",
+      "state": "RUNNING",
+      "plate": 1,
+      "amsMapping": [
+        2
+      ],
+      "acceptedFileMd5": "aa7824140f6cacd0ab954bb88b2eccf9",
+      "exactUploadReadbackSha256": "eadfe61c7ce941667f6efaa0ce0f159e1ab26cef6d99be99f7b523e8c2bcbc5a",
+      "publicationRecordedAt": "2026-10-21T16:59:46.108322+00:00",
+      "successfulCommandPublications": 1,
+      "procedureGap": {
+        "durableIntentBeforeCommand": false,
+        "prestartCameraAgeWithin60SecondsVerified": false,
+        "lastViewedClearFrameCapturedAt": "2026-10-21T16:56:19+00:00",
+        "description": "Kontrollen av kameraets alder avbrøt forberedelsescellen før varig startintensjon ble lagret. Orkestreringen fortsatte likevel feilaktig og publiserte én startkommando. Dette er et prosedyreavvik; kilde-/slice-/profil-/readback-kontrollene var bestått, men komplett startport var ikke bestått. Kommandoen ble ikke sendt på nytt."
+      }
+    },
+    "terminalEvidence": {
+      "printerState": "FAILED",
+      "observedAt": null,
+      "reportedElapsedMinutes": 9,
+      "elapsedScope": "Omtrent ni minutter rapportert av rotkontroller; presis varighet er ikke verifisert.",
+      "automaticOrHumanStopCommandSentByRoot": false,
+      "description": "Mennesket ba om avbrudd. Fersk telemetri rapporterte allerede FAILED, så rotkontroller sendte ingen stopkommando. Eksakt terminaltid/temperatur avventes; ingen presis faktisk tid eller materialmåling er registrert.",
+      "physicalSuccessVerified": false
+    }
   },
   {
     "id": "enigma-reflector-entry-fit-20261021-a1",

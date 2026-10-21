@@ -49,22 +49,34 @@
       "file": "sliced.3mf",
       "sha256": "82893d4b62cc8d4ba711e6d430b174e3c83f698744e8d626ef438b32f9f6c125",
       "repository": "https://github.com/andeplane/openenigma",
-      "commit": "b4dfed5e1078d0759b1e16503bb35c5ceb3fbc64",
+      "commit": "e52f4829156babcd36f1984d55f6680b90e5ac99",
       "job": "mechanical-stepping-pla",
       "editableProject": {
         "file": "EIGHTEEN_PLA_STEPPING_COMPONENTS_X2D.3mf",
         "sha256": "63668f40fd46d4d2874c987c0ffb96ecea1d63b8714b032af1d89c95d40f6766"
       },
-      "evidence": "Klargjort, ikke startet. Kildevalget er i PR #178 og er ennå ikke dokumentert som hovedgren/printfrigivelse. Slicerfilens 18 objektnavn samsvarer med valgt inventar; figurene er hentet direkte fra samme fil. Slicerestimat: 4205 s,26.31 g,8.68 m og54 lag. Svart PLA i AMS A3 er bekreftet av fersk printerkontroll rapportert i arbeidet; grønn er kun slicerens generiske visningsfarge. Printeraksept, start, faktisk tid og faktisk forbruk mangler fortsatt.",
-      "branch": "codex/stepping-pla-next-plate",
+      "evidence": "Klargjort, ikke startet. PR #178 er slått inn i main e52f4829156babcd36f1984d55f6680b90e5ac99. Ren, publisert hovedgren og ingen åpne PR-er ble bekreftet av print-porten. Veiledningens synkronisering er kontrollert lokalt og på den publiserte siden. Den gjennomgåtte slicerfilen ble lastet opp med et unikt navn og deretter lastet ned igjen; SHA-256 er identisk. Slicerfilens 18 objektnavn samsvarer med valgt inventar; figurene er hentet direkte fra samme fil. Slicerestimat: 4205 s, 26.31 g, 8.68 m og 54 lag. Svart PLA i AMS A3 er bekreftet av fersk printerkontroll rapportert i arbeidet; grønn er kun slicerens generiske visningsfarge. Endelig oppsummering er vist, men brukerens etterfølgende startgodkjenning, printeraksept, start, faktisk tid og faktisk forbruk mangler fortsatt.",
+      "branch": "main",
       "pullRequest": "https://github.com/andeplane/openenigma/pull/178",
       "gcodeMember": "Metadata/plate_1.gcode",
-      "gcodeSha256": "5cfc1d2c77eadb9407ea54042a9b349f1ed1920c598b18681e202e5a724b284a"
+      "gcodeSha256": "5cfc1d2c77eadb9407ea54042a9b349f1ed1920c598b18681e202e5a724b284a",
+      "preparedFromCommit": "b4dfed5e1078d0759b1e16503bb35c5ceb3fbc64",
+      "uploadedFile": "ENIGMA_STEPPING_PLA_82893d4b.gcode.3mf",
+      "releaseVerification": {
+        "sourceMainCheckedAt": "2026-10-21T09:06:14.187576+00:00",
+        "openPullRequests": [],
+        "printGate": "PREPARED",
+        "gateReceiptSha256": "9e9bebc0d5636233398907c3387bac8c3147adb1626d91c9e6c5a62ee1122061",
+        "uploadReadbackStatus": "UPLOADED_BYTES_MATCH_REVIEWED_ARTIFACT",
+        "uploadReadbackReceiptSha256": "367cfbaac2c78888897dc3cf0d146d3fa0e3a77ac73c8f67a9388276d494435c",
+        "uploadReadbackSha256": "82893d4b62cc8d4ba711e6d430b174e3c83f698744e8d626ef438b32f9f6c125",
+        "printerStartAuthorized": false,
+        "physicalFitVerified": false
+      }
     },
-    "notes": "Klargjort for en ubelastet PLA-passformprøve med 18 separate deler. Ikke startet eller rapportert fullført. Tre foreslåtte seter er fortsatt ukvalifiserte; ingen fjærer, belastet drift, holdbarhet eller funksjon er godkjent. Total tid og filament er slicerestimater, ikke målt forbruk. Endelig kilde-/forhåndskontroll og brukerens startgodkjenning håndteres separat. Kamerabilder under og etter printing mangler fordi jobben ikke er startet.",
+    "notes": "Klargjort for en ubelastet PLA-passformprøve med 18 separate deler. Ikke startet eller rapportert fullført. Tre foreslåtte seter er fortsatt ukvalifiserte; ingen fjærer, belastet drift, holdbarhet eller funksjon er godkjent. Total tid og filament er slicerestimater, ikke målt forbruk. Kilde-/printkontroll og identisk opplastingsnedlasting er dokumentert; brukerens startgodkjenning etter den endelige oppsummeringen håndteres separat. Kamerabilder under og etter printing mangler fordi jobben ikke er startet.",
     "sequence": 5,
     "evidencePending": [
-      "Current-main source/print-gate verification",
       "Explicit authorized start and fresh accepted job identity",
       "Fresh during-print camera",
       "Fresh terminal-state camera and reported outcome",
@@ -76,7 +88,8 @@
       "sparseInfillPattern": "gyroid",
       "supports": "normal(auto), snug, including above-bed supports",
       "outerBrimMm": 8
-    }
+    },
+    "updatedAt": "2026-10-21T09:10:55.355952+00:00"
   },
   {
     "id": "enigma-five-9f68de72",

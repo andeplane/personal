@@ -272,7 +272,7 @@
     "status": "planned",
     "preparationState": "UPLOAD_BLOCKED_PRINTER_STORAGE",
     "recordedAt": "2026-10-21T10:49:58.845524+00:00",
-    "updatedAt": "2026-10-21T11:40:58.916575+00:00",
+    "updatedAt": "2026-10-21T12:44:58.350003+00:00",
     "startedAt": null,
     "finishedAt": null,
     "jobName": "ENIGMA_END_PLA_f9f5c47b · ikke startet",
@@ -309,10 +309,10 @@
       "file": "sliced.3mf",
       "sha256": "f9f5c47b254b3474979349e58d633e4c9efe591369f857af4f586507cc46d2d6",
       "repository": "https://github.com/andeplane/openenigma",
-      "commit": "1cb0f47617d4c13a7c5f044cc09df14f6f69bf38",
+      "commit": "b127cad62f0a1b5d579722abdefe5aa96ce55cfb",
       "branch": "main",
       "job": "mechanical-end-pla",
-      "evidence": "Klargjort fra kontrollert main med synkronisert publisert guide og eksakt fire-dels slice. Alle lokale kilde-, geometri-, plassering-, prosess- og verktøybanekontroller er fullført. Opplasting ble avvist av printerens filserver med 553; fersk passiv printerrapport sier sdcard=false, og direkte lesing av filsystemet viser tom rot og manglende tidligere filer. Ingen startkommando er sendt. Dette er en planlagt jobb blokkert før start, ikke en mislykket utskrift.",
+      "evidence": "Kildekontrollen og ren-main-klargjøringen ble gjentatt 2026-10-21T12:30:22.050556+00:00 mot main b127cad62f0a1b5d579722abdefe5aa96ce55cfb. Alle 12 valgte kildefiler er byte-identiske med opprinnelig verifisert utgivelse; eksisterende fire-dels slice, G-kode og tidligere gjennomgåtte kritiske verktøybaner er uendret. Den publiserte guiden ble verifisert på nytt. Den opprinnelige lagringsfeilen og kameradokumentasjonen under er bevart; denne kildeoppdateringen inneholder ingen ny opplasting, nedlastingskontroll, kamerafangst eller startkommando. Dette er fortsatt samme planlagte, ustartede kjøring.",
       "pullRequest": "https://github.com/andeplane/openenigma/pull/179",
       "editableProject": {
         "file": "FOUR_PLA_END_COMPONENTS_X2D.3mf",
@@ -320,18 +320,26 @@
       },
       "gcodeMember": "Metadata/plate_1.gcode",
       "gcodeSha256": "a3dc1ad536747e71c24367a10d6c3184a89a38cbfd9ea1a3eb2c64809be35897",
-      "preparedFromCommit": "efb3105c294aca920b498de88400af1a0025cb16",
+      "preparedFromCommit": "b127cad62f0a1b5d579722abdefe5aa96ce55cfb",
       "releaseVerification": {
-        "sourceMainCheckedAt": "2026-10-21T11:18:41.472862+00:00",
+        "sourceMainCheckedAt": "2026-10-21T12:30:22.050556+00:00",
         "openPullRequests": [],
         "printGate": "PREPARED",
-        "gateReceiptSha256": "799ccfcf8308a485a1c5ebe72848d2688e8e6a932b4cdbb2db1c394f25746ff7",
-        "sliceAuditSha256": "c7041e17a094178b520af1e085643a15c66a1155c33879f41e0979eef1820f7d",
-        "liveGuideFingerprint": "e76e7c6bc3a772fd05bff21c9a3fe906a6b8fc74a4fa916bd610075af64e4fc7",
-        "physicalFitVerified": false
-      }
+        "gateReceiptSha256": "3dfaac72030532d5516e0984c92788e993909cc308b7f9e4a89536ca0f5b8610",
+        "sliceAuditSha256": "3ed048241cf1726ffececd46d8c68bb14f12c86c0a918a5c2f58bb479b9c247f",
+        "liveGuideFingerprint": "40ae6fd365bedb1ae049f9f129e410dc408655cd1e7875639bb9db60e610fa43",
+        "physicalFitVerified": false,
+        "refreshEquivalenceReceiptSha256": "0d31683a9d2136489e4efcbde0bab79e1a7b91d6879f150dcb3a08305cc20db4",
+        "selectedSourceFilesUnchanged": true,
+        "sliceAndGcodeUnchanged": true,
+        "originalCriticalReviewSha256": "8b04c6849d861f21e82f4d665e7831dcee5cc3beaf796b855128e12877d4d9ee",
+        "uploadReadbackVerified": false,
+        "printerStartObserved": false
+      },
+      "sliceOriginallyPreparedFromCommit": "efb3105c294aca920b498de88400af1a0025cb16",
+      "sliceOriginallyReviewedAgainstCommit": "1cb0f47617d4c13a7c5f044cc09df14f6f69bf38"
     },
-    "notes": "Fire nye deler: reflektorkropp, bakdeksel, isolatorskive og kabelbøssing. Reflektorens separate utløserkam er tatt ut av denne kjøringen og holdt tilbake fordi native STL-eksporter ikke var tette; ingen mislykket kam-mesh brukes. Reflektorkroppen er nominelt PLA, bakdeksel PETG, mens de to ETW-delene beholder historisk geometristatus og uspesifisert kildemateriale. PLA er kun ubelastet mekanisk passformprøve. Faktiske verktøybaner viser modell og støtte separat; støtter finnes bare på reflektorkroppen. Fjerning av støtte, passform, elektrisk isolasjon og belastet drift er ikke godkjent. ETA og55,78g er slicerestimater, ikke faktisk tid/forbruk. Rotor-reprint er fortsatt holdt etter støtteryddeskade. Fersk lagringsrapport 2026-10-21T11:39:14Z var verken retained eller duplicate. Printerens lagring må bli gjenkjent før ny verifisert opplasting og start. Kamerabildet viser tom plate før start; det dokumenterer ingen utskrevet del eller ferdigjobb.",
+    "notes": "Fire nye deler: reflektorkropp, bakdeksel, isolatorskive og kabelbøssing. Reflektorens separate utløserkam er tatt ut av denne kjøringen og holdt tilbake fordi native STL-eksporter ikke var tette; ingen mislykket kam-mesh brukes. Reflektorkroppen er nominelt PLA, bakdeksel PETG, mens de to ETW-delene beholder historisk geometristatus og uspesifisert kildemateriale. PLA er kun ubelastet mekanisk passformprøve. Faktiske verktøybaner viser modell og støtte separat; støtter finnes bare på reflektorkroppen. Fjerning av støtte, passform, elektrisk isolasjon og belastet drift er ikke godkjent. ETA og55,78g er slicerestimater, ikke faktisk tid/forbruk. Rotor-reprint er fortsatt holdt etter støtteryddeskade. Fersk lagringsrapport 2026-10-21T11:39:14Z var verken retained eller duplicate. Printerens lagring må bli gjenkjent før ny verifisert opplasting og start. Kamerabildet viser tom plate før start; det dokumenterer ingen utskrevet del eller ferdigjobb. Kildeoppdatering: main og publisert guide ble kontrollert på nytt 2026-10-21T12:30:22Z. Eksakte kilde-, slice- og G-kodebyte er uendret; derfor ble ingen ny slice eller nytt forsøk opprettet. Opprinnelig kilde-/gjennomgangslinje er beholdt i sourceVerificationHistory. Lagringshendelsen og før-start-bildet beholder sine opprinnelige tidspunkter; det foreligger ingen ny printerhandling eller fysisk dokumentasjon.",
     "sequence": 6,
     "evidencePending": [
       "Printer recognizes storage and exposes usable filesystem",
@@ -348,7 +356,39 @@
       "filesystemRead": "Root directory empty; previous accepted file unavailable",
       "startCommandSent": false,
       "requiresPrinterStorageCheck": true
-    }
+    },
+    "sourceVerificationHistory": [
+      {
+        "kind": "original-preparation-and-storage-blocked-review",
+        "recordUpdatedAt": "2026-10-21T11:40:58.916575+00:00",
+        "source": {
+          "file": "sliced.3mf",
+          "sha256": "f9f5c47b254b3474979349e58d633e4c9efe591369f857af4f586507cc46d2d6",
+          "repository": "https://github.com/andeplane/openenigma",
+          "commit": "1cb0f47617d4c13a7c5f044cc09df14f6f69bf38",
+          "branch": "main",
+          "job": "mechanical-end-pla",
+          "evidence": "Klargjort fra kontrollert main med synkronisert publisert guide og eksakt fire-dels slice. Alle lokale kilde-, geometri-, plassering-, prosess- og verktøybanekontroller er fullført. Opplasting ble avvist av printerens filserver med 553; fersk passiv printerrapport sier sdcard=false, og direkte lesing av filsystemet viser tom rot og manglende tidligere filer. Ingen startkommando er sendt. Dette er en planlagt jobb blokkert før start, ikke en mislykket utskrift.",
+          "pullRequest": "https://github.com/andeplane/openenigma/pull/179",
+          "editableProject": {
+            "file": "FOUR_PLA_END_COMPONENTS_X2D.3mf",
+            "sha256": "7ca6dc502affe61febc93c9c1699391a43f939936c10913c365558e0531ed803"
+          },
+          "gcodeMember": "Metadata/plate_1.gcode",
+          "gcodeSha256": "a3dc1ad536747e71c24367a10d6c3184a89a38cbfd9ea1a3eb2c64809be35897",
+          "preparedFromCommit": "efb3105c294aca920b498de88400af1a0025cb16",
+          "releaseVerification": {
+            "sourceMainCheckedAt": "2026-10-21T11:18:41.472862+00:00",
+            "openPullRequests": [],
+            "printGate": "PREPARED",
+            "gateReceiptSha256": "799ccfcf8308a485a1c5ebe72848d2688e8e6a932b4cdbb2db1c394f25746ff7",
+            "sliceAuditSha256": "c7041e17a094178b520af1e085643a15c66a1155c33879f41e0979eef1820f7d",
+            "liveGuideFingerprint": "e76e7c6bc3a772fd05bff21c9a3fe906a6b8fc74a4fa916bd610075af64e4fc7",
+            "physicalFitVerified": false
+          }
+        }
+      }
+    ]
   },
   {
     "id": "enigma-stepping-pla-20261021-a1",

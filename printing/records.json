@@ -1,5 +1,280 @@
 [
   {
+    "id": "enigma-reflector-entry-fit-20261021-a1",
+    "title": "Enigma · fire ende-deler til mekanisk passformprøve",
+    "project": "Enigma Doublestep",
+    "printer": "Bambu Lab X2D",
+    "status": "printing",
+    "preparationState": "HUMAN_STUDIO_STARTED_POSTSTART_AUDIT_MESH_COMPARISON_UNAVAILABLE",
+    "recordedAt": "2026-10-21T10:49:58.845524+00:00",
+    "updatedAt": "2026-10-21T14:15:16.290392+00:00",
+    "startedAt": "2026-10-21T14:04:24.827692Z",
+    "finishedAt": null,
+    "jobName": "ENIGMA_DOUBLESTEP_-_FOUR_PLA_REFLECTOR_AND_ENTRY-WHEEL_FIT_PARTS",
+    "plate": 1,
+    "parts": [
+      "REFLECTOR_B_BODY",
+      "REFLECTOR_REAR_COVER",
+      "ENTRY_WHEEL_INSULATOR",
+      "ENTRY_WHEEL_CABLE_BUSH"
+    ],
+    "estimatedSeconds": 7198.0,
+    "actualSeconds": null,
+    "estimatedGrams": 55.77,
+    "actualGrams": null,
+    "estimatedMeters": 18.40315,
+    "material": "PLA Basic · svart · AMS A3 (akseptert mapping [2])",
+    "color": "#161616",
+    "layerHeightMm": 0.2,
+    "firstLayerHeightMm": 0.2,
+    "nozzleMm": 0.4,
+    "layers": 281,
+    "preview": "assets/enigma-reflector-entry-fit-20261021-a1/manual-studio-plan.png",
+    "layout": "assets/enigma-reflector-entry-fit-20261021-a1/manual-studio-layout.png",
+    "snapshots": [
+      {
+        "capturedAt": "2026-10-21T11:37:59.822507+00:00",
+        "caption": "Tidligere bilde kl.11:37 UTC: tom byggeplate mens filoverføring var blokkert. Dette viser verken ferdige deler eller senere start. Den tidligere tolkningen av sdcard=false som nødvendig SD-kort ble korrigert; bildet er bevart med opprinnelig tidspunkt.",
+        "sha256": "436da6a93dd38aa26aa08c290b446038eb24f9e1216f878543e6fcf92a85e9e9",
+        "stage": "pre-start-storage-blocked",
+        "src": "assets/enigma-reflector-entry-fit-20261021-a1/storage-blocked-clear-bed.jpg"
+      },
+      {
+        "capturedAt": "2026-10-21T14:04:24.827692+00:00",
+        "caption": "Ny printerkamerafangst ved oppstart etter at Bambu Studio hadde sendt jobben. Platen er fortsatt uten synlige utskrevne deler i dette bildet; dette er ikke en ferdigutskrift eller bevis på første lag, feste eller fysisk passform.",
+        "sha256": "ac808c2d5d906f94fe1bde8a1ac44d93d3d24f6d0f7d18c4c445ea6d5dda9356",
+        "stage": "startup-after-human-send-before-visible-extrusion",
+        "src": "assets/enigma-reflector-entry-fit-20261021-a1/startup-camera.jpg"
+      },
+      {
+        "capturedAt": "2026-10-21T14:10:54.899308+00:00",
+        "caption": "Ny printerkamerafangst etter rapportert oppstart. Bildet er bevart uten publisert vurdering av første lag, feste, kvalitet eller passform; visuell kontroll avventes.",
+        "sha256": "80a43777af70ef3b182ddfc3dad979fa79b1aa7d50fe5d6fef1fb65e3dd012d9",
+        "stage": "during-print-first-layer-review-pending",
+        "src": "assets/enigma-reflector-entry-fit-20261021-a1/first-layer-camera.jpg"
+      }
+    ],
+    "source": {
+      "file": "ENIGMA_DOUBLESTEP_-_FOUR_PLA_REFLECTOR_AND_ENTRY-WHEEL_FIT_PARTS.gcode.3mf",
+      "sha256": "7c5b97b7bf6a2f3884c1dd7c16555be6b65e1cd6816eaa844bf9ca623d8d5d27",
+      "repository": "https://github.com/andeplane/openenigma",
+      "commit": "065f60ab0f239d02eac61d1f7d8d283d3fc89412",
+      "branch": "main",
+      "job": "mechanical-end-pla",
+      "evidence": "Mennesket startet jobben manuelt i Bambu Studio etter å ha satt USB-lagringen inn igjen. Akseptert fil ble lastet ned etter sending; SHA-256 og MD5 her gjelder denne faktiske filen, og MD5 samsvarer med printerens aksepterte kommando. Studio laget en ny slice: den tidligere kontrollerte f9f5-filen ble ikke skrevet ut. Den faktiske filen har fire navngitte objekter og 281 lag, men mangler beholdte kildemesher, så full mesh-/transform-sammenligning mot valgt CAD kan ikke gjøres. Vi hevder ingen før-start-port eller opplastingsnedlasting for den faktiske Studio-filen. Uavhengig kontroll etter start fant ingen vesentlig forskjell i undersøkte verktøybaner: fire navn, mekaniske profil-/G-kodeinnstillinger og tolv kritiske snitt ble kontrollert. Tolv endelige kontursammenligninger hadde største samplede avstand 0,054353 mm. Støttebaner er bare knyttet til reflektorkroppen. Dette erstatter ikke manglende full mesh-/CAD-sammenligning eller fysisk kontroll.",
+      "pullRequest": "https://github.com/andeplane/openenigma/pull/179",
+      "editableProject": {
+        "file": "FOUR_PLA_END_COMPONENTS_X2D.3mf",
+        "sha256": "7ca6dc502affe61febc93c9c1699391a43f939936c10913c365558e0531ed803",
+        "role": "Intended prepared editable source; actual Studio archive contains no retained meshes"
+      },
+      "gcodeMember": "Metadata/plate_1.gcode",
+      "gcodeSha256": "b2fadf1e21db30a2e82961b8ffb6ede953c0750ab0295bad3d9b0ae2c57e83f7",
+      "preparedFromCommit": "065f60ab0f239d02eac61d1f7d8d283d3fc89412",
+      "releaseVerification": {
+        "sourceMain": "065f60ab0f239d02eac61d1f7d8d283d3fc89412",
+        "preparedEditableGatePassed": true,
+        "preparedSliceGatePassed": true,
+        "actualArchivePreStartGatePassed": false,
+        "actualRetainedMeshComparisonPassed": false,
+        "actualPostStartAcceptedMd5Matched": true,
+        "printerStartObservedByRoot": true,
+        "postStartToolpathReview": "NO_SIGNIFICANT_MISMATCH_FOUND_IN_REVIEWED_TOOLPATH_EVIDENCE_MESH_EQUALITY_UNAVAILABLE",
+        "physicalFitVerified": false
+      },
+      "sliceOriginallyPreparedFromCommit": "efb3105c294aca920b498de88400af1a0025cb16",
+      "sliceOriginallyReviewedAgainstCommit": "1cb0f47617d4c13a7c5f044cc09df14f6f69bf38",
+      "submissionActor": "Human via Bambu Studio",
+      "acceptedArchiveMd5": "4546dcf3fcce11856a0fa6fecd7b9b87",
+      "acceptedGcodeMember": "Metadata/plate_1.gcode",
+      "acceptedPlate": 1,
+      "acceptedAmsMapping": [
+        2
+      ],
+      "acceptedObservedAt": "2026-10-21T14:04:24.827692Z",
+      "retainedMeshes": false,
+      "meshComparisonStatus": "UNAVAILABLE_ACTUAL_MANUAL_STUDIO_ARCHIVE_DROPPED_RETAINED_MESHES",
+      "preStartActualArchiveReadbackAudited": false,
+      "exactPreparedArchivePrinted": false,
+      "preparedArchive": {
+        "sha256": "f9f5c47b254b3474979349e58d633e4c9efe591369f857af4f586507cc46d2d6",
+        "gcodeSha256": "a3dc1ad536747e71c24367a10d6c3184a89a38cbfd9ea1a3eb2c64809be35897",
+        "preview": "assets/enigma-reflector-entry-fit-20261021-a1/plan.png",
+        "layout": "assets/enigma-reflector-entry-fit-20261021-a1/layout.png",
+        "notPrinted": true
+      },
+      "actualArchiveReadback": {
+        "timing": "AFTER_HUMAN_STUDIO_SEND",
+        "sha256": "7c5b97b7bf6a2f3884c1dd7c16555be6b65e1cd6816eaa844bf9ca623d8d5d27",
+        "md5": "4546dcf3fcce11856a0fa6fecd7b9b87",
+        "matchesAcceptedCommandMd5": true,
+        "matchesPreparedArchive": false
+      },
+      "commitMeaning": "Intended selected source main; actual Studio retained-mesh equality unavailable",
+      "postStartActualReview": {
+        "reviewedAt": "2026-10-21T14:15:47.523438+00:00",
+        "status": "NO_SIGNIFICANT_MISMATCH_FOUND_IN_REVIEWED_TOOLPATH_EVIDENCE_MESH_EQUALITY_UNAVAILABLE",
+        "reviewReceiptSha256": "dc3ec5f868cf0fde110ac1090bb90f82d7b1e0fff8fc878e39a88ac30734fa25",
+        "retainedMeshEqualityAvailable": false,
+        "criticalViewsInspected": 12,
+        "sampledOuterContourComparisons": 12,
+        "sampledMaximumDistanceMm": 0.054353,
+        "supportOnlyOn": "REFLECTOR_B_BODY",
+        "mechanicalProfileAndGcodeSettingsMatchCurrentSelection": true,
+        "fullGeometryOrPhysicalFitCertified": false,
+        "reviewEvidence": [
+          {
+            "file": "actual-toolpath-profile-audit.json",
+            "sha256": "9a402caa81fe0c44dfc10d0e7c1969fa5462397dee4a5aeb830872804ba2b9b0"
+          },
+          {
+            "file": "audit_actual.py",
+            "sha256": "73b8651a7ef1e2e3a51fc98a677b6fdaa96ee9a1b860b8a68886d8139beb12c2"
+          },
+          {
+            "file": "render_toolpaths_final.py",
+            "sha256": "d4e38d6c5f6a12f7e8f539e0a6719af28bb9fd9e62ac00f4d57e0f1e3d297851"
+          },
+          {
+            "file": "render_contact_ports_final.py",
+            "sha256": "a8f7d979e6e7554393cb5706df738a95ae8585897b605b7fe58ac39ccc133006"
+          },
+          {
+            "file": "actual-critical-body.png",
+            "sha256": "0e40d4173db18c54a11dc1f32a18094c470a211cfd97d4145a7605b02458572e"
+          },
+          {
+            "file": "actual-contact-ports.png",
+            "sha256": "a201061dc53abc869cab7e34f9271d9f443090247b2a1dfd169a47aed0f54253"
+          }
+        ]
+      }
+    },
+    "notes": "Denne samme kjøringen ble startet manuelt i Bambu Studio etter at mennesket satte USB-lagringen inn igjen. Faktisk akseptert arkiv 7c5b97b7 erstatter den ustartede, forberedte f9f5c47b-filen som gjeldende printidentitet; opprinnelig forberedelse og bilder er bevart i historikken. Forhåndsvisning og toppbilde er hentet fra det faktiske Studio-arkivet; grønn prosjektfarge er ikke bevis på filamentfarge. Fire navngitte deler, 281 lag, 1 t 59 m 58 s og 55,77 g er faktisk slice-metadata, ikke målt printtid eller forbruk. Studio fjernet beholdte mesher: full geometri-/transform-sammenligning mot kildeprosjektet mangler, og den faktiske filen ble først lastet ned og gransket etter manuell sending. Oppstartskameraet viser ennå ingen utskrevne deler. Visuell vurdering av første lag avventes; ingen fysisk passform, støttefjerning, elektrisk isolasjon eller belastet drift er godkjent. Separat PLA-utløserkam er nå frigitt for ubelastet passformprøve, mens arbeidende PETG-kam og belastet drift fortsatt er holdt tilbake. Rotor-reprint er fortsatt holdt etter støtteryddeskade.",
+    "sequence": 6,
+    "evidencePending": [
+      "Root inspection of first-layer camera",
+      "During-print and completion camera",
+      "Physical support removal and unloaded fit inspection",
+      "Full retained-mesh comparison unavailable for this actual meshless archive; gap must remain explicit"
+    ],
+    "sourceVerificationHistory": [
+      {
+        "kind": "original-preparation-and-storage-blocked-review",
+        "recordUpdatedAt": "2026-10-21T11:40:58.916575+00:00",
+        "source": {
+          "file": "sliced.3mf",
+          "sha256": "f9f5c47b254b3474979349e58d633e4c9efe591369f857af4f586507cc46d2d6",
+          "repository": "https://github.com/andeplane/openenigma",
+          "commit": "1cb0f47617d4c13a7c5f044cc09df14f6f69bf38",
+          "branch": "main",
+          "job": "mechanical-end-pla",
+          "evidence": "Klargjort fra kontrollert main med synkronisert publisert guide og eksakt fire-dels slice. Alle lokale kilde-, geometri-, plassering-, prosess- og verktøybanekontroller er fullført. Opplasting ble avvist av printerens filserver med 553; fersk passiv printerrapport sier sdcard=false, og direkte lesing av filsystemet viser tom rot og manglende tidligere filer. Ingen startkommando er sendt. Dette er en planlagt jobb blokkert før start, ikke en mislykket utskrift.",
+          "pullRequest": "https://github.com/andeplane/openenigma/pull/179",
+          "editableProject": {
+            "file": "FOUR_PLA_END_COMPONENTS_X2D.3mf",
+            "sha256": "7ca6dc502affe61febc93c9c1699391a43f939936c10913c365558e0531ed803"
+          },
+          "gcodeMember": "Metadata/plate_1.gcode",
+          "gcodeSha256": "a3dc1ad536747e71c24367a10d6c3184a89a38cbfd9ea1a3eb2c64809be35897",
+          "preparedFromCommit": "efb3105c294aca920b498de88400af1a0025cb16",
+          "releaseVerification": {
+            "sourceMainCheckedAt": "2026-10-21T11:18:41.472862+00:00",
+            "openPullRequests": [],
+            "printGate": "PREPARED",
+            "gateReceiptSha256": "799ccfcf8308a485a1c5ebe72848d2688e8e6a932b4cdbb2db1c394f25746ff7",
+            "sliceAuditSha256": "c7041e17a094178b520af1e085643a15c66a1155c33879f41e0979eef1820f7d",
+            "liveGuideFingerprint": "e76e7c6bc3a772fd05bff21c9a3fe906a6b8fc74a4fa916bd610075af64e4fc7",
+            "physicalFitVerified": false
+          }
+        }
+      },
+      {
+        "kind": "prepared-archive-before-human-studio-reslice",
+        "recordUpdatedAt": "2026-10-21T12:44:58.350003+00:00",
+        "source": {
+          "file": "sliced.3mf",
+          "sha256": "f9f5c47b254b3474979349e58d633e4c9efe591369f857af4f586507cc46d2d6",
+          "repository": "https://github.com/andeplane/openenigma",
+          "commit": "b127cad62f0a1b5d579722abdefe5aa96ce55cfb",
+          "branch": "main",
+          "job": "mechanical-end-pla",
+          "evidence": "Kildekontrollen og ren-main-klargjøringen ble gjentatt 2026-10-21T12:30:22.050556+00:00 mot main b127cad62f0a1b5d579722abdefe5aa96ce55cfb. Alle 12 valgte kildefiler er byte-identiske med opprinnelig verifisert utgivelse; eksisterende fire-dels slice, G-kode og tidligere gjennomgåtte kritiske verktøybaner er uendret. Den publiserte guiden ble verifisert på nytt. Den opprinnelige lagringsfeilen og kameradokumentasjonen under er bevart; denne kildeoppdateringen inneholder ingen ny opplasting, nedlastingskontroll, kamerafangst eller startkommando. Dette er fortsatt samme planlagte, ustartede kjøring.",
+          "pullRequest": "https://github.com/andeplane/openenigma/pull/179",
+          "editableProject": {
+            "file": "FOUR_PLA_END_COMPONENTS_X2D.3mf",
+            "sha256": "7ca6dc502affe61febc93c9c1699391a43f939936c10913c365558e0531ed803"
+          },
+          "gcodeMember": "Metadata/plate_1.gcode",
+          "gcodeSha256": "a3dc1ad536747e71c24367a10d6c3184a89a38cbfd9ea1a3eb2c64809be35897",
+          "preparedFromCommit": "b127cad62f0a1b5d579722abdefe5aa96ce55cfb",
+          "releaseVerification": {
+            "sourceMainCheckedAt": "2026-10-21T12:30:22.050556+00:00",
+            "openPullRequests": [],
+            "printGate": "PREPARED",
+            "gateReceiptSha256": "3dfaac72030532d5516e0984c92788e993909cc308b7f9e4a89536ca0f5b8610",
+            "sliceAuditSha256": "3ed048241cf1726ffececd46d8c68bb14f12c86c0a918a5c2f58bb479b9c247f",
+            "liveGuideFingerprint": "40ae6fd365bedb1ae049f9f129e410dc408655cd1e7875639bb9db60e610fa43",
+            "physicalFitVerified": false,
+            "refreshEquivalenceReceiptSha256": "0d31683a9d2136489e4efcbde0bab79e1a7b91d6879f150dcb3a08305cc20db4",
+            "selectedSourceFilesUnchanged": true,
+            "sliceAndGcodeUnchanged": true,
+            "originalCriticalReviewSha256": "8b04c6849d861f21e82f4d665e7831dcee5cc3beaf796b855128e12877d4d9ee",
+            "uploadReadbackVerified": false,
+            "printerStartObserved": false
+          },
+          "sliceOriginallyPreparedFromCommit": "efb3105c294aca920b498de88400af1a0025cb16",
+          "sliceOriginallyReviewedAgainstCommit": "1cb0f47617d4c13a7c5f044cc09df14f6f69bf38"
+        },
+        "preview": "assets/enigma-reflector-entry-fit-20261021-a1/plan.png",
+        "layout": "assets/enigma-reflector-entry-fit-20261021-a1/layout.png",
+        "estimatedSeconds": 7195.0,
+        "estimatedGrams": 55.78,
+        "estimatedMeters": 18.41,
+        "notTheActualPrintedArchive": true
+      }
+    ],
+    "startEvidence": {
+      "kind": "human-studio-send-and-root-live-observation",
+      "firstAcceptedObservationAt": "2026-10-21T14:04:24.827692Z",
+      "startedAtMeaning": "First observed accepted job, not independently timed first extrusion",
+      "acceptedArchiveMd5": "4546dcf3fcce11856a0fa6fecd7b9b87",
+      "actualArchiveSha256": "7c5b97b7bf6a2f3884c1dd7c16555be6b65e1cd6816eaa844bf9ca623d8d5d27",
+      "humanReportedUsbReseat": true,
+      "rootObservedRunning": true,
+      "firstLayerCameraJudgment": "PENDING_ROOT_INSPECTION"
+    },
+    "storageHistory": [
+      {
+        "observedAt": "2026-10-21T11:39:14Z",
+        "reportedSdcard": false,
+        "freshNonRetainedReport": true,
+        "uploadResponse": "553 Could not create file",
+        "filesystemRead": "Root directory empty; previous accepted file unavailable",
+        "startCommandSent": false,
+        "requiresPrinterStorageCheck": true,
+        "active": false,
+        "resolvedBy": "Human USB reinsertion followed by successful Bambu Studio Send",
+        "resolutionObservedAt": "2026-10-21T14:04:24.827692Z",
+        "diagnosisCorrection": "sdcard=false alone did not establish that an SD card was required or internal storage unavailable."
+      }
+    ],
+    "evidenceImages": [
+      {
+        "src": "assets/enigma-reflector-entry-fit-20261021-a1/actual-critical-body.png",
+        "kind": "actual-manual-studio-toolpath-review",
+        "caption": "Faktiske verktøybaner fra Studio-filen ved åtte høyder i reflektorkroppen. Grønt er modell, oransje støtte og grått brim. Avledet bilde, ikke kamera eller bevis på fysisk passform/støttefjerning.",
+        "sha256": "0e40d4173db18c54a11dc1f32a18094c470a211cfd97d4145a7605b02458572e"
+      },
+      {
+        "src": "assets/enigma-reflector-entry-fit-20261021-a1/actual-contact-ports.png",
+        "kind": "actual-manual-studio-toolpath-review",
+        "caption": "Faktiske Studio-verktøybaner ved fire høyder rundt kontaktportene. Dette er avledede, buebevisste utsnitt av planlagt ekstrudering, ikke kamerabilde eller full mesh-/CAD-sammenligning.",
+        "sha256": "a201061dc53abc869cab7e34f9271d9f443090247b2a1dfd169a47aed0f54253"
+      }
+    ]
+  },
+  {
     "id": "enigma-release-cam-pla-20261021-a1",
     "title": "Enigma · utløserkam i PLA (ubelastet passformprøve)",
     "project": "Enigma Doublestep",
@@ -381,132 +656,6 @@
             "physicalFitVerified": false
           },
           "evidence": "Klargjort fra ren gjeldende main etter kilde- og uavhengig gjennomgang, eksakt synkronisert publisert guide, og verifisert 7+1 plassering. Sluttfilen er slicet fra det portkontrollerte prosjektet; modelltrekanter, navn, posisjoner, prosess og faktiske boreverktøybaner samsvarer. Fire kritiske borevolumer er uten modell-/støtteinntrenging i kontrollområdet. Ti avgrensede faktiske verktøybanevisninger er gjennomgått. Ingen opplasting, nedlastingskontroll eller printerstart er utført for denne kjøringen."
-        }
-      }
-    ]
-  },
-  {
-    "id": "enigma-reflector-entry-fit-20261021-a1",
-    "title": "Enigma · fire ende-deler til mekanisk passformprøve",
-    "project": "Enigma Doublestep",
-    "printer": "Bambu Lab X2D",
-    "status": "planned",
-    "preparationState": "UPLOAD_BLOCKED_PRINTER_STORAGE",
-    "recordedAt": "2026-10-21T10:49:58.845524+00:00",
-    "updatedAt": "2026-10-21T12:44:58.350003+00:00",
-    "startedAt": null,
-    "finishedAt": null,
-    "jobName": "ENIGMA_END_PLA_f9f5c47b · ikke startet",
-    "plate": 1,
-    "parts": [
-      "REFLECTOR_B_BODY",
-      "REFLECTOR_REAR_COVER",
-      "ENTRY_WHEEL_INSULATOR",
-      "ENTRY_WHEEL_CABLE_BUSH"
-    ],
-    "estimatedSeconds": 7195.0,
-    "actualSeconds": null,
-    "estimatedGrams": 55.78,
-    "actualGrams": null,
-    "estimatedMeters": 18.41,
-    "material": "PLA Basic · svart · planlagt AMS A3",
-    "color": "#161616",
-    "layerHeightMm": 0.2,
-    "firstLayerHeightMm": 0.2,
-    "nozzleMm": 0.4,
-    "layers": 281,
-    "preview": "assets/enigma-reflector-entry-fit-20261021-a1/plan.png",
-    "layout": "assets/enigma-reflector-entry-fit-20261021-a1/layout.png",
-    "snapshots": [
-      {
-        "capturedAt": "2026-10-21T11:37:59.822507+00:00",
-        "caption": "Før start: tom byggeplate. Jobben er klargjort, men printeren rapporterer manglende lagring og nekter opplasting; ingen printstart er sendt. Bildet er ikke en ferdigutskrift.",
-        "sha256": "436da6a93dd38aa26aa08c290b446038eb24f9e1216f878543e6fcf92a85e9e9",
-        "stage": "pre-start-storage-blocked",
-        "src": "assets/enigma-reflector-entry-fit-20261021-a1/storage-blocked-clear-bed.jpg"
-      }
-    ],
-    "source": {
-      "file": "sliced.3mf",
-      "sha256": "f9f5c47b254b3474979349e58d633e4c9efe591369f857af4f586507cc46d2d6",
-      "repository": "https://github.com/andeplane/openenigma",
-      "commit": "b127cad62f0a1b5d579722abdefe5aa96ce55cfb",
-      "branch": "main",
-      "job": "mechanical-end-pla",
-      "evidence": "Kildekontrollen og ren-main-klargjøringen ble gjentatt 2026-10-21T12:30:22.050556+00:00 mot main b127cad62f0a1b5d579722abdefe5aa96ce55cfb. Alle 12 valgte kildefiler er byte-identiske med opprinnelig verifisert utgivelse; eksisterende fire-dels slice, G-kode og tidligere gjennomgåtte kritiske verktøybaner er uendret. Den publiserte guiden ble verifisert på nytt. Den opprinnelige lagringsfeilen og kameradokumentasjonen under er bevart; denne kildeoppdateringen inneholder ingen ny opplasting, nedlastingskontroll, kamerafangst eller startkommando. Dette er fortsatt samme planlagte, ustartede kjøring.",
-      "pullRequest": "https://github.com/andeplane/openenigma/pull/179",
-      "editableProject": {
-        "file": "FOUR_PLA_END_COMPONENTS_X2D.3mf",
-        "sha256": "7ca6dc502affe61febc93c9c1699391a43f939936c10913c365558e0531ed803"
-      },
-      "gcodeMember": "Metadata/plate_1.gcode",
-      "gcodeSha256": "a3dc1ad536747e71c24367a10d6c3184a89a38cbfd9ea1a3eb2c64809be35897",
-      "preparedFromCommit": "b127cad62f0a1b5d579722abdefe5aa96ce55cfb",
-      "releaseVerification": {
-        "sourceMainCheckedAt": "2026-10-21T12:30:22.050556+00:00",
-        "openPullRequests": [],
-        "printGate": "PREPARED",
-        "gateReceiptSha256": "3dfaac72030532d5516e0984c92788e993909cc308b7f9e4a89536ca0f5b8610",
-        "sliceAuditSha256": "3ed048241cf1726ffececd46d8c68bb14f12c86c0a918a5c2f58bb479b9c247f",
-        "liveGuideFingerprint": "40ae6fd365bedb1ae049f9f129e410dc408655cd1e7875639bb9db60e610fa43",
-        "physicalFitVerified": false,
-        "refreshEquivalenceReceiptSha256": "0d31683a9d2136489e4efcbde0bab79e1a7b91d6879f150dcb3a08305cc20db4",
-        "selectedSourceFilesUnchanged": true,
-        "sliceAndGcodeUnchanged": true,
-        "originalCriticalReviewSha256": "8b04c6849d861f21e82f4d665e7831dcee5cc3beaf796b855128e12877d4d9ee",
-        "uploadReadbackVerified": false,
-        "printerStartObserved": false
-      },
-      "sliceOriginallyPreparedFromCommit": "efb3105c294aca920b498de88400af1a0025cb16",
-      "sliceOriginallyReviewedAgainstCommit": "1cb0f47617d4c13a7c5f044cc09df14f6f69bf38"
-    },
-    "notes": "Fire nye deler: reflektorkropp, bakdeksel, isolatorskive og kabelbøssing. Reflektorens separate utløserkam er tatt ut av denne kjøringen og holdt tilbake fordi native STL-eksporter ikke var tette; ingen mislykket kam-mesh brukes. Reflektorkroppen er nominelt PLA, bakdeksel PETG, mens de to ETW-delene beholder historisk geometristatus og uspesifisert kildemateriale. PLA er kun ubelastet mekanisk passformprøve. Faktiske verktøybaner viser modell og støtte separat; støtter finnes bare på reflektorkroppen. Fjerning av støtte, passform, elektrisk isolasjon og belastet drift er ikke godkjent. ETA og55,78g er slicerestimater, ikke faktisk tid/forbruk. Rotor-reprint er fortsatt holdt etter støtteryddeskade. Fersk lagringsrapport 2026-10-21T11:39:14Z var verken retained eller duplicate. Printerens lagring må bli gjenkjent før ny verifisert opplasting og start. Kamerabildet viser tom plate før start; det dokumenterer ingen utskrevet del eller ferdigjobb. Kildeoppdatering: main og publisert guide ble kontrollert på nytt 2026-10-21T12:30:22Z. Eksakte kilde-, slice- og G-kodebyte er uendret; derfor ble ingen ny slice eller nytt forsøk opprettet. Opprinnelig kilde-/gjennomgangslinje er beholdt i sourceVerificationHistory. Lagringshendelsen og før-start-bildet beholder sine opprinnelige tidspunkter; det foreligger ingen ny printerhandling eller fysisk dokumentasjon.",
-    "sequence": 6,
-    "evidencePending": [
-      "Printer recognizes storage and exposes usable filesystem",
-      "Exact upload-readback identity",
-      "New immediate pre-start camera/telemetry and accepted job identity",
-      "During-print and completion camera",
-      "Physical support cleanup and fit inspection"
-    ],
-    "storageBlocker": {
-      "observedAt": "2026-10-21T11:39:14Z",
-      "reportedSdcard": false,
-      "freshNonRetainedReport": true,
-      "uploadResponse": "553 Could not create file",
-      "filesystemRead": "Root directory empty; previous accepted file unavailable",
-      "startCommandSent": false,
-      "requiresPrinterStorageCheck": true
-    },
-    "sourceVerificationHistory": [
-      {
-        "kind": "original-preparation-and-storage-blocked-review",
-        "recordUpdatedAt": "2026-10-21T11:40:58.916575+00:00",
-        "source": {
-          "file": "sliced.3mf",
-          "sha256": "f9f5c47b254b3474979349e58d633e4c9efe591369f857af4f586507cc46d2d6",
-          "repository": "https://github.com/andeplane/openenigma",
-          "commit": "1cb0f47617d4c13a7c5f044cc09df14f6f69bf38",
-          "branch": "main",
-          "job": "mechanical-end-pla",
-          "evidence": "Klargjort fra kontrollert main med synkronisert publisert guide og eksakt fire-dels slice. Alle lokale kilde-, geometri-, plassering-, prosess- og verktøybanekontroller er fullført. Opplasting ble avvist av printerens filserver med 553; fersk passiv printerrapport sier sdcard=false, og direkte lesing av filsystemet viser tom rot og manglende tidligere filer. Ingen startkommando er sendt. Dette er en planlagt jobb blokkert før start, ikke en mislykket utskrift.",
-          "pullRequest": "https://github.com/andeplane/openenigma/pull/179",
-          "editableProject": {
-            "file": "FOUR_PLA_END_COMPONENTS_X2D.3mf",
-            "sha256": "7ca6dc502affe61febc93c9c1699391a43f939936c10913c365558e0531ed803"
-          },
-          "gcodeMember": "Metadata/plate_1.gcode",
-          "gcodeSha256": "a3dc1ad536747e71c24367a10d6c3184a89a38cbfd9ea1a3eb2c64809be35897",
-          "preparedFromCommit": "efb3105c294aca920b498de88400af1a0025cb16",
-          "releaseVerification": {
-            "sourceMainCheckedAt": "2026-10-21T11:18:41.472862+00:00",
-            "openPullRequests": [],
-            "printGate": "PREPARED",
-            "gateReceiptSha256": "799ccfcf8308a485a1c5ebe72848d2688e8e6a932b4cdbb2db1c394f25746ff7",
-            "sliceAuditSha256": "c7041e17a094178b520af1e085643a15c66a1155c33879f41e0979eef1820f7d",
-            "liveGuideFingerprint": "e76e7c6bc3a772fd05bff21c9a3fe906a6b8fc74a4fa916bd610075af64e4fc7",
-            "physicalFitVerified": false
-          }
         }
       }
     ]

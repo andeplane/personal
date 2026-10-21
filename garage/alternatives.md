@@ -24,14 +24,14 @@ The source is the user-provided garage photo, the user's corrections and the ear
 - Every backpack used the same estimated 55 × 40 × 75 cm envelope. Several openings were designed around those repeated upright packs. That is not a sensible basis for the full storage system.
 - The low-rack option put three packs on top and left the wall height unused. C now tests reused / extended small shelf compartments above the low units.
 - The industrial option displayed only three rack shelves. E now shows five levels with mixed spacing; the stock product only supplies three, so the two additional levels remain unpriced and compatibility is unverified.
-- The 60 cm rack now uses all four supplied shelves. The tall BROR racks each use all five supplied shelves. A has more shelf levels with varied openings.
+- The 60 cm rack now uses all four supplied shelves. The tall BROR racks each use all five supplied shelves. A has more shelf levels with varied openings. All six options now also retain and use the left-wall recesses.
 - The fitted D/E bay now has four smaller shelf levels beside the tall sled slot, plus two full-width shelves above it.
 - Footwear was omitted from the rendering. The new mixed example contents include skates and winter footwear, alongside a lying rucksack, a smaller pack, soft bags, a rolled bag and small supplies. These are examples of use, not a promise that the entire real inventory fits.
 - The 2.10 m reference was applied across the garage as though all overhead space were identical. It is an earlier assumption. The photo shows varying roof / beam geometry, whose heights are not measured.
 
 ## Capacity comparison
 
-Approximate rear shelf surface sums the horizontal shelf surfaces in the model. It excludes the common side-wall shelves. It is **not storage volume, clear usable shelf width, a load rating or a count of items that fit**. The optional upper study is excluded below.
+Approximate rear shelf surface sums the horizontal shelf surfaces at the back of the model. It excludes the existing right-wall ski shelf and the left-wall recess storage. It is **not storage volume, clear usable shelf width, a load rating or a count of items that fit**. The optional upper study is excluded below.
 
 | Layout | Rear depth | Rear shelf surface | Floor gap to assumed parked car | Storage approach |
 |---|---:|---:|---:|---|
@@ -69,3 +69,20 @@ Current catalogue links remain available in the viewer. No products have been or
 ## Verification
 
 The generated JavaScript is syntax-checked. Data validation checks the priced subsets, removal of box purchases, supplied shelf counts, and parking / height arithmetic. Geometry checks use pinned Three.js 0.158.0 across all six plans at 2.10 m and four upper-clearance study settings: representative item sizes, overlaps with shelf geometry, overlaps between examples, height, hardware counts, one sled in A–E and one ladder in every plan. Browser checks cover all six layouts, optional upper storage, object selection and camera preservation. These checks establish the model's internal consistency, not physical fit, wall strength, door access or the capacity of real belongings.
+
+## Left-wall recesses — supplied photos and measurements
+
+The exposed left-wall framing creates shallow storage throughout the garage. These recesses, horizontal ledges and diagonal braces are part of the existing building; they must not be replaced in the plan by an invented flat wall or confused with the cabinets on the rear wall.
+
+- **54.5 cm clear width:** user confirmed the reading in IMG_0751.
+- **63.5 cm clear height:** user confirmed the reading in IMG_0752.
+- **About 9 cm depth:** read from the tape in IMG_0750; this is an approximate photo reading.
+- IMG_0753, IMG_0754 and IMG_0758 show the left wall and its charger / cable route. IMG_0755–0757 show the existing high ski shelf on the right.
+
+The measured opening is representative, not a survey of every bay. The model repeats that width with an assumed 4.5 cm stud face, and uses an assumed base ledge height to place two 63.5 cm clear rows. Whole-wall stud count, absolute heights, diagonal-brace positions and the reserved charger span are schematic from the photos. The top row remains bounded by the earlier assumed 2.10 m reference. The original photos stay local.
+
+The existing ledges are visible with “Left-wall shelf inserts” both on and off. Proposed removable inserts divide some unobstructed openings for small accessories and supplies. The inserts and their front lips stay entirely behind the stud-face line, so the model does not spend aisle width on them. Inserts skip the whole reserved charger / cable span, avoid diagonal braces, and stop before bays obscured by the selected rear rack. This produces seven inserts in E and nine in the other current studies; those are proposal counts from the schematic arrangement, not a cut list or a count of existing shelves.
+
+The earlier proposed 30 cm left-hand ski shelf has been removed. Skis now stay on the existing right-hand high shelf. The two previously priced common boards and eight brackets have been removed from the shared shopping list; F's separate new rear shelves retain their own product entries. Left-wall insert material, cleats, fixing details and loads remain unpriced / unspecified. No building brace is cut or altered.
+
+Use the **Left wall** camera button to inspect the whole wall, then select an existing ledge, proposed insert, diagonal brace or the charger space for its evidence and dimensions. Changing the insert toggle or switching layouts preserves the camera. Geometry checks now cover 60 combinations, adding inserts on/off, front-face containment, charger exclusion, rear-rack exclusion and oriented brace-intersection checks to the existing validations.

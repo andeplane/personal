@@ -9,3 +9,5 @@
 .storage-review{margin-top:24px;padding:20px 0;border-top:1px solid #d3dcd0}.storage-review th,.storage-review td{text-align:left;vertical-align:top}.storage-review table{table-layout:fixed}.storage-review th:first-child{width:23%}#upper-controls{margin-bottom:22px;padding:14px;background:#e9eee5;border-radius:8px}#upper-controls label{display:flex;justify-content:space-between;gap:12px;font-size:13px}#rear-height{width:100%;margin-top:12px}#upper-controls .fine{margin-bottom:0}
 
 @media(min-width:761px) and (max-width:1450px){.layout-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+#left-wall-summary{border-bottom:1px solid #d3dcd0;padding-bottom:16px;margin-bottom:20px}#left-wall-summary h3{margin:9px 0}#left-wall-summary p{margin-bottom:0}

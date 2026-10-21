@@ -178,14 +178,6 @@
       1
     ],
     [
-      "plank",
-      2
-    ],
-    [
-      "pineBracket",
-      8
-    ],
-    [
       "pegboard",
       2
     ],
@@ -234,7 +226,7 @@
         ]
       ],
       "summary": "Mixed shelf openings across the rear wall: smaller compartments, a larger opening, and one tall sled slot with shelves above. No backpack-specific bays.",
-      "equipment": "Example contents show a mix of larger and smaller things. Open shelves remain available for changing and future belongings. Ladder, folded chairs, table and skis retain separate side-wall positions. Counts and item sizes are provisional.",
+      "equipment": "Mixed example contents leave room for changing belongings. Reuse the left-wall recesses and the existing right-wall ski shelf; ladder, chairs and table retain side-wall places. Left-wall inserts and any adaptations are unpriced.",
       "shelves": [
         [
           1.45,
@@ -263,8 +255,8 @@
           1.85
         ]
       ],
-      "productsTotal": 6182.3,
-      "budgetTotal": 6782.3,
+      "productsTotal": 5585.1,
+      "budgetTotal": 6185.1,
       "frontGap": 0.653,
       "unpriced": "Any adaptation of existing small shelves, and optional shelves above the 2.10 m reference."
     },
@@ -303,7 +295,7 @@
         ]
       ],
       "summary": "All five supplied shelves in each 190 cm rack are used. Mixed heights provide small and larger openings; the sled keeps a separate tall slot with storage above.",
-      "equipment": "Example contents show a mix of larger and smaller things. Open shelves remain available for changing and future belongings. Ladder, folded chairs, table and skis retain separate side-wall positions. Counts and item sizes are provisional.",
+      "equipment": "Mixed example contents leave room for changing belongings. Reuse the left-wall recesses and the existing right-wall ski shelf; ladder, chairs and table retain side-wall places. Left-wall inserts and any adaptations are unpriced.",
       "shelves": [
         [
           0.1,
@@ -324,8 +316,8 @@
           1.8
         ]
       ],
-      "productsTotal": 6352.3,
-      "budgetTotal": 6952.3,
+      "productsTotal": 5755.1,
+      "budgetTotal": 6355.1,
       "frontGap": 0.503,
       "unpriced": "Reuse / adaptation of small compartments and optional upper storage."
     },
@@ -364,7 +356,7 @@
         ]
       ],
       "summary": "Low racks below, small shelf compartments above: use the wall height instead of dedicating the open top to three upright backpacks. Existing rear cabinets could supply the smaller compartments after measuring.",
-      "equipment": "Example contents show a mix of larger and smaller things. Open shelves remain available for changing and future belongings. Ladder, folded chairs, table and skis retain separate side-wall positions. Counts and item sizes are provisional.",
+      "equipment": "Mixed example contents leave room for changing belongings. Reuse the left-wall recesses and the existing right-wall ski shelf; ladder, chairs and table retain side-wall places. Left-wall inserts and any adaptations are unpriced.",
       "shelves": [
         [
           0.1,
@@ -381,8 +373,8 @@
           1.8
         ]
       ],
-      "productsTotal": 5152.3,
-      "budgetTotal": 5752.3,
+      "productsTotal": 4555.1,
+      "budgetTotal": 5155.1,
       "frontGap": 0.503,
       "unpriced": "The proposed reused / extended small shelf compartments above the low racks. Their real sizes and attachment points remain unmeasured."
     },
@@ -413,10 +405,10 @@
         ]
       ],
       "summary": "Four supplied rack shelves at mixed spacing. The fitted bay has four small compartments plus two full-width shelves above the dedicated sled slot.",
-      "equipment": "Example contents show a mix of larger and smaller things. Open shelves remain available for changing and future belongings. Ladder, folded chairs, table and skis retain separate side-wall positions. Counts and item sizes are provisional.",
+      "equipment": "Mixed example contents leave room for changing belongings. Reuse the left-wall recesses and the existing right-wall ski shelf; ladder, chairs and table retain side-wall places. Left-wall inserts and any adaptations are unpriced.",
       "frontGap": 0.453,
-      "productsTotal": 3201.3,
-      "budgetTotal": 5301.3,
+      "productsTotal": 2604.1,
+      "budgetTotal": 4704.1,
       "rackWidth": 1.6,
       "extensionWidth": 1.06,
       "unpriced": "Custom-bay materials and connections have only a provisional allowance; optional upper storage is unpriced."
@@ -449,10 +441,10 @@
         ]
       ],
       "summary": "Five rack levels give a mix of small and larger openings. The 80 cm deep fitted bay adds four narrow shelf levels and two full-width levels above a 65 cm clear sled slot. More flexible capacity; no fixed backpack allocation.",
-      "equipment": "Example contents show a mix of larger and smaller things. Open shelves remain available for changing and future belongings. Ladder, folded chairs, table and skis retain separate side-wall positions. Counts and item sizes are provisional.",
+      "equipment": "Mixed example contents leave room for changing belongings. Reuse the left-wall recesses and the existing right-wall ski shelf; ladder, chairs and table retain side-wall places. Left-wall inserts and any adaptations are unpriced.",
       "frontGap": 0.253,
-      "productsTotal": 9396.05,
-      "budgetTotal": 11496.05,
+      "productsTotal": 8798.85,
+      "budgetTotal": 10898.85,
       "rackWidth": 1.448,
       "extensionWidth": 1.212,
       "unpriced": "Two additional industrial shelf levels are shown beyond the three supplied. Exact compatible components and their prices are unverified. The fitted bay has a provisional materials allowance."
@@ -483,10 +475,10 @@
         ]
       ],
       "summary": "A bike-clearance study with raised shallow shelves. This leaves substantially less storage and does not provide a dedicated place for the sled or larger belongings.",
-      "equipment": "Example contents show a mix of larger and smaller things. Open shelves remain available for changing and future belongings. Ladder, folded chairs, table and skis retain separate side-wall positions. Counts and item sizes are provisional.",
+      "equipment": "Mixed example contents leave room for changing belongings. Reuse the left-wall recesses and the existing right-wall ski shelf; ladder, chairs and table retain side-wall places. Left-wall inserts and any adaptations are unpriced.",
       "frontGap": 1.053,
-      "productsTotal": 2799.7,
-      "budgetTotal": 3399.7,
+      "productsTotal": 2202.5,
+      "budgetTotal": 2802.5,
       "unpriced": "A complete storage solution for the other belongings."
     }
   ],
@@ -540,11 +532,91 @@
       "count": "Mixed"
     },
     {
+      "name": "Left-wall recesses and ledges",
+      "evidence": "IMG_0750–0754 and IMG_0758 show existing shallow storage between studs. One opening confirmed 54.5 cm across × 63.5 cm high; depth about 9 cm from the tape photo.",
+      "storage": "Retain existing ledges; add shallow inserts in unobstructed bays. Keep diagonal braces and the charger / cable area clear.",
+      "count": "Existing wall storage"
+    },
+    {
       "name": "Storage boxes",
       "evidence": "Excluded from the new brief at your request, including proposed plastic boxes.",
       "storage": "No assumed box inventory or box shopping list.",
       "count": "0 assumed"
     }
   ],
-  "reviewDate": "2026-10-21"
+  "reviewDate": "2026-10-21",
+  "leftWall": {
+    "clearWidth": 0.545,
+    "clearHeight": 0.635,
+    "recessDepth": 0.09,
+    "measurementEvidence": {
+      "clearWidth": "User confirmed IMG_0751: 54.5 cm",
+      "clearHeight": "User confirmed IMG_0752: 63.5 cm",
+      "recessDepth": "IMG_0750 tape photograph: approximately 9 cm"
+    },
+    "studWidth": 0.045,
+    "firstStud": 0.22,
+    "ledgeTops": [
+      0.14,
+      0.82,
+      1.5
+    ],
+    "chargerZone": [
+      1.1,
+      3.1
+    ],
+    "braces": [
+      [
+        [
+          0.28,
+          2.06
+        ],
+        [
+          1.16,
+          0.15
+        ]
+      ],
+      [
+        [
+          2.4,
+          0.83
+        ],
+        [
+          3.2,
+          2.06
+        ]
+      ],
+      [
+        [
+          3.2,
+          2.06
+        ],
+        [
+          4.1,
+          0.83
+        ]
+      ],
+      [
+        [
+          3.2,
+          0.83
+        ],
+        [
+          4.1,
+          0.15
+        ]
+      ],
+      [
+        [
+          5.15,
+          0.83
+        ],
+        [
+          5.92,
+          2.06
+        ]
+      ]
+    ],
+    "positionEvidence": "Stud count / spacing, absolute ledge heights, brace and charger locations are a schematic photo-based arrangement. The representative measured opening is not proof that every bay is identical."
+  }
 }

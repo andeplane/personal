@@ -2,13 +2,13 @@
 function pineShelf(side,center,height,width=2.4){
  const plankMat=materials.wood.clone();
  const rear=side==='rear',left=side==='left',x=rear?W/2:left?.15:W-.15,z=rear?L-.15:center;
- capture(()=>box(rear?width:.3,.018,rear?.3:width,x,height-.009,z,plankMat,furnitureGroup),'plank',{title:(rear?'Rear raised shelf':left?'Left ski shelf':'Right upper shelf')+' · '+Math.round(height*100)+' cm',height,dimensions:[width,.3,.018],note:'240 cm solid pine board. Proposed support spacing ≤ 75 cm; fixing and loading depend on the real wall backing. Check door tracks and hems beams. Shelf dimensions follow the board, not room axes.'});
+ capture(()=>box(rear?width:.3,.018,rear?.3:width,x,height-.009,z,plankMat,furnitureGroup),rear?'plank':null,{kind:rear?'concept':'existing-storage',title:(rear?'Rear raised shelf':left?'Left ski shelf':'Right wall · existing ski shelf')+' · '+Math.round(height*100)+' cm',height,dimensions:[width,.3,.018],note:rear?'240 cm pine-board concept. Supports and wall fixing require verification.':'Reuse the existing high ski shelf visible in IMG_0755–0757. Shown size / height are still estimates; no replacement shelf is included in the shopping list.'});
  for(let i=0;i<4;i++){const t=-width/2+.10+i*(width-.2)/3,xx=rear?W/2+t:left?.015:W-.015,zz=rear?L-.015:center+t;
- capture(()=>{if(rear){box(.025,.20,.025,xx,height-.118,zz,'metal',furnitureGroup);box(.025,.018,.30,xx,height-.027,L-.15,'metal',furnitureGroup);rod([xx,height-.218,L-.02],[xx,height-.035,L-.28],.009,'metal',furnitureGroup);}else{box(.025,.20,.025,xx,height-.118,zz,'metal',furnitureGroup);box(.30,.018,.025,left?.15:W-.15,height-.027,zz,'metal',furnitureGroup);rod([xx,height-.218,zz],[left?.28:W-.28,height-.035,zz],.009,'metal',furnitureGroup);}},'pineBracket',{title:'30 cm shelf bracket',height:height-.018,note:'20 cm vertical leg, 30 cm projection. Fix into structural backing; paneling alone is not an assumed fixing substrate.'});
+ capture(()=>{if(rear){box(.025,.20,.025,xx,height-.118,zz,'metal',furnitureGroup);box(.025,.018,.30,xx,height-.027,L-.15,'metal',furnitureGroup);rod([xx,height-.218,L-.02],[xx,height-.035,L-.28],.009,'metal',furnitureGroup);}else{box(.025,.20,.025,xx,height-.118,zz,'metal',furnitureGroup);box(.30,.018,.025,left?.15:W-.15,height-.027,zz,'metal',furnitureGroup);rod([xx,height-.218,zz],[left?.28:W-.28,height-.035,zz],.009,'metal',furnitureGroup);}},rear?'pineBracket':null,{kind:rear?'concept':'existing-storage',title:rear?'30 cm shelf bracket':'Right wall · existing shelf support',height:height-.018,note:'20 cm vertical leg, 30 cm projection. Fix into structural backing; paneling alone is not an assumed fixing substrate.'});
  }
 }
 function rightWall(){
- pineShelf('left',3.15,1.95);pineShelf('right',1.7,1.95);
+ pineShelf('right',3.35,1.95);
  // Perforation pattern represented with a repeating texture; external board size is exact.
  const c=document.createElement('canvas');c.width=c.height=48;const ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,48,48);ctx.fillStyle='#101716';ctx.beginPath();ctx.arc(24,24,8,0,Math.PI*2);ctx.fill();const tex=new T.CanvasTexture(c);tex.wrapS=tex.wrapT=T.RepeatWrapping;tex.repeat.set(.955/.012,.82/.012);
  const pm=new T.MeshStandardMaterial({color:'#465659',metalness:.6,roughness:.5,map:tex,transparent:false,alphaTest:0,side:T.DoubleSide});
@@ -22,7 +22,7 @@ function rightWall(){
  for(const z of [2.86,3.44])capture(()=>{box(.08,.47,.4,W-.095,1.05,z,'rubber',furnitureGroup);for(const zz of [z-.22,z+.22])rod([W-.14,.5,zz],[W-.14,1.5,zz],.014,'metal',furnitureGroup);for(const y of [.5,1.5])rod([W-.14,y,z-.22],[W-.14,y,z+.22],.014,'metal',furnitureGroup);},null,{title:'Existing folding chair',dimensions:[.5,.15,1],note:'Estimated folded size; separate hooks avoid stacking into the car clearance.'},true);
  capture(()=>{for(const z of [3.99,4.41])rod([W-.10,.05,z],[W-.10,1.95,z],.022,'white',furnitureGroup);for(let y=.18;y<1.9;y+=.26)rod([W-.10,y,3.99],[W-.10,y,4.41],.02,'white',furnitureGroup);},null,{title:'Existing stepladder / gardintrapp',dimensions:[.5,.15,1.9],note:'Provisional folded dimensions.'},true);
  capture(()=>{box(.07,1.25,.75,W-.05,.65,4.9,'white',furnitureGroup);box(.009,.03,.76,W-.095,1.05,4.9,'accent',furnitureGroup);},null,{title:'Existing folding table',dimensions:[.75,.08,1.25],note:'Estimated folded envelope; retained by strap.'},true);
- capture(()=>{for(let i=0;i<2;i++)box(.055,.025,2.15,.10+i*.09,1.9675,3.15,'gear',furnitureGroup);},null,{title:'Left shelf · ski bundle',dimensions:[.20,2.15,.025],note:'Illustrative 215 cm ski length; count and actual lengths unmeasured. Top stays below 2 m.'},true);
+ capture(()=>{for(let i=0;i<2;i++)box(.055,.025,2.15,W-.10-i*.09,1.9675,3.35,'gear',furnitureGroup);},null,{title:'Right shelf · existing ski bundle',dimensions:[.20,2.15,.025],note:'Illustrative 215 cm ski length; count and actual lengths unmeasured. Top stays below 2 m.'},true);
 }
 function expandedStorage(a){
  if(a.id==='F'){for(const [i,y] of [1.45,1.95].entries()){pineShelf('rear',0,y);shelfZone(W/2,2.4,.3,y,i===0?1.95:H,.24);}return;}

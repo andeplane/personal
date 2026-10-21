@@ -1,7 +1,7 @@
 [
   {
     "id": "enigma-rotor-v2-lock-fit-20261021-a1",
-    "title": "Rotor V2 · supported cleanup and lock-fit trial",
+    "title": "Rotor V2 · one complete plastic prototype plus fit fixture",
     "project": "OpenEnigma",
     "printer": "Bambu Lab X2D",
     "status": "planned",
@@ -9,40 +9,66 @@
     "startedAt": null,
     "finishedAt": null,
     "printDate": null,
-    "jobName": "DESIGN2_LOCK_FIT_TRIAL_X2D",
+    "jobName": "DESIGN2_COMBINED_FULL_ROTOR_AND_FIT_TRIAL_X2D",
     "plate": 1,
     "parts": [
       "V2_FIXTURE_BODY",
       "V2_FIXTURE_RETAINER",
-      "V2_RING_ARM"
+      "V2_RING_ARM",
+      "V2_BODY_I",
+      "V2_BLANK_CASSETTE_I",
+      "V2_RATCHET_FACE_I"
     ],
-    "estimatedSeconds": 6499,
+    "estimatedSeconds": 31623,
     "actualSeconds": null,
-    "estimatedGrams": 21.44,
+    "estimatedGrams": 78.81,
     "actualGrams": null,
-    "estimatedMeters": 7.07526,
-    "material": "PLA Basic · grey, external spool (source preview uses green)",
+    "estimatedMeters": 26.00346,
+    "material": "PLA Basic · grey, right nozzle external spool",
     "color": "#8E9089",
     "layerHeightMm": 0.1,
     "nozzleMm": 0.4,
     "layers": 242,
-    "preview": "assets/enigma-rotor-v2-lock-fit-20261021-a1/preview.png",
-    "layout": "assets/enigma-rotor-v2-lock-fit-20261021-a1/layout.png",
+    "preview": "assets/enigma-rotor-v2-lock-fit-20261021-a1/combined-preview.png",
+    "layout": "assets/enigma-rotor-v2-lock-fit-20261021-a1/combined-layout.png",
     "snapshots": [],
     "source": {
-      "file": "design2-fit-trial-sliced.3mf",
-      "sha256": "3fbe0b2a7433962cae48300066d4c091ca94752d05f3711fe7427ba645bce233",
-      "evidence": "SUPERSEDED PREPARATION CANDIDATE; NOT RELEASED OR STARTED. This original archive routes to the left tool/external holder 254, conflicting with the human-selected grey normal external spool on the right tool/holder 255. Its slice hash and images are retained solely as preparation history. A corrected right-nozzle slice is being prepared; final source hash, images and estimates will replace these fields after review. Original editable project SHA256 3921cb31b8eb4e68b1338d824139be8520de29c30b1d8d27f4ee0535e80b1353."
+      "file": "design2-combined-sliced.3mf",
+      "sha256": "27cd231745514a62754d7ec46cc908a904e0952a323cc4143bb57904783eef63",
+      "evidence": "Exact combined six-object plate 1 slice; named inventory and slicer estimates read from its slice_info.config and plate_1.gcode. Editable project SHA256 c81181df077de6f497bb52b971777f916bd77a8753f1648243b0f3264b20a525. Logical filament mapping 2 with physical map [1,0] targets right physical nozzle 0 / normal external holder 255. Final source release/audits and upload/readback remain pending. No actual printer start claimed."
     },
-    "notes": "Planned attempt; no printer start sent. The displayed preview, top view, source hash and estimates belong to the superseded left-tool preparation candidate and must not be used to start this job. Human selected GREY PLA on the normal external spool, right physical nozzle 0 / holder 255. A corrected right-nozzle slice and release are in progress. Three printed parts test support cleanup, captive hardware and the V2 ring-setting lock, reusing the previously printed numbered ring I if physically intact. Not a complete rotor. Initial support audit identified three bed-face-open hardware recesses; actual support removal, recess inspection, fit and lock return remain mandatory physical checks before the subsequent full rotor trial. Hardware stock, cleanup, fit and function remain unverified.",
+    "notes": "Planned attempt; no printer start sent. Human selected ONE full prototype V2 rotor printed concurrently with the fit fixture overnight, before physical fit-trial acceptance; the other two rotors remain held. Six new objects include a single ring arm shared between fixture and rotor; the previously printed numbered ring I is reused only if intact. The blank cassette is a non-electrical mechanical prototype. Grey PLA on the right nozzle normal external spool. Four walls, 30% gyroid, 0.10 mm layers / 0.20 mm first layer, 8 mm outer brim and normal snug supports including above-bed supports. Actual support removal, fine-feature inspection, captive hardware fitting, lock return and full assembly remain physical checks. Hardware stock, cleanup, fit, strength and function remain unverified. Earlier three-part left/right preparations were superseded as the current target before any start.",
     "preparationState": {
-      "status": "superseded-left-tool-candidate",
-      "supersededSliceSha256": "3fbe0b2a7433962cae48300066d4c091ca94752d05f3711fe7427ba645bce233",
+      "status": "combined-six-candidate-awaiting-final-release",
       "requiredTool": "right physical nozzle 0",
       "requiredExternalHolder": 255,
-      "finalSliceSha256": null,
-      "actualStartSent": false
-    }
+      "finalSliceSha256": "27cd231745514a62754d7ec46cc908a904e0952a323cc4143bb57904783eef63",
+      "actualStartSent": false,
+      "fullRotorQuantity": 1,
+      "physicalFitAccepted": false
+    },
+    "preparationHistory": [
+      {
+        "status": "superseded-before-start",
+        "reason": "Wrong left physical nozzle / external holder 254 for the selected grey normal external spool.",
+        "sha256": "3fbe0b2a7433962cae48300066d4c091ca94752d05f3711fe7427ba645bce233",
+        "preview": "assets/enigma-rotor-v2-lock-fit-20261021-a1/preview.png",
+        "layout": "assets/enigma-rotor-v2-lock-fit-20261021-a1/layout.png",
+        "estimatedSeconds": 6499,
+        "estimatedGrams": 21.44,
+        "actualStartSent": false
+      },
+      {
+        "status": "reviewed-fallback-not-current-target",
+        "reason": "Human subsequently selected combined six-object full rotor plus fit fixture overnight.",
+        "sha256": "233e8593bb1b76fbf2374ec9499d26e443b639b14652999a1272b90b492f1fd5",
+        "preview": "assets/enigma-rotor-v2-lock-fit-20261021-a1/right-preview.png",
+        "layout": "assets/enigma-rotor-v2-lock-fit-20261021-a1/right-layout.png",
+        "estimatedSeconds": 8720,
+        "estimatedGrams": 21.44,
+        "actualStartSent": false
+      }
+    ]
   },
   {
     "id": "enigma-reflector-body-retry-20261021-a3",

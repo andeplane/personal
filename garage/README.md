@@ -28,4 +28,4 @@ The charger reservation is local in height and length rather than an empty two-m
 
 `design-data.json` records product identities, prices, fixed stock dimensions, source links and the original catalogue baseline commit. `alternatives.md` explains installation assumptions and scope.
 
-The retained car-free generated images belong to the earlier concepts. The page labels them as appearance references, not the current retail installation or product photographs. Original garage photographs remain private; no original is published.
+The retained car-free generated images belong to the earlier concepts. An always-visible Imagegen gallery, a link next to the plan price, and a preview beside the model keep them easy to find. The preview and large image follow the selected plan; all four originals remain available at full size. The page states that they predate the latest shelf and basket changes. Original garage photographs remain private; no original is published.

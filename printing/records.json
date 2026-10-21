@@ -1,5 +1,401 @@
 [
   {
+    "id": "enigma-reflector-body-retry-20261021-a3",
+    "title": "Enigma · reflektorkropp B, tredje forsøk",
+    "project": "Enigma Doublestep",
+    "printer": "Bambu Lab X2D",
+    "status": "printing",
+    "preparationState": "ACCEPTED_RUNNING_CURRENT_SOURCE_AND_EXACT_FILE_BOUND",
+    "recordedAt": "2026-10-21T17:40:31.192010+00:00",
+    "updatedAt": "2026-10-21T20:01:34.582273+00:00",
+    "startedAt": "2026-10-21T19:43:01.485Z",
+    "finishedAt": null,
+    "jobName": "ENIGMA_REFLECTOR_RETRY_eadfe61c",
+    "plate": 1,
+    "parts": [
+      "REFLECTOR_B_BODY"
+    ],
+    "estimatedSeconds": 6621.87158203125,
+    "actualSeconds": null,
+    "estimatedGrams": 48.00498962402344,
+    "actualGrams": null,
+    "estimatedMeters": 15.83981,
+    "material": "PLA Basic · svart · akseptert AMS A3 [2] for dette forsøket",
+    "color": "#161616",
+    "layerHeightMm": 0.2,
+    "firstLayerHeightMm": 0.2,
+    "nozzleMm": 0.4,
+    "layers": 238,
+    "preview": "assets/enigma-reflector-body-retry-20261021-a2/plan.png",
+    "layout": "assets/enigma-reflector-body-retry-20261021-a2/layout.png",
+    "snapshots": [
+      {
+        "src": "assets/enigma-reflector-body-retry-20261021-a3/controller-fresh-camera.jpg",
+        "capturedAt": "2026-10-21T19:42:27.417687+00:00",
+        "sha256": "e7e0469c73c58506cfd77a1742467cafcfc544e2966d690b86b7ed82753fa9bb",
+        "stage": "pre-start-clearance-current-attempt",
+        "caption": "Ny, vist kamerafangst før a3-start: platen er synlig uten observerte deler eller løst materiale. Mennesket bekreftet ingen synlig hindring. Bildet var 12,23 sekunder gammelt ved varig startintensjon; dette beviser ikke usynlig renhet eller senere feste."
+      },
+      {
+        "src": "assets/enigma-reflector-body-retry-20261021-a3/first-printable-layer-observation.jpg",
+        "capturedAt": "2026-10-21T19:51:37.390931+00:00",
+        "sha256": "392ffb6ebbcfbd973540bb724cf60999db69c373041480c6e420c849d7b4fc06",
+        "stage": "early-printable-support-layer-observation",
+        "caption": "Tidlige ringformede base-/støttebaner ligger synlig på platen. Ingen tydelig stor forskyvning eller oppstående sammenfiltrede tråder ses i det åpne området. Verktøyhodet skjuler bakre del og gjenskinn begrenser detaljene; hele første lags feste er ikke verifisert."
+      },
+      {
+        "src": "assets/enigma-reflector-body-retry-20261021-a3/support-base-layer2-1954.jpg",
+        "capturedAt": "2026-10-21T19:53:40.410854+00:00",
+        "sha256": "836b02cbec126db7aedf8602404bfcabc7e7494f8a78799d6ea08754577e7d36",
+        "stage": "support-base-layer2-visible-limited-area",
+        "caption": "Synlige ring-/radialbaner og kant ved lag 2 fremstår ordnet uten tydelig stor forskyvning eller oppstående trådfloke i det åpne området. Verktøyhode og gjenskinn skjuler deler; dette bekrefter ikke helhetlig feste, dimensjoner eller fysisk integritet."
+      }
+    ],
+    "evidenceImages": [
+      {
+        "src": "assets/enigma-reflector-body-retry-20261021-a2/critical-support-planes.png",
+        "kind": "exact-candidate-slicer-toolpath-review",
+        "caption": "Tolv buebevisste verktøybaneplan fra den eksakte nye én-dels slicen, fra første støttelag til modellgulvet. Dette er avledede baner, ikke kamera eller fysisk bevis på stabilitet, støttefjerning eller passform.",
+        "sha256": "9a4dbe8eb9ab0dd407ba11dc9ba27dc0fd04072097d1939be87d9a56b550dcfb"
+      }
+    ],
+    "source": {
+      "file": "sliced.3mf",
+      "sha256": "eadfe61c7ce941667f6efaa0ce0f159e1ab26cef6d99be99f7b523e8c2bcbc5a",
+      "repository": "https://github.com/andeplane/openenigma",
+      "commit": "fd1b0a062090641decd766dc9447ef4e7ce0e793",
+      "branch": "main",
+      "releaseStatus": "CURRENT_MAIN_REVIEWED_PREPARED_UPLOADED_READBACK_AND_ACCEPTED",
+      "gcodeMember": "Metadata/plate_1.gcode",
+      "gcodeSha256": "be01a0eb7ed08e3a40ffe0ac3202f50c4d9faf7257b532e5552d82f584a6b2d8",
+      "reviewEvidence": [
+        {
+          "file": "root-visual-review.json",
+          "sha256": "5b040631110c18bbdebbf93492361f6f3c3b4314e81bf8d4d0077957335cb594"
+        },
+        {
+          "file": "critical-body-toolpaths-final.json",
+          "sha256": "cd26ca7746f76bf540698248dd6e93ff0bce40c0bd158b970dbe5ca5f0d50e09"
+        },
+        {
+          "file": "render_retry_planes.py",
+          "sha256": "07fc2ff33a96e79ae25970cbd91c0b4fd9aa98491f10d2b7d081d7b9e83cde97"
+        },
+        {
+          "file": "result.json",
+          "sha256": "10a6bc2738943e81c79c1eaf8461b6d923e901ab8bb5ed8c868133e4c6cbeb31"
+        },
+        {
+          "file": "released-source-ready.json",
+          "sha256": "64375418a9bbadc6400c5a031e3dc3400e2ef14cc578c16f6770455368d1c096"
+        },
+        {
+          "file": "staged-main-0ed6b122/receipt.json",
+          "sha256": "e290bad7f366a0eb3761a9b4fa9bf1ba2e79c706c89c862609d356e7bb05e87c"
+        },
+        {
+          "file": "final-content-audit.json",
+          "sha256": "a0a90f91801b46406460ed35e78817a46035f17a71691ece62946753fef20efe"
+        },
+        {
+          "file": "final-source-0178a400-review.json",
+          "sha256": "7d2d189a08d17f78ece024bac640f43b6069fc2caef651b08f11de9376ccc555"
+        },
+        {
+          "file": "upload-receipt.json",
+          "sha256": "c1608ad0baed7bf6d81233408d2f1e27c60c5c6c03fbc888bf046cc90c4b3c00"
+        },
+        {
+          "file": "upload-readback-audit.json",
+          "sha256": "47dae3d993ca134a9aa93eb88b4101c8fecae3c56cbe044739a60abd6431eb9d"
+        },
+        {
+          "file": "accepted-job.json",
+          "sha256": "05240281b602ca39cb1e84a9d9a90e4a115d84a257e6096ecc17c29b822b470d"
+        },
+        {
+          "file": "publication-reconciliation.json",
+          "sha256": "a21609bec97eefe4ed1ec75c363b14ff7da721708ac2a3da2d9c12187113f007"
+        },
+        {
+          "file": "a3-current/current-source-handoff.json",
+          "sha256": "c665f8cf448b518d6b65ccbc0803ed5d4f69a08782afde9ee53c6c3886012b76"
+        },
+        {
+          "file": "a3-current/receipt.json",
+          "sha256": "a031a868b149027102367f6e21f5e6617db0eecbc90d42088128573c4bb71b6d"
+        },
+        {
+          "file": "a3-current/current-main-actual-slice-audit.json",
+          "sha256": "b79889b4a4fb3e6fa85e05702107908950c49b32b2da128753d49090b8779d19"
+        },
+        {
+          "file": "a3-current/current-main-fresh-a3-readback-audit.json",
+          "sha256": "414514d4d89586c4c5f6b5a1770cdfa8e2c50edc6b2fd72480cb0e3ab1a3279f"
+        },
+        {
+          "file": "a3-current/independent-current-slice-readback-review.json",
+          "sha256": "47002652a3d0263c9b6fc61d17ffbc6658ae92fd0edb4dc692944cb36b46db01"
+        },
+        {
+          "file": "a3-current/accepted-job.json",
+          "sha256": "e8f7d9ad15773d6b12b9003f77d3d2e92a82a0d207ae46aa96c9992fe3918d51"
+        },
+        {
+          "file": "a3-current/command-publication.json",
+          "sha256": "e980d0ad94e887af00762c7e9d750b2f67b107498c9d6c6496e81e5995449c5f"
+        },
+        {
+          "file": "a3-current/controller-submitting-intent.json",
+          "sha256": "4eaa89fe8967f0ae515c13462392f450285890cfa6e7c638d4580b9da85011b4"
+        },
+        {
+          "file": "a3-current/completed-controller-intent.json",
+          "sha256": "b98d3d3e63b7f63a2c7caff070ad563a694607d15e40465c1f23b8ada28f13e1"
+        },
+        {
+          "file": "a3-current/controller-preflight.json",
+          "sha256": "865673bf879aaf0f6ef4c663d54342eca8431042535d8f983a5cd1bba8a9fc42"
+        },
+        {
+          "file": "a3-current/controller-camera-view.json",
+          "sha256": "d0a5a189255e72b6da3b21d7fdfe197c5fb1350e0c3929968ad96bf8f2eb9bc0"
+        }
+      ],
+      "evidence": "Uendret eadfe61c-artifakt ble kontrollert mot ren, oppdatert main fd1b og publisert guide med normal, uendret kildeport. Alle elleve kildefiler ble bevart og hashkontrollert med fulle relative stier. Faktisk slice og fersk nedlasting fra printeren er uavhengig bundet til gjeldende manifest/revisor. En ny, avgrenset startkontroller lagret varig intensjon, kontrollerte nylig vist kamera og publiserte én kommando. Dette er a3; det separate prosedyreavviket i mislykket a2 er ikke overført som bestått bevis eller slettet.",
+      "previousReviewedCommit": "0ed6b122de6548f870e3149ff58beac5b2401cd4",
+      "latestMainTarget": "fd1b0a062090641decd766dc9447ef4e7ce0e793",
+      "editableProject": {
+        "file": "ONE_REFLECTOR_B_BODY_SUPPORT_RETRY_X2D.3mf",
+        "sha256": "4101e38f479b0b6f969d4ac03ec2488da2a5ed70f8f374c508a93ae2af67d41d"
+      },
+      "job": "mechanical-reflector-body-pla-retry",
+      "pullRequest": "https://github.com/andeplane/openenigma/pull/184",
+      "latestMainPullRequest": "https://github.com/andeplane/openenigma/pull/185",
+      "sourceVerification": {
+        "commit": "fd1b0a062090641decd766dc9447ef4e7ce0e793",
+        "checkedAt": "2026-10-21T18:47:49.047456+00:00",
+        "cleanLatestMainSnapshot": true,
+        "openPullRequests": [],
+        "normalUnmodifiedGatePassed": true,
+        "livePreparationPassed": true,
+        "manifestSha256": "3138c88dd688882e8da12c83a0d7ac1a54efc6d73f3c2618b99d7ac683a9ca36",
+        "auditorSha256": "91a203fcca9e2b5be551d2eef0e39bd874b7d33c6e04598a9522ed9e4d4808ee",
+        "criticalAuditStatus": "REVIEWED_REFLECTOR_RETRY_SUPPORT_STACK_AND_TOOLPATHS",
+        "allFullPathSourcePinsRehashed": 11,
+        "sourceSnapshotPurpose": "Temporary exact-main verification; canonical workshop owned by another active chat was preserved."
+      }
+    },
+    "retryOf": "enigma-reflector-body-retry-20261021-a2",
+    "sequence": 11,
+    "settings": {
+      "wallLoops": 4,
+      "sparseInfillPercent": 30,
+      "supportType": "normal(auto)",
+      "supportStyle": "snug",
+      "supportBasePatternSpacingMm": 1.2,
+      "supportSpeedMmPerSecond": 60,
+      "supportInterfaceSpeedMmPerSecond": 40,
+      "supportTopZGapMm": 0.2,
+      "supportBottomZGapMm": 0.2,
+      "supportInterfaceTopLayers": 3,
+      "supportInterfaceBottomLayers": 0,
+      "independentSupportLayerHeight": false,
+      "supportOnBuildPlateOnly": false,
+      "outerBrimMm": 8
+    },
+    "notes": "Dette tredje forsøket ble senere uttrykkelig autorisert og akseptert som RUNNING med samme eadfe61c-fil, én kropp og AMS A3 [2]. Den tidligere prioriteringsutsettelsen er bevart i historikken. Gjeldende fd1b-kilde, faktisk slice og fersk printer-nedlasting er kontrollert; ny eksklusiv startkontroller passerte den ferske kamerakontrollen og lagret varig intensjon før én kommando. Mislykket a2 og dets særskilte startprosedyreavvik er bevart som eget forsøk. To tidlige utskriftsbilder viser avgrensede synlige støttebaner uten åpenbar stor feil i de åpne områdene; ingen full feste-/passform-/støttefjerningsaksept foreligger. Tid og materiale er fortsatt slicerestimater; faktisk presis varighet og materialbruk er ukjent.",
+    "evidencePending": [
+      "Continued camera monitoring through support/interface/model transitions",
+      "Completion telemetry and timestamped after-print camera",
+      "Physical adhesion, support removal, dimensions and fit inspection",
+      "Reliable actual total duration and measured filament usage"
+    ],
+    "preparationHistory": [
+      {
+        "scope": "Previously published planned/deferred record, superseded by later authorized accepted start",
+        "record": {
+          "id": "enigma-reflector-body-retry-20261021-a3",
+          "title": "Enigma · reflektorkropp B, tredje forsøk",
+          "project": "Enigma Doublestep",
+          "printer": "Bambu Lab X2D",
+          "status": "planned",
+          "preparationState": "DEFERRED_BY_HUMAN_OTHER_PRINT_FIRST",
+          "recordedAt": "2026-10-21T17:40:31.192010+00:00",
+          "updatedAt": "2026-10-21T18:05:48.925646+00:00",
+          "startedAt": null,
+          "finishedAt": null,
+          "jobName": "ENIGMA_REFLECTOR_RETRY_eadfe61c · nytt forsøk, ikke startet",
+          "plate": 1,
+          "parts": [
+            "REFLECTOR_B_BODY"
+          ],
+          "estimatedSeconds": 6621.87158203125,
+          "actualSeconds": null,
+          "estimatedGrams": 48.00498962402344,
+          "actualGrams": null,
+          "estimatedMeters": 15.83981,
+          "material": "PLA Basic · svart · planlagt AMS A3, live tilordning ikke verifisert",
+          "color": "#161616",
+          "layerHeightMm": 0.2,
+          "firstLayerHeightMm": 0.2,
+          "nozzleMm": 0.4,
+          "layers": 238,
+          "preview": "assets/enigma-reflector-body-retry-20261021-a2/plan.png",
+          "layout": "assets/enigma-reflector-body-retry-20261021-a2/layout.png",
+          "snapshots": [],
+          "evidenceImages": [
+            {
+              "src": "assets/enigma-reflector-body-retry-20261021-a2/critical-support-planes.png",
+              "kind": "exact-candidate-slicer-toolpath-review",
+              "caption": "Tolv buebevisste verktøybaneplan fra den eksakte nye én-dels slicen, fra første støttelag til modellgulvet. Dette er avledede baner, ikke kamera eller fysisk bevis på stabilitet, støttefjerning eller passform.",
+              "sha256": "9a4dbe8eb9ab0dd407ba11dc9ba27dc0fd04072097d1939be87d9a56b550dcfb"
+            }
+          ],
+          "source": {
+            "file": "sliced.3mf",
+            "sha256": "eadfe61c7ce941667f6efaa0ce0f159e1ab26cef6d99be99f7b523e8c2bcbc5a",
+            "repository": "https://github.com/andeplane/openenigma",
+            "commit": null,
+            "branch": null,
+            "releaseStatus": "SAME_REVIEWED_ARTIFACT_LATEST_MAIN_AND_DEVICE_RECHECK_PENDING",
+            "gcodeMember": "Metadata/plate_1.gcode",
+            "gcodeSha256": "be01a0eb7ed08e3a40ffe0ac3202f50c4d9faf7257b532e5552d82f584a6b2d8",
+            "reviewEvidence": [
+              {
+                "file": "root-visual-review.json",
+                "sha256": "5b040631110c18bbdebbf93492361f6f3c3b4314e81bf8d4d0077957335cb594"
+              },
+              {
+                "file": "critical-body-toolpaths-final.json",
+                "sha256": "cd26ca7746f76bf540698248dd6e93ff0bce40c0bd158b970dbe5ca5f0d50e09"
+              },
+              {
+                "file": "render_retry_planes.py",
+                "sha256": "07fc2ff33a96e79ae25970cbd91c0b4fd9aa98491f10d2b7d081d7b9e83cde97"
+              },
+              {
+                "file": "result.json",
+                "sha256": "10a6bc2738943e81c79c1eaf8461b6d923e901ab8bb5ed8c868133e4c6cbeb31"
+              },
+              {
+                "file": "released-source-ready.json",
+                "sha256": "64375418a9bbadc6400c5a031e3dc3400e2ef14cc578c16f6770455368d1c096"
+              },
+              {
+                "file": "staged-main-0ed6b122/receipt.json",
+                "sha256": "e290bad7f366a0eb3761a9b4fa9bf1ba2e79c706c89c862609d356e7bb05e87c"
+              },
+              {
+                "file": "final-content-audit.json",
+                "sha256": "a0a90f91801b46406460ed35e78817a46035f17a71691ece62946753fef20efe"
+              },
+              {
+                "file": "final-source-0178a400-review.json",
+                "sha256": "7d2d189a08d17f78ece024bac640f43b6069fc2caef651b08f11de9376ccc555"
+              },
+              {
+                "file": "upload-receipt.json",
+                "sha256": "c1608ad0baed7bf6d81233408d2f1e27c60c5c6c03fbc888bf046cc90c4b3c00"
+              },
+              {
+                "file": "upload-readback-audit.json",
+                "sha256": "47dae3d993ca134a9aa93eb88b4101c8fecae3c56cbe044739a60abd6431eb9d"
+              },
+              {
+                "file": "accepted-job.json",
+                "sha256": "05240281b602ca39cb1e84a9d9a90e4a115d84a257e6096ecc17c29b822b470d"
+              },
+              {
+                "file": "publication-reconciliation.json",
+                "sha256": "a21609bec97eefe4ed1ec75c363b14ff7da721708ac2a3da2d9c12187113f007"
+              }
+            ],
+            "evidence": "Samme eksakte eadfe61c-artifakt og uendrede geometri/prosess som det mislykkede a2-forsøket, etter ny uttrykkelig autorisasjon. Dette er et NYTT planlagt forsøk. Oppdatert main/guide, eksakt enhetsfil og materialtilordning samt varig startintensjon og en nylig sett klar plate må kontrolleres på nytt. Tidligere a2-evidens er ikke en akseptert start for a3.",
+            "previousReviewedCommit": "0ed6b122de6548f870e3149ff58beac5b2401cd4",
+            "latestMainTarget": "fd1b0a062090641decd766dc9447ef4e7ce0e793",
+            "editableProject": {
+              "file": "ONE_REFLECTOR_B_BODY_SUPPORT_RETRY_X2D.3mf",
+              "sha256": "4101e38f479b0b6f969d4ac03ec2488da2a5ed70f8f374c508a93ae2af67d41d"
+            }
+          },
+          "retryOf": "enigma-reflector-body-retry-20261021-a2",
+          "sequence": 11,
+          "settings": {
+            "wallLoops": 4,
+            "sparseInfillPercent": 30,
+            "supportType": "normal(auto)",
+            "supportStyle": "snug",
+            "supportBasePatternSpacingMm": 1.2,
+            "supportSpeedMmPerSecond": 60,
+            "supportInterfaceSpeedMmPerSecond": 40,
+            "supportTopZGapMm": 0.2,
+            "supportBottomZGapMm": 0.2,
+            "supportInterfaceTopLayers": 3,
+            "supportInterfaceBottomLayers": 0,
+            "independentSupportLayerHeight": false,
+            "supportOnBuildPlateOnly": false,
+            "outerBrimMm": 8
+          },
+          "notes": "Nytt separat forsøk med samme fil, modell, støtteinnstillinger og estimater etter a2 FAILED. Mennesket opplyser å ha ryddet platen og autoriserte ny prøve, men kameraklarering ved senket/croppet plate er ikke fullført. Ingen a3-start er registrert. Oppdatert kilde og alle ferske startporter må være bestått, og startintensjon må være varig lagret før én kommando kan sendes. Den fysiske årsaken til første-lagsfeilen er ikke fastslått; samme fil er ikke en designrettelse. Mennesket har nå prioritert en annen utskrift først. Dette forsøket er utsatt og skal ikke startes under den gjeldende prioriteringen; det er fortsatt bare planlagt.",
+          "evidencePending": [
+            "Clean latest-main/live guide refresh after PR185",
+            "Current exact printer file/readback and live filament mapping",
+            "New fully visible clear-bed camera <=60s and durable intent BEFORE any start publication",
+            "Accepted a3 job identity and during-print camera",
+            "Terminal camera and physical result/cleanup inspection"
+          ],
+          "priorityOverride": {
+            "status": "deferred",
+            "reason": "Mennesket opplyste at en annen ting skal skrives ut først.",
+            "startAllowedUnderCurrentPriority": false,
+            "acceptedStartObserved": false
+          }
+        }
+      }
+    ],
+    "priorityHistory": [
+      {
+        "status": "deferred",
+        "reason": "Mennesket opplyste at en annen ting skal skrives ut først.",
+        "startAllowedUnderCurrentPriority": false,
+        "acceptedStartObserved": false,
+        "supersededBy": "Later explicit authorization and accepted a3 start"
+      }
+    ],
+    "priorityOverride": {
+      "status": "superseded_by_later_authorized_start",
+      "acceptedStartObserved": true
+    },
+    "startEvidence": {
+      "firstAcceptedObservedAt": "2026-10-21T19:43:01.485Z",
+      "timestampScope": "Første lagrede RUNNING-observasjon for a3; ikke nøyaktig første-ekstruderingstid.",
+      "commandPublicationObservedAt": "2026-10-21T19:42:39.775Z",
+      "state": "RUNNING",
+      "plate": 1,
+      "acceptedFileMd5": "aa7824140f6cacd0ab954bb88b2eccf9",
+      "exactUploadReadbackSha256": "eadfe61c7ce941667f6efaa0ce0f159e1ab26cef6d99be99f7b523e8c2bcbc5a",
+      "amsMapping": [
+        2
+      ],
+      "successfulCommandPublications": 1,
+      "durableIntentBeforeCommand": true,
+      "intentAt": "2026-10-21T19:42:39.648627+00:00",
+      "cameraCapturedAt": "2026-10-21T19:42:27.417687+00:00",
+      "cameraSha256": "e7e0469c73c58506cfd77a1742467cafcfc544e2966d690b86b7ed82753fa9bb",
+      "cameraAgeSecondsAtIntent": 12.23094,
+      "prestartCameraAgeWithin60SecondsVerified": true,
+      "exclusiveBoundedController": true,
+      "bedLeveling": true,
+      "flowCalibration": false,
+      "procedureGapObservedForThisAttempt": false,
+      "hmsErrorsAtAcceptance": [],
+      "printErrorAtAcceptance": 0,
+      "fullFirstLayerAdhesionVerified": false,
+      "physicalFitVerified": false
+    }
+  },
+  {
     "id": "halloween-crow-plan-20261021",
     "title": "Halloween: Crow on a skull",
     "project": "Halloween",
@@ -406,144 +802,6 @@
       "evidence": "Original: https://makerworld.com/en/models/1284581-bambu-lab-bed-scraper#profileId-1313425 ; downloaded source SHA256 649545e0e0ceff6529ec18a0723d2d93c972151b8fc96f2f50e7f7d0ba406509. Sliced using Bambu Studio 02.08.02.61 and resolved bundled X2D 0.4 mm machine/process/PLA Basic profiles. Four walls, 25% infill, supports off. Actual X2D start/end code verified in final G-code. Preview/top view extracted from this exact final 3MF."
     },
     "notes": "User confirmed full plate clearance and authorized this print. Successful printer acknowledgement and RUNNING observed, initially during bed identification/calibration with no deposited layer yet. Explicit AMS mapping [2] selects physical slot 3; telemetry labels it black/Bambu PLA Basic. The user corrected the actual material brand to Clas Ohlson, then clarified that orange referred to a UI misunderstanding and explicitly accepted black. No printer spool metadata was changed. Slicer estimates remain estimates; quality and actual usage are unverified. Initial /cache upload was rejected and reconciled as absent. Root-folder upload succeeded and a full download matched the recorded SHA256. Terminal check at approximately 2026-10-21T18:18Z reported FINISH, 100%, 50/50 layers, zero remaining minutes, no skipped objects, and no HMS/print errors. Printer-reported elapsed time was 26 minutes (minute resolution). The exact finish time and precise duration were not observed, so finishedAt and actualSeconds remain null. Actual grams were not measured. Terminal camera capture succeeded at 18:18:55Z after transient SSH connection failures. Physical strength, blade edge quality and real scraping performance remain untested."
-  },
-  {
-    "id": "enigma-reflector-body-retry-20261021-a3",
-    "title": "Enigma · reflektorkropp B, tredje forsøk",
-    "project": "Enigma Doublestep",
-    "printer": "Bambu Lab X2D",
-    "status": "planned",
-    "preparationState": "DEFERRED_BY_HUMAN_OTHER_PRINT_FIRST",
-    "recordedAt": "2026-10-21T17:40:31.192010+00:00",
-    "updatedAt": "2026-10-21T18:05:48.925646+00:00",
-    "startedAt": null,
-    "finishedAt": null,
-    "jobName": "ENIGMA_REFLECTOR_RETRY_eadfe61c · nytt forsøk, ikke startet",
-    "plate": 1,
-    "parts": [
-      "REFLECTOR_B_BODY"
-    ],
-    "estimatedSeconds": 6621.87158203125,
-    "actualSeconds": null,
-    "estimatedGrams": 48.00498962402344,
-    "actualGrams": null,
-    "estimatedMeters": 15.83981,
-    "material": "PLA Basic · svart · planlagt AMS A3, live tilordning ikke verifisert",
-    "color": "#161616",
-    "layerHeightMm": 0.2,
-    "firstLayerHeightMm": 0.2,
-    "nozzleMm": 0.4,
-    "layers": 238,
-    "preview": "assets/enigma-reflector-body-retry-20261021-a2/plan.png",
-    "layout": "assets/enigma-reflector-body-retry-20261021-a2/layout.png",
-    "snapshots": [],
-    "evidenceImages": [
-      {
-        "src": "assets/enigma-reflector-body-retry-20261021-a2/critical-support-planes.png",
-        "kind": "exact-candidate-slicer-toolpath-review",
-        "caption": "Tolv buebevisste verktøybaneplan fra den eksakte nye én-dels slicen, fra første støttelag til modellgulvet. Dette er avledede baner, ikke kamera eller fysisk bevis på stabilitet, støttefjerning eller passform.",
-        "sha256": "9a4dbe8eb9ab0dd407ba11dc9ba27dc0fd04072097d1939be87d9a56b550dcfb"
-      }
-    ],
-    "source": {
-      "file": "sliced.3mf",
-      "sha256": "eadfe61c7ce941667f6efaa0ce0f159e1ab26cef6d99be99f7b523e8c2bcbc5a",
-      "repository": "https://github.com/andeplane/openenigma",
-      "commit": null,
-      "branch": null,
-      "releaseStatus": "SAME_REVIEWED_ARTIFACT_LATEST_MAIN_AND_DEVICE_RECHECK_PENDING",
-      "gcodeMember": "Metadata/plate_1.gcode",
-      "gcodeSha256": "be01a0eb7ed08e3a40ffe0ac3202f50c4d9faf7257b532e5552d82f584a6b2d8",
-      "reviewEvidence": [
-        {
-          "file": "root-visual-review.json",
-          "sha256": "5b040631110c18bbdebbf93492361f6f3c3b4314e81bf8d4d0077957335cb594"
-        },
-        {
-          "file": "critical-body-toolpaths-final.json",
-          "sha256": "cd26ca7746f76bf540698248dd6e93ff0bce40c0bd158b970dbe5ca5f0d50e09"
-        },
-        {
-          "file": "render_retry_planes.py",
-          "sha256": "07fc2ff33a96e79ae25970cbd91c0b4fd9aa98491f10d2b7d081d7b9e83cde97"
-        },
-        {
-          "file": "result.json",
-          "sha256": "10a6bc2738943e81c79c1eaf8461b6d923e901ab8bb5ed8c868133e4c6cbeb31"
-        },
-        {
-          "file": "released-source-ready.json",
-          "sha256": "64375418a9bbadc6400c5a031e3dc3400e2ef14cc578c16f6770455368d1c096"
-        },
-        {
-          "file": "staged-main-0ed6b122/receipt.json",
-          "sha256": "e290bad7f366a0eb3761a9b4fa9bf1ba2e79c706c89c862609d356e7bb05e87c"
-        },
-        {
-          "file": "final-content-audit.json",
-          "sha256": "a0a90f91801b46406460ed35e78817a46035f17a71691ece62946753fef20efe"
-        },
-        {
-          "file": "final-source-0178a400-review.json",
-          "sha256": "7d2d189a08d17f78ece024bac640f43b6069fc2caef651b08f11de9376ccc555"
-        },
-        {
-          "file": "upload-receipt.json",
-          "sha256": "c1608ad0baed7bf6d81233408d2f1e27c60c5c6c03fbc888bf046cc90c4b3c00"
-        },
-        {
-          "file": "upload-readback-audit.json",
-          "sha256": "47dae3d993ca134a9aa93eb88b4101c8fecae3c56cbe044739a60abd6431eb9d"
-        },
-        {
-          "file": "accepted-job.json",
-          "sha256": "05240281b602ca39cb1e84a9d9a90e4a115d84a257e6096ecc17c29b822b470d"
-        },
-        {
-          "file": "publication-reconciliation.json",
-          "sha256": "a21609bec97eefe4ed1ec75c363b14ff7da721708ac2a3da2d9c12187113f007"
-        }
-      ],
-      "evidence": "Samme eksakte eadfe61c-artifakt og uendrede geometri/prosess som det mislykkede a2-forsøket, etter ny uttrykkelig autorisasjon. Dette er et NYTT planlagt forsøk. Oppdatert main/guide, eksakt enhetsfil og materialtilordning samt varig startintensjon og en nylig sett klar plate må kontrolleres på nytt. Tidligere a2-evidens er ikke en akseptert start for a3.",
-      "previousReviewedCommit": "0ed6b122de6548f870e3149ff58beac5b2401cd4",
-      "latestMainTarget": "fd1b0a062090641decd766dc9447ef4e7ce0e793",
-      "editableProject": {
-        "file": "ONE_REFLECTOR_B_BODY_SUPPORT_RETRY_X2D.3mf",
-        "sha256": "4101e38f479b0b6f969d4ac03ec2488da2a5ed70f8f374c508a93ae2af67d41d"
-      }
-    },
-    "retryOf": "enigma-reflector-body-retry-20261021-a2",
-    "sequence": 11,
-    "settings": {
-      "wallLoops": 4,
-      "sparseInfillPercent": 30,
-      "supportType": "normal(auto)",
-      "supportStyle": "snug",
-      "supportBasePatternSpacingMm": 1.2,
-      "supportSpeedMmPerSecond": 60,
-      "supportInterfaceSpeedMmPerSecond": 40,
-      "supportTopZGapMm": 0.2,
-      "supportBottomZGapMm": 0.2,
-      "supportInterfaceTopLayers": 3,
-      "supportInterfaceBottomLayers": 0,
-      "independentSupportLayerHeight": false,
-      "supportOnBuildPlateOnly": false,
-      "outerBrimMm": 8
-    },
-    "notes": "Nytt separat forsøk med samme fil, modell, støtteinnstillinger og estimater etter a2 FAILED. Mennesket opplyser å ha ryddet platen og autoriserte ny prøve, men kameraklarering ved senket/croppet plate er ikke fullført. Ingen a3-start er registrert. Oppdatert kilde og alle ferske startporter må være bestått, og startintensjon må være varig lagret før én kommando kan sendes. Den fysiske årsaken til første-lagsfeilen er ikke fastslått; samme fil er ikke en designrettelse. Mennesket har nå prioritert en annen utskrift først. Dette forsøket er utsatt og skal ikke startes under den gjeldende prioriteringen; det er fortsatt bare planlagt.",
-    "evidencePending": [
-      "Clean latest-main/live guide refresh after PR185",
-      "Current exact printer file/readback and live filament mapping",
-      "New fully visible clear-bed camera <=60s and durable intent BEFORE any start publication",
-      "Accepted a3 job identity and during-print camera",
-      "Terminal camera and physical result/cleanup inspection"
-    ],
-    "priorityOverride": {
-      "status": "deferred",
-      "reason": "Mennesket opplyste at en annen ting skal skrives ut først.",
-      "startAllowedUnderCurrentPriority": false,
-      "acceptedStartObserved": false
-    }
   },
   {
     "id": "enigma-reflector-body-retry-20261021-a2",
@@ -1146,9 +1404,9 @@
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
     "status": "planned",
-    "preparationState": "SOURCE_RELEASED_LIVE_BOUND_STAGED_UNLOADED_PLA_ONLY",
+    "preparationState": "CURRENT_MAIN_SOURCE_PREPARED_UNLOADED_PLA_ONLY_NOT_UPLOADED_OR_STARTED",
     "recordedAt": "2026-10-21T12:30:35.336344+00:00",
-    "updatedAt": "2026-10-21T13:28:30.083064+00:00",
+    "updatedAt": "2026-10-21T20:01:34.582273+00:00",
     "startedAt": null,
     "finishedAt": null,
     "jobName": "ENIGMA_RELEASE_CAM_PLA_ceafe2e7 · planlagt, ikke startet",
@@ -1182,11 +1440,11 @@
       "file": "sliced.3mf",
       "sha256": "ceafe2e7a7336bb7a18472b610751daa771765a6081105e98b6f45cd16d122eb",
       "repository": "https://github.com/andeplane/openenigma",
-      "commit": "065f60ab0f239d02eac61d1f7d8d283d3fc89412",
+      "commit": "fd1b0a062090641decd766dc9447ef4e7ce0e793",
       "baseCommit": "b127cad62f0a1b5d579722abdefe5aa96ce55cfb",
       "branch": "main",
       "job": "mechanical-cam-pla",
-      "trialReleaseStatus": "REVIEWED_UNLOADED_PLA_TRIAL_RELEASED_AND_STAGED",
+      "trialReleaseStatus": "CURRENT_MAIN_UNLOADED_TRIAL_SOURCE_REFRESHED_NOT_STARTED",
       "editableProject": {
         "file": "ONE_PLA_RELEASE_CAM_X2D.3mf",
         "sha256": "32c578e4f47b1f8a95fbb93a246225e8a9002b855cf97c55355f9ae18030ee48"
@@ -1243,29 +1501,48 @@
         {
           "file": "content-audit.json",
           "sha256": "c46ad2e3ae7e9910d3ab1183320860bb1d1941dfa95a5704613056cca2d24f2c"
+        },
+        {
+          "file": "fd1b-current/current-source-handoff.json",
+          "sha256": "3655795ac8180d33c63aa7368d4845a4ab6c0579c48843e7787fdd89a9b23170"
+        },
+        {
+          "file": "fd1b-current/receipt.json",
+          "sha256": "84e7d3dac5a97d172669728ee5ba34e84fe79844f45a3d13de41878e6e58fb7f"
+        },
+        {
+          "file": "fd1b-current/current-main-actual-slice-audit.json",
+          "sha256": "32a48abb39adb70025280da0d25c40983087f24241992760692a89f894f0d12a"
+        },
+        {
+          "file": "fd1b-current/independent-current-cam-preparation-review.json",
+          "sha256": "84317a3334c45a2fb0790d9ca0cc2dc5284c1a8b3b127289c6211009113a4cb8"
         }
       ],
-      "evidence": "Den valgte én-dels PLA-prøven er uavhengig gjennomgått, integrert i main via PR183 og klargjort fra ren, oppdatert kanonisk main. Kildeporten kontrollerte alle åpne PR-er og eksakte publiserte guidefiler. Ny kontroll på hjemmemaskinen sammenlignet alle 211 kildefiler og den samme slicen med beholdt mesh; begrenset verktøybanekontroll bestod. Ingen geometri, redigerbar 3MF eller bytes i slice-filen ble endret ved kildeutgivelsen. Dette frigir bare ubelastet journal-/kappe-/overordnet passformprøve, ikke belastet drift. Opplastingsnedlasting, live materialtilordning, kamera, akseptert jobb og fysisk resultat er fortsatt ikke observert for denne kjøringen.",
+      "evidence": "Samme eksisterende, ikke-startede kamforsøk er oppdatert mot ren main fd1b med normal, uendret kilde-/live-guideport og ny faktisk audit av identisk ceafe-slice. Alle 22 fulle relative kildebaner ble hashkontrollert; redigerbar 3MF, mesh, prosess og slice er uendret. Tidligere065f-forberedelse er bevart i historikk. Dette er kun ubelastet journal-/kappe-/overordnet passformprøve og grov sporinspeksjon. Ingen ny opplasting, readback, akseptert start, kamerafangst eller fysisk aksept er registrert for kammen.",
       "pullRequest": "https://github.com/andeplane/openenigma/pull/183",
       "guide": "https://enigmadoublestep.com/admin/cam-guide/",
       "sourceVerification": {
-        "commit": "065f60ab0f239d02eac61d1f7d8d283d3fc89412",
-        "checkedAt": "2026-10-21T13:17:42.505342+00:00",
-        "cleanCanonicalMain": true,
+        "commit": "fd1b0a062090641decd766dc9447ef4e7ce0e793",
+        "checkedAt": "2026-10-21T19:00:44.778125+00:00",
         "openPullRequests": [],
         "allLiveGuideBytesVerified": true,
-        "guideFingerprint": "16940d7721a3570d0669dbc31637d312a74ef7ad47e32bf1ac3c5aae783858e3",
         "stagedEditableSha256": "32c578e4f47b1f8a95fbb93a246225e8a9002b855cf97c55355f9ae18030ee48",
-        "manifestSha256": "5536690f65052dada9ff09d7f61438956af241135cd58031f4e2dd38ab9cd92f",
-        "mainDeployment": "https://github.com/andeplane/openenigma/actions/runs/39606261903",
-        "mainDeploymentConclusion": "SUCCESS",
+        "manifestSha256": "3138c88dd688882e8da12c83a0d7ac1a54efc6d73f3c2618b99d7ac683a9ca36",
         "criticalAuditStatus": "REVIEWED_CAM_TOOLPATHS_UNLOADED_JOURNAL_CAP_FIT_ONLY",
-        "desktopSourcePreviewChecked": true,
         "deployedInteractionChecked": false,
-        "mobileViewportChecked": false
-      }
+        "mobileViewportChecked": false,
+        "cleanLatestMainSnapshot": true,
+        "canonicalWorkshopPreserved": true,
+        "auditorSha256": "91a203fcca9e2b5be551d2eef0e39bd874b7d33c6e04598a9522ed9e4d4808ee",
+        "fullPathSourcePinsRehashed": 22,
+        "freshBrowserInteractionChecked": false,
+        "priorDesktopSourcePreviewChecked": true,
+        "priorDesktopEvidenceScope": "Preserved prior065f viewer interaction, unchanged viewer/source; not a fresh fd1b interaction."
+      },
+      "latestMainPullRequest": "https://github.com/andeplane/openenigma/pull/185"
     },
-    "notes": "Kilde og publisert guide er synkronisert med main 065f60ab; dette er fortsatt en planlagt kjøring uten printerstart eller kamerabilde. Kun ubelastet kontroll av journal/boring, kappe og overordnet passform samt grov inspeksjon av spor. Arbeidende PETG-kam, fjærforspenning, belastet drift, detent-/kontaktlov, presist løft, kraft og slitasje er fortsatt holdt tilbake. Nominelle banebredder og et lite beregnet dekningsgap ved én prøvelinje beviser ikke fysisk utflating; nabobaner ved topper finnes i begge spor. ETA og filament er slicerestimater, ikke faktisk tid/forbruk. Svart PLA/AMS A3 er planlagt, ikke verifisert live mapping. Fersk enhets-/lagringsprotokoll, eksakt opplastingsnedlasting og klar plate på nytt kamera må verifiseres før start; fravær av SD-kort alene beviser ikke at intern lagring er utilgjengelig. Skrivebordsvisningen er kontrollert i kildeforhåndsvisning og alle publiserte filer byteverifisert; faktisk mobilvisning og interaksjon på publisert side er ikke kontrollert.",
+    "notes": "Kilde og publisert guide er nå kontrollert mot main fd1b med uendret valgt geometri, profil, redigerbar 3MF og ceafe-slice. Dette er samme planlagte kamforsøk, fortsatt uten opplasting/readback/start eller kamera. Tidligere065f-kildebevis og tidligere skrivebordsvurdering er bevart i historikken; ingen ny nettleserinteraksjon er hevdet. Kun ubelastet journal/boring, kappe og overordnet passform samt grov sporinspeksjon er frigitt for prøve. PETG-arbeidskam, fjærforspenning, detent/kontakt, nøyaktig løft, belastet drift, kraft og slitasje er fortsatt holdt tilbake. Ferske kildesjekker, enhets-/materialtilordning, eksakt opplastingsnedlasting og nylig vist klar plate kreves før en senere start. Estimater er ikke faktisk tid/forbruk.",
     "sequence": 9,
     "settings": {
       "wallLoops": 4,
@@ -1282,6 +1559,108 @@
       "During-print and completion camera",
       "Physical unloaded fit, bore and support/brim cleanup inspection",
       "Actual mobile viewport and interaction on deployed guide; source-preview desktop interaction and live asset bytes verified"
+    ],
+    "sourceVerificationHistory": [
+      {
+        "scope": "Previous065f preparation preserved; same unstarted attempt and identical slice",
+        "source": {
+          "file": "sliced.3mf",
+          "sha256": "ceafe2e7a7336bb7a18472b610751daa771765a6081105e98b6f45cd16d122eb",
+          "repository": "https://github.com/andeplane/openenigma",
+          "commit": "065f60ab0f239d02eac61d1f7d8d283d3fc89412",
+          "baseCommit": "b127cad62f0a1b5d579722abdefe5aa96ce55cfb",
+          "branch": "main",
+          "job": "mechanical-cam-pla",
+          "trialReleaseStatus": "REVIEWED_UNLOADED_PLA_TRIAL_RELEASED_AND_STAGED",
+          "editableProject": {
+            "file": "ONE_PLA_RELEASE_CAM_X2D.3mf",
+            "sha256": "32c578e4f47b1f8a95fbb93a246225e8a9002b855cf97c55355f9ae18030ee48"
+          },
+          "nativeSha256": "56ee565420bd7c329da42464fb9ca19762303b683286b8e4b1d045dc7cf808c8",
+          "stlSha256": "adff592e86c17b7984f6d4458a637091d7d5a82a1a764bb5e0fad5a7a5ed5080",
+          "gcodeMember": "Metadata/plate_1.gcode",
+          "gcodeSha256": "d08fa76660d11c8d9f7667d1e8e24104a425fa5bd4c400f1627d056325390ee0",
+          "reviewEvidence": [
+            {
+              "file": "review-summary.json",
+              "sha256": "55f430b9d2ccf1e822f241ce30e042ebb22bba2dddcf2870c6b3e6feea49640d"
+            },
+            {
+              "file": "actual-slice-evidence.json",
+              "sha256": "e018ee917665f4532caf760944b0b81b441d0e91c2c06316139ebf8b26080373"
+            },
+            {
+              "file": "source-slice-mesh-comparison.json",
+              "sha256": "a53fdb12d484fe6a27390e56b25a2b633645af285ee8d44c9429e6ee70380118"
+            },
+            {
+              "file": "slice-review-criteria.json",
+              "sha256": "11fb58bfff03fffa398b1cd1d5017cdb4f128a55dba6696105114238f33622d8"
+            },
+            {
+              "file": "orientation-mesh-evidence.json",
+              "sha256": "26f96354c0fe3478a67d3e38cd9f04b76940068df1055fc18ef5909248721b0f"
+            },
+            {
+              "file": "independent-selected-trial-source-review.json",
+              "sha256": "507be90ce09c8fc8b9c298993a7dd8ad812790c5b549636cedb9bd6788fe7ecb"
+            },
+            {
+              "file": "independent-selected-trial-final-d71a7ac0-review.json",
+              "sha256": "1578e3c67446ba9b6277123be0c7c1846f780de2a4f78d13e9f7f4955b27c0db"
+            },
+            {
+              "file": "independent-canonical-doc-preservation-5e7b255a-review.json",
+              "sha256": "5fc032cd26fe566d71c2db0a36f806ce8237b1387ae571202d66697f09ad1764"
+            },
+            {
+              "file": "final-pr183-ci.json",
+              "sha256": "32b87f773f509fec5830df1d03a10cc7de834c10eadc1d67ecd13c0e907b48dc"
+            },
+            {
+              "file": "deploy.json",
+              "sha256": "9c603eb52660c54b0a924bab982d194a79e1ec9f23cfc3f52e6211726ae17955"
+            },
+            {
+              "file": "receipt.json",
+              "sha256": "26d028f10d63b9ed41851b0602b8844912f08ed1d5be39681cc96f0207caef35"
+            },
+            {
+              "file": "content-audit.json",
+              "sha256": "c46ad2e3ae7e9910d3ab1183320860bb1d1941dfa95a5704613056cca2d24f2c"
+            }
+          ],
+          "evidence": "Den valgte én-dels PLA-prøven er uavhengig gjennomgått, integrert i main via PR183 og klargjort fra ren, oppdatert kanonisk main. Kildeporten kontrollerte alle åpne PR-er og eksakte publiserte guidefiler. Ny kontroll på hjemmemaskinen sammenlignet alle 211 kildefiler og den samme slicen med beholdt mesh; begrenset verktøybanekontroll bestod. Ingen geometri, redigerbar 3MF eller bytes i slice-filen ble endret ved kildeutgivelsen. Dette frigir bare ubelastet journal-/kappe-/overordnet passformprøve, ikke belastet drift. Opplastingsnedlasting, live materialtilordning, kamera, akseptert jobb og fysisk resultat er fortsatt ikke observert for denne kjøringen.",
+          "pullRequest": "https://github.com/andeplane/openenigma/pull/183",
+          "guide": "https://enigmadoublestep.com/admin/cam-guide/",
+          "sourceVerification": {
+            "commit": "065f60ab0f239d02eac61d1f7d8d283d3fc89412",
+            "checkedAt": "2026-10-21T13:17:42.505342+00:00",
+            "cleanCanonicalMain": true,
+            "openPullRequests": [],
+            "allLiveGuideBytesVerified": true,
+            "guideFingerprint": "16940d7721a3570d0669dbc31637d312a74ef7ad47e32bf1ac3c5aae783858e3",
+            "stagedEditableSha256": "32c578e4f47b1f8a95fbb93a246225e8a9002b855cf97c55355f9ae18030ee48",
+            "manifestSha256": "5536690f65052dada9ff09d7f61438956af241135cd58031f4e2dd38ab9cd92f",
+            "mainDeployment": "https://github.com/andeplane/openenigma/actions/runs/39606261903",
+            "mainDeploymentConclusion": "SUCCESS",
+            "criticalAuditStatus": "REVIEWED_CAM_TOOLPATHS_UNLOADED_JOURNAL_CAP_FIT_ONLY",
+            "desktopSourcePreviewChecked": true,
+            "deployedInteractionChecked": false,
+            "mobileViewportChecked": false
+          }
+        },
+        "preparationState": "SOURCE_RELEASED_LIVE_BOUND_STAGED_UNLOADED_PLA_ONLY",
+        "notes": "Kilde og publisert guide er synkronisert med main 065f60ab; dette er fortsatt en planlagt kjøring uten printerstart eller kamerabilde. Kun ubelastet kontroll av journal/boring, kappe og overordnet passform samt grov inspeksjon av spor. Arbeidende PETG-kam, fjærforspenning, belastet drift, detent-/kontaktlov, presist løft, kraft og slitasje er fortsatt holdt tilbake. Nominelle banebredder og et lite beregnet dekningsgap ved én prøvelinje beviser ikke fysisk utflating; nabobaner ved topper finnes i begge spor. ETA og filament er slicerestimater, ikke faktisk tid/forbruk. Svart PLA/AMS A3 er planlagt, ikke verifisert live mapping. Fersk enhets-/lagringsprotokoll, eksakt opplastingsnedlasting og klar plate på nytt kamera må verifiseres før start; fravær av SD-kort alene beviser ikke at intern lagring er utilgjengelig. Skrivebordsvisningen er kontrollert i kildeforhåndsvisning og alle publiserte filer byteverifisert; faktisk mobilvisning og interaksjon på publisert side er ikke kontrollert.",
+        "evidencePending": [
+          "Fresh printer storage protocol/capability and material/AMS mapping",
+          "Exact upload-readback and fresh pre-start camera/telemetry",
+          "Accepted job and start identity",
+          "During-print and completion camera",
+          "Physical unloaded fit, bore and support/brim cleanup inspection",
+          "Actual mobile viewport and interaction on deployed guide; source-preview desktop interaction and live asset bytes verified"
+        ]
+      }
     ]
   },
   {

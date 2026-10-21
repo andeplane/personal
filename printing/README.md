@@ -46,7 +46,9 @@ state. Its print dates and actual duration/usage are unknown; the two camera
 captures show the empty plate after parts were removed. It is not a full backfill
 of earlier print history.
 
-Optional `evidenceImages` holds derived slicer/toolpath images separately from
-camera `snapshots`. Each entry has `src`, `kind`, a caption explaining its proof
+Optional `evidenceImages` holds derived slicer/toolpath images and human-supplied
+photos with an unknown capture time separately from timestamped camera `snapshots`.
+Label an actual human photo explicitly and state that its capture time is unknown;
+never substitute its receipt time or label it as a derived image. Each entry has `src`, `kind`, a caption explaining its proof
 boundary and SHA-256. The builder verifies exact bytes. Do not invent camera
 capture timestamps or put a derived rendering in the camera collection.

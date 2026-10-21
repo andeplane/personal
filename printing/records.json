@@ -5,9 +5,9 @@
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
     "status": "printing",
-    "preparationState": "HUMAN_STUDIO_STARTED_POSTSTART_AUDIT_MESH_COMPARISON_UNAVAILABLE",
+    "preparationState": "PRINTING_REFLECTOR_BODY_SKIPPED_AFTER_LOCAL_EXTRUSION_FAILURE",
     "recordedAt": "2026-10-21T10:49:58.845524+00:00",
-    "updatedAt": "2026-10-21T14:25:48.528787+00:00",
+    "updatedAt": "2026-10-21T14:42:06.701213+00:00",
     "startedAt": "2026-10-21T14:04:24.827692Z",
     "finishedAt": null,
     "jobName": "ENIGMA_DOUBLESTEP_-_FOUR_PLA_REFLECTOR_AND_ENTRY-WHEEL_FIT_PARTS",
@@ -59,6 +59,13 @@
         "sha256": "845175c7ecca13f487b53c2312b324c1125b0a0abcfe9d047de148c6b5f3057a",
         "stage": "early-model-layers-visible-limited-camera-view",
         "src": "assets/enigma-reflector-entry-fit-20261021-a1/early-model-camera.jpg"
+      },
+      {
+        "capturedAt": "2026-10-21T14:36:26.132466+00:00",
+        "caption": "Senere printerkamerabilde: lokal løs ekstrudering er observert på REFLECTOR_B_BODY, i det ringformede indre området. Verktøyhode, kameravinkel og gjenskinn begrenser bildet. Dette fastslår ikke at hele jobben er mislykket eller at andre deler er skadet.",
+        "sha256": "a472e7534fcaca94b50009e85c8d648c1c328683a78937804aa176d9ce2c3b82",
+        "stage": "local-reflector-body-extrusion-anomaly",
+        "src": "assets/enigma-reflector-entry-fit-20261021-a1/anomaly-camera-1436.jpg"
       }
     ],
     "source": {
@@ -157,9 +164,10 @@
         ]
       }
     },
-    "notes": "Starttidspunktet er første observerte jobbaksept kl.14:04:24 UTC, ikke et målt tidspunkt for første ekstrudering. Denne samme kjøringen ble startet manuelt i Bambu Studio etter at mennesket satte USB-lagringen inn igjen. Faktisk akseptert arkiv 7c5b97b7 erstatter den ustartede, forberedte f9f5c47b-filen som gjeldende printidentitet; opprinnelig forberedelse og bilder er bevart i historikken. Forhåndsvisning og toppbilde er hentet fra det faktiske Studio-arkivet; grønn prosjektfarge er ikke bevis på filamentfarge. Fire navngitte deler, 281 lag, 1 t 59 m 58 s og 55,77 g er faktisk slice-metadata, ikke målt printtid eller forbruk. Studio fjernet beholdte mesher: full geometri-/transform-sammenligning mot kildeprosjektet mangler, og den faktiske filen ble først lastet ned og gransket etter manuell sending. De to første oppstartsbildene viser ennå ikke klart observerbare modellbaner. Et senere bilde kl.14:20:13 viser tidlige svarte lag og brim uten åpenbar stor feil i synlige områder; skjulte områder og gjenskinn begrenser vurderingen. Visuell vurdering av første lag avventes; ingen fysisk passform, støttefjerning, elektrisk isolasjon eller belastet drift er godkjent. Separat PLA-utløserkam er nå frigitt for ubelastet passformprøve, mens arbeidende PETG-kam og belastet drift fortsatt er holdt tilbake. Rotor-reprint er fortsatt holdt etter støtteryddeskade.",
+    "notes": "Senere observasjon: menneskets nærfoto og et nytt printerkamerabilde viser lokal oppstående, sammenfiltret ekstrudering på reflektorkroppens ringformede indre område. Støtteregionen er en mulig forklaring, ikke en bekreftet årsak. Printerens ferske rapport bekrefter nå skipped_objects=[112]. Objekt 112 er uavhengig knyttet til REFLECTOR_B_BODY i det faktiske arkivet, så menneskets hopp over riktig objekt er akseptert. De tre andre objektene er ikke markert for hopp; fysisk resultat er fortsatt ukjent. Hele jobben er ikke erklært mislykket eller fullført, og andre deler er ikke fysisk godkjent. Starttidspunktet er første observerte jobbaksept kl.14:04:24 UTC, ikke et målt tidspunkt for første ekstrudering. Denne samme kjøringen ble startet manuelt i Bambu Studio etter at mennesket satte USB-lagringen inn igjen. Faktisk akseptert arkiv 7c5b97b7 erstatter den ustartede, forberedte f9f5c47b-filen som gjeldende printidentitet; opprinnelig forberedelse og bilder er bevart i historikken. Forhåndsvisning og toppbilde er hentet fra det faktiske Studio-arkivet; grønn prosjektfarge er ikke bevis på filamentfarge. Fire navngitte deler, 281 lag, 1 t 59 m 58 s og 55,77 g er faktisk slice-metadata, ikke målt printtid eller forbruk. Studio fjernet beholdte mesher: full geometri-/transform-sammenligning mot kildeprosjektet mangler, og den faktiske filen ble først lastet ned og gransket etter manuell sending. De to første oppstartsbildene viser ennå ikke klart observerbare modellbaner. Et senere bilde kl.14:20:13 viser tidlige svarte lag og brim uten åpenbar stor feil i synlige områder; skjulte områder og gjenskinn begrenser vurderingen. Visuell vurdering av første lag avventes; ingen fysisk passform, støttefjerning, elektrisk isolasjon eller belastet drift er godkjent. Separat PLA-utløserkam er nå frigitt for ubelastet passformprøve, mens arbeidende PETG-kam og belastet drift fortsatt er holdt tilbake. Rotor-reprint er fortsatt holdt etter støtteryddeskade.",
     "sequence": 6,
     "evidencePending": [
+      "Fresh post-decision camera and physical outcome of remaining parts",
       "During-print and completion camera",
       "Physical support removal and unloaded fit inspection",
       "Full retained-mesh comparison unavailable for this actual meshless archive; gap must remain explicit"
@@ -287,6 +295,70 @@
         "kind": "actual-manual-studio-toolpath-review",
         "caption": "Faktiske Studio-verktøybaner ved fire høyder rundt kontaktportene. Dette er avledede, buebevisste utsnitt av planlagt ekstrudering, ikke kamerabilde eller full mesh-/CAD-sammenligning.",
         "sha256": "a201061dc53abc869cab7e34f9271d9f443090247b2a1dfd169a47aed0f54253"
+      },
+      {
+        "src": "assets/enigma-reflector-entry-fit-20261021-a1/human-annular-interior-anomaly.jpg",
+        "kind": "human-camera-photo-capture-time-unknown",
+        "caption": "Foto fra mennesket: oppstående, sammenfiltrede tråder i det ringformede indre området på REFLECTOR_B_BODY. Dette er et fysisk foto, ikke avledede verktøybaner. Nøyaktig fotograferingstid er ikke registrert. Støtteregionen er en mulig plassering/forklaring, men årsaken er ikke fastslått. Steds- og enhetsmetadata er fjernet; bildepikslene og orienteringen er uendret.",
+        "sha256": "c2dd94b3218ddb47e6ba910ea29d3596eec1e4ef35ed439a16946b577db58400",
+        "metadataSanitized": true,
+        "jpegScanAndDecodedPixelsUnchanged": true
+      }
+    ],
+    "localAnomalies": [
+      {
+        "part": "REFLECTOR_B_BODY",
+        "observedIn": "Human photo and fresh printer-camera frame",
+        "printerCameraCapturedAt": "2026-10-21T14:36:26.132466+00:00",
+        "humanPhotoCapturedAt": null,
+        "humanPhotoSha256": "c2dd94b3218ddb47e6ba910ea29d3596eec1e4ef35ed439a16946b577db58400",
+        "printerCameraSha256": "a472e7534fcaca94b50009e85c8d648c1c328683a78937804aa176d9ce2c3b82",
+        "description": "Raised tangled loose extrusion in the annular interior",
+        "suspectedRegion": "Likely support region; cause unconfirmed",
+        "rootAndReviewerConfirmedVisibleLocalExtrusionIssue": true,
+        "wholeJobFailureDeclared": false,
+        "otherPartsPhysicalOutcomeVerified": false,
+        "skipObjectState": "ACCEPTED_CORRECT_REFLECTOR_B_BODY",
+        "pauseOrSkipSuggestedByRoot": true,
+        "printerWriteIssuedByThisLogger": false,
+        "acceptedSkippedObjectIds": [
+          112
+        ],
+        "actualArchiveObjectIdMapping": {
+          "112": "REFLECTOR_B_BODY",
+          "123": "REFLECTOR_REAR_COVER",
+          "134": "ENTRY_WHEEL_INSULATOR",
+          "145": "ENTRY_WHEEL_CABLE_BUSH"
+        },
+        "actualArchiveObjectMappingIndependentlyVerified": true,
+        "skipAcceptanceObservedAt": null,
+        "skipAcceptanceEvidence": "Fresh root MCP report RUNNING, skipped_objects=[112]; exact timestamp not supplied to logger"
+      }
+    ],
+    "objectOutcomes": [
+      {
+        "part": "REFLECTOR_B_BODY",
+        "actualArchiveObjectId": 112,
+        "status": "skipped_after_local_extrusion_failure",
+        "physicalFitVerified": false
+      },
+      {
+        "part": "REFLECTOR_REAR_COVER",
+        "actualArchiveObjectId": 123,
+        "status": "not_skipped_physical_outcome_unverified",
+        "physicalFitVerified": false
+      },
+      {
+        "part": "ENTRY_WHEEL_INSULATOR",
+        "actualArchiveObjectId": 134,
+        "status": "not_skipped_physical_outcome_unverified",
+        "physicalFitVerified": false
+      },
+      {
+        "part": "ENTRY_WHEEL_CABLE_BUSH",
+        "actualArchiveObjectId": 145,
+        "status": "not_skipped_physical_outcome_unverified",
+        "physicalFitVerified": false
       }
     ]
   },

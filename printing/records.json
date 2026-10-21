@@ -38,7 +38,7 @@
       "sha256": "fb5514ab6454ba20566e7849563ca392e2fd0c968c34f7bc8c86254f8e11edc8",
       "evidence": "Original: https://makerworld.com/en/models/1284581-bambu-lab-bed-scraper#profileId-1313425 ; downloaded source SHA256 649545e0e0ceff6529ec18a0723d2d93c972151b8fc96f2f50e7f7d0ba406509. Sliced using Bambu Studio 02.08.02.61 and resolved bundled X2D 0.4 mm machine/process/PLA Basic profiles. Four walls, 25% infill, supports off. Actual X2D start/end code verified in final G-code. Preview/top view extracted from this exact final 3MF."
     },
-    "notes": "Preparation only. No upload or print command sent. Bed clearance and final print confirmation pending. Black PLA is proposed from live AMS telemetry; source preview remains white. Slicer estimates are not actual consumption/time. Fresh camera view cannot confirm full bed clearance. Physical scraper strength, edge quality and usefulness are unverified."
+    "notes": "Preparation only. No upload or print command sent. User confirmed the plate is clean and clear after reviewing the camera limitation. Final print confirmation pending. Black PLA is proposed from live AMS telemetry; source preview remains white. Slicer estimates are not actual consumption/time. Fresh camera view cannot confirm full bed clearance. Physical scraper strength, edge quality and usefulness are unverified."
   },
   {
     "id": "enigma-reflector-body-retry-20261021-a3",

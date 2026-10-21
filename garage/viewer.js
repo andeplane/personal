@@ -358,7 +358,7 @@ function updateSpaceStatus(){
  loftGroup.userData.allocation.visible=accessGroup.visible;
  // A top comparison hides the deck by view, while the floor plan remains visible.
  loftGroup.visible=loft&&view!=='plan';
- loftGroup.userData.structure[0].material.opacity=view==='loft'?1:.12;
+ loftGroup.userData.structure[0].material.opacity=['loft','photo'].includes(view)?1:.12;
  root.querySelector('#plan-note').hidden=view!=='plan';
  parkingPath.visible=parked;emptyFloor.visible=!parked;
  root.querySelector('#loft-length-value').textContent=loftStats.length.toFixed(1)+' m';
@@ -437,8 +437,8 @@ function storage(){
  makeBikes();if(camera)updateComposer();else updateCamera(); updateTable(); populateObjects(); applyVisibility();render();root.dataset.ready='true';
  }
  function updateCamera(){const w=host.clientWidth,h=host.clientHeight,aspect=w/h;renderer.setSize(w,h,false);controls?.dispose();let pos,target=[-W/2,.9,L/2];const orth=['plan','loft','front','back','left','side-right','right','left-wall'].includes(view);
- if(orth){const span=(view==='plan'?7.1:view==='loft'?Math.max(5.8,3.6/aspect):['left','side-right','right','left-wall'].includes(view)?Math.max(3.3,6.9/aspect):Math.max(3.2,3.3/aspect));camera=new T.OrthographicCamera(-span*aspect/2,span*aspect/2,span/2,-span/2,.03,100);camera.userData.span=span;}else camera=new T.PerspectiveCamera(43,aspect,.03,100);
- if(view==='rear'){pos=[-1.08,2.05,1.05];target=[-1.42,1.05,5.85];}else if(view==='left-wall'){pos=[-2.5,1.05,L/2];target=[0,1.05,L/2];}else if(view==='right'){pos=[-.20,1.05,L/2];target=[-W,1.05,L/2];}else if(view==='plan'){pos=[-W/2,12,3.05];target=[-W/2,0,3.05];camera.up.set(0,0,1);}else if(view==='loft'){pos=[-W/2,12,loftStats.length/2];target=[-W/2,loftStats.top,loftStats.length/2];camera.up.set(0,0,1);}else if(view==='front'){pos=[-W/2,.9,-8];}else if(view==='back'){pos=[-W/2,.9,14];}else if(view==='left'){pos=[8,.9,L/2];}else if(view==='side-right'){pos=[-10,.9,L/2];}else{pos=[-4.4,4.9,-4.2];target=[-1.42,1.0,3.10];}
+ if(orth){const span=(view==='plan'?7.1:view==='loft'?Math.max(5.8,3.6/aspect):['left','side-right','right','left-wall'].includes(view)?Math.max(3.3,6.9/aspect):Math.max(3.2,3.3/aspect));camera=new T.OrthographicCamera(-span*aspect/2,span*aspect/2,span/2,-span/2,.03,100);camera.userData.span=span;}else camera=new T.PerspectiveCamera(view==='photo'?66:43,aspect,.03,100);
+ if(view==='photo'){pos=[-W/2,1.70,-.10];target=[-W/2,1.12,5.90];}else if(view==='rear'){pos=[-1.08,2.05,1.05];target=[-1.42,1.05,5.85];}else if(view==='left-wall'){pos=[-2.5,1.05,L/2];target=[0,1.05,L/2];}else if(view==='right'){pos=[-.20,1.05,L/2];target=[-W,1.05,L/2];}else if(view==='plan'){pos=[-W/2,12,3.05];target=[-W/2,0,3.05];camera.up.set(0,0,1);}else if(view==='loft'){pos=[-W/2,12,loftStats.length/2];target=[-W/2,loftStats.top,loftStats.length/2];camera.up.set(0,0,1);}else if(view==='front'){pos=[-W/2,.9,-8];}else if(view==='back'){pos=[-W/2,.9,14];}else if(view==='left'){pos=[8,.9,L/2];}else if(view==='side-right'){pos=[-10,.9,L/2];}else{pos=[-4.4,4.9,-4.2];target=[-1.42,1.0,3.10];}
  if(aspect<1&&view==='rear')pos[2]-=1.7;
  camera.position.set(...pos);camera.lookAt(new T.Vector3(...target));controls=new OrbitControls(camera,renderer.domElement);controls.target.set(...target);controls.enableDamping=true;controls.dampingFactor=.12;controls.minDistance=.45;controls.maxDistance=18;controls.maxPolarAngle=Math.PI*.5;controls.update();controls.addEventListener('change',()=>{updateWalls();render();});
  updateComposer();root.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===view)));applyVisibility();render();}
@@ -475,6 +475,7 @@ function rearSurface(a){
 function updateTable(){
  const a=data.layouts[current];
  root.querySelector('#garage-title').textContent=a.id+' · '+a.name;
+ const photo='assets/garage-plan-'+a.id.toLowerCase()+'.jpg';root.querySelector('#photo-title').textContent=a.id+' · '+a.name;root.querySelector('#plan-photo').src=photo;root.querySelector('#photo-link').href=photo;root.querySelector('#plan-photo').alt='Photorealistic concept · '+a.name+' · without a car';
  root.querySelector('#garage-equipment').textContent=a.summary;
  root.querySelector('#garage-metrics').innerHTML='<span>Rear gap <strong>'+Math.round(a.frontGap*100)+' cm</strong></span><span>Rear depth <strong>'+Math.round(a.depth*100)+' / '+Math.round(a.upperDepth*100)+' cm</strong></span><span>Rear shelf surface <strong>'+shelfZones.reduce((s,z)=>s+z.area,0).toFixed(1)+' m²</strong></span><span>Left wall <strong>'+leftWallStats.added+' inserts + '+leftWallStats.baskets+' high baskets</strong></span><span>Loft <strong>existing · '+loftStats.length.toFixed(1)+' m assumed length</strong></span>';
  root.querySelector('#garage-price').textContent='Layout study · components unpriced';

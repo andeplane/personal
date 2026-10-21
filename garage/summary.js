@@ -7,6 +7,7 @@ function rearSurface(a){
 function updateTable(){
  const a=data.layouts[current];
  root.querySelector('#garage-title').textContent=a.id+' · '+a.name;
+ const photo='assets/garage-plan-'+a.id.toLowerCase()+'.jpg';root.querySelector('#photo-title').textContent=a.id+' · '+a.name;root.querySelector('#plan-photo').src=photo;root.querySelector('#photo-link').href=photo;root.querySelector('#plan-photo').alt='Photorealistic concept · '+a.name+' · without a car';
  root.querySelector('#garage-equipment').textContent=a.summary;
  root.querySelector('#garage-metrics').innerHTML='<span>Rear gap <strong>'+Math.round(a.frontGap*100)+' cm</strong></span><span>Rear depth <strong>'+Math.round(a.depth*100)+' / '+Math.round(a.upperDepth*100)+' cm</strong></span><span>Rear shelf surface <strong>'+shelfZones.reduce((s,z)=>s+z.area,0).toFixed(1)+' m²</strong></span><span>Left wall <strong>'+leftWallStats.added+' inserts + '+leftWallStats.baskets+' high baskets</strong></span><span>Loft <strong>existing · '+loftStats.length.toFixed(1)+' m assumed length</strong></span>';
  root.querySelector('#garage-price').textContent='Layout study · components unpriced';

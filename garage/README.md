@@ -28,3 +28,9 @@ node garage/check-storage.mjs /tmp/garage-check/node_modules/three
 The Pages workflow rebuilds and checks the model before deploying the whole existing site. Geometry checks cover 64 combinations using actual Three.js without WebGL. They establish internal consistency, not physical fit or loading. See `alternatives.md` for measurements, assumptions, allocation and proof boundaries.
 
 The representative left-wall opening is 54.5 × 63.5 cm and about 9 cm deep. Lower inserts remain flush; high basket projection and clear height are adjustable. Bracing and the charger span remain intact. Whole-wall placement, loft footprint / loading, roof profile, equipment sizes and real passability remain provisional. Original photos and scans stay local.
+
+## Photorealistic concepts
+
+Each selected plan has a car-free photo concept below the interactive model. These were generated from that plan's entrance-perspective 3D rendering and the supplied garage photos using ImageGen CLI / gpt-image-2. Selected generated JPEGs are in `assets/`; generation and targeted refinement prompts are in `photo-prompts.json`. Original photographs remain local.
+
+The images show default settings and do not update with the sliders. AI-generated shelf details and perspective can differ; use the interactive model and design notes for dimensions. No photo is evidence of physical fit or a completed installation.

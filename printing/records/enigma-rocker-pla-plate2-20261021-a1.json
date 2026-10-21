@@ -86,7 +86,7 @@
         "file": "sliced.3mf",
         "sha256": "1c3cb2164cbc7fd8d40f1c7429ba1d3d7f2d22608fa045109bbb16f54a73d173",
         "repository": "https://github.com/andeplane/openenigma",
-        "commit": "065f60ab0f239d02eac61d1f7d8d283d3fc89412",
+        "commit": "b127cad62f0a1b5d579722abdefe5aa96ce55cfb",
         "branch": "main",
         "job": "mechanical-rocker-pla",
         "gcodeMember": "Metadata/plate_2.gcode",
@@ -100,23 +100,18 @@
           "sha256": "f1dae59665d049492c4e08ed187f8ce206b031ec998368ac5d14d7ebf5e0571b"
         },
         "releaseVerification": {
-          "sourceMainCheckedAt": "2026-10-21T14:07:06.939539+00:00",
+          "sourceMainCheckedAt": "2026-10-21T12:26:11.752790+00:00",
           "openPullRequests": [],
           "printGate": "PREPARED",
-          "gateReceiptSha256": "41a9531e978ad0c0c9762f1f7aab7dc0dde853f16d435774c55c5c093208b5d8",
-          "sliceAuditSha256": "cd7d7d636fc55b8120a46c0304a6e22c7ccb06375d3a40ede113c23914d16253",
+          "gateReceiptSha256": "81467e96c9fb19a26243c9de95608a96fbe25482dbc457da21a97535fa617edf",
+          "sliceAuditSha256": "5ede78a181785c490964d4b0b3b6025e6c6c9b991f98cf5132e30370736b9c38",
           "criticalFeatureAuditStatus": "REVIEWED_ROCKER_BORE_VOIDS_CLEAR_IN_TOOLPATHS",
           "criticalViewReviewSha256": "6b8eae3edd8a6123bb91ed514c7329b1a6c05070026e0a23ffe4871fc5215820",
-          "liveGuideFingerprint": "3a45764768d9f3add2d6d20843bd862676f57b07ecb322f9cab53ec127fdec8c",
-          "mainDeploymentRun": "https://github.com/andeplane/openenigma/actions/runs/39606261903",
-          "physicalFitVerified": false,
-          "currentManifestSha256": "5536690f65052dada9ff09d7f61438956af241135cd58031f4e2dd38ab9cd92f",
-          "currentAuditorSha256": "4569bbc77f8b3f7caa78f7a413c542ec11d4eda2105a2aa681acfc148e846047",
-          "readyReceiptSha256": "663b67a3d3063a5c8f3d91f53a4272a2ca5cd43e770cc595bc7a27b5816da8cd",
-          "selectedSourceEquivalenceSha256": "b26f15aecc6ba90c88cd351c312de049e92d226c417a68589cd8cf12da8810b6",
-          "manualAndBrowserEquivalenceSha256": "8644b7a83b5278421cd3e359370ec68a32d14f7743b7e29777b511e001ea8bf4"
+          "liveGuideFingerprint": "7a624a7509f177e6894ee9eb8ce75db7d18445e1fa185ab82ad45eb55ec6f1f1",
+          "mainDeploymentRun": "https://github.com/andeplane/openenigma/actions/runs/39599260515",
+          "physicalFitVerified": false
         },
-        "evidence": "Klargjort fra ren gjeldende main etter kilde- og uavhengig gjennomgang, eksakt synkronisert publisert guide, og verifisert 7+1 plassering. Sluttfilen er slicet fra det portkontrollerte prosjektet; modelltrekanter, navn, posisjoner, prosess og faktiske boreverktøybaner samsvarer. Fire kritiske borevolumer er uten modell-/støtteinntrenging i kontrollområdet. Ti avgrensede faktiske verktøybanevisninger er gjennomgått. Ingen opplasting, nedlastingskontroll eller printerstart er utført for denne kjøringen. Kildekontroll oppdatert mot ren main 065f60ab: alle 16 valgte kildefiler er byteidentiske, begge platene er kontrollert på nytt med gjeldende manifest/revisor, og eksakte forhåndsvisninger samt tidligere manuell verktøybane-/animasjonskontroll er hashbundet."
+        "evidence": "Klargjort fra ren gjeldende main etter kilde- og uavhengig gjennomgang, eksakt synkronisert publisert guide, og verifisert 7+1 plassering. Sluttfilen er slicet fra det portkontrollerte prosjektet; modelltrekanter, navn, posisjoner, prosess og faktiske boreverktøybaner samsvarer. Fire kritiske borevolumer er uten modell-/støtteinntrenging i kontrollområdet. Ti avgrensede faktiske verktøybanevisninger er gjennomgått. Ingen opplasting, nedlastingskontroll eller printerstart er utført for denne kjøringen."
       }
     }
   ]

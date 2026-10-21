@@ -4,12 +4,12 @@
   "project": "Enigma Doublestep",
   "printer": "Bambu Lab X2D",
   "status": "planned",
-  "preparationState": "CANDIDATE_UNRELEASED_MANUFACTURING_HOLD",
+  "preparationState": "SOURCE_RELEASED_LIVE_BOUND_STAGED_UNLOADED_PLA_ONLY",
   "recordedAt": "2026-10-21T12:30:35.336344+00:00",
-  "updatedAt": "2026-10-21T12:30:35.336344+00:00",
+  "updatedAt": "2026-10-21T13:28:30.083064+00:00",
   "startedAt": null,
   "finishedAt": null,
-  "jobName": "ENIGMA_RELEASE_CAM_PLA_ceafe2e7 · kandidat, ikke startet",
+  "jobName": "ENIGMA_RELEASE_CAM_PLA_ceafe2e7 · planlagt, ikke startet",
   "plate": 1,
   "parts": [
     "REFLECTOR_RELEASE_CAM"
@@ -40,11 +40,11 @@
     "file": "sliced.3mf",
     "sha256": "ceafe2e7a7336bb7a18472b610751daa771765a6081105e98b6f45cd16d122eb",
     "repository": "https://github.com/andeplane/openenigma",
-    "commit": null,
+    "commit": "065f60ab0f239d02eac61d1f7d8d283d3fc89412",
     "baseCommit": "b127cad62f0a1b5d579722abdefe5aa96ce55cfb",
-    "branch": "Local candidate; selected trial not released",
+    "branch": "main",
     "job": "mechanical-cam-pla",
-    "trialReleaseStatus": "UNCOMMITTED_MANUFACTURING_HOLD",
+    "trialReleaseStatus": "REVIEWED_UNLOADED_PLA_TRIAL_RELEASED_AND_STAGED",
     "editableProject": {
       "file": "ONE_PLA_RELEASE_CAM_X2D.3mf",
       "sha256": "32c578e4f47b1f8a95fbb93a246225e8a9002b855cf97c55355f9ae18030ee48"
@@ -77,11 +77,53 @@
       {
         "file": "independent-selected-trial-source-review.json",
         "sha256": "507be90ce09c8fc8b9c298993a7dd8ad812790c5b549636cedb9bd6788fe7ecb"
+      },
+      {
+        "file": "independent-selected-trial-final-d71a7ac0-review.json",
+        "sha256": "1578e3c67446ba9b6277123be0c7c1846f780de2a4f78d13e9f7f4955b27c0db"
+      },
+      {
+        "file": "independent-canonical-doc-preservation-5e7b255a-review.json",
+        "sha256": "5fc032cd26fe566d71c2db0a36f806ce8237b1387ae571202d66697f09ad1764"
+      },
+      {
+        "file": "final-pr183-ci.json",
+        "sha256": "32b87f773f509fec5830df1d03a10cc7de834c10eadc1d67ecd13c0e907b48dc"
+      },
+      {
+        "file": "deploy.json",
+        "sha256": "9c603eb52660c54b0a924bab982d194a79e1ec9f23cfc3f52e6211726ae17955"
+      },
+      {
+        "file": "receipt.json",
+        "sha256": "26d028f10d63b9ed41851b0602b8844912f08ed1d5be39681cc96f0207caef35"
+      },
+      {
+        "file": "content-audit.json",
+        "sha256": "c46ad2e3ae7e9910d3ab1183320860bb1d1941dfa95a5704613056cca2d24f2c"
       }
     ],
-    "evidence": "Eksakt en-dels kandidat med beholdt mesh, .08mm lag/.2mm første lag, fire vegger,30% gyroid,8mm ytre brim og uten støtte. Native eksportrettelsen er integrert i kildehistorikken, men denne valgte PLA-prøven er fortsatt lokal, upublisert og holdt tilbake mens kilde-, guide- og uavhengig utgivelseskontroll pågår. Ingen staging fra frigitt main, opplastingsnedlasting eller start er godkjent av denne posten. Native/geometri/verktøybanekontroll gjelder begrenset kandidatprøve; ikke fysisk virkemåte."
+    "evidence": "Den valgte én-dels PLA-prøven er uavhengig gjennomgått, integrert i main via PR183 og klargjort fra ren, oppdatert kanonisk main. Kildeporten kontrollerte alle åpne PR-er og eksakte publiserte guidefiler. Ny kontroll på hjemmemaskinen sammenlignet alle 211 kildefiler og den samme slicen med beholdt mesh; begrenset verktøybanekontroll bestod. Ingen geometri, redigerbar 3MF eller bytes i slice-filen ble endret ved kildeutgivelsen. Dette frigir bare ubelastet journal-/kappe-/overordnet passformprøve, ikke belastet drift. Opplastingsnedlasting, live materialtilordning, kamera, akseptert jobb og fysisk resultat er fortsatt ikke observert for denne kjøringen.",
+    "pullRequest": "https://github.com/andeplane/openenigma/pull/183",
+    "guide": "https://enigmadoublestep.com/admin/cam-guide/",
+    "sourceVerification": {
+      "commit": "065f60ab0f239d02eac61d1f7d8d283d3fc89412",
+      "checkedAt": "2026-10-21T13:17:42.505342+00:00",
+      "cleanCanonicalMain": true,
+      "openPullRequests": [],
+      "allLiveGuideBytesVerified": true,
+      "guideFingerprint": "16940d7721a3570d0669dbc31637d312a74ef7ad47e32bf1ac3c5aae783858e3",
+      "stagedEditableSha256": "32c578e4f47b1f8a95fbb93a246225e8a9002b855cf97c55355f9ae18030ee48",
+      "manifestSha256": "5536690f65052dada9ff09d7f61438956af241135cd58031f4e2dd38ab9cd92f",
+      "mainDeployment": "https://github.com/andeplane/openenigma/actions/runs/39606261903",
+      "mainDeploymentConclusion": "SUCCESS",
+      "criticalAuditStatus": "REVIEWED_CAM_TOOLPATHS_UNLOADED_JOURNAL_CAP_FIT_ONLY",
+      "desktopSourcePreviewChecked": true,
+      "deployedInteractionChecked": false,
+      "mobileViewportChecked": false
+    }
   },
-  "notes": "Kun ubelastet kontroll av journal/boring, kappe og overordnet passform samt grov inspeksjon av spor. Ingen fjærforspenning, belastet drift, detent-/kontaktlov, presist løft eller kraft er kvalifisert. Nominelle banebredder og et lite beregnet dekningsgap ved én prøvelinje beviser ikke fysisk utflating; nabobaner ved topper finnes i begge spor. ETA og filament er slicerestimater, ikke faktisk tid/forbruk. Svart PLA og AMS A3 er hensikt, ikke verifisert live materialtilordning. Ingen printerstart eller kamerabilde finnes for denne kjøringen. Printerlagring, gjeldende main/live guide, release-port og eksakt opplastingsnedlasting må kontrolleres før eventuell start.",
+  "notes": "Kilde og publisert guide er synkronisert med main 065f60ab; dette er fortsatt en planlagt kjøring uten printerstart eller kamerabilde. Kun ubelastet kontroll av journal/boring, kappe og overordnet passform samt grov inspeksjon av spor. Arbeidende PETG-kam, fjærforspenning, belastet drift, detent-/kontaktlov, presist løft, kraft og slitasje er fortsatt holdt tilbake. Nominelle banebredder og et lite beregnet dekningsgap ved én prøvelinje beviser ikke fysisk utflating; nabobaner ved topper finnes i begge spor. ETA og filament er slicerestimater, ikke faktisk tid/forbruk. Svart PLA/AMS A3 er planlagt, ikke verifisert live mapping. Fersk enhets-/lagringsprotokoll, eksakt opplastingsnedlasting og klar plate på nytt kamera må verifiseres før start; fravær av SD-kort alene beviser ikke at intern lagring er utilgjengelig. Skrivebordsvisningen er kontrollert i kildeforhåndsvisning og alle publiserte filer byteverifisert; faktisk mobilvisning og interaksjon på publisert side er ikke kontrollert.",
   "sequence": 9,
   "settings": {
     "wallLoops": 4,
@@ -92,12 +134,11 @@
     "orientation": "ramps up"
   },
   "evidencePending": [
-    "Selected trial release to current main with independent final-head review and successful CI",
-    "Source-bound live guide and canonical print gate",
-    "Fresh printer storage status and material/AMS mapping",
+    "Fresh printer storage protocol/capability and material/AMS mapping",
     "Exact upload-readback and fresh pre-start camera/telemetry",
     "Accepted job and start identity",
     "During-print and completion camera",
-    "Physical unloaded fit, bore and support/brim cleanup inspection"
+    "Physical unloaded fit, bore and support/brim cleanup inspection",
+    "Actual mobile viewport and interaction on deployed guide; source-preview desktop interaction and live asset bytes verified"
   ]
 }

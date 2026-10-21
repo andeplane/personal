@@ -13,7 +13,7 @@ s=s[:a]+(p/'materials.js').read_text()+s[b:]
 s=s.replace('new T.BoxGeometry(w,h,d)', 'new RoundedBoxGeometry(w,h,d,2,Math.min(.006,Math.min(w,h,d)*.18))')
 s=s.replace('parent.add(mesh);return mesh;}', 'parent.add(mesh); autoTag(mesh,w,h,d,x,y,z,m,parent);return mesh;}',1)
 s=s.replace('dir.length(),8','dir.length(),16')
-for name in ['bin','bror','pack','boots','snowRacer']:
+for name in ['bror','snowRacer']:
  s=s.replace('function '+name+'(', 'function '+name+'Base(')
 s=s.replace('new T.BoxGeometry(.49,h-.08,.31)', 'new RoundedBoxGeometry(.49,h-.08,.31,5,.07)')
 s=s.replace("materials[colour]);m.position", "fabricMaterial(colour));m.position")
@@ -32,12 +32,10 @@ a=s.index(' const observer=new MutationObserver');b=s.index(' build();',a)
 s=s[:a]+s[b:]
 s=s.replace(" build();\n window.garageModel", " build();\n renderer.setAnimationLoop(()=>{controls?.update();});\n window.garageModel")
 s=s.replace("getScene:()=>scene", "getScene:()=>scene,getObjects:()=>objects.map(({id,key,meta})=>({id,key,meta})),select:id=>selectObject(objects.find(o=>o.id===id)),project:id=>{const o=objects.find(o=>o.id===id);const b=objectBounds(o);return b.getCenter(new T.Vector3()).project(camera).toArray();}")
-s=s.replace("function rightWall(){", "function rightWallBase(){")
 s=s.replace("storage();makeCar();", "storage();makeCar();register(carGroup.children.filter(m=>m.isMesh),null,{title:'Model Y parking envelope',dimensions:[data.car.foldedWidth,data.car.length,data.car.height],note:'Official planning dimensions; simplified body shape. Folded mirrors: 198.2 cm; body: 192 cm; open mirrors: 212.9 cm. Driver-door and hatch movement are not modelled.'});carGroup.traverse(m=>{if(m.isMesh){m.material=m.material.clone();m.material.transparent=true;m.material.opacity=.27;m.material.depthWrite=false;}});")
 s=s.replace("dimension([0,.04,-.35]", "dimension([0,2.18,L-.20],[W,2.18,L-.20],'2.83 m',[W/2,2.24,L-.20],.8);dimension([0,.04,-.35]")
 s=s.replace("let lm=materials.wood.clone();", "let lm=materials.wood.clone();")
 s=s.replace("new T.BoxGeometry(.49,h-.08,.31)", "new RoundedBoxGeometry(.49,h-.08,.31,4,.065)")
-s=s.replace("storage();makeCar();", "storage();for(const m of furnitureGroup.children){if(!m.userData.objectId&&(m.material===materials.gear||m.material===materials.wood)){register([m],null,{title:'Existing camping gear',note:'Representative camping bag, mat or long item; dimensions need measuring.'});equipmentMeshes.push(m);}}makeCar();")
 s=s.replace("addEventListener('change',()=>updateCamera())", "addEventListener('change',applyVisibility)")
 imports="""import * as T from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
@@ -50,11 +48,10 @@ import {SMAAPass} from 'three/addons/postprocessing/SMAAPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 """
 # Product helpers need declaration before build; function declarations are hoisted.
-s=s.replace(' function storage(){',(p/'products.js').read_text()+(p/'bikes.js').read_text()+(p/'expanded-storage.js').read_text()+'\n function storage(){')
+a=s.index(' function storage(){');b=s.index(' function build(){',a)
+s=s[:a]+(p/'products.js').read_text()+(p/'bikes.js').read_text()+(p/'expanded-storage.js').read_text()+(p/'example-contents.js').read_text()+(p/'storage.js').read_text()+s[b:]
 s=s.replace('updateCamera(); updateTable(); populateObjects();', 'makeBikes();if(camera)updateComposer();else updateCamera(); updateTable(); populateObjects();')
 s=s.replace('camera.aspect=w/h;camera.updateProjectionMatrix();', 'if(camera.isOrthographicCamera){const span=camera.userData.span;camera.left=-span*w/h/2;camera.right=span*w/h/2;}else camera.aspect=w/h;camera.updateProjectionMatrix();')
-s=s.replace("if(a.id==='A'){", "if(['D','E','F'].includes(a.id)){expandedStorage(a);}else if(a.id==='A'){")
-s=s.replace("if(a.id!=='A')for", "if(['B','C'].includes(a.id))for")
 s=s.replace("textContent=a.equipment", "textContent=a.summary+' '+a.equipment")
 s=s.replace("Rear gap <strong>", "Floor rear gap <strong>")
 s=s.replace('Fixings / backing allowance (estimate)', 'Construction / fixings allowance (estimate)')

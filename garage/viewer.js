@@ -37,7 +37,6 @@ import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
  function line(a,b,color=token('--garage-accent'),parent=scene){const g=new T.BufferGeometry().setFromPoints([new T.Vector3(...a),new T.Vector3(...b)]);const l=new T.Line(g,new T.LineBasicMaterial({color}));parent.add(l);return l;}
  function label(text,pos,width=1.2,parent=scene){const c=document.createElement('canvas');c.width=768;c.height=128;const ctx=c.getContext('2d');ctx.fillStyle=token('--background');ctx.globalAlpha=.92;ctx.fillRect(0,0,768,128);ctx.globalAlpha=1;ctx.fillStyle=token('--foreground');ctx.font='500 80px system-ui';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(text,384,64);const tex=new T.CanvasTexture(c);const s=new T.Sprite(new T.SpriteMaterial({map:tex,depthTest:false}));s.position.set(...pos);s.scale.set(width,width/6,1);s.renderOrder=20;parent.add(s);labels.push(s);return s;}
  function dimension(a,b,text,pos,width=1){line(a,b);let dv=new T.Vector3(...b).sub(new T.Vector3(...a)).normalize();const tick=dv.y?new T.Vector3(.07,0,0):new T.Vector3(0,.06,0);for(const p of [a,b]){line(new T.Vector3(...p).sub(tick).toArray(),new T.Vector3(...p).add(tick).toArray());}label(text,pos,width);}
- function binBase(x,y,z,w=.39,d=.28,h=.28){box(w,h-.02,d,x,y+(h-.02)/2,z,'bin',furnitureGroup);box(w+.006,.02,d+.006,x,y+h-.01,z,'white',furnitureGroup);box(w*.37,.05,.003,x,y+h/2,z-d/2-.003,'white',furnitureGroup);}
  function brorBase(x,w,d,levels,height=1.9){for(const xx of [x-w/2+.016,x+w/2-.016])for(const zz of [L-d+.016,L-.016])box(.032,height,.032,xx,height/2,zz,'metal',furnitureGroup);for(const y of levels)box(w-.01,.05,d-.01,x,y-.025,L-d/2,'metal',furnitureGroup);rod([x-w/2,0.1,L-.02],[x+w/2,height-.05,L-.02],.006,'metal',furnitureGroup);rod([x+w/2,0.1,L-.02],[x-w/2,height-.05,L-.02],.006,'metal',furnitureGroup);}
  function makeCar(){carGroup=new T.Group();scene.add(carGroup);const cx=data.car.centerX,cz=data.car.entranceGap+data.car.length/2;
  function hull(rings,m){const arr=[],indices=[];const contour=[[-1,0],[-1,.72],[-.84,1],[.84,1],[1,.72],[1,0]];for(const [z,w,b,t] of rings)for(const [x,v] of contour)arr.push(cx+x*w,b+v*(t-b),cz+z);for(let i=0;i<rings.length-1;i++)for(let k=0;k<6;k++){let a=i*6+k,b=i*6+(k+1)%6,c=b+6,d=a+6;indices.push(a,b,d,b,c,d);}for(let k=1;k<5;k++){indices.push(0,k+1,k);let o=(rings.length-1)*6;indices.push(o,o+k,o+k+1);}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(arr,3));g.setIndex(indices);g.computeVertexNormals();const mm=materials[m].clone();mm.side=T.DoubleSide;const mesh=new T.Mesh(g,mm);mesh.castShadow=true;mesh.receiveShadow=true;carGroup.add(mesh);}
@@ -50,14 +49,6 @@ import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
  const p=[[-.991,-2.3985],[.991,-2.3985],[.991,2.3985],[-.991,2.3985],[-.991,-2.3985]].map(([x,z])=>new T.Vector3(cx+x,.02,cz+z));const geom=new T.BufferGeometry().setFromPoints(p);const env=new T.Line(geom,new T.LineDashedMaterial({color:token('--garage-accent'),dashSize:.10,gapSize:.06}));env.computeLineDistances();carGroup.add(env);carGroup.visible=root.querySelector('#garage-car').checked;
  }
 
- function packBase(x,y,z,colour='gear',h=.75){
-  const m=new T.Mesh(new RoundedBoxGeometry(.49,h-.08,.31,5,.07),fabricMaterial(colour));m.position.set(x,y+h/2,z);furnitureGroup.add(m);m.castShadow=true;
-  box(.52,.075,.35,x,y+h-.04,z,colour,furnitureGroup);
-  box(.24,.22,.055,x,y+.20,z-.175,colour,furnitureGroup);
-  for(const xx of [x-.11,x+.11])box(.025,h*.75,.012,xx,y+h*.50,z-.185,'metal',furnitureGroup);
-  for(const yy of [y+.18,y+h-.16])box(.50,.025,.015,x,yy,z-.19,'metal',furnitureGroup);
- }
- function bootsBase(x,y,z){for(const dx of [-.21,-.07,.07,.21]){box(.12,.08,.31,x+dx,y+.04,z,'metal',furnitureGroup);box(.115,.34,.17,x+dx,y+.23,z+.055,'white',furnitureGroup);for(const hh of [.10,.20,.28])box(.12,.018,.018,x+dx,y+hh,z-.04,'metal',furnitureGroup);}}
  function snowRacerBase(x){
   // One upright snow racer: conservative 0.60 W × 0.40 D × 1.30 H envelope.
   const z=L-.22;
@@ -69,21 +60,7 @@ import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
   for(const xx of [x-.20,x+.20]){rod([xx,1.28,L-.01],[xx,1.28,L-.24],.0125,'metal',furnitureGroup);rod([xx,1.28,L-.24],[xx,1.34,L-.24],.0125,'metal',furnitureGroup);}
   box(.55,.025,.01,x,1.05,z-.18,'accent',furnitureGroup);
  }
- function upperSledShelves(x,bootShelf=false){for(const xx of [x-.405,x+.405])box(.025,1,.02,xx,1.525,L-.01,'white',furnitureGroup);box(.824,.025,.01,x,2.012,L-.02,'white',furnitureGroup);for(const y of [bootShelf?1.55:1.64,2]){box(.80,.02,.38,x,y-.01,L-.21,'white',furnitureGroup);for(const xx of [x-.405,x+.405])box(.014,.055,.40,xx,y-.04,L-.2,'white',furnitureGroup);}if(bootShelf)boots(x,1.55,L-.21);else for(const dx of [-.20,.20])bin(x+dx,1.64,L-.22);}
- function rightWallBase(){
-  // Four 60 cm rails carry small tools/cables; direct hooks support the chairs and ladder.
-  for(let i=0;i<4;i++)box(.017,.06,.6,W-.009,1.62,2.05+i*.6,'metal',furnitureGroup);
-  for(let i=0;i<20;i++){const z=1.78+i*.122;rod([W-.02,1.62,z],[W-.09,1.62,z],.008,'metal',furnitureGroup);rod([W-.09,1.62,z],[W-.09,1.65,z],.008,'metal',furnitureGroup);}
-  for(const z of [2.1,2.75,3.24,3.66])rod([W-.01,1.5,z],[W-.08,1.5,z],.01,'metal',furnitureGroup);
-  for(const z of [2.1,2.75]){box(.08,.47,.40,W-.095,1.05,z,'rubber',furnitureGroup);for(const zz of [z-.22,z+.22])rod([W-.14,.50,zz],[W-.14,1.5,zz],.014,'metal',furnitureGroup);for(const y of [.50,1.5])rod([W-.14,y,z-.22],[W-.14,y,z+.22],.014,'metal',furnitureGroup);}
-  // Gardintrapp upright, not stacked behind the snow racer.
-  for(const z of [3.24,3.66])rod([W-.10,.05,z],[W-.10,1.95,z],.022,'white',furnitureGroup);for(let y=.18;y<1.9;y+=.26)rod([W-.10,y,3.24],[W-.10,y,3.66],.020,'white',furnitureGroup);
-  // Existing folded table held flat, bottom on floor. Retaining strap is in the BOM.
-  box(.07,1.25,.75,W-.05,.65,4.35,'white',furnitureGroup);box(.009,.03,.76,W-.095,1.05,4.35,'accent',furnitureGroup);
-  for(const z of [2.35,3.90]){rod([W-.02,1.94,z],[W-.24,1.94,z],.0125,'metal',furnitureGroup);rod([W-.24,1.94,z],[W-.24,2.0,z],.0125,'metal',furnitureGroup);}
-  for(let i=0;i<3;i++)box(.045,.024,2.15,W-.055-i*.065,1.965,3.10,'gear',furnitureGroup);
- }
- function register(meshes,key,meta={}){const id='object-'+objects.length;const record={id,key,meta,meshes};objects.push(record);for(const m of meshes)m.userData.objectId=id;return record;}
+ function register(meshes,key,meta={}){const id='object-'+objects.length;const record={id,key,meta,meshes};objects.push(record);for(const m of meshes)m.traverse(n=>{n.userData.objectId=id;});return record;}
  function autoTag(mesh,w,h,d,x,y,z,m,parent){if(parent!==furnitureGroup||!furnitureGroup)return;
  if(m==='white'&&Math.abs(h-.02)<.0001&&Math.abs(d-.38)<.0001){register([mesh],w>.7?'shelf':'shelf60',{title:(w>.7?'80':'60')+' cm shelf · '+Math.round((y+.01)*100)+' cm high',height:y+.01,dimensions:[w,.38,.02],note:'Nominal system depth 40 cm; shelf plate depth 38 cm. Height shown is the proposed top surface; thickness and fittings are simplified.'});
  // A shallow folded lip gives the thin steel plate a readable manufactured edge.
@@ -93,23 +70,12 @@ import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
  }else if(m==='white'&&w===.014&&d===.4){register([mesh],'bracket',{title:'BOAXEL shelf bracket',height:y+.04,note:'40 cm bracket. Can support adjacent shelves on both sides.'});
  }else if(m==='metal'&&w===.017&&d===.6){register([mesh],'hookKit',{title:'60 cm tool rail',note:'Sold as a kit: two 60 cm rails and ten hooks. Two kits provide four rails in this layout.'});}}
  function capture(fn,key,meta,gear=false){const n=furnitureGroup.children.length;fn();const meshes=furnitureGroup.children.slice(n);register(meshes,key,meta);if(gear)equipmentMeshes.push(...meshes);}
- function bin(x,y,z,w=.39,d=.28,h=.28){capture(()=>binBase(x,y,z,w,d,h),h>.2?'small':w<.3?'tiny':'flat',{title:'SAMLA '+(h>.2?'22':w<.3?'5':'11')+' L box',height:y,dimensions:[w,d,h],note:'Box dimensions in its displayed orientation. Lid included in the listed product.'},true);}
- function bror(x,w,d,levels,height=1.9){capture(()=>brorBase(x,w,d,levels,height),height>1.5?'deep':'low',{title:'BROR '+Math.round(height*100)+' cm unit',dimensions:[w,d,height],levels,note:height>1.5?'Sold with five shelves. Four are installed here to preserve tall backpack openings.':'Sold with three shelves, all installed here.'});}
- function pack(x,y,z,colour='gear',h=.75){capture(()=>{
- const fabric=fabricMaterial(colour),dark=fabricMaterial('rubber');
- function soft(w,hh,d,px,py,pz,r,mat=fabric){const m=new T.Mesh(new RoundedBoxGeometry(w,hh,d,5,r),mat);m.position.set(px,py,pz);m.castShadow=m.receiveShadow=true;furnitureGroup.add(m);return m;}
- soft(.43,h-.10,.30,x,y+h/2-.015,z,.065);soft(.46,.14,.34,x,y+h-.085,z,.05);soft(.31,.26,.065,x,y+.23,z-.155,.04);
- for(const dx of [-.227,.227])soft(.075,.26,.21,x+dx,y+.20,z,.025);
- for(const dx of [-.12,.12]){box(.025,h*.65,.009,x+dx,y+h*.51,z-.185,'rubber',furnitureGroup);box(.038,.03,.015,x+dx,y+h-.18,z-.191,'metal',furnitureGroup);}
- for(const yy of [y+.15,y+h-.23])box(.41,.018,.008,x,yy,z-.19,'rubber',furnitureGroup);
- const curve=new T.CatmullRomCurve3([new T.Vector3(x-.065,y+h-.055,z),new T.Vector3(x-.045,y+h-.012,z),new T.Vector3(x+.045,y+h-.012,z),new T.Vector3(x+.065,y+h-.055,z)]);const handle=new T.Mesh(new T.TubeGeometry(curve,16,.009,8,false),dark);furnitureGroup.add(handle);
- },null,{title:'Existing hiking backpack',height:y,dimensions:[.55,.4,h],note:'Estimated storage envelope. Measure the loaded pack; this is a shape proxy, not a product to buy.'},true);}
- function boots(x,y,z){} // Actual footwear inventory is unknown; do not invent six ski-boot pairs.
- function snowRacer(x){capture(()=>snowRacerBase(x),null,{title:'Existing snow racer',dimensions:[.60,.40,1.30],note:'Provisional upright storage envelope including steering wheel. Verify against your snow racer before installation.'},true);}
+ function bror(x,w,d,levels,height=1.9){capture(()=>brorBase(x,w,d,levels,height),height>1.5?'deep':'low',{title:'BROR '+Math.round(height*100)+' cm unit',dimensions:[w,d,height],levels,note:height>1.5?'Five supplied shelves used; spacing serves a mix of small and larger objects.':'Three supplied shelves, with proposed reused small shelf compartments above.'});}
+ function snowRacer(x){const before=furnitureGroup.children.length;snowRacerBase(x);const g=new T.Group();for(const m of furnitureGroup.children.slice(before))g.add(m);g.scale.y=1.3/1.38;furnitureGroup.add(g);register([g],null,{title:'Rattkjelke · one existing snow racer',kind:'existing',dimensions:[.60,.40,1.30],note:'One confirmed by you. Upright storage envelope remains an estimate; check the steering wheel and ski tips. Kept in its own tall slot with shelves above.'});equipmentMeshes.push(g);}
  function objectBounds(o){scene.updateMatrixWorld(true);const b=new T.Box3();for(const m of o.meshes)b.expandByObject(m);return b;}
  function populateObjects(){const sel=root.querySelector('#object-list');sel.innerHTML='<option value="">Choose a shelf or product</option>';for(const o of objects){const op=document.createElement('option');op.value=o.id;op.textContent=o.meta.title||data.products[o.key]?.name;sel.append(op);}root.querySelector('#selection').innerHTML='<h2>Click a shelf.</h2><p>Inspect its size, height above the floor, price and exact product link. Switch off equipment to see every shelf.</p>';root.querySelector('#focus-item').disabled=true;}
  const dimensionText=k=>({upright:'200 cm high',shortUpright:'100 cm high',rail:'82 cm long',rail62:'62 cm long',shelf:'80 × 40 cm system size',shelf60:'60 × 40 cm system size',bracket:'40 cm deep',deep:'85 × 55 × 190 cm',low:'85 × 55 × 110 cm',small:'39 × 28 × 28 cm',tiny:'28 × 20 × 14 cm',flat:'39 × 28 × 14 cm',hookKit:'2 × 60 cm rails + 10 hooks',shortHook:'7 cm projection',skiHook:'33 × 24 cm',straps:'2 × 2.5 m straps'}[k]||data.products[k]?.dimensionsText||'See product page');
- function selectObject(o){if(selected)for(const m of selected.meshes){if(m.userData.baseMaterial){m.material.dispose();m.material=m.userData.baseMaterial;delete m.userData.baseMaterial;}}if(selectionBox){scene.remove(selectionBox);selectionBox.traverse(m=>{if(m.geometry)m.geometry.dispose();});selectionBox=null;}selected=o||null;const panel=root.querySelector('#selection');root.querySelector('#focus-item').disabled=!o;root.querySelector('#object-list').value=o?.id||'';if(!o){panel.innerHTML='<h2>Click a shelf.</h2><p>Select an object to inspect its size and product details.</p>';render();return;}const p=data.products[o.key],m=o.meta;let html='<h2>'+m.title+'</h2>'+(p?'<p>'+p.name+'</p>':'<p>'+((m.title||'').startsWith('Custom')||(m.title||'').startsWith('Divider')?'Custom construction · provisional dimensions':'Existing equipment · estimated dimensions')+'</p>');let rows=[];
+ function selectObject(o){if(selected)for(const m of selected.meshes){if(m.userData.baseMaterial){m.material.dispose();m.material=m.userData.baseMaterial;delete m.userData.baseMaterial;}}if(selectionBox){scene.remove(selectionBox);selectionBox.traverse(m=>{if(m.geometry)m.geometry.dispose();});selectionBox=null;}selected=o||null;const panel=root.querySelector('#selection');root.querySelector('#focus-item').disabled=!o;root.querySelector('#object-list').value=o?.id||'';if(!o){panel.innerHTML='<h2>Click a shelf.</h2><p>Select an object to inspect its size and product details.</p>';render();return;}const p=data.products[o.key],m=o.meta;let html='<h2>'+m.title+'</h2>'+(p?'<p>'+p.name+'</p>':'<p>'+(m.kind==='example'?'Example contents · provisional size':m.kind==='concept'||(m.title||'').startsWith('Custom')||(m.title||'').startsWith('Divider')?'Proposed storage · unpriced adaptations':'Existing equipment · estimated dimensions')+'</p>');let rows=[];
  if(p)rows.push(['Product size',dimensionText(o.key)]);
  if(m.dimensions)rows.push(['Shown W × D × H',m.dimensions.map(v=>Number((v*100).toFixed(1))).join(' × ')+' cm']);
  if(m.height!==undefined)rows.push(['Above floor',Number((m.height*100).toFixed(1))+' cm']);if(m.levels)rows.push(['Shelf heights',m.levels.map(v=>Math.round(v*100)).join(', ')+' cm']);
@@ -159,11 +125,12 @@ function rightWall(){
  capture(()=>{for(let i=0;i<2;i++)box(.055,.025,2.15,.10+i*.09,1.9675,3.15,'gear',furnitureGroup);},null,{title:'Left shelf · ski bundle',dimensions:[.20,2.15,.025],note:'Illustrative 215 cm ski length; count and actual lengths unmeasured. Top stays below 2 m.'},true);
 }
 function expandedStorage(a){
- if(a.id==='F'){pineShelf('rear',0,1.45);pineShelf('rear',0,1.95);return;}
+ if(a.id==='F'){for(const [i,y] of [1.45,1.95].entries()){pineShelf('rear',0,y);shelfZone(W/2,2.4,.3,y,i===0?1.95:H,.24);}return;}
  const w=a.rackWidth,d=a.depth,h=a.top,x=.10+w/2,key=a.id==='D'?'rack60':'rack80';
  const steel=new T.MeshStandardMaterial({color:'#9da6a8',metalness:.72,roughness:.38}),beam=steel.clone();if(a.id==='E')beam.color.set('#bf4f2b');const board=materials.wood.clone();board.color.set('#b0a187');
- capture(()=>{for(const xx of [x-w/2+.025,x+w/2-.025])for(const zz of [L-d+.025,L-.025]){box(.049,h,.049,xx,h/2,zz,steel,furnitureGroup);for(let y=.075;y<h;y+=.05)box(.012,.018,.001,xx,y,zz-.025,'rubber',furnitureGroup);}for(const y of a.shelves[0]){box(w-.10,.022,d-.02,x,y-.011,L-d/2,board,furnitureGroup);for(const zz of [L-d+.025,L-.025])box(w-.05,.056,.035,x,y-.05,zz,beam,furnitureGroup);}},key,{title:a.system,dimensions:[w,d,h],levels:a.shelves[0],note:a.id==='D'?'Four chipboard shelves supplied; three installed for tall backpack openings, one spare. Wall anchoring required; protect board surfaces against moisture. Nominal external dimensions; confirm assembly clearances.':'Three 22 mm shelf plates. External width 144.8 cm, clear beam span 133.5 cm; 80 cm depth. Price shown includes 25% VAT. Two full units would be 289.6 cm wide and do not fit.'});
- rearExtension(a);for(const x of [.45,1.05])pack(x,.1,L-.26);pack(.55,a.shelves[0][1],L-.26,'accent');
+ capture(()=>{for(const xx of [x-w/2+.025,x+w/2-.025])for(const zz of [L-d+.025,L-.025]){box(.049,h,.049,xx,h/2,zz,steel,furnitureGroup);for(let y=.075;y<h;y+=.05)box(.012,.018,.001,xx,y,zz-.025,'rubber',furnitureGroup);}for(const y of a.shelves[0]){box(w-.10,.022,d-.02,x,y-.011,L-d/2,board,furnitureGroup);for(const zz of [L-d+.025,L-.025])box(w-.05,.056,.035,x,y-.05,zz,beam,furnitureGroup);}},key,{title:a.system,dimensions:[w,d,h],levels:a.shelves[0],note:a.id==='D'?'Four supplied shelves used at mixed spacing. Wall anchoring required; protect board surfaces against moisture. Nominal external dimensions; confirm assembly clearances.':'Five shelf levels shown: the catalogue unit supplies three; two additional levels are an unpriced concept pending component compatibility. External width 144.8 cm, clear beam span 133.5 cm; 80 cm depth. Price shown includes 25% VAT. Two full units would be 289.6 cm wide and do not fit.'});
+ a.shelves[0].forEach((y,i)=>shelfZone(x,w-.113,d-.02,y,a.shelves[0][i+1]??H,.08));
+ rearExtension(a);
 }
 
 function rearExtension(a){
@@ -173,36 +140,118 @@ function rearExtension(a){
  capture(()=>{for(const xx of [x0+.0225,x0+w-.0225])for(const zz of [L-d+.0225,L-.0225])box(.045,1.95,.045,xx,.975,zz,wood,furnitureGroup);},null,{title:'Custom full-depth extension · frame',dimensions:[w,d,1.95],note});
  const sledClear=.65,divider=x0+w-.045-sledClear-.0225,narrow=divider-.0225-(x0+.045),nx=x0+.045+narrow/2;
  capture(()=>{for(const zz of [L-d+.0225,L-.0225])box(.045,1.36,.045,divider,.68,zz,wood,furnitureGroup);},null,{title:'Divider · 65 cm clear sled slot',dimensions:[.045,d,1.36],note:'Keeps a dedicated 65 cm wide opening for the estimated 60 cm snow racer. Measure its steering wheel and protrusions.'});
- for(const y of [1.45,1.95])capture(()=>{box(w-.09,.018,d,x,y-.009,L-d/2,wood,furnitureGroup);for(const zz of [L-d+.0225,L-.0225])box(w-.09,.07,.045,x,y-.053,zz,wood,furnitureGroup);},null,{title:'Custom upper shelf · '+Math.round(y*100)+' cm',dimensions:[w-.09,d,.018],height:y,note:note+' Lowest front beam underside: 137 cm, above the provisional 130 cm sled.'});
- for(const y of [.1,.65])capture(()=>{box(narrow,.018,d,nx,y-.009,L-d/2,wood,furnitureGroup);for(const zz of [L-d+.0225,L-.0225])box(narrow,.07,.045,nx,y-.053,zz,wood,furnitureGroup);},null,{title:'Custom small-gear shelf · '+Math.round(y*100)+' cm',dimensions:[narrow,d,.018],height:y,note});
+ for(const y of [1.45,1.80])capture(()=>{box(w-.09,.018,d,x,y-.009,L-d/2,wood,furnitureGroup);for(const zz of [L-d+.0225,L-.0225])box(w-.09,.07,.045,x,y-.053,zz,wood,furnitureGroup);},null,{title:'Custom upper shelf · '+Math.round(y*100)+' cm',dimensions:[w-.09,d,.018],height:y,note:note+' Lowest front beam underside: 137 cm, above the provisional 130 cm sled.'});
+ for(const y of [.10,.45,.80,1.12])capture(()=>{box(narrow,.018,d,nx,y-.009,L-d/2,wood,furnitureGroup);for(const zz of [L-d+.0225,L-.0225])box(narrow,.07,.045,nx,y-.053,zz,wood,furnitureGroup);},null,{title:'Custom small-gear shelf · '+Math.round(y*100)+' cm',dimensions:[narrow,d,.018],height:y,note});
+ for(const [i,y] of [1.45,1.80].entries())shelfZone(x,w-.09,d,y,i===0?1.80:H,.08);
+ for(const [i,y] of [.10,.45,.80,1.12].entries())shelfZone(nx,narrow,d,y,[.45,.80,1.12,1.45][i],.08);
  snowRacer(x0+w-.045-sledClear/2);
 }
-
- function storage(){const a=data.layouts[current];furnitureGroup=new T.Group();scene.add(furnitureGroup);
- if(['D','E','F'].includes(a.id)){expandedStorage(a);}else if(a.id==='A'){
-  const centers=[.505,1.215,1.825,2.435],widths=[.8,.6,.6,.6],rails=[.10,.91,1.52,2.13,2.74];for(const x of rails)box(.025,2,.02,x,1.025,L-.01,'white',furnitureGroup);
+// Illustrative mixed contents, not an inventory count or a claim that all belongings fit.
+function exampleContents(){
+ const examples=[
+  {title:'Rucksack lying down · example',kind:'pack',size:[.66,.30,.25],colour:'gear'},
+  {title:'Small backpack · example',kind:'pack',size:[.32,.22,.45],colour:'accent'},
+  {title:'Soft sports bag · example',kind:'bag',size:[.46,.28,.25],colour:'rubber'},
+  {title:'Compressed bag · example',kind:'bag',size:[.34,.22,.18],colour:'gear'},
+  {title:'Ice skates · example pair',kind:'skates',size:[.28,.31,.28]},
+  {title:'Ski boots / winter footwear · example pair',kind:'boots',size:[.28,.31,.34]},
+  {title:'Small bags / accessories · example',kind:'bag',size:[.29,.22,.20],colour:'accent'},
+  {title:'Rolled long bag · example',kind:'roll',size:[.52,.16,.16],colour:'gear'},
+  {title:'Maintenance supplies · example',kind:'supplies',size:[.24,.15,.22]}
+ ];
+ const available=shelfZones.filter(z=>z.clear>.13).map(z=>({...z}));
+ for(const item of examples){
+  const [w,d,h]=item.size;
+  // Prefer a suitable opening; leave other bays open for changing / future belongings.
+  const candidates=available.filter(z=>z.width>w+.02&&z.depth>d+.01&&z.clear>h+.015);
+  candidates.sort((a,b)=>(a.clear-h)*2+(a.width-w)-((b.clear-h)*2+(b.width-w)));
+  const slot=candidates[0];if(!slot)continue;available.splice(available.indexOf(slot),1);
+  const px=slot.x-slot.width/2+w/2+.01;
+  const remainder=slot.width-w-.06;
+  if(remainder>.16)available.push({...slot,x:slot.x+(w+.06)/2,width:remainder});
+  const group=new T.Group(),mat=fabricMaterial(item.colour||'rubber');
+  const soft=(ww,hh,dd,x,y,z,m=mat)=>{const mesh=new T.Mesh(new RoundedBoxGeometry(ww,hh,dd,3,Math.min(.035,ww/5,hh/5,dd/5)),m);mesh.position.set(x,y,z);mesh.castShadow=mesh.receiveShadow=true;group.add(mesh);};
+  if(item.kind==='skates'||item.kind==='boots'){
+   for(const x of [-w/4,w/4]){
+    soft(w*.42,.075,d*.9,x,.06,0);
+    soft(w*.39,h-.08,d*.5,x,(h+.08)/2,d*.18,item.kind==='boots'?materials.white:mat);
+    if(item.kind==='skates'){
+     soft(.012,.018,d*.85,x,.009,0,materials.metal);
+     for(const zz of [-d*.27,d*.27])soft(.025,.025,.025,x,.03,zz,materials.metal);
+    }
+    for(const y of [h*.45,h*.67])soft(w*.43,.012,.015,x,y,-d*.08,materials.metal);
+   }
+  }else if(item.kind==='supplies'){
+   for(const [i,hh] of [.15,.21,.18].entries())soft(.065,hh,.08,(i-1)*.08,hh/2,0,materials.white);
+  }else{
+   soft(w*.96,h*.92,d*.94,0,h/2,0);
+   if(item.kind==='pack'){
+    soft(w*.55,h*.34,d*.08,0,h*.42,-d*.47);
+    for(const x of [-w*.2,w*.2])soft(.017,h*.65,.008,x,h*.52,-d*.49,materials.rubber);
+   }else if(item.kind==='bag'){
+    for(const x of [-w*.2,w*.2])soft(.015,h*.65,.009,x,h*.52,-d*.47,materials.rubber);
+   }
+  }
+  group.position.set(px,slot.y+.003,L-slot.depth+d/2+.005);
+  furnitureGroup.add(group);
+  register([group],null,{title:item.title,kind:'example',dimensions:item.size,height:slot.y,note:'Representative size only; not a measurement of your belongings or a fixed quantity. Mixed packed / compressed bags can stand, lie down or hang. Remaining space is intentionally unallocated.'});equipmentMeshes.push(group);
+ }
+}
+// Shelf capacity drives the layout. Example belongings never determine the bays.
+let shelfZones=[];
+function shelfZone(x,width,depth,y,next,thickness=.02){
+ const clear=next-y-thickness;
+ shelfZones.push({x,width,depth,y,clear,area:width*depth});
+}
+function smallShelves(x,width,bottom,top,depth=.28,columns=2,title='Small shelf compartments'){
+ const levels=[bottom,top];if(top-bottom>.6)levels.splice(1,0,(bottom+top)/2);
+ capture(()=>{
+  for(const y of levels)box(width,.018,depth,x,y-.009,L-depth/2,'white',furnitureGroup);
+  for(let i=0;i<=columns;i++)box(.018,top-bottom,depth,x-width/2+i*width/columns,(bottom+top)/2,L-depth/2,'white',furnitureGroup);
+ },null,{title,dimensions:[width,depth,top-bottom],height:bottom,kind:'concept',note:'Reuse / extend the small shelf compartments seen at the left rear. This is a fit study: measure the existing units before reusing them. Supports, added shelves and adaptations are unpriced.'});
+ for(let i=0;i<levels.length-1;i++)for(let j=0;j<columns;j++)shelfZone(x-width/2+(j+.5)*width/columns,width/columns-.025,depth,levels[i],levels[i+1]);
+}
+function storageHeight(){return root.querySelector('#garage-upper').checked?Number(root.querySelector('#rear-height').value)/100:H;}
+function upperStorage(){
+ const h=storageHeight();if(h<2.4)return;
+ // This independent, shallow wall shelf is a conditional study above the 2.10 m reference.
+ // Do not extend the selected commercial rack or imply a verified roof profile.
+ smallShelves(W/2,2.4,2.12,h-.12,.28,3,'Upper small shelves · assumed clearance');
+}
+function storage(){
+ const a=data.layouts[current];furnitureGroup=new T.Group();scene.add(furnitureGroup);shelfZones=[];
+ if(['D','E','F'].includes(a.id))expandedStorage(a);
+ else if(a.id==='A'){
+  const centers=[.505,1.215,1.825,2.435],widths=[.8,.6,.6,.6],rails=[.10,.91,1.52,2.13,2.74];
+  for(const x of rails)box(.025,2,.02,x,1.025,L-.01,'white',furnitureGroup);
   for(let i=0;i<4;i++)box(widths[i]+.01,.025,.012,centers[i],2.012,L-.02,'white',furnitureGroup);
-  const brackets=new Set();a.shelves.forEach((levels,i)=>{for(const h of levels){box(widths[i],.02,.38,centers[i],h-.01,L-.21,'white',furnitureGroup);brackets.add(i+':'+h);brackets.add((i+1)+':'+h);}});for(const key of brackets){const [i,h]=key.split(':').map(Number);box(.014,.055,.4,rails[i],h-.04,L-.2,'white',furnitureGroup);}
-  snowRacer(centers[0]);for(const dx of [-.20,.20])bin(centers[0]+dx,1.64,L-.22);
-  pack(1.215,.1,L-.1975);pack(1.825,.1,L-.1975);pack(1.215,1.0,L-.1975,'accent');box(.32,.35,.28,1.75,1.175,L-.21,'gear',furnitureGroup);
-  for(const y of [.1,.55,1.0])boots(centers[3],y,L-.21);bin(centers[3],1.45,L-.22);for(const dx of [-.15,.15])bin(centers[3]+dx,1.8,L-.22,.28,.20,.14);
-  for(let i=0;i<2;i++){const m=new T.Mesh(new T.CylinderGeometry(.065,.065,.65,16),materials.gear);m.position.set(2.025,1.325,L-.12-i*.15);furnitureGroup.add(m);}
- }else if(a.id==='B'){
-  bror(.56,.85,.55,a.shelves[0]);bror(1.42,.85,.55,a.shelves[1]);for(const y of [.1,.58])boots(.56,y,L-.28);
-  pack(.415,1.06,L-.29);bin(.835,1.06,L-.28,.28,.39);
-  for(const y of [.1,.95]){pack(1.275,y,L-.29,y===.95?'accent':'gear');bin(1.695,y,L-.28,.28,.39);}
-  for(const x of [.56,1.42])for(const dx of [-.20,.20])bin(x+dx,1.9,L-.28,.39,.28,.14);
-  snowRacer(2.27);upperSledShelves(2.27,true);
+  const brackets=new Set();a.shelves.forEach((levels,i)=>{for(let j=0;j<levels.length;j++){
+   const y=levels[j];box(widths[i],.02,.38,centers[i],y-.01,L-.21,'white',furnitureGroup);
+   brackets.add(i+':'+y);brackets.add((i+1)+':'+y);
+   shelfZone(centers[i],widths[i]-.04,.38,y,levels[j+1]??H);
+  }});
+  for(const key of brackets){const [i,y]=key.split(':').map(Number);box(.014,.055,.4,rails[i],y-.04,L-.2,'white',furnitureGroup);}
+  snowRacer(centers[0]);
  }else{
-  for(const x of [.56,1.42])bror(x,.85,.55,[.1,.6,1.1],1.1);
-  for(const y of [.1,.6])boots(.56,y,L-.28);boots(1.42,.1,L-.28);box(.55,.35,.4,1.42,.775,L-.29,'gear',furnitureGroup);
-  pack(.415,1.1,L-.29);pack(.99,1.1,L-.29);pack(1.565,1.1,L-.29,'accent');
-  snowRacer(2.27);upperSledShelves(2.27);
+  const height=a.id==='B'?1.9:1.1;
+  for(const [i,x] of [.56,1.42].entries()){
+   const levels=a.shelves[i];bror(x,.85,.55,levels,height);
+   levels.forEach((y,j)=>shelfZone(x,.79,.53,y,levels[j+1]??(a.id==='C'?1.2:H),.05));
+  }
+  if(a.id==='C')smallShelves(.99,1.69,1.23,1.98,.28,3,'Reused / extended small shelf compartments');
+  const sx=2.27;for(const xx of [sx-.405,sx+.405])box(.025,1,.02,xx,1.525,L-.01,'white',furnitureGroup);
+  box(.824,.025,.01,sx,2.012,L-.02,'white',furnitureGroup);
+  const levels=a.shelves[2];for(const [i,y] of levels.entries()){
+   box(.80,.02,.38,sx,y-.01,L-.21,'white',furnitureGroup);
+   for(const xx of [sx-.405,sx+.405])box(.014,.055,.4,xx,y-.04,L-.2,'white',furnitureGroup);
+   shelfZone(sx,.76,.38,y,levels[i+1]??H);
+  }
+  snowRacer(sx);
  }
- if(['B','C'].includes(a.id))for(let i=0;i<2;i++){let m=new T.Mesh(new T.CylinderGeometry(.065,.065,.70,16),materials.gear);m.position.set(2.745,.40,L-.17-i*.15);furnitureGroup.add(m);}
- box(.055,1.90,.035,.065,.95,L-.12,'wood',furnitureGroup);
- rightWall();
- }
+ rightWall();upperStorage();exampleContents();
+ root.querySelector('#rear-height-value').textContent=Math.round(storageHeight()*100)+' cm';
+ root.querySelector('#upper-controls').hidden=!root.querySelector('#garage-upper').checked;
+}
  function build(){if(scene)scene.traverse(o=>{if(o.geometry)o.geometry.dispose();});objects=[];equipmentMeshes=[];selected=null;selectionBox=null;labels=[];scene=new T.Scene();scene.scale.x=-1;scene.background=new T.Color('#e9e9e0');scene.environment=environment;materials={};for(const k of ['wood','metal','floor','white','glass','bin','gear','rubber','accent'])materials[k]=mat(k);dimensionGroup=new T.Group();scene.add(dimensionGroup);
  scene.add(new T.HemisphereLight(0xf5f7ff,0x9b896f,1.6));
  const sun=new T.DirectionalLight(0xfff3dc,1.7);sun.position.set(1,5,-3);sun.target.position.set(-1,0,5);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-5,right:5,top:7,bottom:-5,near:.1,far:20});sun.shadow.bias=-.0002;sun.shadow.normalBias=.008;sun.shadow.radius=4;scene.add(sun,sun.target);
@@ -210,11 +259,12 @@ function rearExtension(a){
  box(W+.16,.12,L+.1,W/2,-.065,L/2,'floor');
  const concrete=materials.floor.clone();concrete.color.set('#8d9088');box(.06,.13,L,W-.005,.065,L/2,concrete);box(.06,.13,L,.005,.065,L/2,concrete);
  // Individual pine boards: actual room interior faces remain x=2.83 and z=6.10.
- for(let i=0;i<20;i++){const w=W/20;const m=materials.wood.clone();m.color.multiplyScalar(.92+random()*.15);box(w-.003,H,.034,(i+.5)*w,H/2,L+.017,m);}
- for(let i=0;i<43;i++){const d=L/43;const m=materials.wood.clone();m.color.multiplyScalar(.92+random()*.15);box(.034,H,d-.003,W+.017,H/2,(i+.5)*d,m);}
+ const rearH=storageHeight();
+ for(let i=0;i<20;i++){const w=W/20;const m=materials.wood.clone();m.color.multiplyScalar(.92+random()*.15);box(w-.003,rearH,.034,(i+.5)*w,rearH/2,L+.017,m);}
+ for(let i=0;i<43;i++){const d=L/43;const hh=H+(rearH-H)*Math.max(0,((i+.5)*d-4)/(L-4));const m=materials.wood.clone();m.color.multiplyScalar(.92+random()*.15);box(.034,hh,d-.003,W+.017,hh/2,(i+.5)*d,m);}
  // Left wall: exposed studs and horizontal battens, as in the garage photo.
  // Stud faces define the measured usable x=0 boundary; cladding sits behind them.
- for(let i=0;i<43;i++){const d=L/43;const m=materials.wood.clone();m.color.multiplyScalar(.92+random()*.15);const board=box(.034,H,d-.003,-.061,H/2,(i+.5)*d,m);board.userData.wall='left';board.userData.wallPart='panel';}
+ for(let i=0;i<43;i++){const d=L/43;const hh=H+(rearH-H)*Math.max(0,((i+.5)*d-4)/(L-4));const m=materials.wood.clone();m.color.multiplyScalar(.92+random()*.15);const board=box(.034,hh,d-.003,-.061,hh/2,(i+.5)*d,m);board.userData.wall='left';board.userData.wallPart='panel';}
  for(let z=.25;z<L;z+=.61){const stud=box(.044,H,.07,-.022,H/2,z,'wood');stud.userData.wall='left';stud.userData.wallPart='stud';}
  for(const y of [.7,1.43]){const batten=box(.025,.06,L,-.0315,y,L/2,'wood');batten.userData.wall='left';batten.userData.wallPart='batten';}
  for(const z of [2.03,4.06])box(W,.001,.004,W/2,.001,z,new T.MeshStandardMaterial({color:'#777c75',roughness:1}));
@@ -224,7 +274,7 @@ function rearExtension(a){
  const accent=materials.accent.clone();accent.transparent=true;accent.opacity=.10;box(.58,.005,4.797,.29,.008,2.6485,accent);
  const a=data.layouts[current];box(W,.005,a.frontGap,W/2,.009,5.047+a.frontGap/2,accent);
  loftGroup=new T.Group();scene.add(loftGroup);let lm=materials.wood.clone();lm.transparent=true;lm.opacity=.13;lm.depthWrite=false;box(W,.04,L,W/2,H+.02,L/2,lm,loftGroup);for(let z=.6;z<6;z+=1.2)line([0,H,z],[W,H,z],token('--garage-metal'),loftGroup);loftGroup.visible=root.querySelector('#garage-loft').checked;
- storage();for(const m of furnitureGroup.children){if(!m.userData.objectId&&(m.material===materials.gear||m.material===materials.wood)){register([m],null,{title:'Existing camping gear',note:'Representative camping bag, mat or long item; dimensions need measuring.'});equipmentMeshes.push(m);}}makeCar();register(carGroup.children.filter(m=>m.isMesh),null,{title:'Model Y parking envelope',dimensions:[data.car.foldedWidth,data.car.length,data.car.height],note:'Official planning dimensions; simplified body shape. Folded mirrors: 198.2 cm; body: 192 cm; open mirrors: 212.9 cm. Driver-door and hatch movement are not modelled.'});carGroup.traverse(m=>{if(m.isMesh){m.material=m.material.clone();m.material.transparent=true;m.material.opacity=.27;m.material.depthWrite=false;}});
+ storage();makeCar();register(carGroup.children.filter(m=>m.isMesh),null,{title:'Model Y parking envelope',dimensions:[data.car.foldedWidth,data.car.length,data.car.height],note:'Official planning dimensions; simplified body shape. Folded mirrors: 198.2 cm; body: 192 cm; open mirrors: 212.9 cm. Driver-door and hatch movement are not modelled.'});carGroup.traverse(m=>{if(m.isMesh){m.material=m.material.clone();m.material.transparent=true;m.material.opacity=.27;m.material.depthWrite=false;}});
  dimension([0,2.18,L-.20],[W,2.18,L-.20],'2.83 m',[W/2,2.24,L-.20],.8);dimension([0,.04,-.35],[W,.04,-.35],'2.83 m',[W/2,.05,-.55],1.8);
  dimension([-.30,.03,0],[-.30,.03,L],'6.10 m',[-.45,.10,3.0],1.8);
  makeBikes();if(camera)updateComposer();else updateCamera(); updateTable(); populateObjects(); applyVisibility();render();root.dataset.ready='true';
@@ -240,6 +290,9 @@ function rearExtension(a){
  composer?.dispose();composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));ao=new SSAOPass(scene,camera,w,h);ao.enabled=!camera.isOrthographicCamera;ao.kernelRadius=8;ao.minDistance=.002;ao.maxDistance=.12;composer.addPass(ao);composer.addPass(new OutputPass());composer.addPass(new SMAAPass(w,h));composer.setSize(w,h);}
  function applyVisibility(){if(!scene)return;if(bikeGroup)bikeGroup.visible=root.querySelector('#garage-bikes').checked;root.querySelector('#bike-controls').hidden=!root.querySelector('#garage-bikes').checked;root.querySelector('#bike-status').hidden=!root.querySelector('#garage-bikes').checked;updateWalls();carGroup.visible=root.querySelector('#garage-car').checked;for(const o of equipmentMeshes)o.visible=root.querySelector('#garage-gear').checked;labels.forEach((l,i)=>{l.visible=root.querySelector('#garage-dims').checked&&(['overview','plan'].includes(view)||['rear','front','back'].includes(view)&&i===0);});loftGroup.visible=root.querySelector('#garage-loft').checked;render();}
  function focusObject(){if(!selected)return;const b=objectBounds(selected),center=b.getCenter(new T.Vector3()),size=b.getSize(new T.Vector3());const distance=Math.max(.85,size.length()*1.35);const dir=new T.Vector3(.2,.32,-1).normalize();camera.up.set(0,1,0);camera.position.copy(center).addScaledVector(dir,distance);controls.target.copy(center);controls.update();render();}
+ root.querySelector('#garage-upper').addEventListener('change',build);
+ root.querySelector('#rear-height').addEventListener('change',build);
+ root.querySelector('#rear-height').addEventListener('input',e=>{root.querySelector('#rear-height-value').textContent=e.target.value+' cm';});
  root.querySelector('#reset-view').addEventListener('click',updateCamera);root.querySelector('#focus-item').addEventListener('click',focusObject);root.querySelector('#object-list').addEventListener('change',e=>selectObject(objects.find(o=>o.id===e.target.value)));
  for(const id of ['garage-gear','garage-dims','garage-bikes','garage-cutaway'])root.querySelector('#'+id).addEventListener('change',()=>{if(id==='garage-bikes'&&root.querySelector('#garage-bikes').checked)root.querySelector('#garage-car').checked=true;applyVisibility();});
  const raycaster=new T.Raycaster(),pointer=new T.Vector2();let down=null;
@@ -252,8 +305,8 @@ function rearExtension(a){
 
  function updateWalls(){if(!scene||!camera)return;const cut=root.querySelector('#garage-cutaway').checked;scene.traverse(m=>{const side=m.userData.wall;if(side)m.visible=!(cut&&(side==='left'&&camera.position.x>0||side==='right'&&camera.position.x<-W||side==='back'&&camera.position.z>L));});}
  const money=v=>new Intl.NumberFormat('nb-NO',{maximumFractionDigits:2}).format(v)+' kr';
- function updateTable(){const a=data.layouts[current];root.querySelector('#garage-title').textContent=a.id+' · '+a.name;root.querySelector('#garage-price').textContent=money(a.productsTotal)+' products';root.querySelector('#garage-metrics').innerHTML='<span>Floor rear gap <strong>'+Math.round(a.frontGap*100)+' cm</strong></span><span>Rear depth <strong>'+Math.round(a.depth*100)+' cm</strong></span><span>Starter boxes <strong>'+a.binLitres+' L</strong></span>';
- root.querySelector('#garage-equipment').textContent=a.summary+' '+a.equipment;root.querySelector('#garage-products').innerHTML=[...a.items,...data.common].map(([k,n])=>{const p=data.products[k];return '<tr><td><a href="'+p.url+'" target="_blank" rel="noopener noreferrer">'+p.name+'</a></td><td class="text-end">'+n+'</td><td class="text-end text-nowrap">'+money(p.price)+'</td><td class="text-end text-nowrap">'+money(n*p.price)+'</td></tr>'}).join('');root.querySelector('#garage-totals').innerHTML='<tr><th colspan="3">Product total</th><th class="text-end text-nowrap">'+money(a.productsTotal)+'</th></tr><tr><td colspan="3">Construction / fixings allowance (estimate)</td><td class="text-end text-nowrap">'+money(a.allowance)+'</td></tr><tr><th colspan="3">Planning budget</th><th class="text-end text-nowrap">'+money(a.budgetTotal)+'</th></tr>';
+ function updateTable(){const a=data.layouts[current];root.querySelector('#garage-unpriced').textContent='Still to price / verify: '+a.unpriced;root.querySelector('#inventory-rows').innerHTML=data.inventory.map(i=>'<tr><td>'+i.name+'<br><small>'+i.count+'</small></td><td>'+i.evidence+'</td><td>'+i.storage+'</td></tr>').join('');root.querySelector('#garage-title').textContent=a.id+' · '+a.name;root.querySelector('#garage-price').textContent=money(a.productsTotal)+' known products';root.querySelector('#garage-metrics').innerHTML='<span>Floor rear gap <strong>'+Math.round(a.frontGap*100)+' cm</strong></span><span>Rear depth <strong>'+Math.round(a.depth*100)+' cm</strong></span><span>Rear shelf surface <strong>'+shelfZones.reduce((sum,z)=>sum+z.area,0).toFixed(1)+' m²</strong></span>';
+ root.querySelector('#garage-equipment').textContent=a.summary+' '+a.equipment;root.querySelector('#garage-products').innerHTML=[...a.items,...data.common].map(([k,n])=>{const p=data.products[k];return '<tr><td><a href="'+p.url+'" target="_blank" rel="noopener noreferrer">'+p.name+'</a></td><td class="text-end">'+n+'</td><td class="text-end text-nowrap">'+money(p.price)+'</td><td class="text-end text-nowrap">'+money(n*p.price)+'</td></tr>'}).join('');root.querySelector('#garage-totals').innerHTML='<tr><th colspan="3">Known product subtotal</th><th class="text-end text-nowrap">'+money(a.productsTotal)+'</th></tr><tr><td colspan="3">Construction / fixings allowance (estimate)</td><td class="text-end text-nowrap">'+money(a.allowance)+'</td></tr><tr><th colspan="3">Known products + allowance</th><th class="text-end text-nowrap">'+money(a.budgetTotal)+'</th></tr>';
  }
  root.querySelectorAll('[data-layout]').forEach(b=>b.addEventListener('click',()=>{current=Number(b.dataset.layout);root.querySelectorAll('[data-layout]').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));build();}));
  root.querySelector('#garage-view').addEventListener('change',e=>{view=e.target.value;updateCamera();});root.querySelector('#garage-car').addEventListener('change',applyVisibility);root.querySelector('#garage-loft').addEventListener('change',e=>{loftGroup.visible=e.target.checked;render();});

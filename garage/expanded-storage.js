@@ -25,11 +25,12 @@ function rightWall(){
  capture(()=>{for(let i=0;i<2;i++)box(.055,.025,2.15,.10+i*.09,1.9675,3.15,'gear',furnitureGroup);},null,{title:'Left shelf · ski bundle',dimensions:[.20,2.15,.025],note:'Illustrative 215 cm ski length; count and actual lengths unmeasured. Top stays below 2 m.'},true);
 }
 function expandedStorage(a){
- if(a.id==='F'){pineShelf('rear',0,1.45);pineShelf('rear',0,1.95);return;}
+ if(a.id==='F'){for(const [i,y] of [1.45,1.95].entries()){pineShelf('rear',0,y);shelfZone(W/2,2.4,.3,y,i===0?1.95:H,.24);}return;}
  const w=a.rackWidth,d=a.depth,h=a.top,x=.10+w/2,key=a.id==='D'?'rack60':'rack80';
  const steel=new T.MeshStandardMaterial({color:'#9da6a8',metalness:.72,roughness:.38}),beam=steel.clone();if(a.id==='E')beam.color.set('#bf4f2b');const board=materials.wood.clone();board.color.set('#b0a187');
- capture(()=>{for(const xx of [x-w/2+.025,x+w/2-.025])for(const zz of [L-d+.025,L-.025]){box(.049,h,.049,xx,h/2,zz,steel,furnitureGroup);for(let y=.075;y<h;y+=.05)box(.012,.018,.001,xx,y,zz-.025,'rubber',furnitureGroup);}for(const y of a.shelves[0]){box(w-.10,.022,d-.02,x,y-.011,L-d/2,board,furnitureGroup);for(const zz of [L-d+.025,L-.025])box(w-.05,.056,.035,x,y-.05,zz,beam,furnitureGroup);}},key,{title:a.system,dimensions:[w,d,h],levels:a.shelves[0],note:a.id==='D'?'Four chipboard shelves supplied; three installed for tall backpack openings, one spare. Wall anchoring required; protect board surfaces against moisture. Nominal external dimensions; confirm assembly clearances.':'Three 22 mm shelf plates. External width 144.8 cm, clear beam span 133.5 cm; 80 cm depth. Price shown includes 25% VAT. Two full units would be 289.6 cm wide and do not fit.'});
- rearExtension(a);for(const x of [.45,1.05])pack(x,.1,L-.26);pack(.55,a.shelves[0][1],L-.26,'accent');
+ capture(()=>{for(const xx of [x-w/2+.025,x+w/2-.025])for(const zz of [L-d+.025,L-.025]){box(.049,h,.049,xx,h/2,zz,steel,furnitureGroup);for(let y=.075;y<h;y+=.05)box(.012,.018,.001,xx,y,zz-.025,'rubber',furnitureGroup);}for(const y of a.shelves[0]){box(w-.10,.022,d-.02,x,y-.011,L-d/2,board,furnitureGroup);for(const zz of [L-d+.025,L-.025])box(w-.05,.056,.035,x,y-.05,zz,beam,furnitureGroup);}},key,{title:a.system,dimensions:[w,d,h],levels:a.shelves[0],note:a.id==='D'?'Four supplied shelves used at mixed spacing. Wall anchoring required; protect board surfaces against moisture. Nominal external dimensions; confirm assembly clearances.':'Five shelf levels shown: the catalogue unit supplies three; two additional levels are an unpriced concept pending component compatibility. External width 144.8 cm, clear beam span 133.5 cm; 80 cm depth. Price shown includes 25% VAT. Two full units would be 289.6 cm wide and do not fit.'});
+ a.shelves[0].forEach((y,i)=>shelfZone(x,w-.113,d-.02,y,a.shelves[0][i+1]??H,.08));
+ rearExtension(a);
 }
 
 function rearExtension(a){
@@ -39,7 +40,9 @@ function rearExtension(a){
  capture(()=>{for(const xx of [x0+.0225,x0+w-.0225])for(const zz of [L-d+.0225,L-.0225])box(.045,1.95,.045,xx,.975,zz,wood,furnitureGroup);},null,{title:'Custom full-depth extension · frame',dimensions:[w,d,1.95],note});
  const sledClear=.65,divider=x0+w-.045-sledClear-.0225,narrow=divider-.0225-(x0+.045),nx=x0+.045+narrow/2;
  capture(()=>{for(const zz of [L-d+.0225,L-.0225])box(.045,1.36,.045,divider,.68,zz,wood,furnitureGroup);},null,{title:'Divider · 65 cm clear sled slot',dimensions:[.045,d,1.36],note:'Keeps a dedicated 65 cm wide opening for the estimated 60 cm snow racer. Measure its steering wheel and protrusions.'});
- for(const y of [1.45,1.95])capture(()=>{box(w-.09,.018,d,x,y-.009,L-d/2,wood,furnitureGroup);for(const zz of [L-d+.0225,L-.0225])box(w-.09,.07,.045,x,y-.053,zz,wood,furnitureGroup);},null,{title:'Custom upper shelf · '+Math.round(y*100)+' cm',dimensions:[w-.09,d,.018],height:y,note:note+' Lowest front beam underside: 137 cm, above the provisional 130 cm sled.'});
- for(const y of [.1,.65])capture(()=>{box(narrow,.018,d,nx,y-.009,L-d/2,wood,furnitureGroup);for(const zz of [L-d+.0225,L-.0225])box(narrow,.07,.045,nx,y-.053,zz,wood,furnitureGroup);},null,{title:'Custom small-gear shelf · '+Math.round(y*100)+' cm',dimensions:[narrow,d,.018],height:y,note});
+ for(const y of [1.45,1.80])capture(()=>{box(w-.09,.018,d,x,y-.009,L-d/2,wood,furnitureGroup);for(const zz of [L-d+.0225,L-.0225])box(w-.09,.07,.045,x,y-.053,zz,wood,furnitureGroup);},null,{title:'Custom upper shelf · '+Math.round(y*100)+' cm',dimensions:[w-.09,d,.018],height:y,note:note+' Lowest front beam underside: 137 cm, above the provisional 130 cm sled.'});
+ for(const y of [.10,.45,.80,1.12])capture(()=>{box(narrow,.018,d,nx,y-.009,L-d/2,wood,furnitureGroup);for(const zz of [L-d+.0225,L-.0225])box(narrow,.07,.045,nx,y-.053,zz,wood,furnitureGroup);},null,{title:'Custom small-gear shelf · '+Math.round(y*100)+' cm',dimensions:[narrow,d,.018],height:y,note});
+ for(const [i,y] of [1.45,1.80].entries())shelfZone(x,w-.09,d,y,i===0?1.80:H,.08);
+ for(const [i,y] of [.10,.45,.80,1.12].entries())shelfZone(nx,narrow,d,y,[.45,.80,1.12,1.45][i],.08);
  snowRacer(x0+w-.045-sledClear/2);
 }

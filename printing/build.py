@@ -19,9 +19,9 @@ def build():
             if run[key] is not None: datetime.fromisoformat(run[key].replace('Z', '+00:00'))
         for key in ['estimatedSeconds', 'actualSeconds', 'estimatedGrams', 'actualGrams', 'estimatedMeters']:
             assert run[key] is None or isinstance(run[key], (int, float)) and run[key] >= 0, (path, key)
-        for image in [run['preview'], run['layout']] + [s['src'] for s in run['snapshots']]:
-            if image is None:
-                continue  # Planned records may precede an exact slice; never invent previews.
+        # An unsliced planned record has no preview; listed captures must still be real files.
+        images = [i for i in (run['preview'], run['layout']) if i is not None]
+        for image in images + [s['src'] for s in run['snapshots']]:
             resolved = (ROOT / image).resolve()
             assert image.startswith('assets/') and resolved.is_relative_to(ROOT / 'assets') and resolved.is_file(), image
         for shot in run['snapshots']:

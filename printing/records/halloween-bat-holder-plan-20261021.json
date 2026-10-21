@@ -1,0 +1,57 @@
+{
+  "id": "halloween-bat-holder-plan-20261021",
+  "title": "Halloween: The bat light keeper",
+  "project": "Halloween",
+  "printer": "Bambu Lab X2D",
+  "status": "planned",
+  "recordedAt": "2026-10-21T18:38:21.943410+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "printDate": null,
+  "jobName": "HALLOWEEN_BAT_HOLDER_PLANNING_CANDIDATE",
+  "plate": 1,
+  "parts": [
+    "Bat tealight holder: one piece"
+  ],
+  "estimatedSeconds": 18491,
+  "actualSeconds": null,
+  "estimatedGrams": 148.99,
+  "actualGrams": null,
+  "estimatedMeters": 49.16045,
+  "material": "PLA. Planned feed: Black external spool",
+  "color": "#161616",
+  "layerHeightMm": 0.2,
+  "nozzleMm": 0.4,
+  "layers": 750,
+  "preview": "assets/halloween-bat-holder-plan-20261021/plate_1.png",
+  "layout": "assets/halloween-bat-holder-plan-20261021/top_1.png",
+  "snapshots": [],
+  "evidenceImages": [
+    {
+      "src": "assets/halloween-bat-holder-plan-20261021/plate_1.png",
+      "kind": "slicer-preview",
+      "caption": "Exact exported X2D plate geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+      "sha256": "3c2e55c29b1bbbc80c5853b6ace3e89df8ec7514399d2427b83937c8ae9985e0"
+    },
+    {
+      "src": "assets/halloween-bat-holder-plan-20261021/top_1.png",
+      "kind": "slicer-preview",
+      "caption": "Exact exported X2D top geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+      "sha256": "c7d1b7cce4560a17b0bbb92f7bf969aaa1307ecabf9b34bbc9d0daa20ec80884"
+    }
+  ],
+  "source": {
+    "file": "candidate.gcode.3mf",
+    "sha256": "db4d11d99f2413e3174fde6af7ec64d6753841bf8de4ea0de355882c04baab4a",
+    "evidence": "Native Bambu Studio2.8.2.61 X2D slice and printable-area checks passed. Exact3MF and G-code/preview hashes retained locally. Planned filament-to-nozzle map: 1 1 1 1."
+  },
+  "notes": "Planning candidate only; no upload/start authorized or performed. 150mm tall; tree supports. Bambu imports the full mesh, lifting the source placement that clipped 1.46mm below the bed. Review the first-layer stance before release. Before starting: actual material/routing, support toolpath/first layer, current printer/plate clearance and exact-file checks are required. Native geometry preview and completed slicing do not prove physical fit, strength, support removal or puzzle movement. Actual time and usage remain unknown.",
+  "originalSources": [
+    {
+      "catalogId": 33,
+      "sha256": "fbdcbdd8e4e003d8a08b058f0ff711d5f0f684827fedc454ba2333e007583131"
+    }
+  ],
+  "machineCanonicalSha256": "684ae03aff5e8b48016f80103bba27456e8f408185a5c4b37695abd257c8fc91",
+  "sequence": 1
+}

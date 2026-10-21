@@ -1,0 +1,62 @@
+{
+  "id": "halloween-ghost-puzzle-plan-20261021",
+  "title": "Halloween: Ghost pedestal + skull puzzle",
+  "project": "Halloween",
+  "printer": "Bambu Lab X2D",
+  "status": "planned",
+  "recordedAt": "2026-10-21T18:38:21.943410+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "printDate": null,
+  "jobName": "HALLOWEEN_GHOST_PUZZLE_PLANNING_CANDIDATE",
+  "plate": 1,
+  "parts": [
+    "Ghost candle pedestal: one piece",
+    "Skull puzzle: one frame and eight sliding tiles, printed in place"
+  ],
+  "estimatedSeconds": 14763,
+  "actualSeconds": null,
+  "estimatedGrams": 71.08,
+  "actualGrams": null,
+  "estimatedMeters": 23.45521,
+  "material": "PLA. Planned feed: White external spool; black in AMS",
+  "color": "#FFFFFF",
+  "layerHeightMm": 0.16,
+  "nozzleMm": 0.4,
+  "layers": 759,
+  "preview": "assets/halloween-ghost-puzzle-plan-20261021/plate_1.png",
+  "layout": "assets/halloween-ghost-puzzle-plan-20261021/top_1.png",
+  "snapshots": [],
+  "evidenceImages": [
+    {
+      "src": "assets/halloween-ghost-puzzle-plan-20261021/plate_1.png",
+      "kind": "slicer-preview",
+      "caption": "Exact exported X2D plate geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+      "sha256": "28ed8efa41af1efe54276d0801dad46efc4f194c59399098ed25b593f369b9d1"
+    },
+    {
+      "src": "assets/halloween-ghost-puzzle-plan-20261021/top_1.png",
+      "kind": "slicer-preview",
+      "caption": "Exact exported X2D top geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+      "sha256": "00cb9f00da653ddd709ef39afa536765cd0dc2196c2c889b76dbaa42f0d31eeb"
+    }
+  ],
+  "source": {
+    "file": "shared-candidate.gcode.3mf",
+    "sha256": "ee86efc60d4c9c887ba2f2478dac52b58cacb44c540e07b5a5ddd4e990e000c7",
+    "evidence": "Native Bambu Studio2.8.2.61 X2D slice and printable-area checks passed. Exact3MF and G-code/preview hashes retained locally. Planned filament-to-nozzle map: 1 2."
+  },
+  "notes": "Planning candidate only; no upload/start authorized or performed. Two designs together. Preserve the 75mm puzzle and its captive tiles; puzzle supports are off, ghost tree supports are on. Check that the tiles move after cooling. Before starting: actual material/routing, support toolpath/first layer, current printer/plate clearance and exact-file checks are required. Native geometry preview and completed slicing do not prove physical fit, strength, support removal or puzzle movement. Actual time and usage remain unknown.",
+  "originalSources": [
+    {
+      "catalogId": 39,
+      "sha256": "a8ec845ac247119265594da84f56861156d84003ee8510da85b5bff2690fe622"
+    },
+    {
+      "catalogId": 178,
+      "sha256": "0d8cc4b225cebcf6f2c15624127470c70135a4c909c6482af43ec7d8a589c163"
+    }
+  ],
+  "machineCanonicalSha256": "684ae03aff5e8b48016f80103bba27456e8f408185a5c4b37695abd257c8fc91",
+  "sequence": 4
+}

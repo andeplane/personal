@@ -4,6 +4,8 @@ Live: https://andeplane.github.io/personal/garage/
 
 Six dimensioned storage alternatives for a 2.83 × 6.10 m garage, with clickable product information, empty/equipped views, camera presets, optional car and three transverse bikes with adjustable nesting. D/E include the latest nearly full-width rear storage extensions.
 
+Switching layouts preserves the current camera angle, pan and zoom for direct comparison. Camera presets and Reset view still reset the view explicitly.
+
 ## Develop
 
 From the repository root:

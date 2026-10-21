@@ -1,0 +1,57 @@
+{
+  "id": "halloween-bat-lantern-a-plan-20261021",
+  "title": "Halloween: Hanging bat lantern \u00b7 first half",
+  "project": "Halloween",
+  "printer": "Bambu Lab X2D",
+  "status": "planned",
+  "recordedAt": "2026-10-21T18:38:21.943410+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "printDate": null,
+  "jobName": "HALLOWEEN_BAT_LANTERN_A_PLANNING_CANDIDATE",
+  "plate": 1,
+  "parts": [
+    "Hanging bat lantern: first matching half"
+  ],
+  "estimatedSeconds": 22838,
+  "actualSeconds": null,
+  "estimatedGrams": 112.46,
+  "actualGrams": null,
+  "estimatedMeters": 37.10893,
+  "material": "PLA. Planned feed: Black external spool",
+  "color": "#161616",
+  "layerHeightMm": 0.16,
+  "nozzleMm": 0.4,
+  "layers": 1981,
+  "preview": "assets/halloween-bat-lantern-a-plan-20261021/plate_1.png",
+  "layout": "assets/halloween-bat-lantern-a-plan-20261021/top_1.png",
+  "snapshots": [],
+  "evidenceImages": [
+    {
+      "src": "assets/halloween-bat-lantern-a-plan-20261021/plate_1.png",
+      "kind": "slicer-preview",
+      "caption": "Exact exported X2D plate geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+      "sha256": "c6f354ced301efcc4f6e5f6e1ede75edad666e9336d6a3b4a178b673a1d33aaf"
+    },
+    {
+      "src": "assets/halloween-bat-lantern-a-plan-20261021/top_1.png",
+      "kind": "slicer-preview",
+      "caption": "Exact exported X2D top geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+      "sha256": "3301a7a7cb1240318302231c4a7c07c03e40e2074606554ba1fddf52f1bf32f7"
+    }
+  ],
+  "source": {
+    "file": "88-candidate.gcode.3mf",
+    "sha256": "361694bcd1bc40e136750fbd956212f29f89cc60a7177799aa07272bdea511b1",
+    "evidence": "Native Bambu Studio2.8.2.61 X2D slice and printable-area checks passed. Exact3MF and G-code/preview hashes retained locally. Planned filament-to-nozzle map: 1 1 1 1."
+  },
+  "notes": "Planning candidate only; no upload/start authorized or performed. Keep the diagonal orientation. After printing this half, test the LED and magnet pockets before making its partner. Before starting: actual material/routing, support toolpath/first layer, current printer/plate clearance and exact-file checks are required. Native geometry preview and completed slicing do not prove physical fit, strength, support removal or puzzle movement. Actual time and usage remain unknown. The source variable layer profile is retained:1981 layers;0.16mm is the nominal process setting, not a uniform layer height.",
+  "originalSources": [
+    {
+      "catalogId": 88,
+      "sha256": "70ea1b18b5fcca3912c0dcea2c09a3d96f745cac94c225d4ab7ac314be161fcd"
+    }
+  ],
+  "machineCanonicalSha256": "684ae03aff5e8b48016f80103bba27456e8f408185a5c4b37695abd257c8fc91",
+  "sequence": 2
+}

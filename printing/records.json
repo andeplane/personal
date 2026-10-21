@@ -1,5 +1,352 @@
 [
   {
+    "id": "halloween-crow-plan-20261021",
+    "title": "Halloween: Crow on a skull",
+    "project": "Halloween",
+    "printer": "Bambu Lab X2D",
+    "status": "planned",
+    "recordedAt": "2026-10-21T18:38:21.943410+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "printDate": null,
+    "jobName": "HALLOWEEN_CROW_PLANNING_CANDIDATE",
+    "plate": 1,
+    "parts": [
+      "Crow and skull bowl: one connected piece"
+    ],
+    "estimatedSeconds": 98817,
+    "actualSeconds": null,
+    "estimatedGrams": 450.59,
+    "actualGrams": null,
+    "estimatedMeters": 148.67725,
+    "material": "PLA. Planned feed: White/bone external spool; green, black and orange in AMS",
+    "color": "#FFFFFF",
+    "layerHeightMm": 0.2,
+    "nozzleMm": 0.4,
+    "layers": 871,
+    "preview": "assets/halloween-crow-plan-20261021/plate_1.png",
+    "layout": "assets/halloween-crow-plan-20261021/top_1.png",
+    "snapshots": [],
+    "evidenceImages": [
+      {
+        "src": "assets/halloween-crow-plan-20261021/plate_1.png",
+        "kind": "slicer-preview",
+        "caption": "Exact exported X2D plate geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+        "sha256": "b88110e53cf78e739fbcc50bd4ac31d6e156b8b20a90a035e9e59bf3fd62e6b5"
+      },
+      {
+        "src": "assets/halloween-crow-plan-20261021/top_1.png",
+        "kind": "slicer-preview",
+        "caption": "Exact exported X2D top geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+        "sha256": "08266dabe9ef46953ae2b8bbebf4bdda439bb73593d0d79ba00f132a79f0418f"
+      }
+    ],
+    "source": {
+      "file": "candidate.gcode.3mf",
+      "sha256": "4d65a81acc6ed8bb7bfcc505efa2bcff34a6072124e192f3acdba49db68cd02e",
+      "evidence": "Native Bambu Studio2.8.2.61 X2D slice and printable-area checks passed. Exact3MF and G-code/preview hashes retained locally. Planned filament-to-nozzle map: 1 2 2 2."
+    },
+    "notes": "Planning candidate only; no upload/start authorized or performed. 174mm tall. Leave this long multicolour job until the earlier PLA and support checks are satisfactory. Use white for the bone colour, or choose cream before the final material review. Before starting: actual material/routing, support toolpath/first layer, current printer/plate clearance and exact-file checks are required. Native geometry preview and completed slicing do not prove physical fit, strength, support removal or puzzle movement. Actual time and usage remain unknown.",
+    "originalSources": [
+      {
+        "catalogId": 43,
+        "sha256": "3a59ffa171c23a303265e12d30d428a46420ef6dade56c9970162695f5760527"
+      }
+    ],
+    "machineCanonicalSha256": "684ae03aff5e8b48016f80103bba27456e8f408185a5c4b37695abd257c8fc91",
+    "sequence": 6
+  },
+  {
+    "id": "halloween-witch-plan-20261021",
+    "title": "Halloween: The witch-hat candy monster",
+    "project": "Halloween",
+    "printer": "Bambu Lab X2D",
+    "status": "planned",
+    "recordedAt": "2026-10-21T18:38:21.943410+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "printDate": null,
+    "jobName": "HALLOWEEN_WITCH_PLANNING_CANDIDATE",
+    "plate": 1,
+    "parts": [
+      "Witch pumpkin: one connected piece"
+    ],
+    "estimatedSeconds": 44836,
+    "actualSeconds": null,
+    "estimatedGrams": 187.95,
+    "actualGrams": null,
+    "estimatedMeters": 62.01681000000001,
+    "material": "PLA. Planned feed: White external spool; tan, black and orange in AMS",
+    "color": "#F24300",
+    "layerHeightMm": 0.2,
+    "nozzleMm": 0.4,
+    "layers": 468,
+    "preview": "assets/halloween-witch-plan-20261021/plate_1.png",
+    "layout": "assets/halloween-witch-plan-20261021/top_1.png",
+    "snapshots": [],
+    "evidenceImages": [
+      {
+        "src": "assets/halloween-witch-plan-20261021/plate_1.png",
+        "kind": "slicer-preview",
+        "caption": "Exact exported X2D plate geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+        "sha256": "2c5d9c0c2fa1d11f7169da8a5dbc8c574fda0eb19912c19eabbfb2db767c18a0"
+      },
+      {
+        "src": "assets/halloween-witch-plan-20261021/top_1.png",
+        "kind": "slicer-preview",
+        "caption": "Exact exported X2D top geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+        "sha256": "840dbd171be8f4b8ad4071ca80a4f8a996b5008fd6eb70d2bebb2260216b96f0"
+      }
+    ],
+    "source": {
+      "file": "candidate.gcode.3mf",
+      "sha256": "4cfbaa757176f78c7f997bc93266c3a9a376ba8a2a97005074cefc4f8cc08a8c",
+      "evidence": "Native Bambu Studio2.8.2.61 X2D slice and printable-area checks passed. Exact3MF and G-code/preview hashes retained locally. Planned filament-to-nozzle map: 2 2 2 1."
+    },
+    "notes": "Planning candidate only; no upload/start authorized or performed. 93.6mm tall at supplied scale. Hat, teeth and pumpkin are one painted mesh. Tree supports enabled through an object override. Before starting: actual material/routing, support toolpath/first layer, current printer/plate clearance and exact-file checks are required. Native geometry preview and completed slicing do not prove physical fit, strength, support removal or puzzle movement. Actual time and usage remain unknown.",
+    "originalSources": [
+      {
+        "catalogId": 76,
+        "sha256": "84769537a604c125595bf080e74f6294d2f191b75392154b6ef8f6eb1875a637"
+      }
+    ],
+    "machineCanonicalSha256": "684ae03aff5e8b48016f80103bba27456e8f408185a5c4b37695abd257c8fc91",
+    "sequence": 5
+  },
+  {
+    "id": "halloween-ghost-puzzle-plan-20261021",
+    "title": "Halloween: Ghost pedestal + skull puzzle",
+    "project": "Halloween",
+    "printer": "Bambu Lab X2D",
+    "status": "planned",
+    "recordedAt": "2026-10-21T18:38:21.943410+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "printDate": null,
+    "jobName": "HALLOWEEN_GHOST_PUZZLE_PLANNING_CANDIDATE",
+    "plate": 1,
+    "parts": [
+      "Ghost candle pedestal: one piece",
+      "Skull puzzle: one frame and eight sliding tiles, printed in place"
+    ],
+    "estimatedSeconds": 14763,
+    "actualSeconds": null,
+    "estimatedGrams": 71.08,
+    "actualGrams": null,
+    "estimatedMeters": 23.45521,
+    "material": "PLA. Planned feed: White external spool; black in AMS",
+    "color": "#FFFFFF",
+    "layerHeightMm": 0.16,
+    "nozzleMm": 0.4,
+    "layers": 759,
+    "preview": "assets/halloween-ghost-puzzle-plan-20261021/plate_1.png",
+    "layout": "assets/halloween-ghost-puzzle-plan-20261021/top_1.png",
+    "snapshots": [],
+    "evidenceImages": [
+      {
+        "src": "assets/halloween-ghost-puzzle-plan-20261021/plate_1.png",
+        "kind": "slicer-preview",
+        "caption": "Exact exported X2D plate geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+        "sha256": "28ed8efa41af1efe54276d0801dad46efc4f194c59399098ed25b593f369b9d1"
+      },
+      {
+        "src": "assets/halloween-ghost-puzzle-plan-20261021/top_1.png",
+        "kind": "slicer-preview",
+        "caption": "Exact exported X2D top geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+        "sha256": "00cb9f00da653ddd709ef39afa536765cd0dc2196c2c889b76dbaa42f0d31eeb"
+      }
+    ],
+    "source": {
+      "file": "shared-candidate.gcode.3mf",
+      "sha256": "ee86efc60d4c9c887ba2f2478dac52b58cacb44c540e07b5a5ddd4e990e000c7",
+      "evidence": "Native Bambu Studio2.8.2.61 X2D slice and printable-area checks passed. Exact3MF and G-code/preview hashes retained locally. Planned filament-to-nozzle map: 1 2."
+    },
+    "notes": "Planning candidate only; no upload/start authorized or performed. Two designs together. Preserve the 75mm puzzle and its captive tiles; puzzle supports are off, ghost tree supports are on. Check that the tiles move after cooling. Before starting: actual material/routing, support toolpath/first layer, current printer/plate clearance and exact-file checks are required. Native geometry preview and completed slicing do not prove physical fit, strength, support removal or puzzle movement. Actual time and usage remain unknown.",
+    "originalSources": [
+      {
+        "catalogId": 39,
+        "sha256": "a8ec845ac247119265594da84f56861156d84003ee8510da85b5bff2690fe622"
+      },
+      {
+        "catalogId": 178,
+        "sha256": "0d8cc4b225cebcf6f2c15624127470c70135a4c909c6482af43ec7d8a589c163"
+      }
+    ],
+    "machineCanonicalSha256": "684ae03aff5e8b48016f80103bba27456e8f408185a5c4b37695abd257c8fc91",
+    "sequence": 4
+  },
+  {
+    "id": "halloween-bat-lantern-b-plan-20261021",
+    "title": "Halloween: Hanging bat lantern · second half",
+    "project": "Halloween",
+    "printer": "Bambu Lab X2D",
+    "status": "planned",
+    "recordedAt": "2026-10-21T18:38:21.943410+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "printDate": null,
+    "jobName": "HALLOWEEN_BAT_LANTERN_B_PLANNING_CANDIDATE",
+    "plate": 2,
+    "parts": [
+      "Hanging bat lantern: second matching half"
+    ],
+    "estimatedSeconds": 22817,
+    "actualSeconds": null,
+    "estimatedGrams": 112.46,
+    "actualGrams": null,
+    "estimatedMeters": 37.10889,
+    "material": "PLA. Planned feed: Black external spool",
+    "color": "#161616",
+    "layerHeightMm": 0.16,
+    "nozzleMm": 0.4,
+    "layers": 1981,
+    "preview": "assets/halloween-bat-lantern-b-plan-20261021/plate_2.png",
+    "layout": "assets/halloween-bat-lantern-b-plan-20261021/top_2.png",
+    "snapshots": [],
+    "evidenceImages": [
+      {
+        "src": "assets/halloween-bat-lantern-b-plan-20261021/plate_2.png",
+        "kind": "slicer-preview",
+        "caption": "Exact exported X2D plate geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+        "sha256": "1b243c942fdc9719d5e622c405e26916ba3f5cbdb441f6a49cc16b1bedb2b06c"
+      },
+      {
+        "src": "assets/halloween-bat-lantern-b-plan-20261021/top_2.png",
+        "kind": "slicer-preview",
+        "caption": "Exact exported X2D top geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+        "sha256": "95522feb9027dd7d0f9a74d65ce1f6d0a549a23d604a5524cb3619b964bbc3eb"
+      }
+    ],
+    "source": {
+      "file": "88-candidate.gcode.3mf",
+      "sha256": "361694bcd1bc40e136750fbd956212f29f89cc60a7177799aa07272bdea511b1",
+      "evidence": "Native Bambu Studio2.8.2.61 X2D slice and printable-area checks passed. Exact3MF and G-code/preview hashes retained locally. Planned filament-to-nozzle map: 1 1 1 1."
+    },
+    "notes": "Planning candidate only; no upload/start authorized or performed. Matching half at original scale. Remove supports and assemble with magnets and glue after fit checks. Before starting: actual material/routing, support toolpath/first layer, current printer/plate clearance and exact-file checks are required. Native geometry preview and completed slicing do not prove physical fit, strength, support removal or puzzle movement. Actual time and usage remain unknown. The source variable layer profile is retained:1981 layers;0.16mm is the nominal process setting, not a uniform layer height.",
+    "originalSources": [
+      {
+        "catalogId": 88,
+        "sha256": "70ea1b18b5fcca3912c0dcea2c09a3d96f745cac94c225d4ab7ac314be161fcd"
+      }
+    ],
+    "machineCanonicalSha256": "684ae03aff5e8b48016f80103bba27456e8f408185a5c4b37695abd257c8fc91",
+    "sequence": 3
+  },
+  {
+    "id": "halloween-bat-lantern-a-plan-20261021",
+    "title": "Halloween: Hanging bat lantern · first half",
+    "project": "Halloween",
+    "printer": "Bambu Lab X2D",
+    "status": "planned",
+    "recordedAt": "2026-10-21T18:38:21.943410+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "printDate": null,
+    "jobName": "HALLOWEEN_BAT_LANTERN_A_PLANNING_CANDIDATE",
+    "plate": 1,
+    "parts": [
+      "Hanging bat lantern: first matching half"
+    ],
+    "estimatedSeconds": 22838,
+    "actualSeconds": null,
+    "estimatedGrams": 112.46,
+    "actualGrams": null,
+    "estimatedMeters": 37.10893,
+    "material": "PLA. Planned feed: Black external spool",
+    "color": "#161616",
+    "layerHeightMm": 0.16,
+    "nozzleMm": 0.4,
+    "layers": 1981,
+    "preview": "assets/halloween-bat-lantern-a-plan-20261021/plate_1.png",
+    "layout": "assets/halloween-bat-lantern-a-plan-20261021/top_1.png",
+    "snapshots": [],
+    "evidenceImages": [
+      {
+        "src": "assets/halloween-bat-lantern-a-plan-20261021/plate_1.png",
+        "kind": "slicer-preview",
+        "caption": "Exact exported X2D plate geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+        "sha256": "c6f354ced301efcc4f6e5f6e1ede75edad666e9336d6a3b4a178b673a1d33aaf"
+      },
+      {
+        "src": "assets/halloween-bat-lantern-a-plan-20261021/top_1.png",
+        "kind": "slicer-preview",
+        "caption": "Exact exported X2D top geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+        "sha256": "3301a7a7cb1240318302231c4a7c07c03e40e2074606554ba1fddf52f1bf32f7"
+      }
+    ],
+    "source": {
+      "file": "88-candidate.gcode.3mf",
+      "sha256": "361694bcd1bc40e136750fbd956212f29f89cc60a7177799aa07272bdea511b1",
+      "evidence": "Native Bambu Studio2.8.2.61 X2D slice and printable-area checks passed. Exact3MF and G-code/preview hashes retained locally. Planned filament-to-nozzle map: 1 1 1 1."
+    },
+    "notes": "Planning candidate only; no upload/start authorized or performed. Keep the diagonal orientation. After printing this half, test the LED and magnet pockets before making its partner. Before starting: actual material/routing, support toolpath/first layer, current printer/plate clearance and exact-file checks are required. Native geometry preview and completed slicing do not prove physical fit, strength, support removal or puzzle movement. Actual time and usage remain unknown. The source variable layer profile is retained:1981 layers;0.16mm is the nominal process setting, not a uniform layer height.",
+    "originalSources": [
+      {
+        "catalogId": 88,
+        "sha256": "70ea1b18b5fcca3912c0dcea2c09a3d96f745cac94c225d4ab7ac314be161fcd"
+      }
+    ],
+    "machineCanonicalSha256": "684ae03aff5e8b48016f80103bba27456e8f408185a5c4b37695abd257c8fc91",
+    "sequence": 2
+  },
+  {
+    "id": "halloween-bat-holder-plan-20261021",
+    "title": "Halloween: The bat light keeper",
+    "project": "Halloween",
+    "printer": "Bambu Lab X2D",
+    "status": "planned",
+    "recordedAt": "2026-10-21T18:38:21.943410+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "printDate": null,
+    "jobName": "HALLOWEEN_BAT_HOLDER_PLANNING_CANDIDATE",
+    "plate": 1,
+    "parts": [
+      "Bat tealight holder: one piece"
+    ],
+    "estimatedSeconds": 18491,
+    "actualSeconds": null,
+    "estimatedGrams": 148.99,
+    "actualGrams": null,
+    "estimatedMeters": 49.16045,
+    "material": "PLA. Planned feed: Black external spool",
+    "color": "#161616",
+    "layerHeightMm": 0.2,
+    "nozzleMm": 0.4,
+    "layers": 750,
+    "preview": "assets/halloween-bat-holder-plan-20261021/plate_1.png",
+    "layout": "assets/halloween-bat-holder-plan-20261021/top_1.png",
+    "snapshots": [],
+    "evidenceImages": [
+      {
+        "src": "assets/halloween-bat-holder-plan-20261021/plate_1.png",
+        "kind": "slicer-preview",
+        "caption": "Exact exported X2D plate geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+        "sha256": "3c2e55c29b1bbbc80c5853b6ace3e89df8ec7514399d2427b83937c8ae9985e0"
+      },
+      {
+        "src": "assets/halloween-bat-holder-plan-20261021/top_1.png",
+        "kind": "slicer-preview",
+        "caption": "Exact exported X2D top geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+        "sha256": "c7d1b7cce4560a17b0bbb92f7bf969aaa1307ecabf9b34bbc9d0daa20ec80884"
+      }
+    ],
+    "source": {
+      "file": "candidate.gcode.3mf",
+      "sha256": "db4d11d99f2413e3174fde6af7ec64d6753841bf8de4ea0de355882c04baab4a",
+      "evidence": "Native Bambu Studio2.8.2.61 X2D slice and printable-area checks passed. Exact3MF and G-code/preview hashes retained locally. Planned filament-to-nozzle map: 1 1 1 1."
+    },
+    "notes": "Planning candidate only; no upload/start authorized or performed. 150mm tall; tree supports. Bambu imports the full mesh, lifting the source placement that clipped 1.46mm below the bed. Review the first-layer stance before release. Before starting: actual material/routing, support toolpath/first layer, current printer/plate clearance and exact-file checks are required. Native geometry preview and completed slicing do not prove physical fit, strength, support removal or puzzle movement. Actual time and usage remain unknown.",
+    "originalSources": [
+      {
+        "catalogId": 33,
+        "sha256": "fbdcbdd8e4e003d8a08b058f0ff711d5f0f684827fedc454ba2333e007583131"
+      }
+    ],
+    "machineCanonicalSha256": "684ae03aff5e8b48016f80103bba27456e8f408185a5c4b37695abd257c8fc91",
+    "sequence": 1
+  },
+  {
     "id": "plastic-scraper-20261021-a1",
     "title": "Plastic bed scraper · first attempt",
     "project": "Printer tools",

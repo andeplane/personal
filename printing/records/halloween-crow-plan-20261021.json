@@ -1,0 +1,57 @@
+{
+  "id": "halloween-crow-plan-20261021",
+  "title": "Halloween: Crow on a skull",
+  "project": "Halloween",
+  "printer": "Bambu Lab X2D",
+  "status": "planned",
+  "recordedAt": "2026-10-21T18:38:21.943410+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "printDate": null,
+  "jobName": "HALLOWEEN_CROW_PLANNING_CANDIDATE",
+  "plate": 1,
+  "parts": [
+    "Crow and skull bowl: one connected piece"
+  ],
+  "estimatedSeconds": 98817,
+  "actualSeconds": null,
+  "estimatedGrams": 450.59,
+  "actualGrams": null,
+  "estimatedMeters": 148.67725,
+  "material": "PLA. Planned feed: White/bone external spool; green, black and orange in AMS",
+  "color": "#FFFFFF",
+  "layerHeightMm": 0.2,
+  "nozzleMm": 0.4,
+  "layers": 871,
+  "preview": "assets/halloween-crow-plan-20261021/plate_1.png",
+  "layout": "assets/halloween-crow-plan-20261021/top_1.png",
+  "snapshots": [],
+  "evidenceImages": [
+    {
+      "src": "assets/halloween-crow-plan-20261021/plate_1.png",
+      "kind": "slicer-preview",
+      "caption": "Exact exported X2D plate geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+      "sha256": "b88110e53cf78e739fbcc50bd4ac31d6e156b8b20a90a035e9e59bf3fd62e6b5"
+    },
+    {
+      "src": "assets/halloween-crow-plan-20261021/top_1.png",
+      "kind": "slicer-preview",
+      "caption": "Exact exported X2D top geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+      "sha256": "08266dabe9ef46953ae2b8bbebf4bdda439bb73593d0d79ba00f132a79f0418f"
+    }
+  ],
+  "source": {
+    "file": "candidate.gcode.3mf",
+    "sha256": "4d65a81acc6ed8bb7bfcc505efa2bcff34a6072124e192f3acdba49db68cd02e",
+    "evidence": "Native Bambu Studio2.8.2.61 X2D slice and printable-area checks passed. Exact3MF and G-code/preview hashes retained locally. Planned filament-to-nozzle map: 1 2 2 2."
+  },
+  "notes": "Planning candidate only; no upload/start authorized or performed. 174mm tall. Leave this long multicolour job until the earlier PLA and support checks are satisfactory. Use white for the bone colour, or choose cream before the final material review. Before starting: actual material/routing, support toolpath/first layer, current printer/plate clearance and exact-file checks are required. Native geometry preview and completed slicing do not prove physical fit, strength, support removal or puzzle movement. Actual time and usage remain unknown.",
+  "originalSources": [
+    {
+      "catalogId": 43,
+      "sha256": "3a59ffa171c23a303265e12d30d428a46420ef6dade56c9970162695f5760527"
+    }
+  ],
+  "machineCanonicalSha256": "684ae03aff5e8b48016f80103bba27456e8f408185a5c4b37695abd257c8fc91",
+  "sequence": 6
+}

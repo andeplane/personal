@@ -1,0 +1,57 @@
+{
+  "id": "halloween-bat-lantern-b-plan-20261021",
+  "title": "Halloween: Hanging bat lantern \u00b7 second half",
+  "project": "Halloween",
+  "printer": "Bambu Lab X2D",
+  "status": "planned",
+  "recordedAt": "2026-10-21T18:38:21.943410+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "printDate": null,
+  "jobName": "HALLOWEEN_BAT_LANTERN_B_PLANNING_CANDIDATE",
+  "plate": 2,
+  "parts": [
+    "Hanging bat lantern: second matching half"
+  ],
+  "estimatedSeconds": 22817,
+  "actualSeconds": null,
+  "estimatedGrams": 112.46,
+  "actualGrams": null,
+  "estimatedMeters": 37.10889,
+  "material": "PLA. Planned feed: Black external spool",
+  "color": "#161616",
+  "layerHeightMm": 0.16,
+  "nozzleMm": 0.4,
+  "layers": 1981,
+  "preview": "assets/halloween-bat-lantern-b-plan-20261021/plate_2.png",
+  "layout": "assets/halloween-bat-lantern-b-plan-20261021/top_2.png",
+  "snapshots": [],
+  "evidenceImages": [
+    {
+      "src": "assets/halloween-bat-lantern-b-plan-20261021/plate_2.png",
+      "kind": "slicer-preview",
+      "caption": "Exact exported X2D plate geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+      "sha256": "1b243c942fdc9719d5e622c405e26916ba3f5cbdb441f6a49cc16b1bedb2b06c"
+    },
+    {
+      "src": "assets/halloween-bat-lantern-b-plan-20261021/top_2.png",
+      "kind": "slicer-preview",
+      "caption": "Exact exported X2D top geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+      "sha256": "95522feb9027dd7d0f9a74d65ce1f6d0a549a23d604a5524cb3619b964bbc3eb"
+    }
+  ],
+  "source": {
+    "file": "88-candidate.gcode.3mf",
+    "sha256": "361694bcd1bc40e136750fbd956212f29f89cc60a7177799aa07272bdea511b1",
+    "evidence": "Native Bambu Studio2.8.2.61 X2D slice and printable-area checks passed. Exact3MF and G-code/preview hashes retained locally. Planned filament-to-nozzle map: 1 1 1 1."
+  },
+  "notes": "Planning candidate only; no upload/start authorized or performed. Matching half at original scale. Remove supports and assemble with magnets and glue after fit checks. Before starting: actual material/routing, support toolpath/first layer, current printer/plate clearance and exact-file checks are required. Native geometry preview and completed slicing do not prove physical fit, strength, support removal or puzzle movement. Actual time and usage remain unknown. The source variable layer profile is retained:1981 layers;0.16mm is the nominal process setting, not a uniform layer height.",
+  "originalSources": [
+    {
+      "catalogId": 88,
+      "sha256": "70ea1b18b5fcca3912c0dcea2c09a3d96f745cac94c225d4ab7ac314be161fcd"
+    }
+  ],
+  "machineCanonicalSha256": "684ae03aff5e8b48016f80103bba27456e8f408185a5c4b37695abd257c8fc91",
+  "sequence": 3
+}

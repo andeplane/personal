@@ -1,0 +1,57 @@
+{
+  "id": "halloween-witch-plan-20261021",
+  "title": "Halloween: The witch-hat candy monster",
+  "project": "Halloween",
+  "printer": "Bambu Lab X2D",
+  "status": "planned",
+  "recordedAt": "2026-10-21T18:38:21.943410+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "printDate": null,
+  "jobName": "HALLOWEEN_WITCH_PLANNING_CANDIDATE",
+  "plate": 1,
+  "parts": [
+    "Witch pumpkin: one connected piece"
+  ],
+  "estimatedSeconds": 44836,
+  "actualSeconds": null,
+  "estimatedGrams": 187.95,
+  "actualGrams": null,
+  "estimatedMeters": 62.01681000000001,
+  "material": "PLA. Planned feed: White external spool; tan, black and orange in AMS",
+  "color": "#F24300",
+  "layerHeightMm": 0.2,
+  "nozzleMm": 0.4,
+  "layers": 468,
+  "preview": "assets/halloween-witch-plan-20261021/plate_1.png",
+  "layout": "assets/halloween-witch-plan-20261021/top_1.png",
+  "snapshots": [],
+  "evidenceImages": [
+    {
+      "src": "assets/halloween-witch-plan-20261021/plate_1.png",
+      "kind": "slicer-preview",
+      "caption": "Exact exported X2D plate geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+      "sha256": "2c5d9c0c2fa1d11f7169da8a5dbc8c574fda0eb19912c19eabbfb2db767c18a0"
+    },
+    {
+      "src": "assets/halloween-witch-plan-20261021/top_1.png",
+      "kind": "slicer-preview",
+      "caption": "Exact exported X2D top geometry preview for this planned plate. Supports and toolpaths are not displayed; no physical outcome is shown.",
+      "sha256": "840dbd171be8f4b8ad4071ca80a4f8a996b5008fd6eb70d2bebb2260216b96f0"
+    }
+  ],
+  "source": {
+    "file": "candidate.gcode.3mf",
+    "sha256": "4cfbaa757176f78c7f997bc93266c3a9a376ba8a2a97005074cefc4f8cc08a8c",
+    "evidence": "Native Bambu Studio2.8.2.61 X2D slice and printable-area checks passed. Exact3MF and G-code/preview hashes retained locally. Planned filament-to-nozzle map: 2 2 2 1."
+  },
+  "notes": "Planning candidate only; no upload/start authorized or performed. 93.6mm tall at supplied scale. Hat, teeth and pumpkin are one painted mesh. Tree supports enabled through an object override. Before starting: actual material/routing, support toolpath/first layer, current printer/plate clearance and exact-file checks are required. Native geometry preview and completed slicing do not prove physical fit, strength, support removal or puzzle movement. Actual time and usage remain unknown.",
+  "originalSources": [
+    {
+      "catalogId": 76,
+      "sha256": "84769537a604c125595bf080e74f6294d2f191b75392154b6ef8f6eb1875a637"
+    }
+  ],
+  "machineCanonicalSha256": "684ae03aff5e8b48016f80103bba27456e8f408185a5c4b37695abd257c8fc91",
+  "sequence": 5
+}

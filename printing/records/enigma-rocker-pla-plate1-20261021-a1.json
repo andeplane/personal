@@ -6,10 +6,10 @@
   "status": "planned",
   "preparationState": "HELD_SHARED_SUPPORT_STABILITY_REVIEW",
   "recordedAt": "2026-10-21T11:30:59.899343+00:00",
-  "updatedAt": "2026-10-21T14:51:09.701851+00:00",
+  "updatedAt": "2026-10-21T17:39:47.541251+00:00",
   "startedAt": null,
   "finishedAt": null,
-  "jobName": "ENIGMA_ROCKER_PLA_1c3cb216 · ikke startet",
+  "jobName": "ENIGMA_ROCKER_PLA_b3e62f4b · på vent, ikke startet",
   "plate": 1,
   "parts": [
     "ROCKER_FRAME_LEFT",
@@ -20,83 +20,82 @@
     "ROCKER_BEARING_LEFT",
     "ROCKER_BEARING_RIGHT"
   ],
-  "estimatedSeconds": 12625.0,
+  "estimatedSeconds": 13577.0,
   "actualSeconds": null,
-  "estimatedGrams": 109.84,
+  "estimatedGrams": 111.71,
   "actualGrams": null,
-  "estimatedMeters": 36.24,
+  "estimatedMeters": 36.86,
   "material": "PLA Basic · svart · planlagt AMS A3",
   "color": "#161616",
   "layerHeightMm": 0.2,
   "firstLayerHeightMm": 0.2,
   "nozzleMm": 0.4,
-  "layers": 151,
-  "preview": "assets/enigma-rocker-pla-plate1-20261021-a1/plan.png",
-  "layout": "assets/enigma-rocker-pla-plate1-20261021-a1/layout.png",
+  "layers": 72,
+  "preview": "assets/enigma-rocker-pla-plate1-20261021-a1/support-successor-preview.png",
+  "layout": "assets/enigma-rocker-pla-plate1-20261021-a1/support-successor-layout.png",
   "snapshots": [],
   "source": {
     "file": "sliced.3mf",
-    "sha256": "1c3cb2164cbc7fd8d40f1c7429ba1d3d7f2d22608fa045109bbb16f54a73d173",
+    "sha256": "b3e62f4bc8a713359dfedb52f8afe885d8c133618142041b4c53b8050c7740a1",
     "repository": "https://github.com/andeplane/openenigma",
-    "commit": "065f60ab0f239d02eac61d1f7d8d283d3fc89412",
+    "commit": "fd1b0a062090641decd766dc9447ef4e7ce0e793",
     "branch": "main",
     "job": "mechanical-rocker-pla",
     "gcodeMember": "Metadata/plate_1.gcode",
-    "gcodeSha256": "9552008000d010565ab121a384c4e62adb1fdd52d9db0aa6cf789c212ac02d75",
+    "gcodeSha256": "04e46f9ce276a029239b39f41d406890602522967bfc9185351121b1343f6960",
     "pullRequests": [
-      "https://github.com/andeplane/openenigma/pull/180",
-      "https://github.com/andeplane/openenigma/pull/182"
+      "https://github.com/andeplane/openenigma/pull/185"
     ],
     "editableProject": {
       "file": "EIGHT_PLA_ROCKER_COMPONENTS_X2D.3mf",
-      "sha256": "f1dae59665d049492c4e08ed187f8ce206b031ec998368ac5d14d7ebf5e0571b"
+      "sha256": "5a766d9dd170acb0816546379b92de6b2264957baf21d8652edaacd1cfbc9e98"
     },
     "releaseVerification": {
-      "sourceMainCheckedAt": "2026-10-21T14:07:06.939539+00:00",
-      "openPullRequests": [],
-      "printGate": "PREPARED",
-      "gateReceiptSha256": "41a9531e978ad0c0c9762f1f7aab7dc0dde853f16d435774c55c5c093208b5d8",
-      "sliceAuditSha256": "ff3761dfdfdc93b8e184d7faf4ff650f5d7900b3dbefa4c127679f3e8598840b",
+      "sourceMerge": "fd1b0a062090641decd766dc9447ef4e7ce0e793",
+      "reviewedHead": "f018702635323624a4d47a172f00ce59fb5d6604",
+      "printGate": "HELD_NOT_PREPARED",
+      "currentManifestSha256": "3138c88dd688882e8da12c83a0d7ac1a54efc6d73f3c2618b99d7ac683a9ca36",
+      "currentAuditorSha256": "91a203fcca9e2b5be551d2eef0e39bd874b7d33c6e04598a9522ed9e4d4808ee",
+      "sliceAuditSha256": "47ddb48dc1aa75e5222e518fb32cfb5da4fbd2bf581968f6a7070db32ad0c59f",
       "criticalFeatureAuditStatus": "REVIEWED_ROCKER_BORE_VOIDS_CLEAR_IN_TOOLPATHS",
-      "criticalViewReviewSha256": "6b8eae3edd8a6123bb91ed514c7329b1a6c05070026e0a23ffe4871fc5215820",
-      "liveGuideFingerprint": "3a45764768d9f3add2d6d20843bd862676f57b07ecb322f9cab53ec127fdec8c",
-      "mainDeploymentRun": "https://github.com/andeplane/openenigma/actions/runs/39606261903",
+      "independentSourceReviewSha256": "3ccc7e027fb7f55157a34847138566b9059cb4bd3dddc40d80f3cf3ca489d907",
+      "finiteSupportReviewSha256": "20881eba5481b4ec5d73a20ba7ce849f4ac81658bcd23c72805d307c0bf3332b",
+      "reviewedHeadToMainEquivalenceSha256": "f9c92d60dee12d278dee902da8bc85a3cc73c2e125d310b85a8675d1679b02b2",
       "physicalFitVerified": false,
-      "currentManifestSha256": "5536690f65052dada9ff09d7f61438956af241135cd58031f4e2dd38ab9cd92f",
-      "currentAuditorSha256": "4569bbc77f8b3f7caa78f7a413c542ec11d4eda2105a2aa681acfc148e846047",
-      "readyReceiptSha256": "663b67a3d3063a5c8f3d91f53a4272a2ca5cd43e770cc595bc7a27b5816da8cd",
-      "selectedSourceEquivalenceSha256": "b26f15aecc6ba90c88cd351c312de049e92d226c417a68589cd8cf12da8810b6",
-      "manualAndBrowserEquivalenceSha256": "8644b7a83b5278421cd3e359370ec68a32d14f7743b7e29777b511e001ea8bf4"
+      "physicalSupportStabilityVerified": false,
+      "physicalSupportRemovalVerified": false,
+      "uploadedBytesVerified": false,
+      "acceptedPrintJobObserved": false,
+      "liveGuideFingerprint": "3519fe34d3e97033ffa4f38b37c66a8f8199e2ca562a6abcb8034534ebee4d5e",
+      "liveGuideByteReceiptSha256": "d2773159c9eee84591e5936c0c12106d0aa978de4724bd2de50fcb51e199bf48",
+      "manualBrowserEquivalenceSha256": "3287e6ccd68d868526735e16f2db11b30466170cbcbf5ebc1f28f40554e46dc4",
+      "freshBrowserInteractionVerified": false,
+      "mobileBrowserTested": false
     },
-    "evidence": "Klargjort fra ren gjeldende main etter kilde- og uavhengig gjennomgang, eksakt synkronisert publisert guide, og verifisert 7+1 plassering. Sluttfilen er slicet fra det portkontrollerte prosjektet; modelltrekanter, navn, posisjoner, prosess og faktiske boreverktøybaner samsvarer. Fire kritiske borevolumer er uten modell-/støtteinntrenging i kontrollområdet. Ti avgrensede faktiske verktøybanevisninger er gjennomgått. Printerstart er ennå ikke utført for denne kjøringen. Kildekontroll oppdatert mot ren main 065f60ab: alle 16 valgte kildefiler er byteidentiske, begge platene er kontrollert på nytt med gjeldende manifest/revisor, og eksakte forhåndsvisninger samt tidligere manuell verktøybane-/animasjonskontroll er hashbundet. Arkivet ble forhåndslastet opp 21. oktober kl. 14:30 UTC mens den forrige kjøringen pågikk. En ny nedlasting har eksakt samme SHA-256 som den gjennomgåtte slicefilen; nedlastingskontrollen binder begge platene til de gjeldende gjennomgangene. Ingen ny startkommando er sendt, og ingen akseptert printjobb er observert for denne platen. Oppstart av de uprintede vippedelene er satt på vent mens den delte støtteprosessen gjennomgås etter en lokal ekstruderingsfeil i den foregående ende-komponentprøven. Kilde-/verktøybanekontroll og identisk nedlasting er beholdt som dokumentasjon; fysisk støttestabilitet er ikke verifisert.",
-    "uploadVerification": {
-      "uploadedAt": "2026-10-21T14:30:00.203101+00:00",
-      "remoteFile": "ENIGMA_ROCKER_PLA_1c3cb216.gcode.3mf",
-      "uploadResult": "SUCCESS",
-      "readbackStatus": "UPLOADED_BYTES_MATCH_REVIEWED_ARTIFACT",
-      "readbackSha256": "1c3cb2164cbc7fd8d40f1c7429ba1d3d7f2d22608fa045109bbb16f54a73d173",
-      "readbackReceiptSha256": "d27145e0fb043edbabc9ebd2e9397452cbf4e37ae34b0b172d714ee1d99834b9",
-      "reviewReceiptSha256": "ff3761dfdfdc93b8e184d7faf4ff650f5d7900b3dbefa4c127679f3e8598840b",
-      "uploadReceiptSha256": "281737942014c8d94221e646ec53f40edaef606f8efc0712fa6656e32530cb9c",
-      "actualDownloadedBytesIndependentlyHashed": true,
-      "startCommandSent": false,
-      "acceptedPrintJobObserved": false
-    }
+    "evidence": "PR185 er slått sammen etter uavhengig gjennomgang og alle eksakte kilde-CI-kontroller. Uendret geometri, plassering, 8mm brim og 7+1 delefordeling; bare støtteoppskrift og tilhørende dokumentasjon er endret. B3-arkivet er kontrollert mot de eksakte modellene, prosessinnstillingene og kritiske borebanene. Denne nye filen er ikke lastet opp eller startet. Tidligere1c3-opplasting/nedlasting er bevart separat i uforanderlig klargjøringshistorikk; den dokumenterer ikke b3-filen. Fysisk oppstartssperre er fortsatt aktiv."
   },
-  "notes": "Ubelastet PLA-passformprøve. De viste bildene er eksakte bilder fra sluttfilen etter main-klargjøring. Støtte kommer bare fra byggeplaten for å redusere innestengt støtte i blinde boringer; brotak, støttefjerning og oppnådd toleranse er ikke fysisk godkjent. Slicerfargen er illustrativ grønn; planlagt fysisk materiale er svart PLA Basic fra AMS A3, som må kontrolleres live før start. Venstre bakarm er fortsatt en ikke-adoptert, fysisk ukvalifisert koblingskandidat; flere øvrige deler har historisk/null materialstatus. For at mekanismen skal holde sammen og rotere, trengs 2 spesialpivoter (M6×8,5 gjenge og Ø5×18 skulder), 2 M6 tynnmuttere, Ø6×142 stålaksel, 10 M3-skjøter og separat base-/stopp-/fjærmaskinvare. Slicertid og materiale er estimater. Ingen kamerabilder eller faktisk tid/forbruk fra denne ennå ustartede kjøringen foreligger.",
+  "notes": "Ubelastet PLA-passformprøve, fortsatt på vent. De viste bildene er eksakte forhåndsvisninger fra b3-kandidatslicen, laget før sammenslåing; kilde-/slicebytene er bundet til gjennomgått head og identisk sammenslått main. Denne etterfølgeren er ikke portklargjort, lastet opp eller startet. Støtte kommer bare fra byggeplaten for å redusere innestengt støtte i blinde boringer; brotak, støttefjerning og oppnådd toleranse er ikke fysisk godkjent. Slicerfargen er illustrativ grønn; planlagt fysisk materiale er svart PLA Basic fra AMS A3, som må kontrolleres live før start. Venstre bakarm er fortsatt en ikke-adoptert, fysisk ukvalifisert koblingskandidat; flere øvrige deler har historisk/null materialstatus. For at mekanismen skal holde sammen og rotere, trengs 2 spesialpivoter (M6×8,5 gjenge og Ø5×18 skulder), 2 M6 tynnmuttere, Ø6×142 stålaksel, 10 M3-skjøter og separat base-/stopp-/fjærmaskinvare. Slicertid og materiale er estimater. Ingen kamerabilder eller faktisk tid/forbruk fra denne ennå ustartede kjøringen foreligger. Etterfølgeren bruker tettere/langsommere støtte og vanlige0,2mm støttelag; fysisk stabilitet er ikke bevist. Fire separate, nedovervendte trinnvise blindhulrom i lampestøttene inneholder tett støtte og har geometrisk uttaksvei mot byggeplaten; faktisk uttak uten skade er uprøvd. De horisontale Ø4-returstoppboringene og trinnvise basepassasjene har ingen støtte-senterlinjer i de avgrensede kontrollerte volumene. Dette beviser ikke full perlevolumklaring eller mekanisk passform.",
   "sequence": 7,
   "evidencePending": [
-    "Shared support-process stability review before starting",
-    "Immediate live camera/telemetry/material and accepted job/plate identity",
-    "During/after-print camera captures",
-    "Physical support cleanup, bridge surfaces and fit inspection"
+    "Physical adhesion/support-stability review and explicit hold release",
+    "Actual dense support-plug removal without damage",
+    "Current-main/live-guide and immediate camera/telemetry/material checks before any start",
+    "Upload/readback of THIS b3 successor archive",
+    "Accepted job/plate identity, during/after camera and actual measurements"
   ],
   "settings": {
     "wallLoops": 4,
     "sparseInfillPercent": 30,
     "sparseInfillPattern": "gyroid",
     "supports": "normal(auto), snug, build-plate only",
-    "outerBrimMm": 8
+    "outerBrimMm": 8,
+    "supportBasePatternSpacingMm": 1.2,
+    "supportSpeedMmPerS": 60,
+    "supportInterfaceSpeedMmPerS": 40,
+    "independentSupportLayerHeight": false,
+    "supportLayerHeightMm": 0.2,
+    "supportTopSeparationMm": 0.2,
+    "supportObjectXYGapMm": 0.35
   },
   "sourceVerificationHistory": [
     {
@@ -136,9 +135,161 @@
   ],
   "preparationHold": {
     "observedAt": "2026-10-21T14:51:09.701851+00:00",
-    "reason": "Shared support-process stability review required after a local extrusion failure on the preceding end-parts trial. Existing rocker files share the reviewed support process.",
-    "scope": "Unprinted rocker plates 1 and 2; verified source geometry and uploaded/readback bytes remain recorded.",
+    "reason": "Physical support stability/removal remains unqualified after earlier end-trial failures. Denser/slower support is a reviewed candidate, not proven process. Same-recipe body retry first-layer adhesion failure was reported by root; no causal attribution or hold clearance.",
+    "scope": "Both unprinted rocker successor plates. Historical1c3 upload/readback retained separately; b3 has not been uploaded or started.",
     "startAllowed": false,
-    "physicalSupportStabilityVerified": false
-  }
+    "physicalSupportStabilityVerified": false,
+    "updatedAt": "2026-10-21T17:39:47.541251+00:00",
+    "physicalSupportRemovalVerified": false
+  },
+  "preparationHistory": [
+    {
+      "archivedAt": "2026-10-21T17:39:47.541251+00:00",
+      "reason": "Unstarted original1c3 profile superseded by separately reviewed b3 support-process candidate; original upload/readback belongs ONLY to this historical archive.",
+      "record": {
+        "id": "enigma-rocker-pla-plate1-20261021-a1",
+        "title": "Enigma · vippemekanisme, plate 1 (PLA-passformprøve)",
+        "project": "Enigma Doublestep",
+        "printer": "Bambu Lab X2D",
+        "status": "planned",
+        "preparationState": "HELD_SHARED_SUPPORT_STABILITY_REVIEW",
+        "recordedAt": "2026-10-21T11:30:59.899343+00:00",
+        "updatedAt": "2026-10-21T14:51:09.701851+00:00",
+        "startedAt": null,
+        "finishedAt": null,
+        "jobName": "ENIGMA_ROCKER_PLA_1c3cb216 · ikke startet",
+        "plate": 1,
+        "parts": [
+          "ROCKER_FRAME_LEFT",
+          "ROCKER_ARM_LEFT",
+          "ROCKER_ARM_RIGHT",
+          "LED_FRONT_LAMPPOST_LEFT",
+          "LED_FRONT_LAMPPOST_RIGHT",
+          "ROCKER_BEARING_LEFT",
+          "ROCKER_BEARING_RIGHT"
+        ],
+        "estimatedSeconds": 12625.0,
+        "actualSeconds": null,
+        "estimatedGrams": 109.84,
+        "actualGrams": null,
+        "estimatedMeters": 36.24,
+        "material": "PLA Basic · svart · planlagt AMS A3",
+        "color": "#161616",
+        "layerHeightMm": 0.2,
+        "firstLayerHeightMm": 0.2,
+        "nozzleMm": 0.4,
+        "layers": 151,
+        "preview": "assets/enigma-rocker-pla-plate1-20261021-a1/plan.png",
+        "layout": "assets/enigma-rocker-pla-plate1-20261021-a1/layout.png",
+        "snapshots": [],
+        "source": {
+          "file": "sliced.3mf",
+          "sha256": "1c3cb2164cbc7fd8d40f1c7429ba1d3d7f2d22608fa045109bbb16f54a73d173",
+          "repository": "https://github.com/andeplane/openenigma",
+          "commit": "065f60ab0f239d02eac61d1f7d8d283d3fc89412",
+          "branch": "main",
+          "job": "mechanical-rocker-pla",
+          "gcodeMember": "Metadata/plate_1.gcode",
+          "gcodeSha256": "9552008000d010565ab121a384c4e62adb1fdd52d9db0aa6cf789c212ac02d75",
+          "pullRequests": [
+            "https://github.com/andeplane/openenigma/pull/180",
+            "https://github.com/andeplane/openenigma/pull/182"
+          ],
+          "editableProject": {
+            "file": "EIGHT_PLA_ROCKER_COMPONENTS_X2D.3mf",
+            "sha256": "f1dae59665d049492c4e08ed187f8ce206b031ec998368ac5d14d7ebf5e0571b"
+          },
+          "releaseVerification": {
+            "sourceMainCheckedAt": "2026-10-21T14:07:06.939539+00:00",
+            "openPullRequests": [],
+            "printGate": "PREPARED",
+            "gateReceiptSha256": "41a9531e978ad0c0c9762f1f7aab7dc0dde853f16d435774c55c5c093208b5d8",
+            "sliceAuditSha256": "ff3761dfdfdc93b8e184d7faf4ff650f5d7900b3dbefa4c127679f3e8598840b",
+            "criticalFeatureAuditStatus": "REVIEWED_ROCKER_BORE_VOIDS_CLEAR_IN_TOOLPATHS",
+            "criticalViewReviewSha256": "6b8eae3edd8a6123bb91ed514c7329b1a6c05070026e0a23ffe4871fc5215820",
+            "liveGuideFingerprint": "3a45764768d9f3add2d6d20843bd862676f57b07ecb322f9cab53ec127fdec8c",
+            "mainDeploymentRun": "https://github.com/andeplane/openenigma/actions/runs/39606261903",
+            "physicalFitVerified": false,
+            "currentManifestSha256": "5536690f65052dada9ff09d7f61438956af241135cd58031f4e2dd38ab9cd92f",
+            "currentAuditorSha256": "4569bbc77f8b3f7caa78f7a413c542ec11d4eda2105a2aa681acfc148e846047",
+            "readyReceiptSha256": "663b67a3d3063a5c8f3d91f53a4272a2ca5cd43e770cc595bc7a27b5816da8cd",
+            "selectedSourceEquivalenceSha256": "b26f15aecc6ba90c88cd351c312de049e92d226c417a68589cd8cf12da8810b6",
+            "manualAndBrowserEquivalenceSha256": "8644b7a83b5278421cd3e359370ec68a32d14f7743b7e29777b511e001ea8bf4"
+          },
+          "evidence": "Klargjort fra ren gjeldende main etter kilde- og uavhengig gjennomgang, eksakt synkronisert publisert guide, og verifisert 7+1 plassering. Sluttfilen er slicet fra det portkontrollerte prosjektet; modelltrekanter, navn, posisjoner, prosess og faktiske boreverktøybaner samsvarer. Fire kritiske borevolumer er uten modell-/støtteinntrenging i kontrollområdet. Ti avgrensede faktiske verktøybanevisninger er gjennomgått. Printerstart er ennå ikke utført for denne kjøringen. Kildekontroll oppdatert mot ren main 065f60ab: alle 16 valgte kildefiler er byteidentiske, begge platene er kontrollert på nytt med gjeldende manifest/revisor, og eksakte forhåndsvisninger samt tidligere manuell verktøybane-/animasjonskontroll er hashbundet. Arkivet ble forhåndslastet opp 21. oktober kl. 14:30 UTC mens den forrige kjøringen pågikk. En ny nedlasting har eksakt samme SHA-256 som den gjennomgåtte slicefilen; nedlastingskontrollen binder begge platene til de gjeldende gjennomgangene. Ingen ny startkommando er sendt, og ingen akseptert printjobb er observert for denne platen. Oppstart av de uprintede vippedelene er satt på vent mens den delte støtteprosessen gjennomgås etter en lokal ekstruderingsfeil i den foregående ende-komponentprøven. Kilde-/verktøybanekontroll og identisk nedlasting er beholdt som dokumentasjon; fysisk støttestabilitet er ikke verifisert.",
+          "uploadVerification": {
+            "uploadedAt": "2026-10-21T14:30:00.203101+00:00",
+            "remoteFile": "ENIGMA_ROCKER_PLA_1c3cb216.gcode.3mf",
+            "uploadResult": "SUCCESS",
+            "readbackStatus": "UPLOADED_BYTES_MATCH_REVIEWED_ARTIFACT",
+            "readbackSha256": "1c3cb2164cbc7fd8d40f1c7429ba1d3d7f2d22608fa045109bbb16f54a73d173",
+            "readbackReceiptSha256": "d27145e0fb043edbabc9ebd2e9397452cbf4e37ae34b0b172d714ee1d99834b9",
+            "reviewReceiptSha256": "ff3761dfdfdc93b8e184d7faf4ff650f5d7900b3dbefa4c127679f3e8598840b",
+            "uploadReceiptSha256": "281737942014c8d94221e646ec53f40edaef606f8efc0712fa6656e32530cb9c",
+            "actualDownloadedBytesIndependentlyHashed": true,
+            "startCommandSent": false,
+            "acceptedPrintJobObserved": false
+          }
+        },
+        "notes": "Ubelastet PLA-passformprøve. De viste bildene er eksakte bilder fra sluttfilen etter main-klargjøring. Støtte kommer bare fra byggeplaten for å redusere innestengt støtte i blinde boringer; brotak, støttefjerning og oppnådd toleranse er ikke fysisk godkjent. Slicerfargen er illustrativ grønn; planlagt fysisk materiale er svart PLA Basic fra AMS A3, som må kontrolleres live før start. Venstre bakarm er fortsatt en ikke-adoptert, fysisk ukvalifisert koblingskandidat; flere øvrige deler har historisk/null materialstatus. For at mekanismen skal holde sammen og rotere, trengs 2 spesialpivoter (M6×8,5 gjenge og Ø5×18 skulder), 2 M6 tynnmuttere, Ø6×142 stålaksel, 10 M3-skjøter og separat base-/stopp-/fjærmaskinvare. Slicertid og materiale er estimater. Ingen kamerabilder eller faktisk tid/forbruk fra denne ennå ustartede kjøringen foreligger.",
+        "sequence": 7,
+        "evidencePending": [
+          "Shared support-process stability review before starting",
+          "Immediate live camera/telemetry/material and accepted job/plate identity",
+          "During/after-print camera captures",
+          "Physical support cleanup, bridge surfaces and fit inspection"
+        ],
+        "settings": {
+          "wallLoops": 4,
+          "sparseInfillPercent": 30,
+          "sparseInfillPattern": "gyroid",
+          "supports": "normal(auto), snug, build-plate only",
+          "outerBrimMm": 8
+        },
+        "sourceVerificationHistory": [
+          {
+            "archivedAt": "2026-10-21T14:10:58.195533+00:00",
+            "source": {
+              "file": "sliced.3mf",
+              "sha256": "1c3cb2164cbc7fd8d40f1c7429ba1d3d7f2d22608fa045109bbb16f54a73d173",
+              "repository": "https://github.com/andeplane/openenigma",
+              "commit": "b127cad62f0a1b5d579722abdefe5aa96ce55cfb",
+              "branch": "main",
+              "job": "mechanical-rocker-pla",
+              "gcodeMember": "Metadata/plate_1.gcode",
+              "gcodeSha256": "9552008000d010565ab121a384c4e62adb1fdd52d9db0aa6cf789c212ac02d75",
+              "pullRequests": [
+                "https://github.com/andeplane/openenigma/pull/180",
+                "https://github.com/andeplane/openenigma/pull/182"
+              ],
+              "editableProject": {
+                "file": "EIGHT_PLA_ROCKER_COMPONENTS_X2D.3mf",
+                "sha256": "f1dae59665d049492c4e08ed187f8ce206b031ec998368ac5d14d7ebf5e0571b"
+              },
+              "releaseVerification": {
+                "sourceMainCheckedAt": "2026-10-21T12:26:11.752790+00:00",
+                "openPullRequests": [],
+                "printGate": "PREPARED",
+                "gateReceiptSha256": "81467e96c9fb19a26243c9de95608a96fbe25482dbc457da21a97535fa617edf",
+                "sliceAuditSha256": "e0fdbca13a281ba49cb389baa53fbcd8ea0507e088218e981ed252caa8cede42",
+                "criticalFeatureAuditStatus": "REVIEWED_ROCKER_BORE_VOIDS_CLEAR_IN_TOOLPATHS",
+                "criticalViewReviewSha256": "6b8eae3edd8a6123bb91ed514c7329b1a6c05070026e0a23ffe4871fc5215820",
+                "liveGuideFingerprint": "7a624a7509f177e6894ee9eb8ce75db7d18445e1fa185ab82ad45eb55ec6f1f1",
+                "mainDeploymentRun": "https://github.com/andeplane/openenigma/actions/runs/39599260515",
+                "physicalFitVerified": false
+              },
+              "evidence": "Klargjort fra ren gjeldende main etter kilde- og uavhengig gjennomgang, eksakt synkronisert publisert guide, og verifisert 7+1 plassering. Sluttfilen er slicet fra det portkontrollerte prosjektet; modelltrekanter, navn, posisjoner, prosess og faktiske boreverktøybaner samsvarer. Fire kritiske borevolumer er uten modell-/støtteinntrenging i kontrollområdet. Ti avgrensede faktiske verktøybanevisninger er gjennomgått. Ingen opplasting, nedlastingskontroll eller printerstart er utført for denne kjøringen."
+            }
+          }
+        ],
+        "preparationHold": {
+          "observedAt": "2026-10-21T14:51:09.701851+00:00",
+          "reason": "Shared support-process stability review required after a local extrusion failure on the preceding end-parts trial. Existing rocker files share the reviewed support process.",
+          "scope": "Unprinted rocker plates 1 and 2; verified source geometry and uploaded/readback bytes remain recorded.",
+          "startAllowed": false,
+          "physicalSupportStabilityVerified": false
+        }
+      }
+    }
+  ]
 }

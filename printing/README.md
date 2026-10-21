@@ -28,7 +28,7 @@ The browser searches and filters this data, with expandable image galleries.
    `actualGrams` is null unless separately measured or reliably reported.
    A reset elapsed counter is missing data, not zero duration. Say when parts
    were already removed or the view cannot confirm the print's physical outcome.
-5. Use null for missing timestamps/measurements. Keep estimates numeric when
+5. Use null for missing timestamps/measurements. Planned records may also have null preview and layout until an exact slice exists; the page displays that evidence as pending. Keep estimates numeric when
    available. `recordedAt` is the registration time, never an invented print date.
    Include brief evidence and notes; do not put private identifiers in records.
 6. Run `python3 printing/build.py` and `node --check printing/printing.js`.

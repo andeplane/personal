@@ -20,6 +20,8 @@ def build():
         for key in ['estimatedSeconds', 'actualSeconds', 'estimatedGrams', 'actualGrams', 'estimatedMeters']:
             assert run[key] is None or isinstance(run[key], (int, float)) and run[key] >= 0, (path, key)
         for image in [run['preview'], run['layout']] + [s['src'] for s in run['snapshots']]:
+            if image is None:
+                continue  # Planned records may precede an exact slice; never invent previews.
             resolved = (ROOT / image).resolve()
             assert image.startswith('assets/') and resolved.is_relative_to(ROOT / 'assets') and resolved.is_file(), image
         for shot in run['snapshots']:

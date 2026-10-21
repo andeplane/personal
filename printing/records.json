@@ -351,7 +351,7 @@
     "title": "Plastic bed scraper · first attempt",
     "project": "Printer tools",
     "printer": "Bambu Lab X2D",
-    "status": "printing",
+    "status": "completed",
     "recordedAt": "2026-10-21T17:45:27.873414+00:00",
     "startedAt": "2026-10-21T17:49:35.221811+00:00",
     "finishedAt": null,
@@ -383,6 +383,21 @@
         "src": "assets/plastic-scraper-20261021-a1/camera-start.jpg",
         "capturedAt": "2026-10-21T17:49:54.484714+00:00",
         "caption": "After acknowledged start, during preparation: no printed scraper layer yet. Not a finished-part image."
+      },
+      {
+        "src": "assets/plastic-scraper-20261021-a1/camera-during-1757.jpg",
+        "capturedAt": "2026-10-21T17:57:13.125873+00:00",
+        "caption": "During printing: telemetry reports layer 1/50, 25%, about 18 minutes remaining. The toolhead partly obscures the rear-center print area; this frame does not establish first-layer quality. No obvious loose filament is visible."
+      },
+      {
+        "src": "assets/plastic-scraper-20261021-a1/camera-during-1800.jpg",
+        "capturedAt": "2026-10-21T18:00:16.487326+00:00",
+        "caption": "During printing: telemetry reports layer 5/50, 37%, about 16 minutes remaining. A scraper-shaped print with visible infill is on the plate; the moving toolhead obscures part of it. No obvious detached part or spaghetti is visible; final quality and tool strength remain unverified."
+      },
+      {
+        "src": "assets/plastic-scraper-20261021-a1/camera-terminal.jpg",
+        "capturedAt": "2026-10-21T18:18:55.204592+00:00",
+        "caption": "After fresh FINISH telemetry (100%, layer 50/50, no skipped objects or printer errors): a single scraper-shaped part remains on the plate with no obvious detachment or spaghetti. This camera image does not establish underside/edge quality, strength or usefulness for removing prints."
       }
     ],
     "source": {
@@ -390,7 +405,7 @@
       "sha256": "fb5514ab6454ba20566e7849563ca392e2fd0c968c34f7bc8c86254f8e11edc8",
       "evidence": "Original: https://makerworld.com/en/models/1284581-bambu-lab-bed-scraper#profileId-1313425 ; downloaded source SHA256 649545e0e0ceff6529ec18a0723d2d93c972151b8fc96f2f50e7f7d0ba406509. Sliced using Bambu Studio 02.08.02.61 and resolved bundled X2D 0.4 mm machine/process/PLA Basic profiles. Four walls, 25% infill, supports off. Actual X2D start/end code verified in final G-code. Preview/top view extracted from this exact final 3MF."
     },
-    "notes": "User confirmed full plate clearance and authorized this print. Successful printer acknowledgement and RUNNING observed, initially during bed identification/calibration with no deposited layer yet. Explicit AMS mapping [2] selects physical slot 3; telemetry labels it black/Bambu PLA Basic, but the user corrected the actual material brand to Clas Ohlson and reported orange. Physical color remains uncertain; the color field is the telemetry label, not visual verification. No printer spool metadata was changed. Slicer estimates remain estimates; quality and actual usage are unverified. Initial /cache upload was rejected and reconciled as absent. Root-folder upload succeeded and a full download matched the recorded SHA256."
+    "notes": "User confirmed full plate clearance and authorized this print. Successful printer acknowledgement and RUNNING observed, initially during bed identification/calibration with no deposited layer yet. Explicit AMS mapping [2] selects physical slot 3; telemetry labels it black/Bambu PLA Basic. The user corrected the actual material brand to Clas Ohlson, then clarified that orange referred to a UI misunderstanding and explicitly accepted black. No printer spool metadata was changed. Slicer estimates remain estimates; quality and actual usage are unverified. Initial /cache upload was rejected and reconciled as absent. Root-folder upload succeeded and a full download matched the recorded SHA256. Terminal check at approximately 2026-10-21T18:18Z reported FINISH, 100%, 50/50 layers, zero remaining minutes, no skipped objects, and no HMS/print errors. Printer-reported elapsed time was 26 minutes (minute resolution). The exact finish time and precise duration were not observed, so finishedAt and actualSeconds remain null. Actual grams were not measured. Terminal camera capture succeeded at 18:18:55Z after transient SSH connection failures. Physical strength, blade edge quality and real scraping performance remain untested."
   },
   {
     "id": "enigma-reflector-body-retry-20261021-a3",
@@ -398,9 +413,9 @@
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
     "status": "planned",
-    "preparationState": "SAME_FILE_NEW_ATTEMPT_LATEST_SOURCE_AND_FRESH_START_GATES_PENDING",
+    "preparationState": "DEFERRED_BY_HUMAN_OTHER_PRINT_FIRST",
     "recordedAt": "2026-10-21T17:40:31.192010+00:00",
-    "updatedAt": "2026-10-21T17:40:31.192010+00:00",
+    "updatedAt": "2026-10-21T18:05:48.925646+00:00",
     "startedAt": null,
     "finishedAt": null,
     "jobName": "ENIGMA_REFLECTOR_RETRY_eadfe61c · nytt forsøk, ikke startet",
@@ -515,14 +530,20 @@
       "supportOnBuildPlateOnly": false,
       "outerBrimMm": 8
     },
-    "notes": "Nytt separat forsøk med samme fil, modell, støtteinnstillinger og estimater etter a2 FAILED. Mennesket opplyser å ha ryddet platen og autoriserte ny prøve, men kameraklarering ved senket/croppet plate er ikke fullført. Ingen a3-start er registrert. Oppdatert kilde og alle ferske startporter må være bestått, og startintensjon må være varig lagret før én kommando kan sendes. Den fysiske årsaken til første-lagsfeilen er ikke fastslått; samme fil er ikke en designrettelse.",
+    "notes": "Nytt separat forsøk med samme fil, modell, støtteinnstillinger og estimater etter a2 FAILED. Mennesket opplyser å ha ryddet platen og autoriserte ny prøve, men kameraklarering ved senket/croppet plate er ikke fullført. Ingen a3-start er registrert. Oppdatert kilde og alle ferske startporter må være bestått, og startintensjon må være varig lagret før én kommando kan sendes. Den fysiske årsaken til første-lagsfeilen er ikke fastslått; samme fil er ikke en designrettelse. Mennesket har nå prioritert en annen utskrift først. Dette forsøket er utsatt og skal ikke startes under den gjeldende prioriteringen; det er fortsatt bare planlagt.",
     "evidencePending": [
       "Clean latest-main/live guide refresh after PR185",
       "Current exact printer file/readback and live filament mapping",
       "New fully visible clear-bed camera <=60s and durable intent BEFORE any start publication",
       "Accepted a3 job identity and during-print camera",
       "Terminal camera and physical result/cleanup inspection"
-    ]
+    ],
+    "priorityOverride": {
+      "status": "deferred",
+      "reason": "Mennesket opplyste at en annen ting skal skrives ut først.",
+      "startAllowedUnderCurrentPriority": false,
+      "acceptedStartObserved": false
+    }
   },
   {
     "id": "enigma-reflector-body-retry-20261021-a2",
@@ -532,9 +553,9 @@
     "status": "failed",
     "preparationState": "ACCEPTED_THEN_FAILED_FIRST_LAYER_TRIAL",
     "recordedAt": "2026-10-21T15:45:13.310364+00:00",
-    "updatedAt": "2026-10-21T17:40:31.192010+00:00",
+    "updatedAt": "2026-10-21T18:05:48.925646+00:00",
     "startedAt": "2026-10-21T17:07:06.140Z",
-    "finishedAt": null,
+    "finishedAt": "2026-10-21T17:26:37.233401+00:00",
     "jobName": "ENIGMA_REFLECTOR_RETRY_eadfe61c",
     "plate": 1,
     "parts": [
@@ -635,6 +656,10 @@
         {
           "file": "publication-reconciliation.json",
           "sha256": "a21609bec97eefe4ed1ec75c363b14ff7da721708ac2a3da2d9c12187113f007"
+        },
+        {
+          "file": "failed-terminal-observation.json",
+          "sha256": "4b45f4294e7fced7b3e1eec5a695274897d87d0398739e7d07cda9ac8973756e"
         }
       ],
       "evidence": "PR184 integrerte den uendrede reflektorkroppen med ny støtteresept. Ren main og publisert guide ble kontrollert; beholdt mesh, prosess, faktiske verktøybaner og eksakt opplastingsnedlasting ble bundet før kommandoen. Dette beviser ikke fysisk stabilitet, feste eller støttefjerning. Startprosedyren hadde et separat dokumentert avvik, se startEvidence.procedureGap.",
@@ -674,9 +699,9 @@
       "supportOnBuildPlateOnly": false,
       "outerBrimMm": 8
     },
-    "notes": "Forsøket startet med eksakt eadfe61c-fil og akseptert AMS A3 [2], men endte FAILED etter et problem ved første lag. Menneskets bilde er bevart med ukjent opptakstid og uten privat metadata. Dette er et eget mislykket forsøk; tidligere delvis fullført fire-dels forsøk er ikke endret. Kilde-/geometri-/bane-/readback-evidens var bestått. Startprosedyren hadde et separat avvik: varig intensjon manglet og kameraets alder var ikke godkjent før den ene publiserte startkommandoen. Avviket hevdes ikke å være årsaken til den fysiske feilen. Faktisk presis varighet og materialbruk er ukjent.",
+    "notes": "Forsøket startet med eksakt eadfe61c-fil og akseptert AMS A3 [2], men endte FAILED etter et problem ved første lag. Menneskets bilde er bevart med ukjent opptakstid og uten privat metadata. Dette er et eget mislykket forsøk; tidligere delvis fullført fire-dels forsøk er ikke endret. Kilde-/geometri-/bane-/readback-evidens var bestått. Startprosedyren hadde et separat avvik: varig intensjon manglet og kameraets alder var ikke godkjent før den ene publiserte startkommandoen. Avviket hevdes ikke å være årsaken til den fysiske feilen. Faktisk presis varighet og materialbruk er ukjent. Fersk FAILED ble observert 17:26:37 UTC med seng 52 °C og mål 0 °C; finishedAt viser denne observasjonen, ikke nøyaktig fysisk feiltid. Kamera etter menneskets rydding brukes ikke som feil-/sluttbilde.",
     "evidencePending": [
-      "Exact observed FAILED timestamp, bed temperature and after-failure camera if available",
+      "No timestamped after-failure camera before cleanup; the later cropped/cleaned-bed view is not failure evidence",
       "Physical cause and adhesion assessment; support stability and cleanup unqualified",
       "Measured actual material and reliable full duration"
     ],
@@ -701,12 +726,20 @@
     },
     "terminalEvidence": {
       "printerState": "FAILED",
-      "observedAt": null,
+      "observedAt": "2026-10-21T17:26:37.233401+00:00",
       "reportedElapsedMinutes": 9,
-      "elapsedScope": "Omtrent ni minutter rapportert av rotkontroller; presis varighet er ikke verifisert.",
+      "elapsedScope": "Ni minutter rapportert av printerens minutteller; presis veggklokkevarighet er ikke verifisert.",
       "automaticOrHumanStopCommandSentByRoot": false,
-      "description": "Mennesket ba om avbrudd. Fersk telemetri rapporterte allerede FAILED, så rotkontroller sendte ingen stopkommando. Eksakt terminaltid/temperatur avventes; ingen presis faktisk tid eller materialmåling er registrert.",
-      "physicalSuccessVerified": false
+      "description": "Mennesket ba om avbrudd. Printeren rapporterte allerede FAILED da fersk telemetri ble lest, så rotkontroller sendte ingen stopkommando. Observert 0 %, lag 0/238, ni rapporterte minutter og seng 52 °C med mål 0 °C; ingen HMS-meldinger eller separat print_error. Dette fastslår ikke årsaken eller presis fysisk feiltid.",
+      "physicalSuccessVerified": false,
+      "timestampScope": "Tidspunktet da fersk FAILED-telemetri ble observert; ikke nøyaktig fysisk feiltid.",
+      "progressPercent": 0,
+      "currentLayer": 0,
+      "totalLayers": 238,
+      "bedCelsius": 52,
+      "bedTargetCelsius": 0,
+      "hmsErrors": [],
+      "printError": 0
     }
   },
   {

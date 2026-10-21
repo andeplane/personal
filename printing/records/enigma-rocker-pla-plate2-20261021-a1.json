@@ -4,12 +4,12 @@
   "project": "Enigma Doublestep",
   "printer": "Bambu Lab X2D",
   "status": "planned",
-  "preparationState": "DIAGNOSTIC_SLICE_REVIEW_SOURCE_RELEASE_PENDING",
+  "preparationState": "PREPARED_REVIEWED_UPLOAD_READBACK_AND_START_PENDING",
   "recordedAt": "2026-10-21T11:30:59.899343+00:00",
-  "updatedAt": "2026-10-21T11:30:59.899343+00:00",
+  "updatedAt": "2026-10-21T12:31:33.805223+00:00",
   "startedAt": null,
   "finishedAt": null,
-  "jobName": "ENIGMA_ROCKER_PLA_9f4dcfa1 · planned",
+  "jobName": "ENIGMA_ROCKER_PLA_1c3cb216 · ikke startet",
   "plate": 2,
   "parts": [
     "ROCKER_FRAME_RIGHT"
@@ -29,25 +29,44 @@
   "layout": "assets/enigma-rocker-pla-plate2-20261021-a1/layout.png",
   "snapshots": [],
   "source": {
-    "file": "sliced.3mf (diagnostic, source release pending)",
-    "sha256": "9f4dcfa19ef33a5db2f8d48cfd366fe1aee10415574473f0e04099b66719a25a",
+    "file": "sliced.3mf",
+    "sha256": "1c3cb2164cbc7fd8d40f1c7429ba1d3d7f2d22608fa045109bbb16f54a73d173",
     "repository": "https://github.com/andeplane/openenigma",
-    "commit": null,
-    "baseMain": "1cb0f47617d4c13a7c5f044cc09df14f6f69bf38",
-    "branch": "codex/mechanical-rocker-trial-20261021",
+    "commit": "b127cad62f0a1b5d579722abdefe5aa96ce55cfb",
+    "branch": "main",
     "job": "mechanical-rocker-pla",
     "gcodeMember": "Metadata/plate_2.gcode",
     "gcodeSha256": "b524a50be6dd21035ccbf69508a26a408f0d96bee7233184894fa919c62703cb",
-    "evidence": "Diagnostisk slice av åtte eksakte native/STL-deler fordelt7+1. Lukket solid, tett mesh og komplette posisjonsmatriser er kontrollert. Dette er ikke en kildeutgivelse til main eller starttillatelse; endelig main-slice, live guide og opplastingsnedlasting gjenstår."
+    "pullRequests": [
+      "https://github.com/andeplane/openenigma/pull/180",
+      "https://github.com/andeplane/openenigma/pull/182"
+    ],
+    "editableProject": {
+      "file": "EIGHT_PLA_ROCKER_COMPONENTS_X2D.3mf",
+      "sha256": "f1dae59665d049492c4e08ed187f8ce206b031ec998368ac5d14d7ebf5e0571b"
+    },
+    "releaseVerification": {
+      "sourceMainCheckedAt": "2026-10-21T12:26:11.752790+00:00",
+      "openPullRequests": [],
+      "printGate": "PREPARED",
+      "gateReceiptSha256": "81467e96c9fb19a26243c9de95608a96fbe25482dbc457da21a97535fa617edf",
+      "sliceAuditSha256": "5ede78a181785c490964d4b0b3b6025e6c6c9b991f98cf5132e30370736b9c38",
+      "criticalFeatureAuditStatus": "REVIEWED_ROCKER_BORE_VOIDS_CLEAR_IN_TOOLPATHS",
+      "criticalViewReviewSha256": "6b8eae3edd8a6123bb91ed514c7329b1a6c05070026e0a23ffe4871fc5215820",
+      "liveGuideFingerprint": "7a624a7509f177e6894ee9eb8ce75db7d18445e1fa185ab82ad45eb55ec6f1f1",
+      "mainDeploymentRun": "https://github.com/andeplane/openenigma/actions/runs/39599260515",
+      "physicalFitVerified": false
+    },
+    "evidence": "Klargjort fra ren gjeldende main etter kilde- og uavhengig gjennomgang, eksakt synkronisert publisert guide, og verifisert 7+1 plassering. Sluttfilen er slicet fra det portkontrollerte prosjektet; modelltrekanter, navn, posisjoner, prosess og faktiske boreverktøybaner samsvarer. Fire kritiske borevolumer er uten modell-/støtteinntrenging i kontrollområdet. Ti avgrensede faktiske verktøybanevisninger er gjennomgått. Ingen opplasting, nedlastingskontroll eller printerstart er utført for denne kjøringen."
   },
-  "notes": "Ubelastet PLA-passformprøve. De viste bildene er faktiske slicerbilder fra den foreløpige v2-profilen, med støtte bare fra byggeplaten for å redusere støtte i blinde boringer. Slicerfargen er illustrativ grønn; planlagt fysisk filament er svart. Slicertid/vekt er estimater. Venstre bakarm beholder adopted=false/release=false og fysisk ukvalifisert koblingskandidat; flere øvrige deler beholder historisk/null materialstatus. Rotasjon krever separate spesialpivoter, M6-muttere, Ø6×142 stålaksel, M3-skjøter og annen monterings-/stoppmaskinvare. Ingen printerstart, fysisk støttefjerning, passform eller belastet funksjon er bekreftet.",
+  "notes": "Ubelastet PLA-passformprøve. De viste bildene er eksakte bilder fra sluttfilen etter main-klargjøring. Støtte kommer bare fra byggeplaten for å redusere innestengt støtte i blinde boringer; brotak, støttefjerning og oppnådd toleranse er ikke fysisk godkjent. Slicerfargen er illustrativ grønn; planlagt fysisk materiale er svart PLA Basic fra AMS A3, som må kontrolleres live før start. Venstre bakarm er fortsatt en ikke-adoptert, fysisk ukvalifisert koblingskandidat; flere øvrige deler har historisk/null materialstatus. For at mekanismen skal holde sammen og rotere, trengs 2 spesialpivoter (M6×8,5 gjenge og Ø5×18 skulder), 2 M6 tynnmuttere, Ø6×142 stålaksel, 10 M3-skjøter og separat base-/stopp-/fjærmaskinvare. Slicertid og materiale er estimater. Ingen kamerabilder eller faktisk tid/forbruk fra denne ennå ustartede kjøringen foreligger.",
   "sequence": 8,
   "evidencePending": [
-    "Reviewed source release, main and synchronized live guide",
-    "Final clean-main preparation and exact slice/toolpath audit",
-    "Upload/readback identity and live material mapping",
-    "Fresh camera clearance and accepted printer start",
-    "During/after camera captures and physical cleanup/fit"
+    "Usable printer storage",
+    "Exact upload-readback identity",
+    "Immediate live camera/telemetry/material and accepted job/plate identity",
+    "During/after-print camera captures",
+    "Physical support cleanup, bridge surfaces and fit inspection"
   ],
   "settings": {
     "wallLoops": 4,

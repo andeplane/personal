@@ -51,7 +51,7 @@ import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 """
 # Product helpers need declaration before build; function declarations are hoisted.
 s=s.replace(' function storage(){',(p/'products.js').read_text()+(p/'bikes.js').read_text()+(p/'expanded-storage.js').read_text()+'\n function storage(){')
-s=s.replace('updateCamera(); updateTable(); populateObjects();', 'makeBikes();updateCamera(); updateTable(); populateObjects();')
+s=s.replace('updateCamera(); updateTable(); populateObjects();', 'makeBikes();if(camera)updateComposer();else updateCamera(); updateTable(); populateObjects();')
 s=s.replace('camera.aspect=w/h;camera.updateProjectionMatrix();', 'if(camera.isOrthographicCamera){const span=camera.userData.span;camera.left=-span*w/h/2;camera.right=span*w/h/2;}else camera.aspect=w/h;camera.updateProjectionMatrix();')
 s=s.replace("if(a.id==='A'){", "if(['D','E','F'].includes(a.id)){expandedStorage(a);}else if(a.id==='A'){")
 s=s.replace("if(a.id!=='A')for", "if(['B','C'].includes(a.id))for")

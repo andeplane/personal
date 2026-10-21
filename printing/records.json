@@ -7,7 +7,7 @@
     "status": "printing",
     "preparationState": "ACCEPTED_RUNNING_CURRENT_SOURCE_AND_EXACT_FILE_BOUND",
     "recordedAt": "2026-10-21T17:40:31.192010+00:00",
-    "updatedAt": "2026-10-21T20:01:34.582273+00:00",
+    "updatedAt": "2026-10-21T21:39:17.484924+00:00",
     "startedAt": "2026-10-21T19:43:01.485Z",
     "finishedAt": null,
     "jobName": "ENIGMA_REFLECTOR_RETRY_eadfe61c",
@@ -49,6 +49,13 @@
         "sha256": "836b02cbec126db7aedf8602404bfcabc7e7494f8a78799d6ea08754577e7d36",
         "stage": "support-base-layer2-visible-limited-area",
         "caption": "Synlige ring-/radialbaner og kant ved lag 2 fremstår ordnet uten tydelig stor forskyvning eller oppstående trådfloke i det åpne området. Verktøyhode og gjenskinn skjuler deler; dette bekrefter ikke helhetlig feste, dimensjoner eller fysisk integritet."
+      },
+      {
+        "src": "assets/enigma-reflector-body-retry-20261021-a3/monitor-20261021-2132.jpg",
+        "capturedAt": "2026-10-21T21:32:23.673441+00:00",
+        "sha256": "06653274984a2953e509b4d5e2b832d8e35d7e18f6b14030cb0349e47be01652",
+        "stage": "late-print-standing-wall-and-posts",
+        "caption": "Senere utskriftsbilde: en stående yttervegg og indre stolper er synlige. Ingen tydelig grov kollaps, løsnet del eller stor sammenfiltret masse ses i de åpne områdene. Verktøyhodet skjuler øvre sentrale del; bildet bekrefter ikke fullføring, fysisk kvalitet, støttefjerning eller passform."
       }
     ],
     "evidenceImages": [
@@ -204,7 +211,7 @@
       "supportOnBuildPlateOnly": false,
       "outerBrimMm": 8
     },
-    "notes": "Dette tredje forsøket ble senere uttrykkelig autorisert og akseptert som RUNNING med samme eadfe61c-fil, én kropp og AMS A3 [2]. Den tidligere prioriteringsutsettelsen er bevart i historikken. Gjeldende fd1b-kilde, faktisk slice og fersk printer-nedlasting er kontrollert; ny eksklusiv startkontroller passerte den ferske kamerakontrollen og lagret varig intensjon før én kommando. Mislykket a2 og dets særskilte startprosedyreavvik er bevart som eget forsøk. To tidlige utskriftsbilder viser avgrensede synlige støttebaner uten åpenbar stor feil i de åpne områdene; ingen full feste-/passform-/støttefjerningsaksept foreligger. Tid og materiale er fortsatt slicerestimater; faktisk presis varighet og materialbruk er ukjent.",
+    "notes": "Dette tredje forsøket ble senere uttrykkelig autorisert og akseptert som RUNNING med samme eadfe61c-fil, én kropp og AMS A3 [2]. Den tidligere prioriteringsutsettelsen er bevart i historikken. Gjeldende fd1b-kilde, faktisk slice og fersk printer-nedlasting er kontrollert; ny eksklusiv startkontroller passerte den ferske kamerakontrollen og lagret varig intensjon før én kommando. Mislykket a2 og dets særskilte startprosedyreavvik er bevart som eget forsøk. To tidlige utskriftsbilder viser avgrensede synlige støttebaner uten åpenbar stor feil i de åpne områdene; ingen full feste-/passform-/støttefjerningsaksept foreligger. Tid og materiale er fortsatt slicerestimater; faktisk presis varighet og materialbruk er ukjent. Kamerafangst 21:32:23 UTC viser stående yttervegg og indre stolper. Kontrolleren rapporterte fortsatt RUNNING, 93 %, lag169/238 og seks minutter igjen nær fangsten, seng55 °C/mål55 °C uten HMS/separat print_error. Dette er et framdriftsobservasjonspunkt, ikke terminalbevis eller fysisk suksess.",
     "evidencePending": [
       "Continued camera monitoring through support/interface/model transitions",
       "Completion telemetry and timestamped after-print camera",
@@ -393,7 +400,25 @@
       "printErrorAtAcceptance": 0,
       "fullFirstLayerAdhesionVerified": false,
       "physicalFitVerified": false
-    }
+    },
+    "monitoringObservations": [
+      {
+        "cameraCapturedAt": "2026-10-21T21:32:23.673441+00:00",
+        "telemetryObservedAt": null,
+        "telemetryTimeScope": "Kontrollerens ferske telemetri nær denne kamerafangsten; eget eksakt telemetritidspunkt er ikke bevart i bildet.",
+        "printerState": "RUNNING",
+        "progressPercent": 93,
+        "currentLayer": 169,
+        "totalLayers": 238,
+        "remainingMinutes": 6,
+        "bedCelsius": 55,
+        "bedTargetCelsius": 55,
+        "hmsErrors": [],
+        "printError": 0,
+        "acceptedIdentityUnchanged": true,
+        "physicalSuccessVerified": false
+      }
+    ]
   },
   {
     "id": "halloween-crow-plan-20261021",
@@ -1404,9 +1429,9 @@
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
     "status": "planned",
-    "preparationState": "CURRENT_MAIN_SOURCE_PREPARED_UNLOADED_PLA_ONLY_NOT_UPLOADED_OR_STARTED",
+    "preparationState": "PREUPLOADED_EXACT_READBACK_VERIFIED_CURRENT_SOURCE_NO_START",
     "recordedAt": "2026-10-21T12:30:35.336344+00:00",
-    "updatedAt": "2026-10-21T20:01:34.582273+00:00",
+    "updatedAt": "2026-10-21T21:39:17.484924+00:00",
     "startedAt": null,
     "finishedAt": null,
     "jobName": "ENIGMA_RELEASE_CAM_PLA_ceafe2e7 · planlagt, ikke startet",
@@ -1517,9 +1542,17 @@
         {
           "file": "fd1b-current/independent-current-cam-preparation-review.json",
           "sha256": "84317a3334c45a2fb0790d9ca0cc2dc5284c1a8b3b127289c6211009113a4cb8"
+        },
+        {
+          "file": "fd1b-upload/preuploaded-ready-receipt.json",
+          "sha256": "f0973a20133c4aa74cf68542d357b43b809f3137a4889b273df5b8f9ff84bfb8"
+        },
+        {
+          "file": "fd1b-upload/upload-readback-audit.json",
+          "sha256": "356ca278341d17daf16d013fc4e4694790e7cc9c3c421050ddf7e1f977599671"
         }
       ],
-      "evidence": "Samme eksisterende, ikke-startede kamforsøk er oppdatert mot ren main fd1b med normal, uendret kilde-/live-guideport og ny faktisk audit av identisk ceafe-slice. Alle 22 fulle relative kildebaner ble hashkontrollert; redigerbar 3MF, mesh, prosess og slice er uendret. Tidligere065f-forberedelse er bevart i historikk. Dette er kun ubelastet journal-/kappe-/overordnet passformprøve og grov sporinspeksjon. Ingen ny opplasting, readback, akseptert start, kamerafangst eller fysisk aksept er registrert for kammen.",
+      "evidence": "Samme eksisterende, ikke-startede kamforsøk er kontrollert mot ren main fd1b med normal kilde-/live-guideport og faktisk audit av identisk ceafe-slice. Den eksakte slicen er nå forhåndsopplastet; nedlastingen fra printeren har identisk SHA256 og bestått gjeldende readback-audit. Ingen startkommando er sendt for kammen. Tidligere kilde- og ikke-opplastet forberedelsesstatus er bevart i historikken. Kun ubelastet journal-/kappe-/overordnet passformprøve og grov sporinspeksjon; ingen fysisk aksept.",
       "pullRequest": "https://github.com/andeplane/openenigma/pull/183",
       "guide": "https://enigmadoublestep.com/admin/cam-guide/",
       "sourceVerification": {
@@ -1542,7 +1575,7 @@
       },
       "latestMainPullRequest": "https://github.com/andeplane/openenigma/pull/185"
     },
-    "notes": "Kilde og publisert guide er nå kontrollert mot main fd1b med uendret valgt geometri, profil, redigerbar 3MF og ceafe-slice. Dette er samme planlagte kamforsøk, fortsatt uten opplasting/readback/start eller kamera. Tidligere065f-kildebevis og tidligere skrivebordsvurdering er bevart i historikken; ingen ny nettleserinteraksjon er hevdet. Kun ubelastet journal/boring, kappe og overordnet passform samt grov sporinspeksjon er frigitt for prøve. PETG-arbeidskam, fjærforspenning, detent/kontakt, nøyaktig løft, belastet drift, kraft og slitasje er fortsatt holdt tilbake. Ferske kildesjekker, enhets-/materialtilordning, eksakt opplastingsnedlasting og nylig vist klar plate kreves før en senere start. Estimater er ikke faktisk tid/forbruk.",
+    "notes": "Samme kamforsøk er fortsatt planlagt, med uendret geometri, profil, redigerbar 3MF og ceafe-slice. Forhåndsopplasting og eksakt nedlasting ble verifisert20:48:52 UTC mot fd1b-kilde og gjeldende audit; dette er ikke en akseptert printerstart. Ingen ny kam-kamerafangst eller fysisk passform-/løft-/kontaktaksept foreligger. Tidligere065f-kildebevis, fd1b-forberedelse og skrivebordsvisning er bevart i historikken; ingen ny nettleserinteraksjon er hevdet. Fersk kilde-/enhets-/material-/filidentitet, nylig vist klar plate, prioritering og varig startintensjon må fortsatt kontrolleres før en senere start. PETG-arbeidskam, detent/kontakt, nøyaktig løft, belastet drift, kraft og slitasje er holdt tilbake. Estimater er ikke faktisk tid/forbruk.",
     "sequence": 9,
     "settings": {
       "wallLoops": 4,
@@ -1553,12 +1586,11 @@
       "orientation": "ramps up"
     },
     "evidencePending": [
-      "Fresh printer storage protocol/capability and material/AMS mapping",
-      "Exact upload-readback and fresh pre-start camera/telemetry",
-      "Accepted job and start identity",
-      "During-print and completion camera",
-      "Physical unloaded fit, bore and support/brim cleanup inspection",
-      "Actual mobile viewport and interaction on deployed guide; source-preview desktop interaction and live asset bytes verified"
+      "Immediate current-source/live printer/file identity and material mapping recheck before any start",
+      "New fully visible clear-bed camera, current priority/authorization and durable pre-command intent",
+      "Accepted cam job/start identity and during-print camera",
+      "Terminal camera and physical unloaded journal/cap/overall fit inspection",
+      "Actual mobile viewport and deployed interaction; prior desktop preview and current live assets are separate evidence"
     ],
     "sourceVerificationHistory": [
       {
@@ -1661,7 +1693,36 @@
           "Actual mobile viewport and interaction on deployed guide; source-preview desktop interaction and live asset bytes verified"
         ]
       }
-    ]
+    ],
+    "uploadPreparationHistory": [
+      {
+        "preparationState": "CURRENT_MAIN_SOURCE_PREPARED_UNLOADED_PLA_ONLY_NOT_UPLOADED_OR_STARTED",
+        "sourceEvidence": "Samme eksisterende, ikke-startede kamforsøk er oppdatert mot ren main fd1b med normal, uendret kilde-/live-guideport og ny faktisk audit av identisk ceafe-slice. Alle 22 fulle relative kildebaner ble hashkontrollert; redigerbar 3MF, mesh, prosess og slice er uendret. Tidligere065f-forberedelse er bevart i historikk. Dette er kun ubelastet journal-/kappe-/overordnet passformprøve og grov sporinspeksjon. Ingen ny opplasting, readback, akseptert start, kamerafangst eller fysisk aksept er registrert for kammen.",
+        "notes": "Kilde og publisert guide er nå kontrollert mot main fd1b med uendret valgt geometri, profil, redigerbar 3MF og ceafe-slice. Dette er samme planlagte kamforsøk, fortsatt uten opplasting/readback/start eller kamera. Tidligere065f-kildebevis og tidligere skrivebordsvurdering er bevart i historikken; ingen ny nettleserinteraksjon er hevdet. Kun ubelastet journal/boring, kappe og overordnet passform samt grov sporinspeksjon er frigitt for prøve. PETG-arbeidskam, fjærforspenning, detent/kontakt, nøyaktig løft, belastet drift, kraft og slitasje er fortsatt holdt tilbake. Ferske kildesjekker, enhets-/materialtilordning, eksakt opplastingsnedlasting og nylig vist klar plate kreves før en senere start. Estimater er ikke faktisk tid/forbruk.",
+        "evidencePending": [
+          "Fresh printer storage protocol/capability and material/AMS mapping",
+          "Exact upload-readback and fresh pre-start camera/telemetry",
+          "Accepted job and start identity",
+          "During-print and completion camera",
+          "Physical unloaded fit, bore and support/brim cleanup inspection",
+          "Actual mobile viewport and interaction on deployed guide; source-preview desktop interaction and live asset bytes verified"
+        ]
+      }
+    ],
+    "uploadEvidence": {
+      "observedAt": "2026-10-21T20:48:52.263468+00:00",
+      "sourceCommit": "fd1b0a062090641decd766dc9447ef4e7ce0e793",
+      "sliceSha256": "ceafe2e7a7336bb7a18472b610751daa771765a6081105e98b6f45cd16d122eb",
+      "uploadedReadbackSha256": "ceafe2e7a7336bb7a18472b610751daa771765a6081105e98b6f45cd16d122eb",
+      "auditStatus": "UPLOADED_BYTES_MATCH_REVIEWED_ARTIFACT",
+      "reviewReceiptSha256": "32a48abb39adb70025280da0d25c40983087f24241992760692a89f894f0d12a",
+      "plate": 1,
+      "parts": [
+        "REFLECTOR_RELEASE_CAM"
+      ],
+      "startCommandSent": false,
+      "physicalFitVerified": false
+    }
   },
   {
     "id": "enigma-rocker-pla-plate2-20261021-a1",

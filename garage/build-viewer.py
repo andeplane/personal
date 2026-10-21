@@ -49,7 +49,7 @@ import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 """
 # Product helpers need declaration before build; function declarations are hoisted.
 a=s.index(' function storage(){');b=s.index(' function build(){',a)
-s=s[:a]+(p/'products.js').read_text()+(p/'bikes.js').read_text()+(p/'expanded-storage.js').read_text()+(p/'example-contents.js').read_text()+(p/'storage.js').read_text()+s[b:]
+s=s[:a]+(p/'products.js').read_text()+(p/'bikes.js').read_text()+(p/'expanded-storage.js').read_text()+(p/'example-contents.js').read_text()+(p/'left-wall.js').read_text()+(p/'storage.js').read_text()+s[b:]
 s=s.replace('updateCamera(); updateTable(); populateObjects();', 'makeBikes();if(camera)updateComposer();else updateCamera(); updateTable(); populateObjects();')
 s=s.replace('camera.aspect=w/h;camera.updateProjectionMatrix();', 'if(camera.isOrthographicCamera){const span=camera.userData.span;camera.left=-span*w/h/2;camera.right=span*w/h/2;}else camera.aspect=w/h;camera.updateProjectionMatrix();')
 s=s.replace("textContent=a.equipment", "textContent=a.summary+' '+a.equipment")

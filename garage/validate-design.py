@@ -27,3 +27,11 @@ for layout in data['layouts']:
         assert len(layout['shelves'][0]) == 5
         assert 'Two additional' in layout['unpriced']
 print('All six layouts: priced subsets, no boxes, shelf counts, height and parking arithmetic pass.')
+
+wall = data['leftWall']
+assert wall['clearWidth'] == .545 and wall['clearHeight'] == .635
+assert 0 < wall['recessDepth'] < .12
+for lower, upper in zip(wall['ledgeTops'], wall['ledgeTops'][1:]):
+    assert abs(upper - .045 - lower - wall['clearHeight']) < 1e-9
+assert not any(key in {'plank', 'pineBracket'} for key, _ in data['common']), 'Reuse the existing right-wall ski shelf'
+print('Left-wall measured opening, flush recess depth and reuse pricing checks pass.')

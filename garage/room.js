@@ -7,11 +7,7 @@
  const rearH=storageHeight();
  for(let i=0;i<20;i++){const w=W/20;const m=materials.wood.clone();m.color.multiplyScalar(.92+random()*.15);box(w-.003,rearH,.034,(i+.5)*w,rearH/2,L+.017,m);}
  for(let i=0;i<43;i++){const d=L/43;const hh=H+(rearH-H)*Math.max(0,((i+.5)*d-4)/(L-4));const m=materials.wood.clone();m.color.multiplyScalar(.92+random()*.15);box(.034,hh,d-.003,W+.017,hh/2,(i+.5)*d,m);}
- // Left wall: exposed studs and horizontal battens, as in the garage photo.
- // Stud faces define the measured usable x=0 boundary; cladding sits behind them.
- for(let i=0;i<43;i++){const d=L/43;const hh=H+(rearH-H)*Math.max(0,((i+.5)*d-4)/(L-4));const m=materials.wood.clone();m.color.multiplyScalar(.92+random()*.15);const board=box(.034,hh,d-.003,-.061,hh/2,(i+.5)*d,m);board.userData.wall='left';board.userData.wallPart='panel';}
- for(let z=.25;z<L;z+=.61){const stud=box(.044,H,.07,-.022,H/2,z,'wood');stud.userData.wall='left';stud.userData.wallPart='stud';}
- for(const y of [.7,1.43]){const batten=box(.025,.06,L,-.0315,y,L/2,'wood');batten.userData.wall='left';batten.userData.wallPart='batten';}
+ leftWallFrame();
  for(const z of [2.03,4.06])box(W,.001,.004,W/2,.001,z,new T.MeshStandardMaterial({color:'#777c75',roughness:1}));
  const studio=new T.MeshStandardMaterial({color:'#e9e9e0',roughness:1});box(200,.02,200,W/2,-.145,L/2,studio);
 

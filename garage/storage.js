@@ -49,7 +49,7 @@ function storage(){
   }
   snowRacer(sx);
  }
- rightWall();upperStorage();exampleContents();
+ rightWall();upperStorage();exampleContents();leftWallStorage();
  root.querySelector('#rear-height-value').textContent=Math.round(storageHeight()*100)+' cm';
  root.querySelector('#upper-controls').hidden=!root.querySelector('#garage-upper').checked;
 }

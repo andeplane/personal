@@ -21,8 +21,8 @@
     "estimatedGrams": 21.44,
     "actualGrams": null,
     "estimatedMeters": 7.07526,
-    "material": "PLA Basic · black (planned AMS mapping; source preview uses green)",
-    "color": "#000000",
+    "material": "PLA Basic · grey, external spool (source preview uses green)",
+    "color": "#8E9089",
     "layerHeightMm": 0.1,
     "nozzleMm": 0.4,
     "layers": 242,
@@ -34,7 +34,7 @@
       "sha256": "3fbe0b2a7433962cae48300066d4c091ca94752d05f3711fe7427ba645bce233",
       "evidence": "Exact recovered sliced archive, plate 1. Inventory and slicer estimates read from Metadata/slice_info.config and plate_1.gcode. Editable project SHA256 3921cb31b8eb4e68b1338d824139be8520de29c30b1d8d27f4ee0535e80b1353. Native coupon result SHA256 057776450690fd935f05e7d4856d0402a550a216c9ee006b6b330261c47d2e8c. Source release, actual toolpath audit and upload/readback remain pending at record creation."
     },
-    "notes": "Planned, not started. Three new printed parts test support cleanup, captive hardware and the V2 ring-setting lock, reusing the previously printed numbered ring I if physically intact. Not a complete rotor. Four walls, 30% gyroid, 0.10 mm layers / 0.20 mm first layer, 8 mm outer brim, normal snug supports including above-bed supports. Initial recovery audit found support in three hardware recesses; an independent native review identifies those recesses as directly open to the bed face. The supported trial requires physical support removal and inspection of those recesses before hardware fitting. A final source-bound pocket audit and release remain pending. Physical cleanup, fit, lock return and hardware stock remain unverified. No start or completed-quality claim."
+    "notes": "Planned, not started. Three new printed parts test support cleanup, captive hardware and the V2 ring-setting lock, reusing the previously printed numbered ring I if physically intact. Not a complete rotor. Four walls, 30% gyroid, 0.10 mm layers / 0.20 mm first layer, 8 mm outer brim, normal snug supports including above-bed supports. Initial recovery audit found support in three hardware recesses; an independent native review identifies those recesses as directly open to the bed face. The supported trial requires physical support removal and inspection of those recesses before hardware fitting. A final source-bound pocket audit and release remain pending. Physical cleanup, fit, lock return and hardware stock remain unverified. No start or completed-quality claim. Human selected grey PLA on the normal external spool; this supersedes the earlier black AMS plan. Final live material/extruder verification remains a pre-start check."
   },
   {
     "id": "enigma-reflector-body-retry-20261021-a3",

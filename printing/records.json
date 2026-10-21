@@ -440,9 +440,9 @@
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
     "status": "planned",
-    "preparationState": "PREPARED_REVIEWED_UPLOAD_READBACK_AND_START_PENDING",
+    "preparationState": "UPLOADED_READBACK_VERIFIED_START_PENDING",
     "recordedAt": "2026-10-21T11:30:59.899343+00:00",
-    "updatedAt": "2026-10-21T14:10:58.195533+00:00",
+    "updatedAt": "2026-10-21T14:31:52.601317+00:00",
     "startedAt": null,
     "finishedAt": null,
     "jobName": "ENIGMA_ROCKER_PLA_1c3cb216 · ikke startet",
@@ -498,12 +498,24 @@
         "selectedSourceEquivalenceSha256": "b26f15aecc6ba90c88cd351c312de049e92d226c417a68589cd8cf12da8810b6",
         "manualAndBrowserEquivalenceSha256": "8644b7a83b5278421cd3e359370ec68a32d14f7743b7e29777b511e001ea8bf4"
       },
-      "evidence": "Klargjort fra ren gjeldende main etter kilde- og uavhengig gjennomgang, eksakt synkronisert publisert guide, og verifisert 7+1 plassering. Sluttfilen er slicet fra det portkontrollerte prosjektet; modelltrekanter, navn, posisjoner, prosess og faktiske boreverktøybaner samsvarer. Fire kritiske borevolumer er uten modell-/støtteinntrenging i kontrollområdet. Ti avgrensede faktiske verktøybanevisninger er gjennomgått. Ingen opplasting, nedlastingskontroll eller printerstart er utført for denne kjøringen. Kildekontroll oppdatert mot ren main 065f60ab: alle 16 valgte kildefiler er byteidentiske, begge platene er kontrollert på nytt med gjeldende manifest/revisor, og eksakte forhåndsvisninger samt tidligere manuell verktøybane-/animasjonskontroll er hashbundet."
+      "evidence": "Klargjort fra ren gjeldende main etter kilde- og uavhengig gjennomgang, eksakt synkronisert publisert guide, og verifisert 7+1 plassering. Sluttfilen er slicet fra det portkontrollerte prosjektet; modelltrekanter, navn, posisjoner, prosess og faktiske boreverktøybaner samsvarer. Fire kritiske borevolumer er uten modell-/støtteinntrenging i kontrollområdet. Ti avgrensede faktiske verktøybanevisninger er gjennomgått. Printerstart er ennå ikke utført for denne kjøringen. Kildekontroll oppdatert mot ren main 065f60ab: alle 16 valgte kildefiler er byteidentiske, begge platene er kontrollert på nytt med gjeldende manifest/revisor, og eksakte forhåndsvisninger samt tidligere manuell verktøybane-/animasjonskontroll er hashbundet. Arkivet ble forhåndslastet opp 21. oktober kl. 14:30 UTC mens den forrige kjøringen pågikk. En ny nedlasting har eksakt samme SHA-256 som den gjennomgåtte slicefilen; nedlastingskontrollen binder begge platene til de gjeldende gjennomgangene. Ingen ny startkommando er sendt, og ingen akseptert printjobb er observert for denne platen.",
+      "uploadVerification": {
+        "uploadedAt": "2026-10-21T14:30:00.203101+00:00",
+        "remoteFile": "ENIGMA_ROCKER_PLA_1c3cb216.gcode.3mf",
+        "uploadResult": "SUCCESS",
+        "readbackStatus": "UPLOADED_BYTES_MATCH_REVIEWED_ARTIFACT",
+        "readbackSha256": "1c3cb2164cbc7fd8d40f1c7429ba1d3d7f2d22608fa045109bbb16f54a73d173",
+        "readbackReceiptSha256": "ef7180fb48ec8e6364aa402623b56f805dc71e08038167bb27e0c34f04b0fd0d",
+        "reviewReceiptSha256": "cd7d7d636fc55b8120a46c0304a6e22c7ccb06375d3a40ede113c23914d16253",
+        "uploadReceiptSha256": "281737942014c8d94221e646ec53f40edaef606f8efc0712fa6656e32530cb9c",
+        "actualDownloadedBytesIndependentlyHashed": true,
+        "startCommandSent": false,
+        "acceptedPrintJobObserved": false
+      }
     },
     "notes": "Ubelastet PLA-passformprøve. De viste bildene er eksakte bilder fra sluttfilen etter main-klargjøring. Støtte kommer bare fra byggeplaten for å redusere innestengt støtte i blinde boringer; brotak, støttefjerning og oppnådd toleranse er ikke fysisk godkjent. Slicerfargen er illustrativ grønn; planlagt fysisk materiale er svart PLA Basic fra AMS A3, som må kontrolleres live før start. Venstre bakarm er fortsatt en ikke-adoptert, fysisk ukvalifisert koblingskandidat; flere øvrige deler har historisk/null materialstatus. For at mekanismen skal holde sammen og rotere, trengs 2 spesialpivoter (M6×8,5 gjenge og Ø5×18 skulder), 2 M6 tynnmuttere, Ø6×142 stålaksel, 10 M3-skjøter og separat base-/stopp-/fjærmaskinvare. Slicertid og materiale er estimater. Ingen kamerabilder eller faktisk tid/forbruk fra denne ennå ustartede kjøringen foreligger.",
     "sequence": 8,
     "evidencePending": [
-      "Exact upload-readback identity",
       "Immediate live camera/telemetry/material and accepted job/plate identity",
       "During/after-print camera captures",
       "Physical support cleanup, bridge surfaces and fit inspection"
@@ -558,9 +570,9 @@
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
     "status": "planned",
-    "preparationState": "PREPARED_REVIEWED_UPLOAD_READBACK_AND_START_PENDING",
+    "preparationState": "UPLOADED_READBACK_VERIFIED_START_PENDING",
     "recordedAt": "2026-10-21T11:30:59.899343+00:00",
-    "updatedAt": "2026-10-21T14:10:58.195533+00:00",
+    "updatedAt": "2026-10-21T14:31:52.600250+00:00",
     "startedAt": null,
     "finishedAt": null,
     "jobName": "ENIGMA_ROCKER_PLA_1c3cb216 · ikke startet",
@@ -622,12 +634,24 @@
         "selectedSourceEquivalenceSha256": "b26f15aecc6ba90c88cd351c312de049e92d226c417a68589cd8cf12da8810b6",
         "manualAndBrowserEquivalenceSha256": "8644b7a83b5278421cd3e359370ec68a32d14f7743b7e29777b511e001ea8bf4"
       },
-      "evidence": "Klargjort fra ren gjeldende main etter kilde- og uavhengig gjennomgang, eksakt synkronisert publisert guide, og verifisert 7+1 plassering. Sluttfilen er slicet fra det portkontrollerte prosjektet; modelltrekanter, navn, posisjoner, prosess og faktiske boreverktøybaner samsvarer. Fire kritiske borevolumer er uten modell-/støtteinntrenging i kontrollområdet. Ti avgrensede faktiske verktøybanevisninger er gjennomgått. Ingen opplasting, nedlastingskontroll eller printerstart er utført for denne kjøringen. Kildekontroll oppdatert mot ren main 065f60ab: alle 16 valgte kildefiler er byteidentiske, begge platene er kontrollert på nytt med gjeldende manifest/revisor, og eksakte forhåndsvisninger samt tidligere manuell verktøybane-/animasjonskontroll er hashbundet."
+      "evidence": "Klargjort fra ren gjeldende main etter kilde- og uavhengig gjennomgang, eksakt synkronisert publisert guide, og verifisert 7+1 plassering. Sluttfilen er slicet fra det portkontrollerte prosjektet; modelltrekanter, navn, posisjoner, prosess og faktiske boreverktøybaner samsvarer. Fire kritiske borevolumer er uten modell-/støtteinntrenging i kontrollområdet. Ti avgrensede faktiske verktøybanevisninger er gjennomgått. Printerstart er ennå ikke utført for denne kjøringen. Kildekontroll oppdatert mot ren main 065f60ab: alle 16 valgte kildefiler er byteidentiske, begge platene er kontrollert på nytt med gjeldende manifest/revisor, og eksakte forhåndsvisninger samt tidligere manuell verktøybane-/animasjonskontroll er hashbundet. Arkivet ble forhåndslastet opp 21. oktober kl. 14:30 UTC mens den forrige kjøringen pågikk. En ny nedlasting har eksakt samme SHA-256 som den gjennomgåtte slicefilen; nedlastingskontrollen binder begge platene til de gjeldende gjennomgangene. Ingen ny startkommando er sendt, og ingen akseptert printjobb er observert for denne platen.",
+      "uploadVerification": {
+        "uploadedAt": "2026-10-21T14:30:00.203101+00:00",
+        "remoteFile": "ENIGMA_ROCKER_PLA_1c3cb216.gcode.3mf",
+        "uploadResult": "SUCCESS",
+        "readbackStatus": "UPLOADED_BYTES_MATCH_REVIEWED_ARTIFACT",
+        "readbackSha256": "1c3cb2164cbc7fd8d40f1c7429ba1d3d7f2d22608fa045109bbb16f54a73d173",
+        "readbackReceiptSha256": "d27145e0fb043edbabc9ebd2e9397452cbf4e37ae34b0b172d714ee1d99834b9",
+        "reviewReceiptSha256": "ff3761dfdfdc93b8e184d7faf4ff650f5d7900b3dbefa4c127679f3e8598840b",
+        "uploadReceiptSha256": "281737942014c8d94221e646ec53f40edaef606f8efc0712fa6656e32530cb9c",
+        "actualDownloadedBytesIndependentlyHashed": true,
+        "startCommandSent": false,
+        "acceptedPrintJobObserved": false
+      }
     },
     "notes": "Ubelastet PLA-passformprøve. De viste bildene er eksakte bilder fra sluttfilen etter main-klargjøring. Støtte kommer bare fra byggeplaten for å redusere innestengt støtte i blinde boringer; brotak, støttefjerning og oppnådd toleranse er ikke fysisk godkjent. Slicerfargen er illustrativ grønn; planlagt fysisk materiale er svart PLA Basic fra AMS A3, som må kontrolleres live før start. Venstre bakarm er fortsatt en ikke-adoptert, fysisk ukvalifisert koblingskandidat; flere øvrige deler har historisk/null materialstatus. For at mekanismen skal holde sammen og rotere, trengs 2 spesialpivoter (M6×8,5 gjenge og Ø5×18 skulder), 2 M6 tynnmuttere, Ø6×142 stålaksel, 10 M3-skjøter og separat base-/stopp-/fjærmaskinvare. Slicertid og materiale er estimater. Ingen kamerabilder eller faktisk tid/forbruk fra denne ennå ustartede kjøringen foreligger.",
     "sequence": 7,
     "evidencePending": [
-      "Exact upload-readback identity",
       "Immediate live camera/telemetry/material and accepted job/plate identity",
       "During/after-print camera captures",
       "Physical support cleanup, bridge surfaces and fit inspection"

@@ -7,7 +7,7 @@
       "name": "Clas Ohlson Storo",
       "location": "Storo Storsenter · Vitaminveien 7–9",
       "area": "Storo",
-      "note": "Handlekurv fylt: 2 128,70 kr inkl. mva. Samlet Storo-henting kontrolleres. Venter på din godkjenning; ingen bestilling sendt.",
+      "note": "Betaling pågår for godkjent bestilling på 2 128,70 kr inkl. mva. Gratis Storo-henting valgt; vent på bestillingsbekreftelse og hentemelding.",
       "items": [
         {
           "id": "halloween-colours",
@@ -104,7 +104,7 @@
       "name": "Kjell & Company Storo",
       "location": "Storo Storsenter · Vitaminveien 7–9",
       "area": "Storo",
-      "note": "Hentekurv klar: 953,86 kr inkl. mva etter 229,74 kr rabatt. Betales i butikk. Venter på godkjenning; ingen reservasjon sendt.",
+      "note": "Reservert · nr. 11356970 · 953,86 kr inkl. mva. Betales i butikk. Vent på SMS/e-post om at varene er klare. Reservasjonen gjelder 1 dag fra butikkens bekreftelse.",
       "items": [
         {
           "id": "lamp-resistors",
@@ -112,7 +112,7 @@
           "quantity": "1 sett",
           "ore": 15992,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektronikk/motstander/luxorparts-motstandssats-1460-stk-p80216",
-          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Ikke reservert.",
+          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Reservert; se reservasjonsnummer over.",
           "project": "Bokhyllelys",
           "purpose": "Begrense strømmen i hver av de fem lampene; verdi velges etter måling."
         },
@@ -122,7 +122,7 @@
           "quantity": "1 sortiment",
           "ore": 9592,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/elektrisk-installasjon/krympeslanger/luxorparts-krympeslangeutvalg-40-stk-svart-p40147",
-          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Ikke reservert.",
+          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Reservert; se reservasjonsnummer over.",
           "project": "Bokhyllelys",
           "purpose": "Isolere loddeskjøter og motstandsben i lampeledningene."
         },
@@ -132,7 +132,7 @@
           "quantity": "1 pakke",
           "ore": 10392,
           "url": "https://www.kjell.com/no/produkter/data/kabler-og-adaptere/kabelhandtering/bunteband/bunteband-300-pk.-p37720",
-          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Ikke reservert.",
+          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Reservert; se reservasjonsnummer over.",
           "project": "Bokhyllelys",
           "purpose": "Feste kort, sikringsholdere og ledninger i de printede boksene."
         },
@@ -142,7 +142,7 @@
           "quantity": "1 rull / fra før",
           "ore": 3490,
           "url": "https://www.kjell.com/no/produkter/kontor/teip/el-teip-20-m-hvit-p40105",
-          "note": "På lager på Storo, kontrollert 21. oktober. Ikke reservert.",
+          "note": "På lager på Storo, kontrollert 21. oktober. Reservert; se reservasjonsnummer over.",
           "project": "Bokhyllelys",
           "purpose": "Merke plusslederen når begge ledningene er svarte."
         },
@@ -152,7 +152,7 @@
           "quantity": "1 startpakke",
           "ore": 55920,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/verktoy/lodding/loddebolter/luxorparts-loddestasjon-startpakke-48-w-p40712",
-          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Ikke reservert.",
+          "note": "Pris i hentekurven 21. oktober etter automatisk 20 % rabatt. På lager på Storo. Reservert; se reservasjonsnummer over.",
           "project": "Enigma + bokhyllelys · felles verktøy",
           "purpose": "Lodde lampenes ledninger og elektronikk; også aktuell til Enigmaens gjengeinnsatser."
         }
@@ -163,7 +163,7 @@
       "name": "Kjell & Company Torggata",
       "location": "Torggata 6, Oslo",
       "area": "Torggata",
-      "note": "Separat hentekurv klar: 795 kr inkl. mva. Betales i butikk. Venter på godkjenning; ingen reservasjon sendt.",
+      "note": "Reservert · nr. 11356973 · 795 kr inkl. mva. Betales i butikk. Vent på SMS/e-post om at varene er klare. Reservasjonen gjelder 1 dag fra butikkens bekreftelse.",
       "items": [
         {
           "id": "lamp-wire",
@@ -171,7 +171,7 @@
           "quantity": "4 ruller à 10 m",
           "ore": 19600,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/maleinstrumenter/malekabler-sonder-kontakter/koblingstrad/isolert-koblingstrad-014-mm-svart-p45060",
-          "note": "Antallet er bekreftet i separat hentekurv for Torggata 21. oktober. Ikke reservert.",
+          "note": "Antallet er bekreftet i separat hentekurv for Torggata 21. oktober. Reservert; se reservasjonsnummer over.",
           "project": "Bokhyllelys",
           "purpose": "Ledningspar mellom kontrollboksen og de fem lyktene."
         },
@@ -181,7 +181,7 @@
           "quantity": "1 stk.",
           "ore": 59900,
           "url": "https://www.kjell.com/no/produkter/elektro-og-verktoy/maleinstrumenter/multimetere/uni-t-ut139a-multimeter-p48385",
-          "note": "Antallet er bekreftet i separat hentekurv for Torggata 21. oktober. Ikke reservert.",
+          "note": "Antallet er bekreftet i separat hentekurv for Torggata 21. oktober. Reservert; se reservasjonsnummer over.",
           "project": "Bokhyllelys · gjenbrukbart verktøy",
           "purpose": "Stille regulatoren til 4,5 V og måle lampestrøm, polaritet og kontinuitet."
         }
@@ -192,15 +192,15 @@
       "name": "Clas Ohlson Torggata",
       "location": "Torggata 6, Oslo",
       "area": "Torggata",
-      "note": "Egen handlekurv med gratis Torggata-henting. Venter på godkjenning; ingen bestilling sendt.",
+      "note": "Bestilt og betalt med Vipps · ordre 404537669 · 399,90 kr inkl. mva. Gratis henting på Torggata. Vent på SMS om at ordren er klar.",
       "items": [
         {
           "id": "lamp-heatgun",
           "name": "Cocraft HH 2000-E · varmluftpistol",
-          "quantity": "1 stk. / fra før",
+          "quantity": "1 stk.",
           "ore": 39990,
           "url": "https://www.clasohlson.com/no/Cocraft-HH-2000-E-varmluftpistol-/p/40-8762",
-          "note": "I egen handlekurv. Gratis henting på Torggata, oppgitt innen 2 timer etter bestilling. Ikke bestilt.",
+          "note": "Bestilt og betalt. Hentes på Torggata når hentemeldingen kommer.",
           "project": "Bokhyllelys · gjenbrukbart verktøy",
           "purpose": "Krympe isolasjon over loddeskjøtene før de legges i plastboksene."
         }
@@ -208,6 +208,17 @@
     }
   ],
   "online": [
+    {
+      "id": "sandisk-dual-drive-go-512",
+      "name": "SanDisk Ultra Dual Drive Go · 512 GB",
+      "quantity": "1 stk.",
+      "ore": 102200,
+      "url": "https://www.proshop.no/Minnepenn/SANDISK-Ultra-Dual-Drive-Go-Black-512GB-USB-Stick/2841483",
+      "note": "Kjøpt og betalt hos Proshop · ordre 69973994. Totalt 1 022 kr inkludert 109 kr frakt. PostNord pakkeboks; oppgitt utsending 22.–26. oktober. Vent på hentemelding.",
+      "project": "Personlig lagring · USB",
+      "purpose": "USB-minne med USB-C og USB-A til filoverføring. Erstatter ønsket om Kingston; ikke kjøp begge.",
+      "paid": true
+    },
     {
       "id": "lamp-usb",
       "name": "Goobay 45735 · USB-A til USB-C, 1 m",

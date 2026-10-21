@@ -23,13 +23,14 @@ fetch('items.json').then(r => { if (!r.ok) throw Error('data'); return r.json();
    const links=el('div',null,'store-links');const map=el('a','Åpne kart ↗');map.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(group.name+' '+group.location);const total=el('strong');total.dataset.group=group.id;links.append(map,total);head.append(links,el('p',group.note,'status'));card.append(head,...group.items.map(item));section.append(card);
   }stores.append(section);
  }
- document.querySelector('#online-items').append(...data.online.map(item));
+ document.querySelector('#paid-online').append(...data.online.filter(x=>x.paid).map(item));
+ document.querySelector('#online-items').append(...data.online.filter(x=>!x.paid).map(item));
  function update(){
   const local=data.groups.flatMap(g=>g.items);const left=local.filter(x=>!checked.has(x.id));
   document.querySelector('#remaining').textContent=money(left.reduce((s,x)=>s+x.ore,0));
   document.querySelector('#progress').textContent=`${local.length-left.length} av ${local.length} varelinjer avkrysset`;
   for(const g of data.groups)document.querySelector(`[data-group="${g.id}"]`).textContent=money(g.items.filter(x=>!checked.has(x.id)).reduce((s,x)=>s+x.ore,0));
-  document.querySelector('#online-total').textContent=money(data.online.filter(x=>!checked.has(x.id)).reduce((s,x)=>s+x.ore,0))+' gjenstår + frakt';
+  document.querySelector('#online-total').textContent=money(data.online.filter(x=>!x.paid&&!checked.has(x.id)).reduce((s,x)=>s+x.ore,0))+' gjenstår + frakt';
   for(const row of document.querySelectorAll('.item')){const done=checked.has(row.dataset.id);row.classList.toggle('done',done);row.hidden=done&&document.querySelector('#hide-done').checked;row.querySelector('input').checked=done;}
  }
  document.querySelector('#hide-done').addEventListener('change',update);

@@ -3,12 +3,12 @@
   "title": "Rotor V2 \u00b7 one complete plastic prototype plus fit fixture",
   "project": "OpenEnigma",
   "printer": "Bambu Lab X2D",
-  "status": "planned",
+  "status": "printing",
   "recordedAt": "2026-10-21T21:52:18.509769+00:00",
-  "startedAt": null,
+  "startedAt": "2026-10-22T07:30:29.925816+00:00",
   "finishedAt": null,
-  "printDate": null,
-  "jobName": "DESIGN2_COMBINED_FULL_ROTOR_AND_FIT_TRIAL_X2D",
+  "printDate": "2026-10-22",
+  "jobName": "ENIGMA_V2_COMBINED_27cd2317",
   "plate": 1,
   "parts": [
     "V2_FIXTURE_BODY",
@@ -30,21 +30,33 @@
   "layers": 242,
   "preview": "assets/enigma-rotor-v2-lock-fit-20261021-a1/combined-preview.png",
   "layout": "assets/enigma-rotor-v2-lock-fit-20261021-a1/combined-layout.png",
-  "snapshots": [],
+  "snapshots": [
+    {
+      "src": "assets/enigma-rotor-v2-lock-fit-20261021-a1/prestart-camera.jpg",
+      "capturedAt": "2026-10-22T07:28:51.784171+00:00",
+      "caption": "Fresh pre-start camera view: installed bed visibly clear before submission. This is an empty-bed clearance image, not a during-print or finished-part image."
+    },
+    {
+      "src": "assets/enigma-rotor-v2-lock-fit-20261021-a1/during-preparation-camera.jpg",
+      "capturedAt": "2026-10-22T07:31:44.043311+00:00",
+      "caption": "During accepted RUNNING preparation: bed moved high in the chamber. Root reviewed this fresh frame; first-layer deposition was not yet visible or verified. This is not a completed-part image."
+    }
+  ],
   "source": {
     "file": "design2-combined-sliced.3mf",
     "sha256": "27cd231745514a62754d7ec46cc908a904e0952a323cc4143bb57904783eef63",
-    "evidence": "Exact combined six-object plate 1 slice; named inventory and slicer estimates read from its slice_info.config and plate_1.gcode. Editable project SHA256 c81181df077de6f497bb52b971777f916bd77a8753f1648243b0f3264b20a525. Logical filament mapping 2 with physical map [1,0] targets right physical nozzle 0 / normal external holder 255. Final source release/audits and upload/readback remain pending. No actual printer start claimed."
+    "evidence": "Source main 23fb57e505856cf53d23965724cd450d201d339b; reviewed combined plate 1 slice and uploaded/downloaded archive match SHA256 27cd231745514a62754d7ec46cc908a904e0952a323cc4143bb57904783eef63. Editable project SHA256 c81181df077de6f497bb52b971777f916bd77a8753f1648243b0f3264b20a525. Final normal actual-toolpath audit passed all twelve checks; receipt SHA256 8ccc18c43b7132939436b2e299b70228eba59adb29811a0d1ac426329e2ca5ab. Printer accepted the matching file, plate 1 and archive MD5 8cb542f9d04a0ed1e128c86e35ece9f6, then reported RUNNING / Homing toolhead at 07:30:29 UTC. Logical2 / physical map[1,0] routes to right physical nozzle0, external holder255; AMS disabled. Local source/guide/artifact validation and exact device prerequisites were retained; the human explicitly allowed printing without waiting for cloud/website publication."
   },
-  "notes": "Planned attempt; no printer start sent. Human selected ONE full prototype V2 rotor printed concurrently with the fit fixture overnight, before physical fit-trial acceptance; the other two rotors remain held. Six new objects include a single ring arm shared between fixture and rotor; the previously printed numbered ring I is reused only if intact. The blank cassette is a non-electrical mechanical prototype. Grey PLA on the right nozzle normal external spool. Four walls, 30% gyroid, 0.10 mm layers / 0.20 mm first layer, 8 mm outer brim and normal snug supports including above-bed supports. Actual support removal, fine-feature inspection, captive hardware fitting, lock return and full assembly remain physical checks. Hardware stock, cleanup, fit, strength and function remain unverified. Earlier three-part left/right preparations were superseded as the current target before any start.",
+  "notes": "Printer start accepted on 2026-10-22 at 07:30:29 UTC; first observed stage RUNNING / Homing toolhead, before the first printed layer. Actual start of deposition, physical quality, duration and filament usage remain unverified. Human selected ONE full prototype V2 rotor concurrently with its fit fixture before physical trial acceptance; other two rotors remain held. Six new objects share a single ring arm and reuse the previously printed numbered ring I only if intact. The blank cassette is non-electrical. Grey PLA, right nozzle normal external spool; textured plate, bed leveling and flow calibration enabled, timelapse and AMS disabled. Four walls, 30% gyroid, 0.10 mm layers / 0.20 mm first layer, 8 mm outer brim, normal snug supports including above-bed supports. Physical support removal, fine-feature inspection, captive hardware fitting, lock return, strength and full assembly remain unverified. Production guide deployment was not verified; the human permitted local validated release without waiting for cloud publication.",
   "preparationState": {
-    "status": "combined-six-candidate-awaiting-final-release",
+    "status": "accepted-running-before-first-layer",
     "requiredTool": "right physical nozzle 0",
     "requiredExternalHolder": 255,
     "finalSliceSha256": "27cd231745514a62754d7ec46cc908a904e0952a323cc4143bb57904783eef63",
-    "actualStartSent": false,
+    "actualStartSent": true,
     "fullRotorQuantity": 1,
-    "physicalFitAccepted": false
+    "physicalFitAccepted": false,
+    "acceptedAt": "2026-10-22T07:30:29.925816+00:00"
   },
   "preparationHistory": [
     {
@@ -67,5 +79,6 @@
       "estimatedGrams": 21.44,
       "actualStartSent": false
     }
-  ]
+  ],
+  "startEvidence": "assets/enigma-rotor-v2-lock-fit-20261021-a1/start-evidence.json"
 }

@@ -41,6 +41,16 @@
         "src": "assets/enigma-rotor-v2-lock-fit-20261021-a1/during-preparation-camera.jpg",
         "capturedAt": "2026-10-22T07:31:44.043311+00:00",
         "caption": "During accepted RUNNING preparation: bed moved high in the chamber. Root reviewed this fresh frame; first-layer deposition was not yet visible or verified. This is not a completed-part image."
+      },
+      {
+        "src": "assets/enigma-rotor-v2-lock-fit-20261021-a1/recovered-layer18.jpg",
+        "capturedAt": "2026-10-22T10:30:38.712887+00:00",
+        "caption": "Monitoring recovered at approximately 10:30 UTC: print and support structures are visible on the bed at reported layer 18/242. No gross lifting, detached objects or spaghetti visible in exposed areas; toolhead partly obscures the rear-right. No observations were recovered for approximately 08:57–10:30 UTC."
+      },
+      {
+        "src": "assets/enigma-rotor-v2-lock-fit-20261021-a1/layer30.jpg",
+        "capturedAt": "2026-10-22T12:27:41.695857+00:00",
+        "caption": "Fresh 12:27:41 UTC view at reported layer 30/242 and 53% progress. Visible pieces and support structures remain seated, with no gross lifting or spaghetti visible; toolhead occludes the rear-left. Physical cleanup, fit, strength and full quality remain unverified."
       }
     ],
     "source": {
@@ -48,9 +58,9 @@
       "sha256": "27cd231745514a62754d7ec46cc908a904e0952a323cc4143bb57904783eef63",
       "evidence": "Source main 23fb57e505856cf53d23965724cd450d201d339b; reviewed combined plate 1 slice and uploaded/downloaded archive match SHA256 27cd231745514a62754d7ec46cc908a904e0952a323cc4143bb57904783eef63. Editable project SHA256 c81181df077de6f497bb52b971777f916bd77a8753f1648243b0f3264b20a525. Final normal actual-toolpath audit passed all twelve checks; receipt SHA256 8ccc18c43b7132939436b2e299b70228eba59adb29811a0d1ac426329e2ca5ab. Printer accepted the matching file, plate 1 and archive MD5 8cb542f9d04a0ed1e128c86e35ece9f6, then reported RUNNING / Homing toolhead at 07:30:29 UTC. Logical2 / physical map[1,0] routes to right physical nozzle0, external holder255; AMS disabled. Local source/guide/artifact validation and exact device prerequisites were retained; the human explicitly allowed printing without waiting for cloud/website publication."
     },
-    "notes": "Printer start accepted on 2026-10-22 at 07:30:29 UTC; first observed stage RUNNING / Homing toolhead, before the first printed layer. Actual start of deposition, physical quality, duration and filament usage remain unverified. Human selected ONE full prototype V2 rotor concurrently with its fit fixture before physical trial acceptance; other two rotors remain held. Six new objects share a single ring arm and reuse the previously printed numbered ring I only if intact. The blank cassette is non-electrical. Grey PLA, right nozzle normal external spool; textured plate, bed leveling and flow calibration enabled, timelapse and AMS disabled. Four walls, 30% gyroid, 0.10 mm layers / 0.20 mm first layer, 8 mm outer brim, normal snug supports including above-bed supports. Physical support removal, fine-feature inspection, captive hardware fitting, lock return, strength and full assembly remain unverified. Production guide deployment was not verified; the human permitted local validated release without waiting for cloud publication.",
+    "notes": "Printer start accepted on 2026-10-22 at 07:30:29 UTC; first observed stage RUNNING / Homing toolhead, before the first printed layer. Later camera captures show deposition in progress. At 12:27 UTC, fresh subscribe-only telemetry reported the same exact job RUNNING, 53%, layer 30/242, 243 minutes remaining, bed 55°C, print error 0 and no HMS entries. The remaining time is a live estimate; actual total duration and measured filament usage remain unknown. Monitoring was unobserved from approximately 08:57 to 10:30 UTC after the connector became unavailable; read-only MQTT and approved camera access recovered observation through a home worker. Current camera shows visible parts/supports seated without gross lifting or spaghetti in exposed areas; the toolhead occludes part of the rear. This does not establish quality, cleanup, fit, retention or strength, and first-layer adhesion was not retrospectively qualified. Human selected ONE full prototype V2 rotor concurrently with its fit fixture before physical trial acceptance; other two rotors remain held. Six objects share one ring arm and reuse the earlier numbered ring I only if intact. The blank cassette is non-electrical. Grey PLA, right nozzle external spool; textured plate, bed leveling and flow calibration enabled, AMS and timelapse disabled. Four walls, 30% gyroid, 0.10 mm layers / 0.20 mm first layer, 8 mm outer brim and normal snug supports. Physical support removal, fine-feature inspection, captive hardware fitting, lock return and full assembly remain unverified. Production guide deployment remains unverified; the human permitted local validated release without waiting for cloud publication.",
     "preparationState": {
-      "status": "accepted-running-before-first-layer",
+      "status": "printing-observation-recovered",
       "requiredTool": "right physical nozzle 0",
       "requiredExternalHolder": 255,
       "finalSliceSha256": "27cd231745514a62754d7ec46cc908a904e0952a323cc4143bb57904783eef63",
@@ -81,7 +91,27 @@
         "actualStartSent": false
       }
     ],
-    "startEvidence": "assets/enigma-rotor-v2-lock-fit-20261021-a1/start-evidence.json"
+    "startEvidence": "assets/enigma-rotor-v2-lock-fit-20261021-a1/start-evidence.json",
+    "latestObservedProgress": {
+      "observedAtUtcMinute": "2026-10-22T12:27Z",
+      "state": "RUNNING",
+      "progressPercent": 53,
+      "currentLayer": 30,
+      "totalLayers": 242,
+      "remainingMinutesEstimate": 243,
+      "bedTemperatureC": 55,
+      "printError": 0,
+      "hms": [],
+      "physicalQualityVerified": false
+    },
+    "monitoringGap": {
+      "fromUtcMinute": "2026-10-22T08:57Z",
+      "untilUtcMinute": "2026-10-22T10:30Z",
+      "timesApproximate": true,
+      "observationsRecoveredForGap": false,
+      "reason": "Connector unavailable; observation recovered with subscribe-only MQTT and approved camera through a home worker."
+    },
+    "progressEvidence": "assets/enigma-rotor-v2-lock-fit-20261021-a1/progress-recovery-evidence.json"
   },
   {
     "id": "enigma-reflector-body-retry-20261021-a3",

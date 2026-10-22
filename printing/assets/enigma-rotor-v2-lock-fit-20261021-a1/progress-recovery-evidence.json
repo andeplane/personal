@@ -1,0 +1,44 @@
+{
+  "schema": "enigma.public-print-progress-evidence.v1",
+  "runId": "enigma-rotor-v2-lock-fit-20261021-a1",
+  "sameAcceptedStartUtc": "2026-10-22T07:30:29.925816+00:00",
+  "sameArchiveSha256": "27cd231745514a62754d7ec46cc908a904e0952a323cc4143bb57904783eef63",
+  "sameJob": "ENIGMA_V2_COMBINED_27cd2317",
+  "monitoringGap": {
+    "fromUtcMinute": "2026-10-22T08:57Z",
+    "untilUtcMinute": "2026-10-22T10:30Z",
+    "timesApproximate": true,
+    "observationsRecoveredForGap": false,
+    "reason": "Connector unavailable; observation recovered with subscribe-only MQTT and approved camera through a home worker."
+  },
+  "recoveryObservation": {
+    "atUtc": "2026-10-22T10:30:57.878883+00:00",
+    "state": "RUNNING",
+    "progressPercent": 32,
+    "currentLayer": 18,
+    "totalLayers": 242,
+    "remainingMinutesEstimate": 357,
+    "printError": 0,
+    "hms": [],
+    "bedTemperatureC": 55,
+    "readOnlyRecovery": true
+  },
+  "latestObservation": {
+    "observedAtUtcMinute": "2026-10-22T12:27Z",
+    "state": "RUNNING",
+    "progressPercent": 53,
+    "currentLayer": 30,
+    "totalLayers": 242,
+    "remainingMinutesEstimate": 243,
+    "bedTemperatureC": 55,
+    "printError": 0,
+    "hms": [],
+    "physicalQualityVerified": false
+  },
+  "latestCameraCapturedAtUtc": "2026-10-22T12:27:41.695857+00:00",
+  "latestCameraSha256": "ab07553602a5e3d1d48aff39215ed8d2cb31d3182b7a402e7ae67ec01f2c7b7b",
+  "latestVisualObservation": "Visible pieces and support structures remain seated; no gross lifting or spaghetti visible. Toolhead occludes rear-left. Cleanup, fit and strength unverified.",
+  "printerControlsSentByHistoryOwner": false,
+  "actualGrams": null,
+  "actualSeconds": null
+}

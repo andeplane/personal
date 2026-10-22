@@ -1,0 +1,33 @@
+{
+  "schema": "enigma.public-first-deposition-evidence.v1",
+  "runId": "enigma-rotor-v2-ii-20261023-a1",
+  "archiveSha256": "6b6929239cb99f5afd2b1f736b636d973ed8f1dd63d0a5ec4ec0736f0cf09895",
+  "acceptanceObservedAtUtc": "2026-10-22T23:42:25.190Z",
+  "depositionObservationAtUtc": "2026-10-22T23:49:27.719927+00:00",
+  "cameraSha256": "afea96c9184e4797ec9678bd23b2b7c9be598807b950158a23432cc6f42986fd",
+  "sameJob": "ENIGMA_V2_ROTOR_II_6b692923",
+  "observation": {
+    "observedAtUtc": "2026-10-22T23:49:27.719927+00:00",
+    "state": "RUNNING",
+    "progressPercent": 1,
+    "currentLayer": 1,
+    "totalLayers": 242,
+    "elapsedMinutesReported": 7,
+    "remainingMinutesEstimate": 386,
+    "printError": 0,
+    "hms": [],
+    "rightNozzleTemperatureC": 220,
+    "rightNozzleTargetC": 220,
+    "bedTemperatureC": 55,
+    "bedTargetC": 55,
+    "firstLayerDepositionObserved": true,
+    "wholeFirstLayerQualityVerified": false,
+    "firstLayerCompleted": false,
+    "physicalFitVerified": false
+  },
+  "visibleObservation": "New curved perimeter and filled grey deposited patch visible behind toolhead; no visible spaghetti or displaced object in exposed region. Toolhead occludes part.",
+  "scope": "First deposition visible only; not proof of whole-first-layer quality, completion, adhesion, physical fit or final print success.",
+  "actualDurationSeconds": null,
+  "actualFilamentGrams": null,
+  "printerControlsSentByHistoryOwner": false
+}

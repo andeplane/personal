@@ -1,45 +1,46 @@
-# Garage storage review · purchasable components
+# Garage storage: recesses first, then the room above
 
-The active comparison restores the original BOAXEL and BROR catalogue parts from commit `f7e120c`, checked against their current Norwegian product pages. New left-wall baskets and 60 / 80 cm rear alternatives also use real retail components. No proposed basket changes dimensions to fit a particular opening. No bespoke timber extension or custom-cut shelf is counted as a finished retail product.
+## Principles
 
-## Four options
+1. Use the wall depth behind the studs before taking passage space. Preserve the existing ledges, diagonal braces and charger wiring.
+2. Spend more room volume high up only where usable height remains. Under the assumed 2.10 m loft underside, a shelf at 1.95 m has about 15 cm above it. That is useful for flat gear, not a large bag. The taller rear and existing loft take bulkier seasonal belongings.
+3. Keep retrieval and movement visible. A car-free image does not prove that the same layout is convenient with the car parked. The 80 cm alternative explicitly requires moving the car for rear access.
+4. Leave adaptable space for changing belongings. One sled and the folded ladder get places; backpacks do not dictate the layout. No owned-box count is assumed.
+5. Prefer purchased parts that fit without cutting. When a fitted board uses an awkward recess substantially better, show the real board, supports, cut and whole-board cost.
 
-| Plan | Actual rear system | Nominal rack depth | Important fit condition |
-|---|---|---:|---|
-| A | Three independent 80 cm BOAXEL bays; full 200 cm uprights, stock metal shelves / brackets / 82.4 cm mounting rails | 40 cm | About 250.4 cm external span. Raise the whole stock uprights within the assumed roof clearance; no shortened uprights. The estimated sled is allowed 42 cm depth. |
-| B | Two stock 85 × 55 × 190 cm BROR units, five shelves each; stock BOAXEL sled bay and upper shelves | 55 cm | Approximately 260 cm span. Two independent wall-anchored BROR units; all ten supplied shelves are shown. |
-| C | AJ TRANSFORM 197.2 cm starter + two extensions, four shelves per section | 60 cm | 97.5 + 91 + 91 = 279.5 cm outside width, leaving 3.5 cm total within 283 cm. |
-| D | Same matching TRANSFORM system at its actual 80 cm depth | 80 cm | Same 279.5 cm outside width. About 21 cm remains ahead of the assumed parked car; use with the car out for retrieval. |
+## Different strategies
 
-Rear freestanding racks have 4 cm wall clearance for the separately wall-fixed upper uprights. Their parking arithmetic includes that clearance. BOAXEL's nominal 40 cm system has a 38 cm shelf and a 40 cm bracket. Manufacturer outside sizes and supplied shelf quantities are used, with simplified member profiles. Positions on adjustable systems are nominal; final assembly uses the manufacturer's slots and instructions.
+| Plan | Main allocation | What changes in use |
+|---|---|---|
+| A · Walls + loft | Shallow 38 cm rear wall shelves, long high left run, right-front extension, stock recess units | No floor-standing rack. About 63 cm minimum rear gap; seasonal bulk uses the loft. More wall fixing work. |
+| B · Balanced daily storage | Two 55 cm BROR units, selective upper side shelves, stock recess units | Mostly ready-size parts and more reachable rack storage. About 46 cm rear gap. Recommended starting point. |
+| C · Fitted recesses + open bay | Individually fitted recess shelves, one BROR unit, long high side storage | Better use of irregular clear pockets, with a wider rear floor bay for future awkward objects. Requires a cut list and more fitting work. |
+| D · 80 cm bulk store | One TRANSFORM starter and one extension; separate sled bay | Concentrates large items at the rear. About 21 cm rear gap, so car out for access. Fewer high side shelves. |
 
-## Left-wall capacity
+All keep the right-wall ski shelf, folded ladder, chairs/table, charger and existing loft. Upper rear shelves are conditional on the assumed roof height. The loft footprint is separate from shelf capacity; its unknown roof volume and safe load are not counted.
 
-The measured representative opening is **54.5 cm wide × 63.5 cm clear height**, about **9 cm deep**. The model retains 27 existing ledges / mini shelves across nine schematic bays and all five diagonal braces. These existing parts are reused, not sold as new products.
+## Recesses and real products
 
-Seven full 1980 × 25 × 16 mm Elfa wallbands fix to the stud faces. The charger stud gets the actual 316 × 25 × 16 mm retail wallband, with no cutting. The default arrangement has **27 small baskets plus eight high baskets**, using multiple heights along the wall, including above the charger. Four additional low basket positions are excluded because they intrude into the charger / cable keepout.
+The user confirmed a representative opening of **54.5 cm wide × 63.5 cm high**. IMG_0750 indicates approximately **9 cm depth**. Only one opening is measured; the model's repeated bays, ledge elevations and braces are a photo-based study.
 
-Small baskets are **435 × 80 × 70 mm**, Elfa **333210**. Their rail and 2 mm mounting allowance bring installed projection to **98 mm**, less than the charger's estimated 125 mm. Large baskets are **435 × 135 × 140 mm**, Elfa **333010**, starting at **186 cm** and ending at 200 cm, with 153 mm installed projection. At least 6 cm clear space remains above each basket under the local assumed loft / roof. Keep contents within the front edge and leave retrieval space above.
+A, B and D use [IKEA APOTEKARE 005.501.96](https://www.ikea.com/no/no/p/apotekare-vegghylle-svart-00550196/), **50 × 18 × 52 cm**, **269 kr** checked 22 October 2026. Two steel trays; 4.5 cm total width allowance and 11.5 cm height allowance in the measured opening. Starting 5 mm in front of the rear boards gives **9.5 cm projection beyond the stud faces**. IKEA's assembly instructions are the shape reference. Its 15 kg product rating does not establish what the existing wall can support.
 
-Baskets sit in front of the stud faces; existing recess ledges remain usable behind them. The structural braces remain intact. The keepout for the charger / cable is local in both height and distance along the wall, rather than deleting its whole two-metre span at every height.
+A full-height module cannot pass through a diagonal brace. The model skips any module whose envelope intersects a brace, ledge or the local charger reservation. It also avoids high inserts behind the new upper-shelf supports. Empty portions of braced bays retain the original ledges; they are not silently treated as unavailable wall area.
 
-Representative measurements do not prove that every bay is identical. The whole-wall stud pitch, absolute heights, braces and charger coordinates are a photo-based arrangement. Fix rails into sound structural timber and avoid wiring; do not infer mounting strength from a visual model.
+C instead uses [118 × 20 × 1.8 cm solid-pine boards, Clas Ohlson 31-1463-6](https://www.clasohlson.com/no/p/31-1463-6), **129.90 kr**. Cut **535 × 200 × 18 mm** pieces: two per board, allowing 3 mm per saw cut. Purchase quantities round up to whole boards. Each piece has two [Habo 148 20 cm brackets, 41-8224-1](https://www.clasohlson.com/no/p/41-8224-1), **19.90 kr each**. Fitted shelves project **11.5 cm** beyond the studs. Their positions are tested with the full 15 cm bracket envelope, not just the board. No brace is removed or notched.
 
-## Whole garage
+## Upper walls and the loft
 
-- Keep one upright rattkjelke position and use the height above it. Its shown size remains an estimate, not a measured claim about the actual sled.
-- Retain the right-wall ski shelf and shallow ladder, chair and folded-table positions. In the deepest plan the table moves slightly toward the entrance to clear the rear rack.
-- Bags, skates, boots and small supplies illustrate varied openings. They are not an inventory, fixed backpack allocation, new purchase list or claim that all belongings fit.
-- Use the existing loft for bulky seasonal storage. The model reserves a central access strip and floor approach; move the car out for the default approach. Loft footprint, underside, loading, roof profile and final access method remain assumptions.
+Uncut [118 × 28 cm pine boards, 31-1463-3](https://www.clasohlson.com/no/p/31-1463-3), **159.90 kr**, extend upper side storage. Rear shelves use [118 × 38 cm, 31-1463-1](https://www.clasohlson.com/no/p/31-1463-1), **179.90 kr**. Each has three [Habo 30 cm arm / 20 cm high supports, 31-1936](https://www.clasohlson.com/no/Habo-hylleknekt/p/31-1936), **69.90 kr each**. These prices were checked on 22 October 2026; delivery and stock depend on location.
 
-## Buying and prices
+**The full bracket is shown.** A side board at 1.95 m leaves its support down to about 1.73 m and projecting 30 cm from the stud faces. With the car parked this constrains head/shoulder movement even though the lower recess units remain shallow. Do not interpret the floor strip as full standing clearance. Door-track locations and individual fixing points are not surveyed. Structural backing may be necessary; screws, backing, surface finish and labour are excluded from the product subtotal rather than assigned invented prices.
 
-Click a new storage component or select it in the product list to see its SKU, retailer, stock size, model placement, VAT-inclusive price and direct buying link. The same links are in an expanded shopping table, with whole-item quantities and line totals. Kit shelves are priced inside their kit, never counted as separately purchased imaginary extras.
+The assumed loft is 4.2 m long with a 2.10 m underside, adjustable in the viewer. Its central access strip and floor approach are reserved. Move the car to use the approach. Actual opening, ladder arrangement, roof headroom and loading remain unknown. The existing folded gardintrapp is not automatically a suitable loft-access ladder.
 
-Prices were checked **21 October 2026**. AJ headline prices exclude VAT; stored prices add 25% VAT, matching the retailer's structured offers. Shipping, labour and site-specific rear / upper wall anchoring remain outside the product subtotal. Stock / delivery depend on location and ordered quantity. No items have been purchased.
+## Evidence and release checks
 
-## Verification and images
+The model retains the measured room, representative recess and original photo-based shell. It separates these from assumed positions and example belongings. Camera position/pan/zoom survive plan changes.
 
-`validate-design.py` requires complete catalogue data, original BOAXEL / BROR SKU identities, fixed basket sizes, exact kit shelf counts and consistent parking footprints. `check-storage.mjs` uses real pinned Three.js geometry in **48 cases**, including all four plans and the height / basket / loft controls. It checks catalogue-to-model basket sizes, model-to-BOM quantities, brace / charger clearance, equipment / shelf collisions, rear footprints / assumed roof height and table-area consistency. Browser QA separately checks rendering, buying links and camera preservation. These checks establish internal consistency, not physical installation or structural suitability.
+Catalogue validation checks purchase identity, stock dimensions, whole-board cutting arithmetic and the four distinct arrangements. Geometry checks use pinned Three.js meshes across all plans and roof/recess/loft states, including brace/charger exclusions, positive use of recess depth, supports, examples, one sled and ladder, product quantities and consistent area totals. Browser inspection checks visible rendering and buy links. These checks do not prove a physical installation.
 
-The existing generated car-free pictures are retained as **earlier room-appearance concepts**, visibly separated from the revised product model. They are not exact product photographs. Original garage photos remain private.
+Each default plan has a newly exported car-free 3D source beside its separately generated Imagegen image. The geometry fingerprint and image hashes block publishing a changed model with stale imagery. Private original garage photos are not published.

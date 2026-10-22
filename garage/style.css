@@ -25,3 +25,5 @@
 .shopping td:first-child{min-width:230px}.shopping td:nth-child(3),.shopping td:nth-child(4){white-space:nowrap}
 
 .buying-strip{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 18px;padding:12px 16px;background:#e3ebe0;border-radius:8px;font-size:13px}.buying-strip #price-top{margin:0;font-size:17px}#object-panel{padding-top:0;border-top:0;margin-bottom:22px}
+
+.principles {margin:1rem 0 1.6rem;padding:1rem 1.25rem;background:#e8eee8;border-radius:10px}.principles h2{font-size:1.2rem;margin:0 0 .7rem}.principles ol{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.8rem 1.5rem;padding-left:1.3rem;margin:.5rem 0}.principles li{font-size:.9rem;line-height:1.45}.principles .fine{margin-bottom:0}

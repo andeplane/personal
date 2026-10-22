@@ -30,5 +30,7 @@
   "physicalFitVerified": false,
   "firstLayerVisualVerified": false,
   "actualGrams": null,
-  "actualSeconds": null
+  "actualSeconds": null,
+  "acceptanceObservedAtUtc": "2026-10-22T23:42:25.190Z",
+  "startTimestampBasis": "Acceptance observation / receipt time; not measured deposition onset."
 }

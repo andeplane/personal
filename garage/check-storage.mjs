@@ -49,31 +49,34 @@ for(let i=0;i<data.layouts.length;i++)for(const variant of profiles){
  assert(Math.abs(area-shelfZones.reduce((s,z)=>s+z.area,0))<1e-8,'Comparison surface matches actual shelf geometry');
  const carBounds=new T.Box3().setFromObject(carGroup);
  assert(Math.abs(carBounds.min.x+data.car.centerX+data.car.foldedWidth/2)<.001,'Car parking envelope unchanged');
- const added=objects.filter(o=>o.meta.insert),baskets=objects.filter(o=>o.meta.basket);
- assert.equal(added.length,0,'No bespoke inserts');
- assert.equal(baskets.length,leftWallStats.baskets);assert.equal(baskets.length>0,p.baskets);
+ const added=objects.filter(o=>o.meta.insert);
+ assert.equal(added.length>0,p.baskets);
  assert(objects.some(o=>o.meta.title==='Left wall · existing charger / cable space'));
  assert.equal(objects.filter(o=>o.meta.title==='Left wall · retained diagonal brace').length,data.leftWall.braces.length);
  assert.equal(objects.filter(o=>o.meta.title?.startsWith('Left wall · existing ledge')).length,27);
- if(p.baskets){assert.equal(leftWallStats.rails,8);assert.equal(baskets.length,35);assert(leftWallStats.aboveCharger>=3,'Use the wall above the charger');}
  const braces=hardware.filter(h=>h.title==='Left wall · retained diagonal brace');
- for(const o of baskets){
+ for(const o of added){
   const b=bounds(o),k=data.leftWall.chargerKeepout,sku=data.products[o.key],size=b.getSize(new T.Vector3());
-  assert(b.max.z<=data.room.length-a.depth-a.standOff-.04+.00001,'No baskets behind rear rack');
-  assert(b.max.z<=k.z[0]||b.min.z>=k.z[1]||b.max.y<=k.y[0]||b.min.y>=k.y[1],'Local charger keepout stays open');
-  assert(Math.abs(size.z-sku.dimensions[0])<.002&&Math.abs(size.x-sku.dimensions[1])<.002&&Math.abs(size.y-sku.dimensions[2])<.002,'Basket geometry retains actual retail dimensions');
-  assert(b.min.x>=-(sku.dimensions[1]+.018)-.00001,'Installed basket projection includes the rail');
-  if(o.key==='basketSmall')assert(-b.min.x<.125,'Lower baskets stay within charger projection');
-  else assert(b.min.y>data.car.height+.20,'Deeper baskets clear nominal car height');
-  const roof=data.room.loftUnderside+(p.height/100-data.room.loftUnderside)*Math.max(0,(b.min.z-4)/(data.room.length-4));
-  assert(b.max.y<=(b.min.z<loftStats.length?data.room.loftUnderside:roof)-.059,'Basket loading gap below local roof / loft');
-  for(const root of o.meshes)root.traverse(m=>{if(m.isMesh){m.geometry.computeBoundingBox();const obb=new OBB().fromBox3(m.geometry.boundingBox).applyMatrix4(m.matrixWorld);for(const brace of braces)assert(!obb.intersectsOBB(brace.obb),'Stock baskets must not cut a retained brace');}});
+  assert(b.max.z<=data.room.length-a.footprintDepth-.04+.00001,'No inserts behind rear storage');
+  assert(b.max.z<=k.z[0]||b.min.z>=k.z[1]||b.max.y<=k.y[0]||b.min.y>=k.y[1],'Charger keepout stays open');
+  assert(b.max.x>.08,'Insert uses the inside of the recess (scene X is mirrored)');
+  assert(-b.min.x<=.116,'Low storage projection at most 11.5 cm');
+  assert(Math.abs(size.z-o.meta.dimensions[0])<.003&&Math.abs(size.x-o.meta.dimensions[1])<.003,'Retain declared stock/cut dimensions');
+  for(const root of o.meshes)root.traverse(m=>{if(m.isMesh){m.geometry.computeBoundingBox();const obb=new OBB().fromBox3(m.geometry.boundingBox).applyMatrix4(m.matrixWorld);for(const brace of braces)assert(!obb.intersectsOBB(brace.obb),'Recess insert must not cut a brace');}});
+  assert.equal(Boolean(o.meta.cut),a.recessMode==='cut','Only the fitted option cuts boards');
  }
- const purchaseCounts=new Map();for(const o of objects.filter(o=>o.key))purchaseCounts.set(o.key,(purchaseCounts.get(o.key)||0)+1);
- for(const [key,count] of purchaseCounts){assert(data.products[key].url.startsWith('https://'));assert.equal(shopping.find(r=>r.key===key)?.qty,count,'Shopping quantity matches model instances: '+key);}
+ assert(objects.some(o=>o.key==='pine28'&&o.meta.side==='left'));
+ assert(objects.some(o=>o.key==='pine28'&&o.meta.side==='right'));
+ assert(!objects.some(o=>['shelf','upperRail','basketSmall','wallRail'].includes(o.key)),'Obsolete repeated system removed');
+ // Compare every new component pair, excluding the intentionally touching supports of one shelf.
+ const inserts=hardware.filter(h=>h.title.startsWith('Recess'));
+ const overhead=hardware.filter(h=>h.title.startsWith('High left'));
+ for(const h of inserts)for(const up of overhead){const size=h.bounds.clone().intersect(up.bounds).getSize(new T.Vector3());assert(size.x*size.y*size.z<.000001,'Upper shelf/support must not intersect recess insert');}
+ const purchaseCounts=new Map();for(const o of objects.filter(o=>o.key))purchaseCounts.set(o.key,(purchaseCounts.get(o.key)||0)+(o.meta.purchaseShare??1));
+ for(const [key,count] of purchaseCounts){assert(data.products[key].url.startsWith('https://'));assert.equal(shopping.find(r=>r.key===key)?.qty,Math.ceil(count),'Shopping quantity matches model instances: '+key);}
  assert(shopping.every(r=>Number.isInteger(r.qty)&&r.qty>0),'No fractional / negative purchase quantities');
  for(const o of objects.filter(o=>o.key)){for(const m of o.meshes)m.traverse(n=>{if(n.isMesh)assert.equal(n.userData.objectId,o.id,'Every selectable component has a catalogue key');});}
- for(const h of hardware.filter(h=>h.title.startsWith('Rear bay')||h.title.startsWith('Above sled')||h.title.startsWith('Upper rear'))){
+ for(const h of hardware.filter(h=>h.title.startsWith('Rear bay')||h.title.startsWith('Above sled')||h.title.startsWith('Rear wall'))){
   assert(h.bounds.min.z>=data.room.length-a.footprintDepth-.001,'Rear storage footprint includes every shelf / bracket');
   assert(h.bounds.min.x>=-data.room.width-.001&&h.bounds.max.x<=.001,'Retail rear parts stay within room width');
   const front=h.bounds.min.z,roof=data.room.loftUnderside+(p.height/100-data.room.loftUnderside)*Math.max(0,(front-4)/(data.room.length-4));
@@ -83,6 +86,6 @@ for(let i=0;i<data.layouts.length;i++)for(const variant of profiles){
  assert.equal(loftStats.accessEnd,loftStats.length+data.loft.accessDepth);
  const status=controls['#loft-status'].textContent;
  assert(status.includes(loftStats.accessEnd>data.room.length-a.footprintDepth-.03?'overlaps':p.parked?'Move car out':'clear of rear storage'),'Access status follows actual assumed footprint and parked mode');
- results.push({layout:a.id,...p,baskets:baskets.length,rearSurface:Number(area.toFixed(2)),examples:exampleObjects.length});
+ results.push({layout:a.id,...p,inserts:added.length,rearSurface:Number(area.toFixed(2)),examples:exampleObjects.length});
 }
-console.log(JSON.stringify({checks:'Actual Three.js bounds: mixed shelf openings and examples; one sled and ladder; stock product dimensions and BOM counts; shallow / high baskets; retained braces / charger; loft approach and parked mode; comparison areas',results},null,2));
+console.log(JSON.stringify({checks:'Actual Three.js bounds: mixed shelf openings and examples; one sled and ladder; stock/cut dimensions and whole-pack BOM counts; recess placements and upper side shelves; retained braces / charger; loft approach and parked mode; comparison areas',results},null,2));

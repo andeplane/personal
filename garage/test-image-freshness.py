@@ -26,7 +26,7 @@ class ImageFreshnessTests(unittest.TestCase):
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT / name, target)
         plans = []
-        for letter, depth in zip('abcd', [40, 55, 60, 80]):
+        for letter, depth in zip('abcd', [38, 55, 55, 80]):
             image, source = self.root / f'{letter}.jpg', self.root / f'{letter}.png'
             image.write_bytes(f'generated-test-fixture-{letter}'.encode())
             source.write_bytes(f'source-test-fixture-{letter}'.encode())
@@ -53,8 +53,8 @@ class ImageFreshnessTests(unittest.TestCase):
     def test_unchanged_model_passes(self):
         self.validate()
 
-    def test_changed_basket_position_blocks_release(self):
-        self.edit_data(lambda d: d['leftWall'].__setitem__('highBasketBottom', 1.9))
+    def test_changed_recess_depth_blocks_release(self):
+        self.edit_data(lambda d: d['leftWall'].__setitem__('recessDepth', .08))
         with self.assertRaisesRegex(AssertionError, 'stale'):
             self.validate()
 

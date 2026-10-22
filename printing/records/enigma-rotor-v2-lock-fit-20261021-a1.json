@@ -55,6 +55,11 @@
       "src": "assets/enigma-rotor-v2-lock-fit-20261021-a1/finished-camera.jpg",
       "capturedAt": "2026-10-22T17:16:14.634679+00:00",
       "caption": "Printer-reported completion first observed at 17:16 UTC: all six expected pieces are visible on the occupied bed. No gross displaced part or spaghetti visible. Supports and brims remain; removal, cleanup, dimensional fit, retention, strength and operation are unverified. Bed telemetry measured 38\u00b0C with target 0\u00b0C; this image does not establish removal readiness."
+    },
+    {
+      "src": "assets/enigma-rotor-v2-lock-fit-20261021-a1/parts-no-longer-on-bed.jpg",
+      "capturedAt": "2026-10-22T22:52:00.324805+00:00",
+      "caption": "22:52 UTC camera observation: the six printed pieces are no longer visible on the bed; the whole bed appears empty apart from known flat surface markings. This is visible removal evidence only, not human clearance or inspection of removed-part cleanup, fit, strength, ring-arm function or the other rotor rings."
     }
   ],
   "source": {
@@ -62,7 +67,7 @@
     "sha256": "27cd231745514a62754d7ec46cc908a904e0952a323cc4143bb57904783eef63",
     "evidence": "Source main 23fb57e505856cf53d23965724cd450d201d339b; reviewed combined plate 1 slice and uploaded/downloaded archive match SHA256 27cd231745514a62754d7ec46cc908a904e0952a323cc4143bb57904783eef63. Editable project SHA256 c81181df077de6f497bb52b971777f916bd77a8753f1648243b0f3264b20a525. Final normal actual-toolpath audit passed all twelve checks; receipt SHA256 8ccc18c43b7132939436b2e299b70228eba59adb29811a0d1ac426329e2ca5ab. Printer accepted the matching file, plate 1 and archive MD5 8cb542f9d04a0ed1e128c86e35ece9f6, then reported RUNNING / Homing toolhead at 07:30:29 UTC. Logical2 / physical map[1,0] routes to right physical nozzle0, external holder255; AMS disabled. Local source/guide/artifact validation and exact device prerequisites were retained; the human explicitly allowed printing without waiting for cloud/website publication."
   },
-  "notes": "Printer-reported completion: fresh read-only telemetry at 17:16 UTC reported the exact accepted job FINISH, 100%, layer 242/242, zero minutes remaining, print error 0 and no HMS entries. Bed measured 38\u00b0C with target 0\u00b0C. A fresh 17:16:14 UTC camera view shows all six expected pieces on the occupied bed, with no gross displaced parts or spaghetti visible; supports and brims remain. This is not physical acceptance: removal, cleanup, dimensional fit, retention, strength and operation remain unverified, and the bed has not been cleared. Exact finish time, actual duration and actual filament usage are unknown. The previous observation at 14:26 UTC was RUNNING at 75%; completion was first observed at 17:16 UTC. finishedAt, actualSeconds and actualGrams remain null; 8h47m03s / 78.81g remain slicer estimates. The original accepted start at 07:30:29 UTC, source, exact archive and plate identity are preserved. Monitoring was unobserved from approximately 08:57 to 10:30 UTC after the connector became unavailable; observation recovered through subscribe-only MQTT and approved camera access via a home worker. Human selected ONE full prototype V2 rotor concurrently with its fit fixture before physical trial acceptance; the other two rotors remain held. Six objects share one ring arm and reuse the earlier numbered ring I only if intact. The blank cassette is non-electrical. Grey PLA, right nozzle external spool; textured plate, bed leveling and flow calibration enabled, AMS and timelapse disabled. Physical support removal, fine-feature inspection, captive hardware fitting, lock return and full assembly remain unverified. Production guide deployment remains unverified; the human permitted local validated release without waiting for cloud publication.",
+  "notes": "Printer-reported completion: fresh read-only telemetry at 17:16 UTC reported the exact accepted job FINISH, 100%, layer 242/242, zero minutes remaining, print error 0 and no HMS entries. Bed measured 38\u00b0C with target 0\u00b0C. A fresh 17:16:14 UTC camera view shows all six expected pieces on the occupied bed, with no gross displaced parts or spaghetti visible; supports and brims remain. This is not physical acceptance: removal, cleanup, dimensional fit, retention, strength and operation remain unverified. At 22:52 UTC, a later camera view showed the six pieces no longer visible on the bed and the whole bed appearing empty apart from known flat markings. This is visual removal evidence only; no human bed-clearance inspection or removed-part inspection is established. Exact finish time, actual duration and actual filament usage are unknown. The previous observation at 14:26 UTC was RUNNING at 75%; completion was first observed at 17:16 UTC. finishedAt, actualSeconds and actualGrams remain null; 8h47m03s / 78.81g remain slicer estimates. The original accepted start at 07:30:29 UTC, source, exact archive and plate identity are preserved. Monitoring was unobserved from approximately 08:57 to 10:30 UTC after the connector became unavailable; observation recovered through subscribe-only MQTT and approved camera access via a home worker. Human selected ONE full prototype V2 rotor concurrently with its fit fixture before physical trial acceptance; the other two rotors remain held. Six objects share one ring arm and reuse the earlier numbered ring I only if intact. The blank cassette is non-electrical. Grey PLA, right nozzle external spool; textured plate, bed leveling and flow calibration enabled, AMS and timelapse disabled. Physical support removal, fine-feature inspection, captive hardware fitting, lock return and full assembly remain unverified. Production guide deployment remains unverified; the human permitted local validated release without waiting for cloud publication. The same job still reported FINISH, 100%, 242/242 layers, print error 0 and no HMS entries at 22:52 UTC; bed measured 26\u00b0C with target 0\u00b0C. Cleanup, dimensional fit, retention, strength, ring-arm acceptance, operation and inspection of rings II/III remain unknown or held. No next-print authorization is inferred from this observation.",
   "preparationState": {
     "status": "printer-reported-completed-physical-inspection-held",
     "requiredTool": "right physical nozzle 0",
@@ -97,13 +102,13 @@
   ],
   "startEvidence": "assets/enigma-rotor-v2-lock-fit-20261021-a1/start-evidence.json",
   "latestObservedProgress": {
-    "observedAtUtcMinute": "2026-10-22T17:16Z",
+    "observedAtUtcMinute": "2026-10-22T22:52Z",
     "state": "FINISH",
     "progressPercent": 100,
     "currentLayer": 242,
     "totalLayers": 242,
     "remainingMinutesEstimate": 0,
-    "bedTemperatureC": 38,
+    "bedTemperatureC": 26,
     "bedTargetC": 0,
     "printError": 0,
     "hms": [],
@@ -119,14 +124,21 @@
   "progressEvidence": "assets/enigma-rotor-v2-lock-fit-20261021-a1/progress-recovery-evidence.json",
   "completionObservedAt": "2026-10-22T17:16:57.229870+00:00",
   "physicalHolds": {
-    "bedCleared": false,
-    "partsRemoved": false,
+    "bedCleared": null,
+    "partsRemoved": null,
     "cleanupVerified": false,
     "dimensionalFitVerified": false,
     "retentionVerified": false,
     "strengthVerified": false,
     "operationVerified": false,
-    "otherTwoRotorsReleased": false
+    "otherTwoRotorsReleased": false,
+    "bedVisiblyEmpty": true,
+    "partsNoLongerVisibleOnBed": true,
+    "humanBedInspectionVerified": false,
+    "removedPartInspectionVerified": false,
+    "ringArmAccepted": false,
+    "ringsIIAndIIIInspected": false
   },
-  "terminalEvidence": "assets/enigma-rotor-v2-lock-fit-20261021-a1/terminal-evidence.json"
+  "terminalEvidence": "assets/enigma-rotor-v2-lock-fit-20261021-a1/terminal-evidence.json",
+  "visibleRemovalEvidence": "assets/enigma-rotor-v2-lock-fit-20261021-a1/visible-removal-evidence.json"
 }

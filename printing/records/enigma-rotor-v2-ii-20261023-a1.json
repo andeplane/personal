@@ -33,6 +33,11 @@
       "src": "assets/enigma-rotor-v2-ii-20261023-a1/prestart-camera.jpg",
       "capturedAt": "2026-10-22T23:40:55.903052+00:00",
       "caption": "Fresh pre-start camera view: whole installed bed visually clear, with known flat surface marks unchanged. No new parts or debris visible. This is clearance evidence before submission, not a during-print or completed-part image."
+    },
+    {
+      "src": "assets/enigma-rotor-v2-ii-20261023-a1/startup-camera.jpg",
+      "capturedAt": "2026-10-22T23:44:13.168231+00:00",
+      "caption": "During accepted startup at 23:44:13 UTC: bed raised during automatic preparation; no printed objects or first-layer deposition yet. Existing flat surface marks remain visible. This is startup evidence, not a finished-part image or physical-fit check."
     }
   ],
   "source": {
@@ -40,7 +45,7 @@
     "sha256": "6b6929239cb99f5afd2b1f736b636d973ed8f1dd63d0a5ec4ec0736f0cf09895",
     "evidence": "Design source b6e8fc49a5b7de29dde421b2ef3a59b15d10b0df. Exact reviewed slice and archive downloaded from the printer match SHA256 6b6929239cb99f5afd2b1f736b636d973ed8f1dd63d0a5ec4ec0736f0cf09895. Review receipt SHA256 c172f17d5baee0414e25865f0efdb5b97c1dafd4a2e1b0877558c05ba6a4fabb. Printer accepted the matching file, plate 1 and archive MD5 d5f673e0a7b2fbe63fae7d3b222202d3, then reported RUNNING / Cooling chamber at 2026-10-22T23:42:25.190Z. Logical filament mapping 2 with physical map [1,0] routes to right physical nozzle 0 / external holder 255. The controller published print_file exactly once. Metadata estimates remain 23555 seconds / 58.19 g / 19.20068 m; actual usage and total duration remain unknown."
   },
-  "notes": "Printer start accepted at 2026-10-22T23:42:25.190Z (01:42 on 23 October in Oslo). First observed RUNNING stage was Cooling chamber, about 392 minutes remaining, print error 0 and no HMS entries. First-layer deposition/adhesion is not yet verified; this is acceptance and startup evidence, not completed-quality evidence. The human explicitly authorized this ONE rotor II prototype despite rotor I not yet assembled, saying they were in bed and to PRINT THE NEXT ONE. Physical fit and rotor-I assembly acceptance remain unverified; the explicit sequence exception permits proceeding before that check and does not establish quality or function. Four new rotor II parts reuse the existing numbered ring II; no new numbered ring is printed. The blank cassette is non-electrical. Grey PLA on the right nozzle normal external spool; textured plate, bed leveling and flow calibration enabled, AMS and timelapse disabled. Four walls, 30% gyroid, 0.10 mm layers / 0.20 mm first layer, 8 mm outer brim and normal supports. Support removal, fine features, captive hardware, dimensional fit, retention, strength, ring-arm action and full assembly/operation remain unverified. Completed rotor-I combined run 27cd remains separate. Actual finish time, duration and filament usage are unknown.",
+  "notes": "Printer acceptance was observed at 2026-10-22T23:42:25.190Z (01:42 on 23 October in Oslo). startedAt preserves that observation/receipt timestamp, not a measured deposition-onset time. First observed RUNNING stage was Cooling chamber, about 392 minutes remaining, print error 0 and no HMS entries. First-layer deposition/adhesion is not yet verified; this is acceptance and startup evidence, not completed-quality evidence. The human explicitly authorized this ONE rotor II prototype despite rotor I not yet assembled, saying they were in bed and to PRINT THE NEXT ONE. Physical fit and rotor-I assembly acceptance remain unverified; the explicit sequence exception permits proceeding before that check and does not establish quality or function. Four new rotor II parts reuse the existing numbered ring II; no new numbered ring is printed. The blank cassette is non-electrical. Grey PLA on the right nozzle normal external spool; textured plate, bed leveling and flow calibration enabled, AMS and timelapse disabled. Four walls, 30% gyroid, 0.10 mm layers / 0.20 mm first layer, 8 mm outer brim and normal supports. Support removal, fine features, captive hardware, dimensional fit, retention, strength, ring-arm action and full assembly/operation remain unverified. Completed rotor-I combined run 27cd remains separate. Actual finish time, duration and filament usage are unknown. A fresh startup camera at 23:44:13 UTC shows the bed raised during automatic preparation, with no printed objects yet. Subsequent root-reported startup telemetry remained RUNNING / Cleaning nozzle tip, bed 55\u00b0C with target 55\u00b0C, right nozzle 241\u00b0C with target 240\u00b0C, print error 0 and no HMS entries. First-layer deposition remains unverified.",
   "authorizationScope": {
     "oneRotorIIPrototype": true,
     "proceedBeforeRotorIPhysicalAssemblyAccepted": true,
@@ -59,5 +64,7 @@
     "firstLayerVisualVerified": false,
     "physicalFitVerified": false
   },
-  "startEvidence": "assets/enigma-rotor-v2-ii-20261023-a1/start-evidence.json"
+  "startEvidence": "assets/enigma-rotor-v2-ii-20261023-a1/start-evidence.json",
+  "startTimestampBasis": "Acceptance observation / receipt time; not measured deposition onset.",
+  "startupEvidence": "assets/enigma-rotor-v2-ii-20261023-a1/startup-evidence.json"
 }

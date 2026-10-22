@@ -1,0 +1,25 @@
+{
+  "schema": "enigma.public-print-startup-evidence.v1",
+  "runId": "enigma-rotor-v2-ii-20261023-a1",
+  "archiveSha256": "6b6929239cb99f5afd2b1f736b636d973ed8f1dd63d0a5ec4ec0736f0cf09895",
+  "acceptanceObservedAtUtc": "2026-10-22T23:42:25.190Z",
+  "startTimestampBasis": "Acceptance observation / receipt time; not measured deposition onset.",
+  "cameraCapturedAtUtc": "2026-10-22T23:44:13.168231+00:00",
+  "cameraSha256": "b541aee2bdb8b0f2a03fd841ee29907095948282b6655b9f64177fee84e91a6e",
+  "visualObservation": "Bed raised during automatic preparation; no printed objects yet. Existing flat surface marks visible.",
+  "rootReportedStartupTelemetry": {
+    "state": "RUNNING",
+    "stage": "Cleaning nozzle tip",
+    "bedTemperatureC": 55,
+    "bedTargetC": 55,
+    "rightNozzleTemperatureC": 241,
+    "rightNozzleTargetC": 240,
+    "printError": 0,
+    "hms": []
+  },
+  "firstLayerDepositionVerified": false,
+  "physicalFitVerified": false,
+  "actualDurationSeconds": null,
+  "actualFilamentGrams": null,
+  "printerControlsSentByHistoryOwner": false
+}

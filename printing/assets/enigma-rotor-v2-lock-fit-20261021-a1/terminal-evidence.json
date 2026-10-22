@@ -1,0 +1,50 @@
+{
+  "schema": "enigma.public-print-terminal-evidence.v1",
+  "runId": "enigma-rotor-v2-lock-fit-20261021-a1",
+  "originalAcceptedStartUtc": "2026-10-22T07:30:29.925816+00:00",
+  "sourceCommit": "23fb57e505856cf53d23965724cd450d201d339b",
+  "archiveSha256": "27cd231745514a62754d7ec46cc908a904e0952a323cc4143bb57904783eef63",
+  "job": "ENIGMA_V2_COMBINED_27cd2317",
+  "plate": 1,
+  "state": "FINISH",
+  "firstCompletionObservedAtUtc": "2026-10-22T17:16:57.229870+00:00",
+  "progressPercent": 100,
+  "currentLayer": 242,
+  "totalLayers": 242,
+  "remainingMinutes": 0,
+  "bedTemperatureC": 38,
+  "bedTargetC": 0,
+  "printError": 0,
+  "hms": [],
+  "priorObservation": {
+    "observedAtUtcMinute": "2026-10-22T14:26Z",
+    "state": "RUNNING",
+    "progressPercent": 75
+  },
+  "actualFinishedAtUtc": null,
+  "actualDurationSeconds": null,
+  "actualFilamentGrams": null,
+  "slicerEstimatedSeconds": 31623,
+  "slicerEstimatedGrams": 78.81,
+  "cameraCapturedAtUtc": "2026-10-22T17:16:14.634679+00:00",
+  "cameraSha256": "b44493508913ef649026294b8de200f6778a401e3e8fb923c6e4a3875108c950",
+  "visibleObservation": "All six expected pieces visible on occupied bed. No gross displaced part or spaghetti visible. Printed supports/brims remain.",
+  "physicalHolds": {
+    "bedCleared": false,
+    "partsRemoved": false,
+    "cleanupVerified": false,
+    "dimensionalFitVerified": false,
+    "retentionVerified": false,
+    "strengthVerified": false,
+    "operationVerified": false,
+    "otherTwoRotorsReleased": false
+  },
+  "monitoringGap": {
+    "fromUtcMinute": "2026-10-22T08:57Z",
+    "untilUtcMinute": "2026-10-22T10:30Z",
+    "timesApproximate": true,
+    "observationsRecoveredForGap": false,
+    "reason": "Connector unavailable; observation recovered with subscribe-only MQTT and approved camera through a home worker."
+  },
+  "printerControlsSentByHistoryOwner": false
+}

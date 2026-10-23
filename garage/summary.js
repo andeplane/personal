@@ -1,11 +1,17 @@
 function rearSurface(a){
  const racks=a.type==='bror'?a.rackCount*5*.84*.54:a.type==='transform'?a.rackCount*4*.9*a.depth:0;
- return racks+rearBoards(a).length*1.18*.38;
+ return (a.type==='mixed'?mixedRearSurface(a):racks)+rearBoards(a).length*1.18*.38;
 }
 function shoppingEntries(a){
  const rows=[];const add=(key,qty,use,zone)=>{if(qty)rows.push({key,qty,use,zone});};
  if(a.type==='bror')add('deep',a.rackCount,'Rear · all five supplied shelves per complete BROR unit','rear');
  if(a.type==='transform'){add('base80',1,'Rear · starter with four shelves','rear');add('extension80',1,'Rear · extension with four shelves','rear');}
+ if(a.type==='mixed'){
+  const p=mixedRearParts(a);
+  add('rack80',1,'Rear · original 144.8 cm Adrian rack; three included shelf levels','rear');
+  add('bayPlywood',2,'Rear fitted bay · CUT two '+Math.round((p.w-2*p.t)*1000)+' × 800 mm upper pieces and four '+Math.round(p.narrow*1000)+' × 800 mm small pieces; two 2440 × 1220 × 18 mm sheets, with 3 mm kerfs','rear');
+  add('frameTimber',p.timberMetres,'Rear fitted bay · 48 × 48 mm timber, '+p.stock.length+' planned 4.8 m lengths; stock availability and cut plan shown in the product card. Quantity and unit price are per linear metre','rear');
+ }
  const boards=leftBoardPlacements(a),supports=leftSupports(a);
  for(const key of ['pine20','pine28','pine38']){
   const n=boards.filter(p=>p.key===key).length;

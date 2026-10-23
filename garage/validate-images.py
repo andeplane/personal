@@ -10,7 +10,7 @@ SCENE_FILES = (
     'source/visual-template.html', 'build-viewer.py', 'materials.js',
     'products.js', 'bikes.js', 'room.js', 'expanded-storage.js',
     'example-contents.js', 'left-wall.js', 'space.js', 'storage.js',
-    'interaction.js', 'configuration.js',
+    'interaction.js', 'configuration.js', 'mixed-rear.js',
 )
 LAYOUT_COPY = {'name', 'system', 'summary', 'equipment', 'unpriced'}
 PRODUCT_GEOMETRY = {'sku', 'dimensions', 'includedShelves'}

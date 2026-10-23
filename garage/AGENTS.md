@@ -25,3 +25,8 @@ storage designs. Never restore or relabel an old image as a new plan preview.
   not something to conceal with a collapsed section or an earlier-image label.
 
 Prefer ready-sized products. The user permits cutting real purchased boards when useful; show stock SKU, dimensions, cut list, supports and whole-board quantities. Never invent a retail product for a fitted piece.
+
+Retain the original mixed full-rear option: 144.8 cm Adrian industrial rack plus
+121.2 cm fitted timber bay, a 268 cm run with small shelves and a tall sled slot.
+The user explicitly requested that it remain available. Do not remove existing
+rear choices when reorganizing wall controls or recommendations.

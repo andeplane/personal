@@ -14,7 +14,7 @@ const data=JSON.parse(fs.readFileSync(dir+'/garage/design-data.json','utf8')),co
 const context=vm.createContext({T,RoundedBoxGeometry,data,console,root:{querySelector:key=>controls[key]??(controls[key]={checked:false,value:'',textContent:'',innerHTML:'',hidden:true})}});
 vm.runInContext(`const W=data.room.width,L=data.room.length,H=data.room.loftUnderside;let current=0,view='overview',scene,furnitureGroup,carGroup,loftGroup,objects=[],equipmentMeshes=[],selected,selectionBox;let materials={};const money=v=>v.toFixed(2)+' kr';const fabricMaterial=k=>materials[k];const token=()=>'#667766';const random=()=>.5;`+
 segment(' function box(',' function rod(')+segment(' function rod(',' function line(')+segment(' function line(',' function label(')+segment(' function makeCar(',' function snowRacerBase(')+segment(' function snowRacerBase(','function register(')+
-['configuration.js','products.js','expanded-storage.js','example-contents.js','left-wall.js','space.js','storage.js','summary.js'].map(f=>fs.readFileSync(dir+'/garage/'+f,'utf8')).join('\n')+`
+['configuration.js','products.js','expanded-storage.js','example-contents.js','left-wall.js','space.js','mixed-rear.js','storage.js','summary.js'].map(f=>fs.readFileSync(dir+'/garage/'+f,'utf8')).join('\n')+`
  globalThis.buildCase=(c,p)=>{view='overview';for(const [key,value] of Object.entries({'garage-upper':p.height>210,'rear-height':p.height,'rear-storage':c.rear,'recess-storage':c.recess,'upper-left':c.upperLeft,'upper-right':c.upperRight,'upper-rear':c.upperRear,'loft-length':p.loftLength,'garage-car':p.parked,'garage-loft':true,'garage-access':true})){const c=root.querySelector('#'+key);if(typeof value==='boolean')c.checked=value;else c.value=String(value);}scene=new T.Scene();scene.scale.x=-1;objects=[];equipmentMeshes=[];materials={};for(const k of ['wood','metal','floor','white','glass','bin','gear','rubber','accent'])materials[k]=new T.MeshStandardMaterial();leftWallFrame();makeLoft();storage();makeCar();updateSpaceStatus();scene.updateMatrixWorld(true);return {scene,objects,equipmentMeshes,shelfZones,leftWallStats,loftStats,area:rearSurface(currentPlan()),shopping:shoppingList(currentPlan()),carGroup,a:currentPlan(),choices:configuration()};};`,context);
 const configs=[];
 for(const rear of data.rearOptions.map(a=>a.id))for(const recess of ['none','cut'])for(const upperLeft of [0,4])for(const upperRight of [false,true])for(const upperRear of [false,true])configs.push({rear,recess,upperLeft,upperRight,upperRear});
@@ -44,9 +44,9 @@ for(const {c,p} of cases){
  assert.equal(sleds.length,1);assert.equal(objects.filter(o=>o.meta.title?.includes('stepladder')).length,1);
  assert(!objects.some(o=>o.meta.title?.includes('SAMLA')));
  const sledBounds=bounds(sleds[0]);
- for(const h of hardware.filter(h=>h.title.startsWith('Above sled')||h.title.startsWith('Rear bay 3'))){const s=sledBounds.clone().intersect(h.bounds).getSize(new T.Vector3());assert(s.x*s.y*s.z<.000001,'Tall sled slot stays clear');}
+ for(const h of hardware.filter(h=>h.title.startsWith('Above sled')||h.title.startsWith('Rear bay 3')||h.title.startsWith('Rear fitted bay'))){const s=sledBounds.clone().intersect(h.bounds).getSize(new T.Vector3());assert(s.x*s.y*s.z<.000001,'Tall sled slot stays clear');}
  if(a.type!=='none')assert(shelfZones.some(z=>z.clear>.5),'Keep some larger shelf openings');
- if(['bror','transform'].includes(a.type))assert(shelfZones.some(z=>z.clear>.2&&z.clear<.4),'Keep smaller shelf openings');
+ if(['bror','transform','mixed'].includes(a.type))assert(shelfZones.some(z=>z.clear>.2&&z.clear<.4),'Keep smaller shelf openings');
  assert(Math.abs(area-shelfZones.reduce((s,z)=>s+z.area,0))<1e-8,'Comparison surface matches actual shelf geometry');
  const carBounds=new T.Box3().setFromObject(carGroup);
  assert(Math.abs(carBounds.min.x+data.car.centerX+data.car.foldedWidth/2)<.001,'Car parking envelope unchanged');
@@ -91,7 +91,12 @@ for(const {c,p} of cases){
  for(const [key,count] of purchaseCounts){assert(data.products[key].url.startsWith('https://'));assert.equal(shopping.find(r=>r.key===key)?.qty,Math.ceil(count),'Shopping quantity matches model instances: '+key);}
  assert(shopping.every(r=>Number.isInteger(r.qty)&&r.qty>0),'No fractional / negative purchase quantities');
  for(const o of objects.filter(o=>o.key)){for(const m of o.meshes)m.traverse(n=>{if(n.isMesh)assert.equal(n.userData.objectId,o.id,'Every selectable component has a catalogue key');});}
- for(const h of hardware.filter(h=>h.title.startsWith('Rear bay')||h.title.startsWith('Above sled')||h.title.startsWith('Rear wall'))){
+ if(a.type==='mixed'){
+  assert.equal(a.rearWidth,2.68,'Keep the original nearly full-width rear option');
+  assert.equal(objects.filter(o=>o.key==='bayPlywood').length,6,'Keep small shelves and shelves above the sled');
+  assert.equal(shopping.find(r=>r.key==='bayPlywood').qty,2,'Two real plywood sheets');
+ }
+ for(const h of hardware.filter(h=>h.title.startsWith('Rear bay')||h.title.startsWith('Above sled')||h.title.startsWith('Rear wall')||h.title.startsWith('Rear fitted bay'))){
   assert(h.bounds.min.z>=data.room.length-a.footprintDepth-.001,'Rear storage footprint includes every shelf / bracket');
   assert(h.bounds.min.x>=-data.room.width-.001&&h.bounds.max.x<=.001,'Retail rear parts stay within room width');
   const front=h.bounds.min.z,roof=data.room.loftUnderside+(p.height/100-data.room.loftUnderside)*Math.max(0,(front-4)/(data.room.length-4));

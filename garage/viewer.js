@@ -7,7 +7,7 @@ import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {SSAOPass} from 'three/addons/postprocessing/SSAOPass.js';
 import {SMAAPass} from 'three/addons/postprocessing/SMAAPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
-const photoPlans=[{"id":"rear-wall","label":"Wall shelves \u00b7 38 cm","depthCm":38,"output":"assets/garage-rear-wall.jpg","outputSHA256":"70ec01bff6dc0f86d76816697fa36f83fcf28b11811e6d05a10cd8863ea0c975","source3D":"assets/garage-rear-wall-source.png","source3DHash":"f4b4fc527b0297ea3d01e0310d2a84264f601120e634ba7892766cb7dcb6f5a6"},{"id":"rear-double","label":"Two racks \u00b7 55 cm","depthCm":55,"output":"assets/garage-rear-double.jpg","outputSHA256":"f66da7bdf02f5424fe61dbc69d82e1be05ab25bc2178834bda7cde3dc5d0ad04","source3D":"assets/garage-rear-double-source.png","source3DHash":"20a460b41038c3bc66db2d98d0624e53c967a6fb880b695a3da1f4e764c2625f"},{"id":"rear-single","label":"One rack + open bay \u00b7 55 cm","depthCm":55,"output":"assets/garage-rear-single.jpg","outputSHA256":"804e471c1138050f95a0d5b55f0fa14f6543bd1fab6373f041ba7536961a9c06","source3D":"assets/garage-rear-single-source.png","source3DHash":"4f7f63e11c37d291ccfe2f47a89e1226471a14ed018914a7dcb6163ac1bf23f8"},{"id":"rear-bulk","label":"Industrial racks \u00b7 80 cm","depthCm":80,"output":"assets/garage-rear-bulk.jpg","outputSHA256":"d78e63ae21c3477856cad4c6f2e072e054521f0fd9ad05098a2929f844aa16ce","source3D":"assets/garage-rear-bulk-source.png","source3DHash":"d01ecfdaec0b6a51351e14b0bca00c1ccf62fce536c17a46b17426b337b1b186"},{"id":"left-built","label":"Built left wall \u00b7 20 / 28 / 38 cm","depthCm":38,"output":"assets/garage-left-built.jpg","outputSHA256":"84cca45d875b5f6da5375907906406a508838165988ffd5ced3c77c0f56a365f","source3D":"assets/garage-left-built-source.png","source3DHash":"31b03b5c87f8d3401850ed44fd2700aa6750407c244c10a05393e6eacc9c84b3"},{"id":"left-lower","label":"Built left wall \u00b7 20 / 28 cm","depthCm":28,"output":"assets/garage-left-lower.jpg","outputSHA256":"e7c75f4f964b65ba84dd1f3b96b178b5fccf8666c6790524f5e5dcde5617db4e","source3D":"assets/garage-left-lower-source.png","source3DHash":"72b441e9bd2b98efc6b95de1ac10f6b0d6a4f24e01d7c8f24cdb111526256882"},{"id":"left-high","label":"High left run \u00b7 38 cm","depthCm":38,"output":"assets/garage-left-high.jpg","outputSHA256":"5cc9171ef9205b930d56dc58c97e95e7f5d1f3db7495cda95969a95b1823b962","source3D":"assets/garage-left-high-source.png","source3DHash":"af656d1e89df8480bdab16f6a4735212cffd23fb6020ce5e290b728d96eebd3e"},{"id":"right-high","label":"High right extension \u00b7 28 cm","depthCm":28,"output":"assets/garage-right-high.jpg","outputSHA256":"42d98daa7b48b6196d11fbadff892371ff5fae93d3c0a180000b9449a695d6c9","source3D":"assets/garage-right-high-source.png","source3DHash":"eb8383d9f98590d5e4961cdef13df78c3447ff847c84061135afa2884cb97275"},{"id":"rear-high","label":"High rear shelves \u00b7 38 cm","depthCm":38,"output":"assets/garage-rear-high.jpg","outputSHA256":"5e77f8a51100cbcfed8cb985aa3ede4211a7ec135e8fc1e7ab03c25d2e053501","source3D":"assets/garage-rear-high-source.png","source3DHash":"66441daa1cefc285ab2dfb69bba7fc0aaf5562e20a61494dad12e69efc9aae0b"}];
+const photoPlans=[{"id":"rear-wall","label":"Wall shelves \u00b7 38 cm","depthCm":38,"output":"assets/garage-rear-wall.jpg","outputSHA256":"c0b9462c4e3fb4a19fdcf1f55afa15e2d11d6cf46aac59bbad04a495df47e8aa","source3D":"assets/garage-rear-wall-source.png","source3DHash":"e92d7f2fc8cd2acb3a0242245c8deaf1cecb44a1e435b962e9704c1080d337a3"},{"id":"rear-double","label":"Two racks \u00b7 55 cm","depthCm":55,"output":"assets/garage-rear-double.jpg","outputSHA256":"de771b4bc202623050166a28b23eec07bcd35a18aeca6887f6cb87ea5700ec7e","source3D":"assets/garage-rear-double-source.png","source3DHash":"88e3f3e987e1cea65030960e3ba1945079f10b766f9cc7b43754a0adb334adb1"},{"id":"rear-single","label":"One rack + open bay \u00b7 55 cm","depthCm":55,"output":"assets/garage-rear-single.jpg","outputSHA256":"e1bee51a8bdfd665c507ab08dd99fb6aa01baf1b3558858a4ce9d2ef31d57931","source3D":"assets/garage-rear-single-source.png","source3DHash":"5dc8052a68c9de4690d78d82c5563f030a0418fa438d9751033234e436d2b7fd"},{"id":"rear-bulk","label":"Industrial racks \u00b7 80 cm","depthCm":80,"output":"assets/garage-rear-bulk.jpg","outputSHA256":"d1013664e0fec655710f68c798c32350307893c42939021e0d1ea371f086ffce","source3D":"assets/garage-rear-bulk-source.png","source3DHash":"92eef53357f6ffdb41f2aa61b34bb216f902059b018704de3f029e0e0c989f70"},{"id":"left-built","label":"Built left wall \u00b7 20 / 28 / 38 cm","depthCm":38,"output":"assets/garage-left-built.jpg","outputSHA256":"347e5c7290f0002c50ae1fc34d954ae591223dbfc9c78181d7a076190d250b08","source3D":"assets/garage-left-built-source.png","source3DHash":"78a4b7157454065bc3acfd4ee9f3e25dcfbd8ee9ee2e3bc1f45595c317d7bf55"},{"id":"left-lower","label":"Built left wall \u00b7 20 / 28 cm","depthCm":28,"output":"assets/garage-left-lower.jpg","outputSHA256":"862868932d471a8d6209a9b71a27c0c0335e86f1da0545fc6d06cb111ca00fcf","source3D":"assets/garage-left-lower-source.png","source3DHash":"04bd3ecde208ea99e2a0edb36804031211830c91ad34d65b4d02636def23b478"},{"id":"left-high","label":"High left run \u00b7 38 cm","depthCm":38,"output":"assets/garage-left-high.jpg","outputSHA256":"8b5d5e7f1e354695cf411bfa1044993b96f5507a01a657e496032b8a309340a7","source3D":"assets/garage-left-high-source.png","source3DHash":"d2235a096b7e7da385eb97b371eab41797287016944df41b9667193dc53cb717"},{"id":"right-high","label":"High right extension \u00b7 28 cm","depthCm":28,"output":"assets/garage-right-high.jpg","outputSHA256":"1a7ea29eb21bb40a9acf108dd1b7b00a32173b4893b08593650f3c216c4661f3","source3D":"assets/garage-right-high-source.png","source3DHash":"c49f757563f0384726fccb944573f535eb1e9543619d75b4743e42dd209ed988"},{"id":"rear-high","label":"High rear shelves \u00b7 38 cm","depthCm":38,"output":"assets/garage-rear-high.jpg","outputSHA256":"7b4b033dea64877175c88cccbb24280f8008fd50ee6b7d6ab523622ddd22b4f1","source3D":"assets/garage-rear-high-source.png","source3DHash":"8511a9476c3057217fb88f63fb7ef388a5a15811061253a7100e0713597dd370"},{"id":"rear-mixed","label":"Original full rear \u00b7 industrial + fitted bay \u00b7 80 cm","depthCm":80,"output":"assets/garage-rear-mixed.jpg","outputSHA256":"428f4f03d1dd7cceae44201004ef1c105c0fdc1430c9b5a79256a1e46dda19f4","source3D":"assets/garage-rear-mixed-source.png","source3DHash":"f1d0171b30da8ccc15086487dd130c74fb5bd85349931ac35192e449d1a8d91a"}];
 
 
  const root=document.getElementById('garage-options');
@@ -103,7 +103,7 @@ function selectObject(o){
  selected=o||null;const panel=root.querySelector('#selection');root.querySelector('#focus-item').disabled=!o;root.querySelector('#object-list').value=o?objects.find(x=>x.key===o.key).id:'';
  if(!o){panel.innerHTML='<h2>Click a storage product.</h2><p>Choose a shelf, basket or rail for its price and purchase link.</p>';render();return;}
  root.querySelector('#object-panel').open=true;
- const m=o.meta,p=data.products[o.key],rows=[['Retailer / SKU',p.retailer+' · '+p.sku],['Price incl. VAT',(p.priceQualifier?'From ':'')+money(p.price)+(p.packSize?' / '+p.packSize+' pack':' / item')],['Retail dimensions',p.dimensionsText||p.dimensions.map(v=>Number((v*100).toFixed(1))).join(' × ')+' cm']];
+ const m=o.meta,p=data.products[o.key],rows=[['Retailer / SKU',p.retailer+' · '+p.sku],['Price incl. VAT',(p.priceQualifier?'From ':'')+money(p.price)+(p.priceUnit||(p.packSize?' / '+p.packSize+' pack':' / item'))],['Retail dimensions',p.dimensionsText||p.dimensions.map(v=>Number((v*100).toFixed(1))).join(' × ')+' cm']];
  if(m.dimensions)rows.push([m.dimensionLabel||'Model W × D × H',m.dimensions.map(v=>Number((v*100).toFixed(1))).join(' × ')+' cm']);
  if(m.height!==undefined)rows.push(['Above floor',Number((m.height*100).toFixed(1))+' cm']);
  if(m.projection!==undefined)rows.push(['Beyond stud faces',Number((m.projection*100).toFixed(1))+' cm']);
@@ -402,6 +402,52 @@ function updateSpaceStatus(){
  root.querySelector('#loft-status').textContent=blocked?'The assumed loft approach overlaps rear storage / the rear wall. Revise the loft edge or access arrangement.':parked?'Move car out for the reserved loft approach and a usable work area.':'The reserved loft approach is clear of rear storage in this model. Final access method still needs checking.';
  root.querySelector('#space-status').innerHTML=parked?'<strong>Car parked:</strong> '+Math.round(currentPlan().frontGap*100)+' cm rear gap. Left side: about 55 cm from studs to the folded-mirror envelope. '+(currentPlan().recessMode==='cut'?'Built shelves leave about 43 cm at lower levels and 35 cm at the 1.52 m ledge. ':'')+(currentPlan().upperRuns?'High left shelf: 29.5 cm projection at 1.84 m; supports descend to 1.52 m. ':'')+'Door movement is unmodelled.':'<strong>Car out:</strong> the centre becomes working and retrieval space; keep the marked loft approach available.';
 }
+// Retained original rear arrangement: a retail Adrian rack and a fitted timber bay.
+function mixedRearParts(a){
+ const t=.048,x0=.075+a.rackWidth+.020,w=a.extensionWidth,d=a.depth,zBack=L-a.standOff;
+ const clear=w-2*t,narrow=clear-.650-t,divider=x0+t+narrow+t/2;
+ const full=[1.45,1.95],small=[.10,.45,.80,1.12],parts=[];
+ const beam=(length,x,y,z,axis)=>parts.push({length,x,y,z,axis});
+ for(const x of [x0+t/2,x0+w-t/2])for(const z of [zBack-t/2,zBack-d+t/2])beam(1.95,x,.975,z,'y');
+ for(const z of [zBack-t/2,zBack-d+t/2])beam(1.36,divider,.68,z,'y');
+ const shelves=[...full.map(y=>({x:x0+w/2,width:clear,y,full:true})),...small.map(y=>({x:x0+t+narrow/2,width:narrow,y,full:false}))];
+ for(const p of shelves){
+  for(const z of [zBack-t/2,zBack-d+t/2])beam(p.width,p.x,p.y-.018-t/2,z,'x');
+  for(const x of [p.x-p.width/2+t/2,p.x+p.width/2-t/2])beam(d-2*t,x,p.y-.018-t/2,zBack-d/2,'z');
+ }
+ // First-fit decreasing cut allocation, including one 3 mm kerf per piece.
+ const stock=[];for(const length of parts.map(p=>p.length).sort((x,y)=>y-x)){
+  let bin=stock.find(b=>b.used+length+.003<=4.8);if(!bin){bin={used:0,cuts:[]};stock.push(bin);}bin.cuts.push(length);bin.used+=length+.003;
+ }
+ return {t,x0,w,d,zBack,narrow,shelves,parts,stock,timberMetres:Math.ceil(stock.length*4.8)};
+}
+function mixedRearSurface(a){const p=mixedRearParts(a);return 3*1.335*.78+p.shelves.reduce((s,b)=>s+b.width*p.d,0);}
+function mixedRearStorage(){
+ const a=currentPlan(),p=mixedRearParts(a),x=.075+a.rackWidth/2,zBack=p.zBack;
+ capture(()=>{
+  for(const xx of [x-a.rackWidth/2+.0245,x+a.rackWidth/2-.0245])for(const zz of [zBack-.0245,zBack-a.depth+.0245])box(.049,2,.049,xx,1,zz,'metal',furnitureGroup);
+  for(const y of a.shelves[0]){
+   box(1.335,.022,.78,x,y-.011,zBack-.4,'wood',furnitureGroup);
+   for(const z of [zBack-.0245,zBack-.7755])box(1.35,.056,.035,x,y-.05,z,'accent',furnitureGroup);
+  }
+ },'rack80',{title:'Rear bay 1 · Adrian 144.8 × 80 × 200 cm',kind:'product',dimensions:[1.448,.8,2],note:'The original wide industrial rack. All THREE included 22 mm chipboard levels are shown, positioned on its 50 mm grid. No unpriced extra rack shelves. External frame and beam dimensions follow the catalogue; member details are simplified.'});
+ a.shelves[0].forEach((y,i)=>shelfZone(x,1.335,.78,y,a.shelves[0][i+1]??Math.min(2.18,storageHeight()),.08,zBack-.01));
+ const cutText=p.stock.map((b,i)=>(i+1)+': '+b.cuts.map(n=>Math.round(n*1000)).join(' + ')+' mm').join('; ');
+ capture(()=>{for(const b of p.parts){const dims=b.axis==='x'?[b.length,p.t,p.t]:b.axis==='y'?[p.t,b.length,p.t]:[p.t,p.t,b.length];box(...dims,b.x,b.y,b.z,'wood',furnitureGroup);}},'frameTimber',{
+  title:'Rear fitted bay · cut timber frame',kind:'product',purchaseShare:p.timberMetres,dimensions:[p.w,p.d,1.95],note:'Built from real 48 × 48 mm timber, not a retail rack. Planning cut allocation: '+p.stock.length+' lengths of 4.8 m; budget rounds '+(p.stock.length*4.8).toFixed(1)+' m up to '+p.timberMetres+' linear metres. Confirm available stock lengths before ordering. Cuts, with 3 mm kerfs: '+cutText+'. Wall anchoring, joints, screws and safe installed loading require installation design; fixings and labour are unpriced.'
+ });
+ for(const s of p.shelves){
+  // Six pieces use two 2440 × 1220 mm sheets. Sheet 1: the two wide pieces;
+  // sheet 2: four narrow pieces in a 2 × 2 grid. Every cut allows 3 mm kerf.
+  capture(()=>box(s.width,.018,p.d,s.x,s.y-.009,zBack-p.d/2,'wood',furnitureGroup),'bayPlywood',{
+   title:'Rear fitted bay · '+(s.full?'full-width upper':'small-gear')+' shelf / '+Math.round(s.y*100)+' cm',kind:'product',cut:true,purchaseShare:2/6,dimensions:[s.width,p.d,.018],height:s.y,
+   note:'CUT: '+Math.round(s.width*1000)+' × 800 × 18 mm from real 2440 × 1220 mm plywood. Buy TWO whole sheets for two '+Math.round((p.w-2*p.t)*1000)+' × 800 mm upper pieces and four '+Math.round(p.narrow*1000)+' × 800 mm lower pieces, allowing 3 mm kerfs. 48 mm support frame is priced separately. The 65 cm clear upright sled slot remains open below the first full-width shelf.'
+  });
+  const next=p.shelves.filter(b=>b.full===s.full&&b.y>s.y).map(b=>b.y).sort((x,y)=>x-y)[0]??(s.full?upperClearance():1.45);
+  shelfZone(s.x,s.width,p.d,s.y,next,.066,zBack);
+ }
+ snowRacer(p.x0+p.w-p.t-.325,0);
+}
 // Retail furniture and uncut wall boards share one plan-specific allocation.
 let shelfZones=[];
 function shelfZone(x,width,depth,y,next,thickness=.032,zBack=L){shelfZones.push({x,width,depth,y,clear:next-y-thickness,area:width*depth,zBack});}
@@ -474,7 +520,7 @@ function brorStorage(){
 function storage(){
  const a=currentPlan();
  if(a.type==='transform')transformStorage();
- else{furnitureGroup=new T.Group();scene.add(furnitureGroup);shelfZones=[];if(a.type==='bror')brorStorage();else snowRacer(2.30,0);}
+ else{furnitureGroup=new T.Group();scene.add(furnitureGroup);shelfZones=[];if(a.type==='bror')brorStorage();else if(a.type==='mixed')mixedRearStorage();else snowRacer(2.30,0);}
  rightWall();wallShelves();exampleContents();leftWallStorage();
  root.querySelector('#rear-height-value').textContent=Math.round(storageHeight()*100)+' cm';
  root.querySelector('#upper-controls').hidden=!root.querySelector('#garage-upper').checked;
@@ -505,7 +551,7 @@ function storage(){
  if(orth){const span=(view==='plan'?7.1:view==='loft'?Math.max(5.8,3.6/aspect):['left','side-right','right'].includes(view)?Math.max(3.3,6.9/aspect):Math.max(3.2,3.3/aspect));camera=new T.OrthographicCamera(-span*aspect/2,span*aspect/2,span/2,-span/2,.03,100);camera.userData.span=span;}else camera=new T.PerspectiveCamera(view==='photo'?66:43,aspect,.03,100);
  if(view==='photo'){pos=[-W/2,1.70,-.10];target=[-W/2,1.12,5.90];}else if(view==='rear'){pos=[-1.08,2.05,1.05];target=[-1.42,1.05,5.85];}else if(view==='left-wall'){pos=[-6.2,2.65,.75];target=[0,1.05,3.05];}else if(view==='right'){pos=[-.20,1.05,L/2];target=[-W,1.05,L/2];}else if(view==='plan'){pos=[-W/2,12,3.05];target=[-W/2,0,3.05];camera.up.set(0,0,1);}else if(view==='loft'){pos=[-W/2,12,loftStats.length/2];target=[-W/2,loftStats.top,loftStats.length/2];camera.up.set(0,0,1);}else if(view==='front'){pos=[-W/2,.9,-8];}else if(view==='back'){pos=[-W/2,.9,14];}else if(view==='left'){pos=[8,.9,L/2];}else if(view==='side-right'){pos=[-10,.9,L/2];}else{pos=[-4.4,4.9,-4.2];target=[-1.42,1.0,3.10];}
  if(aspect<1&&view==='rear')pos[2]-=1.7;
- camera.position.set(...pos);camera.lookAt(new T.Vector3(...target));controls=new OrbitControls(camera,renderer.domElement);controls.target.set(...target);controls.enableDamping=true;controls.dampingFactor=.12;controls.minDistance=.45;controls.maxDistance=18;controls.maxPolarAngle=Math.PI*.5;controls.update();controls.addEventListener('change',()=>{updateWalls();render();});
+ camera.position.set(...pos);camera.lookAt(new T.Vector3(...target));controls=new OrbitControls(camera,renderer.domElement);controls.target.set(...target);controls.zoomToCursor=true;controls.enableDamping=true;controls.dampingFactor=.12;controls.minDistance=.45;controls.maxDistance=18;controls.maxPolarAngle=Math.PI*.5;controls.update();controls.addEventListener('change',()=>{updateWalls();render();});
  root.querySelector('#garage-view').value=view;updateComposer();root.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===view)));applyVisibility();render();}
  // A layout rebuild replaces the scene, but keeps the camera and orbit controls.
  function updateComposer(){const w=host.clientWidth,h=host.clientHeight;
@@ -548,12 +594,18 @@ function storage(){
  const money=v=>new Intl.NumberFormat('nb-NO',{maximumFractionDigits:2}).format(v)+' kr';
 function rearSurface(a){
  const racks=a.type==='bror'?a.rackCount*5*.84*.54:a.type==='transform'?a.rackCount*4*.9*a.depth:0;
- return racks+rearBoards(a).length*1.18*.38;
+ return (a.type==='mixed'?mixedRearSurface(a):racks)+rearBoards(a).length*1.18*.38;
 }
 function shoppingEntries(a){
  const rows=[];const add=(key,qty,use,zone)=>{if(qty)rows.push({key,qty,use,zone});};
  if(a.type==='bror')add('deep',a.rackCount,'Rear · all five supplied shelves per complete BROR unit','rear');
  if(a.type==='transform'){add('base80',1,'Rear · starter with four shelves','rear');add('extension80',1,'Rear · extension with four shelves','rear');}
+ if(a.type==='mixed'){
+  const p=mixedRearParts(a);
+  add('rack80',1,'Rear · original 144.8 cm Adrian rack; three included shelf levels','rear');
+  add('bayPlywood',2,'Rear fitted bay · CUT two '+Math.round((p.w-2*p.t)*1000)+' × 800 mm upper pieces and four '+Math.round(p.narrow*1000)+' × 800 mm small pieces; two 2440 × 1220 × 18 mm sheets, with 3 mm kerfs','rear');
+  add('frameTimber',p.timberMetres,'Rear fitted bay · 48 × 48 mm timber, '+p.stock.length+' planned 4.8 m lengths; stock availability and cut plan shown in the product card. Quantity and unit price are per linear metre','rear');
+ }
  const boards=leftBoardPlacements(a),supports=leftSupports(a);
  for(const key of ['pine20','pine28','pine38']){
   const n=boards.filter(p=>p.key===key).length;

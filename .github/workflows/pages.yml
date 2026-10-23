@@ -38,6 +38,7 @@ jobs:
           python3 garage/test-image-freshness.py
           npm install --prefix "$RUNNER_TEMP/garage-check" --ignore-scripts --no-audit --no-fund three@0.158.0
           node garage/check-storage.mjs "$RUNNER_TEMP/garage-check/node_modules/three"
+          node garage/check-camera.mjs "$RUNNER_TEMP/garage-check/node_modules/three"
 
       - name: Validate print history
         run: |

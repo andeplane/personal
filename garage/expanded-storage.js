@@ -23,7 +23,7 @@ function rightWall(){
   for(const z of [3.94,4.36])rod([W-.10,.05,z],[W-.10,1.95,z],.022,'white',furnitureGroup);
   for(let y=.18;y<1.9;y+=.26)rod([W-.10,y,3.94],[W-.10,y,4.36],.02,'white',furnitureGroup);
  },null,{title:'Existing stepladder / gardintrapp',side:'right',dimensions:[.5,.15,1.9],dimensionLabel:'Along wall × projection × height',note:'Accessible folded wall position; estimated dimensions. This is not a specified loft-access ladder.'},true);
- const tableZ=Math.min(4.92,L-data.layouts[current].footprintDepth-.45);
+ const tableZ=Math.min(4.92,L-currentPlan().footprintDepth-.45);
  capture(()=>{
   box(.07,1.25,.75,W-.05,.65,tableZ,'white',furnitureGroup);
   box(.009,.03,.76,W-.095,1.05,tableZ,'accent',furnitureGroup);

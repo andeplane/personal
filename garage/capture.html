@@ -1,0 +1,23 @@
+<!doctype html><meta charset="utf-8"><title>Garage reference export</title>
+<style>body{font:15px system-ui;margin:24px;background:#f3f4ef;color:#22332e}button,select{font:inherit;padding:9px;margin:5px}iframe{width:100%;height:740px;border:1px solid #aaa}img{max-width:100%;display:block}pre{white-space:pre-wrap}#exports a{display:inline-block;padding:8px}</style>
+<h1>Current model · reference export</h1><p>Uses the same viewer, catalogue, geometry and controls as the public planner. Reference exports contain no car, dimensions or selection outlines.</p>
+<label>Component <select id="study"></select></label><button id="prepare">Prepare component</button><button id="capture">Export PNG</button><button id="state">Read camera & configuration</button><div id="exports"></div><pre id="status">Loading…</pre><img id="preview" alt="Latest model reference"><iframe id="viewer" src="./index.html" title="Actual garage model"></iframe>
+<script type="module">
+const data=await(await fetch('./design-data.json',{cache:'no-store'})).json(),frame=document.querySelector('#viewer'),status=document.querySelector('#status'),select=document.querySelector('#study');
+select.innerHTML=data.imageStudies.map(s=>`<option value="${s.id}">${s.label}</option>`).join('');
+function ready(){if(!frame.contentWindow.garageModel)throw Error('Viewer still loading');return {win:frame.contentWindow,doc:frame.contentDocument};}
+document.querySelector('#prepare').onclick=()=>{
+ const {win,doc}=ready(),study=data.imageStudies.find(s=>s.id===select.value),c=study.configuration;
+ for(const [id,v] of Object.entries({'rear-storage':c.rear,'recess-storage':c.recess,'upper-left':c.upperLeft,'upper-right':c.upperRight,'upper-rear':c.upperRear,'garage-car':false,'garage-access':false,'garage-dims':false,'garage-cutaway':true,'garage-loft':true,'garage-gear':true,'garage-bikes':false,'garage-upper':true,'rear-height':245,'loft-length':420})){
+  const el=doc.getElementById(id);if(typeof v==='boolean')el.checked=v;else el.value=String(v);
+ }
+ doc.querySelector('#rear-storage').dispatchEvent(new win.Event('change'));
+ win.garageModel.setView(study.view);
+ status.textContent='Prepared '+study.id+'\n'+JSON.stringify(c);
+};
+document.querySelector('#capture').onclick=()=>{
+ const {win}=ready(),src=win.garageModel.capture(2048,1280),a=document.createElement('a');a.href=src;a.download='garage-'+select.value+'-source.png';a.textContent='Download '+a.download;document.querySelector('#exports').replaceChildren(a);document.querySelector('#preview').src=src;status.textContent+='\nExport ready · 2048 × 1280';
+};
+document.querySelector('#state').onclick=()=>{const {win,doc}=ready();status.textContent=JSON.stringify({camera:win.garageModel.getCameraState(),choices:Object.fromEntries(['rear-storage','recess-storage','upper-left','upper-right','upper-rear'].map(id=>{const e=doc.getElementById(id);return[id,e.type==='checkbox'?e.checked:e.value]})),left:doc.querySelector('#left-capacity').textContent},null,2);};
+frame.onload=()=>{status.textContent='Viewer loaded; select and prepare a component.';};
+</script>

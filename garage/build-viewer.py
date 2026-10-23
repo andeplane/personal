@@ -4,7 +4,7 @@ s=(p/'source/visual-template.html').read_text().split('<script>')[1].split('</sc
 s=s.replace('(function(){','').replace('})();','')
 s=s.replace("const data=__GARAGE_DATA__;", "const data=await (await fetch('./design-data.json',{cache:'no-store'})).json();")
 s=s.replace(" if(!window.THREE){host.textContent='3D library unavailable. Use the saved renderings in the proposal.';return;}\n const T=window.THREE,", ' const ')
-s=s.replace("current=0, view='overview'", "current=1, view='overview'")
+s=s.replace("current=0, view='overview'", "current=1, view='left-wall'")
 s=s.replace("const renderer=new T.WebGLRenderer", "const renderer=new T.WebGLRenderer")
 s=s.replace(" host.appendChild(renderer.domElement);", " host.replaceChildren(renderer.domElement); renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;\n const pmrem=new T.PMREMGenerator(renderer), environment=pmrem.fromScene(new RoomEnvironment(),.04).texture;\n let controls,composer,ao,selected=null,selectionBox,objects=[],equipmentMeshes=[],dimensionGroup,bikeGroup;\n const render=()=>{if(composer)composer.render();else if(scene&&camera)renderer.render(scene,camera);};")
 s=s.replace(" function token(name){", " function oldToken(name){")
@@ -53,15 +53,21 @@ import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 """
 # Product helpers need declaration before build; function declarations are hoisted.
 a=s.index(' function storage(){');b=s.index(' function build(){',a)
-s=s[:a]+''.join((p/f).read_text() for f in ['products.js','bikes.js','expanded-storage.js','example-contents.js','left-wall.js','space.js','storage.js'])+s[b:]
+s=s[:a]+''.join((p/f).read_text() for f in ['configuration.js','products.js','bikes.js','expanded-storage.js','example-contents.js','left-wall.js','space.js','storage.js'])+s[b:]
 s=s.replace('updateCamera(); updateTable(); populateObjects();', 'makeBikes();if(camera)updateComposer();else updateCamera(); updateTable(); populateObjects();')
 s=s.replace('camera.aspect=w/h;camera.updateProjectionMatrix();', 'if(camera.isOrthographicCamera){const span=camera.userData.span;camera.left=-span*w/h/2;camera.right=span*w/h/2;}else camera.aspect=w/h;camera.updateProjectionMatrix();')
 a=s.index(' function updateTable()');b=s.index(" root.querySelectorAll('[data-layout]')",a)
 s=s[:a]+(p/'summary.js').read_text()+s[b:]
 s=s.replace("root.querySelector('#garage-loft').addEventListener('change',e=>{loftGroup.visible=e.target.checked;render();});", "root.querySelector('#garage-loft').addEventListener('change',applyVisibility);")
+# Remove packaged-layout controls from the legacy template.
+a=s.index(" root.querySelectorAll('[data-layout]')");b=s.index(" root.querySelector('#garage-view')",a)
+s=s[:a]+s[b:]
+s=s.replace('data.layouts[current]', 'currentPlan()')
+s=s.replace("setLayout:i=>{root.querySelector('[data-layout=\"'+i+'\"]').click()},", '')
+s=s.replace("capture:()=>renderer.domElement.toDataURL('image/png')", "capture:captureReference,getCameraState:()=>({position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),up:camera.up.toArray(),zoom:camera.zoom,target:controls.target.toArray(),type:camera.type})")
 import json
 photo_plans=json.loads((p/'photo-prompts.json').read_text())['plans']
-photo_metadata=[{k:plan[k] for k in ['id','depthCm','output','outputSHA256','source3D','source3DHash']} for plan in photo_plans]
+photo_metadata=[{k:plan[k] for k in ['id','label','depthCm','output','outputSHA256','source3D','source3DHash']} for plan in photo_plans]
 imports+='const photoPlans='+json.dumps(photo_metadata,separators=(',',':'))+';\n'
 (p/'viewer.js').write_text(imports+s)
 

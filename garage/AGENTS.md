@@ -10,12 +10,14 @@ storage designs. Never restore or relabel an old image as a new plan preview.
   photographs supply materials and the appearance of belongings, not an older
   storage arrangement. Keep a clean, realistic look; typical garage items the
   family does not own are allowed as illustrative contents.
-- Check each output against its own reference: all recess inserts, both upper side runs and the charger
-  opening, the correct rear shelving system, shelf positions, loft, one sled,
-  ladder, and the distinct wall-only, balanced-rack, fitted-recess/open-bay and 80 cm bulk strategies. Reject output that redesigns
-  the storage or substitutes invented furniture.
+- Check each output against its own reference: built shelves entering the recesses,
+  deeper upper runs, the charger opening, intact braces, the selected rear system,
+  shelf positions, loft, one sled and ladder where visible. Reject output that
+  redesigns the storage or substitutes invented furniture. Wall and rear choices
+  are independent; component studies must identify the exact configuration they show.
 - Keep the source render beside each generated image so the comparison is
-  visible. Static images show default settings, not live slider changes.
+  visible. Static component studies show their recorded settings; the live 3D model
+  shows the complete current combination and any corner pieces omitted for clearance.
 - Record the source-model fingerprint, source-render hash, prompt and final
   image hash in `photo-prompts.json` only after regenerating and inspecting
   the images. Never update fingerprints merely to make validation pass.

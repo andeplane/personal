@@ -70,7 +70,7 @@ function brorStorage(){
 function storage(){
  const a=currentPlan();
  if(a.type==='transform')transformStorage();
- else{furnitureGroup=new T.Group();scene.add(furnitureGroup);shelfZones=[];if(a.type==='bror')brorStorage();else snowRacer(2.30,0);}
+ else{furnitureGroup=new T.Group();scene.add(furnitureGroup);shelfZones=[];if(a.type==='bror')brorStorage();else if(a.type==='mixed')mixedRearStorage();else snowRacer(2.30,0);}
  rightWall();wallShelves();exampleContents();leftWallStorage();
  root.querySelector('#rear-height-value').textContent=Math.round(storageHeight()*100)+' cm';
  root.querySelector('#upper-controls').hidden=!root.querySelector('#garage-upper').checked;

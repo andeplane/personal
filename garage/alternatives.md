@@ -35,6 +35,7 @@ Supports attach to stud faces and are shared at board joints. Final joint plates
 | Two BROR racks | 55 cm | Two complete five-shelf units; default for reachable mixed storage. |
 | One BROR + open bay | 55 cm | One complete rack and two boards above the sled; more space for future awkward objects. |
 | TRANSFORM starter + extension | 80 cm | Two four-shelf bays for bulkier items; car out for rear access. |
+| Original full rear: Adrian + fitted bay | 80 cm | 144.8 cm rack + 121.2 cm timber bay + 2 cm gap = 268 cm. Three supplied rack shelves, six fitted shelves and a 65 cm clear tall sled slot. |
 
 The wall controls are the same for every rear choice. Changing either preserves the current camera position, pan and zoom. The model reports the actual rear gap and the left corner pieces omitted for the selected combination.
 
@@ -52,4 +53,12 @@ The planner links every purchase item directly to its retailer, shows the SKU an
 
 Geometry tests exercise all independent choices plus roof and loft variations. They check positive use of the recess, usable area, original timber, charger, supports, parking envelope, one sled/ladder, contained example items and product quantities. Browser checks cover visible shelving, buy links and camera persistence. These checks do not prove a physical installation.
 
-Nine fresh Imagegen component studies appear beside their current 3D references. They illustrate materials and approximate belongings, with distinct shelf systems and depths. The live 3D model remains authoritative for a combined selection. Model fingerprints and asset hashes block release with stale images; private original photographs are not published.
+Ten fresh Imagegen component studies appear beside their current 3D references. They illustrate materials and approximate belongings, with distinct shelf systems and depths. The live 3D model remains authoritative for a combined selection. Model fingerprints and asset hashes block release with stale images; private original photographs are not published.
+
+## Retained original mixed rear
+
+The original Adrian + timber arrangement remains a separate rear choice. It spans 268 cm and leaves 7.5 cm at each side in the 283 cm room. The industrial [Adrian 12-832180](https://www.gerdmans.no/lager-og-industri/hyller-stativ/lagerhyller/lagerhyller-for-bred-last-adrian-belastning-per-seksjon-4000-kg-hxbxd-2000-x-1448-x-800-mm-grunnseksjon) supplies three 22 mm chipboard shelves and costs 6,993.75 kr including VAT, checked 23 October 2026. No extra rack shelves are assumed.
+
+The fitted bay uses real [18 mm plywood sheets, Maxbo 864734](https://www.maxbo.no/kryssfiner-poppel-red-temperate-18x2440x1220-p864734/), displayed at 1,040.02 kr per sheet. Cut two 1116 × 800 mm upper shelves from sheet 1 and four 418 × 800 mm lower shelves from sheet 2. Both layouts allow 3 mm kerfs. The frame uses real [48 × 48 mm timber, Byggmax 08148048](https://www.byggmax.no/48x48-lekt-p08148048), listed at 24.90 kr per linear metre in the retailer material list. The cut allocation uses six planned 4.8 m lengths (28.8 m), budgeted at 29 linear metres. Available lengths and store pricing must be confirmed before ordering. Joint design, anti-racking restraints, wall anchoring, fixings and installed loads remain unverified and are explicitly excluded from the catalogue subtotal.
+
+Mouse-wheel zoom is anchored to the pointer in perspective and orthographic views. Reset and view presets remain explicit actions; rear changes retain the zoomed and panned camera.

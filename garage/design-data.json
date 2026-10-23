@@ -38,7 +38,7 @@
       "priceEvidence": "Retailer structured offer includes 25% VAT; headline on the page excludes VAT."
     },
     "extension80": {
-      "name": "Lagerreol TRANSFORM, p\u00e5byggseksjon, 4 hyller, H1972 B910 D800 mm",
+      "name": "Lagerreol TRANSFORM, påbyggseksjon, 4 hyller, H1972 B910 D800 mm",
       "sku": "21679",
       "url": "https://www.ajprodukter.no/p/lagerreol-15128-15136",
       "price": 2937.5,
@@ -57,7 +57,7 @@
       "priceEvidence": "Retailer structured offer includes 25% VAT; headline on the page excludes VAT."
     },
     "deep": {
-      "name": "BROR shelving unit, black, 85\u00d755\u00d7190 cm; 5 shelves included",
+      "name": "BROR shelving unit, black, 85×55×190 cm; 5 shelves included",
       "sku": "896.174.43",
       "url": "https://www.ikea.com/no/no/p/bror-hylle-svart-s89617443/",
       "price": 1670,
@@ -74,7 +74,7 @@
       "availability": "Delivery / store stock depends on location"
     },
     "pine20": {
-      "name": "Solid pine shelf board \u00b7 118 \u00d7 20 \u00d7 1.8 cm",
+      "name": "Solid pine shelf board · 118 × 20 × 1.8 cm",
       "sku": "31-1463-6",
       "url": "https://www.clasohlson.com/no/p/31-1463-6",
       "price": 129.9,
@@ -91,7 +91,7 @@
       "availability": "Listed for purchase; local stock and delivery are not reserved"
     },
     "pine28": {
-      "name": "Solid pine shelf board \u00b7 118 \u00d7 28 \u00d7 1.8 cm",
+      "name": "Solid pine shelf board · 118 × 28 × 1.8 cm",
       "sku": "31-1463-3",
       "url": "https://www.clasohlson.com/no/p/31-1463-3",
       "price": 159.9,
@@ -108,7 +108,7 @@
       "availability": "Listed for purchase; local stock and delivery are not reserved"
     },
     "pine38": {
-      "name": "Solid pine shelf board \u00b7 118 \u00d7 38 \u00d7 1.8 cm",
+      "name": "Solid pine shelf board · 118 × 38 × 1.8 cm",
       "sku": "31-1463-1",
       "url": "https://www.clasohlson.com/no/p/31-1463-1",
       "price": 179.9,
@@ -125,7 +125,7 @@
       "availability": "Listed for purchase; local stock and delivery are not reserved"
     },
     "bracket30": {
-      "name": "Habo heavy steel bracket \u00b7 200 \u00d7 300 mm",
+      "name": "Habo heavy steel bracket · 200 × 300 mm",
       "sku": "31-1936",
       "url": "https://www.clasohlson.com/no/Habo-hylleknekt/p/31-1936",
       "price": 69.9,
@@ -138,11 +138,11 @@
       ],
       "checked": "2026-10-22",
       "retailer": "Clas Ohlson",
-      "note": "Real galvanized 200 \u00d7 300 mm bracket. Left-wall installation uses 20 cm outward and 30 cm vertically, inside the 29.5 cm shelf projection; right/rear shelves use 30 cm outward. Both orientations retain the complete retail component. Installed shelf/wall capacity is unverified; fixings / joint fasteners separate.",
+      "note": "Real galvanized 200 × 300 mm bracket. Left-wall installation uses 20 cm outward and 30 cm vertically, inside the 29.5 cm shelf projection; right/rear shelves use 30 cm outward. Both orientations retain the complete retail component. Installed shelf/wall capacity is unverified; fixings / joint fasteners separate.",
       "availability": "Listed for purchase; local stock and delivery are not reserved"
     },
     "bracket20": {
-      "name": "Habo 148 steel bracket \u00b7 150 \u00d7 200 mm",
+      "name": "Habo 148 steel bracket · 150 × 200 mm",
       "sku": "41-8224-1",
       "url": "https://www.clasohlson.com/no/p/41-8224-1",
       "price": 19.9,
@@ -155,11 +155,11 @@
       ],
       "checked": "2026-10-22",
       "retailer": "Clas Ohlson",
-      "note": "Real 150 \u00d7 200 mm steel L bracket. Left-wall installation uses the short 15 cm leg outward and 20 cm leg vertically on the stud. Rear-mounted units are no longer used. Fixings / joint fasteners separate; installed load unverified.",
+      "note": "Real 150 × 200 mm steel L bracket. Left-wall installation uses the short 15 cm leg outward and 20 cm leg vertically on the stud. Rear-mounted units are no longer used. Fixings / joint fasteners separate; installed load unverified.",
       "availability": "Listed for purchase; local stock and delivery are not reserved"
     },
     "bracket10": {
-      "name": "Habo 148 steel bracket \u00b7 100 \u00d7 125 mm",
+      "name": "Habo 148 steel bracket · 100 × 125 mm",
       "sku": "41-8220-2",
       "url": "https://www.clasohlson.com/no/p/41-8220-2",
       "price": 19.9,
@@ -174,6 +174,62 @@
       "retailer": "Clas Ohlson",
       "note": "Black pressed-steel L bracket. Modeled with the short 10 cm leg under the shelf, 12.5 cm leg on the stud face. Fixing details and installed load require verification; screws / joint fasteners separate.",
       "availability": "Listed for purchase; local stock and delivery not reserved"
+    },
+    "rack80": {
+      "currency": "NOK",
+      "vatIncluded": true,
+      "checked": "2026-10-23",
+      "name": "Adrian wide-load rack · 144.8 × 80 × 200 cm · 3 shelves",
+      "sku": "12-832180",
+      "url": "https://www.gerdmans.no/lager-og-industri/hyller-stativ/lagerhyller/lagerhyller-for-bred-last-adrian-belastning-per-seksjon-4000-kg-hxbxd-2000-x-1448-x-800-mm-grunnseksjon",
+      "price": 6993.75,
+      "dimensions": [
+        1.448,
+        0.8,
+        2
+      ],
+      "retailer": "Gerdmans",
+      "includedShelves": 3,
+      "note": "Original industrial rack, with three 22 mm chipboard shelves, 49 mm posts and 56 mm red-orange beams. 50 mm adjustment grid; clear width 1335 mm. Catalogue product capacity is not a load rating for the fitted timber bay beside it. Price includes 25% VAT (5595 kr excluding VAT).",
+      "availability": "Listed for ordering; retailer estimates dispatch in about two weeks; verify at checkout"
+    },
+    "bayPlywood": {
+      "currency": "NOK",
+      "vatIncluded": true,
+      "checked": "2026-10-23",
+      "name": "Plywood poplar red temperate · 244 × 122 × 1.8 cm",
+      "sku": "864734 / EAN 7071260005121",
+      "url": "https://www.maxbo.no/kryssfiner-poppel-red-temperate-18x2440x1220-p864734/",
+      "price": 1040.02,
+      "dimensions": [
+        2.44,
+        1.22,
+        0.018
+      ],
+      "retailer": "Maxbo",
+      "note": "Real 18 mm plywood sheet, WBP glue. Fitted rear bay uses two sheets with an explicit six-piece cutting layout; stock sheet price is the retailer’s displayed conversion of 349 kr/m² to one whole sheet (billed as 2.98 m²). Edge protection, timber joints and installed shelf load need specifying. No invented ready-made shelf is sold under this name.",
+      "availability": "Listed for sale and home delivery; confirm local stock, sheet price and delivery at checkout"
+    },
+    "frameTimber": {
+      "currency": "NOK",
+      "vatIncluded": true,
+      "checked": "2026-10-23",
+      "name": "Lekt · 48 × 48 mm · sold per linear metre",
+      "sku": "08148048",
+      "url": "https://www.byggmax.no/48x48-lekt-p08148048",
+      "price": 24.9,
+      "priceUnit": " / linear metre",
+      "dimensions": [
+        0.048,
+        0.048,
+        1
+      ],
+      "dimensionsText": "48 × 48 mm; sold per linear metre; available stock lengths 2.7–5.4 m",
+      "retailer": "Byggmax",
+      "note": "Real timber sold by length. The model uses 48 × 48 mm members cut from planned 4.8 m lengths, with the exact cuts and kerfs shown in the frame card. Cost is rounded up to whole linear metres. Available lengths vary by store; confirm before purchase. Connections, wall anchoring and load capacity require installation design.",
+      "availability": "Listed in variable stock lengths; price and stock depend on store",
+      "priceEvidence": "Retailer material list for its outdoor-kitchen guide lists 48 × 48 mm timber at 24.90 NOK per metre",
+      "source": "https://www.byggmax.no/bygg-et-utekj%C3%B8kken"
     }
   },
   "common": [],
@@ -240,7 +296,7 @@
     },
     {
       "name": "Left-wall recesses and ledges",
-      "evidence": "IMG_0750\u20130754 and IMG_0758 show existing shallow storage between studs. One opening confirmed 54.5 cm across \u00d7 63.5 cm high; depth about 9 cm from the tape photo.",
+      "evidence": "IMG_0750–0754 and IMG_0758 show existing shallow storage between studs. One opening confirmed 54.5 cm across × 63.5 cm high; depth about 9 cm from the tape photo.",
       "storage": "Build five aligned levels at 20 / 28 cm total depth plus an optional 38 cm high run. Fit the rear of each board into the recess and around retained timber. Consolidate the cable hanger below the fixed charger.",
       "count": "Existing wall storage"
     },
@@ -376,7 +432,7 @@
     "clearStrip": 0.65,
     "evidence": "Existing loft is visible in IMG_0762. Full-width deck length 4.2 m, underside 2.10 m, joists and access position are adjustable or schematic assumptions, not a survey. Roof headroom and load capacity are unknown."
   },
-  "priceDate": "21\u201323 October 2026",
+  "priceDate": "21–23 October 2026",
   "purchaseBaseline": {
     "commit": "f7e120c",
     "restoredSkus": [
@@ -409,8 +465,8 @@
     },
     {
       "id": "wall",
-      "name": "Wall shelves \u00b7 38 cm",
-      "system": "Wall shelves \u00b7 38 cm",
+      "name": "Wall shelves · 38 cm",
+      "system": "Wall shelves · 38 cm",
       "depth": 0.38,
       "footprintDepth": 0.42,
       "rearWidth": 2.48,
@@ -460,8 +516,8 @@
     },
     {
       "id": "double",
-      "name": "Two racks \u00b7 55 cm",
-      "system": "Two racks \u00b7 55 cm",
+      "name": "Two racks · 55 cm",
+      "system": "Two racks · 55 cm",
       "depth": 0.55,
       "footprintDepth": 0.59,
       "rearWidth": 1.72,
@@ -492,8 +548,8 @@
     },
     {
       "id": "single",
-      "name": "One rack + open bay \u00b7 55 cm",
-      "system": "One rack + open bay \u00b7 55 cm",
+      "name": "One rack + open bay · 55 cm",
+      "system": "One rack + open bay · 55 cm",
       "depth": 0.55,
       "footprintDepth": 0.59,
       "rearWidth": 0.85,
@@ -533,8 +589,8 @@
     },
     {
       "id": "bulk",
-      "name": "Industrial racks \u00b7 80 cm",
-      "system": "Industrial racks \u00b7 80 cm",
+      "name": "Industrial racks · 80 cm",
+      "system": "Industrial racks · 80 cm",
       "depth": 0.8,
       "footprintDepth": 0.84,
       "rearWidth": 1.885,
@@ -562,6 +618,31 @@
       ],
       "baseKey": "base80",
       "extensionKey": "extension80"
+    },
+    {
+      "id": "mixed80",
+      "name": "Full rear · industrial + fitted bay · 80 cm",
+      "system": "Original Adrian rack + fitted timber shelves",
+      "depth": 0.8,
+      "footprintDepth": 0.84,
+      "rearWidth": 2.68,
+      "type": "mixed",
+      "rackCount": 1,
+      "rearPine": [],
+      "summary": "Restored original mixed rear: a 144.8 cm Adrian industrial rack plus a 121.2 cm fitted timber bay, spanning 268 cm of the 283 cm wall. Four small shelves and two full-width upper shelves retain a 65 cm clear upright sled slot. Both units are 80 cm deep; move the car for retrieval.",
+      "top": 2,
+      "standOff": 0.04,
+      "unpriced": "Product subtotal includes VAT. Delivery, labour, finish and substrate-specific screws / backing are extra and unpriced. Wall fixing and door-track clearance require checking on site; nothing is claimed structurally approved.",
+      "frontGap": 0.213,
+      "shelves": [
+        [
+          0.1,
+          0.95,
+          1.8
+        ]
+      ],
+      "rackWidth": 1.448,
+      "extensionWidth": 1.212
     }
   ],
   "defaults": {
@@ -574,7 +655,7 @@
   "imageStudies": [
     {
       "id": "rear-wall",
-      "label": "Wall shelves \u00b7 38 cm",
+      "label": "Wall shelves · 38 cm",
       "match": {
         "rear": "wall"
       },
@@ -590,7 +671,7 @@
     },
     {
       "id": "rear-double",
-      "label": "Two racks \u00b7 55 cm",
+      "label": "Two racks · 55 cm",
       "match": {
         "rear": "double"
       },
@@ -606,7 +687,7 @@
     },
     {
       "id": "rear-single",
-      "label": "One rack + open bay \u00b7 55 cm",
+      "label": "One rack + open bay · 55 cm",
       "match": {
         "rear": "single"
       },
@@ -622,7 +703,7 @@
     },
     {
       "id": "rear-bulk",
-      "label": "Industrial racks \u00b7 80 cm",
+      "label": "Industrial racks · 80 cm",
       "match": {
         "rear": "bulk"
       },
@@ -638,7 +719,7 @@
     },
     {
       "id": "left-built",
-      "label": "Built left wall \u00b7 20 / 28 / 38 cm",
+      "label": "Built left wall · 20 / 28 / 38 cm",
       "match": {
         "recess": "cut",
         "upperLeft": 4
@@ -655,7 +736,7 @@
     },
     {
       "id": "left-lower",
-      "label": "Built left wall \u00b7 20 / 28 cm",
+      "label": "Built left wall · 20 / 28 cm",
       "match": {
         "recess": "cut",
         "upperLeft": 0
@@ -672,7 +753,7 @@
     },
     {
       "id": "left-high",
-      "label": "High left run \u00b7 38 cm",
+      "label": "High left run · 38 cm",
       "match": {
         "recess": "none",
         "upperLeft": 4
@@ -689,7 +770,7 @@
     },
     {
       "id": "right-high",
-      "label": "High right extension \u00b7 28 cm",
+      "label": "High right extension · 28 cm",
       "match": {
         "upperRight": true
       },
@@ -705,7 +786,7 @@
     },
     {
       "id": "rear-high",
-      "label": "High rear shelves \u00b7 38 cm",
+      "label": "High rear shelves · 38 cm",
       "match": {
         "upperRear": true
       },
@@ -717,6 +798,22 @@
         "upperLeft": 0,
         "upperRight": false,
         "upperRear": true
+      }
+    },
+    {
+      "id": "rear-mixed",
+      "label": "Original full rear · industrial + fitted bay · 80 cm",
+      "match": {
+        "rear": "mixed80"
+      },
+      "depthCm": 80,
+      "view": "rear",
+      "configuration": {
+        "rear": "mixed80",
+        "recess": "none",
+        "upperLeft": 0,
+        "upperRight": false,
+        "upperRear": false
       }
     }
   ]

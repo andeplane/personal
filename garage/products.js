@@ -27,7 +27,7 @@ function selectObject(o){
  selected=o||null;const panel=root.querySelector('#selection');root.querySelector('#focus-item').disabled=!o;root.querySelector('#object-list').value=o?objects.find(x=>x.key===o.key).id:'';
  if(!o){panel.innerHTML='<h2>Click a storage product.</h2><p>Choose a shelf, basket or rail for its price and purchase link.</p>';render();return;}
  root.querySelector('#object-panel').open=true;
- const m=o.meta,p=data.products[o.key],rows=[['Retailer / SKU',p.retailer+' · '+p.sku],['Price incl. VAT',(p.priceQualifier?'From ':'')+money(p.price)+(p.packSize?' / '+p.packSize+' pack':' / item')],['Retail dimensions',p.dimensionsText||p.dimensions.map(v=>Number((v*100).toFixed(1))).join(' × ')+' cm']];
+ const m=o.meta,p=data.products[o.key],rows=[['Retailer / SKU',p.retailer+' · '+p.sku],['Price incl. VAT',(p.priceQualifier?'From ':'')+money(p.price)+(p.priceUnit||(p.packSize?' / '+p.packSize+' pack':' / item'))],['Retail dimensions',p.dimensionsText||p.dimensions.map(v=>Number((v*100).toFixed(1))).join(' × ')+' cm']];
  if(m.dimensions)rows.push([m.dimensionLabel||'Model W × D × H',m.dimensions.map(v=>Number((v*100).toFixed(1))).join(' × ')+' cm']);
  if(m.height!==undefined)rows.push(['Above floor',Number((m.height*100).toFixed(1))+' cm']);
  if(m.projection!==undefined)rows.push(['Beyond stud faces',Number((m.projection*100).toFixed(1))+' cm']);

@@ -4,7 +4,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 root=Path(__file__).resolve().parent
 data=json.loads((root/'design-data.json').read_text())
-assert [a['id'] for a in data['rearOptions']]==['none','wall','double','single','bulk']
+assert [a['id'] for a in data['rearOptions']]==['none','wall','double','single','bulk','mixed80']
 assert all('recessMode' not in a and 'upperRuns' not in a for a in data['rearOptions']), 'Rear choices must not encode wall choices'
 for key,p in data['products'].items():
     assert p['sku'] and p['name'] and p['retailer'] and p['note']
@@ -12,6 +12,9 @@ for key,p in data['products'].items():
     assert len(p['dimensions'])==3 and all(v>0 for v in p['dimensions'])
     assert urlsplit(p['url']).scheme=='https' and p['checked'] in ['2026-10-21','2026-10-22','2026-10-23']
 assert data['products']['pine20']['dimensions']==[1.18,.2,.018]
+assert data['products']['rack80']['includedShelves']==3
+assert 2*1.116+2*.003<2.44 and .8+.003<1.22, 'Two wide plywood pieces fit sheet 1'
+assert 2*.418+2*.003<1.22 and 2*.8+2*.003<2.44, 'Four small plywood pieces fit sheet 2'
 assert 2*.585+2*.003<1.18, 'Cut list allows saw kerfs'
 for a in data['rearOptions']:
     assert a['rearWidth']<data['room']['width']

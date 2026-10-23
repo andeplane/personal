@@ -4,7 +4,7 @@ function shelfZone(x,width,depth,y,next,thickness=.032,zBack=L){shelfZones.push(
 function storageHeight(){return root.querySelector('#garage-upper').checked?Number(root.querySelector('#rear-height').value)/100:H;}
 function upperClearance(){return H+(storageHeight()-H)*(L-.4-4)/(L-4);}
 function upperLevels(){return upperClearance()>=2.38?[2.20]:[];}
-function rearBoards(a){return [...a.rearPine,...upperLevels().flatMap(y=>[[.76,y],[2.03,y]])];}
+function rearBoards(a){return [...a.rearPine,...(a.upperRear?upperLevels():[]).flatMap(y=>[[.76,y],[2.03,y]])];}
 // All boards keep retail dimensions. Brackets are modeled below the boards.
 function pineShelf(key,side,along,y,title){
  const [length,depth,t]=data.products[key].dimensions,group=new T.Group();
@@ -20,9 +20,9 @@ function pineShelf(key,side,along,y,title){
  },'bracket30',{title:title+' · Habo support',kind:'product',side,height:y-t-.20});
 }
 function wallShelves(){
- const a=data.layouts[current];
- for(const start of sideRuns(a))pineShelf('pine28','left',start+.59,1.95,'High left · uncut 118 × 28 cm / '+Math.round(start*100)+' cm along wall');
- pineShelf('pine28','right',.79,1.95,'High right · front extension to existing ski shelf');
+ const a=currentPlan();
+ // The fitted left runs, including their supports, are built in leftWallStorage().
+ if(a.upperRight)pineShelf('pine28','right',.79,1.95,'High right · front extension to existing ski shelf');
  const boards=rearBoards(a);
  for(const [x,y] of boards){
   pineShelf('pine38','back',x,y,'Rear wall · uncut 118 × 38 cm / '+Math.round(y*100)+' cm');
@@ -31,7 +31,7 @@ function wallShelves(){
  }
 }
 function transformStorage(){
- const a=data.layouts[current];furnitureGroup=new T.Group();scene.add(furnitureGroup);shelfZones=[];
+ const a=currentPlan();furnitureGroup=new T.Group();scene.add(furnitureGroup);shelfZones=[];
  const start=.06,zBack=L-a.standOff;
  const centers=[start+.4875,start+.975+.455,start+.975+.91+.455];
  for(let bay=0;bay<a.rackCount;bay++){
@@ -54,7 +54,7 @@ function transformStorage(){
 
 }
 function brorStorage(){
- const a=data.layouts[current];
+ const a=currentPlan();
  for(let bay=0;bay<a.rackCount;bay++){
   const x=.48+bay*.87,zBack=L-a.standOff;
   capture(()=>{
@@ -68,7 +68,7 @@ function brorStorage(){
  snowRacer(2.30,0);
 }
 function storage(){
- const a=data.layouts[current];
+ const a=currentPlan();
  if(a.type==='transform')transformStorage();
  else{furnitureGroup=new T.Group();scene.add(furnitureGroup);shelfZones=[];if(a.type==='bror')brorStorage();else snowRacer(2.30,0);}
  rightWall();wallShelves();exampleContents();leftWallStorage();

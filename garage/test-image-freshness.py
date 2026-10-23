@@ -26,11 +26,12 @@ class ImageFreshnessTests(unittest.TestCase):
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT / name, target)
         plans = []
-        for letter, depth in zip('abcd', [38, 55, 55, 80]):
+        for study in json.loads((ROOT / 'design-data.json').read_text())['imageStudies']:
+            letter,depth=study['id'],study['depthCm']
             image, source = self.root / f'{letter}.jpg', self.root / f'{letter}.png'
             image.write_bytes(f'generated-test-fixture-{letter}'.encode())
             source.write_bytes(f'source-test-fixture-{letter}'.encode())
-            plans.append(dict(id=letter, depthCm=depth, prompt='test fixture',
+            plans.append(dict(id=letter, depthCm=depth, configuration=study['configuration'], prompt='test fixture',
                               reviewedAgainstSource=True, output=image.name,
                               outputSHA256=freshness.sha(image), source3D=source.name,
                               source3DHash=freshness.sha(source)))
@@ -59,7 +60,7 @@ class ImageFreshnessTests(unittest.TestCase):
             self.validate()
 
     def test_changed_depth_blocks_release(self):
-        self.edit_data(lambda d: d['layouts'][3].__setitem__('depth', .7))
+        self.edit_data(lambda d: d['rearOptions'][4].__setitem__('depth', .7))
         with self.assertRaisesRegex(AssertionError, 'stale'):
             self.validate()
 
@@ -80,7 +81,7 @@ class ImageFreshnessTests(unittest.TestCase):
         self.validate()
 
     def test_replaced_image_is_detected(self):
-        (self.root / 'b.jpg').write_bytes(b'obsolete image')
+        (self.root / 'rear-double.jpg').write_bytes(b'obsolete image')
         with self.assertRaisesRegex(AssertionError, 'Changed/missing'):
             self.validate()
 

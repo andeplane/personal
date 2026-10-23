@@ -10,11 +10,11 @@ SCENE_FILES = (
     'source/visual-template.html', 'build-viewer.py', 'materials.js',
     'products.js', 'bikes.js', 'room.js', 'expanded-storage.js',
     'example-contents.js', 'left-wall.js', 'space.js', 'storage.js',
-    'interaction.js',
+    'interaction.js', 'configuration.js',
 )
 LAYOUT_COPY = {'name', 'system', 'summary', 'equipment', 'unpriced'}
 PRODUCT_GEOMETRY = {'sku', 'dimensions', 'includedShelves'}
-CONTROLS = {'rear-height', 'loft-length', 'garage-upper', 'garage-left-baskets',
+CONTROLS = {'rear-height', 'loft-length', 'garage-upper',
             'garage-loft', 'garage-gear', 'garage-bikes'}
 
 
@@ -40,8 +40,10 @@ def model_hash(root=ROOT):
     defaults = Defaults()
     defaults.feed((root / 'index.html').read_text())
     geometry = {key: data[key] for key in ('room', 'car', 'common', 'leftWall', 'loft')}
-    geometry['layouts'] = [{k: v for k, v in a.items() if k not in LAYOUT_COPY}
-                           for a in data['layouts']]
+    geometry['rearOptions'] = [{k: v for k, v in a.items() if k not in LAYOUT_COPY}
+                           for a in data['rearOptions']]
+    geometry['configurationDefaults'] = data['defaults']
+    geometry['imageStudies'] = data['imageStudies']
     geometry['products'] = {key: {k: v for k, v in p.items() if k in PRODUCT_GEOMETRY}
                             for key, p in data['products'].items()}
     payload = {'geometry': geometry, 'defaults': defaults.values,
@@ -57,16 +59,18 @@ def validate(root=ROOT):
         'regenerate and visually inspect all affected images. Do not just update the hash.')
     data = json.loads((root / 'design-data.json').read_text())
     plans = manifest['plans']
-    assert [p['id'] for p in plans] == list('abcd')
-    for plan, layout in zip(plans, data['layouts']):
-        assert plan['depthCm'] == round(layout['depth'] * 100), 'Wrong image depth'
+    studies=data['imageStudies']
+    assert [p['id'] for p in plans] == [s['id'] for s in studies], 'Missing component study'
+    for plan, study in zip(plans, studies):
+        assert plan['depthCm'] == study['depthCm'], 'Wrong image depth'
+        assert plan['configuration'] == study['configuration'], 'Wrong component configuration'
         assert plan['prompt'] and plan['reviewedAgainstSource'], 'Image review missing'
         for path_key, hash_key in [('output', 'outputSHA256'), ('source3D', 'source3DHash')]:
             path = root / plan[path_key]
             assert path.is_file() and sha(path) == plan[hash_key], f"Changed/missing {path}"
-    assert len({p['source3DHash'] for p in plans}) == 4, 'Each depth needs its own render'
-    assert len({p['outputSHA256'] for p in plans}) == 4, 'Do not reuse an image across depths'
-    print('All four Imagegen images match the current model fingerprint and their own depth references.')
+    assert len({p['source3DHash'] for p in plans}) == len(studies), 'Each component needs its own render'
+    assert len({p['outputSHA256'] for p in plans}) == len(studies), 'Do not reuse an image across components'
+    print('All component Imagegen studies match the current model fingerprint and their own references.')
 
 
 if __name__ == '__main__':

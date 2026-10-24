@@ -1,5 +1,40 @@
 [
   {
+    "id": "sic-faceted-24k-pva-20261025",
+    "title": "Faceted SiC · 24,050 atom lattice · preparation",
+    "project": "Atomify",
+    "printer": "Bambu Lab X2D",
+    "status": "planned",
+    "recordedAt": "2026-10-24T22:15:27.861151+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "printDate": null,
+    "jobName": "SIC_FACETED_24050_CONNECTED_LATTICE",
+    "plate": null,
+    "parts": [
+      "One connected SiC ball-and-stick particle, full core retained"
+    ],
+    "estimatedSeconds": null,
+    "actualSeconds": null,
+    "estimatedGrams": null,
+    "actualGrams": null,
+    "estimatedMeters": null,
+    "material": "PLA model / PVA supports; colors and live spool mapping pending",
+    "color": "#919191",
+    "layerHeightMm": null,
+    "nozzleMm": null,
+    "layers": null,
+    "preview": "assets/sic-faceted-24k-pva-20261025/model-preview.png",
+    "layout": "assets/sic-faceted-24k-pva-20261025/interior-preview.png",
+    "snapshots": [],
+    "source": {
+      "file": "Pending sliced 3MF",
+      "sha256": null,
+      "evidence": "Pinned Atomify df3afbb8644116bb3d9374088e23741e9ce5905c, faceted_nanoparticle/sic_nanoparticle.data SHA256 614b14f070cdf450c5bd91f3ebe3d2a593864995d6176e8cdc50ea2ab4932d21. Original 24,050 atoms / 46,695 display bonds / one component. LAMMPS relaxation requested and not yet accepted."
+    },
+    "notes": "Preparation only. Images are coordinate visualizations of the original input, NOT slicer plate previews. Interior view hides half for inspection only; the printed core will be retained. Candidate size 225 mm, Si/C diameters 2.8/2.3 mm, bond diameter 1.2 mm. Final relaxed coordinates, mesh, sliced 3MF, actual slicer preview, estimates, material/nozzle mapping and camera evidence are all pending. No print authorized or started."
+  },
+  {
     "id": "enigma-rotor-v2-ii-20261023-a1",
     "title": "Rotor V2 II · four-part plastic prototype",
     "project": "OpenEnigma",

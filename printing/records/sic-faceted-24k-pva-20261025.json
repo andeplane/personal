@@ -23,15 +23,15 @@
   "layerHeightMm": null,
   "nozzleMm": null,
   "layers": null,
-  "preview": "assets/sic-faceted-24k-pva-20261025/model-preview.png",
-  "layout": "assets/sic-faceted-24k-pva-20261025/interior-preview.png",
+  "preview": null,
+  "layout": null,
   "snapshots": [],
   "source": {
     "file": "Pending sliced 3MF",
     "sha256": null,
-    "evidence": "Pinned Atomify df3afbb8644116bb3d9374088e23741e9ce5905c. Input data SHA256 614b14f070cdf450c5bd91f3ebe3d2a593864995d6176e8cdc50ea2ab4932d21. Selected LAMMPS annealed/minimized data SHA256 24cc64c727847c625391f14b4884dd2b732a230e9c58f2f8b51ed60b2e6c99ae. All24,050 atoms retained in one connected component,46,452 displayed Si\u2013C bonds."
+    "evidence": "Pinned Atomify df3afbb8644116bb3d9374088e23741e9ce5905c. Input data SHA256 614b14f070cdf450c5bd91f3ebe3d2a593864995d6176e8cdc50ea2ab4932d21. Selected LAMMPS annealed/minimized data SHA256 24cc64c727847c625391f14b4884dd2b732a230e9c58f2f8b51ed60b2e6c99ae. All 24,050 atoms retained in one connected component, 46,452 displayed Si\u2013C bonds."
   },
-  "notes": "Preparation only. Coordinate visualizations show the selected relaxed particle, NOT actual slicer previews. Interior cutaway is for inspection only; full printed core is retained. Initial and final analytical Vashishta minimizations both reached force tolerance;60ps anneal/cooling completed. Final energy -149796.41669815 eV, fnorm9.9402362e-5 eV/angstrom. Source shape retained; lower energy alone does not prove smoother surface.225mm design candidate,2.8/2.3mm Si/C spheres and1.2mm bonds. The initial STL export was rejected for42 float32-collapsed facets. Exact duplicate welding removed those facets without moving vertices; the repaired12,232,350-triangle mesh is closed, connected and passes independent STL readback. Surface simplification tolerance0.01mm. The full slice is running from the verified repaired STL; no slicer result has yet been accepted. Actual slice, estimates, nozzle/material live mapping and camera evidence remain pending. No print authorized or started.",
+  "notes": "Preparation only; no print authorized or started. The attached images visualize the relaxed atomic coordinates, not a sliced plate. The cutaway is for inspection only: all 24,050 atoms and the entire printed core are retained. LAMMPS annealing/cooling and both energy minimizations completed; the final force tolerance was reached. The repaired STL is closed, connected, and passes independent readback. The design is approximately 208 \u00d7 218 \u00d7 225 mm, with 2.8/2.3 mm Si/C spheres and 1.2 mm bonds. Geometric volume gives a model-only PLA estimate of about 370 g at 1.24 g/cm\u00b3; supports and purge are additional. The full slice is currently generating supports. Actual slicer previews, usage/time estimates, live material/nozzle mapping, and camera evidence remain pending. Geometry checks do not establish printed strength or PVA dissolution.",
   "preparation": {
     "phase": "full slicing in progress",
     "retainedAtoms": 24050,
@@ -46,5 +46,19 @@
     "meshSha256": "703a81a9ea7de7c29e592be6796e4cf9bc070542c04ab5f5c4e36e24e7e319a7",
     "meshVerified": true,
     "meshTriangles": 12232350
-  }
+  },
+  "evidenceImages": [
+    {
+      "src": "assets/sic-faceted-24k-pva-20261025/model-preview.png",
+      "kind": "coordinate-render",
+      "caption": "Relaxed SiC atomic-coordinate visualization. This is not a slicer preview.",
+      "sha256": "e5b349a23d28724b65ede5c088b15026c1b12ced31dd9aa57495e22be4722dc9"
+    },
+    {
+      "src": "assets/sic-faceted-24k-pva-20261025/interior-preview.png",
+      "kind": "coordinate-render-cutaway",
+      "caption": "Inspection cutaway of the relaxed atomic coordinates. The print retains the entire core. This is not a slicer preview.",
+      "sha256": "ff1cbafb01750a04fb4577d905007a3d10f9284348097d73722ba8b95b9a519a"
+    }
+  ]
 }

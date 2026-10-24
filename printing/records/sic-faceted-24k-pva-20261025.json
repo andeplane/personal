@@ -1,0 +1,64 @@
+{
+  "id": "sic-faceted-24k-pva-20261025",
+  "title": "Faceted SiC \u00b7 24,050 atom lattice \u00b7 preparation",
+  "project": "Atomify",
+  "printer": "Bambu Lab X2D",
+  "status": "planned",
+  "recordedAt": "2026-10-24T22:15:27.861151+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "printDate": null,
+  "jobName": "SIC_FACETED_24050_CONNECTED_LATTICE",
+  "plate": null,
+  "parts": [
+    "One connected SiC ball-and-stick particle, full core retained"
+  ],
+  "estimatedSeconds": null,
+  "actualSeconds": null,
+  "estimatedGrams": null,
+  "actualGrams": null,
+  "estimatedMeters": null,
+  "material": "PLA model / PVA supports; colors and live spool mapping pending",
+  "color": "#919191",
+  "layerHeightMm": null,
+  "nozzleMm": null,
+  "layers": null,
+  "preview": null,
+  "layout": null,
+  "snapshots": [],
+  "source": {
+    "file": "Pending sliced 3MF",
+    "sha256": null,
+    "evidence": "Pinned Atomify df3afbb8644116bb3d9374088e23741e9ce5905c. Input data SHA256 614b14f070cdf450c5bd91f3ebe3d2a593864995d6176e8cdc50ea2ab4932d21. Selected LAMMPS annealed/minimized data SHA256 24cc64c727847c625391f14b4884dd2b732a230e9c58f2f8b51ed60b2e6c99ae. All 24,050 atoms retained in one connected component, 46,452 displayed Si\u2013C bonds."
+  },
+  "notes": "Preparation only; no print authorized or started. The attached images visualize the relaxed atomic coordinates, not a sliced plate. The cutaway is for inspection only: all 24,050 atoms and the entire printed core are retained. LAMMPS annealing/cooling and both energy minimizations completed; the final force tolerance was reached. The repaired STL is closed, connected, and passes independent readback. The design is approximately 208 \u00d7 218 \u00d7 225 mm, with 2.8/2.3 mm Si/C spheres and 1.2 mm bonds. Geometric volume gives a model-only PLA estimate of about 370 g at 1.24 g/cm\u00b3; supports and purge are additional. The full slice is currently generating supports. Actual slicer previews, usage/time estimates, live material/nozzle mapping, and camera evidence remain pending. Geometry checks do not establish printed strength or PVA dissolution.",
+  "preparation": {
+    "phase": "full slicing in progress",
+    "retainedAtoms": 24050,
+    "displayBonds": 46452,
+    "coreRetained": true,
+    "thermalTimePs": 60,
+    "finalForceNormEvPerAngstrom": 9.9402362e-05,
+    "sourceCoordinateSha256": "24cc64c727847c625391f14b4884dd2b732a230e9c58f2f8b51ed60b2e6c99ae",
+    "modelOnlyPlaMassEstimateGrams": 369.71,
+    "slicerEstimateAvailable": false,
+    "waterAccess": "Sphere/capsule proxy: conservative0.5mm flood-fill plus0.1mm refinement anchored to1466 known exterior coarse cells. No macroscopic sealed cavity found by this geometry check; sliced supports and physical dissolution unverified.",
+    "meshSha256": "703a81a9ea7de7c29e592be6796e4cf9bc070542c04ab5f5c4e36e24e7e319a7",
+    "meshVerified": true,
+    "meshTriangles": 12232350
+  },
+  "evidenceImages": [
+    {
+      "src": "assets/sic-faceted-24k-pva-20261025/model-preview.png",
+      "kind": "coordinate-render",
+      "caption": "Relaxed SiC atomic-coordinate visualization. This is not a slicer preview.",
+      "sha256": "e5b349a23d28724b65ede5c088b15026c1b12ced31dd9aa57495e22be4722dc9"
+    },
+    {
+      "src": "assets/sic-faceted-24k-pva-20261025/interior-preview.png",
+      "kind": "coordinate-render-cutaway",
+      "caption": "Inspection cutaway of the relaxed atomic coordinates. The print retains the entire core. This is not a slicer preview.",
+      "sha256": "ff1cbafb01750a04fb4577d905007a3d10f9284348097d73722ba8b95b9a519a"
+    }
+  ]
+}

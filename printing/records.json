@@ -4,11 +4,11 @@
     "title": "Enigma · M01/P01 + P02 support-frame pair fit trial",
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
-    "status": "planned",
-    "preparationState": "READY_PREPOSITIONED_WAITING_PHYSICAL_BED_CLEARANCE",
+    "status": "printing",
+    "preparationState": "RUNNING_FIRST_BLUE_DEPOSITION_VIEWED",
     "recordedAt": "2026-10-25T19:08:28.296540+00:00",
-    "updatedAt": "2026-10-25T20:36:50.204673+00:00",
-    "startedAt": null,
+    "updatedAt": "2026-10-25T23:46:35.058647+00:00",
+    "startedAt": "2026-10-25T23:35:23.474296+00:00",
     "finishedAt": null,
     "plate": 1,
     "parts": [
@@ -28,15 +28,36 @@
     "layers": 450,
     "preview": "assets/enigma-frame-pair-pla-pva-20261025-a1/plan.png",
     "layout": "assets/enigma-frame-pair-pla-pva-20261025-a1/layout.png",
-    "snapshots": [],
+    "snapshots": [
+      {
+        "src": "assets/enigma-frame-pair-pla-pva-20261025-a1/prestart-cleared-233430.jpg",
+        "capturedAt": "2026-10-25T23:34:30.999640+00:00",
+        "caption": "Immediately before this start: the full build surface was viewed with the prior base and brim removed. Frame acquisition was 23:34:29–23:34:30 UTC; the file-save time is recorded here."
+      },
+      {
+        "src": "assets/enigma-frame-pair-pla-pva-20261025-a1/accepted-prepare.jpg",
+        "capturedAt": "2026-10-25T23:35:25.314816+00:00",
+        "caption": "Fresh frame saved after exact project_file SUCCESS and PREPARE acceptance. Empty plate and parked toolhead; no deposition or finished-part claim."
+      },
+      {
+        "src": "assets/enigma-frame-pair-pla-pva-20261025-a1/running-calibration-233856.jpg",
+        "capturedAt": "2026-10-25T23:38:56.606999+00:00",
+        "caption": "Same exact job reported RUNNING, layer 0/450, with no current print error. The raised plate is visible during initial calibration; no model deposition or physical fit is established."
+      },
+      {
+        "src": "assets/enigma-frame-pair-pla-pva-20261025-a1/first-layer-234550.jpg",
+        "capturedAt": "2026-10-25T23:45:50.554666+00:00",
+        "caption": "Actual blue outline/brim deposition viewed on the plate after the exact job reached RUNNING, layer 1/450, print_error 0. Camera acquired 23:45:48–23:45:50 UTC; file-save time recorded. This broad view does not establish bore fit, cleanup, strength, or successful PVA deposition."
+      }
+    ],
     "source": {
       "file": "M01_P01_P02_FRAME_PAIR_SLICED.3mf",
       "sha256": "e3f0f66f0c082b5697c448a3ffe28e5e7497b9ad5378b5fc0483e25b99177289",
       "repository": "https://github.com/andeplane/openenigma",
-      "commit": "1e54ecf06e3e950db5d1390b0927b3377c4a8840",
+      "commit": "2e5b15f116712c8ca6ed9743cb3adf127186a942",
       "branch": "main",
       "job": "mechanical-frame-pair-pla-pva",
-      "releaseStatus": "CURRENT_MAIN_STAGED_REVIEWED_UPLOADED_READBACK_VERIFIED_NOT_STARTED",
+      "releaseStatus": "EXACT_JOB_ACCEPTED_FILE_MD5_AND_PLATE_VERIFIED",
       "editableProject": {
         "file": "M01_P01_P02_FRAME_PAIR_EDITABLE.3mf",
         "sha256": "ae153082625d677eb9c464e4e221ac63cb594aba057fd397549c237d519c536f"
@@ -46,9 +67,13 @@
       "pullRequest": "https://github.com/andeplane/openenigma/pull/205",
       "uploadedFile": "enigma_M01P01P02_e3f0f66f_20261025_a1.gcode.3mf",
       "readbackSha256": "e3f0f66f0c082b5697c448a3ffe28e5e7497b9ad5378b5fc0483e25b99177289",
-      "reviewReceiptSha256": "2cb4a9aea5d50f86de8c0a4cf3c4a5e03ba37e640389af6646e9a6a95fc19689"
+      "reviewReceiptSha256": "2cb4a9aea5d50f86de8c0a4cf3c4a5e03ba37e640389af6646e9a6a95fc19689",
+      "originalStagingCommit": "1e54ecf06e3e950db5d1390b0927b3377c4a8840",
+      "acceptedMd5": "f1522e4311eae0fc1a50bb3d069c1387",
+      "startStagingReceiptSha256": "b544467eb50fbd321bdf89498ff1d936ae0ef7ab1cbc28810b21c21162685e4a",
+      "freshReadbackSha256": "e3f0f66f0c082b5697c448a3ffe28e5e7497b9ad5378b5fc0483e25b99177289"
     },
-    "notes": "Canonically staged from clean pushed main. Exact reviewed file uploaded under a unique name, downloaded to a new path, SHA-256 identical and official readback audit passed. No printer start attempted. The base reported completion at 20:35:40 UTC; bed clearing and final fresh checks remain. One two-frame unloaded fit/cleanup trial; base is separate. Four walls, 30% gyroid, 0.2 mm layers, 8 mm brims, PVA body/interface supports with zero top/bottom contact gap, textured PEI and a prime tower. Source thumbnails show black PLA; planned actual model material is blue PLA to conserve black, with fresh runtime feed checks required. Slicer estimates: PLA 96.93 g/32.50 m plus PVA 37.85 g/12.39 m; these are estimates, not weighed usage. Native/slice tests and finite bore/annular/glyph witnesses do not establish printed bore fit, cleanup, strength or loaded operation. Inspect and dry after support dissolution, try rods without force, and provide independent rod retention before spring/drive loads. No physical acceptance or repeated-print release inferred. Current main was checked again at 7e6abfc4626aba3295eafc02cd6f986d387b59e6: the normal canonical preparation gate passed, and all 53 selected and staged file hashes match the original release and the existing uploaded/readback bytes. The source commit above preserves the original staging provenance. Live AMS telemetry at 20:08:16 UTC confirms AMS unit 0 assigned to main tool 0 and unit 128 to auxiliary tool 1, with blue PLA in A1 and PVA in the HT. Successful feeding through both tools remains unverified before start.",
+    "notes": "One two-frame unloaded cleanup/fit trial; the base is separate. Four walls, 30% gyroid, 0.2 mm layers, 8 mm brims, PVA body/interface supports with zero top/bottom contact gap, textured PEI and a prime tower. Bed leveling, flow/vibration calibration and inspection are enabled; timelapse is off. Source thumbnails show black PLA; the actual planned model feed is blue PLA in AMS A1, with PVA in the secondary AMS HT. Slicer estimates are PLA 96.93 g/32.50 m plus PVA 37.85 g/12.39 m and 27,906 seconds; actual weighed usage and printing duration remain unavailable. Original staging and upload were on main 1e54ecf0; after the explicit human resume, the normal canonical preparation gate passed again on current main 2e5b15f1 with all 53 selected file hashes, manifest and auditor unchanged. The existing unique printer archive was downloaded to a new path and passed the official identical-byte readback check. A fresh full-bed image was viewed clear, live material/tool assignments and both 0.4 mm nozzles were rechecked, and a durable exclusive intent preceded one submission. At 2026-10-25T23:35:23 UTC (00:35 October 26 in Oslo), the printer returned SUCCESS with the exact file, plate 1 and MD5 f1522e4311eae0fc1a50bb3d069c1387 and entered PREPARE without a current print error. The same job was then observed RUNNING at layer 0/450, with 465 minutes estimated remaining during initial calibration. At 23:45:38 UTC the job was RUNNING on layer 1/450 with print_error 0 and 459 minutes estimated remaining. A fresh camera image then confirmed blue outline/brim deposition. Successful PVA deposition remains to be observed. Native/slice checks and finite feature witnesses do not establish physical bore fit, support cleanup, strength or loaded operation. After support dissolution, dry and inspect the frames, try rods without force and provide independent rod retention before spring/drive loads; no repeated-print release or physical acceptance is inferred.",
     "jobName": "enigma_M01P01P02_e3f0f66f_20261025_a1.gcode"
   },
   {

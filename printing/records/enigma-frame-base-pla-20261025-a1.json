@@ -4,9 +4,9 @@
   "project": "Enigma Doublestep",
   "printer": "Bambu Lab X2D",
   "status": "printing",
-  "preparationState": "PRINTER_ACCEPTED_PREPARE",
+  "preparationState": "PAUSED_MOTION_STEP_LOSS_0300_800C",
   "recordedAt": "2026-10-25T16:52:07.085769+00:00",
-  "updatedAt": "2026-10-25T17:32:23.855161+00:00",
+  "updatedAt": "2026-10-25T17:43:37.125102+00:00",
   "startedAt": "2026-10-25T17:31:36.104697+00:00",
   "finishedAt": null,
   "jobName": "enigma_M01P39_87e55340_20261025_a1_b2",
@@ -51,5 +51,5 @@
     "readbackSha256": "87e55340634176e2e87e99248fcfc98ecb22f77fdd5c9e14c12cf18c68b9780d",
     "acceptedMd5": "35b10ac4edd5a2b9f077843647103693"
   },
-  "notes": "One support-free PLA base; 4 walls, 30% gyroid, 8 mm outer brim, textured PEI, leveling and flow calibration on; timelapse off. Exact reviewed uploaded file downloaded and SHA-256 verified. Device returned project_file SUCCESS with matching MD5, file and plate 1; fresh telemetry PREPARE, print_error 0. Unloaded mounting/fastener/alignment trial only; fit and mechanism operation unverified. User explicitly directed printing before website publication; live-guide mismatch retained as an explicit exception, all source/geometry/slice/material/readback checks retained. Completion time and actual usage pending."
+  "notes": "One support-free PLA base; 4 walls, 30% gyroid, 8 mm outer brim, textured PEI, leveling and flow calibration on; timelapse off. Exact reviewed uploaded file downloaded and SHA-256 verified. Device returned project_file SUCCESS with matching MD5, file and plate 1; fresh telemetry PREPARE, print_error 0. Unloaded mounting/fastener/alignment trial only; fit and mechanism operation unverified. User explicitly directed printing before website publication; live-guide mismatch retained as an explicit exception, all source/geometry/slice/material/readback checks retained. Completion time and actual usage pending. Subsequent fresh telemetry confirmed PAUSE at 3% on layer 1, print_error 0300-800C (multiple motion step loss); printer reports 163 minutes remaining if resumed. Not resumed: physical obstruction/noise inspection requested. Cause and print quality are unconfirmed."
 }

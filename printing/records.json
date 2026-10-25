@@ -1,5 +1,57 @@
 [
   {
+    "id": "enigma-frame-pair-pla-pva-20261025-a1",
+    "title": "Enigma · M01/P01 + P02 support-frame pair fit trial",
+    "project": "Enigma Doublestep",
+    "printer": "Bambu Lab X2D",
+    "status": "planned",
+    "preparationState": "READY_PREPOSITIONED_PENDING_BASE_COMPLETION",
+    "recordedAt": "2026-10-25T19:08:28.296540+00:00",
+    "updatedAt": "2026-10-25T19:40:07.711985+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "plate": 1,
+    "parts": [
+      "M01/P01 · Left support frame",
+      "M01/P02 · Right support frame"
+    ],
+    "estimatedSeconds": 27906,
+    "actualSeconds": null,
+    "estimatedGrams": 134.78,
+    "actualGrams": null,
+    "estimatedMeters": 44.89,
+    "material": "PLA · blue · AMS A1; PVA supports · secondary AMS HT",
+    "color": "#0A2989",
+    "layerHeightMm": 0.2,
+    "firstLayerHeightMm": 0.2,
+    "nozzleMm": 0.4,
+    "layers": 450,
+    "preview": "assets/enigma-frame-pair-pla-pva-20261025-a1/plan.png",
+    "layout": "assets/enigma-frame-pair-pla-pva-20261025-a1/layout.png",
+    "snapshots": [],
+    "source": {
+      "file": "M01_P01_P02_FRAME_PAIR_SLICED.3mf",
+      "sha256": "e3f0f66f0c082b5697c448a3ffe28e5e7497b9ad5378b5fc0483e25b99177289",
+      "repository": "https://github.com/andeplane/openenigma",
+      "commit": "1e54ecf06e3e950db5d1390b0927b3377c4a8840",
+      "branch": "main",
+      "job": "mechanical-frame-pair-pla-pva",
+      "releaseStatus": "CURRENT_MAIN_STAGED_REVIEWED_UPLOADED_READBACK_VERIFIED_NOT_STARTED",
+      "editableProject": {
+        "file": "M01_P01_P02_FRAME_PAIR_EDITABLE.3mf",
+        "sha256": "ae153082625d677eb9c464e4e221ac63cb594aba057fd397549c237d519c536f"
+      },
+      "gcodeMember": "Metadata/plate_1.gcode",
+      "gcodeSha256": "65f82504a7c78cee76a79837ecb43489b5a3b21b27da07442e10ea10b17668e9",
+      "pullRequest": "https://github.com/andeplane/openenigma/pull/205",
+      "uploadedFile": "enigma_M01P01P02_e3f0f66f_20261025_a1.gcode.3mf",
+      "readbackSha256": "e3f0f66f0c082b5697c448a3ffe28e5e7497b9ad5378b5fc0483e25b99177289",
+      "reviewReceiptSha256": "2cb4a9aea5d50f86de8c0a4cf3c4a5e03ba37e640389af6646e9a6a95fc19689"
+    },
+    "notes": "Canonically staged from clean pushed main. Exact reviewed file uploaded under a unique name, downloaded to a new path, SHA-256 identical and official readback audit passed. No printer start attempted; current base completion, cleared bed and final fresh checks remain. One two-frame unloaded fit/cleanup trial; base is separate. Four walls, 30% gyroid, 0.2 mm layers, 8 mm brims, PVA body/interface supports with zero top/bottom contact gap, textured PEI and a prime tower. Source thumbnails show black PLA; planned actual model material is blue PLA to conserve black, with fresh runtime feed checks required. Slicer estimates: PLA 96.93 g/32.50 m plus PVA 37.85 g/12.39 m; these are estimates, not weighed usage. Native/slice tests and finite bore/annular/glyph witnesses do not establish printed bore fit, cleanup, strength or loaded operation. Inspect and dry after support dissolution, try rods without force, and provide independent rod retention before spring/drive loads. No physical acceptance or repeated-print release inferred.",
+    "jobName": "enigma_M01P01P02_e3f0f66f_20261025_a1.gcode"
+  },
+  {
     "id": "enigma-frame-base-pla-20261025-a1",
     "title": "Enigma · M01/P39 rotor-frame base fit trial",
     "project": "Enigma Doublestep",
@@ -7,7 +59,7 @@
     "status": "printing",
     "preparationState": "RUNNING_AFTER_USER_INSPECTION",
     "recordedAt": "2026-10-25T16:52:07.085769+00:00",
-    "updatedAt": "2026-10-25T18:16:08.245390+00:00",
+    "updatedAt": "2026-10-25T19:40:18.613629+00:00",
     "startedAt": "2026-10-25T17:31:36.104697+00:00",
     "finishedAt": null,
     "jobName": "enigma_M01P39_87e55340_20261025_a1_b2",
@@ -43,6 +95,11 @@
         "src": "assets/enigma-frame-base-pla-20261025-a1/monitor-1812.jpg",
         "capturedAt": "2026-10-25T18:11:57.422649+00:00",
         "caption": "Running-job camera capture saved at this timestamp. Fresh nearby telemetry: 19%, layer 5/40, print_error 0, 135 minutes estimated remaining. Base is on the plate; toolhead obscures part of the view. Not completion, whole-bed clearance or physical fit evidence."
+      },
+      {
+        "src": "assets/enigma-frame-base-pla-20261025-a1/running-193933.jpg",
+        "capturedAt": "2026-10-25T19:39:33.641874+00:00",
+        "caption": "Camera saved during the same ongoing base job. A substantial printed base and the toolhead are visible; this is not a completed-part, bed-clearance or fit inspection."
       }
     ],
     "source": {
@@ -62,7 +119,7 @@
       "readbackSha256": "87e55340634176e2e87e99248fcfc98ecb22f77fdd5c9e14c12cf18c68b9780d",
       "acceptedMd5": "35b10ac4edd5a2b9f077843647103693"
     },
-    "notes": "One support-free PLA base; 4 walls, 30% gyroid, 8 mm outer brim, textured PEI, leveling and flow calibration on; timelapse off. Exact reviewed uploaded file downloaded and SHA-256 verified. Device returned project_file SUCCESS with matching MD5, file and plate 1; fresh telemetry PREPARE, print_error 0. Unloaded mounting/fastener/alignment trial only; fit and mechanism operation unverified. User explicitly directed printing before website publication; live-guide mismatch retained as an explicit exception, all source/geometry/slice/material/readback checks retained. Completion time and actual usage pending. Subsequent fresh telemetry confirmed PAUSE at 3% on layer 1, print_error 0300-800C (multiple motion step loss); printer reports 163 minutes remaining if resumed. Not resumed: physical obstruction/noise inspection requested. Cause and print quality are unconfirmed. User reports no obstruction or abnormal noise and that printing resumed. Subsequent fresh telemetry confirms same job RUNNING at 6%, print_error 0, estimated remaining 156 minutes. Camera shows deposited perimeter/brim and active toolhead; adhesion, dimensional accuracy and fit remain unverified. Follow-up observed 2026-10-25T18:11:55Z: same accepted base job RUNNING at 19%, layer 5/40, print_error 0, estimated remaining 135 minutes. A new camera frame was inspected. Earlier motion-step-loss cause remains unresolved; physical print quality, cleanup and fit remain unverified."
+    "notes": "One support-free PLA base; 4 walls, 30% gyroid, 8 mm outer brim, textured PEI, leveling and flow calibration on; timelapse off. Exact reviewed uploaded file downloaded and SHA-256 verified. Device returned project_file SUCCESS with matching MD5, file and plate 1; fresh telemetry PREPARE, print_error 0. Unloaded mounting/fastener/alignment trial only; fit and mechanism operation unverified. User explicitly directed printing before website publication; live-guide mismatch retained as an explicit exception, all source/geometry/slice/material/readback checks retained. Completion time and actual usage pending. Subsequent fresh telemetry confirmed PAUSE at 3% on layer 1, print_error 0300-800C (multiple motion step loss); printer reports 163 minutes remaining if resumed. Not resumed: physical obstruction/noise inspection requested. Cause and print quality are unconfirmed. User reports no obstruction or abnormal noise and that printing resumed. Subsequent fresh telemetry confirms same job RUNNING at 6%, print_error 0, estimated remaining 156 minutes. Camera shows deposited perimeter/brim and active toolhead; adhesion, dimensional accuracy and fit remain unverified. Follow-up observed 2026-10-25T18:11:55Z: same accepted base job RUNNING at 19%, layer 5/40, print_error 0, estimated remaining 135 minutes. A new camera frame was inspected. Earlier motion-step-loss cause remains unresolved; physical print quality, cleanup and fit remain unverified. Follow-up telemetry 2026-10-25T19:38:05Z: same accepted base job RUNNING at 67%, layer 29/40, print_error 0, 54 minutes estimated remaining. A new during-print camera image was saved at 19:39:33Z; earlier motion-step-loss cause and physical quality remain unqualified."
   },
   {
     "id": "nanoporous-silica-pva-20261025-a1",

@@ -1,9 +1,9 @@
 {
   "id": "sic-faceted-24k-pva-20261025",
-  "title": "Faceted SiC \u00b7 24,050 atom lattice \u00b7 preparation",
+  "title": "Faceted SiC · 24,050 atom lattice · cancelled before printing",
   "project": "Atomify",
   "printer": "Bambu Lab X2D",
-  "status": "planned",
+  "status": "cancelled",
   "recordedAt": "2026-10-24T22:15:27.861151+00:00",
   "startedAt": null,
   "finishedAt": null,
@@ -27,13 +27,13 @@
   "layout": null,
   "snapshots": [],
   "source": {
-    "file": "Pending sliced 3MF",
+    "file": "No completed sliced 3MF; cancelled during preparation",
     "sha256": null,
-    "evidence": "Pinned Atomify df3afbb8644116bb3d9374088e23741e9ce5905c. Input data SHA256 614b14f070cdf450c5bd91f3ebe3d2a593864995d6176e8cdc50ea2ab4932d21. Selected LAMMPS annealed/minimized data SHA256 24cc64c727847c625391f14b4884dd2b732a230e9c58f2f8b51ed60b2e6c99ae. All 24,050 atoms retained in one connected component, 46,452 displayed Si\u2013C bonds."
+    "evidence": "Pinned Atomify df3afbb8644116bb3d9374088e23741e9ce5905c. Input data SHA256 614b14f070cdf450c5bd91f3ebe3d2a593864995d6176e8cdc50ea2ab4932d21. Selected LAMMPS annealed/minimized data SHA256 24cc64c727847c625391f14b4884dd2b732a230e9c58f2f8b51ed60b2e6c99ae. All 24,050 atoms retained in one connected component, 46,452 displayed Si–C bonds."
   },
-  "notes": "Preparation only; no print authorized or started. The attached images visualize the relaxed atomic coordinates, not a sliced plate. The cutaway is for inspection only: all 24,050 atoms and the entire printed core are retained. LAMMPS annealing/cooling and both energy minimizations completed; the final force tolerance was reached. The repaired STL is closed, connected, and passes independent readback. The design is approximately 208 \u00d7 218 \u00d7 225 mm, with 2.8/2.3 mm Si/C spheres and 1.2 mm bonds. Geometric volume gives a model-only PLA estimate of about 370 g at 1.24 g/cm\u00b3; supports and purge are additional. The full slice is currently generating supports. Actual slicer previews, usage/time estimates, live material/nozzle mapping, and camera evidence remain pending. Geometry checks do not establish printed strength or PVA dissolution.",
+  "notes": "Cancelled by the user before printing, in favor of a nanoporous silica model. No printer upload or print start occurred. The preparation slice was deliberately terminated; its worker reported signal termination (exit -15), not a slicer-completed result. The attached images visualize the relaxed atomic coordinates, not a sliced plate. The cutaway is for inspection only: the prepared candidate retained all 24,050 atoms and the entire core. LAMMPS annealing/cooling and both minimizations completed. The repaired mesh passed independent readback, but no completed slice or accepted toolpath was produced. No print time or filament consumption was measured. Geometric volume gave an unused model-only PLA estimate of about 370 g at 1.24 g/cm³; supports and purge were additional and unestimated. Printed strength and PVA dissolution were never verified.",
   "preparation": {
-    "phase": "full slicing in progress",
+    "phase": "cancelled by user before printing",
     "retainedAtoms": 24050,
     "displayBonds": 46452,
     "coreRetained": true,
@@ -45,7 +45,9 @@
     "waterAccess": "Sphere/capsule proxy: conservative0.5mm flood-fill plus0.1mm refinement anchored to1466 known exterior coarse cells. No macroscopic sealed cavity found by this geometry check; sliced supports and physical dissolution unverified.",
     "meshSha256": "703a81a9ea7de7c29e592be6796e4cf9bc070542c04ab5f5c4e36e24e7e319a7",
     "meshVerified": true,
-    "meshTriangles": 12232350
+    "meshTriangles": 12232350,
+    "slicerExitCode": -15,
+    "sliceCompleted": false
   },
   "evidenceImages": [
     {
@@ -57,8 +59,17 @@
     {
       "src": "assets/sic-faceted-24k-pva-20261025/interior-preview.png",
       "kind": "coordinate-render-cutaway",
-      "caption": "Inspection cutaway of the relaxed atomic coordinates. The print retains the entire core. This is not a slicer preview.",
+      "caption": "Inspection cutaway of the relaxed atomic coordinates. The prepared candidate retained the entire core. This is not a slicer preview; no print started.",
       "sha256": "ff1cbafb01750a04fb4577d905007a3d10f9284348097d73722ba8b95b9a519a"
     }
-  ]
+  ],
+  "cancellation": {
+    "stage": "preparation-before-printing",
+    "reason": "User cancelled SiC and requested nanoporous silica instead.",
+    "observedAt": "2026-10-25T14:25:13.351061+00:00",
+    "uploadedToPrinter": false,
+    "printStarted": false,
+    "slicerProcessExitCode": -15,
+    "evidence": "Owned slicing process was deliberately terminated on cancellation; worker receipt records exit -15. No completed sliced 3MF or actual printer run exists."
+  }
 }

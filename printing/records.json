@@ -1,5 +1,119 @@
 [
   {
+    "id": "nanoporous-silica-pva-20261025-a1",
+    "title": "Nanoporous silica · overlapping Si/O atoms · preparation",
+    "project": "Molecular models",
+    "printer": "Bambu Lab X2D",
+    "status": "planned",
+    "recordedAt": "2026-10-25T15:01:36+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "printDate": null,
+    "jobName": "NANOPOROUS_SILICA_ORIGINAL_RADII_PVA",
+    "plate": null,
+    "parts": [
+      "One connected nanoporous Si/O sphere candidate: 72,500 atoms, full core retained"
+    ],
+    "estimatedSeconds": null,
+    "actualSeconds": null,
+    "estimatedGrams": null,
+    "actualGrams": null,
+    "estimatedMeters": null,
+    "material": "Model filament(s) not selected; PVA support body and interface planned on secondary",
+    "color": "#32999c",
+    "layerHeightMm": null,
+    "nozzleMm": null,
+    "layers": null,
+    "preview": null,
+    "layout": null,
+    "snapshots": [],
+    "source": {
+      "file": "Pending sliced 3MF",
+      "sha256": null,
+      "evidence": "Source atomic coordinates: camilla.data SHA256 69e8be921c019d3a860cbf05067aab95129832255816b00fe27282c99de3ba9e. Type identities Si/O/H are inferred from coordination and distances; source provides no element names, bond topology or molecule labels. Selection retains every Si and O within 2.0 Å of any Si using the periodic cell, and removes all H and other O. The H-free selected coordinates SHA256 is 5145761db4e8b85c4e8ad76757913dd47a3448c73c3abc7b2e9c7bfce3e48a97."
+    },
+    "notes": "Print preparation only; no upload or print start. The 200 mm design uses the original Blender radii, Si 1.15 Å and O 1.00 Å, as overlapping spheres without bonds. The selected finite print candidate retains its main connected component: 72,500 atoms (21,762 Si and 50,738 O). The other 882 atoms (190 Si and 692 O) form disconnected fragments near the periodic-cell boundary; their exact IDs are preserved in the preparation receipt. The complete 73,382-atom visualization/source remains preserved separately, and the print retains the full core. Attached Blender images show that complete visualization, including the excluded boundary fragments, in provisional amber/teal colors; they are not the final print mesh or a sliced plate. PVA is planned for internal support body and interface on the secondary extruder; model filament(s) and physical colors remain unselected. Selection includes Si-bound water-origin oxygen and omits all hydrogen, including surface hydroxyl hydrogen; it is not a charge-balanced simulation restart. The repaired mesh passed exported-coordinate, watertightness, winding and referenced vertex-edge connectivity checks. Its bounds are approximately 202.88 × 202.84 × 202.86 mm around the nominal 200 mm simulation cell. Five tiny degenerate edges were collapsed to existing endpoints; the longest reassignment was 0.00001079 mm. The actual exported STL surface windows passed visual review; full slicing is active. Normal PVA supports are planned for the internal pores. Small-overhang removal is disabled, which skips an optional clustering/removal pass and may add supports. Globally anchored 0.1 mm refinement connected all 683 flagged coarse free cells to the exterior of the ideal sphere proxy. This does not exclude smaller voids hidden within occupied coarse cells or establish actual PVA toolpath removal/dissolution. A completed slice and actual support toolpaths remain unverified. No accepted slice, slicer usage/time estimates, live material/nozzle mapping, water-access/toolpath evidence, or physical strength/dissolution result is claimed. Preparing this model does not authorize starting it. Public Blender image copies preserve exact pixels and omit embedded render/file/device metadata.",
+    "preparation": {
+      "phase": "full slicing active; reviewed geometry and sphere-proxy water access",
+      "sourceAtoms": 404379,
+      "visualizationAtoms": 73382,
+      "visualizationSi": 21952,
+      "visualizationO": 51430,
+      "retainedPrintAtoms": 72500,
+      "radiiAngstrom": {
+        "Si": 1.15,
+        "O": 1.0
+      },
+      "nominalCellMm": 200,
+      "bonds": false,
+      "coreRetained": true,
+      "finiteSphereComponents": 305,
+      "largestFiniteComponentAtoms": 72500,
+      "atomsOutsideLargestFiniteComponent": 882,
+      "boundaryHandling": "Retain the largest finite sphere-overlap component; exclude 882 boundary-fragment atom IDs listed in the geometry receipt. No interior crop or added bonds.",
+      "modelFilamentsSelected": false,
+      "supportMaterial": "PVA",
+      "supportExtruder": "secondary",
+      "supportBodyAndInterface": true,
+      "slicerEstimateAvailable": false,
+      "printReady": false,
+      "startAuthorized": false,
+      "originalRenderSha256": {
+        "nanoporous-silica.blend": "3bb3ed65781fbd3eba6d850e52510ed4beb87330037802180e6307780e575697",
+        "silica-full.png": "286e71c31575dbd81c86497b499bd921634a24aec6d98305114f03cb936c0477",
+        "silica-cutaway.png": "35bd080f07d4012cc960cdbf17604df1e6a14895931d9a6144d2e487504ae1f5"
+      },
+      "retainedPrintSi": 21762,
+      "retainedPrintO": 50738,
+      "excludedFiniteBoundaryAtoms": 882,
+      "sphereRadiiAngstrom": {
+        "Si": 1.15,
+        "O": 1.0
+      },
+      "meshReadbackPassed": true,
+      "excludedAtomIdsReceipt": "Exact 882 excluded IDs preserved in local geometry.json; source and complete visualization preserved.",
+      "meshSha256": "05430279c639346bea3cc2d06157ad2d25853243c33ac19ff92e996d14bee357",
+      "meshTriangles": 24944664,
+      "meshExtentsMm": [
+        202.87625122070312,
+        202.84243774414062,
+        202.86373138427734
+      ],
+      "modelOnlyPlaMassEstimateGrams": 745.590309642071,
+      "modelOnlyMassEstimateAssumption": "Geometric volume × assumed PLA density 1.24 g/cm³; excludes PVA supports, purge and brim; not a slicer estimate or measured usage.",
+      "maxRepairVertexReassignmentMm": 1.0789593218788873e-05,
+      "actualMeshVisualReviewPassed": true,
+      "supportType": "normal(auto)",
+      "supportRemoveSmallOverhang": false,
+      "supportSmallOverhangNote": "Disabling small-overhang removal may add supports; does not establish toolpath coverage or physical success.",
+      "voidAccess": "0.5 mm conservative sphere proxy flagged 683 coarse free cells. Exact Si/O distance queries and 0.1 mm local flood fills connected all 683 to known global coarse exterior cells; zero unresolved. Actual mesh/toolpath/deposition/dissolution and voids hidden within occupied coarse cells remain unverified.",
+      "voidRefinement": {
+        "finePitchMm": 0.1,
+        "flaggedCoarseCells": 683,
+        "resolvedCells": 683,
+        "unresolvedCells": 0,
+        "anchorMethod": "Known global coarse exterior centers, excluding all 683 flagged cells.",
+        "idealProxyRouteClearanceLowerBoundMm": 0.03660254037844386,
+        "atomsSha256": "caad77458e7b0a62b440c8f53f70fc7fed4d50c31f17985dc29a69618908eaf1",
+        "coarseReportSha256": "0e65bd99c1ba32d7826526418f8de8c862001d6d9190eac75ae94625cc17fc22"
+      }
+    },
+    "evidenceImages": [
+      {
+        "src": "assets/nanoporous-silica-pva-20261025-a1/silica-full.png",
+        "kind": "blender-coordinate-render",
+        "caption": "Blender rendering of all 73,382 selected Si/O atoms at the original Si 1.15 Å / O 1.00 Å radii. Amber/teal are preview colors; disconnected boundary fragments remain visible. This is not a slicer preview.",
+        "sha256": "7ebe92390a9b9dd24c1271a391bf3de980db9d4ee0beddc16a71b32376119488"
+      },
+      {
+        "src": "assets/nanoporous-silica-pva-20261025-a1/silica-cutaway.png",
+        "kind": "blender-coordinate-render-cutaway",
+        "caption": "Blender inspection cutaway: a quadrant is hidden only to reveal the pores. The intended print retains its core. Original Si 1.15 Å / O 1.00 Å radii and preview colors; this is not a sliced plate or physical print.",
+        "sha256": "48a4e4eaea9ac89462b5357afba11db105ba95be86775c4eabc5e0dcb430e70a"
+      }
+    ]
+  },
+  {
     "id": "sic-faceted-24k-pva-20261025",
     "title": "Faceted SiC · 24,050 atom lattice · cancelled before printing",
     "project": "Atomify",

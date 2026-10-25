@@ -143,31 +143,32 @@
     "finishedAt": null,
     "printDate": null,
     "jobName": "NANOPOROUS_SILICA_ORIGINAL_RADII_PVA",
-    "plate": null,
+    "plate": 1,
     "parts": [
-      "One connected nanoporous Si/O sphere candidate: 72,500 atoms, full core retained"
+      "One connected76mm nanoporous Si/O cube:72,500 selected atoms, full core retained",
+      "One temporary PLA/PVA prime tower and internal removable PVA supports"
     ],
-    "estimatedSeconds": null,
+    "estimatedSeconds": 157165,
     "actualSeconds": null,
-    "estimatedGrams": null,
+    "estimatedGrams": 240.8,
     "actualGrams": null,
-    "estimatedMeters": null,
+    "estimatedMeters": 78.98,
     "material": "Blue Bambu PLA Basic primary; Bambu PVA support body and interface secondary. Live mapping to be rechecked after relocation.",
     "color": "#0A2989",
-    "layerHeightMm": null,
-    "nozzleMm": null,
-    "layers": null,
-    "preview": null,
-    "layout": null,
+    "layerHeightMm": 0.2,
+    "nozzleMm": 0.4,
+    "layers": 380,
+    "preview": "assets/nanoporous-silica-pva-20261025-a1/76mm-native-preview.png",
+    "layout": "assets/nanoporous-silica-pva-20261025-a1/76mm-native-top.png",
     "snapshots": [],
     "source": {
-      "file": "Pending sliced 3MF",
-      "sha256": null,
-      "evidence": "Source atomic coordinates: camilla.data SHA256 69e8be921c019d3a860cbf05067aab95129832255816b00fe27282c99de3ba9e. Type identities Si/O/H are inferred from coordination and distances; source provides no element names, bond topology or molecule labels. Selection retains every Si and O within 2.0 Å of any Si using the periodic cell, and removes all H and other O. The H-free selected coordinates SHA256 is 5145761db4e8b85c4e8ad76757913dd47a3448c73c3abc7b2e9c7bfce3e48a97."
+      "file": "silica-pva.gcode.3mf",
+      "sha256": "b7ca8341574c964721b5fd1565940e48c529b71a0c143234a18c381d66b481e3",
+      "evidence": "Source atomic coordinates: camilla.data SHA256 69e8be921c019d3a860cbf05067aab95129832255816b00fe27282c99de3ba9e. Type identities Si/O/H are inferred from coordination and distances; source provides no element names, bond topology or molecule labels. Selection retains every Si and O within 2.0 Å of any Si using the periodic cell, and removes all H and other O. The H-free selected coordinates SHA256 is 5145761db4e8b85c4e8ad76757913dd47a3448c73c3abc7b2e9c7bfce3e48a97. Reviewed76mm native3MF SHA256 b7ca8341574c964721b5fd1565940e48c529b71a0c143234a18c381d66b481e3; exact sourceSTL SHA2565220d5d221c47a45ae7b1da6628c6bd9683551e58454e728664749af88c1913f. EmbeddedG-code MD5 and fullZIPCRC passed; actualPLA/PVAroles, depositedarc-and-linewidthbounds and source-to-Gcode transforms reviewed."
     },
-    "notes": "The80mm full native slice completed successfully. Its actual slicer estimates are65.53gPLA,204.59gPVA and1d23h47m31s. Material-role, embeddedG-code checksum and deposited-bounds audits passed; five actual internal support and weak-neck windows were inspected, with partial modeled bead coverage at the weakest contacts and physical joining still unverified. This is a substantial reduction from the completed100mm baseline (113.09gPLA,603.60gPVA,4d13h26m10s), but misses theOctober26 target and is8.59g above the196g PVA planning allowance with20% reserve. Fresh remaining PVA was estimated at245g from49% of a500g roll using the official client calculation; this is not a weighed amount. A76mm uniform derivative is now being sliced to provide reserve margin, preserving all72,500 selected main-component atoms, the full core and original radius ratio;882 boundary-fragment exclusions remain recorded. Six native diagnostic coupon comparisons established contour-following snug supports with a dense top interface as the better material/contact tradeoff; the complete80mm artifact now provides actual whole-model estimates. No file has been uploaded or printed. Automatic start remains held while the user arranges printer relocation, and fresh device, material, camera and exact-file gates are required afterwards. No physical strength, dryness, successful print or PVA-removal claim.",
+    "notes": "The76mm candidate completed native slicing and artifact review:58.79gPLA,182.01gPVA and43h39m25s estimated print time (380 layers at0.20mm). This fits the196g PVA planning allowance derived from the last245g remaining estimate with20% reserve; about62.99g would remain by estimate. Fresh filament availability still needs checking. The exact3MF passed full archiveCRC, embeddedG-code checksum, material-role and deposited-bounds checks. Root and independent reviews inspected native previews, sampled full-plate deposition, four weak-contact regions and two pore regions. All four contacts retain modeled bead coverage, with an explicit PLA crossing at one; sampling and bead proxies do not establish physical joining or strength. All72,500 selected main-component atoms, the full core and original Si/O radius ratio are retained;882 boundary-fragment exclusions remain recorded. Automatic start is held pending printer relocation and fresh connection/nozzle/material/fault/bed-camera checks, exact-file upload/readback and one durable start intent. No upload/start or physical result has occurred. The43h39m estimate misses theOctober26 end-of-work target; PVA removal and drying time are additional and unverified. The native preview/top images show the model; separate actual-path images show internal PVA and the prime tower.",
     "preparation": {
-      "phase": "76mm full native slice active after80mm material-reserve result; relocation start hold",
+      "phase": "76mm artifact reviewed and material planning allowance passed; relocation and fresh printer gates pending",
       "sourceAtoms": 404379,
       "visualizationAtoms": 73382,
       "visualizationSi": 21952,
@@ -188,7 +189,7 @@
       "supportMaterial": "PVA",
       "supportExtruder": "secondary",
       "supportBodyAndInterface": true,
-      "slicerEstimateAvailable": false,
+      "slicerEstimateAvailable": true,
       "printReady": false,
       "startAuthorized": true,
       "originalRenderSha256": {
@@ -397,13 +398,30 @@
           "attempt": 6,
           "variant": "76mm uniform reserve adjustment; same0.20mm snug/dense-top PVA profile",
           "startedAt": "2026-10-25T22:52:31.214824+00:00",
-          "finishedAt": null,
-          "processExitCode": null,
-          "nativeReturnCode": null,
-          "outcome": "Active new fullnative evaluation after exact76mm geometry and independentpreflight passed; actualmaterial/time/contact checks pending.",
+          "finishedAt": "2026-10-25T23:15:46.467843+00:00",
+          "processExitCode": 0,
+          "nativeReturnCode": 0,
+          "outcome": "Native complete3MF and archiveCRC/checksum/material-role/bounds/source-transform reviews passed; actual weak-contact and pore windows inspected with proxy limits. Material planning allowance passed. Held for relocation/freshprinter gates; deadline target missed.",
           "meshSha256": "5220d5d221c47a45ae7b1da6628c6bd9683551e58454e728664749af88c1913f",
           "nativeCacheReuse": false,
-          "printStarted": false
+          "printStarted": false,
+          "artifactSha256": "b7ca8341574c964721b5fd1565940e48c529b71a0c143234a18c381d66b481e3",
+          "artifactBytes": 350921150,
+          "complete3mfProduced": true,
+          "accepted3mfProduced": true,
+          "slicingCacheProduced": true,
+          "nativeEstimates": {
+            "plaGrams": 58.79,
+            "pvaGrams": 182.01,
+            "estimatedSeconds": 157165,
+            "nativeFloatSeconds": 157165.625,
+            "layers": 380
+          },
+          "programmaticAuditPassed": true,
+          "rootSampledVisualReview": true,
+          "materialReserveGatePassed": true,
+          "timeTargetPassed": false,
+          "artifactAcceptanceScope": "Digital preparationreview; freshdevice/material/camera/upload gatespending."
         }
       ],
       "layoutRetry": {
@@ -455,7 +473,11 @@
         "latestTelemetryRemainingPercentEstimate": 49,
         "latestTelemetryRemainingMassEstimateGrams": 245,
         "fullNominalRollReserveGrams": 100,
-        "currentEstimatedAvailableReserveGrams": 49
+        "currentEstimatedAvailableReserveGrams": 49,
+        "nativeModeledPvaGrams": 182.01,
+        "materialPlanningGatePassed": true,
+        "estimatedRemainingAfterPrintGrams": 62.99,
+        "freshRemainingCheckRequired": true
       },
       "automaticStartAuthorization": {
         "authorized": true,
@@ -479,7 +501,9 @@
         "finishTargetBasis": "Assumed end of work in Europe/Oslo; target print completion with margin.",
         "targetVerifiedFeasible": false,
         "pvaRemovalTimeVerified": false,
-        "currentEvaluationExteriorWidthMm": 76
+        "currentEvaluationExteriorWidthMm": 76,
+        "nativeEstimatedSeconds": 157165,
+        "targetMet": false
       },
       "scaledGeometry": {
         "canonicalSourceSha256": "05430279c639346bea3cc2d06157ad2d25853243c33ac19ff92e996d14bee357",
@@ -522,18 +546,30 @@
         "scope": "Three reconstructed interior source-sphere ROIs; cut boundaries and tiny-contact sampling limit extrapolation. No print performed."
       },
       "latestCompletedSlice": {
-        "exteriorMm": 80,
-        "artifactSha256": "223bb0304236cc0642b072234b766f2c2781f0721ec5fd6dac1838b3711381f2",
+        "exteriorMm": 76,
+        "artifactSha256": "b7ca8341574c964721b5fd1565940e48c529b71a0c143234a18c381d66b481e3",
         "nativeExitCode": 0,
-        "plaGrams": 65.53,
-        "pvaGrams": 204.59,
-        "estimatedSeconds": 172051,
-        "layers": 400,
+        "plaGrams": 58.79,
+        "pvaGrams": 182.01,
+        "estimatedSeconds": 157165,
+        "nativeFloatSeconds": 157165.625,
+        "layers": 380,
         "contactVisualReviewComplete": true,
-        "ready": false,
-        "contactReview": "Five actual full-slice windows and three neck discs inspected. Partial modeledbeadcoverage at two weakest contacts; directPLApathcrossings at third. Contactproxies do not prove physicalstrength, dissolution orentireprintedtopology."
+        "materialPlanningGatePassed": true,
+        "deadlineTargetMet": false,
+        "deviceReady": false,
+        "ready": false
       },
-      "maximumProposedRepairEdgeMm": 0.004192544934443406
+      "maximumProposedRepairEdgeMm": 0.004192544934443406,
+      "artifactReviewPassed": true,
+      "reviewLimits": {
+        "weakContactRegionsReviewed": 4,
+        "additionalPoreRegionsReviewed": 2,
+        "physicalJoiningVerified": false,
+        "physicalStrengthVerified": false,
+        "pvaRemovalVerified": false,
+        "actualRemainingMaterialVerifiedAfterRelocation": false
+      }
     },
     "evidenceImages": [
       {
@@ -571,6 +607,18 @@
         "kind": "actual-sliced-baseline-held",
         "caption": "Actual deposited paths sampled from the exact80mm3MF: bluePLA, goldPVA, greyprime tower. Material-reserve/time targets not met; no print started.",
         "sha256": "f8807a6e38916ef2657f29a1b5fb9f05bb58b1211d174b9ffc637479a66f694d"
+      },
+      {
+        "src": "assets/nanoporous-silica-pva-20261025-a1/76mm-actual-toolpaths.png",
+        "sha256": "72428967c82709e64b661863be5c136d179da318958442dc2ff683faa348021e",
+        "kind": "actual-reviewed-slice-paths",
+        "caption": "Actual deposited paths from the reviewed76mm3MF: bluePLA model, goldPVA support, greyprime tower. Four sampled layers; no physical print or strength proof."
+      },
+      {
+        "src": "assets/nanoporous-silica-pva-20261025-a1/76mm-weak-neck-paths.png",
+        "sha256": "586b05cb0e3c44d55bef275871668a24ea01e64d673898a10b20041429f643a0",
+        "kind": "actual-reviewed-slice-paths",
+        "caption": "Actual76mm weak-contact and pore windows with preceding-layerPVA. Modeled beads retain partial contact coverage; sampling does not qualify physical joining, strength or dissolution."
       }
     ]
   },

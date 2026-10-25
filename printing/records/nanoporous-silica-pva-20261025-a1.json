@@ -31,9 +31,9 @@
     "sha256": null,
     "evidence": "Source atomic coordinates: camilla.data SHA256 69e8be921c019d3a860cbf05067aab95129832255816b00fe27282c99de3ba9e. Type identities Si/O/H are inferred from coordination and distances; source provides no element names, bond topology or molecule labels. Selection retains every Si and O within 2.0 Å of any Si using the periodic cell, and removes all H and other O. The H-free selected coordinates SHA256 is 5145761db4e8b85c4e8ad76757913dd47a3448c73c3abc7b2e9c7bfce3e48a97."
   },
-  "notes": "Print preparation only; no upload or print start. The 200 mm design uses the original Blender radii, Si 1.15 Å and O 1.00 Å, as overlapping spheres without bonds. The selected finite print candidate retains its main connected component: 72,500 atoms (21,762 Si and 50,738 O). The other 882 atoms (190 Si and 692 O) form disconnected fragments near the periodic-cell boundary; their exact IDs are preserved in the preparation receipt. The complete 73,382-atom visualization/source remains preserved separately, and the print retains the full core. Attached Blender images show that complete visualization, including the excluded boundary fragments, in provisional amber/teal colors; they are not the final print mesh or a sliced plate. PVA is planned for internal support body and interface on the secondary extruder; model filament(s) and physical colors remain unselected. Selection includes Si-bound water-origin oxygen and omits all hydrogen, including surface hydroxyl hydrogen; it is not a charge-balanced simulation restart. The repaired mesh passed exported-coordinate, watertightness, winding and referenced vertex-edge connectivity checks. Its bounds are approximately 202.88 × 202.84 × 202.86 mm around the nominal 200 mm simulation cell. Five tiny degenerate edges were collapsed to existing endpoints; the longest reassignment was 0.00001079 mm. The actual exported STL surface windows passed visual review; full slicing is active. Normal PVA supports are planned for the internal pores. Small-overhang removal is disabled, which skips an optional clustering/removal pass and may add supports. Globally anchored 0.1 mm refinement connected all 683 flagged coarse free cells to the exterior of the ideal sphere proxy. This does not exclude smaller voids hidden within occupied coarse cells or establish actual PVA toolpath removal/dissolution. A completed slice and actual support toolpaths remain unverified. No accepted slice, slicer usage/time estimates, live material/nozzle mapping, water-access/toolpath evidence, or physical strength/dissolution result is claimed. Preparing this model does not authorize starting it. Public Blender image copies preserve exact pixels and omit embedded render/file/device metadata.",
+  "notes": "Print preparation only; no upload or print start. The 200 mm design uses the original Blender radii, Si 1.15 Å and O 1.00 Å, as overlapping spheres without bonds. The selected finite print candidate retains its main connected component: 72,500 atoms (21,762 Si and 50,738 O). The other 882 atoms (190 Si and 692 O) form disconnected fragments near the periodic-cell boundary; their exact IDs are preserved in the preparation receipt. The complete 73,382-atom visualization/source remains preserved separately, and the print retains the full core. Attached Blender images show that complete visualization, including the excluded boundary fragments, in provisional amber/teal colors; they are not the final print mesh or a sliced plate. PVA is planned for internal support body and interface on the secondary extruder; model filament(s) and physical colors remain unselected. Selection includes Si-bound water-origin oxygen and omits all hydrogen, including surface hydroxyl hydrogen; it is not a charge-balanced simulation restart. The repaired mesh passed exported-coordinate, watertightness, winding and referenced vertex-edge connectivity checks. Its bounds are approximately 202.88 × 202.84 × 202.86 mm around the nominal 200 mm simulation cell. Five tiny degenerate edges were collapsed to existing endpoints; the longest reassignment was 0.00001079 mm. The actual exported STL surface windows passed visual review. The first full slice completed support generation but failed its native tower/model path-conflict check (process exit 155, native error -101), before producing an accepted 3MF or slicing cache. An initial tall layout probe failed native outside-area validation (process exit 152, native error -104). The corrected ribless, rotated-tower probe passed native checks, and its actual deposited bounds were reviewed; this qualifies the placement candidate only. A second full-model slice is now active using the same verified STL with corrected placement. It starts fresh, without reusing the failed attempt or surrogate cache. Normal PVA supports are planned for the internal pores. Small-overhang removal is disabled, which skips an optional clustering/removal pass and may add supports. The corrected layout uses a 15 mm tower rotated 90°, with rib wall disabled, at reference position (138, 12) mm, and model center (138, 146) mm; automatic tower brim and purge settings remain unchanged. Globally anchored 0.1 mm refinement connected all 683 flagged coarse free cells to the exterior of the ideal sphere proxy. This does not exclude smaller voids hidden within occupied coarse cells or establish actual PVA toolpath removal/dissolution. A completed slice and actual support toolpaths remain unverified. No accepted slice, slicer usage/time estimates, live material/nozzle mapping, water-access/toolpath evidence, or physical strength/dissolution result is claimed. Preparing this model does not authorize starting it. Public Blender image copies preserve exact pixels and omit embedded render/file/device metadata.",
   "preparation": {
-    "phase": "full slicing active; reviewed geometry and sphere-proxy water access",
+    "phase": "second full-model slice active after native layout failures and reviewed placement probe",
     "sourceAtoms": 404379,
     "visualizationAtoms": 73382,
     "visualizationSi": 21952,
@@ -95,6 +95,71 @@
       "idealProxyRouteClearanceLowerBoundMm": 0.03660254037844386,
       "atomsSha256": "caad77458e7b0a62b440c8f53f70fc7fed4d50c31f17985dc29a69618908eaf1",
       "coarseReportSha256": "0e65bd99c1ba32d7826526418f8de8c862001d6d9190eac75ae94625cc17fc22"
+    },
+    "slicingHistory": [
+      {
+        "kind": "full-model slice",
+        "attempt": 1,
+        "startedAt": "2026-10-25T15:39:06.701345+00:00",
+        "finishedAt": "2026-10-25T16:09:50.272334+00:00",
+        "processExitCode": 155,
+        "nativeReturnCode": -101,
+        "outcome": "Failed tower/model deposited-path conflict check after support generation.",
+        "accepted3mfProduced": false,
+        "slicingCacheProduced": false,
+        "printStarted": false
+      },
+      {
+        "kind": "203 mm tall placement probe",
+        "variant": "initial layout",
+        "processExitCode": 152,
+        "nativeReturnCode": -104,
+        "outcome": "Failed native outside-printable-area validation.",
+        "qualifiesFullModel": false,
+        "printStarted": false
+      },
+      {
+        "kind": "203 mm tall placement probe",
+        "variant": "ribless rotated tower",
+        "processExitCode": 0,
+        "nativeReturnCode": 0,
+        "finishedAt": "2026-10-25T16:57:51.051470+00:00",
+        "outcome": "Passed native checks; actual deposited bounds and previews reviewed. Placement evidence only.",
+        "qualifiesFullModel": false,
+        "printStarted": false
+      },
+      {
+        "kind": "full-model slice",
+        "attempt": 2,
+        "startedAt": "2026-10-25T17:10:56.574888+00:00",
+        "finishedAt": null,
+        "processExitCode": null,
+        "nativeReturnCode": null,
+        "outcome": "Active fresh slice with corrected model/tower placement.",
+        "meshSha256": "05430279c639346bea3cc2d06157ad2d25853243c33ac19ff92e996d14bee357",
+        "nativeCacheReuse": false,
+        "printStarted": false
+      }
+    ],
+    "layoutRetry": {
+      "modelCenterMm": [
+        138,
+        146
+      ],
+      "towerReferenceMm": [
+        138,
+        12
+      ],
+      "towerWidthMm": 15,
+      "towerRotationDegrees": 90,
+      "towerRibWall": false,
+      "automaticTowerBrimPreserved": true,
+      "purgeSettingsPreserved": true,
+      "modelGeometryUnchanged": true,
+      "placementProbeTowerToModelBrimGapMm": 4.41,
+      "placementProbeFrontBedMarginMm": 3.523,
+      "placementProbeRearBrimBedMarginMm": 3.887,
+      "limitation": "Probe bounds do not establish the full-model support bounds or printability; final native checks and actual full-model previews remain required."
     }
   },
   "evidenceImages": [

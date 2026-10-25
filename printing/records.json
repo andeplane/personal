@@ -141,8 +141,8 @@
     "estimatedGrams": null,
     "actualGrams": null,
     "estimatedMeters": null,
-    "material": "Model filament(s) not selected; PVA support body and interface planned on secondary",
-    "color": "#32999c",
+    "material": "Blue Bambu PLA Basic primary; Bambu PVA support body and interface secondary. Live mapping to be rechecked after relocation.",
+    "color": "#0A2989",
     "layerHeightMm": null,
     "nozzleMm": null,
     "layers": null,
@@ -154,9 +154,9 @@
       "sha256": null,
       "evidence": "Source atomic coordinates: camilla.data SHA256 69e8be921c019d3a860cbf05067aab95129832255816b00fe27282c99de3ba9e. Type identities Si/O/H are inferred from coordination and distances; source provides no element names, bond topology or molecule labels. Selection retains every Si and O within 2.0 Å of any Si using the periodic cell, and removes all H and other O. The H-free selected coordinates SHA256 is 5145761db4e8b85c4e8ad76757913dd47a3448c73c3abc7b2e9c7bfce3e48a97."
     },
-    "notes": "The user authorized automatic printing once the exact artifact, material budget and fresh device/camera checks pass. No upload or print start has occurred. The current candidate measures 100.0×99.9833×99.9938mm, uniformly reduced from the203 mm baseline while retaining all 72,500 main-component atoms, the full core and the original Si/O radius ratio. The 882 boundary-fragment exclusions remain recorded; the complete 73,382-atom coordinate visualization is preserved. Scaling repairs removed 38 tiny facets with 17 endpoint substitutions (maximum 0.009535 mm). Independent exported-coordinate, zero-area, directed-edge watertightness, winding and connectivity checks passed, and an actual local surface window was reviewed. The203 mm baseline passed native collision checks but failed cache export after producing diagnostic G-code. Its estimates of 777.97 g PLA, 2759.33 g PVA and 16 d 4 h 48 m 31 s are scoped to that failed attempt and exceed the one-roll PVA budget. A small native probe verified the cache-directory fix and exported both cache JSON and a complete 3MF. The 100 mm full slice is active; its material and duration estimates, exact previews, internal supports and small necks remain to be reviewed. Planning allows 400 g total modeled PVA with 100 g reserve if the roll is full. Nominal 500 g capacity does not overwrite older 50% remaining telemetry; fresh available material must cover the job and reserve. The target is print completion by 17:00 Europe/Oslo on October 26 with margin; feasibility and subsequent PVA removal time are unverified. An 80 mm geometry fallback is prepared but not selected or sliced. Blender images remain coordinate-render evidence, not current slicer previews. The tower-rotation defect is reported in issue 12777 and draft PR 12778; the installed slicer remains unchanged. No physical strength, dryness, successful printing or dissolution claim.",
+    "notes": "The100mm full native slice completed successfully and passed material-role, checksum and deposited-bounds audits. Actual slicer estimates are113.09gPLA,603.60gPVA and4d13h26m10s; this version is rejected for the material budget and deadline and was never uploaded or started. Six diagnostic coupon slices compared support styles and interfaces. At0.20mm, contour-following snug supports with one interface layer each side and a dense top contact used2.65g main support PVA versus7.05g for grid supports in those coupons; this is not a full-print forecast. A verified80mm full-core derivative is undergoing a new full native evaluation with that support profile. All72,500 selected main-component atoms and the original radius ratio remain;882 boundary-fragment exclusions are recorded and the full73,382-atom visualization is preserved. The live PVA estimate was49% of a500g roll (245g using official client calculation); a20% reserve gives196g planning allowance. This is telemetry, not weighed material. The user plans to relocate the printer, so automatic start is held until relocation readiness and fresh device, camera, mapping and exact-file checks. The target of17:00 Europe/Oslo onOctober26 remains unproven. No physical strength, print success, material dryness or PVA-removal claim.",
     "preparation": {
-      "phase": "100mm full-model slice active; material budget and time review pending",
+      "phase": "80mm full native slice active with snug PVA supports;100mm completed baseline rejected for material/time limits; relocation start hold",
       "sourceAtoms": 404379,
       "visualizationAtoms": 73382,
       "visualizationSi": 21952,
@@ -166,14 +166,14 @@
         "Si": 1.15,
         "O": 1.0
       },
-      "nominalCellMm": 98.58226322529288,
+      "nominalCellMm": 78.8658105802343,
       "bonds": false,
       "coreRetained": true,
       "finiteSphereComponents": 305,
       "largestFiniteComponentAtoms": 72500,
       "atomsOutsideLargestFiniteComponent": 882,
       "boundaryHandling": "Retain the largest finite sphere-overlap component; exclude 882 boundary-fragment atom IDs listed in the geometry receipt. No interior crop or added bonds.",
-      "modelFilamentsSelected": false,
+      "modelFilamentsSelected": true,
       "supportMaterial": "PVA",
       "supportExtruder": "secondary",
       "supportBodyAndInterface": true,
@@ -194,21 +194,21 @@
       },
       "meshReadbackPassed": true,
       "excludedAtomIdsReceipt": "Exact 882 excluded IDs preserved in local geometry.json; source and complete visualization preserved.",
-      "meshSha256": "8681ca9754bb46fc8ca0087c81abcc9d8cb63ffdfe46fcdd97e8729146ab5631",
-      "meshTriangles": 24944664,
+      "meshSha256": "3b8e565d7425d945668ba5b79b0727fa96191cecf949da4014f0c9ccad73f909",
+      "meshTriangles": 24944546,
       "meshExtentsMm": [
-        100.0,
-        99.98333358764648,
-        99.99382781982422
+        80.0,
+        79.98666763305664,
+        79.99505996704102
       ],
-      "modelOnlyPlaMassEstimateGrams": 745.590309642071,
+      "modelOnlyPlaMassEstimateGrams": 45.71687964460309,
       "modelOnlyMassEstimateAssumption": "Geometric volume × assumed PLA density 1.24 g/cm³; excludes PVA supports, purge and brim; not a slicer estimate or measured usage.",
-      "maxRepairVertexReassignmentMm": 1.0789593218788873e-05,
+      "maxRepairVertexReassignmentMm": 0.007630248558405494,
       "actualMeshVisualReviewPassed": true,
       "supportType": "normal(auto)",
       "supportRemoveSmallOverhang": false,
       "supportSmallOverhangNote": "Disabling small-overhang removal may add supports; does not establish toolpath coverage or physical success.",
-      "voidAccess": "0.5 mm conservative sphere proxy flagged 683 coarse free cells. Exact Si/O distance queries and 0.1 mm local flood fills connected all 683 to known global coarse exterior cells; zero unresolved. Actual mesh/toolpath/deposition/dissolution and voids hidden within occupied coarse cells remain unverified.",
+      "voidAccess": "Historical203mm canonical sphere proxy only:0.5mm coarse grid flagged683 cells;0.1mm local flood fills connected them to known global exterior. Those grid pitches and reported clearance do not qualify the current80mm mesh or actual PVA access. Actual dissolution remains unverified.",
       "voidRefinement": {
         "finePitchMm": 0.1,
         "flaggedCoarseCells": 683,
@@ -217,7 +217,8 @@
         "anchorMethod": "Known global coarse exterior centers, excluding all 683 flagged cells.",
         "idealProxyRouteClearanceLowerBoundMm": 0.03660254037844386,
         "atomsSha256": "caad77458e7b0a62b440c8f53f70fc7fed4d50c31f17985dc29a69618908eaf1",
-        "coarseReportSha256": "0e65bd99c1ba32d7826526418f8de8c862001d6d9190eac75ae94625cc17fc22"
+        "coarseReportSha256": "0e65bd99c1ba32d7826526418f8de8c862001d6d9190eac75ae94625cc17fc22",
+        "scope": "Original202.876mm canonical sphere proxy; not resampled80mm geometry or slicedPVA qualification."
       },
       "slicingHistory": [
         {
@@ -329,11 +330,39 @@
           "attempt": 4,
           "variant": "100mm exterior material evaluation",
           "startedAt": "2026-10-25T20:48:39.037518+00:00",
+          "finishedAt": "2026-10-25T21:30:59.954320+00:00",
+          "processExitCode": 0,
+          "nativeReturnCode": 0,
+          "outcome": "Native slice and complete3MF export succeeded. Actual artifact audit passed; rejected for603.60gPVA and109h26m duration.",
+          "meshSha256": "8681ca9754bb46fc8ca0087c81abcc9d8cb63ffdfe46fcdd97e8729146ab5631",
+          "nativeCacheReuse": false,
+          "printStarted": false,
+          "accepted3mfProduced": false,
+          "complete3mfProduced": true,
+          "slicingCacheProduced": true,
+          "artifactSha256": "95ea292898f1c3dfeff4a010468ee0662ec09e46e00ba4c1b6839d29086bd184",
+          "artifactBytes": 405729568,
+          "nativeEstimates": {
+            "plaGrams": 113.09,
+            "pvaGrams": 603.6,
+            "estimatedSeconds": 393970,
+            "layers": 624
+          },
+          "programmaticAuditPassed": true,
+          "rootSampledVisualReview": true,
+          "materialBudgetPassed": false,
+          "timeTargetPassed": false
+        },
+        {
+          "kind": "full-model slice",
+          "attempt": 5,
+          "variant": "80mm exterior with0.20mm snug PVA supports and dense top interface",
+          "startedAt": "2026-10-25T22:05:22.118274+00:00",
           "finishedAt": null,
           "processExitCode": null,
           "nativeReturnCode": null,
-          "outcome": "Active native slice with verified100mm uniform geometry and cache-directory preflight.",
-          "meshSha256": "8681ca9754bb46fc8ca0087c81abcc9d8cb63ffdfe46fcdd97e8729146ab5631",
+          "outcome": "Active fullnative evaluation after six bounded coupon comparisons. Exact new artifact/usage/time/contact review pending.",
+          "meshSha256": "3b8e565d7425d945668ba5b79b0727fa96191cecf949da4014f0c9ccad73f909",
           "nativeCacheReuse": false,
           "printStarted": false
         }
@@ -368,8 +397,7 @@
       },
       "pvaBudget": {
         "userReportedSpoolCapacityGrams": 500,
-        "reserveGrams": 100,
-        "reserveFractionOfNominalCapacity": 0.2,
+        "reserveGrams": 49,
         "maximumModeledPvaGramsIfFull": 400,
         "modeledTotalMustInclude": [
           "support body",
@@ -379,9 +407,15 @@
         ],
         "verifiedAvailableRemainingGrams": null,
         "olderTelemetryRemainingFractionEstimate": 0.5,
-        "remainingEvidence": "Nominal spool capacity is not remaining-filament evidence and does not overwrite the earlier 50% estimate. Live available remaining must be verified separately.",
-        "readinessRule": "Total modeled PVA must be no more than both 400 g and verified available remaining minus the 100 g reserve.",
-        "budgetExceededAction": "Uniformly reduce the model and re-slice if necessary; do not scale estimates alone and declare readiness."
+        "remainingEvidence": "OfficialBambuStudio fallback: tray_weight500g × remain49%=245g. Raw remain_g takes priority if supplied. Not a physical measurement.",
+        "readinessRule": "Total modeled PVA must be no more than both400g and fresh available remaining less20% reserve.",
+        "budgetExceededAction": "Uniformly reduce the model and re-slice if necessary; do not scale estimates alone and declare readiness.",
+        "reserveFractionOfAvailable": 0.2,
+        "maximumModeledPvaGramsFromLatestEstimate": 196,
+        "latestTelemetryRemainingPercentEstimate": 49,
+        "latestTelemetryRemainingMassEstimateGrams": 245,
+        "fullNominalRollReserveGrams": 100,
+        "currentEstimatedAvailableReserveGrams": 49
       },
       "automaticStartAuthorization": {
         "authorized": true,
@@ -393,30 +427,31 @@
       "sizeAndTiming": {
         "preferredExteriorWidthMm": 100,
         "actualCandidateExtentsMm": [
-          100.0,
-          99.98333358764648,
-          99.99382781982422
+          80.0,
+          79.98666763305664,
+          79.99505996704102
         ],
         "singlePlate": true,
         "pvaMaximumRequestedGrams": 500,
-        "planningPvaMaximumGrams": 400,
-        "reserveGrams": 100,
+        "planningPvaMaximumGrams": 196,
+        "reserveGrams": 49,
         "finishTargetLocal": "2026-10-26T17:00:00+01:00",
         "finishTargetBasis": "Assumed end of work in Europe/Oslo; target print completion with margin.",
         "targetVerifiedFeasible": false,
-        "pvaRemovalTimeVerified": false
+        "pvaRemovalTimeVerified": false,
+        "currentEvaluationExteriorWidthMm": 80
       },
       "scaledGeometry": {
         "canonicalSourceSha256": "05430279c639346bea3cc2d06157ad2d25853243c33ac19ff92e996d14bee357",
-        "uniformScale": 0.4929113161264644,
+        "uniformScale": 0.3943290529011715,
         "watertight": true,
         "consistentWinding": true,
         "referencedComponents": 1,
         "zeroAreaTriangles": 0,
-        "triangles": 24944626,
-        "removedQuantizationFacets": 38,
-        "endpointSubstitutions": 17,
-        "maximumEndpointDisplacementMm": 0.009534964586347214,
+        "triangles": 24944546,
+        "removedQuantizationFacets": 118,
+        "endpointSubstitutions": 42,
+        "maximumEndpointDisplacementMm": 0.007630248558405494,
         "fullCoreRetained": true,
         "originalRadiusRatioRetained": true,
         "physicalStrengthVerified": false
@@ -426,6 +461,24 @@
         "draftPullRequest": "https://github.com/bambulab/BambuStudio/pull/12778",
         "installedBinaryPatched": false,
         "fullApplicationBuildVerified": false
+      },
+      "physicalPreparationHold": {
+        "active": true,
+        "reason": "Printer relocation planned by user.",
+        "releaseCondition": "User indicates settled and ready, then fresh artifact/device/material/camera gates."
+      },
+      "supportStyle": "snug",
+      "plannedLayerHeightMm": 0.2,
+      "plannedInterfaceTopLayers": 1,
+      "plannedInterfaceBottomLayers": 1,
+      "plannedTopInterfaceSpacingMm": 0,
+      "plannedBottomInterfaceSpacingMm": 0.5,
+      "supportCouponEvidence": {
+        "nativeSuccesses": 6,
+        "fullModelQualification": false,
+        "grid020MainPvaGrams": 7.045201301574707,
+        "snug020DenseTopMainPvaGrams": 2.6509,
+        "scope": "Three reconstructed interior source-sphere ROIs; cut boundaries and tiny-contact sampling limit extrapolation. No print performed."
       }
     },
     "evidenceImages": [
@@ -440,6 +493,18 @@
         "kind": "blender-coordinate-render-cutaway",
         "caption": "Blender inspection cutaway: a quadrant is hidden only to reveal the pores. The intended print retains its core. Original Si 1.15 Å / O 1.00 Å radii and preview colors; this is not a sliced plate or physical print.",
         "sha256": "48a4e4eaea9ac89462b5357afba11db105ba95be86775c4eabc5e0dcb430e70a"
+      },
+      {
+        "src": "assets/nanoporous-silica-pva-20261025-a1/100mm-rejected-native-preview.png",
+        "kind": "actual-sliced-baseline-rejected",
+        "caption": "Actual native preview of the completed100mm3MF, rejected for603.60gPVA and4d13h26m estimate; not the current80mm candidate.",
+        "sha256": "81efa2b52a1e5d6c3c73328645773e177b69ad572eb783c5d410b8def12f5bd9"
+      },
+      {
+        "src": "assets/nanoporous-silica-pva-20261025-a1/100mm-rejected-toolpaths.png",
+        "kind": "actual-sliced-baseline-rejected",
+        "caption": "Actual deposited toolpaths sampled from the completed100mm3MF: bluePLA, goldPVA, greyprime tower. Rejected for material/time limits; no print started.",
+        "sha256": "71a915af29ea8ecd9fe65ffe2339484b04c7778e429aea7a06264736cd5c7eb4"
       }
     ]
   },

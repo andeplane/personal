@@ -1,0 +1,55 @@
+{
+  "id": "enigma-frame-base-pla-20261025-a1",
+  "title": "Enigma \u00b7 M01/P39 rotor-frame base fit trial",
+  "project": "Enigma Doublestep",
+  "printer": "Bambu Lab X2D",
+  "status": "printing",
+  "preparationState": "PRINTER_ACCEPTED_PREPARE",
+  "recordedAt": "2026-10-25T16:52:07.085769+00:00",
+  "updatedAt": "2026-10-25T17:32:23.855161+00:00",
+  "startedAt": "2026-10-25T17:31:36.104697+00:00",
+  "finishedAt": null,
+  "jobName": "enigma_M01P39_87e55340_20261025_a1_b2",
+  "plate": 1,
+  "parts": [
+    "M01/P39 \u00b7 Rotor frame mounting base"
+  ],
+  "estimatedSeconds": 10088,
+  "actualSeconds": null,
+  "estimatedGrams": 102.81,
+  "actualGrams": null,
+  "estimatedMeters": 33.92,
+  "material": "Bambu PLA Basic \u00b7 black \u00b7 AMS A3",
+  "color": "#000000",
+  "layerHeightMm": 0.2,
+  "firstLayerHeightMm": 0.2,
+  "nozzleMm": 0.4,
+  "layers": 40,
+  "preview": "assets/enigma-frame-base-pla-20261025-a1/plan.png",
+  "layout": "assets/enigma-frame-base-pla-20261025-a1/layout.png",
+  "snapshots": [
+    {
+      "src": "assets/enigma-frame-base-pla-20261025-a1/preparation.jpg",
+      "capturedAt": "2026-10-25T17:31:38.261215+00:00",
+      "caption": "Immediately after printer acceptance: PREPARE, empty bed before deposition. This is not a finished-part image."
+    }
+  ],
+  "source": {
+    "file": "M01_P39_BASE_SLICED.3mf",
+    "sha256": "87e55340634176e2e87e99248fcfc98ecb22f77fdd5c9e14c12cf18c68b9780d",
+    "repository": "https://github.com/andeplane/openenigma",
+    "commit": "da58da831cd1c4f91cbbd69daae5a5733e7a7071",
+    "branch": "main",
+    "job": "mechanical-rotor-stack-base-pla",
+    "editableProject": {
+      "file": "M01_P39_ROTOR_FRAME_BASE_X2D_EDITABLE.3mf",
+      "sha256": "8f39844f9c1a780180b86ef0ce4bbfe2c2246f18ba61e8d2c193f3bfd49ce6ba"
+    },
+    "gcodeMember": "Metadata/plate_1.gcode",
+    "gcodeSha256": "092f375d3d187e2dbb6245d31af1593404a24b355f78765ab94f02ff132ca64e",
+    "uploadedFile": "enigma_M01P39_87e55340_20261025_a1_b2.3mf",
+    "readbackSha256": "87e55340634176e2e87e99248fcfc98ecb22f77fdd5c9e14c12cf18c68b9780d",
+    "acceptedMd5": "35b10ac4edd5a2b9f077843647103693"
+  },
+  "notes": "One support-free PLA base; 4 walls, 30% gyroid, 8 mm outer brim, textured PEI, leveling and flow calibration on; timelapse off. Exact reviewed uploaded file downloaded and SHA-256 verified. Device returned project_file SUCCESS with matching MD5, file and plate 1; fresh telemetry PREPARE, print_error 0. Unloaded mounting/fastener/alignment trial only; fit and mechanism operation unverified. User explicitly directed printing before website publication; live-guide mismatch retained as an explicit exception, all source/geometry/slice/material/readback checks retained. Completion time and actual usage pending."
+}

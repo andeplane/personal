@@ -6,7 +6,7 @@
   "status": "printing",
   "preparationState": "RUNNING_AFTER_USER_INSPECTION",
   "recordedAt": "2026-10-25T16:52:07.085769+00:00",
-  "updatedAt": "2026-10-25T17:50:17.854136+00:00",
+  "updatedAt": "2026-10-25T18:16:08.245390+00:00",
   "startedAt": "2026-10-25T17:31:36.104697+00:00",
   "finishedAt": null,
   "jobName": "enigma_M01P39_87e55340_20261025_a1_b2",
@@ -37,6 +37,11 @@
       "src": "assets/enigma-frame-base-pla-20261025-a1/running.jpg",
       "capturedAt": "2026-10-25T17:50:00.345368+00:00",
       "caption": "After user inspection and resume: matching job RUNNING at 6%, no reported print error. Deposited perimeter/brim visible; not a finished-part or fit inspection."
+    },
+    {
+      "src": "assets/enigma-frame-base-pla-20261025-a1/monitor-1812.jpg",
+      "capturedAt": "2026-10-25T18:11:57.422649+00:00",
+      "caption": "Running-job camera capture saved at this timestamp. Fresh nearby telemetry: 19%, layer 5/40, print_error 0, 135 minutes estimated remaining. Base is on the plate; toolhead obscures part of the view. Not completion, whole-bed clearance or physical fit evidence."
     }
   ],
   "source": {
@@ -56,5 +61,5 @@
     "readbackSha256": "87e55340634176e2e87e99248fcfc98ecb22f77fdd5c9e14c12cf18c68b9780d",
     "acceptedMd5": "35b10ac4edd5a2b9f077843647103693"
   },
-  "notes": "One support-free PLA base; 4 walls, 30% gyroid, 8 mm outer brim, textured PEI, leveling and flow calibration on; timelapse off. Exact reviewed uploaded file downloaded and SHA-256 verified. Device returned project_file SUCCESS with matching MD5, file and plate 1; fresh telemetry PREPARE, print_error 0. Unloaded mounting/fastener/alignment trial only; fit and mechanism operation unverified. User explicitly directed printing before website publication; live-guide mismatch retained as an explicit exception, all source/geometry/slice/material/readback checks retained. Completion time and actual usage pending. Subsequent fresh telemetry confirmed PAUSE at 3% on layer 1, print_error 0300-800C (multiple motion step loss); printer reports 163 minutes remaining if resumed. Not resumed: physical obstruction/noise inspection requested. Cause and print quality are unconfirmed. User reports no obstruction or abnormal noise and that printing resumed. Subsequent fresh telemetry confirms same job RUNNING at 6%, print_error 0, estimated remaining 156 minutes. Camera shows deposited perimeter/brim and active toolhead; adhesion, dimensional accuracy and fit remain unverified."
+  "notes": "One support-free PLA base; 4 walls, 30% gyroid, 8 mm outer brim, textured PEI, leveling and flow calibration on; timelapse off. Exact reviewed uploaded file downloaded and SHA-256 verified. Device returned project_file SUCCESS with matching MD5, file and plate 1; fresh telemetry PREPARE, print_error 0. Unloaded mounting/fastener/alignment trial only; fit and mechanism operation unverified. User explicitly directed printing before website publication; live-guide mismatch retained as an explicit exception, all source/geometry/slice/material/readback checks retained. Completion time and actual usage pending. Subsequent fresh telemetry confirmed PAUSE at 3% on layer 1, print_error 0300-800C (multiple motion step loss); printer reports 163 minutes remaining if resumed. Not resumed: physical obstruction/noise inspection requested. Cause and print quality are unconfirmed. User reports no obstruction or abnormal noise and that printing resumed. Subsequent fresh telemetry confirms same job RUNNING at 6%, print_error 0, estimated remaining 156 minutes. Camera shows deposited perimeter/brim and active toolhead; adhesion, dimensional accuracy and fit remain unverified. Follow-up observed 2026-10-25T18:11:55Z: same accepted base job RUNNING at 19%, layer 5/40, print_error 0, estimated remaining 135 minutes. A new camera frame was inspected. Earlier motion-step-loss cause remains unresolved; physical print quality, cleanup and fit remain unverified."
 }

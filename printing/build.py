@@ -3,13 +3,19 @@ import json, re, hashlib
 from pathlib import Path
 from datetime import datetime
 ROOT = Path(__file__).resolve().parent
-STATUSES = {'planned', 'printing', 'completed', 'failed', 'cancelled', 'completed_partial'}
+STATUSES = {'planned', 'printing', 'paused', 'completed', 'failed', 'cancelled', 'completed_partial'}
 def build():
     records = []
     for path in sorted((ROOT / 'records').glob('*.json')):
         run = json.loads(path.read_text())
         assert run['id'] == path.stem and re.fullmatch(r'[a-z0-9-]+', run['id']), path
         assert run['status'] in STATUSES, path
+        if run['status'] == 'paused':
+            evidence = run.get('pauseEvidence', {})
+            assert evidence.get('printerState') == 'PAUSE', path
+            assert type(evidence.get('printError')) is int and evidence['printError'] >= 0, path
+            datetime.fromisoformat(evidence['observedAt'].replace('Z', '+00:00'))
+            assert run['finishedAt'] is None, path
         if run['status'] == 'completed_partial':
             assert run.get('terminalEvidence', {}).get('printerState') == 'FINISH', path
             skipped = run.get('skippedParts', [])

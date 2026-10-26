@@ -57,3 +57,9 @@ Use `completed_partial` when a fresh printer FINISH report follows skipping a
 failed object. Keep the skipped parts and terminal evidence explicit; the other
 parts remain physically unverified until inspected. Report minute-resolution
 printer elapsed time separately when precise wall duration is unavailable.
+
+Use `paused` for a live printer PAUSE, rather than calling it actively printing
+or inventing a terminal failure/cancellation. Preserve `pauseEvidence` with
+`printerState: "PAUSE"`, the numeric `printError` (0 for a non-fault pause) and
+the UTC `observedAt`. Keep `finishedAt` null, describe actual visible damage and
+recovery holds in the notes, and retain the same run if it is later resumed.

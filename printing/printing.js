@@ -1,4 +1,4 @@
-const statuses = {planned:'Planlagt', printing:'Skriver ut', completed:'Fullført', completed_partial:'Delvis avsluttet', failed:'Mislykket', cancelled:'Avbrutt'};
+const statuses = {planned:'Planlagt', printing:'Skriver ut', paused:'På pause', completed:'Fullført', completed_partial:'Delvis avsluttet', failed:'Mislykket', cancelled:'Avbrutt'};
 const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const date = value => value ? new Intl.DateTimeFormat('nb-NO',{dateStyle:'medium',timeStyle:'short',timeZone:'Europe/Oslo'}).format(new Date(value)) : 'Ikke registrert';
 const duration = value => value == null ? 'Ikke registrert' : `${Math.floor(value/3600)} t ${Math.floor(value%3600/60)} min`;

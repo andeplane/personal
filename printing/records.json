@@ -7,7 +7,7 @@
     "status": "printing",
     "jobName": "Titanic_22b7a2c3_20261026_a1.gcode",
     "recordedAt": "2026-10-26T20:02:04.108671+00:00",
-    "updatedAt": "2026-10-26T20:38:34.867557+00:00",
+    "updatedAt": "2026-10-26T21:40:35.223724+00:00",
     "startedAt": "2026-10-26T20:23:36.546577+00:00",
     "finishedAt": null,
     "plate": 1,
@@ -47,6 +47,11 @@
         "src": "assets/titanic-four-color-20261026-a1/first-layer-filling-203743.jpg",
         "capturedAt": "2026-10-26T20:37:43.197754+00:00",
         "caption": "Viewed fresh layer1 image: red hull bottom is filling and orange/red prime-tower area remains visible, with no obvious broad loose tangle or lifted hull in this view. This does not prove completion or final physical quality."
+      },
+      {
+        "src": "assets/titanic-four-color-20261026-a1/hourly-214033.jpg",
+        "capturedAt": "2026-10-26T21:40:33.374521+00:00",
+        "caption": "Fresh viewed hourly image near layer33/319: red lower-hull walls and visible infill have grown, with the prime tower beside them. No obvious broad loose tangle or lifted hull is visible in this view; the toolhead obscures part of the model. Completion, dimensions, mast fit and final physical quality remain unverified."
       }
     ],
     "source": {
@@ -58,7 +63,7 @@
       "referenceMake": "https://www.printables.com/make/1003339",
       "mastStlSha256": "b5f5f07612a5b25fa1acae93a9077e60e977b18d5833226f8eceb4c6851effe5"
     },
-    "notes": "Human selected separate plates: Titanic tonight, iceberg tomorrow after removal/cleaning. Started exactly once, project_file SUCCESS with matching file/plate/MD5/sequence and independent RUNNING telemetry. Initial acceptance carried old layer34; fresh RUNNING reports reset to0/319, with preparation and bed55C, not proof of model extrusion. Native X2D 0.4 mm, 0.16 mm High Quality, 3 walls, 15% gyroid, same-material organic/tree supports, 35 mm prime tower, explicit Manual logical map 2 for all four PLA materials and unchanged factory physical map 1,0. Red/black use factory Bambu PLA Basic profiles; white/orange use Generic PLA at 215 C initial and 210 C thereafter. Source ship exterior partitioned into watertight color volumes; total volume difference 0.0041 mm3. Orange begins at 31 mm only on four isolated funnels, keeping raised deck features white; black funnel tips begin at45 mm. Both original mast STL copies are laid flat, slowed to20/25 mm/s and given1.5mmbrims. Stand/nameplate omitted. Native slicing, independent geometry/color, arc-aware restricted-nozzle/collision, mast and actual preview review pass. No floating-region warning. All duration/material are estimates, including supports, prime tower and flushing, not measured usage. Preparation and actual first-layer outline/filling cameras are recorded; full first-layer completion, later progress and terminal evidence remain pending. Physical cleanup, fragile details and mast fit remain unverified. Before this single authorized start, occupied AMS A2 was registered as white Generic PLA and live verified. Explicit redA1/blackA3/whiteA2/orangeA4 map0,2,1,3 matches actual AMS0 physical0; both live nozzles0.4. Exact unique upload/readback SHA and archiveMD5 verified; embedded G-codeMD5 differs only in hexadecimal letter case. Fresh camera and unchanged free/error0 state/HMS checked immediately before exclusive durable intent. Fresh first-layer outline and subsequent filling were viewed with capture hashes verified. No obvious broad tangle or lifted hull is visible in these frames; adhesion/cleanup/fit/overall physical success remain unqualified.",
+    "notes": "Human selected separate plates: Titanic tonight, iceberg tomorrow after removal/cleaning. Started exactly once, project_file SUCCESS with matching file/plate/MD5/sequence and independent RUNNING telemetry. Initial acceptance carried old layer34; fresh RUNNING reports reset to0/319, with preparation and bed55C, not proof of model extrusion. Native X2D 0.4 mm, 0.16 mm High Quality, 3 walls, 15% gyroid, same-material organic/tree supports, 35 mm prime tower, explicit Manual logical map 2 for all four PLA materials and unchanged factory physical map 1,0. Red/black use factory Bambu PLA Basic profiles; white/orange use Generic PLA at 215 C initial and 210 C thereafter. Source ship exterior partitioned into watertight color volumes; total volume difference 0.0041 mm3. Orange begins at 31 mm only on four isolated funnels, keeping raised deck features white; black funnel tips begin at45 mm. Both original mast STL copies are laid flat, slowed to20/25 mm/s and given1.5mmbrims. Stand/nameplate omitted. Native slicing, independent geometry/color, arc-aware restricted-nozzle/collision, mast and actual preview review pass. No floating-region warning. All duration/material are estimates, including supports, prime tower and flushing, not measured usage. Preparation and actual first-layer outline/filling cameras are recorded; Further progress and terminal evidence remain pending; first-layer completion was later confirmed by telemetry advancing tolayer2, with a viewed flat-looking initial hull. Physical cleanup, fragile details and mast fit remain unverified. Before this single authorized start, occupied AMS A2 was registered as white Generic PLA and live verified. Explicit redA1/blackA3/whiteA2/orangeA4 map0,2,1,3 matches actual AMS0 physical0; both live nozzles0.4. Exact unique upload/readback SHA and archiveMD5 verified; embedded G-codeMD5 differs only in hexadecimal letter case. Fresh camera and unchanged free/error0 state/HMS checked immediately before exclusive durable intent. Fresh first-layer outline and subsequent filling were viewed with capture hashes verified. No obvious broad tangle or lifted hull is visible in these frames; adhesion/cleanup/fit/overall physical success remain unqualified. Hourly21:40:33UTC camera shows continued red lower-hull growth near layer33, with no obvious broad tangle or hull lift in this camera view. Actual material usage remains unmeasured.",
     "estimatedColorChanges": 29,
     "estimatedMainGrams": 72.95046615600586,
     "estimatedAdditionalGrams": 26.841849327087402,
@@ -83,6 +88,15 @@
       "actualPixelsViewed": true,
       "modelDepositionObserved": true,
       "firstLayerComplete": false
+    },
+    "latestProgress": {
+      "observedAt": "2026-10-26T21:40:35.223724+00:00",
+      "printerState": "RUNNING",
+      "layer": 33,
+      "totalLayers": 319,
+      "percent": 14,
+      "estimatedRemainingMinutes": 446,
+      "printError": 0
     }
   },
   {

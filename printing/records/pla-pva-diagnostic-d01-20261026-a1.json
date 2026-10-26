@@ -1,0 +1,56 @@
+{
+  "id": "pla-pva-diagnostic-d01-20261026-a1",
+  "title": "PLA/PVA \u00b7 D01 open-support arch diagnostic",
+  "project": "3D printing diagnostics",
+  "printer": "Bambu Lab X2D",
+  "status": "printing",
+  "recordedAt": "2026-10-26T18:31:29.398605+00:00",
+  "updatedAt": "2026-10-26T18:34:14.936867+00:00",
+  "startedAt": "2026-10-26T18:34:14.936867+00:00",
+  "finishedAt": null,
+  "plate": 1,
+  "parts": [
+    "D01 \u00b7 One disposable open-bottom PLA arch with PVA supports"
+  ],
+  "estimatedSeconds": 1597,
+  "actualSeconds": null,
+  "estimatedGrams": 5.38,
+  "actualGrams": null,
+  "estimatedMeters": 1.77,
+  "material": "PLA blue AMS A1 \u2192 physical 0; PVA AMS HT A1 \u2192 physical 1",
+  "color": "#0A2989",
+  "layerHeightMm": 0.2,
+  "firstLayerHeightMm": 0.2,
+  "nozzleMm": 0.4,
+  "preview": "assets/pla-pva-diagnostic-d01-20261026-a1/plan.png",
+  "layout": "assets/pla-pva-diagnostic-d01-20261026-a1/layout.png",
+  "snapshots": [
+    {
+      "src": "assets/pla-pva-diagnostic-d01-20261026-a1/prestart.jpg",
+      "capturedAt": "2026-10-26T18:33:19.593125+00:00",
+      "caption": "Whole-bed image viewed after the human confirmed loose plastic removal; pale surface outlines remain."
+    },
+    {
+      "src": "assets/pla-pva-diagnostic-d01-20261026-a1/preparing-183555.jpg",
+      "capturedAt": "2026-10-26T18:35:55.658671+00:00",
+      "caption": "Fresh hash-verified viewed image while the exact D01 job is running its preparation and heating; raised bed, no model deposition yet."
+    }
+  ],
+  "source": {
+    "selectionSha256": "2150fa1d1e6ad58c9b974c8b15c983c525823d7c9c6fd4aea410d730b650c03e",
+    "slicedSha256": "939d02c37d19fa5d57372ef23b6dde10efd974fe1baac045c6e06684cac1a6f2",
+    "editableSha256": "2902af37e5bc9e86b5580064320d61b37332fefd9d7e2b552eb3d0a6559d22aa",
+    "sha256": "939d02c37d19fa5d57372ef23b6dde10efd974fe1baac045c6e06684cac1a6f2"
+  },
+  "notes": "Standalone 26m37s diagnostic, not an Enigma manufacturing selection. 18\u00d714\u00d76.8 mm arch, 3 walls, 100% infill, 4 mm brim, PVA body/interface supports with zero contact gaps and a prime tower. Manual logical map 2,1 with unchanged factory physical map 1,0 matches actual AMS physical 0,1. Static generated targets PLA 220 C / PVA 240 C. Actual feed, temperatures, adhesion and cleanup remain to be observed. All estimates separate from unknown measured actuals. Single start command accepted SUCCESS with exact file, MD5 and plate. Fresh independent telemetry confirmed RUNNING at layer 0, bed heating; extrusion and physical success still pending. Initial combined ack snapshot retained an old FAILED field; this was not interpreted as a fresh terminal outcome.",
+  "jobName": "D01_PLA_PVA_939d02c3_20261026_a1.gcode",
+  "layers": 34,
+  "acceptedJob": {
+    "file": "/D01_PLA_PVA_939d02c3_20261026_a1.gcode.3mf",
+    "md5": "e820299ef39a6a8eff9277c584c202fd",
+    "plate": 1,
+    "sequenceId": "10261801",
+    "observedAt": "2026-10-26T18:33:57.381786+00:00",
+    "liveRunningObservedAt": "2026-10-26T18:34:14.936867+00:00"
+  }
+}

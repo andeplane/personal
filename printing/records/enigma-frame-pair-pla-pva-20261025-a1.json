@@ -6,7 +6,7 @@
   "status": "paused",
   "preparationState": "PAUSED_EXTRUSION_FAULT_PHYSICAL_FIRST_LAYER_RECOVERY_REQUIRED",
   "recordedAt": "2026-10-25T19:08:28.296540+00:00",
-  "updatedAt": "2026-10-25T23:56:38.772428+00:00",
+  "updatedAt": "2026-10-26T01:38:57.096661+00:00",
   "startedAt": "2026-10-25T23:35:23.474296+00:00",
   "finishedAt": null,
   "plate": 1,
@@ -52,6 +52,11 @@
       "src": "assets/enigma-frame-pair-pla-pva-20261025-a1/paused-extrusion-fault-234933.jpg",
       "capturedAt": "2026-10-25T23:49:33.624516+00:00",
       "caption": "After the same exact job entered PAUSE on layer 1 with abnormal-extrusion error 0700-8016, the camera shows loose tangled blue filament at the right end. This first layer is not accepted. The machine remains paused; no resume, cancellation, new submission or sensor bypass was sent. Camera acquisition was 23:49:31\u201323:49:33 UTC; file-save time is recorded."
+    },
+    {
+      "src": "assets/enigma-frame-pair-pla-pva-20261025-a1/paused-hourly-004834.jpg",
+      "capturedAt": "2026-10-26T00:48:34.346831+00:00",
+      "caption": "Hourly read-only check: the same frame job remains paused on layer 1. The viewed whole-bed image still shows blue outlines and loose tangled loops at the right ends; the bed has not been cleared. No successful parts or physical recovery are established."
     }
   ],
   "source": {
@@ -77,7 +82,7 @@
     "startStagingReceiptSha256": "b544467eb50fbd321bdf89498ff1d936ae0ef7ab1cbc28810b21c21162685e4a",
     "freshReadbackSha256": "e3f0f66f0c082b5697c448a3ffe28e5e7497b9ad5378b5fc0483e25b99177289"
   },
-  "notes": "CURRENT STATE: paused on the first layer, not actively printing or completed. At 23:49:06 UTC, the printer reported 0700-8016 and HMS 0700-2000-0002-0009: abnormal extrusion from blue PLA in AMS A slot 1, possibly an extruder blockage or filament slipping. The cause is not proven. An independent source review is also investigating heater/tool mapping; neither a blockage nor a mapping cause has been established. A fresh camera then showed loose tangled first-layer filament. Physical clearing and inspection of the filament path/extruder are required before a qualified recovery; a blind resume or replacement job has not been attempted. The earlier finish estimate is no longer valid, and exact active printing time and filament use remain unavailable. The existing accepted-file/MD5/plate/source proof and start images below are retained. One two-frame unloaded cleanup/fit trial; the base is separate. Four walls, 30% gyroid, 0.2 mm layers, 8 mm brims, PVA body/interface supports with zero top/bottom contact gap, textured PEI and a prime tower. Bed leveling, flow/vibration calibration and inspection are enabled; timelapse is off. Source thumbnails show black PLA; the actual planned model feed is blue PLA in AMS A1, with PVA in the secondary AMS HT. Slicer estimates are PLA 96.93 g/32.50 m plus PVA 37.85 g/12.39 m and 27,906 seconds; actual weighed usage and printing duration remain unavailable. Original staging and upload were on main 1e54ecf0; after the explicit human resume, the normal canonical preparation gate passed again on current main 2e5b15f1 with all 53 selected file hashes, manifest and auditor unchanged. The existing unique printer archive was downloaded to a new path and passed the official identical-byte readback check. A fresh full-bed image was viewed clear, live material/tool assignments and both 0.4 mm nozzles were rechecked, and a durable exclusive intent preceded one submission. At 2026-10-25T23:35:23 UTC (00:35 October 26 in Oslo), the printer returned SUCCESS with the exact file, plate 1 and MD5 f1522e4311eae0fc1a50bb3d069c1387 and entered PREPARE without a current print error. The same job was then observed RUNNING at layer 0/450, with 465 minutes estimated remaining during initial calibration. At 23:45:38 UTC the job was RUNNING on layer 1/450 with print_error 0 and 459 minutes estimated remaining. A fresh camera image then confirmed blue outline/brim deposition. Successful PVA deposition remains to be observed. Native/slice checks and finite feature witnesses do not establish physical bore fit, support cleanup, strength or loaded operation. After support dissolution, dry and inspect the frames, try rods without force and provide independent rod retention before spring/drive loads; no repeated-print release or physical acceptance is inferred.",
+  "notes": "PROCESS REVIEW: Our original preflight checked material identities and raw AMS assignments but did not qualify their composition with the X2D physical nozzle roles. The new static routing check in draft OpenEnigma PR #209 rejects the original slice/feed combination. This is a preflight verification gap, not a proven cause of the extrusion fault. Firmware remapping, actual heater/feed execution and physical plumbing remain unqualified; the original accepted archive and command are preserved unchanged. At 00:48:34 UTC on October 26, a fresh viewed camera still showed failed material on the bed. No resume, cancellation, purge, sensor bypass or replacement start was sent. CURRENT STATE: paused on the first layer, not actively printing or completed. At 23:49:06 UTC, the printer reported 0700-8016 and HMS 0700-2000-0002-0009: abnormal extrusion from blue PLA in AMS A slot 1, possibly an extruder blockage or filament slipping. The cause is not proven. An independent source review is also investigating heater/tool mapping; neither a blockage nor a mapping cause has been established. A fresh camera then showed loose tangled first-layer filament. Physical clearing and inspection of the filament path/extruder are required before a qualified recovery; a blind resume or replacement job has not been attempted. The earlier finish estimate is no longer valid, and exact active printing time and filament use remain unavailable. The existing accepted-file/MD5/plate/source proof and start images below are retained. One two-frame unloaded cleanup/fit trial; the base is separate. Four walls, 30% gyroid, 0.2 mm layers, 8 mm brims, PVA body/interface supports with zero top/bottom contact gap, textured PEI and a prime tower. Bed leveling, flow/vibration calibration and inspection are enabled; timelapse is off. Source thumbnails show black PLA; the actual planned model feed is blue PLA in AMS A1, with PVA in the secondary AMS HT. Slicer estimates are PLA 96.93 g/32.50 m plus PVA 37.85 g/12.39 m and 27,906 seconds; actual weighed usage and printing duration remain unavailable. Original staging and upload were on main 1e54ecf0; after the explicit human resume, the normal canonical preparation gate passed again on current main 2e5b15f1 with all 53 selected file hashes, manifest and auditor unchanged. The existing unique printer archive was downloaded to a new path and passed the official identical-byte readback check. A fresh full-bed image was viewed clear, material identities, raw AMS assignments and both 0.4 mm nozzles were rechecked; physical-role composition was not qualified, as explained in the process review, and a durable exclusive intent preceded one submission. At 2026-10-25T23:35:23 UTC (00:35 October 26 in Oslo), the printer returned SUCCESS with the exact file, plate 1 and MD5 f1522e4311eae0fc1a50bb3d069c1387 and entered PREPARE without a current print error. The same job was then observed RUNNING at layer 0/450, with 465 minutes estimated remaining during initial calibration. At 23:45:38 UTC the job was RUNNING on layer 1/450 with print_error 0 and 459 minutes estimated remaining. A fresh camera image then confirmed blue outline/brim deposition. Successful PVA deposition remains to be observed. Native/slice checks and finite feature witnesses do not establish physical bore fit, support cleanup, strength or loaded operation. After support dissolution, dry and inspect the frames, try rods without force and provide independent rod retention before spring/drive loads; no repeated-print release or physical acceptance is inferred.",
   "jobName": "enigma_M01P01P02_e3f0f66f_20261025_a1.gcode",
   "pauseEvidence": {
     "printerState": "PAUSE",
@@ -88,5 +93,17 @@
     "layer": 1,
     "totalLayers": 450,
     "percent": 1
+  },
+  "processReview": {
+    "reviewedAt": "2026-10-26T01:38:57.096474+00:00",
+    "candidatePullRequest": "https://github.com/andeplane/openenigma/pull/209",
+    "candidateCommit": "b6921a9332bd7eac3c1b3d42f2673cc3d4442465",
+    "runtimeAdapterSha256": "aa57e3e3c3a2239312c405e39fbd78733d70a879a47700d3ff71ba78fddbfcb7",
+    "scope": "Static exact-plate logical/physical map versus raw AMS assignments; rejects the original unqualified combination. Draft software evidence, not a released replacement process.",
+    "originalAcceptedBytesPreserved": true,
+    "causeConfirmed": false,
+    "thermalOperationVerified": false,
+    "physicalRecoveryVerified": false,
+    "replacementStartSent": false
   }
 }

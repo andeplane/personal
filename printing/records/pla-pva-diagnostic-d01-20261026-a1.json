@@ -3,9 +3,9 @@
   "title": "PLA/PVA \u00b7 D01 open-support arch diagnostic",
   "project": "3D printing diagnostics",
   "printer": "Bambu Lab X2D",
-  "status": "printing",
+  "status": "completed",
   "recordedAt": "2026-10-26T18:31:29.398605+00:00",
-  "updatedAt": "2026-10-26T18:34:14.936867+00:00",
+  "updatedAt": "2026-10-26T19:05:36.836785+00:00",
   "startedAt": "2026-10-26T18:34:14.936867+00:00",
   "finishedAt": null,
   "plate": 1,
@@ -34,6 +34,21 @@
       "src": "assets/pla-pva-diagnostic-d01-20261026-a1/preparing-183555.jpg",
       "capturedAt": "2026-10-26T18:35:55.658671+00:00",
       "caption": "Fresh hash-verified viewed image while the exact D01 job is running its preparation and heating; raised bed, no model deposition yet."
+    },
+    {
+      "src": "assets/pla-pva-diagnostic-d01-20261026-a1/first-layer.jpg",
+      "capturedAt": "2026-10-26T18:44:01.000979+00:00",
+      "caption": "First blue deposition visible at the model/brim and separate tower area; successful PVA deposition was not yet established in this broad view."
+    },
+    {
+      "src": "assets/pla-pva-diagnostic-d01-20261026-a1/layer-2.jpg",
+      "capturedAt": "2026-10-26T18:47:28.775007+00:00",
+      "caption": "Layer 2 view: blue outlines remain in place and central pale/gray material is visible; no obvious tangled pile. This view alone does not establish full PVA feed/thermal operation."
+    },
+    {
+      "src": "assets/pla-pva-diagnostic-d01-20261026-a1/finished.jpg",
+      "capturedAt": "2026-10-26T19:06:00.007446+00:00",
+      "caption": "Completed blue arch and separate prime tower remain on bed; pale support material visible inside/beside arch and in tower. No obvious tangled pile or detached model. Camera does not qualify dimensions, internal bonding, cleanup or full runtime thermal/feed behavior."
     }
   ],
   "source": {
@@ -42,7 +57,7 @@
     "editableSha256": "2902af37e5bc9e86b5580064320d61b37332fefd9d7e2b552eb3d0a6559d22aa",
     "sha256": "939d02c37d19fa5d57372ef23b6dde10efd974fe1baac045c6e06684cac1a6f2"
   },
-  "notes": "Standalone 26m37s diagnostic, not an Enigma manufacturing selection. 18\u00d714\u00d76.8 mm arch, 3 walls, 100% infill, 4 mm brim, PVA body/interface supports with zero contact gaps and a prime tower. Manual logical map 2,1 with unchanged factory physical map 1,0 matches actual AMS physical 0,1. Static generated targets PLA 220 C / PVA 240 C. Actual feed, temperatures, adhesion and cleanup remain to be observed. All estimates separate from unknown measured actuals. Single start command accepted SUCCESS with exact file, MD5 and plate. Fresh independent telemetry confirmed RUNNING at layer 0, bed heating; extrusion and physical success still pending. Initial combined ack snapshot retained an old FAILED field; this was not interpreted as a fresh terminal outcome.",
+  "notes": "Standalone 26m37s diagnostic, not an Enigma manufacturing selection. 18\u00d714\u00d76.8 mm arch, 3 walls, 100% infill, 4 mm brim, PVA body/interface supports with zero contact gaps and a prime tower. Manual logical map 2,1 with unchanged factory physical map 1,0 matches actual AMS physical 0,1. Static generated targets PLA 220 C / PVA 240 C. Actual feed, temperatures, adhesion and cleanup remain to be observed. All estimates separate from unknown measured actuals. Single start command accepted SUCCESS with exact file, MD5 and plate. Fresh independent telemetry confirmed RUNNING at layer 0, bed heating; extrusion and physical success still pending. Initial combined ack snapshot retained an old FAILED field; this was not interpreted as a fresh terminal outcome. TERMINAL: FINISH first observed 2026-10-26 19:05:36 UTC, all 34 layers, 100%, no active print error; the preceding 19:04:38 observation was still RUNNING. Exact end time and measured duration/filament remain unknown. A fresh 19:06 camera shows the blue arch and separate prime tower still on the bed, with pale support material visible. No obvious tangled pile or detached model is visible. Support dissolution/removal, drying, dimensional and bonding inspection are pending; this does not qualify Enigma manufacturing or establish full per-tool firmware thermal behavior. The earlier AMS-HT feed-resistance entry was absent from the terminal report; physical resolution is not inferred from its disappearance.",
   "jobName": "D01_PLA_PVA_939d02c3_20261026_a1.gcode",
   "layers": 34,
   "acceptedJob": {
@@ -52,5 +67,16 @@
     "sequenceId": "10261801",
     "observedAt": "2026-10-26T18:33:57.381786+00:00",
     "liveRunningObservedAt": "2026-10-26T18:34:14.936867+00:00"
+  },
+  "terminalEvidence": {
+    "printerState": "FINISH",
+    "observedAt": "2026-10-26T19:05:36.836785+00:00",
+    "printError": 0,
+    "reportedPercent": 100,
+    "layer": 34,
+    "totalLayers": 34,
+    "lastRunningObservedAt": "2026-10-26T19:04:38.621983+00:00",
+    "exactEndTimeKnown": false,
+    "physicalInspectionAccepted": false
   }
 }

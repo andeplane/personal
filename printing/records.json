@@ -1,5 +1,44 @@
 [
   {
+    "id": "iceberg-white-20261026-a1",
+    "title": "Low Quality Iceberg · white PLA",
+    "project": "Iceberg",
+    "printer": "Bambu Lab X2D",
+    "status": "planned",
+    "recordedAt": "2026-10-26T18:54:16.662094+00:00",
+    "updatedAt": "2026-10-26T18:54:16.662094+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "plate": 1,
+    "parts": [
+      "One Low Quality Iceberg by ntalekt, original scale; removable same-material supports"
+    ],
+    "estimatedSeconds": 11616,
+    "actualSeconds": null,
+    "estimatedGrams": 39.71,
+    "actualGrams": null,
+    "estimatedMeters": 13.31,
+    "material": "Clas Ohlson Universal PLA 1.75 mm; Generic PLA profile",
+    "color": "#FFFFFF",
+    "layerHeightMm": 0.2,
+    "firstLayerHeightMm": 0.2,
+    "nozzleMm": 0.4,
+    "preview": "assets/iceberg-white-20261026-a1/plan.png",
+    "layout": "assets/iceberg-white-20261026-a1/layout.png",
+    "snapshots": [],
+    "source": {
+      "filename": "iceberg-white.gcode.3mf",
+      "sha256": "6d1aaf4c8bb63d97840c679e5cdfcb79448f99d4a112df0b8e36a7c21e1e1e41",
+      "stlSha256": "9c69e473ca3646cd6e42ef055c091a57e0457e49bed6c4f47c987207c011f805",
+      "url": "https://www.printables.com/model/536580-low-quality-iceberg",
+      "author": "ntalekt",
+      "license": "CC BY-NC 4.0"
+    },
+    "notes": "Prepared only, not started. One watertight source component, 97.08 × 97.03 × 44.90 mm, centered and rotated in XY by native arranger. Three walls, 15% gyroid, tree supports in the same white PLA, 0.2 mm contact gap. 215 C first layer, 210 C thereafter, factory Generic PLA flow limit. Original unsupported candidate flagged floating regions; this supported candidate has no floating-region warning. Await human white-spool swap, correct live slot/material routing, prior-print removal, fresh camera clearance, exact-file upload/readback and sole-controller start. During/after camera evidence and measured material use do not yet exist. Independent geometry/arc-aware toolpath, profile, heater and ledger audit passed. Planned filament identity comes from the user and receipt; physical spool and live slot confirmation are pending.",
+    "layers": 224,
+    "jobName": "Iceberg_White_6d1aaf4c_20261026_a1"
+  },
+  {
     "id": "pla-pva-diagnostic-d01-20261026-a1",
     "title": "PLA/PVA · D01 open-support arch diagnostic",
     "project": "3D printing diagnostics",

@@ -1,12 +1,12 @@
 {
   "id": "titanic-iceberg-combined-20261026-a1",
-  "title": "Titanic and iceberg \u00b7 combined-plate alternative",
+  "title": "Titanic and iceberg \u00b7 unselected combined-plate alternative",
   "project": "Titanic and iceberg",
   "printer": "Bambu Lab X2D",
   "status": "planned",
   "jobName": "titanic-iceberg-combined-20261026-a1",
   "recordedAt": "2026-10-26T20:02:04.108671+00:00",
-  "updatedAt": "2026-10-26T20:02:04.108671+00:00",
+  "updatedAt": "2026-10-26T20:29:25.649275+00:00",
   "startedAt": null,
   "finishedAt": null,
   "plate": 1,
@@ -39,8 +39,9 @@
     "icebergUrl": "https://www.printables.com/model/536580-low-quality-iceberg",
     "mastStlSha256": "b5f5f07612a5b25fa1acae93a9077e60e977b18d5833226f8eceb4c6851effe5"
   },
-  "notes": "Digital planning candidate only; not queued, uploaded or started. Alternatives must be selected before printing; do not print both Titanic candidates. Native X2D 0.4 mm, 0.16 mm High Quality, 3 walls, 15% gyroid, same-material organic/tree supports, 35 mm prime tower, explicit Manual logical map 2 for all four PLA materials and unchanged factory physical map 1,0. Red/black use factory Bambu PLA Basic profiles; white/orange use Generic PLA at 215 C initial and 210 C thereafter. Source ship exterior partitioned into watertight color volumes; total volume difference 0.0041 mm3. Orange begins at 31 mm only on four isolated funnels, keeping raised deck features white; black funnel tips begin at45 mm. Both original mast STL copies are laid flat, slowed to20/25 mm/s and given1.5mmbrims. Stand/nameplate omitted. Native slicing succeeds, no floating-region warning. All duration/material are estimates, including supports, prime tower and flushing, not measured usage. Camera during/after does not exist. Physical cleanup, fragile details and mast fit remain unverified. White spool metadata, actual live material/nozzle routing and fresh bed camera must be checked by one controller immediately before any approved start.",
+  "notes": "UNSELECTED PLANNING ALTERNATIVE: human chose separate plates; this combined file was not uploaded, queued or started. Digital planning candidate only; not queued, uploaded or started. Alternatives must be selected before printing; do not print both Titanic candidates. Native X2D 0.4 mm, 0.16 mm High Quality, 3 walls, 15% gyroid, same-material organic/tree supports, 35 mm prime tower, explicit Manual logical map 2 for all four PLA materials and unchanged factory physical map 1,0. Red/black use factory Bambu PLA Basic profiles; white/orange use Generic PLA at 215 C initial and 210 C thereafter. Source ship exterior partitioned into watertight color volumes; total volume difference 0.0041 mm3. Orange begins at 31 mm only on four isolated funnels, keeping raised deck features white; black funnel tips begin at45 mm. Both original mast STL copies are laid flat, slowed to20/25 mm/s and given1.5mmbrims. Stand/nameplate omitted. Native slicing succeeds, no floating-region warning. All duration/material are estimates, including supports, prime tower and flushing, not measured usage. Camera during/after does not exist. Physical cleanup, fragile details and mast fit remain unverified. White spool metadata, actual live material/nozzle routing and fresh bed camera must be checked by one controller immediately before any approved start.",
   "estimatedColorChanges": 218,
   "estimatedMainGrams": 114.3596978187561,
-  "estimatedAdditionalGrams": 153.63510465621948
+  "estimatedAdditionalGrams": 153.63510465621948,
+  "selected": false
 }

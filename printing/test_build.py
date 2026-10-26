@@ -57,5 +57,40 @@ class PartialOutcomeTests(unittest.TestCase):
             with self.subTest(skipped=skipped), self.assertRaises(AssertionError):
                 self.build_record(run)
 
+    def paused_record(self):
+        run = self.record()
+        run['status'] = 'paused'
+        run.pop('terminalEvidence')
+        run.pop('skippedParts')
+        run['pauseEvidence'] = {'printerState': 'PAUSE', 'printError': 117473302,
+                                'observedAt': '2026-10-25T23:49:06Z'}
+        return run
+
+    def test_live_pause_is_preserved_without_inventing_terminal_completion(self):
+        result = self.build_record(self.paused_record())
+        self.assertEqual(result['status'], 'paused')
+        self.assertIsNone(result['finishedAt'])
+
+    def test_paused_status_requires_actual_pause_evidence(self):
+        for state in ['RUNNING', 'FINISH', 'FAILED', None]:
+            run = self.paused_record()
+            run['pauseEvidence']['printerState'] = state
+            with self.subTest(state=state), self.assertRaises(AssertionError):
+                self.build_record(run)
+
+    def test_pause_cannot_be_given_a_finished_timestamp(self):
+        run = self.paused_record()
+        run['finishedAt'] = '2026-10-25T23:49:06Z'
+        with self.assertRaises(AssertionError):
+            self.build_record(run)
+
+    def test_pause_requires_valid_observation_and_numeric_error(self):
+        for key, value in [('observedAt', 'unknown'), ('printError', '0700-8016'),
+                           ('printError', -1), ('printError', True)]:
+            run = self.paused_record()
+            run['pauseEvidence'][key] = value
+            with self.subTest(key=key, value=value), self.assertRaises((AssertionError, ValueError)):
+                self.build_record(run)
+
 if __name__ == '__main__':
     unittest.main()

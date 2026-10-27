@@ -3,10 +3,10 @@
   "title": "Enigma \u00b7 M01/P02 complete right-frame cleanup and fit trial",
   "project": "Enigma Doublestep",
   "printer": "Bambu Lab X2D",
-  "status": "printing",
-  "preparationState": "ACCEPTED_ONCE_RUNTIME_RUNNING",
+  "status": "paused",
+  "preparationState": "PHYSICAL_PVA_FEED_INSPECTION_REQUIRED_NO_AUTOMATIC_RESUME",
   "recordedAt": "2026-10-27T22:59:12.982607+00:00",
-  "updatedAt": "2026-10-27T23:33:22.018588+00:00",
+  "updatedAt": "2026-10-27T23:41:31.768572+00:00",
   "startedAt": "2026-10-27T23:17:14.311813+00:00",
   "finishedAt": null,
   "plate": 1,
@@ -44,6 +44,12 @@
       "capturedAt": "2026-10-27T23:32:18.886408+00:00",
       "sha256": "f15bf177f89263b22bac38e8592706ae8880d3382b1cd7e4c1f2741defe23c25",
       "caption": "Red model/brim first-layer paths visibly filling in place, no obvious tangled pile. PVA deposition and whole-part adhesion/quality are not established by this broad view."
+    },
+    {
+      "src": "assets/enigma-right-frame-pla-pva-20261027-a1/paused-pva-feed.jpg",
+      "capturedAt": "2026-10-27T23:39:48.764362+00:00",
+      "sha256": "85f08da3dc40df64b6b63d8c289092817ebc3de7e3e775b1d1fd4b0b941b2c5f",
+      "caption": "Printer paused on the first-layer AMS-HT feed error. Red model/brim remains on bed, with no obvious tangled pile; camera cannot inspect the PVA spool or PTFE path or confirm a filament break."
     }
   ],
   "evidenceImages": [
@@ -66,7 +72,7 @@
     "gcodeSha256": "b88cd99029dccbe935cdd27a10186e88bae752fe5db1470cd7b0c21b73daf9ac"
   },
   "jobName": "Enigma_P02_f82a3f05_20261027_a1.gcode",
-  "notes": "One complete right frame accepted once after normal preparation from clean current main, exact geometry/critical-feature and guide reviews, uniquely named upload with identical official SHA256 readback, fresh matching raw AMS/material/nozzle check and fresh viewed whole-bed clearance. Bed leveling, flow and vibration calibration enabled after relocation. Independent telemetry confirmed RUNNING layer0/73,123minremaining,error0. First model/support feed pending observation. HMS0C0001000002001B reported after acceptance; both exact installed provider and official device catalogue have empty descriptions; condition remains unknown and was not cleared or guessed. Left frame is excluded and queued. This is one unloaded cleanup and5mmrod-fit trial, not physical cleanup/dimension/loaded-operation qualification. Slicer estimates7404s33.60g are distinct from unknown measured duration/usage. Fresh23:32:18 viewed camera subsequently confirms red first-layer model/brim deposition. A23:27:31 raw report, decoded with pinned official Studio bit layout, reports physicalextruder0 current220C/target220C and physical1 standby135C/25C. PVA extrusion/wholepart adhesion and dimensional/cleanup acceptance remain pending.",
+  "notes": "One complete right frame accepted once after normal preparation from clean current main, exact geometry/critical-feature/guide reviews, unique identical-byte official upload readback and fresh runtime/nozzle/material/bed checks. Calibration enabled after relocation. Fresh camera confirmed red first-layer deposition; physical tool0 reported220C/220C and tool1 later240C/240C, single observations rather than complete thermal/feed qualification. The printer subsequently auto-paused at layer1/73. First observed23:39:27UTC, following lastobservedRUNNING23:34:58UTC; exact pause time unknown. Active error18008006 means unable to feed filament; HMS1800-2000-0002-0003 says AMS-HT A filament may be broken. That unit contains PVA. A break, tangle, stuck spool or PTFE path problem is not physically confirmed. PVA deposition remains unconfirmed. Red first layer remains onbed without an obvious tangled pile in the viewed pause camera. No resume, cancel or replacement was sent. Physical PVA spool/feed-path inspection is required before any recovery. Previous finish estimate withdrawn; frozen reportedremaining109minutes is not a new finish ETA. Retained0C0001000002001B remains semantically unknown (blank official description). Slicer estimate7404s33.60g remains distinct from unknown actual duration/usage. Left frame remains queued; cleanup, dimensions and loaded behavior remain unverified.",
   "acceptedJob": {
     "file": "/Enigma_P02_f82a3f05_20261027_a1.gcode.3mf",
     "md5": "190a3cffe07daa20d0656f3de5d19bb3",
@@ -86,5 +92,19 @@
     "physicalExtruder0TargetC": 220,
     "thermalReportScope": "Single instantaneous raw report decoded with pinned official Studio source; not full tool-switch or physical temperature calibration proof.",
     "pvaDepositionConfirmed": false
+  },
+  "pauseEvidence": {
+    "printerState": "PAUSE",
+    "printError": 402685958,
+    "printErrorHex": "18008006",
+    "observedAt": "2026-10-27T23:39:27.034437+00:00",
+    "lastObservedRunningAt": "2026-10-27T23:34:58.363483+00:00",
+    "layer": 1,
+    "totalLayers": 73,
+    "reportedRemainingMinutes": 109,
+    "hmsCode": "1800200000020003",
+    "providerMessage": "Unable to feed filament into the extruder; AMS-HT A filament may be broken.",
+    "physicalCauseConfirmed": false,
+    "automaticResumeAllowed": false
   }
 }

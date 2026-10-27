@@ -3,9 +3,9 @@
   "title": "Low Quality Iceberg \u00b7 white PLA",
   "project": "Iceberg",
   "printer": "Bambu Lab X2D",
-  "status": "printing",
+  "status": "completed",
   "recordedAt": "2026-10-26T18:54:16.662094+00:00",
-  "updatedAt": "2026-10-27T09:06:11.749454+00:00",
+  "updatedAt": "2026-10-27T09:46:24.388257+00:00",
   "startedAt": "2026-10-27T06:20:16.380630+00:00",
   "finishedAt": null,
   "plate": 1,
@@ -54,6 +54,11 @@
       "src": "assets/iceberg-white-20261026-a1/hourly-090543.jpg",
       "capturedAt": "2026-10-27T09:05:43.644887+00:00",
       "caption": "During printing: iceberg has grown taller with textured white sidewalls; visible base remains seated-looking without obvious broad tangle or lift. Head obscures rear/top; fine details and overall physical quality unverified. Telemetry layer 103/224, 82%, no active error."
+    },
+    {
+      "src": "assets/iceberg-white-20261026-a1/terminal-094554.jpg",
+      "capturedAt": "2026-10-27T09:45:54.668587+00:00",
+      "caption": "After printer FINISH: white iceberg stands on plate, head parked clear, with no obvious broad tangle/collapse or lifted base. Fine details, underside and support removal remain physically unverified."
     }
   ],
   "source": {
@@ -64,7 +69,7 @@
     "author": "ntalekt",
     "license": "CC BY-NC 4.0"
   },
-  "notes": "Started once after exact staged-file SHA-256/MD5 readback, fresh viewed clear-bed evidence, sole-controller and live white Generic PLA A2 routing checks. Independent telemetry confirmed RUNNING layer 2/224, 5%, no active error at 06:31:40 UTC. Actual camera at 06:31:46 shows a broad white bottom with flat-looking visible edges and no obvious broad tangle/lift; the head partly occludes the center/right. This establishes scoped initial stability only; overall quality and fit remain unverified. One watertight iceberg, 97.08 \u00d7 97.03 \u00d7 44.90 mm. Three walls, 15% gyroid, tree supports in same white PLA with 0.2 mm gap. 215 C first layer, 210 C thereafter, 55 C bed. Independent geometry/toolpath/profile audit passed. Intermittently unavailable storage recovered on recheck; original staged file matched exactly and required no upload. Actual duration/material and physical quality remain unverified.",
+  "notes": "Started once after exact staged-file SHA-256/MD5 readback, fresh viewed clear-bed evidence, sole-controller and live white Generic PLA A2 routing checks. Independent telemetry confirmed RUNNING layer 2/224, 5%, no active error at 06:31:40 UTC. Actual camera at 06:31:46 shows a broad white bottom with flat-looking visible edges and no obvious broad tangle/lift; the head partly occludes the center/right. This establishes scoped initial stability only; overall quality and fit remain unverified. One watertight iceberg, 97.08 \u00d7 97.03 \u00d7 44.90 mm. Three walls, 15% gyroid, tree supports in same white PLA with 0.2 mm gap. 215 C first layer, 210 C thereafter, 55 C bed. Independent geometry/toolpath/profile audit passed. Intermittently unavailable storage recovered on recheck; original staged file matched exactly and required no upload. Actual duration/material and physical quality remain unverified. Terminal FINISH first observed at 09:45:43 UTC, 100%, all 224 layers, no active error; last RUNNING observed 09:40:42 UTC. Exact completion time and measured duration/material are unknown, so finishedAt and actuals remain null. Terminal camera shows iceberg standing on the plate with head clear, no obvious broad tangle/collapse or lifted base. Fine details, underside and support removal require physical inspection. Let the plate cool before removal.",
   "layers": 224,
   "jobName": "Iceberg_White_6d1aaf4c_20261026_a1.gcode",
   "amsMapping": [
@@ -76,5 +81,14 @@
     "md5": "cfbb14af030cc18b1953afb03d56231c",
     "sequenceId": "10270620",
     "observedAt": "2026-10-27T06:20:16.380630+00:00"
+  },
+  "terminalEvidence": {
+    "printerState": "FINISH",
+    "observedAt": "2026-10-27T09:45:43.410927+00:00",
+    "percent": 100,
+    "layer": 224,
+    "totalLayers": 224,
+    "printError": 0,
+    "lastRunningObservedAt": "2026-10-27T09:40:42.987415+00:00"
   }
 }

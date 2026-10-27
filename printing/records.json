@@ -7,7 +7,7 @@
     "status": "paused",
     "jobName": "Titanic_22b7a2c3_20261026_a1.gcode",
     "recordedAt": "2026-10-26T20:02:04.108671+00:00",
-    "updatedAt": "2026-10-27T04:56:42.657838+00:00",
+    "updatedAt": "2026-10-27T05:41:43.827937+00:00",
     "startedAt": "2026-10-26T20:23:36.546577+00:00",
     "finishedAt": null,
     "plate": 1,
@@ -92,6 +92,11 @@
         "src": "assets/titanic-four-color-20261026-a1/paused-045651.jpg",
         "capturedAt": "2026-10-27T04:56:51.595978+00:00",
         "caption": "Viewed fresh camera after printer reported PAUSE at layer209/319 with AMS assist-motor overload on orange slot A4. Ship remains on the bed with short orange funnel sections visible; no obvious broad loose tangle or lifted hull is visible. This camera cannot diagnose the spool/feed/buffer obstruction or qualify small details and separate masts. Print is incomplete; physical quality remains unverified."
+      },
+      {
+        "src": "assets/titanic-four-color-20261026-a1/hourly-paused-054150.jpg",
+        "capturedAt": "2026-10-27T05:41:50.249226+00:00",
+        "caption": "Viewed hourly image during unchanged PAUSE at layer209/319: the incomplete ship remains on the plate with short orange funnel sections, white decks and black/red hull. No obvious new broad loose tangle or lifted hull is visible. The spool/feed/buffer cause and small details remain unverified; human inspection is still required before recovery."
       }
     ],
     "source": {
@@ -130,7 +135,7 @@
       "firstLayerComplete": false
     },
     "latestProgress": {
-      "observedAt": "2026-10-27T04:56:42.657838+00:00",
+      "observedAt": "2026-10-27T05:41:43.827937+00:00",
       "printerState": "PAUSE",
       "layer": 209,
       "totalLayers": 319,

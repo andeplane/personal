@@ -7,7 +7,7 @@
     "status": "printing",
     "jobName": "Titanic_22b7a2c3_20261026_a1.gcode",
     "recordedAt": "2026-10-26T20:02:04.108671+00:00",
-    "updatedAt": "2026-10-26T23:41:34.442279+00:00",
+    "updatedAt": "2026-10-27T00:41:35.817699+00:00",
     "startedAt": "2026-10-26T20:23:36.546577+00:00",
     "finishedAt": null,
     "plate": 1,
@@ -62,6 +62,11 @@
         "src": "assets/titanic-four-color-20261026-a1/hourly-234136.jpg",
         "capturedAt": "2026-10-26T23:41:36.454200+00:00",
         "caption": "Viewed hourly image near layer101/319: black upper-hull walls and visible internal structure have grown above the red lower hull, alongside the black-topped prime tower. No obvious broad loose tangle or lifted hull is visible in this view; the toolhead obscures part of the upper-right model. Completion, mast fit and final physical quality remain unverified."
+      },
+      {
+        "src": "assets/titanic-four-color-20261026-a1/hourly-004137.jpg",
+        "capturedAt": "2026-10-27T00:41:37.999590+00:00",
+        "caption": "Viewed hourly image near layer124/319: black upper-hull walls and internal structure continue to grow above the red lower hull; the prime tower remains beside the ship. No obvious broad loose tangle or lifted hull is visible in this view; the toolhead obscures part of the upper-right model. Completion, mast fit and final physical quality remain unverified."
       }
     ],
     "source": {
@@ -100,12 +105,12 @@
       "firstLayerComplete": false
     },
     "latestProgress": {
-      "observedAt": "2026-10-26T23:41:34.442279+00:00",
+      "observedAt": "2026-10-27T00:41:35.817699+00:00",
       "printerState": "RUNNING",
-      "layer": 101,
+      "layer": 124,
       "totalLayers": 319,
-      "percent": 36,
-      "estimatedRemainingMinutes": 327,
+      "percent": 47,
+      "estimatedRemainingMinutes": 270,
       "printError": 0
     }
   },

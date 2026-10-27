@@ -5,7 +5,7 @@
   "printer": "Bambu Lab X2D",
   "status": "printing",
   "recordedAt": "2026-10-26T18:54:16.662094+00:00",
-  "updatedAt": "2026-10-27T06:32:25.467485+00:00",
+  "updatedAt": "2026-10-27T08:22:00.693236+00:00",
   "startedAt": "2026-10-27T06:20:16.380630+00:00",
   "finishedAt": null,
   "plate": 1,
@@ -44,6 +44,11 @@
       "src": "assets/iceberg-white-20261026-a1/first-layer-stable-063146.jpg",
       "capturedAt": "2026-10-27T06:31:46.697522+00:00",
       "caption": "After telemetry advanced to layer 2: broad white bottom remains flat-looking with no obvious broad tangle or lifted visible edges. Head occludes center/right; initial stability only, not overall physical quality."
+    },
+    {
+      "src": "assets/iceberg-white-20261026-a1/hourly-080055.jpg",
+      "capturedAt": "2026-10-27T08:00:55.418206+00:00",
+      "caption": "During printing: white iceberg walls have grown and visible base remains seated-looking, with no obvious broad tangle or lift. Head obscures part of top; fine details and overall physical quality unverified. Telemetry layer 52/224, 50%, no active error."
     }
   ],
   "source": {

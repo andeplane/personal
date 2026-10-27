@@ -1,0 +1,73 @@
+{
+  "id": "enigma-right-frame-pla-pva-20261027-a1",
+  "title": "Enigma \u00b7 M01/P02 complete right-frame cleanup and fit trial",
+  "project": "Enigma Doublestep",
+  "printer": "Bambu Lab X2D",
+  "status": "printing",
+  "preparationState": "ACCEPTED_ONCE_RUNTIME_RUNNING",
+  "recordedAt": "2026-10-27T22:59:12.982607+00:00",
+  "updatedAt": "2026-10-27T23:19:08.289520+00:00",
+  "startedAt": "2026-10-27T23:17:14.311813+00:00",
+  "finishedAt": null,
+  "plate": 1,
+  "parts": [
+    "M01/P02 \u00b7 One complete right rotor support frame"
+  ],
+  "estimatedSeconds": 7404,
+  "actualSeconds": null,
+  "estimatedGrams": 33.6,
+  "actualGrams": null,
+  "estimatedMeters": 11.08,
+  "material": "Red PLA model \u00b7 AMS A1 physical 0; PVA body/interface supports \u00b7 AMS HT A1 physical 1",
+  "color": "#C12E1F",
+  "layerHeightMm": 0.2,
+  "firstLayerHeightMm": 0.2,
+  "nozzleMm": 0.4,
+  "layers": 73,
+  "preview": "assets/enigma-right-frame-pla-pva-20261027-a1/plan.png",
+  "layout": "assets/enigma-right-frame-pla-pva-20261027-a1/layout.png",
+  "snapshots": [
+    {
+      "src": "assets/enigma-right-frame-pla-pva-20261027-a1/prestart.jpg",
+      "capturedAt": "2026-10-27T23:16:43.300896+00:00",
+      "caption": "Fresh whole-bed clearance image actually viewed immediately before the sole submission; stable pale surface marks remain.",
+      "sha256": "6bc1d1d36bec02227d2ee4677cba297400ef9af23cc3e9c6206c1ed8e0103c85"
+    },
+    {
+      "src": "assets/enigma-right-frame-pla-pva-20261027-a1/preparing.jpg",
+      "capturedAt": "2026-10-27T23:17:45.106241+00:00",
+      "caption": "Accepted exact right-frame job heating/preparing; no model deposition yet. Image hash verified and actual pixels viewed.",
+      "sha256": "2e607c5303c513626a2006e913e8f5b11a9548210c301d40bb32e74a7850a1ff"
+    }
+  ],
+  "evidenceImages": [
+    {
+      "src": "assets/enigma-right-frame-pla-pva-20261027-a1/model-toolpaths.png",
+      "kind": "derived-toolpaths",
+      "caption": "Actual sliced model/support paths at selected layers; nominal geometry only, no physical cleanup or fit proof.",
+      "sha256": "1b5b14fb38460171c210fab6870b4f13927d138ec5f585e283099e7f7b9b35d8"
+    }
+  ],
+  "source": {
+    "filename": "M01_P02_FRAME_RIGHT_SLICED.3mf",
+    "sha256": "f82a3f0530f0c4d7156aefd2f055b13e6a8fc281736809856b713e8572013513",
+    "selectedSourcePullRequest": "https://github.com/andeplane/openenigma/pull/209",
+    "baseCommit": "9a99cafae31c5fec63cd4026b7995bade05da82c",
+    "releaseCommit": "1d58267e24d456e026b4da644a19344c9bce19a9",
+    "releasePullRequest": "https://github.com/andeplane/openenigma/pull/210",
+    "selectionSha256": "59802e4d4aefd350a905203374136563a831e24d080252886bc0c278f7bff360",
+    "editableSha256": "65822147953539a5f87f79ecd8315d111380ef1edf2bf0a1bc30fefe086118fc",
+    "gcodeSha256": "b88cd99029dccbe935cdd27a10186e88bae752fe5db1470cd7b0c21b73daf9ac"
+  },
+  "jobName": "Enigma_P02_f82a3f05_20261027_a1.gcode",
+  "notes": "One complete right frame accepted once after normal preparation from clean current main, exact geometry/critical-feature and guide reviews, uniquely named upload with identical official SHA256 readback, fresh matching raw AMS/material/nozzle check and fresh viewed whole-bed clearance. Bed leveling, flow and vibration calibration enabled after relocation. Independent telemetry confirmed RUNNING layer0/73,123minremaining,error0. First model/support feed pending observation. HMS0C0001000002001B reported after acceptance; both exact installed provider and official device catalogue have empty descriptions; condition remains unknown and was not cleared or guessed. Left frame is excluded and queued. This is one unloaded cleanup and5mmrod-fit trial, not physical cleanup/dimension/loaded-operation qualification. Slicer estimates7404s33.60g are distinct from unknown measured duration/usage.",
+  "acceptedJob": {
+    "file": "/Enigma_P02_f82a3f05_20261027_a1.gcode.3mf",
+    "md5": "190a3cffe07daa20d0656f3de5d19bb3",
+    "plate": 1,
+    "sequenceId": "10272301",
+    "taskId": "4706",
+    "observedAt": "2026-10-27T23:17:15.324634+00:00",
+    "liveRunningObservedAt": "2026-10-27T23:17:46.894792+00:00"
+  }
+}

@@ -6,7 +6,7 @@
     "printer": "Bambu Lab X2D",
     "status": "printing",
     "recordedAt": "2026-10-26T18:54:16.662094+00:00",
-    "updatedAt": "2026-10-27T06:23:56.542831+00:00",
+    "updatedAt": "2026-10-27T06:32:25.467485+00:00",
     "startedAt": "2026-10-27T06:20:16.380630+00:00",
     "finishedAt": null,
     "plate": 1,
@@ -35,6 +35,16 @@
         "src": "assets/iceberg-white-20261026-a1/preparing-062326.jpg",
         "capturedAt": "2026-10-27T06:23:26.060663+00:00",
         "caption": "During preparation: head at left, no iceberg deposition visible. This is not a finished print or first-layer evidence."
+      },
+      {
+        "src": "assets/iceberg-white-20261026-a1/first-layer-062749.jpg",
+        "capturedAt": "2026-10-27T06:27:49.093176+00:00",
+        "caption": "First layer in progress: white iceberg outline and partial interior traces; rear/right partly obscured by head. No obvious broad tangle or lift in this view."
+      },
+      {
+        "src": "assets/iceberg-white-20261026-a1/first-layer-stable-063146.jpg",
+        "capturedAt": "2026-10-27T06:31:46.697522+00:00",
+        "caption": "After telemetry advanced to layer 2: broad white bottom remains flat-looking with no obvious broad tangle or lifted visible edges. Head occludes center/right; initial stability only, not overall physical quality."
       }
     ],
     "source": {
@@ -45,7 +55,7 @@
       "author": "ntalekt",
       "license": "CC BY-NC 4.0"
     },
-    "notes": "Started once after exact staged-file SHA-256/MD5 readback, fresh viewed clear-bed evidence, sole-controller and live white Generic PLA A2 routing checks. Independent telemetry confirmed RUNNING layer 0/224, no active error at 06:23:28 UTC; preparation only, first extrusion and adhesion not yet confirmed. One watertight iceberg, 97.08 × 97.03 × 44.90 mm. Three walls, 15% gyroid, tree supports in same white PLA with 0.2 mm gap. 215 C first layer, 210 C thereafter, 55 C bed. Independent geometry/toolpath/profile audit passed. Intermittently unavailable storage recovered on recheck; original staged file matched exactly and required no upload. Actual duration/material and physical quality remain unverified.",
+    "notes": "Started once after exact staged-file SHA-256/MD5 readback, fresh viewed clear-bed evidence, sole-controller and live white Generic PLA A2 routing checks. Independent telemetry confirmed RUNNING layer 2/224, 5%, no active error at 06:31:40 UTC. Actual camera at 06:31:46 shows a broad white bottom with flat-looking visible edges and no obvious broad tangle/lift; the head partly occludes the center/right. This establishes scoped initial stability only; overall quality and fit remain unverified. One watertight iceberg, 97.08 × 97.03 × 44.90 mm. Three walls, 15% gyroid, tree supports in same white PLA with 0.2 mm gap. 215 C first layer, 210 C thereafter, 55 C bed. Independent geometry/toolpath/profile audit passed. Intermittently unavailable storage recovered on recheck; original staged file matched exactly and required no upload. Actual duration/material and physical quality remain unverified.",
     "layers": 224,
     "jobName": "Iceberg_White_6d1aaf4c_20261026_a1.gcode",
     "amsMapping": [

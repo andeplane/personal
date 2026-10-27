@@ -6,7 +6,7 @@
   "status": "printing",
   "preparationState": "ACCEPTED_ONCE_RUNTIME_RUNNING",
   "recordedAt": "2026-10-27T22:59:12.982607+00:00",
-  "updatedAt": "2026-10-27T23:19:08.289520+00:00",
+  "updatedAt": "2026-10-27T23:33:22.018588+00:00",
   "startedAt": "2026-10-27T23:17:14.311813+00:00",
   "finishedAt": null,
   "plate": 1,
@@ -38,6 +38,12 @@
       "capturedAt": "2026-10-27T23:17:45.106241+00:00",
       "caption": "Accepted exact right-frame job heating/preparing; no model deposition yet. Image hash verified and actual pixels viewed.",
       "sha256": "2e607c5303c513626a2006e913e8f5b11a9548210c301d40bb32e74a7850a1ff"
+    },
+    {
+      "src": "assets/enigma-right-frame-pla-pva-20261027-a1/first-layer.jpg",
+      "capturedAt": "2026-10-27T23:32:18.886408+00:00",
+      "sha256": "f15bf177f89263b22bac38e8592706ae8880d3382b1cd7e4c1f2741defe23c25",
+      "caption": "Red model/brim first-layer paths visibly filling in place, no obvious tangled pile. PVA deposition and whole-part adhesion/quality are not established by this broad view."
     }
   ],
   "evidenceImages": [
@@ -60,7 +66,7 @@
     "gcodeSha256": "b88cd99029dccbe935cdd27a10186e88bae752fe5db1470cd7b0c21b73daf9ac"
   },
   "jobName": "Enigma_P02_f82a3f05_20261027_a1.gcode",
-  "notes": "One complete right frame accepted once after normal preparation from clean current main, exact geometry/critical-feature and guide reviews, uniquely named upload with identical official SHA256 readback, fresh matching raw AMS/material/nozzle check and fresh viewed whole-bed clearance. Bed leveling, flow and vibration calibration enabled after relocation. Independent telemetry confirmed RUNNING layer0/73,123minremaining,error0. First model/support feed pending observation. HMS0C0001000002001B reported after acceptance; both exact installed provider and official device catalogue have empty descriptions; condition remains unknown and was not cleared or guessed. Left frame is excluded and queued. This is one unloaded cleanup and5mmrod-fit trial, not physical cleanup/dimension/loaded-operation qualification. Slicer estimates7404s33.60g are distinct from unknown measured duration/usage.",
+  "notes": "One complete right frame accepted once after normal preparation from clean current main, exact geometry/critical-feature and guide reviews, uniquely named upload with identical official SHA256 readback, fresh matching raw AMS/material/nozzle check and fresh viewed whole-bed clearance. Bed leveling, flow and vibration calibration enabled after relocation. Independent telemetry confirmed RUNNING layer0/73,123minremaining,error0. First model/support feed pending observation. HMS0C0001000002001B reported after acceptance; both exact installed provider and official device catalogue have empty descriptions; condition remains unknown and was not cleared or guessed. Left frame is excluded and queued. This is one unloaded cleanup and5mmrod-fit trial, not physical cleanup/dimension/loaded-operation qualification. Slicer estimates7404s33.60g are distinct from unknown measured duration/usage. Fresh23:32:18 viewed camera subsequently confirms red first-layer model/brim deposition. A23:27:31 raw report, decoded with pinned official Studio bit layout, reports physicalextruder0 current220C/target220C and physical1 standby135C/25C. PVA extrusion/wholepart adhesion and dimensional/cleanup acceptance remain pending.",
   "acceptedJob": {
     "file": "/Enigma_P02_f82a3f05_20261027_a1.gcode.3mf",
     "md5": "190a3cffe07daa20d0656f3de5d19bb3",
@@ -69,5 +75,16 @@
     "taskId": "4706",
     "observedAt": "2026-10-27T23:17:15.324634+00:00",
     "liveRunningObservedAt": "2026-10-27T23:17:46.894792+00:00"
+  },
+  "firstLayerEvidence": {
+    "observedAt": "2026-10-27T23:27:31.422455+00:00",
+    "printerState": "RUNNING",
+    "layer": 1,
+    "totalLayers": 73,
+    "printError": 0,
+    "physicalExtruder0CurrentC": 220,
+    "physicalExtruder0TargetC": 220,
+    "thermalReportScope": "Single instantaneous raw report decoded with pinned official Studio source; not full tool-switch or physical temperature calibration proof.",
+    "pvaDepositionConfirmed": false
   }
 }

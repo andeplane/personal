@@ -4,10 +4,10 @@
     "title": "Titanic · four-color ship and two masts",
     "project": "Titanic and iceberg",
     "printer": "Bambu Lab X2D",
-    "status": "paused",
+    "status": "cancelled",
     "jobName": "Titanic_22b7a2c3_20261026_a1.gcode",
     "recordedAt": "2026-10-26T20:02:04.108671+00:00",
-    "updatedAt": "2026-10-27T05:41:43.827937+00:00",
+    "updatedAt": "2026-10-27T06:06:40.557918+00:00",
     "startedAt": "2026-10-26T20:23:36.546577+00:00",
     "finishedAt": null,
     "plate": 1,
@@ -97,6 +97,11 @@
         "src": "assets/titanic-four-color-20261026-a1/hourly-paused-054150.jpg",
         "capturedAt": "2026-10-27T05:41:50.249226+00:00",
         "caption": "Viewed hourly image during unchanged PAUSE at layer209/319: the incomplete ship remains on the plate with short orange funnel sections, white decks and black/red hull. No obvious new broad loose tangle or lifted hull is visible. The spool/feed/buffer cause and small details remain unverified; human inspection is still required before recovery."
+      },
+      {
+        "src": "assets/titanic-four-color-20261026-a1/terminal-cancelled-060652.jpg",
+        "capturedAt": "2026-10-27T06:06:52.733935+00:00",
+        "caption": "Viewed terminal camera after printer reported task cancellation (0300-400C): ship and prime tower are no longer on the plate. This is an empty-bed image after removal, not a completed-part image. Last confirmed state was paused at91%, layer209/319; removed-part quality and separate-mast outcome remain unverified."
       }
     ],
     "source": {
@@ -108,7 +113,7 @@
       "referenceMake": "https://www.printables.com/make/1003339",
       "mastStlSha256": "b5f5f07612a5b25fa1acae93a9077e60e977b18d5833226f8eceb4c6851effe5"
     },
-    "notes": "Human selected separate plates: Titanic tonight, iceberg tomorrow after removal/cleaning. Started exactly once, project_file SUCCESS with matching file/plate/MD5/sequence and independent RUNNING telemetry. Initial acceptance carried old layer34; fresh RUNNING reports reset to0/319, with preparation and bed55C, not proof of model extrusion. Native X2D 0.4 mm, 0.16 mm High Quality, 3 walls, 15% gyroid, same-material organic/tree supports, 35 mm prime tower, explicit Manual logical map 2 for all four PLA materials and unchanged factory physical map 1,0. Red/black use factory Bambu PLA Basic profiles; white/orange use Generic PLA at 215 C initial and 210 C thereafter. Source ship exterior partitioned into watertight color volumes; total volume difference 0.0041 mm3. Orange begins at 31 mm only on four isolated funnels, keeping raised deck features white; black funnel tips begin at45 mm. Both original mast STL copies are laid flat, slowed to20/25 mm/s and given1.5mmbrims. Stand/nameplate omitted. Native slicing, independent geometry/color, arc-aware restricted-nozzle/collision, mast and actual preview review pass. No floating-region warning. All duration/material are estimates, including supports, prime tower and flushing, not measured usage. Preparation and actual first-layer outline/filling cameras are recorded; Further progress and terminal evidence remain pending; first-layer completion was later confirmed by telemetry advancing tolayer2, with a viewed flat-looking initial hull. Physical cleanup, fragile details and mast fit remain unverified. Before this single authorized start, occupied AMS A2 was registered as white Generic PLA and live verified. Explicit redA1/blackA3/whiteA2/orangeA4 map0,2,1,3 matches actual AMS0 physical0; both live nozzles0.4. Exact unique upload/readback SHA and archiveMD5 verified; embedded G-codeMD5 differs only in hexadecimal letter case. Fresh camera and unchanged free/error0 state/HMS checked immediately before exclusive durable intent. Fresh first-layer outline and subsequent filling were viewed with capture hashes verified. No obvious broad tangle or lifted hull is visible in these frames; adhesion/cleanup/fit/overall physical success remain unqualified. Hourly21:40:33UTC camera shows continued red lower-hull growth near layer33, with no obvious broad tangle or hull lift in this camera view. Actual material usage remains unmeasured. Hourly22:41:32UTC camera shows black upper-hull growth above the red lower hull near layer74; no obvious broad tangle or hull lift is visible in this view. Paused at91% with print_error0700-8010 and newHMS0700-6300-0002-0001: AMS A4 orange assist-motor overload, possibly tangled filament, stuck spool or buffer. Human spool/feed inspection is required; no automatic resume, error clearing or replacement start. Existing exact artifact retained; this feed fault supplies no evidence that reslicing is needed. Bed remained55C at observation, nozzle cooling. finishedAt and actual usage/duration remain null.",
+    "notes": "Human selected separate plates: Titanic tonight, iceberg tomorrow after removal/cleaning. Started exactly once, project_file SUCCESS with matching file/plate/MD5/sequence and independent RUNNING telemetry. Initial acceptance carried old layer34; fresh RUNNING reports reset to0/319, with preparation and bed55C, not proof of model extrusion. Native X2D 0.4 mm, 0.16 mm High Quality, 3 walls, 15% gyroid, same-material organic/tree supports, 35 mm prime tower, explicit Manual logical map 2 for all four PLA materials and unchanged factory physical map 1,0. Red/black use factory Bambu PLA Basic profiles; white/orange use Generic PLA at 215 C initial and 210 C thereafter. Source ship exterior partitioned into watertight color volumes; total volume difference 0.0041 mm3. Orange begins at 31 mm only on four isolated funnels, keeping raised deck features white; black funnel tips begin at45 mm. Both original mast STL copies are laid flat, slowed to20/25 mm/s and given1.5mmbrims. Stand/nameplate omitted. Native slicing, independent geometry/color, arc-aware restricted-nozzle/collision, mast and actual preview review pass. No floating-region warning. All duration/material are estimates, including supports, prime tower and flushing, not measured usage. Preparation and actual first-layer outline/filling cameras are recorded; Further progress and terminal evidence remain pending; first-layer completion was later confirmed by telemetry advancing tolayer2, with a viewed flat-looking initial hull. Physical cleanup, fragile details and mast fit remain unverified. Before this single authorized start, occupied AMS A2 was registered as white Generic PLA and live verified. Explicit redA1/blackA3/whiteA2/orangeA4 map0,2,1,3 matches actual AMS0 physical0; both live nozzles0.4. Exact unique upload/readback SHA and archiveMD5 verified; embedded G-codeMD5 differs only in hexadecimal letter case. Fresh camera and unchanged free/error0 state/HMS checked immediately before exclusive durable intent. Fresh first-layer outline and subsequent filling were viewed with capture hashes verified. No obvious broad tangle or lifted hull is visible in these frames; adhesion/cleanup/fit/overall physical success remain unqualified. Hourly21:40:33UTC camera shows continued red lower-hull growth near layer33, with no obvious broad tangle or hull lift in this camera view. Actual material usage remains unmeasured. Hourly22:41:32UTC camera shows black upper-hull growth above the red lower hull near layer74; no obvious broad tangle or hull lift is visible in this view. Paused at91% with print_error0700-8010 and newHMS0700-6300-0002-0001: AMS A4 orange assist-motor overload, possibly tangled filament, stuck spool or buffer. Human spool/feed inspection is required; no automatic resume, error clearing or replacement start. Existing exact artifact retained; this feed fault supplies no evidence that reslicing is needed. Bed remained55C at observation, nozzle cooling. finishedAt and actual usage/duration remain null. Terminal cancellation was first observed06:06:40UTC with FAILED/0300-400C (task canceled) and both heater targets0C. Exact cancellation time and actor were not observed. Camera06:06:52UTC shows parts already removed; no finished-part evidence. Previous91%pause is retained as the last meaningful progress, since terminal counters reset to0. No resume, cancel, error-clear or replacement command was sent by this monitor. Iceberg remains staged and unstarted.",
     "estimatedColorChanges": 29,
     "estimatedMainGrams": 72.95046615600586,
     "estimatedAdditionalGrams": 26.841849327087402,
@@ -147,6 +152,12 @@
       "printerState": "PAUSE",
       "printError": 117473296,
       "observedAt": "2026-10-27T04:56:42.657838+00:00"
+    },
+    "terminalEvidence": {
+      "observedAt": "2026-10-27T06:06:40.557918+00:00",
+      "printerState": "FAILED",
+      "printError": 50348044,
+      "meaning": "Task cancelled (0300-400C); exact end time and actor unobserved. Progress counters reset, not actual zero duration."
     }
   },
   {

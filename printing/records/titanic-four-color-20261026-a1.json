@@ -6,7 +6,7 @@
   "status": "printing",
   "jobName": "Titanic_22b7a2c3_20261026_a1.gcode",
   "recordedAt": "2026-10-26T20:02:04.108671+00:00",
-  "updatedAt": "2026-10-27T01:41:36.459264+00:00",
+  "updatedAt": "2026-10-27T02:41:38.883407+00:00",
   "startedAt": "2026-10-26T20:23:36.546577+00:00",
   "finishedAt": null,
   "plate": 1,
@@ -71,6 +71,11 @@
       "src": "assets/titanic-four-color-20261026-a1/hourly-014141.jpg",
       "capturedAt": "2026-10-27T01:41:41.388013+00:00",
       "caption": "Viewed hourly image near layer142/319: white deck layers are now visible above the black upper hull and red lower hull, with white also on the prime tower. No obvious broad loose tangle or lifted hull is visible; the toolhead obscures part of the upper-right model. Completion, mast fit and final physical quality remain unverified."
+    },
+    {
+      "src": "assets/titanic-four-color-20261026-a1/hourly-024141.jpg",
+      "capturedAt": "2026-10-27T02:41:41.431028+00:00",
+      "caption": "Viewed hourly image near layer162/319: white deck structures have grown above the black upper hull and red lower hull; the prime tower also has a taller white section. No obvious broad loose tangle or lifted hull is visible in this view; the toolhead obscures part of the upper model. Completion, mast fit and final physical quality remain unverified."
     }
   ],
   "source": {
@@ -109,12 +114,12 @@
     "firstLayerComplete": false
   },
   "latestProgress": {
-    "observedAt": "2026-10-27T01:41:36.459264+00:00",
+    "observedAt": "2026-10-27T02:41:38.883407+00:00",
     "printerState": "RUNNING",
-    "layer": 142,
+    "layer": 162,
     "totalLayers": 319,
-    "percent": 58,
-    "estimatedRemainingMinutes": 215,
+    "percent": 69,
+    "estimatedRemainingMinutes": 160,
     "printError": 0
   }
 }

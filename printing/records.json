@@ -1,10 +1,84 @@
 [
   {
+    "id": "enigma-right-frame-pla-pva-20261028-a2",
+    "title": "Enigma · M01/P02 right-frame retry after feed repair",
+    "project": "Enigma Doublestep",
+    "printer": "Bambu Lab X2D",
+    "status": "printing",
+    "preparationState": "ACCEPTED_PREPARE",
+    "recordedAt": "2026-10-28T17:43:46.803090+00:00",
+    "updatedAt": "2026-10-28T17:43:48.825382+00:00",
+    "startedAt": "2026-10-28T17:43:46.803090+00:00",
+    "finishedAt": null,
+    "plate": 1,
+    "parts": [
+      "M01/P02 · One complete right rotor support frame"
+    ],
+    "estimatedSeconds": 7404,
+    "actualSeconds": null,
+    "estimatedGrams": 33.6,
+    "actualGrams": null,
+    "estimatedMeters": 11.08,
+    "material": "Red PLA model · AMS A1 physical 0; PVA body/interface supports · AMS HT A1 physical 1",
+    "color": "#C12E1F",
+    "layerHeightMm": 0.2,
+    "firstLayerHeightMm": 0.2,
+    "nozzleMm": 0.4,
+    "layers": 73,
+    "preview": "assets/enigma-right-frame-pla-pva-20261028-a2/plan.png",
+    "layout": "assets/enigma-right-frame-pla-pva-20261028-a2/layout.png",
+    "snapshots": [
+      {
+        "src": "assets/enigma-right-frame-pla-pva-20261028-a2/prestart.jpg",
+        "capturedAt": "2026-10-28T17:43:29.222764+00:00",
+        "sha256": "432dfb4ba0e8e111e91a3b38389600fd7bdff0be56255e8535ed5bf992e61d87",
+        "caption": "Fresh visible bed clear; human confirmed whole plate cleared and PVA feed fixed. Front outside camera."
+      },
+      {
+        "src": "assets/enigma-right-frame-pla-pva-20261028-a2/preparing.jpg",
+        "capturedAt": "2026-10-28T17:44:10.036476+00:00",
+        "sha256": "d9a32faeba0167e6ef4ea79cb5337918f30537da2928e63ddc14e25c67ef51ac",
+        "caption": "Exact retry accepted and preparing; head moved, no model deposition yet confirmed. Actual image viewed."
+      }
+    ],
+    "evidenceImages": [
+      {
+        "src": "assets/enigma-right-frame-pla-pva-20261028-a2/model-toolpaths.png",
+        "kind": "derived-toolpaths",
+        "caption": "Actual sliced model/support paths at selected layers; nominal geometry only, no physical cleanup or fit proof.",
+        "sha256": "1b5b14fb38460171c210fab6870b4f13927d138ec5f585e283099e7f7b9b35d8"
+      }
+    ],
+    "source": {
+      "filename": "M01_P02_FRAME_RIGHT_SLICED.3mf",
+      "sha256": "f82a3f0530f0c4d7156aefd2f055b13e6a8fc281736809856b713e8572013513",
+      "selectedSourcePullRequest": "https://github.com/andeplane/openenigma/pull/209",
+      "baseCommit": "9a99cafae31c5fec63cd4026b7995bade05da82c",
+      "releaseCommit": "1d58267e24d456e026b4da644a19344c9bce19a9",
+      "releasePullRequest": "https://github.com/andeplane/openenigma/pull/210",
+      "selectionSha256": "59802e4d4aefd350a905203374136563a831e24d080252886bc0c278f7bff360",
+      "editableSha256": "65822147953539a5f87f79ecd8315d111380ef1edf2bf0a1bc30fefe086118fc",
+      "gcodeSha256": "b88cd99029dccbe935cdd27a10186e88bae752fe5db1470cd7b0c21b73daf9ac",
+      "currentMainVerified": "6c27b267e37eec7852af7d56defd5095219e1b80"
+    },
+    "jobName": "Enigma_P02_f82a3f05_20261028_a2.gcode",
+    "notes": "Fresh human-authorized retry after whole-bed clearance and PVA feed repair confirmed. Identical reviewed one complete right-frame slice: red PLA main physical0, PVA support secondary physical1; 0.2mm,4walls,30%gyroid,8mm brim,texturedPEI,dual0.4. Normal current-main preparation, exact new upload/readback and artifact audit passed. Accepted PREPARE, then RUNNING observed at2026-10-28T17:44:29.463955Z on layer0/73,error0. Retained HMS codes do not establish physical success. First-layer adhesion, PVA deposition, cleanup and rod fit unverified; actual duration/usage unknown. No automatic replacement or blind resume.",
+    "acceptedJob": {
+      "file": "/Enigma_P02_f82a3f05_20261028_a2.gcode.3mf",
+      "md5": "190a3cffe07daa20d0656f3de5d19bb3",
+      "plate": 1,
+      "sequenceId": "10281301",
+      "taskId": "6969",
+      "observedAt": "2026-10-28T17:43:48.825382+00:00",
+      "liveRunningObservedAt": "2026-10-28T17:44:29.463955+00:00"
+    }
+  },
+  {
     "id": "enigma-right-frame-pla-pva-20261027-a1",
     "title": "Enigma · M01/P02 complete right-frame cleanup and fit trial",
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
-    "status": "failed",
+    "status": "cancelled",
     "preparationState": "TERMINAL_FAILED_PHYSICAL_FEED_AND_BED_CLEANUP_HOLDS",
     "recordedAt": "2026-10-27T22:59:12.982607+00:00",
     "updatedAt": "2026-10-28T11:04:26.263476+00:00",
@@ -79,7 +153,7 @@
       "gcodeSha256": "b88cd99029dccbe935cdd27a10186e88bae752fe5db1470cd7b0c21b73daf9ac"
     },
     "jobName": "Enigma_P02_f82a3f05_20261027_a1.gcode",
-    "notes": "One complete right frame accepted once after normal preparation from clean current main, exact geometry/critical-feature/guide reviews, unique identical-byte official upload readback and fresh runtime/nozzle/material/bed checks. Calibration enabled after relocation. Fresh camera confirmed red first-layer deposition; physical tool0 reported220C/220C and tool1 later240C/240C, single observations rather than complete thermal/feed qualification. The printer subsequently auto-paused at layer1/73. First observed23:39:27UTC, following lastobservedRUNNING23:34:58UTC; exact pause time unknown. Active error18008006 means unable to feed filament; HMS1800-2000-0002-0003 says AMS-HT A filament may be broken. That unit contains PVA. A break, tangle, stuck spool or PTFE path problem is not physically confirmed. PVA deposition remains unconfirmed. Red first layer remains onbed without an obvious tangled pile in the viewed pause camera. No resume, cancel or replacement was sent. Physical PVA spool/feed-path inspection is required before any recovery. Previous finish estimate withdrawn; frozen reportedremaining109minutes is not a new finish ETA. Retained0C0001000002001B remains semantically unknown (blank official description). Slicer estimate7404s33.60g remains distinct from unknown actual duration/usage. Left frame remains queued; cleanup, dimensions and loaded behavior remain unverified. Terminal update: after a brief observed RUNNING state with the feed error cleared at 10:59:13UTC, the same error and PAUSE returned by 10:59:39UTC without layer progress. The controller sent no resume or cancellation commands, and physical feed resolution was never confirmed. FAILED was first observed at 11:04:11UTC with heater targets off and reset layer counter0/73; this is not completion. Exact terminal time and cause are unknown, so finishedAt remains null. The fresh terminal view shows incomplete red material with visible curling/lifting near the central opening. Wall time including the long pause is not measured print duration. No replacement started. The six-hour authorization window expired at04:48:42UTC; future recovery or starts need new human instruction plus physical feed inspection, bed cleanup and normal release gates.",
+    "notes": "One complete right frame accepted once after normal preparation from clean current main, exact geometry/critical-feature/guide reviews, unique identical-byte official upload readback and fresh runtime/nozzle/material/bed checks. Calibration enabled after relocation. Fresh camera confirmed red first-layer deposition; physical tool0 reported220C/220C and tool1 later240C/240C, single observations rather than complete thermal/feed qualification. The printer subsequently auto-paused at layer1/73. First observed23:39:27UTC, following lastobservedRUNNING23:34:58UTC; exact pause time unknown. Active error18008006 means unable to feed filament; HMS1800-2000-0002-0003 says AMS-HT A filament may be broken. That unit contains PVA. A break, tangle, stuck spool or PTFE path problem is not physically confirmed. PVA deposition remains unconfirmed. Red first layer remains onbed without an obvious tangled pile in the viewed pause camera. No resume, cancel or replacement was sent. Physical PVA spool/feed-path inspection is required before any recovery. Previous finish estimate withdrawn; frozen reportedremaining109minutes is not a new finish ETA. Retained0C0001000002001B remains semantically unknown (blank official description). Slicer estimate7404s33.60g remains distinct from unknown actual duration/usage. Left frame remains queued; cleanup, dimensions and loaded behavior remain unverified. Terminal update: after a brief observed RUNNING state with the feed error cleared at 10:59:13UTC, the same error and PAUSE returned by 10:59:39UTC without layer progress. The controller sent no resume or cancellation commands, and physical feed resolution was never confirmed. FAILED was first observed at 11:04:11UTC with heater targets off and reset layer counter0/73; this is not completion. Exact terminal time and cause are unknown, so finishedAt remains null. The fresh terminal view shows incomplete red material with visible curling/lifting near the central opening. Wall time including the long pause is not measured print duration. No replacement started. The six-hour authorization window expired at04:48:42UTC; future recovery or starts need new human instruction plus physical feed inspection, bed cleanup and normal release gates. Human later confirmed they cancelled this attempt and fixed a thing. Exact cancellation time unknown; FAILED telemetry retained.",
     "acceptedJob": {
       "file": "/Enigma_P02_f82a3f05_20261027_a1.gcode.3mf",
       "md5": "190a3cffe07daa20d0656f3de5d19bb3",
@@ -127,7 +201,8 @@
       "controllerCancelSent": false,
       "controllerResumeSent": false,
       "heaterTargetsC": 0,
-      "actualDurationUnknown": true
+      "actualDurationUnknown": true,
+      "humanConfirmedCancellation": true
     },
     "recoveryObservation": {
       "runningObservedAt": "2026-10-28T10:59:13.206208+00:00",

@@ -4,10 +4,10 @@
     "title": "Enigma · M01/P02 complete right-frame cleanup and fit trial",
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
-    "status": "paused",
-    "preparationState": "PHYSICAL_PVA_FEED_INSPECTION_REQUIRED_NO_AUTOMATIC_RESUME",
+    "status": "failed",
+    "preparationState": "TERMINAL_FAILED_PHYSICAL_FEED_AND_BED_CLEANUP_HOLDS",
     "recordedAt": "2026-10-27T22:59:12.982607+00:00",
-    "updatedAt": "2026-10-27T23:41:31.768572+00:00",
+    "updatedAt": "2026-10-28T11:04:26.263476+00:00",
     "startedAt": "2026-10-27T23:17:14.311813+00:00",
     "finishedAt": null,
     "plate": 1,
@@ -51,6 +51,12 @@
         "capturedAt": "2026-10-27T23:39:48.764362+00:00",
         "sha256": "85f08da3dc40df64b6b63d8c289092817ebc3de7e3e775b1d1fd4b0b941b2c5f",
         "caption": "Printer paused on the first-layer AMS-HT feed error. Red model/brim remains on bed, with no obvious tangled pile; camera cannot inspect the PVA spool or PTFE path or confirm a filament break."
+      },
+      {
+        "src": "assets/enigma-right-frame-pla-pva-20261027-a1/terminal-failed.jpg",
+        "capturedAt": "2026-10-28T11:04:26.263476+00:00",
+        "sha256": "7e908ce247af750ff2c9cf0b95fcce22cae50b39db8ad61d05b3103a08cdc061",
+        "caption": "Fresh camera after same accepted job reported FAILED. Incomplete red first-layer material remains, including visibly lifted/curled material near the central opening; no completed frame. PVA deposition and physical feed fault cause remain unconfirmed."
       }
     ],
     "evidenceImages": [
@@ -73,7 +79,7 @@
       "gcodeSha256": "b88cd99029dccbe935cdd27a10186e88bae752fe5db1470cd7b0c21b73daf9ac"
     },
     "jobName": "Enigma_P02_f82a3f05_20261027_a1.gcode",
-    "notes": "One complete right frame accepted once after normal preparation from clean current main, exact geometry/critical-feature/guide reviews, unique identical-byte official upload readback and fresh runtime/nozzle/material/bed checks. Calibration enabled after relocation. Fresh camera confirmed red first-layer deposition; physical tool0 reported220C/220C and tool1 later240C/240C, single observations rather than complete thermal/feed qualification. The printer subsequently auto-paused at layer1/73. First observed23:39:27UTC, following lastobservedRUNNING23:34:58UTC; exact pause time unknown. Active error18008006 means unable to feed filament; HMS1800-2000-0002-0003 says AMS-HT A filament may be broken. That unit contains PVA. A break, tangle, stuck spool or PTFE path problem is not physically confirmed. PVA deposition remains unconfirmed. Red first layer remains onbed without an obvious tangled pile in the viewed pause camera. No resume, cancel or replacement was sent. Physical PVA spool/feed-path inspection is required before any recovery. Previous finish estimate withdrawn; frozen reportedremaining109minutes is not a new finish ETA. Retained0C0001000002001B remains semantically unknown (blank official description). Slicer estimate7404s33.60g remains distinct from unknown actual duration/usage. Left frame remains queued; cleanup, dimensions and loaded behavior remain unverified.",
+    "notes": "One complete right frame accepted once after normal preparation from clean current main, exact geometry/critical-feature/guide reviews, unique identical-byte official upload readback and fresh runtime/nozzle/material/bed checks. Calibration enabled after relocation. Fresh camera confirmed red first-layer deposition; physical tool0 reported220C/220C and tool1 later240C/240C, single observations rather than complete thermal/feed qualification. The printer subsequently auto-paused at layer1/73. First observed23:39:27UTC, following lastobservedRUNNING23:34:58UTC; exact pause time unknown. Active error18008006 means unable to feed filament; HMS1800-2000-0002-0003 says AMS-HT A filament may be broken. That unit contains PVA. A break, tangle, stuck spool or PTFE path problem is not physically confirmed. PVA deposition remains unconfirmed. Red first layer remains onbed without an obvious tangled pile in the viewed pause camera. No resume, cancel or replacement was sent. Physical PVA spool/feed-path inspection is required before any recovery. Previous finish estimate withdrawn; frozen reportedremaining109minutes is not a new finish ETA. Retained0C0001000002001B remains semantically unknown (blank official description). Slicer estimate7404s33.60g remains distinct from unknown actual duration/usage. Left frame remains queued; cleanup, dimensions and loaded behavior remain unverified. Terminal update: after a brief observed RUNNING state with the feed error cleared at 10:59:13UTC, the same error and PAUSE returned by 10:59:39UTC without layer progress. The controller sent no resume or cancellation commands, and physical feed resolution was never confirmed. FAILED was first observed at 11:04:11UTC with heater targets off and reset layer counter0/73; this is not completion. Exact terminal time and cause are unknown, so finishedAt remains null. The fresh terminal view shows incomplete red material with visible curling/lifting near the central opening. Wall time including the long pause is not measured print duration. No replacement started. The six-hour authorization window expired at04:48:42UTC; future recovery or starts need new human instruction plus physical feed inspection, bed cleanup and normal release gates.",
     "acceptedJob": {
       "file": "/Enigma_P02_f82a3f05_20261027_a1.gcode.3mf",
       "md5": "190a3cffe07daa20d0656f3de5d19bb3",
@@ -107,6 +113,29 @@
       "providerMessage": "Unable to feed filament into the extruder; AMS-HT A filament may be broken.",
       "physicalCauseConfirmed": false,
       "automaticResumeAllowed": false
+    },
+    "terminalEvidence": {
+      "printerState": "FAILED",
+      "observedAt": "2026-10-28T11:04:11.643284+00:00",
+      "lastObservedPausedAt": "2026-10-28T10:59:39.350794+00:00",
+      "layerCounter": 0,
+      "totalLayers": 73,
+      "lastObservedPrintingLayer": 1,
+      "printError": 0,
+      "exactTerminalTimeKnown": false,
+      "terminalCauseConfirmed": false,
+      "controllerCancelSent": false,
+      "controllerResumeSent": false,
+      "heaterTargetsC": 0,
+      "actualDurationUnknown": true
+    },
+    "recoveryObservation": {
+      "runningObservedAt": "2026-10-28T10:59:13.206208+00:00",
+      "pausedAgainObservedAt": "2026-10-28T10:59:39.350794+00:00",
+      "layer": 1,
+      "printErrorOnPause": 402685958,
+      "controllerResumeSent": false,
+      "physicalResolutionConfirmed": false
     }
   },
   {

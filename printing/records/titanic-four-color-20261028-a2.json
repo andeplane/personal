@@ -34,17 +34,45 @@
     3
   ],
   "id": "titanic-four-color-20261028-a2",
-  "status": "planned",
+  "status": "printing",
   "jobName": "Titanic_22b7a2c3_20261028_a2.gcode",
   "recordedAt": "2026-10-28T21:25:15.013072+00:00",
-  "updatedAt": "2026-10-28T21:26:29.356744+00:00",
-  "startedAt": null,
+  "updatedAt": "2026-10-28T21:36:57.675407+00:00",
+  "startedAt": "2026-10-28T21:35:37.900954+00:00",
   "finishedAt": null,
   "actualSeconds": null,
   "actualGrams": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "src": "assets/titanic-four-color-20261028-a2/prestart-213511.jpg",
+      "capturedAt": "2026-10-28T21:35:11.623975+00:00",
+      "caption": "Before start: entire textured plate viewed empty of print objects; pale prior outlines remain, plate seated."
+    },
+    {
+      "src": "assets/titanic-four-color-20261028-a2/preparing-213638.jpg",
+      "capturedAt": "2026-10-28T21:36:38.536395+00:00",
+      "caption": "During preparation: plate remains without model deposition, head above the bed. This is preparation evidence, not first-layer or finished-part evidence."
+    }
+  ],
   "preview": "assets/titanic-four-color-20261028-a2/plan.png",
   "layout": "assets/titanic-four-color-20261028-a2/layout.png",
   "layers": 319,
-  "notes": "New retry preparation requested by human on 28 October; not started. Exact original ship-and-two-mast artifact SHA-256, archive integrity, embedded G-code MD5 and local/remote source equality reverified. Hash-bound geometry, inventory, color and arc-aware path reviews remain applicable; no reslicing or geometry correction is justified by the prior orange A4 feed overload. Red A1 / black A3 / white A2 / orange A4 mapping is intended and must be freshly checked. Printer currently unreachable; live material/nozzle status, exact device-file readback and fresh camera clearance remain pending. Human confirmed orange feed issue fixed and reported ready after removal. Fresh camera clearance and live material/device checks still required before the authorized start. All times/materials are slicer estimates, not measured usage. No start command published."
+  "notes": "Started exactly once after current human readiness and repaired orange-feed confirmation. Exact unique-file upload/readback SHA-256 and archive MD5 verified; fresh clear-bed camera, all four live PLA colors/profiles, AMS mapping and both 0.4 mm nozzles checked. Printer LAN address had changed; direct M4 connection authenticated the configured device. Previous Enigma job was terminal and its monitor stopped; controller ownership reconciled before start. SUCCESS acceptance matches new file, MD5, plate and sequence. Independent fresh RUNNING at layer 0/319, error 0, estimated 518 minutes remaining confirms preparation, not extrusion. Initial acceptance retained old layer 73 from Enigma before resetting to 0. Retained HMS notification 0500-0200-0003-000A has unknown text and unchanged timestamp predating the completed Enigma job; classification does not establish physical resolution. No error-clearing command was sent. Exact original reviewed 269 mm four-color ship and two flat orange masts reused; no reslicing. Red A1 / black A3 / white A2 / orange A4 map [0,2,1,3] to AMS0 physical0. PVA unused. First-layer adhesion, physical quality, fine details and mast fit remain unverified. Duration and material remain estimates; actual measurements unknown.",
+  "acceptedJob": {
+    "file": "/Titanic_22b7a2c3_20261028_a2.gcode.3mf",
+    "plate": 1,
+    "md5": "46895770456204ced879c768f2412995",
+    "sequenceId": "10282130",
+    "observedAt": "2026-10-28T21:35:37.900954+00:00",
+    "liveRunningObservedAt": "2026-10-28T21:36:15.795906+00:00"
+  },
+  "latestProgress": {
+    "observedAt": "2026-10-28T21:36:15.795906+00:00",
+    "printerState": "RUNNING",
+    "layer": 0,
+    "totalLayers": 319,
+    "percent": 0,
+    "estimatedRemainingMinutes": 518,
+    "printError": 0
+  }
 }

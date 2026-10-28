@@ -5,9 +5,9 @@
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
     "status": "printing",
-    "preparationState": "ACCEPTED_PREPARE",
+    "preparationState": "RUNNING_LAYER1_RED_DEPOSITION_VIEWED",
     "recordedAt": "2026-10-28T17:43:46.803090+00:00",
-    "updatedAt": "2026-10-28T17:43:48.825382+00:00",
+    "updatedAt": "2026-10-28T17:56:19.838791+00:00",
     "startedAt": "2026-10-28T17:43:46.803090+00:00",
     "finishedAt": null,
     "plate": 1,
@@ -39,6 +39,12 @@
         "capturedAt": "2026-10-28T17:44:10.036476+00:00",
         "sha256": "d9a32faeba0167e6ef4ea79cb5337918f30537da2928e63ddc14e25c67ef51ac",
         "caption": "Exact retry accepted and preparing; head moved, no model deposition yet confirmed. Actual image viewed."
+      },
+      {
+        "src": "assets/enigma-right-frame-pla-pva-20261028-a2/first-layer.jpg",
+        "capturedAt": "2026-10-28T17:56:19.838791+00:00",
+        "sha256": "9edda1e4dee0bec69db71ff69f3dd064fd68d6ca207ac811b32afd0da0aded2d",
+        "caption": "Red first-layer model/brim outlines lie on bed; no obvious tangled pile. Thin red strand extends toward right purge edge. Broad view does not prove whole-part adhesion or PVA deposition."
       }
     ],
     "evidenceImages": [
@@ -62,7 +68,7 @@
       "currentMainVerified": "6c27b267e37eec7852af7d56defd5095219e1b80"
     },
     "jobName": "Enigma_P02_f82a3f05_20261028_a2.gcode",
-    "notes": "Fresh human-authorized retry after whole-bed clearance and PVA feed repair confirmed. Identical reviewed one complete right-frame slice: red PLA main physical0, PVA support secondary physical1; 0.2mm,4walls,30%gyroid,8mm brim,texturedPEI,dual0.4. Normal current-main preparation, exact new upload/readback and artifact audit passed. Accepted PREPARE, then RUNNING observed at2026-10-28T17:44:29.463955Z on layer0/73,error0. Retained HMS codes do not establish physical success. First-layer adhesion, PVA deposition, cleanup and rod fit unverified; actual duration/usage unknown. No automatic replacement or blind resume.",
+    "notes": "Fresh human-authorized retry after whole-bed clearance and PVA feed repair confirmed. Identical reviewed one complete right-frame slice: red PLA main physical0, PVA support secondary physical1; 0.2mm,4walls,30%gyroid,8mm brim,texturedPEI,dual0.4. Normal current-main preparation, exact new upload/readback and artifact audit passed. Accepted PREPARE, then RUNNING observed at2026-10-28T17:44:29.463955Z on layer0/73,error0. Retained HMS codes do not establish physical success. First-layer adhesion, PVA deposition, cleanup and rod fit unverified; actual duration/usage unknown. No automatic replacement or blind resume. Fresh layer1 report and camera confirm red deposition. First-layer overall adhesion, PVA deposition and finished quality remain unverified.",
     "acceptedJob": {
       "file": "/Enigma_P02_f82a3f05_20261028_a2.gcode.3mf",
       "md5": "190a3cffe07daa20d0656f3de5d19bb3",
@@ -71,6 +77,16 @@
       "taskId": "6969",
       "observedAt": "2026-10-28T17:43:48.825382+00:00",
       "liveRunningObservedAt": "2026-10-28T17:44:29.463955+00:00"
+    },
+    "firstLayerEvidence": {
+      "observedAt": "2026-10-28T17:56:12.939278+00:00",
+      "printerState": "RUNNING",
+      "layer": 1,
+      "totalLayers": 73,
+      "printError": 0,
+      "physicalExtruder0CurrentC": 220,
+      "physicalExtruder0TargetC": 220,
+      "pvaDepositionConfirmed": false
     }
   },
   {

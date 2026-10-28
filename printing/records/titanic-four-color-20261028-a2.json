@@ -1,0 +1,50 @@
+{
+  "title": "Titanic \u00b7 four-color ship and two masts",
+  "project": "Titanic and iceberg",
+  "printer": "Bambu Lab X2D",
+  "plate": 1,
+  "parts": [
+    "One 269 mm Titanic: red lower hull, black upper hull, white decks, four orange funnels with black tops",
+    "Two separate orange masts laid flat; assembly required"
+  ],
+  "estimatedSeconds": 31124,
+  "estimatedGrams": 99.79,
+  "estimatedMeters": 33.2,
+  "material": "PLA: red and black Bambu Basic; white and orange Clas Ohlson Universal / Generic PLA",
+  "color": "#FFFFFF",
+  "layerHeightMm": 0.16,
+  "firstLayerHeightMm": 0.2,
+  "nozzleMm": 0.4,
+  "source": {
+    "filename": "titanic-with-masts.gcode.3mf",
+    "sha256": "22b7a2c30ef75cab8c8977a58fb67eacb585d1c6d6c9abb9a9311f765d914b22",
+    "shipStlSha256": "354dc4b2f1522f384b210530f3bc7e0e3b9a47054f8700065b5ca13c4a01e8aa",
+    "url": "https://www.printables.com/model/211355-rms-titanic-11000",
+    "author": "vandragon_de",
+    "referenceMake": "https://www.printables.com/make/1003339",
+    "mastStlSha256": "b5f5f07612a5b25fa1acae93a9077e60e977b18d5833226f8eceb4c6851effe5"
+  },
+  "estimatedColorChanges": 29,
+  "estimatedMainGrams": 72.95046615600586,
+  "estimatedAdditionalGrams": 26.841849327087402,
+  "amsMapping": [
+    0,
+    2,
+    1,
+    3
+  ],
+  "id": "titanic-four-color-20261028-a2",
+  "status": "planned",
+  "jobName": "Titanic_22b7a2c3_20261028_a2.gcode",
+  "recordedAt": "2026-10-28T21:25:15.013072+00:00",
+  "updatedAt": "2026-10-28T21:25:15.013072+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "actualSeconds": null,
+  "actualGrams": null,
+  "snapshots": [],
+  "preview": "assets/titanic-four-color-20261028-a2/plan.png",
+  "layout": "assets/titanic-four-color-20261028-a2/layout.png",
+  "layers": 319,
+  "notes": "New retry preparation requested by human on 28 October; not started. Exact original ship-and-two-mast artifact SHA-256, archive integrity, embedded G-code MD5 and local/remote source equality reverified. Hash-bound geometry, inventory, color and arc-aware path reviews remain applicable; no reslicing or geometry correction is justified by the prior orange A4 feed overload. Red A1 / black A3 / white A2 / orange A4 mapping is intended and must be freshly checked. Printer currently unreachable; live material/nozzle status, exact device-file readback and fresh camera clearance remain pending. Human will remove current print and clean plate; orange spool/feed/buffer recovery confirmation remains pending. All times/materials are slicer estimates, not measured usage. No start command published."
+}

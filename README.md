@@ -47,3 +47,8 @@ og lenkes bare til herfra.
 [Printlogg](https://andeplane.github.io/personal/printing/) med én post per kjøring,
 platevisning, kamerabilder og estimert/faktisk tid og forbruk.
 Se [logging workflow](printing/README.md) og [AGENTS.md](AGENTS.md).
+
+## Hue og Halloween-vindu
+
+[Lokal styring og oppsett](hue/README.md) for Hue Bridge, fargescener og et
+kontrollert vinduslys. Tilgangsnøkler lagres utenfor repoet.

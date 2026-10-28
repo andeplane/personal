@@ -4,10 +4,10 @@
     "title": "Enigma · M01/P02 right-frame retry after feed repair",
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
-    "status": "printing",
-    "preparationState": "RUNNING_LAYER1_RED_DEPOSITION_VIEWED",
+    "status": "completed",
+    "preparationState": "PRINTER_FINISH_PHYSICAL_CLEANUP_AND_FIT_UNVERIFIED",
     "recordedAt": "2026-10-28T17:43:46.803090+00:00",
-    "updatedAt": "2026-10-28T17:56:19.838791+00:00",
+    "updatedAt": "2026-10-28T19:56:23.716674+00:00",
     "startedAt": "2026-10-28T17:43:46.803090+00:00",
     "finishedAt": null,
     "plate": 1,
@@ -45,6 +45,18 @@
         "capturedAt": "2026-10-28T17:56:19.838791+00:00",
         "sha256": "9edda1e4dee0bec69db71ff69f3dd064fd68d6ca207ac811b32afd0da0aded2d",
         "caption": "Red first-layer model/brim outlines lie on bed; no obvious tangled pile. Thin red strand extends toward right purge edge. Broad view does not prove whole-part adhesion or PVA deposition."
+      },
+      {
+        "src": "assets/enigma-right-frame-pla-pva-20261028-a2/hourly-1925.jpg",
+        "capturedAt": "2026-10-28T19:25:25.405529+00:00",
+        "sha256": "aa41171d6d06f59d330372ba90d049016d59f3d856eee8e4f91991a112763960",
+        "caption": "During layer24 RUNNING: red walls visibly rising above brim, no obvious tangled pile or gross lifting. Hidden support, PVA deposition and fit unverified."
+      },
+      {
+        "src": "assets/enigma-right-frame-pla-pva-20261028-a2/completed.jpg",
+        "capturedAt": "2026-10-28T19:56:23.716674+00:00",
+        "sha256": "f19f236f15f0469f4f5a48436555f1d106d292239ab2506f234659d9160053db",
+        "caption": "Fresh camera after exact job reported FINISH73/73. Right-frame geometry, uprights and brim remain on plate, with separate purge tower behind. No obvious gross collapse or tangled pile; support cleanup, bore dimensions, rod fit and strength remain unverified."
       }
     ],
     "evidenceImages": [
@@ -68,7 +80,7 @@
       "currentMainVerified": "6c27b267e37eec7852af7d56defd5095219e1b80"
     },
     "jobName": "Enigma_P02_f82a3f05_20261028_a2.gcode",
-    "notes": "Fresh human-authorized retry after whole-bed clearance and PVA feed repair confirmed. Identical reviewed one complete right-frame slice: red PLA main physical0, PVA support secondary physical1; 0.2mm,4walls,30%gyroid,8mm brim,texturedPEI,dual0.4. Normal current-main preparation, exact new upload/readback and artifact audit passed. Accepted PREPARE, then RUNNING observed at2026-10-28T17:44:29.463955Z on layer0/73,error0. Retained HMS codes do not establish physical success. First-layer adhesion, PVA deposition, cleanup and rod fit unverified; actual duration/usage unknown. No automatic replacement or blind resume. Fresh layer1 report and camera confirm red deposition. First-layer overall adhesion, PVA deposition and finished quality remain unverified.",
+    "notes": "Fresh human-authorized retry after whole-bed clearance and PVA feed repair confirmed. Identical reviewed one complete right-frame slice: red PLA main physical0, PVA support secondary physical1; 0.2mm,4walls,30%gyroid,8mm brim,texturedPEI,dual0.4. Normal current-main preparation, exact new upload/readback and artifact audit passed. Accepted PREPARE, then RUNNING observed at2026-10-28T17:44:29.463955Z on layer0/73,error0. Retained HMS codes do not establish physical success. First-layer adhesion, PVA deposition, cleanup and rod fit unverified; actual duration/usage unknown. No automatic replacement or blind resume. Fresh layer1 report and camera confirm red deposition. First-layer overall adhesion, PVA deposition and finished quality remain unverified. Printer FINISH observed19:56:12Z at73/73,error0 with both nozzle and bed targets0. Exact finish instant is bounded by last RUNNING19:55:18Z and first FINISH19:56:12Z; finishedAt/actualSeconds/actualGrams remain null rather than presenting observation wall time as measured print duration. Fresh terminal camera shows completed-looking frame on plate and purge tower; support removal/dissolution, permanent-feature inspection, rod fit and loaded operation remain physical holds. The PVA feed-resistance HMS warning reported during printing was absent in terminal telemetry; that does not confirm its physical cause or resolution. No further print was started.",
     "acceptedJob": {
       "file": "/Enigma_P02_f82a3f05_20261028_a2.gcode.3mf",
       "md5": "190a3cffe07daa20d0656f3de5d19bb3",
@@ -87,6 +99,26 @@
       "physicalExtruder0CurrentC": 220,
       "physicalExtruder0TargetC": 220,
       "pvaDepositionConfirmed": false
+    },
+    "terminalEvidence": {
+      "printerState": "FINISH",
+      "observedAt": "2026-10-28T19:56:12.035271+00:00",
+      "lastObservedRunningAt": "2026-10-28T19:55:18.792770+00:00",
+      "layer": 73,
+      "totalLayers": 73,
+      "percent": 100,
+      "printError": 0,
+      "allHeaterTargetsC": 0,
+      "exactTerminalTimeKnown": false,
+      "actualDurationUnknown": true,
+      "physicalCleanupVerified": false,
+      "physicalFitVerified": false
+    },
+    "feedResistanceWarningEvidence": {
+      "hmsCode": "1800200000020025",
+      "firstObservedAt": "2026-10-28T18:06:16.068647+00:00",
+      "description": "AMS-HT A slot1 feed resistance too high; physical cause unconfirmed. Continued RUNNING without active print_error. Warning absent from final report.",
+      "humanNotified": true
     }
   },
   {

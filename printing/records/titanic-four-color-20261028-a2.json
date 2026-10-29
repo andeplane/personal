@@ -37,7 +37,7 @@
   "status": "printing",
   "jobName": "Titanic_22b7a2c3_20261028_a2.gcode",
   "recordedAt": "2026-10-28T21:25:15.013072+00:00",
-  "updatedAt": "2026-10-29T13:09:24.089203+00:00",
+  "updatedAt": "2026-10-29T14:09:27.585627+00:00",
   "startedAt": "2026-10-28T21:35:37.900954+00:00",
   "finishedAt": null,
   "actualSeconds": null,
@@ -137,6 +137,11 @@
       "src": "assets/titanic-four-color-20261028-a2/hourly-running-130924.jpg",
       "capturedAt": "2026-10-29T13:09:24.089203+00:00",
       "caption": "Hourly camera at reported layer 128/319: white top material is now visible above the black/red hull and on the purge tower. Visible bases remain on the plate with no obvious major detachment or broad spaghetti. Toolhead partly obscures the upper hull; full adhesion and final quality remain unverified."
+    },
+    {
+      "src": "assets/titanic-four-color-20261028-a2/hourly-running-140927.jpg",
+      "capturedAt": "2026-10-29T14:09:27.585627+00:00",
+      "caption": "Hourly camera at reported layer 147/319: white upper hull/deck and purge tower have grown above black/red layers. Visible bases remain on the plate with no obvious major detachment or broad spaghetti in view. Toolhead partly obscures the left hull; full adhesion and final quality remain unverified."
     }
   ],
   "preview": "assets/titanic-four-color-20261028-a2/plan.png",
@@ -152,12 +157,12 @@
     "liveRunningObservedAt": "2026-10-28T21:36:15.795906+00:00"
   },
   "latestProgress": {
-    "observedAt": "2026-10-29T13:09:16.701522+00:00",
+    "observedAt": "2026-10-29T14:09:19.731565+00:00",
     "printerState": "RUNNING",
-    "layer": 128,
+    "layer": 147,
     "totalLayers": 319,
-    "percent": 50,
-    "estimatedRemainingMinutes": 256,
+    "percent": 61,
+    "estimatedRemainingMinutes": 201,
     "printError": 0
   },
   "pauseEvidence": {

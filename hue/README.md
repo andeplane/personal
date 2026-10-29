@@ -134,9 +134,16 @@ uv pip install --python ~/.config/hue-halloween/venv/bin/python -r hue/requireme
 ~/.config/hue-halloween/venv/bin/python hue/lightning.py listen
 ```
 
-The sequence starts with four seconds of irregular white lightning, holds soft
-warm-white light for a randomly chosen 5–10 seconds, and plays a second four-second
-lightning burst. It then holds the warm-white light for five minutes, adding
+The first selected Entertainment channel is the steady anchor: it holds soft
+warm white throughout the active sequence, including lightning bursts. The other
+channels flash. Each burst generates fresh timing and brightness per flashing
+bulb, with an occasional shared strike; adding a third bulb therefore allows one
+steady anchor and two independently flashing bulbs. Add the bulb deliberately to
+the Entertainment area and rerun setup before using changed membership.
+
+The sequence starts with four seconds of irregular white lightning on the flashing
+bulbs, holds all bulbs steady for a randomly chosen 5–10 seconds, and plays a
+second four-second lightning burst. It then holds the warm-white light for five minutes, adding
 four-second lightning bursts after randomly chosen 20–40-second steady intervals.
 The five-minute phase has a fixed end, including its bursts; the total sequence
 lasts 5 minutes 13–18 seconds. It finishes off and stays off while idle.

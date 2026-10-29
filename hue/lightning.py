@@ -26,8 +26,8 @@ STRIKES = ((0.15, 0.27, 1.0), (1.25, 1.40, 0.7), (2.80, 3.03, 1.0))
 STEADY = (23000, 17000, 11000)
 
 
-def intensity(elapsed):
-    for start, end, peak in STRIKES:
+def intensity(elapsed, strikes=STRIKES):
+    for start, end, peak in strikes:
         if start <= elapsed < end:
             return peak * (1 - 0.6 * (elapsed-start)/(end-start))
     return 0.0
@@ -50,15 +50,42 @@ def sequence(rng=None):
     return plan
 
 
-def color_at(elapsed, plan):
-    for mode, duration in plan:
+def lightning_patterns(plan, channels, rng=None):
+    rng = rng or random.SystemRandom()
+    patterns = {}
+    for index, (mode, _) in enumerate(plan):
+        if mode != 'lightning':
+            continue
+        start = rng.uniform(0.12, 0.3)
+        shared = (start, start + rng.uniform(0.1, 0.2), rng.uniform(0.75, 1))
+        patterns[index] = {}
+        for channel in channels:
+            strikes = [shared]
+            for low, high in ((1.0, 1.6), (2.0, 2.6), (3.1, 3.6)):
+                start = rng.uniform(low, high)
+                strikes.append((start, start + rng.uniform(0.08, 0.22), rng.uniform(0.45, 1)))
+            patterns[index][channel] = strikes
+    return patterns
+
+
+def color_at(elapsed, plan, patterns=None, channel=None):
+    for index, (mode, duration) in enumerate(plan):
         if elapsed < duration:
             if mode == 'steady':
                 return STEADY
-            value = int(65535 * intensity(elapsed))
+            strikes = STRIKES if patterns is None else patterns[index][channel]
+            value = int(65535 * intensity(elapsed, strikes))
             return (value, value, value)
         elapsed -= duration
     return None
+
+
+def frame_at(elapsed, plan, patterns, channels):
+    if elapsed >= sum(duration for _, duration in plan):
+        return None
+    # The first selected channel stays on during every lightning burst as well.
+    return {channel: STEADY if n == 0 else color_at(elapsed, plan, patterns, channel)
+            for n, channel in enumerate(channels)}
 
 
 class MotionGate:
@@ -136,12 +163,14 @@ class Controller:
             await asyncio.to_thread(self.streamer.connect, self.host,
                                     self.credentials['username'], self.credentials['clientkey'], area)
             plan = sequence()
-            print('Sequence started: lightning, 5–10s steady, lightning, five-minute storm.', flush=True)
+            channels = self.settings['channels']
+            patterns = lightning_patterns(plan, channels[1:])
+            print('Sequence started: one steady anchor, independent lightning; five-minute storm.', flush=True)
             start = time.monotonic()
-            while (color := color_at(time.monotonic() - start, plan)) is not None:
+            while (frame := frame_at(time.monotonic() - start, plan, patterns, channels)) is not None:
                 self.streamer.send_colors([LightColorCommand(channel_id=i, red=color[0],
                                                             green=color[1], blue=color[2])
-                                           for i in self.settings['channels']])
+                                           for i, color in frame.items()])
                 await asyncio.sleep(0.02)
         finally:
             try:

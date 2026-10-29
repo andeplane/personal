@@ -1,7 +1,8 @@
 import unittest
 import random
 from unittest.mock import AsyncMock, Mock, patch
-from lightning import Controller, MotionGate, STEADY, color_at, intensity, sequence
+from lightning import (Controller, MotionGate, STEADY, color_at, frame_at,
+                       intensity, lightning_patterns, sequence)
 
 
 class CleanupTests(unittest.IsolatedAsyncioTestCase):
@@ -48,21 +49,52 @@ class CleanupTests(unittest.IsolatedAsyncioTestCase):
             [{'id': 'area', 'status': 'inactive', 'channels': [{'channel_id': 0}, {'channel_id': 1}]}],
             [], []])
         plan = sequence(random.Random(1))
-        ticks = iter([0, 0, 0.16, 4.1, 10, 20, 45, 120, 299, 400])
+        patterns = lightning_patterns(plan, [1], random.Random(2))
+        strike = patterns[0][1][0][0] + 0.01
+        ticks = iter([0, 0, strike, 4.1, 10, 20, 45, 120, 299, 400])
         with patch('lightning.time.monotonic', side_effect=lambda: next(ticks, 400)), \
                 patch('lightning.sequence', return_value=plan), \
+                patch('lightning.lightning_patterns', return_value=patterns), \
                 patch('lightning.asyncio.sleep', new=AsyncMock()):
             await c.effect()
         frames = [call.args[0] for call in c.streamer.send_colors.call_args_list]
-        self.assertTrue(any(f[0].red == 0 for f in frames))
-        self.assertTrue(any((f[0].red, f[0].green, f[0].blue) == STEADY for f in frames))
-        self.assertTrue(any(f[0].red > STEADY[0] for f in frames))
+        self.assertTrue(any(f[1].red == 0 for f in frames))
+        self.assertTrue(all((f[0].red, f[0].green, f[0].blue) == STEADY for f in frames))
+        self.assertTrue(any(f[1].red > STEADY[0] for f in frames))
         self.assertTrue(all(len(f) == 2 for f in frames))
         c.dark.assert_awaited_once()
         self.assertFalse(c.busy)
 
 
 class LightningTests(unittest.TestCase):
+    def test_anchor_never_flashes_and_future_two_bulbs_are_independent(self):
+        plan = sequence(random.Random(1))
+        channels = [0, 1, 2]
+        patterns = lightning_patterns(plan, channels[1:], random.Random(2))
+        independent = False
+        shared = False
+        for tick in range(200):
+            frame = frame_at(tick / 50, plan, patterns, channels)
+            self.assertEqual(frame[0], STEADY)
+            independent |= frame[1] != frame[2]
+            shared |= frame[1] == frame[2] and frame[1][0] > 0
+        self.assertTrue(independent)
+        self.assertTrue(shared)
+        self.assertEqual(frame_at(4.1, plan, patterns, channels), {c: STEADY for c in channels})
+        self.assertIsNone(frame_at(400, plan, patterns, channels))
+
+    def test_random_strikes_fit_each_burst_and_change_between_bursts(self):
+        plan = sequence(random.Random(1))
+        for seed in range(50):
+            patterns = lightning_patterns(plan, [1, 2], random.Random(seed))
+            self.assertNotEqual(patterns[0][1], patterns[2][1])
+            for bulbs in patterns.values():
+                for strikes in bulbs.values():
+                    self.assertEqual(len(strikes), 4)
+                    for start, end, peak in strikes:
+                        self.assertTrue(0 <= start < end <= 4)
+                        self.assertTrue(0.45 <= peak <= 1)
+
     def test_startup_presence_does_not_trigger(self):
         gate = MotionGate()
         self.assertFalse(gate.update(True, 100))

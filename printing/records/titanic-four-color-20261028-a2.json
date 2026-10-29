@@ -37,7 +37,7 @@
   "status": "paused",
   "jobName": "Titanic_22b7a2c3_20261028_a2.gcode",
   "recordedAt": "2026-10-28T21:25:15.013072+00:00",
-  "updatedAt": "2026-10-29T01:48:04.228195+00:00",
+  "updatedAt": "2026-10-29T02:53:06.998204+00:00",
   "startedAt": "2026-10-28T21:35:37.900954+00:00",
   "finishedAt": null,
   "actualSeconds": null,
@@ -77,6 +77,11 @@
       "src": "assets/titanic-four-color-20261028-a2/hourly-paused-014804.jpg",
       "capturedAt": "2026-10-29T01:48:04.228195+00:00",
       "caption": "Hourly camera during unchanged PAUSE at layer 0/319 with orange A4 feed overload: no model deposition; pale prior outlines and short orange material near parked head/purge area remain visible. Physical feed cause remains unverified."
+    },
+    {
+      "src": "assets/titanic-four-color-20261028-a2/hourly-paused-025306.jpg",
+      "capturedAt": "2026-10-29T02:53:06.998204+00:00",
+      "caption": "Hourly camera during unchanged PAUSE at layer 0/319 with orange A4 feed overload: no model deposition; pale prior outlines and short orange material near parked head/purge area remain visible. Physical feed cause remains unverified."
     }
   ],
   "preview": "assets/titanic-four-color-20261028-a2/plan.png",
@@ -92,7 +97,7 @@
     "liveRunningObservedAt": "2026-10-28T21:36:15.795906+00:00"
   },
   "latestProgress": {
-    "observedAt": "2026-10-29T01:47:52.843673+00:00",
+    "observedAt": "2026-10-29T02:53:04.868347+00:00",
     "printerState": "PAUSE",
     "layer": 0,
     "totalLayers": 319,

@@ -176,3 +176,28 @@ it must launch Python directly so launchd tracks the listener process. A process
 copies of this controller running together. Certificate changes require deliberate
 setup again. After loss of the Bridge connection it reconnects the event stream;
 restart the process to resolve an IP change during an existing run.
+
+## Sonos thunder playback
+
+`sonos_audio.py` plays the prepared WAV URLs on one explicitly selected Sonos
+using local SoCo control. The private `sonos_config` contains its verified UID,
+cached host, HTTPS `url_base` for the published audio folder, and commissioning
+`volume` (1–25; currently 10). If its address changes it discovers the same UID;
+it never substitutes a different speaker. It refuses grouped speakers or playback
+over unrelated music. Cleanup stops only our own clip and restores volume only
+when it has not been manually changed. Network calls run outside the light-frame
+loop, with a three-second request timeout.
+
+The private lighting settings select `audio_enabled: true`,
+`audio_backend: "sonos"`, `sonos_config: "/PRIVATE/sonos.json"`, and
+`audio_lead_seconds`. Audio commands use absolute sequence offsets and are sent
+ahead by the configured lead so Sonos can start the file near the light timeline.
+The setting is bounded to 0–2 seconds. Scheduled playback is canceled when the
+sequence stops, and lighting cleanup precedes potentially slow Sonos cleanup.
+
+The selected Sonos Move 2 accepted a low-volume WAV test and reported PLAYING
+about 0.36 seconds after the request. This establishes command/transport behavior,
+not audible timing. A shortened combined light-and-Sonos test also confirmed PLAYING during the
+lightning phase, followed by off cleanup. Motion-triggered playback is enabled
+on the selected Move 2 at volume 10, using a provisional 0.35-second lead.
+Microphone calibration on the room's M1 Mac remains pending until SSH/microphone access is available. See [calibration](calibration/README.md).

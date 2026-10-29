@@ -181,6 +181,7 @@ class Controller:
         self.http = None
         self.streamer = HueDtlsStreamer()
         self.busy = False
+        self.sonos = None
 
     async def request(self, method, path, body=None):
         async with self.http.request(method, 'https://' + self.host + path,
@@ -197,6 +198,9 @@ class Controller:
             connector=aiohttp.TCPConnector(ssl=pin),
             headers={'hue-application-key': self.credentials['username']},
             timeout=aiohttp.ClientTimeout(total=10))
+        if self.settings.get('audio_enabled') and self.settings.get('audio_backend') == 'sonos':
+            from sonos_audio import SonosAudio
+            self.sonos = SonosAudio(self.settings['sonos_config'])
 
     async def dark(self):
         for identifier in self.settings['lights']:
@@ -208,6 +212,13 @@ class Controller:
             return
         audio = audio or self.settings.get('thunder_file')
         if not audio:
+            return
+        if self.sonos is not None:
+            try:
+                await self.sonos.play(audio)
+                print('Sonos thunder command sent.', flush=True)
+            except Exception:
+                print('Sonos thunder skipped: speaker unavailable, busy or regrouped.', flush=True)
             return
         player = await asyncio.create_subprocess_exec('/usr/bin/afplay', '-v', '0.4', audio,
                                                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -246,18 +257,17 @@ class Controller:
             if self.settings.get('thunder_catalog'):
                 catalog = load_soundtracks(self.settings['thunder_catalog'])
                 patterns, tracks = recorded_patterns(plan, channels, catalog)
+            elif self.settings.get('thunder_file'):
+                tracks = {index: self.settings['thunder_file'] for index, (mode, _) in enumerate(plan)
+                          if mode == 'lightning'}
             print('Sequence started: normal 2s, dark 0.5s, lightning 4s, two-minute storm.', flush=True)
             start = CLOCK()
-            last_phase = None
+            if self.settings.get('audio_enabled', bool(self.settings.get('thunder_file'))) and tracks:
+                from sonos_audio import play_timeline
+                audio_task = asyncio.create_task(play_timeline(
+                    plan, tracks, start, self.settings.get('audio_lead_seconds', 0), self.thunder, CLOCK))
             while (elapsed := CLOCK() - start) < sum(d for _, d in plan):
                 frame = frame_at(elapsed, plan, patterns, channels)
-                phase = phase_at(elapsed, plan)
-                if phase and phase != last_phase and phase[1] == 'lightning':
-                    enabled = self.settings.get('audio_enabled', bool(self.settings.get('thunder_file')))
-                    print('Lightning burst; recorded cues ' + ('ready; ' if tracks else 'not selected; ')
-                          + ('audio enabled.' if enabled else 'audio muted.'), flush=True)
-                    audio_task = asyncio.create_task(self.thunder(tracks.get(phase[0])))
-                last_phase = phase
                 self.streamer.send_colors([LightColorCommand(channel_id=i, red=color[0],
                                                             green=color[1], blue=color[2])
                                            for i, color in frame.items()])
@@ -277,6 +287,9 @@ class Controller:
                         await self.dark()
                     print('Sequence finished; lights off.', flush=True)
             finally:
+                if self.sonos is not None:
+                    with contextlib.suppress(Exception):
+                        await self.sonos.close()
                 self.busy = False
 
     async def trigger(self, gate):

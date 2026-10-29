@@ -152,7 +152,13 @@ selected bulbs off, then listens for fresh motion. A third bulb can be added
 deliberately to the Entertainment area with setup rerun; it becomes another
 independently flashing bulb, while the first channel remains the steady anchor.
 
-Generate an original four-second thunder file with `python3 hue/thunder.py`.
+Two real CC0 thunder excerpts and audio-derived flash cues are prepared in
+[audio/README.md](audio/README.md). Selecting a private `thunder_catalog` uses
+the matched cues while `audio_enabled: false` keeps playback muted. Each burst
+chooses one recording and its matching timing. Speaker latency remains to be
+calibrated; Sonos playback is not yet implemented.
+
+Alternatively, generate an original four-second thunder file with `python3 hue/thunder.py`.
 For playback through this Mac, set `thunder_file` in the private `lightning.json`
 to that file's absolute path. Playback uses `afplay` at 40% of the system volume
 at the beginning of each lightning burst. Audio is optional and disabled until

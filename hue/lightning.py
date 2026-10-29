@@ -14,6 +14,7 @@ import socket
 import ssl
 import subprocess
 import time
+import wave
 
 import aiohttp
 from hue_entertainment import HueDtlsStreamer, LightColorCommand
@@ -67,6 +68,46 @@ def lightning_patterns(plan, channels, rng=None):
                 strikes.append((start, start + rng.uniform(0.08, 0.22), rng.uniform(0.45, 1)))
             patterns[index][channel] = strikes
     return patterns
+
+
+def load_soundtracks(path):
+    path = Path(path).resolve()
+    catalog = json.loads(path.read_text())
+    if not isinstance(catalog, list) or not 1 <= len(catalog) <= 20:
+        raise HueError('Invalid thunder catalog.')
+    result = []
+    for item in catalog:
+        audio = (path.parent / item['file']).resolve()
+        if audio.parent != path.parent or audio.suffix != '.wav':
+            raise HueError('Thunder audio must be a WAV beside its catalog.')
+        if hashlib.sha256(audio.read_bytes()).hexdigest() != item['sha256']:
+            raise HueError('Thunder audio checksum changed.')
+        with wave.open(str(audio), 'rb') as reader:
+            if (reader.getnchannels(), reader.getsampwidth(), reader.getframerate(), reader.getnframes()) != (1, 2, 24000, 96000):
+                raise HueError('Thunder WAV format or duration changed.')
+        if item['duration'] != 4 or not 1 <= len(item['strikes']) <= 5:
+            raise HueError('Thunder cues must fit a four-second burst.')
+        for start, end, peak in item['strikes']:
+            if not 0 <= start < end <= 4 or not 0 < peak <= 1:
+                raise HueError('Invalid thunder cue.')
+        result.append({**item, 'audio_file': str(audio)})
+    return result
+
+
+def recorded_patterns(plan, channels, catalog, rng=None):
+    rng = rng or random.SystemRandom()
+    patterns, tracks = {}, {}
+    for index, (mode, _) in enumerate(plan):
+        if mode != 'lightning':
+            continue
+        track = rng.choice(catalog)
+        tracks[index] = track['audio_file']
+        patterns[index] = {}
+        for channel in channels:
+            offset, gain = rng.uniform(-0.025, 0.025), rng.uniform(0.75, 1)
+            patterns[index][channel] = [(max(0, start+offset), min(4, end+offset), peak*gain)
+                                        for start, end, peak in track['strikes']]
+    return patterns, tracks
 
 
 def color_at(elapsed, plan, patterns=None, channel=None):
@@ -161,8 +202,10 @@ class Controller:
             await asyncio.to_thread(self.bridge.request, 'PUT', f'/lights/{identifier}/state',
                                     {'on': False, 'transitiontime': 0})
 
-    async def thunder(self):
-        audio = self.settings.get('thunder_file')
+    async def thunder(self, audio=None):
+        if not self.settings.get('audio_enabled', bool(self.settings.get('thunder_file'))):
+            return
+        audio = audio or self.settings.get('thunder_file')
         if not audio:
             return
         player = await asyncio.create_subprocess_exec('/usr/bin/afplay', '-v', '0.4', audio,
@@ -198,6 +241,10 @@ class Controller:
             plan = sequence()
             channels = self.settings['channels']
             patterns = lightning_patterns(plan, channels)
+            tracks = {}
+            if self.settings.get('thunder_catalog'):
+                catalog = load_soundtracks(self.settings['thunder_catalog'])
+                patterns, tracks = recorded_patterns(plan, channels, catalog)
             print('Sequence started: normal 2s, dark 0.5s, lightning 4s, two-minute storm.', flush=True)
             start = CLOCK()
             last_phase = None
@@ -205,8 +252,10 @@ class Controller:
                 frame = frame_at(elapsed, plan, patterns, channels)
                 phase = phase_at(elapsed, plan)
                 if phase and phase != last_phase and phase[1] == 'lightning':
-                    print('Lightning burst; thunder ' + ('enabled.' if self.settings.get('thunder_file') else 'not configured.'), flush=True)
-                    audio_task = asyncio.create_task(self.thunder())
+                    enabled = self.settings.get('audio_enabled', bool(self.settings.get('thunder_file')))
+                    print('Lightning burst; recorded cues ' + ('ready; ' if tracks else 'not selected; ')
+                          + ('audio enabled.' if enabled else 'audio muted.'), flush=True)
+                    audio_task = asyncio.create_task(self.thunder(tracks.get(phase[0])))
                 last_phase = phase
                 self.streamer.send_colors([LightColorCommand(channel_id=i, red=color[0],
                                                             green=color[1], blue=color[2])

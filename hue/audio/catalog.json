@@ -1,0 +1,84 @@
+[
+  {
+    "title": "thunder crack.wav",
+    "author": "cognito perceptu",
+    "source": "https://freesound.org/people/cognito%20perceptu/sounds/347853/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "file": "close-crack.wav",
+    "sha256": "7202cccc9d6f0c0ba075b028786c834c41793b2b220a7a9890979bb634022135",
+    "duration": 4,
+    "source_excerpt_start": 0.52,
+    "input_wav_sha256": "95a616bd2f37d662ba691549b481ded3658bbfe0de635e41cba75097101bf62c",
+    "audio_peak_seconds": [
+      0.86,
+      1.64,
+      2.24,
+      2.8
+    ],
+    "strikes": [
+      [
+        0.76,
+        0.92,
+        1.0
+      ],
+      [
+        1.54,
+        1.7,
+        0.829
+      ],
+      [
+        2.14,
+        2.3,
+        0.786
+      ],
+      [
+        2.7,
+        2.86,
+        0.504
+      ]
+    ],
+    "processing": "Public HQ MP3 preview decoded to mono 24kHz PCM; trimmed, peak-normalized and faded. Flash cues lead measured 20ms RMS peaks by 100ms."
+  },
+  {
+    "title": "rayjensen - thunder-crack 41k 16bit mono.wav",
+    "author": "rayjensen",
+    "source": "https://freesound.org/people/rayjensen/sounds/200990/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "file": "rolling-crack.wav",
+    "sha256": "918baadd5360d06211d13142ddd4dd05766aa8932487e1d2af14d1c4e790aba1",
+    "duration": 4,
+    "source_excerpt_start": 0.04,
+    "input_wav_sha256": "9056bb4bb17f11e44f4acf591568d5e85004e5f2170fbefc0b103e31c60ac19c",
+    "audio_peak_seconds": [
+      0.68,
+      1.54,
+      2.28,
+      3.6
+    ],
+    "strikes": [
+      [
+        0.58,
+        0.74,
+        1.0
+      ],
+      [
+        1.44,
+        1.6,
+        0.45
+      ],
+      [
+        2.18,
+        2.34,
+        0.45
+      ],
+      [
+        3.5,
+        3.66,
+        0.45
+      ]
+    ],
+    "processing": "Public HQ MP3 preview decoded to mono 24kHz PCM; trimmed, peak-normalized and faded. Flash cues lead measured 20ms RMS peaks by 100ms."
+  }
+]

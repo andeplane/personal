@@ -24,6 +24,7 @@ AREA_NAME = 'Window lightning (Codex)'
 # Three irregular strikes across four seconds; frames are streamed at 50 Hz.
 STRIKES = ((0.15, 0.27, 1.0), (1.25, 1.40, 0.7), (2.80, 3.03, 1.0))
 STEADY = (23000, 17000, 11000)
+CLOCK = time.monotonic
 
 
 def intensity(elapsed, strikes=STRIKES):
@@ -35,8 +36,8 @@ def intensity(elapsed, strikes=STRIKES):
 
 def sequence(rng=None):
     rng = rng or random.SystemRandom()
-    plan = [('lightning', 4), ('steady', rng.uniform(5, 10)), ('lightning', 4)]
-    remaining = 300.0
+    plan = [('normal', 2), ('dark', 0.5), ('lightning', 4)]
+    remaining = 120.0
     while remaining > 0:
         wait = min(rng.uniform(20, 40), remaining)
         plan.append(('steady', wait))
@@ -71,8 +72,10 @@ def lightning_patterns(plan, channels, rng=None):
 def color_at(elapsed, plan, patterns=None, channel=None):
     for index, (mode, duration) in enumerate(plan):
         if elapsed < duration:
-            if mode == 'steady':
+            if mode in ('normal', 'steady'):
                 return STEADY
+            if mode == 'dark':
+                return (0, 0, 0)
             strikes = STRIKES if patterns is None else patterns[index][channel]
             value = int(65535 * intensity(elapsed, strikes))
             return (value, value, value)
@@ -81,15 +84,31 @@ def color_at(elapsed, plan, patterns=None, channel=None):
 
 
 def frame_at(elapsed, plan, patterns, channels):
-    if elapsed >= sum(duration for _, duration in plan):
+    phase = phase_at(elapsed, plan)
+    if phase is None:
         return None
-    # The first selected channel stays on during every lightning burst as well.
-    return {channel: STEADY if n == 0 else color_at(elapsed, plan, patterns, channel)
+    index, mode = phase
+    if mode == 'normal':
+        return {channel: STEADY for channel in channels}
+    if mode == 'dark':
+        return {channel: (0, 0, 0) for channel in channels}
+    if mode == 'steady':
+        return {channel: STEADY if n == 0 else (0, 0, 0)
+                for n, channel in enumerate(channels)}
+    return {channel: STEADY if n == 0 and index > 2 else color_at(elapsed, plan, patterns, channel)
             for n, channel in enumerate(channels)}
 
 
+def phase_at(elapsed, plan):
+    for index, (mode, duration) in enumerate(plan):
+        if elapsed < duration:
+            return index, mode
+        elapsed -= duration
+    return None
+
+
 class MotionGate:
-    def __init__(self, cooldown=30):
+    def __init__(self, cooldown=0):
         self.present = None
         self.ready_at = 0
         self.cooldown = cooldown
@@ -142,10 +161,24 @@ class Controller:
             await asyncio.to_thread(self.bridge.request, 'PUT', f'/lights/{identifier}/state',
                                     {'on': False, 'transitiontime': 0})
 
+    async def thunder(self):
+        audio = self.settings.get('thunder_file')
+        if not audio:
+            return
+        player = await asyncio.create_subprocess_exec('/usr/bin/afplay', '-v', '0.4', audio,
+                                                      stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        try:
+            await player.wait()
+        finally:
+            if player.returncode is None:
+                player.terminate()
+                await player.wait()
+
     async def effect(self):
         self.busy = True
         area = self.settings['area']
         started = False
+        audio_task = None
         try:
             group = await asyncio.to_thread(self.bridge.request, 'GET', '/groups/' + self.settings['group'])
             if set(group['lights']) != set(self.settings['lights']):
@@ -164,16 +197,27 @@ class Controller:
                                     self.credentials['username'], self.credentials['clientkey'], area)
             plan = sequence()
             channels = self.settings['channels']
-            patterns = lightning_patterns(plan, channels[1:])
-            print('Sequence started: one steady anchor, independent lightning; five-minute storm.', flush=True)
-            start = time.monotonic()
-            while (frame := frame_at(time.monotonic() - start, plan, patterns, channels)) is not None:
+            patterns = lightning_patterns(plan, channels)
+            print('Sequence started: normal 2s, dark 0.5s, lightning 4s, two-minute storm.', flush=True)
+            start = CLOCK()
+            last_phase = None
+            while (elapsed := CLOCK() - start) < sum(d for _, d in plan):
+                frame = frame_at(elapsed, plan, patterns, channels)
+                phase = phase_at(elapsed, plan)
+                if phase and phase != last_phase and phase[1] == 'lightning':
+                    print('Lightning burst; thunder ' + ('enabled.' if self.settings.get('thunder_file') else 'not configured.'), flush=True)
+                    audio_task = asyncio.create_task(self.thunder())
+                last_phase = phase
                 self.streamer.send_colors([LightColorCommand(channel_id=i, red=color[0],
                                                             green=color[1], blue=color[2])
                                            for i, color in frame.items()])
                 await asyncio.sleep(0.02)
         finally:
             try:
+                if audio_task:
+                    audio_task.cancel()
+                    with contextlib.suppress(asyncio.CancelledError, Exception):
+                        await audio_task
                 await asyncio.to_thread(self.streamer.disconnect)
                 if started:
                     try:
@@ -201,7 +245,7 @@ class Controller:
                 try:
                     initial = (await self.request('GET', '/clip/v2/resource/motion/' + self.settings['motion']))[0]
                     gate.present = initial['motion']['motion']
-                    print('Listening for fresh motion; five-minute storm, then off; 30-second cooldown.', flush=True)
+                    print('Listening: idle off; normal 2s, dark 0.5s, flash 4s, two-minute storm; no extra cooldown.', flush=True)
                     timeout = aiohttp.ClientTimeout(total=None, sock_read=120)
                     async with self.http.get('https://' + self.host + '/eventstream/clip/v2',
                                              headers={'Accept': 'text/event-stream'}, timeout=timeout) as response:

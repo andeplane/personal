@@ -134,27 +134,33 @@ uv pip install --python ~/.config/hue-halloween/venv/bin/python -r hue/requireme
 ~/.config/hue-halloween/venv/bin/python hue/lightning.py listen
 ```
 
-The first selected Entertainment channel is the steady anchor: it holds soft
-warm white throughout the active sequence, including lightning bursts. The other
-channels flash. Each burst generates fresh timing and brightness per flashing
-bulb, with an occasional shared strike; adding a third bulb therefore allows one
-steady anchor and two independently flashing bulbs. Add the bulb deliberately to
-the Entertainment area and rerun setup before using changed membership.
+The bulbs stay off while idle. A fresh motion event runs this sequence:
 
-The sequence starts with four seconds of irregular white lightning on the flashing
-bulbs, holds all bulbs steady for a randomly chosen 5–10 seconds, and plays a
-second four-second lightning burst. It then holds the warm-white light for five minutes, adding
-four-second lightning bursts after randomly chosen 20–40-second steady intervals.
-The five-minute phase has a fixed end, including its bursts; the total sequence
-lasts 5 minutes 13–18 seconds. It finishes off and stays off while idle.
-Every completed or interrupted effect attempts to stop streaming and switch its
-bulbs off. `listen` first switches the selected bulbs off, then waits for a fresh
-false-to-true motion event. It ignores motion throughout the sequence and for 30 seconds
-afterward; additional motion cannot extend the five-minute phase or queue a replay. It runs whenever this command is
-running, without a daylight or evening restriction. Stop with Ctrl-C.
+1. Both bulbs show normal warm white for exactly two seconds.
+2. Both bulbs go dark for half a second.
+3. Both bulbs flash irregular white lightning for four seconds.
+4. For the next two minutes, the first selected channel stays warm white. The
+   remaining channels stay dark between four-second lightning bursts, separated
+   by randomly chosen 20–40-second intervals. Each flashing bulb gets its own
+   pattern and brightness, with occasional shared strikes.
+5. All selected bulbs switch off. The complete sequence lasts 126.5 seconds.
+
+Motion cannot restart or extend an active sequence. There is no added cooldown
+once it finishes; a new false-to-true sensor event is required. Stop with Ctrl-C.
+The `test` command runs the same complete sequence. `listen` first switches all
+selected bulbs off, then listens for fresh motion. A third bulb can be added
+deliberately to the Entertainment area with setup rerun; it becomes another
+independently flashing bulb, while the first channel remains the steady anchor.
+
+Generate an original four-second thunder file with `python3 hue/thunder.py`.
+For playback through this Mac, set `thunder_file` in the private `lightning.json`
+to that file's absolute path. Playback uses `afplay` at 40% of the system volume
+at the beginning of each lightning burst. Audio is optional and disabled until
+the output speaker is chosen. Sonos playback is not implemented by this runtime.
+Actual audible timing must be checked on the selected speaker.
 
 The listener must run on an awake computer with LAN access. It is not a Bridge
-rule and is not installed on Home Assistant Green. Thunder audio is not included.
+rule and is not installed on Home Assistant Green. An original thunder generator is included; speaker playback must be configured.
 A Bridge-button-authorized streaming credential and a successful physical test
 are required before calling the effect commissioned. On macOS, `listen --keep-awake`
 prevents idle sleep while listening. A local LaunchAgent can run this command at login;

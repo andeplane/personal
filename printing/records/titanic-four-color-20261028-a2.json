@@ -37,7 +37,7 @@
   "status": "printing",
   "jobName": "Titanic_22b7a2c3_20261028_a2.gcode",
   "recordedAt": "2026-10-28T21:25:15.013072+00:00",
-  "updatedAt": "2026-10-29T09:09:16.926524+00:00",
+  "updatedAt": "2026-10-29T10:09:20.549678+00:00",
   "startedAt": "2026-10-28T21:35:37.900954+00:00",
   "finishedAt": null,
   "actualSeconds": null,
@@ -117,6 +117,11 @@
       "src": "assets/titanic-four-color-20261028-a2/deposition-layer5-090916.jpg",
       "capturedAt": "2026-10-29T09:09:16.926524+00:00",
       "caption": "First observed model deposition after the feed pause, at reported layer 5/319: red elongated hull material and orange material are visible on the plate. Toolhead obscures some areas; this confirms deposition, while complete adhesion, stability and physical feed repair remain unverified."
+    },
+    {
+      "src": "assets/titanic-four-color-20261028-a2/hourly-running-100920.jpg",
+      "capturedAt": "2026-10-29T10:09:20.549678+00:00",
+      "caption": "Hourly camera at reported layer 45/319: red hull walls and rectangular purge tower have grown, and visible bases remain on the plate. No obvious spaghetti or detached major part in this view. Toolhead partly obscures hull; full adhesion and final quality remain unverified."
     }
   ],
   "preview": "assets/titanic-four-color-20261028-a2/plan.png",
@@ -132,12 +137,12 @@
     "liveRunningObservedAt": "2026-10-28T21:36:15.795906+00:00"
   },
   "latestProgress": {
-    "observedAt": "2026-10-29T09:09:06.607833+00:00",
+    "observedAt": "2026-10-29T10:09:08.724990+00:00",
     "printerState": "RUNNING",
-    "layer": 5,
+    "layer": 45,
     "totalLayers": 319,
-    "percent": 5,
-    "estimatedRemainingMinutes": 491,
+    "percent": 17,
+    "estimatedRemainingMinutes": 430,
     "printError": 0
   },
   "pauseEvidence": {

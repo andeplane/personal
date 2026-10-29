@@ -6,10 +6,12 @@ import contextlib
 import fcntl
 import hashlib
 import json
+import os
 from pathlib import Path
 import signal
 import socket
 import ssl
+import subprocess
 import time
 
 import aiohttp
@@ -240,6 +242,10 @@ async def run(args):
         except BlockingIOError:
             raise HueError('Lightning controller already running.') from None
         controller = Controller(credentials, settings)
+        awake = None
+        if args.command == 'listen' and args.keep_awake:
+            awake = subprocess.Popen(['/usr/bin/caffeinate', '-i', '-w', str(os.getpid())],
+                                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         await controller.open()
         try:
             if args.command == 'test':
@@ -249,6 +255,9 @@ async def run(args):
                 await controller.listen()
         finally:
             await controller.http.close()
+            if awake:
+                awake.terminate()
+                awake.wait()
 
 
 def main():
@@ -259,7 +268,8 @@ def main():
     setup_parser.add_argument('--room', required=True)
     setup_parser.add_argument('--sensor', required=True)
     sub.add_parser('test')
-    sub.add_parser('listen')
+    listener = sub.add_parser('listen')
+    listener.add_argument('--keep-awake', action='store_true', help='Prevent idle sleep on macOS while listening')
     args = parser.parse_args()
     def stop(*_):
         raise KeyboardInterrupt

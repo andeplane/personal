@@ -144,7 +144,9 @@ running, without a daylight or evening restriction. Stop with Ctrl-C.
 The listener must run on an awake computer with LAN access. It is not a Bridge
 rule and is not installed on Home Assistant Green. Thunder audio is not included.
 A Bridge-button-authorized streaming credential and a successful physical test
-are required before calling the effect commissioned. A process lock prevents two
+are required before calling the effect commissioned. On macOS, `listen --keep-awake`
+prevents idle sleep while listening. A local LaunchAgent can run this command at login;
+it must launch Python directly so launchd tracks the listener process. A process lock prevents two
 copies of this controller running together. Certificate changes require deliberate
 setup again. After loss of the Bridge connection it reconnects the event stream;
 restart the process to resolve an IP change during an existing run.

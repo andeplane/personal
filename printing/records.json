@@ -103,6 +103,11 @@
         "src": "assets/titanic-four-color-20261028-a2/hourly-paused-070533.jpg",
         "capturedAt": "2026-10-29T07:05:33.906638+00:00",
         "caption": "Hourly camera during PAUSE before the first layer: no Titanic model deposition visible; pale rectangular outlines remain and toolhead is parked left. Camera does not show the AMS spool or establish the physical feed cause."
+      },
+      {
+        "src": "assets/titanic-four-color-20261028-a2/hourly-paused-080904.jpg",
+        "capturedAt": "2026-10-29T08:09:04.074393+00:00",
+        "caption": "Hourly camera during unchanged PAUSE before the first layer: no model deposition visible; pale rectangular outlines remain and head parked left. AMS spool is not shown; physical feed cause remains unverified."
       }
     ],
     "preview": "assets/titanic-four-color-20261028-a2/plan.png",
@@ -118,7 +123,7 @@
       "liveRunningObservedAt": "2026-10-28T21:36:15.795906+00:00"
     },
     "latestProgress": {
-      "observedAt": "2026-10-29T07:39:08.212653+00:00",
+      "observedAt": "2026-10-29T08:09:06.557417+00:00",
       "printerState": "PAUSE",
       "layer": 0,
       "totalLayers": 319,

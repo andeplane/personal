@@ -98,6 +98,11 @@
         "src": "assets/titanic-four-color-20261028-a2/feed-recurrence-060310.jpg",
         "capturedAt": "2026-10-29T06:03:10.626127+00:00",
         "caption": "Camera after a new occurrence of the orange A4 overload: still no model deposition at layer 0/319; pale prior outlines remain. The earlier orange strand near the parked head is no longer clearly visible. This does not establish a feed repair or diagnose its cause."
+      },
+      {
+        "src": "assets/titanic-four-color-20261028-a2/hourly-paused-070533.jpg",
+        "capturedAt": "2026-10-29T07:05:33.906638+00:00",
+        "caption": "Hourly camera during PAUSE before the first layer: no Titanic model deposition visible; pale rectangular outlines remain and toolhead is parked left. Camera does not show the AMS spool or establish the physical feed cause."
       }
     ],
     "preview": "assets/titanic-four-color-20261028-a2/plan.png",
@@ -113,7 +118,7 @@
       "liveRunningObservedAt": "2026-10-28T21:36:15.795906+00:00"
     },
     "latestProgress": {
-      "observedAt": "2026-10-29T06:03:30.409991+00:00",
+      "observedAt": "2026-10-29T07:39:08.212653+00:00",
       "printerState": "PAUSE",
       "layer": 0,
       "totalLayers": 319,

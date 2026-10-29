@@ -35,7 +35,7 @@
       3
     ],
     "id": "titanic-four-color-20261028-a2",
-    "status": "paused",
+    "status": "printing",
     "jobName": "Titanic_22b7a2c3_20261028_a2.gcode",
     "recordedAt": "2026-10-28T21:25:15.013072+00:00",
     "updatedAt": "2026-10-29T06:03:30.409991+00:00",
@@ -108,12 +108,17 @@
         "src": "assets/titanic-four-color-20261028-a2/hourly-paused-080904.jpg",
         "capturedAt": "2026-10-29T08:09:04.074393+00:00",
         "caption": "Hourly camera during unchanged PAUSE before the first layer: no model deposition visible; pale rectangular outlines remain and head parked left. AMS spool is not shown; physical feed cause remains unverified."
+      },
+      {
+        "src": "assets/titanic-four-color-20261028-a2/running-layer0-083919.jpg",
+        "capturedAt": "2026-10-29T08:39:19.112122+00:00",
+        "caption": "Camera after printer reports RUNNING with error 0 on the same accepted job: still layer 0/319 with no model deposition visible; pale rectangular outlines and left parked head remain. This does not verify extrusion, adhesion, or a physical feed repair."
       }
     ],
     "preview": "assets/titanic-four-color-20261028-a2/plan.png",
     "layout": "assets/titanic-four-color-20261028-a2/layout.png",
     "layers": 319,
-    "notes": "Started exactly once after current human readiness and repaired orange-feed confirmation. Exact unique-file upload/readback SHA-256 and archive MD5 verified; fresh clear-bed camera, all four live PLA colors/profiles, AMS mapping and both 0.4 mm nozzles checked. Printer LAN address had changed; direct M4 connection authenticated the configured device. Previous Enigma job was terminal and its monitor stopped; controller ownership reconciled before start. SUCCESS acceptance matches new file, MD5, plate and sequence. Independent fresh RUNNING at layer 0/319, error 0, estimated 518 minutes remaining confirms preparation, not extrusion. Initial acceptance retained old layer 73 from Enigma before resetting to 0. Retained HMS notification 0500-0200-0003-000A has unknown text and unchanged timestamp predating the completed Enigma job; classification does not establish physical resolution. No error-clearing command was sent. Exact original reviewed 269 mm four-color ship and two flat orange masts reused; no reslicing. Red A1 / black A3 / white A2 / orange A4 map [0,2,1,3] to AMS0 physical0. PVA unused. First-layer adhesion, physical quality, fine details and mast fit remain unverified. Duration and material remain estimates; actual measurements unknown. Paused before model deposition at layer0/319 with active 0700-8010 and new HMS0700-6300-0002-0001: orange A4 AMS assist motor overload. Prior human feed-fixed confirmation did not prevent recurrence. Physical spool/feed/buffer inspection is required; exact cause unknown. Fresh camera shows no model deposition and short orange material near parked head/purge area; it cannot identify feed-path obstruction. No automatic resume, error clearing, unloading/loading or replacement start authorized. Same accepted job remains paused; no reslicing justified by a physical-feed fault. At 06:02:59 UTC Oct 29, the same orange A4 overload had a new occurrence timestamp while the job remained PAUSE at layer 0/319. Nozzle measured 211 C with target 42 C, falling to 173 C by 06:03:30; the preceding intervention is unknown. No printer control commands were sent by this monitor. Physical feed inspection remains required before any authorized resume.",
+    "notes": "Started exactly once after current human readiness and repaired orange-feed confirmation. Exact unique-file upload/readback SHA-256 and archive MD5 verified; fresh clear-bed camera, all four live PLA colors/profiles, AMS mapping and both 0.4 mm nozzles checked. Printer LAN address had changed; direct M4 connection authenticated the configured device. Previous Enigma job was terminal and its monitor stopped; controller ownership reconciled before start. SUCCESS acceptance matches new file, MD5, plate and sequence. Independent fresh RUNNING at layer 0/319, error 0, estimated 518 minutes remaining confirms preparation, not extrusion. Initial acceptance retained old layer 73 from Enigma before resetting to 0. Retained HMS notification 0500-0200-0003-000A has unknown text and unchanged timestamp predating the completed Enigma job; classification does not establish physical resolution. No error-clearing command was sent. Exact original reviewed 269 mm four-color ship and two flat orange masts reused; no reslicing. Red A1 / black A3 / white A2 / orange A4 map [0,2,1,3] to AMS0 physical0. PVA unused. First-layer adhesion, physical quality, fine details and mast fit remain unverified. Duration and material remain estimates; actual measurements unknown. Paused before model deposition at layer0/319 with active 0700-8010 and new HMS0700-6300-0002-0001: orange A4 AMS assist motor overload. Prior human feed-fixed confirmation did not prevent recurrence. Physical spool/feed/buffer inspection is required; exact cause unknown. Fresh camera shows no model deposition and short orange material near parked head/purge area; it cannot identify feed-path obstruction. No automatic resume, error clearing, unloading/loading or replacement start authorized. At that observation the same accepted job remained paused; no reslicing justified by a physical-feed fault. At 06:02:59 UTC Oct 29, the same orange A4 overload had a new occurrence timestamp while the job remained PAUSE at layer 0/319. Nozzle measured 211 C with target 42 C, falling to 173 C by 06:03:30; the preceding intervention is unknown. No printer control commands were sent by this monitor. Physical feed inspection remains required before any authorized resume. At 08:39:10 UTC Oct 29, the same job reported RUNNING with error 0, orange A4 selected and nozzle 215 C. The monitor sent no resume or other printer control command; preceding human intervention is unknown. Still layer 0/319 and no model deposition visible in the 08:39:19 camera. First layer and physical feed repair remain unverified. Monitoring interval remains 30 minutes at human request.",
     "acceptedJob": {
       "file": "/Titanic_22b7a2c3_20261028_a2.gcode.3mf",
       "plate": 1,
@@ -123,18 +128,27 @@
       "liveRunningObservedAt": "2026-10-28T21:36:15.795906+00:00"
     },
     "latestProgress": {
-      "observedAt": "2026-10-29T08:09:06.557417+00:00",
-      "printerState": "PAUSE",
+      "observedAt": "2026-10-29T08:39:10.735755+00:00",
+      "printerState": "RUNNING",
       "layer": 0,
       "totalLayers": 319,
       "percent": 0,
       "estimatedRemainingMinutes": 518,
-      "printError": 117473296
+      "printError": 0
     },
     "pauseEvidence": {
       "printerState": "PAUSE",
       "printError": 117473296,
       "observedAt": "2026-10-28T21:41:15.952763+00:00"
+    },
+    "resumptionEvidence": {
+      "observedAt": "2026-10-29T08:39:10.735755+00:00",
+      "printerState": "RUNNING",
+      "printError": 0,
+      "layer": 0,
+      "totalLayers": 319,
+      "monitorSentResume": false,
+      "physicalFeedRepairVerified": false
     }
   },
   {

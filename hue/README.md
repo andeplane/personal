@@ -134,11 +134,16 @@ uv pip install --python ~/.config/hue-halloween/venv/bin/python -r hue/requireme
 ~/.config/hue-halloween/venv/bin/python hue/lightning.py listen
 ```
 
-The four-second effect contains three irregular white strikes with dark gaps.
+The sequence starts with four seconds of irregular white lightning, holds soft
+warm-white light for a randomly chosen 5–10 seconds, and plays a second four-second
+lightning burst. It then holds the warm-white light for five minutes, adding
+four-second lightning bursts after randomly chosen 20–40-second steady intervals.
+The five-minute phase has a fixed end, including its bursts; the total sequence
+lasts 5 minutes 13–18 seconds. It finishes off and stays off while idle.
 Every completed or interrupted effect attempts to stop streaming and switch its
 bulbs off. `listen` first switches the selected bulbs off, then waits for a fresh
-false-to-true motion event. It ignores motion during the effect and for 30 seconds
-afterward; it does not replay queued motion. It runs whenever this command is
+false-to-true motion event. It ignores motion throughout the sequence and for 30 seconds
+afterward; additional motion cannot extend the five-minute phase or queue a replay. It runs whenever this command is
 running, without a daylight or evening restriction. Stop with Ctrl-C.
 
 The listener must run on an awake computer with LAN access. It is not a Bridge

@@ -7,6 +7,7 @@ import fcntl
 import hashlib
 import json
 import os
+import random
 from pathlib import Path
 import signal
 import socket
@@ -22,6 +23,7 @@ PRIVATE = Path.home() / '.config/hue-halloween'
 AREA_NAME = 'Window lightning (Codex)'
 # Three irregular strikes across four seconds; frames are streamed at 50 Hz.
 STRIKES = ((0.15, 0.27, 1.0), (1.25, 1.40, 0.7), (2.80, 3.03, 1.0))
+STEADY = (23000, 17000, 11000)
 
 
 def intensity(elapsed):
@@ -29,6 +31,34 @@ def intensity(elapsed):
         if start <= elapsed < end:
             return peak * (1 - 0.6 * (elapsed-start)/(end-start))
     return 0.0
+
+
+def sequence(rng=None):
+    rng = rng or random.SystemRandom()
+    plan = [('lightning', 4), ('steady', rng.uniform(5, 10)), ('lightning', 4)]
+    remaining = 300.0
+    while remaining > 0:
+        wait = min(rng.uniform(20, 40), remaining)
+        plan.append(('steady', wait))
+        remaining -= wait
+        if remaining >= 4:
+            plan.append(('lightning', 4))
+            remaining -= 4
+        elif remaining:
+            plan.append(('steady', remaining))
+            remaining = 0
+    return plan
+
+
+def color_at(elapsed, plan):
+    for mode, duration in plan:
+        if elapsed < duration:
+            if mode == 'steady':
+                return STEADY
+            value = int(65535 * intensity(elapsed))
+            return (value, value, value)
+        elapsed -= duration
+    return None
 
 
 class MotionGate:
@@ -41,9 +71,12 @@ class MotionGate:
         rising = self.present is False and present is True
         self.present = present
         if rising and now >= self.ready_at:
-            self.ready_at = now + 4 + self.cooldown
+            self.ready_at = float('inf')
             return True
         return False
+
+    def finish(self, now):
+        self.ready_at = now + self.cooldown
 
 
 def fingerprint(host):
@@ -102,12 +135,12 @@ class Controller:
             started = True
             await asyncio.to_thread(self.streamer.connect, self.host,
                                     self.credentials['username'], self.credentials['clientkey'], area)
-            print('Lightning started.', flush=True)
+            plan = sequence()
+            print('Sequence started: lightning, 5–10s steady, lightning, five-minute storm.', flush=True)
             start = time.monotonic()
-            while (elapsed := time.monotonic() - start) < 4:
-                value = int(65535 * intensity(elapsed))
-                self.streamer.send_colors([LightColorCommand(channel_id=i, red=value,
-                                                            green=value, blue=value)
+            while (color := color_at(time.monotonic() - start, plan)) is not None:
+                self.streamer.send_colors([LightColorCommand(channel_id=i, red=color[0],
+                                                            green=color[1], blue=color[2])
                                            for i in self.settings['channels']])
                 await asyncio.sleep(0.02)
         finally:
@@ -119,15 +152,17 @@ class Controller:
                                            {'action': 'stop'})
                     finally:
                         await self.dark()
-                    print('Lightning finished; lights off.', flush=True)
+                    print('Sequence finished; lights off.', flush=True)
             finally:
                 self.busy = False
 
-    async def trigger(self):
+    async def trigger(self, gate):
         try:
             await self.effect()
         except Exception:
             print('Lightning failed; cleanup attempted. Waiting for fresh motion.', flush=True)
+        finally:
+            gate.finish(time.monotonic())
 
     async def listen(self):
         gate = MotionGate()
@@ -137,7 +172,7 @@ class Controller:
                 try:
                     initial = (await self.request('GET', '/clip/v2/resource/motion/' + self.settings['motion']))[0]
                     gate.present = initial['motion']['motion']
-                    print('Listening for fresh motion; 30-second cooldown.', flush=True)
+                    print('Listening for fresh motion; five-minute storm, then off; 30-second cooldown.', flush=True)
                     timeout = aiohttp.ClientTimeout(total=None, sock_read=120)
                     async with self.http.get('https://' + self.host + '/eventstream/clip/v2',
                                              headers={'Accept': 'text/event-stream'}, timeout=timeout) as response:
@@ -161,7 +196,7 @@ class Controller:
                                             if not self.busy:
                                                 if task:
                                                     await task
-                                                task = asyncio.create_task(self.trigger())
+                                                task = asyncio.create_task(self.trigger(gate))
                 except (aiohttp.ClientError, TimeoutError, OSError, ValueError, HueError):
                     print('Connection interrupted; retrying in five seconds.', flush=True)
                     await asyncio.sleep(5)

@@ -139,7 +139,9 @@ The bulbs stay off while idle. A fresh motion event runs this sequence:
 1. Both bulbs show normal warm white for exactly two seconds.
 2. Both bulbs go dark for half a second.
 3. Both bulbs flash irregular white lightning for four seconds.
-4. For the next two minutes, the first selected channel stays warm white. The
+4. For the next two minutes, the first selected channel stays warm white at twice
+   its previous RGB drive level (46000/34000/22000). The two-second normal opening
+   uses its original brightness. The
    remaining channels stay dark between four-second lightning bursts, separated
    by randomly chosen 20–40-second intervals. Each flashing bulb gets its own
    pattern and brightness, with occasional shared strikes.

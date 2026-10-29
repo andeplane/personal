@@ -25,6 +25,7 @@ AREA_NAME = 'Window lightning (Codex)'
 # Three irregular strikes across four seconds; frames are streamed at 50 Hz.
 STRIKES = ((0.15, 0.27, 1.0), (1.25, 1.40, 0.7), (2.80, 3.03, 1.0))
 STEADY = (23000, 17000, 11000)
+ANCHOR = (46000, 34000, 22000)
 CLOCK = time.monotonic
 
 
@@ -134,9 +135,9 @@ def frame_at(elapsed, plan, patterns, channels):
     if mode == 'dark':
         return {channel: (0, 0, 0) for channel in channels}
     if mode == 'steady':
-        return {channel: STEADY if n == 0 else (0, 0, 0)
+        return {channel: ANCHOR if n == 0 else (0, 0, 0)
                 for n, channel in enumerate(channels)}
-    return {channel: STEADY if n == 0 and index > 2 else color_at(elapsed, plan, patterns, channel)
+    return {channel: ANCHOR if n == 0 and index > 2 else color_at(elapsed, plan, patterns, channel)
             for n, channel in enumerate(channels)}
 
 

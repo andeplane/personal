@@ -1,7 +1,7 @@
 import unittest
 import random
 from unittest.mock import AsyncMock, Mock, patch
-from lightning import (Controller, MotionGate, STEADY, color_at, frame_at,
+from lightning import (ANCHOR, Controller, MotionGate, STEADY, color_at, frame_at,
                        intensity, lightning_patterns, sequence)
 
 
@@ -89,12 +89,12 @@ class LightningTests(unittest.TestCase):
         independent = shared = False
         for tick in range(6000):
             frame = frame_at(6.5 + tick / 50, plan, patterns, channels)
-            self.assertEqual(frame[0], STEADY)
+            self.assertEqual(frame[0], ANCHOR)
             independent |= frame[1] != frame[2]
             shared |= frame[1] == frame[2] and frame[1][0] > 0
         self.assertTrue(independent)
         self.assertTrue(shared)
-        self.assertEqual(frame_at(6.5, plan, patterns, channels), {0: STEADY, 1: (0, 0, 0), 2: (0, 0, 0)})
+        self.assertEqual(frame_at(6.5, plan, patterns, channels), {0: ANCHOR, 1: (0, 0, 0), 2: (0, 0, 0)})
         self.assertIsNone(frame_at(126.5, plan, patterns, channels))
 
     def test_random_strikes_fit_each_burst_and_change_between_bursts(self):

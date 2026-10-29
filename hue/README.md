@@ -112,3 +112,39 @@ existing groups and other owners' scenes, idempotency, credential handling, and
 off cleanup after reveal errors. They do not establish physical light response.
 
 Reference: [Philips Hue local API getting started](https://developers.meethue.com/develop/get-started-2/).
+
+## Motion-triggered Entertainment lightning
+
+`lightning.py` uses Hue's DTLS Entertainment stream for rapid updates and the
+local SSE event stream for motion. It controls only the explicitly selected
+room's bulbs. It never stops another active Entertainment session. It pins the
+Bridge certificate during setup; pairing stores an mDNS hostname so DHCP address
+changes are resolved on startup. All credentials and selected device identifiers
+stay in the private config folder outside Git.
+
+Install the extra runtime in a private virtual environment:
+
+```sh
+uv venv ~/.config/hue-halloween/venv --python 3.13
+uv pip install --python ~/.config/hue-halloween/venv/bin/python -r hue/requirements.txt
+~/.config/hue-halloween/venv/bin/python hue/lightning.py pair
+# Press the round Bridge button while pairing waits.
+~/.config/hue-halloween/venv/bin/python hue/lightning.py setup --room ROOM_ID --sensor MOTION_SENSOR_ID
+~/.config/hue-halloween/venv/bin/python hue/lightning.py test
+~/.config/hue-halloween/venv/bin/python hue/lightning.py listen
+```
+
+The four-second effect contains three irregular white strikes with dark gaps.
+Every completed or interrupted effect attempts to stop streaming and switch its
+bulbs off. `listen` first switches the selected bulbs off, then waits for a fresh
+false-to-true motion event. It ignores motion during the effect and for 30 seconds
+afterward; it does not replay queued motion. It runs whenever this command is
+running, without a daylight or evening restriction. Stop with Ctrl-C.
+
+The listener must run on an awake computer with LAN access. It is not a Bridge
+rule and is not installed on Home Assistant Green. Thunder audio is not included.
+A Bridge-button-authorized streaming credential and a successful physical test
+are required before calling the effect commissioned. A process lock prevents two
+copies of this controller running together. Certificate changes require deliberate
+setup again. After loss of the Bridge connection it reconnects the event stream;
+restart the process to resolve an IP change during an existing run.

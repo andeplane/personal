@@ -178,6 +178,7 @@ private struct ControlReply: Decodable {
                 case "storm": label = "Storm · white & purple lightning"
                 case "reveal": label = "Mask reveal · warm light & evil laugh"
                 case "finale": label = "Final scare · scream & chaotic lightning"
+                case "aftermath": label = "Aftermath · rolling thunder & surprise scares"
                 case "tail": label = "Aftermath · fading sound"
                 case "normal": label = "Opening · warm light"
                 case "dark": label = "Brief darkness"

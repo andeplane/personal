@@ -10,9 +10,13 @@ private configuration, with the previous configuration backed up before migratio
 
 The 14-second timeline is thunder/white-purple lightning at 0s, warm mask and
 laughter at 2.6s, another storm at 5.5s, and scream/chaotic finale at 9.2s.
-Everything ends dark at 14s. A single overlapping soundtrack avoids repeated
-Sonos startup delays; rumbles overlap the voices and fade out at the scene end.
-Thunder uses temporary 100% speaker volume, while laughter/scream retain the
+The opening now continues into a 30-second aftermath: rolling thunder from 14s,
+a randomly selected different laugh and mask reveal at 20s, another storm at
+27.5s, a second scream at 33s, and a three-second fade from 41s. Everything is
+dark and reset at 44s. A single overlapping soundtrack avoids repeated
+Sonos startup delays; rumbles overlap voices and fade out at the scene end.
+Voice tails fade before their volume window changes to louder thunder.
+Thunder uses temporary 100% speaker volume, with laughter at 70% and screams at the
 configured voice level (currently 54%). Cleanup restores the previous volume;
 explicit app volume adjustments take precedence.
 

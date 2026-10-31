@@ -1,8 +1,8 @@
 """Role-based outdoor scene: thunder, mask reveal, thunder, scream finale.
 
 Only explicitly selected fixtures are written. The white-only mask uses CT;
-the two RGB lamps use independent white/purple strokes. An overlapping 14-second
-soundtrack removes stage delays; every exit returns the fixtures to dark.
+the two RGB lamps use independent white/purple strokes. The fast opening leads
+into thirty seconds of varied scares; every exit returns the fixtures to dark.
 """
 import asyncio
 import array
@@ -17,7 +17,36 @@ from hue import HueError
 
 WHITE = [.313, .329]
 PURPLE = [.272, .115]
-SCENE_SECONDS = 14.0
+OPENING_SECONDS = 14.0
+SCENE_SECONDS = 44.0
+
+
+def volume_cues(voice_volume):
+    return [(0, 100), (2.5, 70), (5.5, 100), (9.1, voice_volume),
+            (14, 100), (19.9, 70), (27.4, 100), (32.9, voice_volume), (41, 100)]
+
+
+def aftermath_events(flashers, mask, rng=None):
+    rng = rng or random.SystemRandom()
+    events = [(14, 'aftermath', {mask: {'on': True, 'bri': 65, 'ct': 454, 'transitiontime': 4}}),
+              (20, 'reveal', {mask: {'on': True, 'bri': 254, 'ct': 454, 'transitiontime': 0}}),
+              (27.5, 'storm', {mask: {'on': False, 'transitiontime': 0}}),
+              (33, 'finale', {mask: {'on': True, 'bri': 254, 'ct': 454, 'transitiontime': 0}}),
+              (41, 'tail', {mask: {'on': False, 'transitiontime': 25},
+                            **{i: {'on': False, 'transitiontime': 25} for i in flashers}})]
+    for begin, end, lower, upper in [(14.3,18.4,.65,1.4), (20.5,26.5,1.2,2.2),
+                                    (27.7,32.5,.44,.8), (33.3,37.8,.34,.47),
+                                    (39,40.3,.45,.8)]:
+        t = begin
+        number = rng.randrange(2)
+        while t + .3 < end:
+            lamp = flashers[number % 2];number += 1
+            events.append((t, None, {lamp: {'on': True, 'bri': 254,
+                           'xy': WHITE if rng.random() < .6 else PURPLE, 'transitiontime': 0, 'alert': 'none'}}))
+            events.append((t+rng.uniform(.20,.24), None,
+                           {lamp: {'on': True, 'bri': 1, 'xy': PURPLE, 'transitiontime': 0}}))
+            t += rng.uniform(lower,upper)
+    return sorted(events,key=lambda event:event[0])
 
 
 def compact_events(flashers, mask, rng=None):
@@ -46,19 +75,34 @@ def compact_events(flashers, mask, rng=None):
     return sorted(events, key=lambda item: item[0])
 
 
-def prepare_compact_audio(library, tracks):
+def prepare_compact_audio(library, tracks, rng=None):
     """One overlapping soundtrack avoids four Sonos handshakes and silent gaps."""
     from sound_library import RATE, read_pcm
-    inputs = [(0, Path(tracks[0]['audio_file'])),
-              (2.6, library.by_id['evil-laugh-deep'][1]),
-              (5.5, Path(tracks[1]['audio_file'])),
-              (9.2, library.by_id['jump-scream'][1])]
+    rng = rng or random.SystemRandom()
+    laugh = rng.choice(['villain-cackle','haunted-laugh','sinister-laugh','witch-laugh'])
+    scream = rng.choice(['monster-scream','long-male-scream'])
+    inputs = [(0, Path(tracks[0]['audio_file']), 1),
+              (2.6, library.by_id['evil-laugh-deep'][1], 1),
+              (5.5, Path(tracks[1]['audio_file']), 1),
+              (9.2, library.by_id['jump-scream'][1], 1),
+              (14, library.by_id[rng.choice(['loud-storm','sharp-crack'])][1], .65),
+              (20, library.by_id[laugh][1], 1),
+              (27.5, library.by_id['loud-rumble'][1], 1),
+              (33, library.by_id[scream][1], 1)]
     mixed = [0] * round(SCENE_SECONDS * RATE)
-    for offset, path in inputs:
+    for offset, path, gain in inputs:
         start = round(offset * RATE)
         samples = read_pcm(path)
+        # Keep voices inside their own volume windows, fading the first laugh
+        # into the next strike rather than letting its tail jump to 100%.
+        voice_end = {2.6: 5.5, 20: 27.4, 33: 41}.get(offset)
+        if voice_end is not None:
+            samples = samples[:round((voice_end-offset)*RATE)]
+            fade_frames = min(len(samples), round(.15*RATE))
+            for index in range(1, fade_frames+1):
+                samples[-index] = round(samples[-index]*(index-1)/fade_frames)
         for i, sample in enumerate(samples[:len(mixed)-start]):
-            mixed[start+i] += sample
+            mixed[start+i] += round(sample*gain)
     # Soft-limit overlapping peaks; isolated voice levels remain unchanged.
     pcm = array.array('h')
     for i, sample in enumerate(mixed):
@@ -66,7 +110,7 @@ def prepare_compact_audio(library, tracks):
         if magnitude > 30000:
             magnitude = min(32700, 30000 + (magnitude-30000)/(1+(magnitude-30000)/2400))
             sample = magnitude if sample > 0 else -magnitude
-        fade = min(1, (len(mixed)-1-i)/(.18*RATE))
+        fade = min(1, (len(mixed)-1-i)/(3*RATE))
         pcm.append(round(sample*fade))
     digest = hashlib.sha256(pcm.tobytes()).hexdigest()
     path = library.cache / ('scene-' + digest + '.wav')
@@ -191,7 +235,7 @@ async def horror_scene(c, *, lightning_only=False, sound=True):
         scene_uri = c.sonos.last_uri if c.sonos else None
 
         async def volumes():
-            for offset, value in [(0, 100), (2.5, base_volume), (5.5, 100), (9.1, base_volume)]:
+            for offset, value in volume_cues(base_volume):
                 await asyncio.sleep(max(0, audio_started + offset - time.monotonic()))
                 if (c.sonos and not c.sound_override and c.sonos.last_uri == scene_uri
                         and scene_uri and c.sonos.config['volume'] == base_volume
@@ -202,7 +246,8 @@ async def horror_scene(c, *, lightning_only=False, sound=True):
         try:
             await asyncio.sleep(c.settings.get('audio_lead_seconds', .35) if sound else 0)
             start = time.monotonic()
-            for offset, phase, states in compact_events(flashers, mask, rng):
+            events = compact_events(flashers, mask, rng) + aftermath_events(flashers, mask, rng)
+            for offset, phase, states in events:
                 await asyncio.sleep(max(0, start + offset - time.monotonic()))
                 if phase:
                     c.status(phase=phase)

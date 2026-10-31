@@ -3,6 +3,35 @@
 This is the final working setup from 31 October 2026. Start here next year;
 older sections of the general README describe earlier experiments.
 
+## Silent overnight mode
+
+The late-night variant uses a separate Hue LightGroup containing the two outside
+colour lamps, the warm mask, Stålampe, and both Guest room colour spots. Each Guest
+room spot follows one outside lamp using `color_mirrors`. Full 44-second scenes
+start at randomized 18–22 minute intervals; all selected lights are off between
+scenes. The unavailable gaming-room white bulb and independent door effect are
+excluded from this profile. The normal scene group is preserved.
+
+`overnight.py` runs inside the existing controller, using a private JSON file with
+`enabled`, an ISO timestamp `until`, and an ISO timestamp `next_at`. The deployed
+one-night deadline is 1 November 2026 at 07:00 Europe/Oslo. Next-run timestamps are
+saved before starting a show. A restart never catches up missed shows, busy runs
+are skipped, and the deadline turns lights off. **Stop & dark**, Lights off, or
+switching motion off also cancels the schedule persistently.
+
+While `overnight_file` is configured, audio is forcibly disabled before the Sonos
+client can be created. No soundtrack is rendered or played in a silent show.
+Audio stays disabled after expiry; restoring daytime sound requires removing
+`overnight_file`, explicitly enabling audio, and restarting the controller. Private
+pre-night settings/runtime backups are retained on the mini. Restore that profile
+only after checking which bulbs are reachable. Do not replay an old night deadline
+next year: create a new dated schedule deliberately.
+
+Partner pulses are budgeted as complete on/off pairs, including fixed mask cues,
+before reserving the Stålampe flashes. The shared writer still enforces at most
+ten requests in a rolling second. Partners match commanded timing and colour;
+physical Zigbee latency can differ slightly between bulbs.
+
 ## What runs
 
 - The Mac mini is the sole lighting/motion controller. `supervise.py` runs

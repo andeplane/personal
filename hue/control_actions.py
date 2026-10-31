@@ -188,12 +188,18 @@ async def dispatch(c, command):
         page = c.activity_log.page(before) if c.activity_log else {'activity': [], 'activity_more': False}
         return {**_reply(c), **page}
     if action in ('start', 'flash', 'stop', 'off', 'on'):
+        night = getattr(c, 'overnight', None)
+        if action in ('stop', 'off') and night is not None and night.enabled:
+            night.stop(c)
         c.set_armed(False)
         _queue_lighting(c, action)
     elif action == 'arm':
         enabled = command.get('enabled')
         if not isinstance(enabled, bool):
             raise ValueError('enabled must be a boolean')
+        night = getattr(c, 'overnight', None)
+        if not enabled and night is not None and night.enabled:
+            night.stop(c)
         # Keep actual motion paused until cleanup finishes. The pending value
         # lets the UI show the desired switch position without arming early.
         c.set_armed(False)

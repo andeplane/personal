@@ -52,3 +52,7 @@ Se [logging workflow](printing/README.md) og [AGENTS.md](AGENTS.md).
 
 [Lokal styring og oppsett](hue/README.md) for Hue Bridge, fargescener og et
 kontrollert vinduslys. Tilgangsnøkler lagres utenfor repoet.
+
+## Halloween
+
+[The Haunted Garden](https://andeplane.github.io/personal/halloween/) — 20 ekte Halloween-hager med bilder, filtre, favoritter og egne notater. [Kode og bruk](halloween/README.md).

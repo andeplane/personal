@@ -10,6 +10,25 @@ from hue import HueError
 
 
 class HorrorScheduleTests(unittest.TestCase):
+    def test_guest_room_partners_follow_outside_within_request_budget(self):
+        mirrors = {'a':['g1'], 'b':['g2']}
+        settings = {'lights':['a','b','c','m','g1','g2'],
+                    'scene_roles':{'flashers':['a','b','c'],'mask':'m'},
+                    'continuous_flasher':'c','color_mirrors':mirrors}
+        self.assertEqual(roles(settings), (['a','b','c'],'m'))
+        self.assertEqual(set(warm_states(settings)), set(settings['lights']))
+        for seed in range(200):
+            events = continuous_scene_events(['a','b','c'],'m','c',random.Random(seed),[],89,mirrors)
+            for t, _, states in events:
+                self.assertLessEqual(sum(len(s) for u,_,s in events if t <= u < t+1),10, (seed,t))
+                for source, targets in mirrors.items():
+                    if source in states:
+                        for target in targets:
+                            self.assertEqual(states[source],states[target])
+            for lamp in ('g1','g2','c'):
+                colors = [s[lamp].get('xy') for _,_,s in events if lamp in s and s[lamp].get('bri') == 254]
+                self.assertIn(WHITE,colors); self.assertIn(PURPLE,colors)
+
     def test_roles_are_exact_and_mask_uses_ct(self):
         settings = {'lights': ['a', 'b', 'm'], 'scene_roles': {'flashers': ['a', 'b'], 'mask': 'm'}}
         self.assertEqual(roles(settings), (['a', 'b'], 'm'))
@@ -135,6 +154,15 @@ class HorrorScheduleTests(unittest.TestCase):
 
 
 class HorrorRuntimeTests(unittest.IsolatedAsyncioTestCase):
+    async def test_full_silent_show_never_prepares_or_plays_audio(self):
+        c = self.controller(); c.settings['audio_enabled'] = False; c.sonos = None
+        with patch('horror_scene.asyncio.sleep', new=AsyncMock()), \
+             patch('horror_scene.prepare_compact_audio') as prepare, \
+             patch('lightning.load_soundtracks') as catalog:
+            await horror_scene(c)
+        prepare.assert_not_called(); catalog.assert_not_called(); c.thunder.assert_not_awaited()
+        self.assertEqual(c.dark.await_count,2)
+
     def controller(self):
         c = Mock()
         c.settings = {'lights': ['a', 'b', 'm'], 'group': 'scene',

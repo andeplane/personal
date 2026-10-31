@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121316">
+  <link rel="canonical" href="https://andeplane.github.io/personal/halloween/">
+  <meta name="description" content="A collection of 20 real Halloween gardens. Discover spiders, haunted sheds, graveyards and light, then save your favourites for next year.">
+  <title>The Haunted Garden · Ideas for next year</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="ideas.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#collection">Skip to ideas</a>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="The Haunted Garden home"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M24 4A12 12 0 1 0 28 22 13 13 0 0 1 24 4Z"/><path class="spark" d="m10 7 1 3 3 1-3 1-1 3-1-3-3-1 3-1Z"/></svg><span>The Haunted Garden<small>A FIELD GUIDE FOR NEXT HALLOWEEN</small></span></a>
+    <nav class="view-nav" aria-label="Collection view"><button id="browse-tab" class="nav-button active" aria-pressed="true">Explore</button><button id="saved-tab" class="nav-button" aria-pressed="false"><span class="bookmark-icon" aria-hidden="true">♡</span> Shortlist <span id="saved-count" class="count">0</span></button></nav>
+  </header>
+  <main>
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <img class="hero-photo" src="https://images.squarespace-cdn.com/content/v1/56b2203262cd9449d3d390ca/1603792235958-0OREODZC2386UYW42ORY/YardHaunts-20_1027-C-FillmoreGraves-0000b.jpg" alt="A small haunted shed beneath a blue-lit tree at Fillmore Graves" fetchpriority="high">
+      <div class="hero-shade"></div>
+      <div class="hero-copy"><p class="eyebrow"><span></span> THE NEXT CHAPTER</p><h1 id="hero-title">A little garden.<br>A lot of <em>atmosphere.</em></h1><p class="hero-description">Spiders on the walls. Something stirring in the trees.<br class="desktop-break"> A dukkestue that comes alive after dark.</p><a class="button primary" href="#collection">Find your inspiration <span aria-hidden="true">↓</span></a><p class="hero-footnote">20 real home displays · Curated for our garden</p></div>
+      <button class="hero-caption" data-open="6"><span class="eyebrow">IN THE SPOTLIGHT</span><strong>Fillmore Graves <span aria-hidden="true">↗</span></strong><span>A haunted little shed. A very good starting point.</span></button>
+    </section>
+
+    <section class="collection" id="collection" aria-labelledby="collection-title">
+      <div class="section-heading"><div><p class="eyebrow" id="section-eyebrow">THE INSPIRATION COLLECTION</p><h2 id="collection-title">Find the feeling.</h2><p id="collection-description">Real gardens, clever effects, and ideas worth borrowing.</p></div><div class="heading-actions"><button class="button subtle" id="export-button" hidden><span aria-hidden="true">↓</span> Export shortlist</button><span class="collection-total" id="collection-total">20 ideas to explore</span></div></div>
+      <div class="browse-tools">
+        <div class="search-sort"><label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Search spiders, sheds, places…" aria-label="Search ideas"><kbd aria-hidden="true">/</kbd></label><label class="sort"><span>Sort by</span><select id="sort"><option value="recommended">Our favourites first</option><option value="original">Original research order</option><option value="name">Name A–Z</option></select></label></div>
+        <div class="filters" id="filters" aria-label="Filter ideas by theme"></div>
+      </div>
+      <div class="results-line"><p id="results-count" role="status" aria-live="polite"></p><button class="text-button" id="reset-filters" hidden>Clear filters ×</button><span class="research-note" id="research-note">Photographed home displays. Original sources included.</span></div>
+      <div class="idea-grid" id="idea-grid"></div>
+      <div class="empty-state" id="empty-state" hidden><span aria-hidden="true">✧</span><h3 id="empty-title"></h3><p id="empty-description"></p><button class="button primary" id="empty-action">Explore all ideas</button></div>
+    </section>
+    <aside class="garden-note"><span class="note-symbol" aria-hidden="true">✦</span><div><h3>A starting point for our garden.</h3><p>Chosen for the wall, trees and dukkestue. Some references are front or side gardens; others focus on one effect. We’ll adapt the layout when we have the backyard photo.</p></div></aside>
+  </main>
+  <footer><span class="footer-brand">The Haunted Garden</span><span>Researched 31 October 2026 · Planning for next Halloween</span><span>Shortlist & notes stay in this browser.</span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <dialog id="idea-dialog" aria-labelledby="detail-title">
+    <button class="dialog-close icon-button" id="close-dialog" aria-label="Close idea">×</button>
+    <div class="detail-layout"><div class="detail-visual"><img id="detail-image" alt=""><button class="motion-button button subtle" id="motion-button" hidden>Play effect preview ▷</button><div class="photo-credit" id="photo-credit"></div></div><div class="detail-content"><div class="detail-overline"><span class="eyebrow" id="detail-number"></span><span class="fit-label" id="detail-fit"></span></div><p class="detail-place" id="detail-place"></p><h2 id="detail-title"></h2><p class="original-title" id="original-title"></p><div class="detail-tags" id="detail-tags"></div><div class="idea-explanation"><h3>What we could borrow</h3><p id="detail-idea"></p></div><div class="detail-actions"><button class="button primary" id="detail-save">♡ Add to shortlist</button><a class="button subtle" id="detail-source" target="_blank" rel="noopener noreferrer">Original source ↗</a></div><div class="notes"><label for="idea-notes">Notes for our garden <span id="note-status">Saved automatically</span></label><textarea id="idea-notes" rows="3" maxlength="5000" placeholder="Where could this go? What would you change?"></textarea><p>Private to this browser. Export your shortlist to keep a copy.</p></div><div class="detail-pagination"><button class="text-button" id="previous-idea" aria-label="Previous idea">← Previous</button><span id="detail-position"></span><button class="text-button" id="next-idea" aria-label="Next idea">Next →</button></div></div></div>
+  </dialog>
+</body>
+</html>

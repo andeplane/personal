@@ -1,5 +1,7 @@
 # Hue lighting and Halloween window
 
+For next Halloween, start with the [2026 working setup and restart guide](HALLOWEEN-2026.md).
+
 ## Outdoor mask scene
 
 With private setting `scene: "mask_reveal"`, Start and armed motion run the

@@ -192,25 +192,6 @@ def motion_sample(resource, event_timestamp=None):
     return value, stamp
 
 
-def darkness_sample(sensor, now):
-    """Use the outdoor sensor's own dark flag, but reject stale/offline data."""
-    config = sensor.get('config', {})
-    state = sensor.get('state', {})
-    if config.get('reachable') is not True or config.get('on') is not True:
-        return None
-    dark, updated = state.get('dark'), state.get('lastupdated')
-    if not isinstance(dark, bool) or not isinstance(updated, str):
-        return None
-    try:
-        dt = datetime.fromisoformat(updated.replace('Z', '+00:00'))
-        stamp = dt.replace(tzinfo=timezone.utc).timestamp() if dt.tzinfo is None else dt.timestamp()
-    except (ValueError, OverflowError):
-        return None
-    if not -60 <= now-stamp <= 1800:
-        return None
-    return dark
-
-
 class StreamDisconnected(HueError):
     pass
 
@@ -278,8 +259,6 @@ class Controller:
         self.activity_log = None
         self.activity_run = None
         self.activity_started = False
-        self.darkness = None
-        self.darkness_checked = 0.0
         if settings.get('activity_file'):
             try:
                 from activity_log import ActivityLog
@@ -323,25 +302,6 @@ class Controller:
         if self.credentials.get('hostname'):
             self.host = await asyncio.to_thread(socket.gethostbyname, self.credentials['hostname'])
             self.bridge = Bridge(self.host, self.credentials['username'])
-
-    async def refresh_darkness(self):
-        identifier = self.settings.get('dark_sensor_id')
-        if not identifier:
-            return
-        try:
-            sensor = await asyncio.to_thread(self.bridge.request, 'GET', '/sensors/' + str(identifier))
-            result = darkness_sample(sensor, time.time())
-        except (HueError, OSError, ValueError, TimeoutError):
-            result = None
-        gate = 'dark' if result is True else 'daylight' if result is False else 'unavailable'
-        if self.health.get('dark_gate') != gate:
-            message = {'dark':'Dark outside · motion ready',
-                       'daylight':'Daylight · waiting for darkness',
-                       'unavailable':'Light sensor unavailable · motion paused'}[gate]
-            self.activity('monitor', message, source='light sensor')
-        self.darkness = result
-        self.darkness_checked = time.monotonic()
-        self.status(dark_gate=gate)
 
     def black_commands(self):
         return [LightColorCommand(channel_id=i, red=0, green=0, blue=0)
@@ -730,17 +690,12 @@ class Controller:
                 if present:
                     active = self.sequence_task and not self.sequence_task.done()
                     detail = ('Motion detected · paused' if not self.motion_armed else
-                              'Motion detected · waiting for darkness' if self.settings.get('dark_sensor_id') and self.darkness is not True else
                               'Motion detected · scene running' if active else 'Motion detected')
                 try:
                     self.activity_log.motion(present, stamp, source, detail)
                 except (OSError, ValueError, OverflowError, sqlite3.Error):
                     self.health['activity_error'] = 'activity_unavailable'
             if not self.motion_armed:
-                if stamp is None or gate.last_report is None or stamp >= gate.last_report:
-                    gate.present, gate.last_report = present, stamp
-                return
-            if self.settings.get('dark_sensor_id') and self.darkness is not True:
                 if stamp is None or gate.last_report is None or stamp >= gate.last_report:
                     gate.present, gate.last_report = present, stamp
                 return
@@ -764,8 +719,6 @@ class Controller:
             while True:
                 try:
                     await self.refresh_host()
-                    if self.settings.get('dark_sensor_id') and time.monotonic()-self.darkness_checked >= 15:
-                        await self.refresh_darkness()
                     if self.session and self.motion_armed and not self.busy and not self.session.ready:
                         try:
                             if await self.session.ensure():
@@ -838,6 +791,9 @@ class Controller:
                 log('Waiting for Bridge connectivity before listening.')
                 await asyncio.sleep(5)
         tasks = [asyncio.create_task(poll()), asyncio.create_task(events())]
+        if self.settings.get('door_blink_light'):
+            from door_blink import door_blink_loop
+            tasks.append(asyncio.create_task(door_blink_loop(self)))
         if self.session:
             tasks.append(asyncio.create_task(self.session.loop()))
         server = None

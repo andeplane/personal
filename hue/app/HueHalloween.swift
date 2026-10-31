@@ -49,7 +49,6 @@ private struct ControlReply: Decodable {
     let requestedMotionArmed: Bool?
     let audioState: String?
     let audioError: String?
-    let darkGate: String?
     let volume: Double?
     let message: String?
     let clips: [SoundClip]?
@@ -64,7 +63,6 @@ private struct ControlReply: Decodable {
         case requestedMotionArmed = "requested_motion_armed"
         case audioState = "audio_state"
         case audioError = "audio_error"
-        case darkGate = "dark_gate"
         case lastError = "last_error"
         case activity
         case activityMore = "activity_more"
@@ -77,7 +75,6 @@ private struct ControlReply: Decodable {
     @Published var busy = false
     @Published var pendingActions: Set<String> = []
     @Published var armed = false
-    @Published var darkGate: String?
     @Published var sequenceActive = false
     @Published var previewState = ""
     @Published var motionChanging = false
@@ -109,14 +106,9 @@ private struct ControlReply: Decodable {
     }
 
     var motionDescription: String {
-        if motionChanging { return "Updating automatic motion…" }
-        if !armed { return "Motion paused. Use the buttons to test manually." }
-        switch darkGate {
-        case "dark": return "Dark outside · motion can start the scene"
-        case "daylight": return "Waiting for darkness · motion is monitored"
-        case "unavailable": return "Light sensor unavailable · motion is paused"
-        default: return "Motion starts the horror scene."
-        }
+        if motionChanging { return "Updating motion detection…" }
+        if !connected { return "Reconnecting · switch unavailable" }
+        return armed ? "Motion can start the horror scene" : "Automatic scene starts are paused"
     }
 
     var selectionDescription: String {
@@ -329,7 +321,6 @@ private struct ControlReply: Decodable {
             self.state = label
             self.sequenceActive = ["starting","playing","warming","retrying"].contains(raw)
             self.motionChanging = body.requestedMotionArmed != nil
-            self.darkGate = body.darkGate
             if let armed = body.requestedMotionArmed ?? body.motionArmed { self.armed = armed }
             switch body.audioState {
             case "preparing": self.previewState = "Preparing sound…"
@@ -366,6 +357,24 @@ struct ControlView: View {
     let timer = Timer.publish(every:3,on:.main,in:.common).autoconnect()
     var body: some View {
         VStack(alignment:.leading,spacing:16) {
+            VStack(alignment:.leading,spacing:8) {
+                HStack(spacing:12) {
+                    VStack(alignment:.leading,spacing:3) {
+                        Text("Motion detection").font(.headline)
+                        Text(controls.motionDescription).font(.caption).foregroundStyle(.secondary)
+                    }
+                    Spacer(minLength:8)
+                    Toggle("Motion detection",isOn:Binding(get:{controls.armed},set:{controls.command("arm",value:$0 ? "on":"off")}))
+                        .labelsHidden().toggleStyle(.switch).tint(.green)
+                        .disabled(!controls.canSend("arm"))
+                    Text(controls.armed ? "ON" : "OFF").font(.headline.monospaced())
+                        .foregroundStyle(controls.armed ? Color.green : Color.secondary).frame(width:34)
+                }
+                Text("On enables sensor triggers. Off pauses them. Manual tests pause motion.")
+                    .font(.caption2).foregroundStyle(.secondary)
+            }.padding(12)
+                .background(RoundedRectangle(cornerRadius:12).fill(controls.armed ? Color.green.opacity(0.09) : Color.secondary.opacity(0.06)))
+                .overlay(RoundedRectangle(cornerRadius:12).stroke(controls.armed ? Color.green.opacity(0.35) : Color.secondary.opacity(0.15),lineWidth:1))
             HStack(spacing:12) {
                 Image(systemName:"cloud.bolt.rain.fill").font(.system(size:34)).foregroundStyle(.orange)
                 VStack(alignment:.leading,spacing:3) {
@@ -381,10 +390,6 @@ struct ControlView: View {
                 Spacer()
                 if controls.busy { ProgressView().controlSize(.small) }
             }
-            Toggle("Automatic motion",isOn:Binding(get:{controls.armed},set:{controls.command("arm",value:$0 ? "on":"off")}))
-                .toggleStyle(.switch).disabled(!controls.canSend("arm"))
-            Text(controls.motionDescription)
-                .font(.caption).foregroundStyle(.secondary)
             Divider()
             HStack {
                 Button { controls.command("start") } label: { Label(controls.sequenceActive ? "Restart horror scene" : "Test horror scene",systemImage:controls.sequenceActive ? "arrow.clockwise" : "play.fill").frame(maxWidth:.infinity) }
@@ -432,7 +437,7 @@ struct ControlView: View {
                     .font(.caption).foregroundStyle(.orange)
                     .fixedSize(horizontal:false,vertical:true)
             }
-            Text(controls.message.isEmpty ? "Manual controls pause motion. Turn Automatic motion back on when ready." : controls.message)
+            Text(controls.message.isEmpty ? "Manual tests pause motion. Turn Motion detection on when ready." : controls.message)
                 .font(.caption).foregroundStyle(controls.message.isEmpty ? Color.secondary : Color.orange)
                 .fixedSize(horizontal:false,vertical:true)
             HStack {

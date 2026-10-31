@@ -45,12 +45,11 @@ history starts when this logger is installed; it cannot reconstruct events that
 the controller never received while offline. The app retrieves 100 entries at a
 time and loads older pages on demand. No activity database is committed to Git.
 
-When a private `dark_sensor_id` is configured, automatic motion runs only when
-the outdoor sensor's built-in `dark` flag is true. The reading is refreshed
-approximately every 15 seconds; an offline, disabled, missing or over-30-minute
-old reading blocks automatic triggers and is shown in the app. Motion reports
-continue to be logged during daylight. The app's manual scene controls remain
-available and retain their usual behavior of pausing automatic motion.
+The top **Motion detection** switch controls sensor-triggered scenes directly;
+the user decides when to switch it on. The optional independently configured door
+bulb flashes white twice at roughly 25–35 second intervals and stays off between
+bursts, regardless of the motion switch. Its writes share the Bridge rate limit
+with the scene and its bulb must not be one of the scene bulbs.
 
 Local tools for the existing Hue Bridge; Home Assistant is optional for the first
 lighting setup. Python 3.9+ and the standard library are sufficient.

@@ -12,7 +12,7 @@ The 14-second timeline is thunder/white-purple lightning at 0s, warm mask and
 laughter at 2.6s, another storm at 5.5s, and scream/chaotic finale at 9.2s.
 Everything ends dark at 14s. A single overlapping soundtrack avoids repeated
 Sonos startup delays; rumbles overlap the voices and fade out at the scene end.
-Thunder uses temporary 85% speaker volume, while laughter/scream retain the
+Thunder uses temporary 100% speaker volume, while laughter/scream retain the
 configured voice level (currently 54%). Cleanup restores the previous volume;
 explicit app volume adjustments take precedence.
 

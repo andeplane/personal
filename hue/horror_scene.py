@@ -191,7 +191,7 @@ async def horror_scene(c, *, lightning_only=False, sound=True):
         scene_uri = c.sonos.last_uri if c.sonos else None
 
         async def volumes():
-            for offset, value in [(0, 85), (2.5, base_volume), (5.5, 85), (9.1, base_volume)]:
+            for offset, value in [(0, 100), (2.5, base_volume), (5.5, 100), (9.1, base_volume)]:
                 await asyncio.sleep(max(0, audio_started + offset - time.monotonic()))
                 if (c.sonos and not c.sound_override and c.sonos.last_uri == scene_uri
                         and scene_uri and c.sonos.config['volume'] == base_volume

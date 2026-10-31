@@ -49,6 +49,12 @@ history starts when this logger is installed; it cannot reconstruct events that
 the controller never received while offline. The app retrieves 100 entries at a
 time and loads older pages on demand. No activity database is committed to Git.
 
+An optional `white_flashers` list can select one additional temperature-only
+bulb. It joins available white strikes with maximum cool-white flashes and a
+minimum warm setting between strikes. It receives CT commands exclusively and
+does not consume the continuous indoor lamp's planned flashes. The role union
+must still match the dedicated scene group exactly.
+
 The top **Motion detection** switch controls sensor-triggered scenes directly;
 the user decides when to switch it on. The optional independently configured door
 bulb produces random white flashes for 3–4 seconds every 1–2 minutes and stays off

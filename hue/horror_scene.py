@@ -80,7 +80,29 @@ def compact_events(flashers, mask, rng=None):
     return sorted(events, key=lambda item: item[0])
 
 
-def continuous_scene_events(flashers, mask, inside, rng=None):
+def white_companion_events(events, lamps):
+    """Add cool-white strikes, using warm minimum gaps, without RGB commands."""
+    counts=[(t,len(states)) for t,_,states in events]
+    candidates=[t for t,_,states in events if any(s.get('bri')==254 and s.get('xy')==WHITE for s in states.values())]
+    added=[]
+    for lamp in lamps:
+        last=-10
+        for begin in sorted(candidates):
+            end=begin+.30
+            if begin-last < .75:
+                continue
+            nearby=[(t,n) for t,n in counts if begin-1 < t < end+1]
+            windows=[begin,end]+[t for t,_ in nearby if begin-1 < t <= end]
+            if any(sum(n for t,n in nearby if start<=t<start+1)
+                   +int(start<=begin<start+1)+int(start<=end<start+1)>10 for start in windows):
+                continue
+            added.extend([(begin,None,{lamp:{'on':True,'bri':254,'ct':153,'transitiontime':0,'alert':'none'}}),
+                          (end,None,{lamp:{'on':True,'bri':1,'ct':454,'transitiontime':0}})])
+            counts.extend([(begin,1),(end,1)]);last=begin
+    return added
+
+
+def continuous_scene_events(flashers, mask, inside, rng=None, white_flashers=()):
     """Keep the inside lamp active, and match outdoor strikes during storms."""
     rng = rng or random.SystemRandom()
     outside = [lamp for lamp in flashers if lamp != inside]
@@ -130,6 +152,7 @@ def continuous_scene_events(flashers, mask, inside, rng=None):
         color = WHITE if (index+start_color)%2 == 0 else PURPLE
         events.extend([(begin,None,{inside:{'on':True,'bri':254,'xy':color,'transitiontime':0,'alert':'none'}}),
                        (begin+.24,None,{inside:{'on':True,'bri':1,'xy':PURPLE,'transitiontime':0}})])
+    events += white_companion_events(events, white_flashers)
     return sorted(events,key=lambda item:item[0])
 
 
@@ -187,10 +210,11 @@ def prepare_compact_audio(library, tracks, rng=None):
 def roles(settings):
     value = settings.get('scene_roles', {})
     flashers, mask = value.get('flashers', []), value.get('mask')
+    white = settings.get('white_flashers', [])
     if (len(flashers) not in (2, 3) or not isinstance(mask, str) or
-            len(set([*flashers, mask])) != len(flashers) + 1 or
-            set([*flashers, mask]) != set(settings['lights'])):
-        raise HueError('Horror scene requires two or three colour lights and one mask')
+            len(white)>1 or len(set([*flashers, mask, *white])) != len(flashers) + len(white) + 1 or
+            set([*flashers, mask, *white]) != set(settings['lights'])):
+        raise HueError('Horror scene needs distinct colour, mask and optional white lights')
     return flashers, mask
 
 
@@ -198,6 +222,7 @@ def warm_states(settings):
     flashers, mask = roles(settings)
     return {**{i: {'on': True, 'bri': 210, 'xy': [.50, .42], 'transitiontime': 0}
                for i in flashers},
+            **{i: {'on':True, 'bri':210, 'ct':454, 'transitiontime':0} for i in settings.get('white_flashers',[])},
             mask: {'on': True, 'bri': 254, 'ct': 454, 'transitiontime': 0}}
 
 
@@ -261,7 +286,7 @@ async def horror_scene(c, *, lightning_only=False, sound=True):
         if any(area['status'] == 'active' for area in areas):
             c.status(state='skipped', reason='another_entertainment_stream')
             return False
-        for lamp in [*flashers, mask]:
+        for lamp in [*flashers, mask, *c.settings.get('white_flashers', [])]:
             resource = await asyncio.to_thread(c.bridge.request, 'GET', '/lights/' + lamp)
             if not resource['state'].get('reachable'):
                 raise HueError('A selected scene light is unreachable')
@@ -288,7 +313,9 @@ async def horror_scene(c, *, lightning_only=False, sound=True):
             await asyncio.sleep(max(0, start + duration + .5 - time.monotonic()))
 
         if lightning_only:
-            await stage('storm', 4, strokes(flashers, 4, rng=rng))
+            quick = strokes(flashers, 4, rng=rng)
+            extra = white_companion_events([(t,None,s) for t,s in quick], c.settings.get('white_flashers', []))
+            await stage('storm', 4, sorted(quick+[(t,s) for t,_,s in extra],key=lambda item:item[0]))
             return True
 
         catalog = load_soundtracks(c.settings['thunder_catalog'])
@@ -316,8 +343,10 @@ async def horror_scene(c, *, lightning_only=False, sound=True):
             await asyncio.sleep(c.settings.get('audio_lead_seconds', .35) if sound else 0)
             start = time.monotonic()
             inside = c.settings.get('continuous_flasher')
-            events = (continuous_scene_events(flashers, mask, inside, rng) if inside else
+            events = (continuous_scene_events(flashers, mask, inside, rng,c.settings.get('white_flashers',[])) if inside else
                       compact_events(flashers, mask, rng) + aftermath_events(flashers, mask, rng))
+            if not inside:
+                events=sorted(events+white_companion_events(events,c.settings.get('white_flashers',[])),key=lambda item:item[0])
             for offset, phase, states in events:
                 await asyncio.sleep(max(0, start + offset - time.monotonic()))
                 if phase:

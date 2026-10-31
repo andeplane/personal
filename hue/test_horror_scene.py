@@ -73,6 +73,22 @@ class HorrorScheduleTests(unittest.TestCase):
             for t,_,_ in events:
                 self.assertLessEqual(sum(len(states) for u,_,states in events if t <= u < t+1),10)
 
+    def test_white_only_companion_uses_temperature_and_shares_lightning_budget(self):
+        settings={'lights':['a','b','c','m','w'], 'scene_roles':{'flashers':['a','b','c'],'mask':'m'},'white_flashers':['w']}
+        self.assertEqual(roles(settings),(['a','b','c'],'m'))
+        self.assertNotIn('xy',warm_states(settings)['w'])
+        for seed in range(200):
+            events=continuous_scene_events(['a','b','c'],'m','c',random.Random(seed),['w'])
+            white=[(t,states['w']) for t,_,states in events if 'w' in states]
+            self.assertGreaterEqual(sum(s.get('bri')==254 for _,s in white),8)
+            self.assertTrue(all('xy' not in s and s['ct'] in (153,454) for _,s in white))
+            rgb=[t for t,_,states in events if any(i in states and states[i].get('bri')==254 for i in ['a','b','c'])]
+            self.assertTrue(all(any(abs(t-u)<.001 for u in rgb) for t,s in white if s.get('bri')==254))
+            inside=[t for t,_,states in events if 'c' in states and states['c'].get('bri')==254]
+            self.assertLess(max(b-a for a,b in zip(inside,inside[1:])),3)
+            for t,_,_ in events:
+                self.assertLessEqual(sum(len(states) for u,_,states in events if t<=u<t+1),10)
+
     def test_aftermath_is_bounded_varied_and_volume_windows_match_voices(self):
         signatures=set()
         for seed in range(500):

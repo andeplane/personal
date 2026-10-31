@@ -55,6 +55,21 @@ bulb produces random white flashes for 3–4 seconds every 1–2 minutes and sta
 between bursts, regardless of the motion switch. Its writes share the Bridge rate limit
 with the scene and its bulb must not be one of the scene bulbs.
 
+## iPhone controls
+
+The native app in `ios/` uses the same on/off, Test, Stop and Activity commands
+as the Mac app. A separate `mobile_gateway.py` process forwards those commands
+to the controller's private Unix socket over authenticated HTTPS. The mobile
+client pins the exact private server certificate and refuses redirects.
+
+Gateway settings, TLS key/certificate and bearer token live under the controller
+user's `~/.config/hue-halloween-mobile/`, outside Git. The iPhone build reads its
+private `client.json` from `~/.config/hue-mobile/` on the build Mac. Private client
+settings are copied only into the installed app, never checked into the project.
+The mini runs the gateway as the user LaunchAgent
+`com.andeplane.hue-halloween-mobile`; it depends on the existing controller
+service being healthy. The initial phone pairing connects over home Wi-Fi.
+
 Local tools for the existing Hue Bridge; Home Assistant is optional for the first
 lighting setup. Python 3.9+ and the standard library are sufficient.
 

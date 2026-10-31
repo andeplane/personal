@@ -5,7 +5,7 @@ import tempfile
 from pathlib import Path
 from unittest.mock import AsyncMock, Mock, patch
 
-from horror_scene import WHITE, PURPLE, horror_scene, roles, strokes, warm_states, compact_events, prepare_compact_audio, SCENE_SECONDS, aftermath_events, volume_cues
+from horror_scene import WHITE, PURPLE, horror_scene, roles, strokes, warm_states, compact_events, prepare_compact_audio, SCENE_SECONDS, aftermath_events, volume_cues, continuous_scene_events
 from hue import HueError
 
 
@@ -58,6 +58,20 @@ class HorrorScheduleTests(unittest.TestCase):
             self.assertTrue(all('xy' not in states['m'] for _,_,states in events if 'm' in states))
             test=strokes(lamps,4,rng=random.Random(seed))
             self.assertEqual({key for _,states in test for key in states},set(lamps))
+
+    def test_inside_flashes_throughout_and_matches_each_thunder_section(self):
+        for seed in range(200):
+            events=continuous_scene_events(['a','b','c'],'m','c',random.Random(seed))
+            inside=[(t,states['c']['xy']) for t,_,states in events if 'c' in states and states['c'].get('bri')==254]
+            outside=[t for t,_,states in events if any(i in states and states[i].get('bri')==254 for i in ['a','b'])]
+            self.assertLess(inside[0][0],1.5)
+            self.assertGreater(inside[-1][0],42)
+            self.assertLess(max(b[0]-a[0] for a,b in zip(inside,inside[1:])),2.5)
+            self.assertEqual({tuple(color) for _,color in inside},{tuple(WHITE),tuple(PURPLE)})
+            for start,end in [(0,2.55),(5.5,9.15),(14.3,18.4),(27.7,32.5)]:
+                self.assertTrue(any(start<=t<end and any(abs(t-u)<.001 for u in outside) for t,_ in inside))
+            for t,_,_ in events:
+                self.assertLessEqual(sum(len(states) for u,_,states in events if t <= u < t+1),10)
 
     def test_aftermath_is_bounded_varied_and_volume_windows_match_voices(self):
         signatures=set()

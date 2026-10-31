@@ -10,6 +10,10 @@ private configuration, with the previous configuration backed up before migratio
 
 The 14-second timeline is thunder/white-purple lightning at 0s, warm mask and
 laughter at 2.6s, another storm at 5.5s, and scream/chaotic finale at 9.2s.
+When `continuous_flasher` selects the indoor RGB bulb, it keeps flashing white
+and purple throughout all phases, including the laughter and fade. Its flashes
+include simultaneous strikes with the outside bulbs in each thunder section.
+The indoor bulb turns off with the other scene lights at the final reset.
 The opening now continues into a 30-second aftermath: rolling thunder from 14s,
 a randomly selected different laugh and mask reveal at 20s, another storm at
 27.5s, a second scream at 33s, and a three-second fade from 41s. Everything is

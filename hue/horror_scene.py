@@ -80,6 +80,59 @@ def compact_events(flashers, mask, rng=None):
     return sorted(events, key=lambda item: item[0])
 
 
+def continuous_scene_events(flashers, mask, inside, rng=None):
+    """Keep the inside lamp active, and match outdoor strikes during storms."""
+    rng = rng or random.SystemRandom()
+    outside = [lamp for lamp in flashers if lamp != inside]
+    if len(outside) != 2 or inside not in flashers:
+        raise HueError('Continuous lightning needs one inside and two outside bulbs')
+    events = compact_events(outside, mask, rng) + aftermath_events(outside, mask, rng)
+    counts = [(t, len(states)) for t, _, states in events]
+    inside_starts = []
+
+    def reserve(begin):
+        end = begin + .24
+        if begin < 0 or end >= SCENE_SECONDS or any(abs(begin-x) < .36 for x in inside_starts):
+            return False
+        nearby = [(t,n) for t,n in counts if begin-1 < t < end+1]
+        windows = [begin,end] + [t for t,_ in nearby if begin-1 < t <= end]
+        if any(sum(n for t,n in nearby if start <= t < start+1)
+               + int(start <= begin < start+1) + int(start <= end < start+1) > 10
+               for start in windows):
+            return False
+        counts.extend([(begin,1),(end,1)])
+        inside_starts.append(begin)
+        return True
+
+    # Prioritize a simultaneous inside/outside strike in each thunder section.
+    for first,last in [(0,2.55),(5.5,9.15),(14.3,18.4),(27.7,32.5)]:
+        candidates = [t for t,_,states in events if first <= t < last and
+                      any(i in states and states[i].get('bri') == 254 for i in outside)]
+        rng.shuffle(candidates)
+        for t in candidates:
+            if reserve(t):
+                break
+
+    # Fill the gaps independently, including during laughs, screams and tail.
+    desired = .12
+    while desired + .25 < SCENE_SECONDS:
+        placed = False
+        for step in range(21):
+            begin = desired + step*.05
+            if reserve(begin):
+                desired = begin + rng.uniform(.65,1.05)
+                placed = True
+                break
+        if not placed:
+            desired += 1.0
+    start_color = rng.randrange(2)
+    for index, begin in enumerate(sorted(inside_starts)):
+        color = WHITE if (index+start_color)%2 == 0 else PURPLE
+        events.extend([(begin,None,{inside:{'on':True,'bri':254,'xy':color,'transitiontime':0,'alert':'none'}}),
+                       (begin+.24,None,{inside:{'on':True,'bri':1,'xy':PURPLE,'transitiontime':0}})])
+    return sorted(events,key=lambda item:item[0])
+
+
 def prepare_compact_audio(library, tracks, rng=None):
     """One overlapping soundtrack avoids four Sonos handshakes and silent gaps."""
     from sound_library import RATE, read_pcm
@@ -262,7 +315,9 @@ async def horror_scene(c, *, lightning_only=False, sound=True):
         try:
             await asyncio.sleep(c.settings.get('audio_lead_seconds', .35) if sound else 0)
             start = time.monotonic()
-            events = compact_events(flashers, mask, rng) + aftermath_events(flashers, mask, rng)
+            inside = c.settings.get('continuous_flasher')
+            events = (continuous_scene_events(flashers, mask, inside, rng) if inside else
+                      compact_events(flashers, mask, rng) + aftermath_events(flashers, mask, rng))
             for offset, phase, states in events:
                 await asyncio.sleep(max(0, start + offset - time.monotonic()))
                 if phase:

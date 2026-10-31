@@ -66,6 +66,14 @@ class DoorBlinkTests(unittest.IsolatedAsyncioTestCase):
         with self.assertRaises(asyncio.CancelledError):await task
         self.assertEqual(c.light_writer.write.await_args_list[-1].args[0],{'900':OFF})
 
+    async def test_cancel_is_preserved_if_off_cleanup_fails(self):
+        c=self.controller();entered=asyncio.Event()
+        async def sleep(_):entered.set();await asyncio.Future()
+        c.light_writer.write.side_effect=OSError('bridge unavailable')
+        task=asyncio.create_task(blink_once(c,'900',rng=random.Random(3),sleep=sleep))
+        await entered.wait();task.cancel()
+        with self.assertRaises(asyncio.CancelledError):await task
+
     async def test_slow_writer_skips_expired_flashes(self):
         c=self.controller();now=0.;onsets=[]
         async def sleep(delay):

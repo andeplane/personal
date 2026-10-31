@@ -34,6 +34,7 @@ async def blink_once(c, light, *, rng=None, clock=None, sleep=None):
     clock, sleep = clock or time.monotonic, sleep or asyncio.sleep
     duration, pulses = burst_pattern(rng)
     started = clock()
+    cancelled = False
     try:
         for begin, end in pulses:
             await sleep(max(0, started+begin-clock()))
@@ -45,8 +46,15 @@ async def blink_once(c, light, *, rng=None, clock=None, sleep=None):
             await sleep(end-begin)
             await c.light_writer.write({light: dict(OFF)})
         await sleep(max(0, started+duration-clock()))
+    except asyncio.CancelledError:
+        cancelled = True
+        raise
     finally:
-        await c.light_writer.write({light: dict(OFF)})
+        if cancelled:
+            with contextlib.suppress(Exception):
+                await c.light_writer.write({light: dict(OFF)})
+        else:
+            await c.light_writer.write({light: dict(OFF)})
 
 
 async def door_blink_loop(c, *, rng=None, clock=None, sleep=None):

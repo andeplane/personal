@@ -1,0 +1,44 @@
+{
+  "id": "halloween-ghost-20261031-a1",
+  "title": "Ghost candle pedestal \u00b7 Halloween afternoon",
+  "project": "Halloween Print Club",
+  "printer": "Bambu Lab X2D",
+  "plate": 1,
+  "parts": [
+    "One ghost candle pedestal; generated PLA tree supports require removal"
+  ],
+  "status": "planned",
+  "recordedAt": "2026-10-31T09:41:02+00:00",
+  "updatedAt": "2026-10-31T09:47:02.050772+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 11942,
+  "estimatedGrams": 45.75,
+  "estimatedMeters": 15.34,
+  "material": "White Clas Ohlson Universal PLA / Generic PLA; model and supports",
+  "color": "#FFFFFF",
+  "layerHeightMm": 0.16,
+  "firstLayerHeightMm": 0.2,
+  "nozzleMm": 0.4,
+  "source": {
+    "filename": "ghost.gcode.3mf",
+    "sha256": "03ac3eae0975f22a296cb01fd133715037b2bbdd8ce7b595858645fdf10d6555",
+    "modelSha256": "a8ec845ac247119265594da84f56861156d84003ee8510da85b5bff2690fe622"
+  },
+  "snapshots": [
+    {
+      "src": "assets/halloween-ghost-20261031-a1/preparation-bed.jpg",
+      "capturedAt": "2026-10-31T09:41:32.838561+00:00",
+      "caption": "Before start: prior rectangular outlines and small possible scraps visible; cleanup requested. No Halloween print started."
+    }
+  ],
+  "notes": "Authorized one Halloween ghost pedestal. Native GenericPLA .16mm slice and static nozzle-map audit passed; intended filament0 maps to whiteAMS A2 on physical primary0. Startup H-1 is expected Bambu static-map behavior. Bed cleanup request pending after fresh camera showed prior outlines and small scraps. No upload or start. Estimates include PLA tree supports; support removal and LEDfit unverified.",
+  "jobName": "Halloween_Ghost_20261031_a1",
+  "preview": "assets/halloween-ghost-20261031-a1/plate_1.png",
+  "layout": "assets/halloween-ghost-20261031-a1/top_1.png",
+  "amsMapping": [
+    1
+  ]
+}

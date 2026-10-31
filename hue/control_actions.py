@@ -39,7 +39,8 @@ def _queue_lighting(c, action, enabled=None):
     generation = getattr(c, 'control_generation', 0) + 1
     c.control_generation = generation
     c.pending_control = (generation, action, enabled)
-    if action in ('stop', 'off', 'on') or (action == 'arm' and not enabled):
+    if (action in ('stop', 'off', 'on') or (action == 'arm' and not enabled)
+            or (action == 'start' and c.settings.get('scene') == 'mask_reveal')):
         # Suppress a pending/active effect synchronously. The worker completes
         # release and REST off afterward, even if an old connect is draining.
         _invalidate_audio(c)
@@ -60,7 +61,8 @@ async def _lighting_worker(c):
         try:
             replacing = action in ('start', 'flash')
             retain_stream = replacing or (action == 'arm' and enabled)
-            await c.stop_sequence(release_stream=not retain_stream, stop_audio=not replacing)
+            await c.stop_sequence(release_stream=not retain_stream,
+                                  stop_audio=not replacing or (action == 'start' and c.settings.get('scene') == 'mask_reveal'))
             if generation != c.control_generation:
                 continue
             if replacing:
@@ -69,6 +71,12 @@ async def _lighting_worker(c):
                 c.status(state='starting', last_error=None)
                 c.sequence_task = asyncio.create_task(c.trigger(c.gate, plan, action != 'flash'))
             elif action == 'on':
+                if c.settings.get('scene') == 'mask_reveal':
+                    from horror_scene import warm_states
+                    await c.write_lights(warm_states(c.settings))
+                    if generation == c.control_generation:
+                        c.status(state='lights_on')
+                    continue
                 for identifier in c.settings['lights']:
                     if generation != c.control_generation:
                         break

@@ -42,6 +42,7 @@ private struct ControlReply: Decodable {
     @Published var state = "Connecting…"
     @Published var volume = 50.0
     @Published var message = ""
+    @Published var audioWarning = ""
     @Published var clips: [SoundClip] = []
     @Published var selected: [String] = UserDefaults.standard.stringArray(forKey:"selectedSounds") ?? []
     @Published var mixMode = UserDefaults.standard.string(forKey:"mixMode") ?? "together"
@@ -120,7 +121,7 @@ private struct ControlReply: Decodable {
             message = ""
             switch action {
             case "start":
-                state = sequenceActive ? "Restarting sequence…" : "Starting sequence…"
+                state = sequenceActive ? "Restarting horror scene…" : "Starting horror scene…"
                 sequenceActive = true; armed = false
             case "flash":
                 state = "Starting lightning test…"; sequenceActive = true; armed = false
@@ -165,19 +166,23 @@ private struct ControlReply: Decodable {
                 self.message = body.message ?? "The controller couldn’t complete that action."
                 return
             }
-            let names = ["idle":"Idle · lights off", "starting":"Preparing lightning…", "playing":"Storm running",
+            let names = ["idle":"Idle · lights off", "starting":"Preparing lights…", "playing":"Horror scene running",
                          "thunder":"Playing sound", "lights_on":"Yellow lights on", "retrying":"Reconnecting lights…",
                          "reconnecting":"Waiting for the lights…", "failed":"Lighting or sound failed",
-                         "skipped":"Another lighting app is active", "warming":"Preparing lightning…",
+                         "skipped":"Another lighting app is active", "warming":"Preparing lights…",
                          "stopping":"Stopping · lights going dark…"]
             let raw = body.state ?? "idle"
             var label = names[raw] ?? raw.replacingOccurrences(of:"_",with:" ").capitalized
             if raw == "playing" {
                 switch body.phase {
-                case "normal": label = "Opening · warm yellow"
-                case "dark": label = "Opening · brief darkness"
-                case "lightning": label = "Storm · white lightning flashes"
-                case "steady": label = "Storm · yellow background"
+                case "storm": label = "Storm · white & purple lightning"
+                case "reveal": label = "Mask reveal · warm light & evil laugh"
+                case "finale": label = "Final scare · scream & chaotic lightning"
+                case "tail": label = "Aftermath · fading sound"
+                case "normal": label = "Opening · warm light"
+                case "dark": label = "Brief darkness"
+                case "lightning": label = "Lightning · white & purple flashes"
+                case "steady": label = "Warm background light"
                 default: break
                 }
             }
@@ -198,10 +203,16 @@ private struct ControlReply: Decodable {
                 self.selected = self.selected.filter(available.contains)
                 self.saveSelection()
             }
+            let speakerUnavailable = body.audioError == "speaker_unavailable"
+            // Speaker health is updated by quiet polls too. Keep it separate
+            // from local command errors so recovery clears only this warning.
+            let isSpeakerHealthMessage = body.message?.hasPrefix("Selected Sonos unavailable or busy") ?? false
+            self.audioWarning = speakerUnavailable
+                ? (isSpeakerHealthMessage ? body.message! : "Selected Sonos unavailable or busy · lights continue") : ""
             if let error = body.lastError, raw == "failed" {
                 self.message = error == "sound_playback_failed" ? "Sonos couldn’t play the sound. You can stop and try another clip." : "The sequence stopped after a connection problem. You can try again."
             } else if !quiet || self.connectionIssue {
-                self.message = body.message ?? ""
+                self.message = isSpeakerHealthMessage ? "" : (body.message ?? "")
             }
             self.connectionIssue = false
         }
@@ -221,7 +232,7 @@ struct ControlView: View {
                 Image(systemName:"cloud.bolt.rain.fill").font(.system(size:34)).foregroundStyle(.orange)
                 VStack(alignment:.leading,spacing:3) {
                     Text("Hue Halloween").font(.title2.bold())
-                    Text("Motion, lightning & thunder").font(.caption).foregroundStyle(.secondary)
+                    Text("Lightning, sound & mask reveal").font(.caption).foregroundStyle(.secondary)
                 }
                 Spacer()
                 Circle().fill(controls.connected ? .green : .gray).frame(width:9,height:9)
@@ -234,11 +245,11 @@ struct ControlView: View {
             }
             Toggle("Automatic motion",isOn:Binding(get:{controls.armed},set:{controls.command("arm",value:$0 ? "on":"off")}))
                 .toggleStyle(.switch).disabled(!controls.canSend("arm"))
-            Text(controls.motionChanging ? "Updating automatic motion…" : (controls.armed ? "Motion starts the two-minute sequence." : "Motion paused. Use the buttons to test manually."))
+            Text(controls.motionChanging ? "Updating automatic motion…" : (controls.armed ? "Motion starts the horror scene." : "Motion paused. Use the buttons to test manually."))
                 .font(.caption).foregroundStyle(.secondary)
             Divider()
             HStack {
-                Button { controls.command("start") } label: { Label(controls.sequenceActive ? "Restart sequence" : "Start sequence",systemImage:controls.sequenceActive ? "arrow.clockwise" : "play.fill").frame(maxWidth:.infinity) }
+                Button { controls.command("start") } label: { Label(controls.sequenceActive ? "Restart horror scene" : "Test horror scene",systemImage:controls.sequenceActive ? "arrow.clockwise" : "play.fill").frame(maxWidth:.infinity) }
                     .buttonStyle(.borderedProminent).tint(.orange).disabled(!controls.canSend("start"))
                 Button { controls.command("stop") } label: { Label("Stop & dark",systemImage:"stop.fill").frame(maxWidth:.infinity) }
                     .buttonStyle(.bordered).tint(.red).disabled(!controls.canSend("stop"))
@@ -308,11 +319,16 @@ struct ControlView: View {
                 Button("Play selected") { controls.playSelection() }
                     .disabled(controls.selected.isEmpty || !controls.canSend("play"))
             }
+            if !controls.audioWarning.isEmpty {
+                Label(controls.audioWarning,systemImage:"speaker.slash.fill")
+                    .font(.caption).foregroundStyle(.orange)
+                    .fixedSize(horizontal:false,vertical:true)
+            }
             Text(controls.message.isEmpty ? "Manual controls pause motion. Turn Automatic motion back on when ready." : controls.message)
                 .font(.caption).foregroundStyle(controls.message.isEmpty ? Color.secondary : Color.orange)
                 .fixedSize(horizontal:false,vertical:true)
             HStack {
-                Text("Yellow background · brief white lightning").font(.caption2).foregroundStyle(.secondary)
+                Text("Purple/white lightning · warm mask reveal").font(.caption2).foregroundStyle(.secondary)
                 Spacer()
                 Button("Refresh") { controls.command("library") }.buttonStyle(.link).disabled(!controls.canSend("library"))
             }

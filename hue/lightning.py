@@ -456,9 +456,12 @@ class Controller:
             try:
                 self.trace("audio_request", file=Path(audio).name)
                 await self.sonos.play(audio)
+                self.status(audio_error=None, message=None)
                 self.trace("audio_accepted", file=Path(audio).name)
                 log('Sonos thunder command sent.')
             except Exception:
+                self.status(audio_error='speaker_unavailable',
+                            message='Selected Sonos unavailable or busy · lights continue')
                 log('Sonos thunder skipped: speaker unavailable, busy or regrouped.')
             return
         player = await asyncio.create_subprocess_exec('/usr/bin/afplay', '-v', '0.4', audio,
@@ -471,6 +474,9 @@ class Controller:
                 await player.wait()
 
     async def effect(self, plan_override=None, sound=True):
+        if self.settings.get('scene') == 'mask_reveal':
+            from horror_scene import horror_scene
+            return await horror_scene(self, lightning_only=plan_override is not None, sound=sound)
         if self.settings.get('render_backend') == 'rest':
             from rest_effect import rest_effect
             return await rest_effect(self, plan_override, sound)

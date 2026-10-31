@@ -1,5 +1,37 @@
 # Hue lighting and Halloween window
 
+## Outdoor mask scene
+
+With private setting `scene: "mask_reveal"`, Start and armed motion run the
+same role-based scene. `scene_roles.flashers` selects exactly two RGB lamps;
+`scene_roles.mask` selects a separate white-temperature lamp. Their union must
+match the dedicated group and selected light list. Actual device IDs stay in
+private configuration, with the previous configuration backed up before migration.
+
+1. Audio-derived white/purple strokes on the two RGB lamps, then the complete
+   thunder rumble. The mask stays dark.
+2. Warm mask reveal with the full deep evil laugh.
+3. A different thunder track and irregular independent white/purple strokes.
+4. Jumpscare scream with a minimum four-second chaotic RGB finale, with the
+   warm mask visible. All three lamps then switch fully off.
+
+Full thunder excerpts are 9.9–11.5 seconds, with a half-second tail margin;
+recordings are never cut at the four-second flash-burst boundary. The fixture
+roles keep XY commands away from the CT-only mask. RGB peaks use maximum
+brightness; gaps use a minimal purple level to keep lamps responsive. Independent
+230–280 ms holds and irregular spacing stay within the existing shared ten-write
+budget. The new outdoor placement has not been optically/acoustically calibrated.
+
+The native app's **Test horror scene** restarts the whole scene, **Lightning**
+is a silent four-second test of only the RGB lamps, and **Stop & dark** cancels
+any stage. Tests pause automatic motion; the switch explicitly rearms it.
+Starting the full scene clears an older manual sound preview. A preview selected
+during the scene owns the speaker until it finishes while lighting continues.
+An unreachable portable Sonos is checked with a short TCP probe before fetching
+its device description; LAN discovery can recover a changed address by its
+configured identity. Sound failures leave an explicit warning while lighting
+continues. They do not substitute another room's speaker.
+
 Local tools for the existing Hue Bridge; Home Assistant is optional for the first
 lighting setup. Python 3.9+ and the standard library are sufficient.
 

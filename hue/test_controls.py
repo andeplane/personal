@@ -61,6 +61,16 @@ class ControlTests(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(reply['ok']);self.assertNotIn('already running',str(reply))
         self.assertTrue(old.cancelled());c.trigger.assert_awaited_once_with(c.gate,None,True)
 
+    async def test_horror_scene_start_clears_old_audio_intents(self):
+        c=self.controller();c.settings['scene']='mask_reveal';c.trigger=AsyncMock()
+        c.audio_only_task=asyncio.create_task(asyncio.sleep(100))
+        c.pending_audio=(1, {'ids':['old']});c.sound_override=True
+        c.stop_sequence=AsyncMock(wraps=c.stop_sequence)
+        await dispatch(c,{'action':'start'});await self.lighting_idle(c);await c.sequence_task
+        self.assertIsNone(c.pending_audio);self.assertTrue(c.audio_only_task.cancelled())
+        self.assertFalse(c.sound_override)
+        c.stop_sequence.assert_awaited_once_with(release_stream=False,stop_audio=True)
+
     async def test_latest_stop_prevents_pending_start_or_flash_from_running(self):
         c=self.controller();c.trigger=AsyncMock();entered=asyncio.Event();release=asyncio.Event()
         async def slow_stop(**_):entered.set();await release.wait()

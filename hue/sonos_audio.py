@@ -3,12 +3,23 @@ import asyncio
 import json
 import ipaddress
 import threading
+import socket
 from pathlib import Path
 from urllib.parse import quote, urlparse
 
 from soco import SoCo, discover, config
 
 config.REQUEST_TIMEOUT = 3
+
+
+def _can_connect(host):
+    # SoCo's description GET can otherwise wait twenty seconds for a sleeping
+    # portable speaker, before even attempting discovery of a changed address.
+    try:
+        with socket.create_connection((host, 1400), timeout=.5):
+            return True
+    except OSError:
+        return False
 
 
 class SonosAudio:
@@ -31,15 +42,17 @@ class SonosAudio:
         self.library = None
 
     def _resolve(self):
-        if self.speaker is not None:
+        if self.speaker is not None and _can_connect(self.speaker.ip_address):
             return self.speaker
+        self.speaker = None
         candidate = SoCo(self.config['host'])
         try:
-            matches = candidate.uid == self.config['uid']
+            matches = _can_connect(candidate.ip_address) and candidate.uid == self.config['uid']
         except Exception:
             matches = False
         if not matches:
-            candidate = next((p for p in discover(timeout=4) or [] if p.uid == self.config['uid']), None)
+            candidate = next((p for p in discover(timeout=2) or []
+                              if _can_connect(p.ip_address) and p.uid == self.config['uid']), None)
             if candidate is None:
                 raise ConnectionError('The selected Sonos is unavailable.')
         self.speaker = candidate

@@ -9,6 +9,9 @@ from sonos_audio import SonosAudio, audio_starts, play_timeline
 
 class BackendTests(unittest.TestCase):
     def setUp(self):
+        self.connect_patch = patch('sonos_audio._can_connect', return_value=True)
+        self.connect_patch.start()
+        self.addCleanup(self.connect_patch.stop)
         self.temp = tempfile.TemporaryDirectory()
         self.path = Path(self.temp.name)/'sonos.json'
         self.path.write_text(json.dumps({'host': 'speaker.local', 'uid': 'selected', 'volume': 10,
@@ -55,6 +58,17 @@ class BackendTests(unittest.TestCase):
         with self.assertRaises(ValueError):self.audio._play('close-crack.wav')
         self.speaker.play_uri.assert_not_called()
         self.assertEqual(self.speaker.volume, 22)
+
+    def test_sleeping_speaker_is_skipped_before_description_request(self):
+        self.audio.speaker = None
+        candidate = Mock()
+        with patch('sonos_audio._can_connect', return_value=False), \
+             patch('sonos_audio.SoCo', return_value=candidate), \
+             patch('sonos_audio.discover', return_value=[candidate]) as discovery:
+            with self.assertRaises(ConnectionError):
+                self.audio._resolve()
+        discovery.assert_called_once_with(timeout=2)
+        candidate.play_uri.assert_not_called()
 
     def test_cleanup_stops_our_clip_and_restores_volume(self):
         self.audio._play('close-crack.wav')

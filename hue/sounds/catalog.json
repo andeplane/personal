@@ -206,6 +206,54 @@
       "source_html_sha256": "f2dc71841f0e4209b92b78e428e7270a54b88074c61a38a3ae1ece6567455a15"
     },
     {
+      "id": "cartoon-villain-laugh",
+      "name": "Cartoon-villain laugh",
+      "category": "Laugh",
+      "file": "cartoon-villain-laugh.wav",
+      "duration": 6.617708333333334,
+      "source": "https://freesound.org/people/riippumattog/sounds/704363/",
+      "author": "riippumattog",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_offset_seconds": 0.0,
+      "sha256": "5296015c1d6420aeb1910560f9a425d392520aace34b511816edb077adc9013e",
+      "preview_url": "https://cdn.freesound.org/previews/704/704363_15115102-hq.mp3",
+      "preview_sha256": "ee6666179e99de4f6606d010a9d2bb80337aead003f5453e4e72bf700520f6ba",
+      "source_html_sha256": "996ffbee8e7d13262e5c02e89c99a8a53046ea606dbf0ed79dd2b0ee49a7573b"
+    },
+    {
+      "id": "demonic-chuckle",
+      "name": "Demonic chuckle",
+      "category": "Laugh",
+      "file": "demonic-chuckle.wav",
+      "duration": 1.4288333333333334,
+      "source": "https://freesound.org/people/scorpion67890/sounds/169317/",
+      "author": "scorpion67890",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_offset_seconds": 0.0,
+      "sha256": "8c17646f91bf3f68ea7cbcb0f77f820b9faf88450bdf5f08c52b6695f67433a2",
+      "preview_url": "https://cdn.freesound.org/previews/169/169317_2389125-hq.mp3",
+      "preview_sha256": "1ac359f7dde20b4cce0da488883b51fc702df9a03c503f483b32de39a35b4972",
+      "source_html_sha256": "7acc81c720758b130973b5b2ec538c2774ec50d7c5ac05a9d8f071dfb8d0cd15"
+    },
+    {
+      "id": "evil-laugh-deep",
+      "name": "Evil laugh \u00b7 deep",
+      "category": "Laugh",
+      "file": "evil-laugh-deep.wav",
+      "duration": 3.9784166666666665,
+      "source": "https://freesound.org/people/ckvoiceover/sounds/401332/",
+      "author": "ckvoiceover",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_offset_seconds": 0.0,
+      "sha256": "e72d05e855bbbbf6f3824513fb6589f83c97203d463e563b9e63670062d54463",
+      "preview_url": "https://cdn.freesound.org/previews/401/401332_6652552-hq.mp3",
+      "preview_sha256": "c14e925d6c846418989f80f0e8f198b7531b1da440a62c77fd52e26b252cacca",
+      "source_html_sha256": "7e14cf49d58bacc73c1e73622c974a3c1b59c67b68c1b14134a387eabf9c97d7"
+    },
+    {
       "id": "ghost-howl",
       "name": "Ghost howl",
       "category": "Ghost",
@@ -236,6 +284,22 @@
       "preview_url": "https://cdn.freesound.org/previews/259/259264_4461444-hq.mp3",
       "preview_sha256": "66a0d8ce17cedf38f5ece9c7d8cff1319213279cec6909141d5b48b9c8742629",
       "source_html_sha256": "d2c3bcfcc45a0e360b8ecbeaa1cb3f941aa8d7b3db63f957563c56f4fb211047"
+    },
+    {
+      "id": "haunted-laugh",
+      "name": "Haunted laugh",
+      "category": "Laugh",
+      "file": "haunted-laugh.wav",
+      "duration": 5.891666666666667,
+      "source": "https://freesound.org/people/tchild/sounds/319766/",
+      "author": "tchild",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_offset_seconds": 0.0,
+      "sha256": "eb454062b96a7185b91d3f4feef1fe322730071c9cd94f36d92a32bbafafacaf",
+      "preview_url": "https://cdn.freesound.org/previews/319/319766_3341540-hq.mp3",
+      "preview_sha256": "69bb65064ffd58ec37ef68924291bb90c6170cea35d2540637b583a97fbe558c",
+      "source_html_sha256": "42b5394dec9b600e3f5a7fc52fb1b940f17da01e0b6dcc2246e567440d34e577"
     },
     {
       "id": "high-scream",
@@ -382,6 +446,22 @@
       "source_html_sha256": "914404c9828f8d7715170aef092bf0d2ab0da60add80fde7d45edd2f4e723611"
     },
     {
+      "id": "sinister-laugh",
+      "name": "Sinister laugh",
+      "category": "Laugh",
+      "file": "sinister-laugh.wav",
+      "duration": 7.119458333333333,
+      "source": "https://freesound.org/people/pepv/sounds/212579/",
+      "author": "pepv",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_offset_seconds": 0.0,
+      "sha256": "821d7addd7c1bb76e51a163b9430cbb0f81749bca1299f71bbc494ebb52ffa4f",
+      "preview_url": "https://cdn.freesound.org/previews/212/212579_3389063-hq.mp3",
+      "preview_sha256": "f7909676781ae7860747af55d77b7fc0b468fbe376329caa29bc78a3a5d9b739",
+      "source_html_sha256": "0439f6b06c33979e06b013a6be635ba37d4d036bbc076f2472384e4f94b32a2e"
+    },
+    {
       "id": "startled-scream",
       "name": "Startled shout",
       "category": "Scream",
@@ -396,6 +476,22 @@
       "preview_url": "https://cdn.freesound.org/previews/343/343768_5487341-hq.mp3",
       "preview_sha256": "7e5bf1fcfeffb5132094cc297702d845940599009e4783efc769a4c76e31df31",
       "source_html_sha256": "d12a4f073dae47569c8e40dad67b5d225244964182b9835f8d212e7a6a74d38a"
+    },
+    {
+      "id": "villain-cackle",
+      "name": "Villain cackle",
+      "category": "Laugh",
+      "file": "villain-cackle.wav",
+      "duration": 6.89725,
+      "source": "https://freesound.org/people/el_boss/sounds/650618/",
+      "author": "el_boss",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_offset_seconds": 0.0,
+      "sha256": "adddcd5bf869d7bb5af4c07115086aad88cd78d58909b8ce778c4b431d60fc2c",
+      "preview_url": "https://cdn.freesound.org/previews/650/650618_9129912-hq.mp3",
+      "preview_sha256": "9fb7485d8a5cd45b16c8e349ca4dece05b918f40b3ff60e649beb0ef38a969fa",
+      "source_html_sha256": "e55fd2f0c52644049b59e42d190a588dacddf170c1fcdd2274de67c66f420f36"
     },
     {
       "id": "witch-laugh",

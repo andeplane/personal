@@ -127,6 +127,70 @@ def _opening_times(cues, duration, width, rng):
     return starts
 
 
+def _three_opening_times(cues, duration, width, rng, randomized):
+    """A three-lamp pulse costs six writes; avoid two complete pulses per second."""
+    cues = sorted(cues)
+    if not cues:
+        return []
+    spacing = 1.0-width+.08
+    starts = [cues[0][0]] if cues[0][0]+width <= duration else []
+    for start, _, _ in cues[1:]:
+        if len(starts) >= 4:
+            break
+        if randomized and rng.random() < .10:
+            continue
+        candidate = start+(rng.uniform(-.06,.06) if randomized else 0)
+        shifted = max(candidate, starts[-1]+spacing) if starts else candidate
+        if shifted-candidate > .12+1e-9 or shifted+width > duration:
+            continue
+        starts.append(shifted)
+    return starts
+
+
+def _three_channel_edges(plan, patterns, channels, normal, anchor, width, options,
+                         rng, randomize_opening):
+    # Validate the original inputs before transforming timing. This cannot send
+    # anything and deliberately does not apply the two-lamp budget profile.
+    validation = {**options, 'max_writes_per_second': None}
+    _build_edges(plan,patterns,channels,normal,anchor,width,**validation)
+    openings = {index: duration for index,(mode,duration) in enumerate(plan)
+                if mode == 'lightning' and index <= 2}
+    rng = rng or (random.SystemRandom() if randomize_opening else random.Random(0))
+    for attempt in range(25):
+        randomized = randomize_opening and attempt < 24
+        opening_schedule = {
+            index: _three_opening_times(patterns.get(index,{}).get(channels[0],[]),
+                                       duration,width,rng,randomized)
+            for index,duration in openings.items()
+        }
+        if randomized and any(len(times)<min(3,len(patterns.get(index,{}).get(channels[0],[])))
+                              for index,times in opening_schedule.items()):
+            continue
+        varied = {index: dict(by_channel) for index,by_channel in patterns.items()}
+        for index,(mode,duration) in enumerate(plan):
+            if mode != 'lightning' or index <= 2:
+                continue
+            # The first flashing lamp retains its audio-derived cues. The other
+            # has a small independent lag and occasionally omits a secondary
+            # strike, rather than mirroring the same lamp twice.
+            cues = []
+            for number,(start,end,peak) in enumerate(patterns.get(index,{}).get(channels[2],[])):
+                if randomized and number and rng.random() < .16:
+                    continue
+                lag = rng.uniform(.06,.14) if randomized else .10
+                if start+lag+width > duration:
+                    continue
+                cues.append((start+lag,min(duration,end+lag),peak))
+            varied.setdefault(index,{})[channels[2]] = cues
+        try:
+            return _build_edges(plan,varied,channels,normal,anchor,width,
+                                opening_schedule=opening_schedule,**options)
+        except ValueError as error:
+            if 'rolling light-write budget' not in str(error):
+                raise
+    raise ValueError('Three-light schedule cannot fit the rolling light-write budget')
+
+
 def build_edges(plan, patterns, channels, normal, anchor, pulse_width=.20, *,
                 min_pulse_spacing=.60, merge_window=.025, max_writes_per_second=10,
                 max_cue_shift=.12, rng=None, randomize_opening=True):
@@ -137,11 +201,16 @@ def build_edges(plan, patterns, channels, normal, anchor, pulse_width=.20, *,
     Omissions create longer pauses without increasing flash speed. Later
     bursts keep their existing audio-aligned timing. Every candidate is checked
     against the full rolling request budget; at most 24 candidates are tried,
-    followed by the conservative, bounded source-cue schedule.
+    followed by the conservative, bounded source-cue schedule. Three channels
+    use a sparser shared opening, then one yellow anchor and two independently
+    timed flashers, within the same request budget.
     """
     plan, channels = list(plan), list(channels)
     options = dict(min_pulse_spacing=min_pulse_spacing, merge_window=merge_window,
                    max_writes_per_second=max_writes_per_second, max_cue_shift=max_cue_shift)
+    if len(channels) == 3:
+        return _three_channel_edges(plan,patterns,channels,normal,anchor,pulse_width,
+                                    options,rng,randomize_opening)
     fallback = _build_edges(plan,patterns,channels,normal,anchor,pulse_width,**options)
     if not randomize_opening:
         return fallback

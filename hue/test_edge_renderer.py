@@ -131,6 +131,56 @@ class RandomOpeningTests(unittest.TestCase):
                          build_edges([('lightning',1)],short,[0],NORMAL,ANCHOR))
 
 
+class ThreeChannelTests(unittest.TestCase):
+    def fixture(self):
+        plan,patterns=EdgePlanTests().fixture()
+        patterns={index:{**by_channel,2:list(by_channel[1])} for index,by_channel in patterns.items()}
+        return plan,patterns
+
+    def test_shared_opening_is_sparse_and_later_flashers_are_independent(self):
+        plan,patterns=self.fixture()
+        edges=build_random_edges(plan,patterns,[0,1,2],NORMAL,ANCHOR,rng=random.Random(2))
+        opening={channel:[at for at,colors in edges if 2.5<=at<6.5 and colors.get(channel)==WHITE]
+                 for channel in (0,1,2)}
+        self.assertEqual(opening[0],opening[1])
+        self.assertEqual(opening[1],opening[2])
+        self.assertTrue(3<=len(opening[0])<=4)
+        self.assertTrue(all(b-a>=.88-1e-9 for a,b in zip(opening[0],opening[0][1:])))
+        late={channel:[at for at,colors in edges if at>=6.5 and colors.get(channel)==WHITE]
+              for channel in (0,1,2)}
+        self.assertEqual(late[0],[])
+        self.assertTrue(late[1]);self.assertTrue(late[2])
+        self.assertNotEqual(late[1],late[2])
+        state={};starts={}
+        for at,colors in edges:
+            for channel,color in colors.items():
+                if color==WHITE:starts[channel]=at
+                elif state.get(channel)==WHITE:
+                    self.assertTrue(.18-1e-9<=at-starts[channel]<=.22+1e-9)
+                state[channel]=color
+            if 6.5<=at<sum(d for _,d in plan):self.assertEqual(state[0],ANCHOR)
+            self.assertLessEqual(sum(len(change) for when,change in edges if at-1-1e-9<=when<=at+1e-9),10)
+        self.assertEqual(state,{0:BLACK,1:BLACK,2:BLACK})
+
+    def test_three_channel_profile_does_not_mutate_input_patterns(self):
+        import copy
+        plan,patterns=self.fixture();original=copy.deepcopy(patterns)
+        first=build_edges(plan,patterns,[0,1,2],NORMAL,ANCHOR)
+        second=build_edges(plan,patterns,[0,1,2],NORMAL,ANCHOR)
+        self.assertEqual(first,second)
+        self.assertEqual(patterns,original)
+
+    def test_three_channel_manual_flash_is_bounded_and_ends_dark(self):
+        cues=[(.12,.28,1),(.78,.94,1),(1.44,1.6,1),(2.1,2.26,1),(2.76,2.92,1),(3.42,3.58,1)]
+        for seed in range(25):
+            edges=build_random_edges([('lightning',4)],{0:{channel:cues for channel in (0,1,2)}},
+                                     [0,1,2],NORMAL,ANCHOR,rng=random.Random(seed))
+            self.assertLessEqual(edges[-1][0],4)
+            self.assertEqual(edges[-1][1],{0:BLACK,1:BLACK,2:BLACK})
+            for at,_ in edges:
+                self.assertLessEqual(sum(len(change) for when,change in edges if at-1-1e-9<=when<=at+1e-9),10)
+
+
 class EdgeRenderTests(unittest.IsolatedAsyncioTestCase):
     async def test_absolute_timing_and_changed_channels_only(self):
         now=100.0;writes=[];observations=[]

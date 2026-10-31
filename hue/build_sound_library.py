@@ -22,6 +22,12 @@ RATE = 24000
 ROOT = Path(__file__).resolve().parent
 SOURCES = [
     ('witch-laugh', 'Witch laugh', 'Laugh', 'NikoMyth', '348142'),
+    ('evil-laugh-deep', 'Evil laugh · deep', 'Laugh', 'ckvoiceover', '401332'),
+    ('villain-cackle', 'Villain cackle', 'Laugh', 'el_boss', '650618'),
+    ('demonic-chuckle', 'Demonic chuckle', 'Laugh', 'scorpion67890', '169317'),
+    ('sinister-laugh', 'Sinister laugh', 'Laugh', 'pepv', '212579'),
+    ('cartoon-villain-laugh', 'Cartoon-villain laugh', 'Laugh', 'riippumattog', '704363'),
+    ('haunted-laugh', 'Haunted laugh', 'Laugh', 'tchild', '319766'),
     ('ghost-howl', 'Ghost howl', 'Ghost', 'JanIsAGuy', '432778'),
     ('monster-scream', 'Monster scream', 'Scream', 'Marvin_Chiriguaya', '705784'),
     ('jump-scream', 'Jumpscare scream', 'Scream', 'Breviceps', '587354'),

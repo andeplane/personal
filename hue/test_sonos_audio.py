@@ -32,6 +32,15 @@ class BackendTests(unittest.TestCase):
         for path in ('other.wav', '../secret.json'):
             with self.assertRaises(ValueError):self.audio._play(path)
 
+    def test_explicit_volume_50_is_supported(self):
+        self.audio.config['volume'] = 50
+        self.audio._play('close-crack.wav')
+        self.assertEqual(self.speaker.volume, 50)
+        config = json.loads(self.path.read_text())
+        config['volume'] = 50
+        self.path.write_text(json.dumps(config))
+        self.assertEqual(SonosAudio(self.path).config['volume'], 50)
+
     def test_regrouped_or_wrong_speaker_never_plays(self):
         self.speaker.group.members = {self.speaker, Mock()}
         with self.assertRaises(ValueError):self.audio._play('close-crack.wav')

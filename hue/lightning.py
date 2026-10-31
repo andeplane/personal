@@ -25,15 +25,16 @@ PRIVATE = Path.home() / '.config/hue-halloween'
 AREA_NAME = 'Window lightning (Codex)'
 # Three irregular strikes across four seconds; frames are streamed at 50 Hz.
 STRIKES = ((0.15, 0.27, 1.0), (1.25, 1.40, 0.7), (2.80, 3.03, 1.0))
-STEADY = (23000, 17000, 11000)
-ANCHOR = (46000, 34000, 22000)
+STEADY = (23000, 23000, 23000)
+ANCHOR = (46000, 46000, 46000)
 CLOCK = time.monotonic
 
 
 def intensity(elapsed, strikes=STRIKES):
     for start, end, peak in strikes:
         if start <= elapsed < end:
-            return peak * (1 - 0.6 * (elapsed-start)/(end-start))
+            fraction = (elapsed-start)/(end-start)
+            return peak if fraction < 0.6 else peak * (1-(fraction-0.6)/0.4)
     return 0.0
 
 
@@ -42,7 +43,7 @@ def sequence(rng=None):
     plan = [('normal', 2), ('dark', 0.5), ('lightning', 4)]
     remaining = 120.0
     while remaining > 0:
-        wait = min(rng.uniform(20, 40), remaining)
+        wait = min(rng.uniform(8, 15), remaining)
         plan.append(('steady', wait))
         remaining -= wait
         if remaining >= 4:
@@ -52,6 +53,14 @@ def sequence(rng=None):
             plan.append(('steady', remaining))
             remaining = 0
     return plan
+
+
+def strong_strikes(strikes):
+    result = [(start, end, 1.0) for start, end, _ in strikes]
+    for start in (0.12, 0.78, 1.44, 2.10, 2.76, 3.42):
+        if all(abs(start-existing) >= 0.45 for existing, _, _ in result):
+            result.append((start, start+0.16, 1.0))
+    return sorted(result)
 
 
 def lightning_patterns(plan, channels, rng=None):
@@ -68,7 +77,7 @@ def lightning_patterns(plan, channels, rng=None):
             for low, high in ((1.0, 1.6), (2.0, 2.6), (3.1, 3.6)):
                 start = rng.uniform(low, high)
                 strikes.append((start, start + rng.uniform(0.08, 0.22), rng.uniform(0.45, 1)))
-            patterns[index][channel] = strikes
+            patterns[index][channel] = strong_strikes(strikes)
     return patterns
 
 
@@ -106,9 +115,10 @@ def recorded_patterns(plan, channels, catalog, rng=None):
         tracks[index] = track['audio_file']
         patterns[index] = {}
         for channel in channels:
-            offset, gain = rng.uniform(-0.025, 0.025), rng.uniform(0.75, 1)
-            patterns[index][channel] = [(max(0, start+offset), min(4, end+offset), peak*gain)
-                                        for start, end, peak in track['strikes']]
+            offset = rng.uniform(-0.025, 0.025)
+            patterns[index][channel] = strong_strikes(
+                [(max(0, start+offset), min(4, end+offset), 1.0)
+                 for start, end, _ in track['strikes']])
     return patterns, tracks
 
 

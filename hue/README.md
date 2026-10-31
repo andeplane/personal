@@ -136,14 +136,13 @@ uv pip install --python ~/.config/hue-halloween/venv/bin/python -r hue/requireme
 
 The bulbs stay off while idle. A fresh motion event runs this sequence:
 
-1. Both bulbs show normal warm white for exactly two seconds.
+1. Both bulbs show neutral white for exactly two seconds.
 2. Both bulbs go dark for half a second.
 3. Both bulbs flash irregular white lightning for four seconds.
-4. For the next two minutes, the first selected channel stays warm white at twice
-   its previous RGB drive level (46000/34000/22000). The two-second normal opening
+4. For the next two minutes, the first selected channel stays neutral white at RGB 46000/46000/46000. The two-second normal opening
    uses its original brightness. The
    remaining channels stay dark between four-second lightning bursts, separated
-   by randomly chosen 20–40-second intervals. Each flashing bulb gets its own
+   by randomly chosen 8–15-second intervals. Each flashing bulb gets its own
    pattern and brightness, with occasional shared strikes.
 5. All selected bulbs switch off. The complete sequence lasts 126.5 seconds.
 
@@ -195,8 +194,7 @@ verify the supervisor, status file and a live sensor event after any host restar
 
 `sonos_audio.py` plays the prepared WAV URLs on one explicitly selected Sonos
 using local SoCo control. The private `sonos_config` contains its verified UID,
-cached host, HTTPS `url_base` for the published audio folder, and commissioning
-`volume` (1–25; currently 10). If its address changes it discovers the same UID;
+cached host, HTTPS `url_base` for the published audio folder, and `volume` (1–100; currently 50, explicitly selected by the user). If its address changes it discovers the same UID;
 it never substitutes a different speaker. It refuses grouped speakers or playback
 over unrelated music. Cleanup stops only our own clip and restores volume only
 when it has not been manually changed. Network calls run outside the light-frame
@@ -213,5 +211,11 @@ The selected Sonos Move 2 accepted a low-volume WAV test and reported PLAYING
 about 0.36 seconds after the request. This establishes command/transport behavior,
 not audible timing. A shortened combined light-and-Sonos test also confirmed PLAYING during the
 lightning phase, followed by off cleanup. Motion-triggered playback is enabled
-on the selected Move 2 at volume 10, using a provisional 0.35-second lead.
+on the selected Move 2 at volume 50, using a provisional 0.35-second lead.
 Microphone calibration on the room's M1 Mac remains pending until SSH/microphone access is available. See [calibration](calibration/README.md).
+
+Lightning now uses full-power neutral white (65535/65535/65535) with a short
+maximum plateau, then a fade to darkness. Audio-derived cues are kept, with
+additional strikes in the gaps. Bursts recur after random 8–15-second steady
+intervals rather than 20–40 seconds. The steady anchor remains separate; total
+sequence duration is still 126.5 seconds. Sonos volume is now explicitly 50/100.

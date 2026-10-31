@@ -14,8 +14,8 @@ class SonosAudio:
     def __init__(self, config_path):
         self.config_path = Path(config_path)
         self.config = json.loads(self.config_path.read_text())
-        if not 1 <= self.config['volume'] <= 25:
-            raise ValueError('Use a commissioning volume between 1 and 25.')
+        if not 1 <= self.config['volume'] <= 100:
+            raise ValueError('Use a Sonos volume between 1 and 100.')
         parsed = urlparse(self.config['url_base'])
         if parsed.scheme != 'https' or parsed.username or parsed.password or not parsed.hostname:
             raise ValueError('Thunder files need a public HTTPS base URL.')

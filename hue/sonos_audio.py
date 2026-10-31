@@ -38,6 +38,7 @@ class SonosAudio:
         self.speaker = None
         self.original_volume = None
         self.last_uri = None
+        self.applied_volume = None
         self.lock = threading.RLock()
         self.library = None
 
@@ -77,12 +78,28 @@ class SonosAudio:
         if self.original_volume is None:
             self.original_volume = speaker.volume
         speaker.volume = self.config['volume']
+        self.applied_volume = self.config['volume']
         uri = self.config['url_base'].rstrip('/') + '/' + quote(path.name)
         speaker.play_uri(uri, title='Halloween thunder')
         self.last_uri = uri
 
     async def play(self, path):
         await asyncio.to_thread(self._play, path)
+
+    def _scene_volume(self, value):
+        with self.lock:
+            speaker = self._resolve()
+            if (speaker.uid != self.config['uid'] or len(speaker.group.members) != 1
+                    or self.last_uri is None
+                    or speaker.get_current_track_info().get('uri') != self.last_uri):
+                return
+            speaker.volume = value
+            self.applied_volume = value
+
+    async def scene_volume(self, value):
+        if isinstance(value, bool) or not isinstance(value, int) or not 0 <= value <= 100:
+            raise ValueError('Volume must be 0–100')
+        await asyncio.to_thread(self._scene_volume, value)
 
     def _close(self):
         with self.lock:
@@ -91,6 +108,7 @@ class SonosAudio:
             finally:
                 self.original_volume = None
                 self.last_uri = None
+                self.applied_volume = None
 
     def _close_locked(self):
         if self.speaker is None or self.last_uri is None:
@@ -104,7 +122,7 @@ class SonosAudio:
             return
         if speaker.get_current_transport_info()['current_transport_state'] == 'PLAYING':
             speaker.stop()
-        if self.original_volume is not None and speaker.volume == self.config['volume']:
+        if self.original_volume is not None and speaker.volume == self.applied_volume:
             speaker.volume = self.original_volume
         self.last_uri = None
 

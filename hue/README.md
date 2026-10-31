@@ -8,19 +8,19 @@ same role-based scene. `scene_roles.flashers` selects exactly two RGB lamps;
 match the dedicated group and selected light list. Actual device IDs stay in
 private configuration, with the previous configuration backed up before migration.
 
-1. Audio-derived white/purple strokes on the two RGB lamps, then the complete
-   thunder rumble. The mask stays dark.
-2. Warm mask reveal with the full deep evil laugh.
-3. A different thunder track and irregular independent white/purple strokes.
-4. Jumpscare scream with a minimum four-second chaotic RGB finale, with the
-   warm mask visible. All three lamps then switch fully off.
+The 14-second timeline is thunder/white-purple lightning at 0s, warm mask and
+laughter at 2.6s, another storm at 5.5s, and scream/chaotic finale at 9.2s.
+Everything ends dark at 14s. A single overlapping soundtrack avoids repeated
+Sonos startup delays; rumbles overlap the voices and fade out at the scene end.
+Thunder uses temporary 85% speaker volume, while laughter/scream retain the
+configured voice level (currently 54%). Cleanup restores the previous volume;
+explicit app volume adjustments take precedence.
 
-Full thunder excerpts are 9.9–11.5 seconds, with a half-second tail margin;
-recordings are never cut at the four-second flash-burst boundary. The fixture
-roles keep XY commands away from the CT-only mask. RGB peaks use maximum
-brightness; gaps use a minimal purple level to keep lamps responsive. Independent
-230–280 ms holds and irregular spacing stay within the existing shared ten-write
-budget. The new outdoor placement has not been optically/acoustically calibrated.
+RGB peaks use maximum brightness, alternating spatially with irregular
+200–240 ms white/purple strokes, denser in the finale. The warm mask briefly
+flickers during the scream. All commands share the ten-write budget. The
+removed extra white bulb is excluded. Fixture roles keep XY commands away from
+the CT-only mask. The outdoor placement has not been acoustically calibrated.
 
 The native app's **Test horror scene** restarts the whole scene, **Lightning**
 is a silent four-second test of only the RGB lamps, and **Stop & dark** cancels

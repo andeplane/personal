@@ -79,6 +79,22 @@ class BackendTests(unittest.TestCase):
         self.assertEqual(self.speaker.volume, 22)
         self.assertIsNone(self.audio.original_volume)
 
+    def test_thunder_boost_is_temporary_and_voice_setting_is_preserved(self):
+        self.audio.config['volume'] = 54
+        self.audio._play('close-crack.wav')
+        self.speaker.get_current_track_info.return_value = {'uri': self.audio.last_uri}
+        self.audio._scene_volume(85)
+        self.assertEqual(self.speaker.volume, 85)
+        self.assertEqual(self.audio.config['volume'], 54)
+        self.audio._close()
+        self.assertEqual(self.speaker.volume, 22)
+
+    def test_scene_volume_never_changes_other_music(self):
+        self.audio._play('close-crack.wav')
+        self.speaker.get_current_track_info.return_value = {'uri': 'music://someone-else'}
+        self.audio._scene_volume(85)
+        self.assertEqual(self.speaker.volume, 10)
+
     def test_cleanup_leaves_new_music_and_manual_volume_alone(self):
         self.audio._play('close-crack.wav')
         self.speaker.get_current_track_info.return_value = {'uri': 'music://new'}

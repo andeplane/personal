@@ -1,10 +1,11 @@
 import asyncio
 import random
 import unittest
+import tempfile
 from pathlib import Path
 from unittest.mock import AsyncMock, Mock, patch
 
-from horror_scene import WHITE, PURPLE, horror_scene, roles, strokes, warm_states
+from horror_scene import WHITE, PURPLE, horror_scene, roles, strokes, warm_states, compact_events, prepare_compact_audio, SCENE_SECONDS
 from hue import HueError
 
 
@@ -33,6 +34,31 @@ class HorrorScheduleTests(unittest.TestCase):
             self.assertNotEqual([t for t, s in events if 'a' in s], [t for t, s in events if 'b' in s])
         self.assertGreater(len(signatures), 490)
 
+    def test_compact_chaos_budget_and_fast_reveal(self):
+        for seed in range(500):
+            events = compact_events(['a','b'],'m',random.Random(seed))
+            self.assertEqual([(t,p) for t,p,_ in events if p], [(0,'storm'),(2.6,'reveal'),(5.5,'storm'),(9.2,'finale')])
+            for t,_,_ in events:
+                self.assertLessEqual(sum(len(s) for u,_,s in events if t <= u < t+1), 10)
+            self.assertTrue(all(t < SCENE_SECONDS for t,_,_ in events))
+            peaks = [s for _,_,s in events if any(v.get('bri')==254 and 'xy' in v for v in s.values())]
+            self.assertGreaterEqual(len(peaks), 20)
+
+    def test_compact_audio_has_overlaps_bounded_peaks_and_faded_end(self):
+        from sound_library import SoundLibrary, read_pcm, RATE
+        from lightning import load_soundtracks
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(__file__).parent
+            library=SoundLibrary(root/'sounds/catalog.json',directory)
+            tracks=load_soundtracks(root/'audio/full/catalog.json')[:2]
+            path=prepare_compact_audio(library,tracks)
+            pcm=read_pcm(path)
+            self.assertEqual(len(pcm),14*RATE)
+            self.assertLessEqual(max(map(abs,pcm)),32700)
+            self.assertEqual(pcm[-1],0)
+            self.assertEqual(library.files[path.name],path)
+            self.assertEqual(prepare_compact_audio(library,tracks),path)
+
 
 class HorrorRuntimeTests(unittest.IsolatedAsyncioTestCase):
     def controller(self):
@@ -48,25 +74,27 @@ class HorrorRuntimeTests(unittest.IsolatedAsyncioTestCase):
         c.request = AsyncMock(return_value=[])
         c.dark = AsyncMock(); c.write_lights = AsyncMock(); c.thunder = AsyncMock()
         c.sonos.close = AsyncMock(); c.sound_override = False
+        c.sonos.config = {'volume':54}; c.sonos.last_uri = 'scene.wav'; c.sonos.scene_volume = AsyncMock(); c.health = {}
         c.library.by_id = {'evil-laugh-deep': ({'duration': 6}, Path('laugh.wav')),
                            'jump-scream': ({'duration': 8}, Path('scream.wav'))}
         return c
 
-    async def test_four_stages_preserve_full_audio_and_finish_dark(self):
+    async def test_compact_scene_has_four_stages_and_finishes_within_15_seconds(self):
         c = self.controller(); clock = [0.0]; audio_times = []
         async def sleep(duration): clock[0] += duration
         async def audio(path): audio_times.append((clock[0], path))
         c.thunder.side_effect = audio
         track = {'audio_duration': 11.5, 'audio_file': 'thunder.wav', 'strikes': [(0.18, .32, 1), (1.2, 1.4, 1), (2.8, 3, 1)]}
-        with patch('lightning.load_soundtracks', return_value=[track]), \
+        with patch('horror_scene.prepare_compact_audio', return_value=Path('scene.wav')), \
+             patch('lightning.load_soundtracks', return_value=[track]), \
              patch('horror_scene.time.monotonic', side_effect=lambda: clock[0]), \
              patch('horror_scene.asyncio.sleep', side_effect=sleep):
             await horror_scene(c)
-        self.assertEqual([p for _, p in audio_times], ['thunder.wav', 'laugh.wav', 'thunder.wav', 'scream.wav'])
-        for (start, _), (end, _), duration in zip(audio_times, audio_times[1:], [11.5, 6, 11.5]):
-            self.assertGreaterEqual(end - start, duration + .5)
+        self.assertEqual([p for _, p in audio_times], ['scene.wav'])
+        self.assertGreaterEqual(clock[0], 14)
+        self.assertLessEqual(clock[0], 15)
         phases = [call.kwargs['phase'] for call in c.status.call_args_list if 'phase' in call.kwargs]
-        self.assertEqual(phases, ['preparing', 'storm', 'tail', 'reveal', 'storm', 'tail', 'finale'])
+        self.assertEqual(phases, ['preparing', 'storm', 'reveal', 'storm', 'finale'])
         self.assertEqual(c.dark.await_count, 2)
         self.assertFalse(c.busy); c.sonos.close.assert_awaited_once()
         self.assertTrue(all(set(call.args[0]) <= {'a', 'b', 'm'} for call in c.write_lights.await_args_list))

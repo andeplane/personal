@@ -67,13 +67,13 @@ class CleanupTests(unittest.IsolatedAsyncioTestCase):
 
 
 class LightningTests(unittest.TestCase):
-    def test_flash_has_a_full_power_plateau_and_white_is_neutral(self):
+    def test_white_flash_has_full_power_plateau_and_background_is_yellow(self):
         self.assertEqual(intensity(0.16, [(0.15, 0.35, 1)]), 1)
         self.assertEqual(intensity(0.25, [(0.15, 0.35, 1)]), 1)
-        self.assertEqual(STEADY[0], STEADY[1])
-        self.assertEqual(STEADY[1], STEADY[2])
-        self.assertEqual(ANCHOR[0], ANCHOR[1])
-        self.assertEqual(ANCHOR[1], ANCHOR[2])
+        self.assertGreater(STEADY[0], STEADY[1])
+        self.assertGreater(STEADY[1], STEADY[2])
+        self.assertGreater(ANCHOR[0], ANCHOR[1])
+        self.assertGreater(ANCHOR[1], ANCHOR[2])
         plan = sequence(random.Random(1))
         patterns = lightning_patterns(plan, [0, 1], random.Random(1))
         colors = [frame_at(2.5+t/50, plan, patterns, [0, 1])[1] for t in range(200)]
@@ -153,6 +153,19 @@ class LightningTests(unittest.TestCase):
         self.assertFalse(gate.update(True, 350))
         gate.update(False, 351)
         self.assertTrue(gate.update(True, 352))
+
+    def test_tiny_fade_values_cannot_reexpand_to_white_in_sdk(self):
+        self.assertEqual(color_at(.199999, [('lightning', 1)], {0:{0:[(0,.2,1)]}}, 0), (0,0,0))
+
+    def test_every_automatic_thunder_tail_can_finish_before_lights_off(self):
+        for seed in range(100):
+            plan = sequence(random.Random(seed))
+            elapsed = 0
+            total = sum(duration for _, duration in plan)
+            for mode, duration in plan:
+                if mode == 'lightning':
+                    self.assertGreaterEqual(total-elapsed, 11.5)
+                elapsed += duration
 
     def test_storm_timing_and_random_intervals(self):
         for seed in range(100):

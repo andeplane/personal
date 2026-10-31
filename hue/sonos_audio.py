@@ -1,6 +1,7 @@
 """Play the prepared thunder files on one explicitly selected, ungrouped Sonos."""
 import asyncio
 import json
+import ipaddress
 import threading
 from pathlib import Path
 from urllib.parse import quote, urlparse
@@ -14,15 +15,20 @@ class SonosAudio:
     def __init__(self, config_path):
         self.config_path = Path(config_path)
         self.config = json.loads(self.config_path.read_text())
-        if not 1 <= self.config['volume'] <= 100:
-            raise ValueError('Use a Sonos volume between 1 and 100.')
+        if not 0 <= self.config['volume'] <= 100:
+            raise ValueError('Use a Sonos volume between 0 and 100.')
         parsed = urlparse(self.config['url_base'])
-        if parsed.scheme != 'https' or parsed.username or parsed.password or not parsed.hostname:
-            raise ValueError('Thunder files need a public HTTPS base URL.')
+        try:
+            local_http = parsed.scheme == 'http' and ipaddress.ip_address(parsed.hostname).is_private and not ipaddress.ip_address(parsed.hostname).is_loopback
+        except ValueError:
+            local_http = False
+        if (parsed.scheme != 'https' and not local_http) or parsed.username or parsed.password or not parsed.hostname:
+            raise ValueError('Audio needs HTTPS or an explicit private LAN address.')
         self.speaker = None
         self.original_volume = None
         self.last_uri = None
         self.lock = threading.RLock()
+        self.library = None
 
     def _resolve(self):
         if self.speaker is not None:
@@ -45,8 +51,8 @@ class SonosAudio:
 
     def _play_locked(self, path):
         path = Path(path)
-        if path.name not in ('close-crack.wav', 'rolling-crack.wav'):
-            raise ValueError('Only the prepared thunder clips may be played.')
+        if path.name not in ('close-crack.wav', 'rolling-crack.wav') and not (self.library and self.library.files.get(path.name) == path):
+            raise ValueError('Only registered sound files may be played.')
         speaker = self._resolve()
         if speaker.uid != self.config['uid'] or len(speaker.group.members) != 1:
             raise ValueError('The selected Sonos identity or grouping changed.')

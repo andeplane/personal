@@ -12,6 +12,7 @@ import random
 from pathlib import Path
 import signal
 import socket
+import sqlite3
 import ssl
 import subprocess
 import time
@@ -255,6 +256,16 @@ class Controller:
         self.session = None
         self.area_owned = False
         self.area_owner = None
+        self.activity_log = None
+        self.activity_run = None
+        self.activity_started = False
+        if settings.get('activity_file'):
+            try:
+                from activity_log import ActivityLog
+                self.activity_log = ActivityLog(settings['activity_file'])
+                self.activity('monitor', 'Motion monitoring started')
+            except (OSError, ValueError, sqlite3.Error):
+                self.health['activity_error'] = 'activity_unavailable'
         if self.settings.get('persistent_stream') and self.settings.get('render_backend') != 'rest':
             from warm_session import WarmSession
             self.session = WarmSession(self.streamer, self.acquire_area, self.release_area,
@@ -267,7 +278,17 @@ class Controller:
             if self.trace_handle:
                 self.trace_handle.write(json.dumps({'kind': kind, 'epoch': time.time(), **values})+'\n')
 
+    def activity(self, kind, message, **kwargs):
+        if self.activity_log:
+            try:
+                self.activity_log.add(kind, message, **kwargs)
+            except (OSError, ValueError, sqlite3.Error):
+                self.health['activity_error'] = 'activity_unavailable'
+
     def status(self, **values):
+        if values.get('state') == 'playing' and self.activity_run and not self.activity_started:
+            self.activity_started = True
+            self.activity('scene', 'Scene started', source=self.activity_run)
         self.health.update(values, updated_at=datetime.now(timezone.utc).isoformat())
         if self.settings.get('status_file'):
             path = Path(self.settings['status_file'])
@@ -378,6 +399,8 @@ class Controller:
         self.status(motion_armed=self.motion_armed)
 
     def set_armed(self, enabled):
+        if enabled != self.motion_armed:
+            self.activity('monitor', 'Automatic motion armed' if enabled else 'Automatic motion paused', source='manual')
         self.motion_armed = enabled
         self.status(motion_armed=enabled)
         if self.settings.get('control_state_file'):
@@ -607,15 +630,26 @@ class Controller:
                         self.trace_handle.close()
                         self.trace_handle = None
 
-    async def trigger(self, gate, plan=None, sound=True):
+    async def trigger(self, gate, plan=None, sound=True, *, origin='motion'):
+        self.activity_run = origin if plan is None else 'lightning test'
+        self.activity_started = False
+        self.activity('scene', 'Scene requested', source=self.activity_run)
+        outcome = 'stopped'
         try:
             async with asyncio.timeout(180):
                 await self._trigger(gate, plan, sound)
+            outcome = 'failed' if self.health.get('state') == 'failed' else ('skipped' if self.health.get('state') == 'skipped' else 'finished')
         except TimeoutError:
+            outcome = 'timed out'
             self.status(state='failed', last_error='sequence_deadline')
             await self.dark()
             gate.finish(time.monotonic())
             log('Sequence deadline reached; lights off.')
+        finally:
+            self.activity('scene', ('Scene ' if self.activity_started else 'Scene did not start · ') + outcome,
+                          source=self.activity_run)
+            self.activity_run = None
+            self.activity_started = False
 
     async def _trigger(self, gate, plan=None, sound=True):
         try:
@@ -651,6 +685,16 @@ class Controller:
             present, stamp = sample
             self.status(presence=present, motion_report_epoch=stamp,
                         motion_read_at=datetime.now(timezone.utc).isoformat())
+            if self.activity_log:
+                detail = 'Motion cleared'
+                if present:
+                    active = self.sequence_task and not self.sequence_task.done()
+                    detail = ('Motion detected · paused' if not self.motion_armed else
+                              'Motion detected · scene running' if active else 'Motion detected')
+                try:
+                    self.activity_log.motion(present, stamp, source, detail)
+                except (OSError, ValueError, OverflowError, sqlite3.Error):
+                    self.health['activity_error'] = 'activity_unavailable'
             if not self.motion_armed:
                 if stamp is None or gate.last_report is None or stamp >= gate.last_report:
                     gate.present, gate.last_report = present, stamp
@@ -691,11 +735,14 @@ class Controller:
                     if not self.session and self.health.get('state') == 'idle' and not active and time.monotonic() - last_idle_off >= 5:
                         await self.dark()
                         last_idle_off = time.monotonic()
+                    if failed:
+                        self.activity('monitor', 'Motion polling recovered', source='poll')
                     failed = False
                 except (aiohttp.ClientError, TimeoutError, OSError, ValueError, HueError) as error:
                     self.status(motion_error=type(error).__name__)
                     if not failed:
                         log('Motion reconciliation unavailable; retrying.')
+                        self.activity('monitor', 'Motion polling unavailable; retrying', source='poll')
                     failed = True
                 await asyncio.sleep(2)
 
@@ -709,6 +756,7 @@ class Controller:
                         response.raise_for_status()
                         log('Motion event stream connected; two-second reconciliation active.')
                         self.status(events_connected=True)
+                        self.activity('monitor', 'Motion event stream connected', source='event')
                         lines, size = [], 0
                         async for raw in response.content:
                             line = raw.decode().rstrip('\r\n')
@@ -729,6 +777,7 @@ class Controller:
                 except (aiohttp.ClientError, TimeoutError, OSError, ValueError, HueError):
                     self.status(events_connected=False)
                     log('Motion event connection interrupted; polling remains active.')
+                    self.activity('monitor', 'Motion event stream disconnected; polling continues', source='event')
                     await asyncio.sleep(5)
 
         while True:
@@ -835,6 +884,8 @@ async def run(args):
         await setup(credentials, args)
         return
     settings = json.loads((PRIVATE / 'lightning.json').read_text())
+    if args.command == 'listen':
+        settings.setdefault('activity_file', str(PRIVATE / 'activity.sqlite3'))
     with (PRIVATE / 'lightning.lock').open('w') as lock:
         try:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)

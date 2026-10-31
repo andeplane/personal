@@ -52,14 +52,14 @@ class ControlTests(unittest.IsolatedAsyncioTestCase):
         await dispatch(c,{'action':'flash'});await self.lighting_idle(c);await c.sequence_task
         self.assertTrue(old.cancelled())
         c.stop_sequence.assert_awaited_once_with(release_stream=False,stop_audio=False)
-        c.trigger.assert_awaited_once_with(c.gate,[('lightning',4)],False)
+        c.trigger.assert_awaited_once_with(c.gate,[('lightning',4)],False,origin='manual')
         self.assertFalse(c.motion_armed)
 
     async def test_start_restarts_instead_of_rejecting_running_sequence(self):
         c=self.controller();old=asyncio.create_task(asyncio.sleep(100));c.sequence_task=old;c.trigger=AsyncMock()
         reply=await dispatch(c,{'action':'start'});await self.lighting_idle(c);await c.sequence_task
         self.assertTrue(reply['ok']);self.assertNotIn('already running',str(reply))
-        self.assertTrue(old.cancelled());c.trigger.assert_awaited_once_with(c.gate,None,True)
+        self.assertTrue(old.cancelled());c.trigger.assert_awaited_once_with(c.gate,None,True,origin='manual')
 
     async def test_horror_scene_start_clears_old_audio_intents(self):
         c=self.controller();c.settings['scene']='mask_reveal';c.trigger=AsyncMock()

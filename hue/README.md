@@ -36,6 +36,15 @@ its device description; LAN discovery can recover a changed address by its
 configured identity. Sound failures leave an explicit warning while lighting
 continues. They do not substitute another room's speaker.
 
+The Activity tab shows persisted motion detections and clear reports, including
+detections while motion is paused or a scene is active. Scene requests, actual
+starts and finishes, cancellations, failures, arming changes and sensor stream
+outages are recorded too. Hue report timestamps are retained, and repeated push
+and polling copies of the same report are deduplicated. The local private SQLite
+history starts when this logger is installed; it cannot reconstruct events that
+the controller never received while offline. The app retrieves 100 entries at a
+time and loads older pages on demand. No activity database is committed to Git.
+
 Local tools for the existing Hue Bridge; Home Assistant is optional for the first
 lighting setup. Python 3.9+ and the standard library are sufficient.
 

@@ -69,7 +69,7 @@ async def _lighting_worker(c):
                 c.gate.ready_at = float('inf')
                 plan = [('lightning', 4)] if action == 'flash' else None
                 c.status(state='starting', last_error=None)
-                c.sequence_task = asyncio.create_task(c.trigger(c.gate, plan, action != 'flash'))
+                c.sequence_task = asyncio.create_task(c.trigger(c.gate, plan, action != 'flash', origin='manual'))
             elif action == 'on':
                 if c.settings.get('scene') == 'mask_reveal':
                     from horror_scene import warm_states
@@ -174,7 +174,12 @@ async def dispatch(c, command):
     if action == 'status':
         return _reply(c)
     if action == 'library':
-        return {**_reply(c), 'clips': c.library.listing() if c.library else []}
+        page = c.activity_log.page() if c.activity_log else {'activity': [], 'activity_more': False}
+        return {**_reply(c), 'clips': c.library.listing() if c.library else [], **page}
+    if action == 'events':
+        before = command.get('before')
+        page = c.activity_log.page(before) if c.activity_log else {'activity': [], 'activity_more': False}
+        return {**_reply(c), **page}
     if action in ('start', 'flash', 'stop', 'off', 'on'):
         c.set_armed(False)
         _queue_lighting(c, action)

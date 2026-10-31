@@ -9,6 +9,39 @@ struct SoundClip: Decodable, Identifiable {
     let duration: Double
 }
 
+struct ActivityRecord: Decodable, Identifiable {
+    let id: Int
+    let at: String
+    let kind: String
+    let message: String
+    let source: String?
+    private static let fractionalDate: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime,.withFractionalSeconds]
+        return formatter
+    }()
+    private static let plainDate = ISO8601DateFormatter()
+    var localTime: String {
+        guard let date = Self.fractionalDate.date(from:at) ?? Self.plainDate.date(from:at) else { return at }
+        return date.formatted(date:.abbreviated,time:.standard)
+    }
+    var isFailure: Bool { (kind + " " + message).lowercased().contains("fail") }
+    var icon: String {
+        let description = (kind + " " + message).lowercased()
+        if kind == "motion" { return description.contains("clear") ? "figure.stand" : "figure.walk.motion" }
+        if description.contains("fail") { return "exclamationmark.triangle.fill" }
+        if description.contains("complet") || description.contains("finish") { return "checkmark.circle.fill" }
+        if description.contains("stop") { return "stop.circle" }
+        if description.contains("skip") { return "arrow.uturn.right.circle" }
+        if description.contains("start") { return "play.circle.fill" }
+        return "clock"
+    }
+    var sourceLabel: String? {
+        guard let source = source else { return nil }
+        return ["event":"Sensor event", "poll":"Sensor check", "motion":"Motion trigger", "manual":"Manual test", "lightning test":"Lightning test"][source] ?? source.capitalized
+    }
+}
+
 private struct ControlReply: Decodable {
     let ok: Bool
     let state: String?
@@ -21,6 +54,9 @@ private struct ControlReply: Decodable {
     let clips: [SoundClip]?
     let phase: String?
     let lastError: String?
+    let activity: [ActivityRecord]?
+    let activityMore: Bool?
+    let activityError: String?
     enum CodingKeys: String, CodingKey {
         case ok, state, volume, message, clips, phase
         case motionArmed = "motion_armed"
@@ -28,6 +64,9 @@ private struct ControlReply: Decodable {
         case audioState = "audio_state"
         case audioError = "audio_error"
         case lastError = "last_error"
+        case activity
+        case activityMore = "activity_more"
+        case activityError = "activity_error"
     }
 }
 
@@ -43,6 +82,16 @@ private struct ControlReply: Decodable {
     @Published var volume = 50.0
     @Published var message = ""
     @Published var audioWarning = ""
+    @Published var activity: [ActivityRecord] = []
+    @Published var activityMore = false
+    @Published var activityAvailable = false
+    @Published var activityLoading = false
+    @Published var activityCatchingUp = false
+    @Published var activityWarning = ""
+    @Published var activityMessage = ""
+    private var activityPaginationInitialized = false
+    private var activityBackfillBefore: Int?
+    private var activityBackfillTarget: Int?
     @Published var clips: [SoundClip] = []
     @Published var selected: [String] = UserDefaults.standard.stringArray(forKey:"selectedSounds") ?? []
     @Published var mixMode = UserDefaults.standard.string(forKey:"mixMode") ?? "together"
@@ -83,7 +132,7 @@ private struct ControlReply: Decodable {
     }
 
     private nonisolated static func request(_ action: String, value: String?) -> Data {
-        let actions: Set<String> = ["library","status","arm","start","stop","flash","thunder","on","off","volume","play"]
+        let actions: Set<String> = ["library","status","arm","start","stop","flash","thunder","on","off","volume","play","events"]
         guard actions.contains(action) else { return Data() }
         let process = Process()
         process.executableURL = URL(fileURLWithPath:"/usr/bin/ssh")
@@ -104,6 +153,81 @@ private struct ControlReply: Decodable {
             process.waitUntilExit()
             return data
         } catch { return Data() }
+    }
+
+
+    private func mergeActivity(_ records: [ActivityRecord]) {
+        var indexed = Dictionary(uniqueKeysWithValues:activity.map { ($0.id,$0) })
+        for record in records { indexed[record.id] = record }
+        activity = indexed.values.sorted { $0.id > $1.id }
+    }
+
+    private func ingestActivity(_ body: ControlReply) {
+        activityWarning = body.activityError == "activity_unavailable"
+            ? "Activity logging is unavailable. New events may be missing." : ""
+        guard let records = body.activity else { return }
+        let previousNewest = activity.first?.id
+        activityAvailable = true
+        if !activityPaginationInitialized {
+            activityMore = body.activityMore ?? false
+            activityPaginationInitialized = true
+        }
+        // A long disconnect can hide more than one live page. Fill that gap
+        // without discarding older pages the user has already loaded.
+        if let previous = previousNewest, let oldest = records.map(\.id).min(),
+           oldest > previous + 1, body.activityMore == true {
+            activityBackfillBefore = min(activityBackfillBefore ?? oldest,oldest)
+            activityBackfillTarget = min(activityBackfillTarget ?? previous,previous)
+        }
+        mergeActivity(records)
+        catchUpActivity()
+    }
+
+    func loadOlderActivity() {
+        guard connected && activityMore && !activityLoading && !activityCatchingUp,
+              let oldest = activity.last?.id else { return }
+        activityLoading = true
+        activityMessage = ""
+        Task {
+            let data = await Task.detached(priority:.utility) { Self.request("events",value:String(oldest)) }.value
+            defer { self.activityLoading = false }
+            guard let reply = try? JSONDecoder().decode(ControlReply.self,from:data),
+                  reply.ok, let records = reply.activity else {
+                self.activityMessage = "Couldn’t load older activity. The existing log is still available."
+                return
+            }
+            self.mergeActivity(records)
+            self.activityMore = reply.activityMore ?? false
+            self.activityWarning = reply.activityError == "activity_unavailable"
+                ? "Activity logging is unavailable. New events may be missing." : ""
+        }
+    }
+
+    private func catchUpActivity() {
+        guard !activityCatchingUp, activityBackfillBefore != nil else { return }
+        activityCatchingUp = true
+        Task {
+            defer { self.activityCatchingUp = false }
+            while let before = self.activityBackfillBefore, let target = self.activityBackfillTarget {
+                let data = await Task.detached(priority:.utility) { Self.request("events",value:String(before)) }.value
+                guard let reply = try? JSONDecoder().decode(ControlReply.self,from:data),
+                      reply.ok, let records = reply.activity else {
+                    self.activityMessage = "Recent activity is still catching up. Reconnecting will retry automatically."
+                    return
+                }
+                self.mergeActivity(records)
+                if records.isEmpty || records.contains(where:{$0.id <= target}) || reply.activityMore == false {
+                    self.activityBackfillBefore = nil
+                    self.activityBackfillTarget = nil
+                    if self.activityMessage.hasPrefix("Recent activity") { self.activityMessage = "" }
+                } else if let next = records.map(\.id).min(), next < before {
+                    self.activityBackfillBefore = next
+                } else {
+                    self.activityMessage = "Couldn’t finish loading recent activity. The existing log is still available."
+                    return
+                }
+            }
+        }
     }
 
     func command(_ action: String, value: String? = nil, quiet: Bool = false) {
@@ -166,6 +290,7 @@ private struct ControlReply: Decodable {
                 self.message = body.message ?? "The controller couldn’t complete that action."
                 return
             }
+            self.ingestActivity(body)
             let names = ["idle":"Idle · lights off", "starting":"Preparing lights…", "playing":"Horror scene running",
                          "thunder":"Playing sound", "lights_on":"Yellow lights on", "retrying":"Reconnecting lights…",
                          "reconnecting":"Waiting for the lights…", "failed":"Lighting or sound failed",
@@ -222,11 +347,8 @@ private struct ControlReply: Decodable {
 
 struct ControlView: View {
     @StateObject private var controls = Controls()
-    @State private var category = "Thunder"
+    @State private var panel = "Activity"
     let timer = Timer.publish(every:3,on:.main,in:.common).autoconnect()
-    private var visibleClips: [SoundClip] {
-        controls.clips.filter { category == "Other" ? !["Thunder","Scream"].contains($0.category) : $0.category == category }
-    }
     var body: some View {
         VStack(alignment:.leading,spacing:16) {
             HStack(spacing:12) {
@@ -277,6 +399,47 @@ struct ControlView: View {
                 Text("\(Int(controls.volume))%").monospacedDigit().frame(width:45)
             }
             Divider()
+            Picker("Details",selection:$panel) {
+                Text("Sounds").tag("Sounds")
+                Text("Activity").tag("Activity")
+            }.labelsHidden().pickerStyle(.segmented)
+            Group {
+                if panel == "Activity" { ActivityPanel(controls:controls) }
+                else { SoundLibraryPanel(controls:controls) }
+            }.frame(height:325)
+            if !controls.activityWarning.isEmpty {
+                Label(controls.activityWarning,systemImage:"exclamationmark.triangle.fill")
+                    .font(.caption).foregroundStyle(.orange)
+                    .fixedSize(horizontal:false,vertical:true)
+            }
+            if !controls.audioWarning.isEmpty {
+                Label(controls.audioWarning,systemImage:"speaker.slash.fill")
+                    .font(.caption).foregroundStyle(.orange)
+                    .fixedSize(horizontal:false,vertical:true)
+            }
+            Text(controls.message.isEmpty ? "Manual controls pause motion. Turn Automatic motion back on when ready." : controls.message)
+                .font(.caption).foregroundStyle(controls.message.isEmpty ? Color.secondary : Color.orange)
+                .fixedSize(horizontal:false,vertical:true)
+            HStack {
+                Text("Purple/white lightning · warm mask reveal").font(.caption2).foregroundStyle(.secondary)
+                Spacer()
+                Button("Refresh") { controls.command("library") }.buttonStyle(.link).disabled(!controls.canSend("library"))
+            }
+        }.padding(24).frame(width:480)
+            .onAppear { controls.command("library") }
+            .onReceive(timer) { _ in controls.command("library",quiet:true) }
+    }
+}
+
+
+struct SoundLibraryPanel: View {
+    @ObservedObject var controls: Controls
+    @State private var category = "Thunder"
+    private var visibleClips: [SoundClip] {
+        controls.clips.filter { category == "Other" ? !["Thunder","Scream"].contains($0.category) : $0.category == category }
+    }
+    var body: some View {
+        VStack(alignment:.leading,spacing:12) {
             HStack {
                 Text("Sound library").font(.headline)
                 Spacer()
@@ -308,7 +471,7 @@ struct ControlView: View {
                         }
                     }
                 }.padding(.trailing,8)
-            }.frame(height:180)
+            }.frame(height:155)
             Text(controls.selectionDescription).font(.caption).foregroundStyle(.secondary)
                 .lineLimit(2).frame(minHeight:30,alignment:.topLeading)
             HStack {
@@ -320,22 +483,77 @@ struct ControlView: View {
                 Button("Play selected") { controls.playSelection() }
                     .disabled(controls.selected.isEmpty || !controls.canSend("play"))
             }
-            if !controls.audioWarning.isEmpty {
-                Label(controls.audioWarning,systemImage:"speaker.slash.fill")
+        }.frame(maxWidth:.infinity,maxHeight:.infinity,alignment:.topLeading)
+    }
+}
+
+struct ActivityPanel: View {
+    @ObservedObject var controls: Controls
+    var body: some View {
+        VStack(alignment:.leading,spacing:10) {
+            HStack {
+                Text("Activity").font(.headline)
+                Spacer()
+                if controls.activityCatchingUp { ProgressView().controlSize(.small); Text("Catching up…").font(.caption) }
+                else { Text("\(controls.activity.count) loaded").font(.caption).foregroundStyle(.secondary) }
+            }
+            Text("History starts when logging was enabled. Earlier events weren’t recorded.")
+                .font(.caption).foregroundStyle(.secondary)
+            if !controls.connected {
+                Label("Offline · showing previously loaded events",systemImage:"wifi.slash")
                     .font(.caption).foregroundStyle(.orange)
+            }
+            ScrollViewReader { scroll in
+                VStack(alignment:.leading,spacing:6) {
+                    HStack {
+                        Text("Newest first · local time").font(.caption2).foregroundStyle(.secondary)
+                        Spacer()
+                        Button("Latest") {
+                            if let first = controls.activity.first { withAnimation { scroll.scrollTo(first.id,anchor:.top) } }
+                        }.buttonStyle(.link).font(.caption).disabled(controls.activity.isEmpty)
+                    }
+                    ScrollView {
+                        LazyVStack(alignment:.leading,spacing:10) {
+                            if controls.activity.isEmpty {
+                                Text(controls.activityAvailable ? "No activity yet. Motion and scene events will appear here." : "Waiting for the controller’s activity log…")
+                                    .font(.caption).foregroundStyle(.secondary).padding(.vertical,12)
+                            }
+                            ForEach(controls.activity) { record in
+                                HStack(alignment:.top,spacing:9) {
+                                    Image(systemName:record.icon)
+                                        .foregroundStyle(record.isFailure ? Color.orange : Color.secondary)
+                                        .frame(width:16).padding(.top,2)
+                                    VStack(alignment:.leading,spacing:3) {
+                                        HStack(alignment:.firstTextBaseline) {
+                                            Text(record.localTime).monospacedDigit()
+                                            Spacer(minLength:4)
+                                            if let source = record.sourceLabel { Text(source) }
+                                        }.font(.caption2).foregroundStyle(.secondary)
+                                        Text(record.message).font(.caption).textSelection(.enabled)
+                                            .fixedSize(horizontal:false,vertical:true)
+                                    }
+                                }.id(record.id)
+                                Divider()
+                            }
+                        }.padding(.trailing,8)
+                    }
+                }
+            }
+            if !controls.activityMessage.isEmpty {
+                Text(controls.activityMessage).font(.caption).foregroundStyle(.orange)
                     .fixedSize(horizontal:false,vertical:true)
             }
-            Text(controls.message.isEmpty ? "Manual controls pause motion. Turn Automatic motion back on when ready." : controls.message)
-                .font(.caption).foregroundStyle(controls.message.isEmpty ? Color.secondary : Color.orange)
-                .fixedSize(horizontal:false,vertical:true)
             HStack {
-                Text("Purple/white lightning · warm mask reveal").font(.caption2).foregroundStyle(.secondary)
+                if controls.activityMore {
+                    Button("Load older") { controls.loadOlderActivity() }
+                        .disabled(!controls.connected || controls.activityLoading || controls.activityCatchingUp)
+                    if controls.activityLoading { ProgressView().controlSize(.small) }
+                } else if !controls.activity.isEmpty {
+                    Text("Beginning of recorded history loaded").font(.caption2).foregroundStyle(.secondary)
+                }
                 Spacer()
-                Button("Refresh") { controls.command("library") }.buttonStyle(.link).disabled(!controls.canSend("library"))
             }
-        }.padding(24).frame(width:480)
-            .onAppear { controls.command("library") }
-            .onReceive(timer) { _ in controls.command("library",quiet:true) }
+        }.frame(maxWidth:.infinity,maxHeight:.infinity,alignment:.topLeading)
     }
 }
 

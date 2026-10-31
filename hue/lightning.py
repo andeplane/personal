@@ -260,6 +260,13 @@ class Controller:
         self.activity_log = None
         self.activity_run = None
         self.activity_started = False
+        self.overnight = None
+        if settings.get('overnight_file'):
+            from overnight import Overnight
+            self.overnight = Overnight(settings['overnight_file'])
+            # Keep the controller silent even after the timer expires. Audio
+            # requires an explicit configuration change and controller restart.
+            self.settings['audio_enabled'] = False
         if settings.get('activity_file'):
             try:
                 from activity_log import ActivityLog
@@ -812,6 +819,8 @@ class Controller:
                 log('Waiting for Bridge connectivity before listening.')
                 await asyncio.sleep(5)
         tasks = [asyncio.create_task(poll()), asyncio.create_task(events())]
+        if self.overnight:
+            tasks.append(asyncio.create_task(self.overnight.run(self)))
         if self.settings.get('door_blink_light'):
             from door_blink import door_blink_loop
             tasks.append(asyncio.create_task(door_blink_loop(self)))

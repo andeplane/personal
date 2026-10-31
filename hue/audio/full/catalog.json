@@ -1,0 +1,262 @@
+[
+  {
+    "id": "heavy-close",
+    "title": "Heavy close thunderclap",
+    "author": "Pingel",
+    "source": "https://freesound.org/people/Pingel/sounds/2689/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "preview_url": "https://cdn.freesound.org/previews/2/2689_2211-hq.mp3",
+    "input_preview_sha256": "33771982943d61af3bf0e582d6bd762b2ad8fa0ae70af03d3b85af1115b9e995",
+    "input_wav_sha256": "62ef38479a46e273444b6c94f607da31e82c1754fb54eea73e24e3c0b56ead5d",
+    "file": "storm-heavy-close.wav",
+    "sha256": "db9fabd4ecdbcf232e81618268cddc064f16568e3651049cb9a31ac5a32a1b7e",
+    "audio_duration": 11.5,
+    "cue_duration": 4,
+    "source_excerpt_start": 0.32995833333333335,
+    "audio_peak_seconds": [
+      0.26,
+      0.9,
+      1.44,
+      2.24,
+      2.94
+    ],
+    "strikes": [
+      [
+        0.18,
+        0.32,
+        1.0
+      ],
+      [
+        0.82,
+        0.96,
+        0.22497
+      ],
+      [
+        1.36,
+        1.5,
+        0.10721
+      ],
+      [
+        2.16,
+        2.3,
+        0.14605
+      ],
+      [
+        2.86,
+        3.0,
+        0.07119
+      ]
+    ],
+    "cue_lead_seconds": 0.08,
+    "processing": "Publisher HQ MP3 preview decoded to mono 24kHz PCM. Original 8\u201311.5s recording excerpt retained with its natural rumble; peak normalized to 30000, 10ms onset fade, 1s tail fade. Five measured first-four-second 20ms RMS peaks supply flash cues, with 80ms cue lead. No loops or synthesized rumble."
+  },
+  {
+    "id": "close-strike",
+    "title": "Close lightning strike",
+    "author": "guitarguy1985",
+    "source": "https://freesound.org/people/guitarguy1985/sounds/87963/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "preview_url": "https://cdn.freesound.org/previews/87/87963_533680-hq.mp3",
+    "input_preview_sha256": "fa8fea26dcfc2ece6da5b9d5c847891fcbb504f12b6784be146445838a5219b2",
+    "input_wav_sha256": "f5ef02f39bb8a2264ce8a31083cdcf8faf45e5f335cfebd021c9ded98b4ebff6",
+    "file": "storm-close-strike.wav",
+    "sha256": "7a131f1df6348510f759a110924537240877087f8fbbb40be402b4139d0b5c5d",
+    "audio_duration": 11.5,
+    "cue_duration": 4,
+    "source_excerpt_start": 0.29,
+    "audio_peak_seconds": [
+      0.3,
+      0.92,
+      1.56,
+      2.26,
+      3.26
+    ],
+    "strikes": [
+      [
+        0.22,
+        0.36,
+        1.0
+      ],
+      [
+        0.84,
+        0.98,
+        0.85258
+      ],
+      [
+        1.48,
+        1.62,
+        0.5895
+      ],
+      [
+        2.18,
+        2.32,
+        0.78371
+      ],
+      [
+        3.18,
+        3.32,
+        0.32451
+      ]
+    ],
+    "cue_lead_seconds": 0.08,
+    "processing": "Publisher HQ MP3 preview decoded to mono 24kHz PCM. Original 8\u201311.5s recording excerpt retained with its natural rumble; peak normalized to 30000, 10ms onset fade, 1s tail fade. Five measured first-four-second 20ms RMS peaks supply flash cues, with 80ms cue lead. No loops or synthesized rumble."
+  },
+  {
+    "id": "deep-long",
+    "title": "Deep thunder \u00b7 long",
+    "author": "SholeColtis",
+    "source": "https://freesound.org/people/SholeColtis/sounds/683417/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "preview_url": "https://cdn.freesound.org/previews/683/683417_14670263-hq.mp3",
+    "input_preview_sha256": "e7ae367b1f756392c0dcbedc01318519b365d1ed087c60a66e523226e9d0ccb4",
+    "input_wav_sha256": "3c623af2d704c3669f9083ea9dcbcd2052d23da40baa47cd8239b5ad7b27a2e7",
+    "file": "storm-deep-long.wav",
+    "sha256": "0ecf367d43325877477c10ac7b0ad976e8600e5d048c0aae412e35654f730f77",
+    "audio_duration": 9.884875,
+    "cue_duration": 4,
+    "source_excerpt_start": 0.0,
+    "audio_peak_seconds": [
+      0.4,
+      1.06,
+      1.58,
+      2.2,
+      2.76
+    ],
+    "strikes": [
+      [
+        0.32,
+        0.46,
+        1.0
+      ],
+      [
+        0.98,
+        1.12,
+        0.59777
+      ],
+      [
+        1.5,
+        1.64,
+        0.50935
+      ],
+      [
+        2.12,
+        2.26,
+        0.40324
+      ],
+      [
+        2.68,
+        2.82,
+        0.62122
+      ]
+    ],
+    "cue_lead_seconds": 0.08,
+    "processing": "Publisher HQ MP3 preview decoded to mono 24kHz PCM. Original 8\u201311.5s recording excerpt retained with its natural rumble; peak normalized to 30000, 10ms onset fade, 1s tail fade. Five measured first-four-second 20ms RMS peaks supply flash cues, with 80ms cue lead. No loops or synthesized rumble."
+  },
+  {
+    "id": "deep-rolling",
+    "title": "Deep thunder \u00b7 rolling",
+    "author": "SholeColtis",
+    "source": "https://freesound.org/people/SholeColtis/sounds/683419/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "preview_url": "https://cdn.freesound.org/previews/683/683419_14670263-hq.mp3",
+    "input_preview_sha256": "a23297b7d7012ea5fe2e39bdd2431213ae5088905b0fe4d7ecf133dc3f801bd8",
+    "input_wav_sha256": "d9b627b395aecfea09affa06470c328b73baaee02a6c762ae788a0e1c041e8b8",
+    "file": "storm-deep-rolling.wav",
+    "sha256": "2574702bdf175195cbb1c5ee130b8667f4be236cecb03ccec622f8f93ebb6e6a",
+    "audio_duration": 11.5,
+    "cue_duration": 4,
+    "source_excerpt_start": 0.0,
+    "audio_peak_seconds": [
+      0.58,
+      1.04,
+      1.8,
+      2.4,
+      2.94
+    ],
+    "strikes": [
+      [
+        0.5,
+        0.64,
+        0.63662
+      ],
+      [
+        0.96,
+        1.1,
+        1.0
+      ],
+      [
+        1.72,
+        1.86,
+        0.64636
+      ],
+      [
+        2.32,
+        2.46,
+        0.92474
+      ],
+      [
+        2.86,
+        3.0,
+        0.89218
+      ]
+    ],
+    "cue_lead_seconds": 0.08,
+    "processing": "Publisher HQ MP3 preview decoded to mono 24kHz PCM. Original 8\u201311.5s recording excerpt retained with its natural rumble; peak normalized to 30000, 10ms onset fade, 1s tail fade. Five measured first-four-second 20ms RMS peaks supply flash cues, with 80ms cue lead. No loops or synthesized rumble."
+  },
+  {
+    "id": "loud-rumble",
+    "title": "Loud rumbling clap",
+    "author": "Josh74000MC",
+    "source": "https://freesound.org/people/Josh74000MC/sounds/477839/",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "preview_url": "https://cdn.freesound.org/previews/477/477839_9608356-hq.mp3",
+    "input_preview_sha256": "e9aabe9cd72306032ff931211f4e0234bc22b199eab8ab1c52651864fb060fec",
+    "input_wav_sha256": "5a32d5ecd39af789893a2e9be44c79d2090e12aa07dbb5fa31270fcb1ac313af",
+    "file": "storm-loud-rumble.wav",
+    "sha256": "37ee5ed5f6de8a75ac4900811b2c87b114d0b44482d2b96c6718711a675b1e24",
+    "audio_duration": 11.228083333333334,
+    "cue_duration": 4,
+    "source_excerpt_start": 0.0,
+    "audio_peak_seconds": [
+      0.12,
+      0.66,
+      1.14,
+      1.7,
+      2.18
+    ],
+    "strikes": [
+      [
+        0.04,
+        0.18,
+        0.41579
+      ],
+      [
+        0.58,
+        0.72,
+        0.92798
+      ],
+      [
+        1.06,
+        1.2,
+        0.45091
+      ],
+      [
+        1.62,
+        1.76,
+        0.50944
+      ],
+      [
+        2.1,
+        2.24,
+        1.0
+      ]
+    ],
+    "cue_lead_seconds": 0.08,
+    "processing": "Publisher HQ MP3 preview decoded to mono 24kHz PCM. Original 8\u201311.5s recording excerpt retained with its natural rumble; peak normalized to 30000, 10ms onset fade, 1s tail fade. Five measured first-four-second 20ms RMS peaks supply flash cues, with 80ms cue lead. No loops or synthesized rumble."
+  }
+]

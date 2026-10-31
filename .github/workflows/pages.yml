@@ -27,6 +27,9 @@ jobs:
         run: |
           node --check halloween/app.js
           node --check halloween/ideas.js
+          node --check halloween/products.js
+          node --check halloween/products-data.js
+          node --check halloween/product-images.js
 
       - name: Build bookshelf lighting guide
         run: |

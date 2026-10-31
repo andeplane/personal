@@ -3,6 +3,7 @@
 import argparse
 import asyncio
 import contextlib
+from datetime import datetime, timezone
 import fcntl
 import hashlib
 import json
@@ -149,16 +150,52 @@ def phase_at(elapsed, plan):
     return None
 
 
+def log(message):
+    print(datetime.now().astimezone().isoformat(timespec='seconds') + ' ' + message, flush=True)
+
+
+def motion_sample(resource, event_timestamp=None):
+    motion = resource.get('motion', {})
+    if motion.get('motion_valid') is False:
+        return None
+    report = motion.get('motion_report', {})
+    value = report.get('motion', motion.get('motion'))
+    if not isinstance(value, bool):
+        return None
+    changed = report.get('changed') or event_timestamp
+    stamp = None
+    if changed:
+        try:
+            dt = datetime.fromisoformat(changed.replace('Z', '+00:00'))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            stamp = dt.timestamp()
+        except ValueError:
+            pass
+    return value, stamp
+
+
+class StreamDisconnected(HueError):
+    pass
+
+
 class MotionGate:
     def __init__(self, cooldown=0):
         self.present = None
         self.ready_at = 0
         self.cooldown = cooldown
+        self.last_report = None
 
-    def update(self, present, now):
+    def update(self, present, now, report=None):
+        if report is not None and self.last_report is not None and report <= self.last_report:
+            return False
+        fresh_report = report is not None
+        if fresh_report:
+            self.last_report = report
         rising = self.present is False and present is True
+        detected = self.present is not None and present and fresh_report
         self.present = present
-        if rising and now >= self.ready_at:
+        if (rising or detected) and now >= self.ready_at:
             self.ready_at = float('inf')
             return True
         return False
@@ -182,6 +219,37 @@ class Controller:
         self.streamer = HueDtlsStreamer()
         self.busy = False
         self.sonos = None
+        self.health = {'state': 'starting'}
+
+    def status(self, **values):
+        self.health.update(values, updated_at=datetime.now(timezone.utc).isoformat())
+        if self.settings.get('status_file'):
+            path = Path(self.settings['status_file'])
+            path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+            temp = path.with_suffix('.tmp')
+            temp.write_text(json.dumps(self.health))
+            temp.chmod(0o600)
+            temp.replace(path)
+
+    async def refresh_host(self):
+        if self.credentials.get('hostname'):
+            self.host = await asyncio.to_thread(socket.gethostbyname, self.credentials['hostname'])
+            self.bridge = Bridge(self.host, self.credentials['username'])
+
+    async def verify_stream(self):
+        if not self.streamer.is_connected:
+            self.status(stream_connected=False)
+            raise StreamDisconnected('Entertainment sender disconnected.')
+        areas = await self.request('GET', '/clip/v2/resource/entertainment_configuration/' + self.settings['area'])
+        if not areas or areas[0].get('status') != 'active':
+            self.status(stream_connected=False)
+            raise StreamDisconnected('Bridge stopped the Entertainment stream.')
+        self.status(stream_connected=True, stream_checked_at=datetime.now(timezone.utc).isoformat())
+
+    async def watch_stream(self):
+        while True:
+            await self.verify_stream()
+            await asyncio.sleep(2)
 
     async def request(self, method, path, body=None):
         async with self.http.request(method, 'https://' + self.host + path,
@@ -216,9 +284,9 @@ class Controller:
         if self.sonos is not None:
             try:
                 await self.sonos.play(audio)
-                print('Sonos thunder command sent.', flush=True)
+                log('Sonos thunder command sent.')
             except Exception:
-                print('Sonos thunder skipped: speaker unavailable, busy or regrouped.', flush=True)
+                log('Sonos thunder skipped: speaker unavailable, busy or regrouped.')
             return
         player = await asyncio.create_subprocess_exec('/usr/bin/afplay', '-v', '0.4', audio,
                                                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -231,16 +299,19 @@ class Controller:
 
     async def effect(self):
         self.busy = True
+        self.status(state='starting', last_trigger_at=datetime.now(timezone.utc).isoformat())
         area = self.settings['area']
         started = False
         audio_task = None
+        watchdog = None
         try:
             group = await asyncio.to_thread(self.bridge.request, 'GET', '/groups/' + self.settings['group'])
             if set(group['lights']) != set(self.settings['lights']):
                 raise HueError('Entertainment membership changed; run setup again.')
             configs = await self.request('GET', '/clip/v2/resource/entertainment_configuration')
             if any(c['status'] == 'active' for c in configs):
-                print('Skipped: another Entertainment stream is active.', flush=True)
+                log('Skipped: another Entertainment stream is active.')
+                self.status(state='skipped', reason='another_entertainment_stream')
                 return
             current = next(c for c in configs if c['id'] == area)
             if {c['channel_id'] for c in current['channels']} != set(self.settings['channels']):
@@ -260,13 +331,19 @@ class Controller:
             elif self.settings.get('thunder_file'):
                 tracks = {index: self.settings['thunder_file'] for index, (mode, _) in enumerate(plan)
                           if mode == 'lightning'}
-            print('Sequence started: normal 2s, dark 0.5s, lightning 4s, two-minute storm.', flush=True)
+            log('Sequence started: normal 2s, dark 0.5s, lightning 4s, two-minute storm.')
+            self.status(state='playing', reason=None, last_error=None)
             start = CLOCK()
+            watchdog = asyncio.create_task(self.watch_stream())
             if self.settings.get('audio_enabled', bool(self.settings.get('thunder_file'))) and tracks:
                 from sonos_audio import play_timeline
                 audio_task = asyncio.create_task(play_timeline(
                     plan, tracks, start, self.settings.get('audio_lead_seconds', 0), self.thunder, CLOCK))
             while (elapsed := CLOCK() - start) < sum(d for _, d in plan):
+                if not self.streamer.is_connected:
+                    raise StreamDisconnected('Entertainment sender disconnected.')
+                if watchdog.done():
+                    watchdog.result()
                 frame = frame_at(elapsed, plan, patterns, channels)
                 self.streamer.send_colors([LightColorCommand(channel_id=i, red=color[0],
                                                             green=color[1], blue=color[2])
@@ -274,18 +351,23 @@ class Controller:
                 await asyncio.sleep(0.02)
         finally:
             try:
+                if watchdog:
+                    watchdog.cancel()
+                    with contextlib.suppress(asyncio.CancelledError, Exception):
+                        await watchdog
                 if audio_task:
                     audio_task.cancel()
                     with contextlib.suppress(asyncio.CancelledError, Exception):
                         await audio_task
                 await asyncio.to_thread(self.streamer.disconnect)
+                self.status(stream_connected=False)
                 if started:
                     try:
                         await self.request('PUT', '/clip/v2/resource/entertainment_configuration/' + area,
                                            {'action': 'stop'})
                     finally:
                         await self.dark()
-                    print('Sequence finished; lights off.', flush=True)
+                    log('Stream released; lights off.')
             finally:
                 if self.sonos is not None:
                     with contextlib.suppress(Exception):
@@ -294,53 +376,117 @@ class Controller:
 
     async def trigger(self, gate):
         try:
-            await self.effect()
+            for attempt in range(2):
+                try:
+                    await self.refresh_host()
+                    await self.effect()
+                    self.status(state='idle')
+                    return
+                except (StreamDisconnected, aiohttp.ClientError, TimeoutError, OSError) as error:
+                    self.status(state='retrying' if attempt == 0 else 'failed', last_error=type(error).__name__)
+                    log('Lighting connection failed (' + type(error).__name__ + '); ' +
+                        ('retrying this motion once.' if attempt == 0 else 'waiting for fresh motion.'))
+                    if attempt == 0:
+                        await asyncio.sleep(1)
         except Exception:
-            print('Lightning failed; cleanup attempted. Waiting for fresh motion.', flush=True)
+            self.status(state='failed', last_error='sequence_error')
+            log('Lightning failed; cleanup attempted. Waiting for fresh motion.')
         finally:
             gate.finish(time.monotonic())
 
     async def listen(self):
         gate = MotionGate()
-        task = None
-        try:
+        sequence_task = None
+
+        async def observe(resource, event_timestamp=None, source='poll'):
+            nonlocal sequence_task
+            sample = motion_sample(resource, event_timestamp)
+            if sample is None:
+                return
+            present, stamp = sample
+            self.status(presence=present, motion_report_epoch=stamp,
+                        motion_read_at=datetime.now(timezone.utc).isoformat())
+            if gate.present is None:
+                # Reconcile a genuinely recent detection at startup, without
+                # replaying an old cached true state from hours ago.
+                recent = present and stamp is not None and 0 <= time.time()-stamp <= 30
+                if not recent:
+                    gate.present, gate.last_report = present, stamp
+                    return
+                gate.present = False
+            if gate.update(present, time.monotonic(), stamp):
+                log('Motion detected (' + source + '); starting sequence.')
+                sequence_task = asyncio.create_task(self.trigger(gate))
+
+        async def poll():
+            failed = False
             while True:
                 try:
-                    initial = (await self.request('GET', '/clip/v2/resource/motion/' + self.settings['motion']))[0]
-                    gate.present = initial['motion']['motion']
-                    print('Listening: idle off; normal 2s, dark 0.5s, flash 4s, two-minute storm; no extra cooldown.', flush=True)
+                    await self.refresh_host()
+                    resources = await self.request('GET', '/clip/v2/resource/motion/' + self.settings['motion'])
+                    if resources:
+                        await observe(resources[0])
+                    failed = False
+                except (aiohttp.ClientError, TimeoutError, OSError, ValueError, HueError) as error:
+                    self.status(motion_error=type(error).__name__)
+                    if not failed:
+                        log('Motion reconciliation unavailable; retrying.')
+                    failed = True
+                await asyncio.sleep(2)
+
+        async def events():
+            while True:
+                try:
+                    await self.refresh_host()
                     timeout = aiohttp.ClientTimeout(total=None, sock_read=120)
                     async with self.http.get('https://' + self.host + '/eventstream/clip/v2',
                                              headers={'Accept': 'text/event-stream'}, timeout=timeout) as response:
                         response.raise_for_status()
-                        lines = []
+                        log('Motion event stream connected; two-second reconciliation active.')
+                        self.status(events_connected=True)
+                        lines, size = [], 0
                         async for raw in response.content:
                             line = raw.decode().rstrip('\r\n')
+                            size += len(line)
+                            if size > 1024*1024:
+                                raise ValueError('Oversized motion event')
                             if line.startswith('data:'):
                                 lines.append(line[5:].strip())
-                            elif not line and lines:
-                                events = json.loads('\n'.join(lines))
-                                lines = []
-                                for event in events:
-                                    if event.get('type') != 'update':
-                                        continue
-                                    for resource in event.get('data', []):
-                                        if resource.get('id') != self.settings['motion']:
+                            elif not line:
+                                if lines:
+                                    for event in json.loads('\n'.join(lines)):
+                                        if event.get('type') != 'update':
                                             continue
-                                        present = resource.get('motion', {}).get('motion')
-                                        if isinstance(present, bool) and gate.update(present, time.monotonic()):
-                                            if not self.busy:
-                                                if task:
-                                                    await task
-                                                task = asyncio.create_task(self.trigger(gate))
+                                        for resource in event.get('data', []):
+                                            if resource.get('id') == self.settings['motion']:
+                                                await observe(resource, event.get('creationtime'), 'event')
+                                lines, size = [], 0
                 except (aiohttp.ClientError, TimeoutError, OSError, ValueError, HueError):
-                    print('Connection interrupted; retrying in five seconds.', flush=True)
+                    self.status(events_connected=False)
+                    log('Motion event connection interrupted; polling remains active.')
                     await asyncio.sleep(5)
+
+        while True:
+            try:
+                await self.refresh_host()
+                await self.dark()
+                self.status(state='idle')
+                break
+            except (HueError, OSError, TimeoutError):
+                self.status(state='reconnecting')
+                log('Waiting for Bridge connectivity before listening.')
+                await asyncio.sleep(5)
+        tasks = [asyncio.create_task(poll()), asyncio.create_task(events())]
+        try:
+            await asyncio.gather(*tasks)
         finally:
-            if task:
+            for task in tasks:
                 task.cancel()
+            await asyncio.gather(*tasks, return_exceptions=True)
+            if sequence_task:
+                sequence_task.cancel()
                 with contextlib.suppress(asyncio.CancelledError):
-                    await task
+                    await sequence_task
 
 
 async def setup(credentials, args):
@@ -422,7 +568,6 @@ async def run(args):
             if args.command == 'test':
                 await controller.effect()
             else:
-                await controller.dark()
                 await controller.listen()
         finally:
             await controller.http.close()

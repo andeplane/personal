@@ -148,7 +148,8 @@ The bulbs stay off while idle. A fresh motion event runs this sequence:
 5. All selected bulbs switch off. The complete sequence lasts 126.5 seconds.
 
 Motion cannot restart or extend an active sequence. There is no added cooldown
-once it finishes; a new false-to-true sensor event is required. Stop with Ctrl-C.
+once it finishes; a new timestamped detection (or false-to-true state change) is required.
+Reports seen while a sequence is running are ignored and cannot queue a replay. Stop with Ctrl-C.
 The `test` command runs the same complete sequence. `listen` first switches all
 selected bulbs off, then listens for fresh motion. A third bulb can be added
 deliberately to the Entertainment area with setup rerun; it becomes another
@@ -174,8 +175,21 @@ are required before calling the effect commissioned. On macOS, `listen --keep-aw
 prevents idle sleep while listening. A local LaunchAgent can run this command at login;
 it must launch Python directly so launchd tracks the listener process. A process lock prevents two
 copies of this controller running together. Certificate changes require deliberate
-setup again. After loss of the Bridge connection it reconnects the event stream;
-restart the process to resolve an IP change during an existing run.
+setup again. The listener resolves mDNS on reconnect and also reconciles motion
+reports every two seconds. It accepts `motion_report` updates as well as the older
+boolean-only payload, deduplicating repeated and out-of-order reports. Recent
+motion can be reconciled at startup without replaying stale cached detections.
+
+The Entertainment sender and Bridge status are monitored throughout the sequence.
+A failed stream is not logged as successful animation: cleanup runs, and the
+same trigger gets one retry. A private `status_file` exposes idle/starting/playing/
+retrying/failed state and the latest motion report. Logs include timestamps.
+
+The deployed controller now runs on the always-on Mac mini under `supervise.py`,
+started from SSH with detached standard streams. A supervisor lock prevents two
+copies on that host. The former laptop LaunchAgent is disabled to keep one active
+controller. Reboot autostart for the detached mini supervisor is not configured;
+verify the supervisor, status file and a live sensor event after any host restart.
 
 ## Sonos thunder playback
 

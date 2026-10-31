@@ -5,6 +5,18 @@ from light_writer import LightWriter
 
 
 class LightWriterTests(unittest.IsolatedAsyncioTestCase):
+    async def test_synchronised_pair_waits_for_two_budget_slots(self):
+        now=0.;writes=[]
+        async def sleep(delay):
+            nonlocal now
+            now+=delay
+        def request(identifier,body):writes.append((identifier,now))
+        writer=LightWriter(request,clock=lambda:now,sleep=sleep)
+        for index in range(9):await writer.write({str(index):{}})
+        await writer.write({'paired-a':{},'paired-b':{}})
+        self.assertEqual(dict(writes)['paired-a'],1)
+        self.assertEqual(dict(writes)['paired-b'],1)
+
     async def test_eleventh_write_waits_using_budget_shared_across_calls(self):
         now=0.0;writes=[];sleeps=[]
         async def sleep(delay):

@@ -27,14 +27,14 @@ class LightWriter:
         self._admitted = deque()
         self._lock = asyncio.Lock()
 
-    async def _reserve(self):
+    async def _reserve(self, count=1):
         waited = 0.0
         while True:
             now = self.clock()
             while self._admitted and now-self._admitted[0] >= 1.0:
                 self._admitted.popleft()
-            if len(self._admitted) < self.limit:
-                self._admitted.append(now)
+            if len(self._admitted)+count <= self.limit:
+                self._admitted.extend([now]*count)
                 return waited
             delay = max(0, self._admitted[0]+1.0-now)
             await self.sleep(delay)
@@ -61,11 +61,13 @@ class LightWriter:
         pending = [(identifier, deepcopy(dict(body))) for identifier, body in states.items()]
         result = {'results': {}, 'request_ms': {}, 'wait_ms': 0.0}
         async with self._lock:
-            for index in range(0, len(pending), 2):
+            batch_size=min(2,self.limit)
+            for index in range(0, len(pending), batch_size):
                 tasks, identifiers = [], []
                 try:
-                    for identifier, body in pending[index:index+2]:
-                        result['wait_ms'] += 1000*await self._reserve()
+                    batch=pending[index:index+batch_size]
+                    result['wait_ms'] += 1000*await self._reserve(len(batch))
+                    for identifier, body in batch:
                         identifiers.append(identifier)
                         tasks.append(asyncio.create_task(asyncio.to_thread(self._request, identifier, body)))
                     values = await asyncio.gather(*(asyncio.shield(task) for task in tasks))

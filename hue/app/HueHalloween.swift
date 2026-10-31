@@ -49,6 +49,7 @@ private struct ControlReply: Decodable {
     let requestedMotionArmed: Bool?
     let audioState: String?
     let audioError: String?
+    let idleGlow: Bool?
     let volume: Double?
     let message: String?
     let clips: [SoundClip]?
@@ -63,6 +64,7 @@ private struct ControlReply: Decodable {
         case requestedMotionArmed = "requested_motion_armed"
         case audioState = "audio_state"
         case audioError = "audio_error"
+        case idleGlow = "idle_glow"
         case lastError = "last_error"
         case activity
         case activityMore = "activity_more"
@@ -304,6 +306,7 @@ private struct ControlReply: Decodable {
                          "stopping":"Stopping · lights going dark…"]
             let raw = body.state ?? "idle"
             var label = names[raw] ?? raw.replacingOccurrences(of:"_",with:" ").capitalized
+            if raw == "idle", body.idleGlow == true { label = "Idle · warm glow" }
             if raw == "playing" {
                 switch body.phase {
                 case "storm": label = "Storm · white & purple lightning"

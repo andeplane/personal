@@ -4,7 +4,8 @@
 
 With private setting `scene: "mask_reveal"`, Start and armed motion run the
 same role-based scene. `scene_roles.flashers` selects two or three RGB lamps;
-`scene_roles.mask` selects a separate white-temperature lamp. Their union must
+`scene_roles.mask` selects a separate white-temperature lamp. Their union with
+the optional `white_flashers` must
 match the dedicated group and selected light list. Actual device IDs stay in
 private configuration, with the previous configuration backed up before migration.
 
@@ -13,11 +14,11 @@ laughter at 2.6s, another storm at 5.5s, and scream/chaotic finale at 9.2s.
 When `continuous_flasher` selects the indoor RGB bulb, it keeps flashing white
 and purple throughout all phases, including the laughter and fade. Its flashes
 include simultaneous strikes with the outside bulbs in each thunder section.
-The indoor bulb turns off with the other scene lights at the final reset.
+The indoor pair returns to its warm idle glow at the final reset.
 The opening now continues into a 30-second aftermath: rolling thunder from 14s,
 a randomly selected different laugh and mask reveal at 20s, another storm at
-27.5s, a second scream at 33s, and a three-second fade from 41s. Everything is
-dark and reset at 44s. A single overlapping soundtrack avoids repeated
+27.5s, a second scream at 33s, and a three-second fade from 41s. The scene resets
+at 44s, leaving the indoor pair glowing and other scene lights off. A single overlapping soundtrack avoids repeated
 Sonos startup delays; rumbles overlap voices and fade out at the scene end.
 Voice tails fade before their volume window changes to louder thunder.
 Thunder uses temporary 100% speaker volume, with laughter at 70% and screams at the
@@ -31,7 +32,7 @@ removed extra white bulb is excluded. Fixture roles keep XY commands away from
 the CT-only mask. The outdoor placement has not been acoustically calibrated.
 
 The native app's **Test horror scene** restarts the whole scene, **Lightning**
-is a silent four-second test of only the RGB lamps, and **Stop & dark** cancels
+is a silent four-second test of the lightning lamps, and **Stop & dark** cancels
 any stage. Tests pause automatic motion; the switch explicitly rearms it.
 Starting the full scene clears an older manual sound preview. A preview selected
 during the scene owns the speaker until it finishes while lighting continues.
@@ -50,10 +51,18 @@ the controller never received while offline. The app retrieves 100 entries at a
 time and loads older pages on demand. No activity database is committed to Git.
 
 An optional `white_flashers` list can select one additional temperature-only
-bulb. It joins available white strikes with maximum cool-white flashes and a
-minimum warm setting between strikes. It receives CT commands exclusively and
-does not consume the continuous indoor lamp's planned flashes. The role union
-must still match the dedicated scene group exactly.
+bulb. With the continuous indoor RGB lamp, they form one pair: their full-bright
+strikes and returns to warm light are scheduled together in the same write batch.
+The white bulb receives CT commands exclusively. Shared budget slots are reserved
+for both commands before either is launched, so rate limiting cannot split the
+pair. Actual optical timing still depends on the bulbs and network.
+
+`glow_brightness` and private `idle_glow` fixture states keep this pair at a steady
+warm 35% both between flashes and while the controller is idle. Natural scene
+completion restores this baseline. Pausing motion preserves the glow; explicit
+Stop & dark disables it until Test, lights-on or motion-on re-enables it. That
+override is persisted with the motion setting. Other scene bulbs reset to off.
+The role union must still match the dedicated scene group exactly.
 
 The top **Motion detection** switch controls sensor-triggered scenes directly;
 the user decides when to switch it on. The optional independently configured door

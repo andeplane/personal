@@ -246,6 +246,7 @@ class Controller:
         self.sonos = None
         self.health = {'state': 'starting'}
         self.motion_armed = True
+        self.idle_glow_enabled = True
         self.gate = MotionGate()
         self.sequence_task = None
         self.audio_only_task = None
@@ -395,7 +396,9 @@ class Controller:
                 self.sonos.library = self.library
         control_state = self.settings.get('control_state_file')
         if control_state and Path(control_state).exists():
-            self.motion_armed = json.loads(Path(control_state).read_text()).get('motion_armed', True)
+            saved = json.loads(Path(control_state).read_text())
+            self.motion_armed = saved.get('motion_armed', True)
+            self.idle_glow_enabled = saved.get('idle_glow_enabled', True)
         self.status(motion_armed=self.motion_armed)
 
     def set_armed(self, enabled):
@@ -406,9 +409,14 @@ class Controller:
         if self.settings.get('control_state_file'):
             path = Path(self.settings['control_state_file'])
             temp = path.with_suffix('.tmp')
-            temp.write_text(json.dumps({'motion_armed': enabled}))
+            temp.write_text(json.dumps({'motion_armed': enabled,'idle_glow_enabled':self.idle_glow_enabled}))
             temp.chmod(0o600)
             temp.replace(path)
+
+    def set_idle_glow(self, enabled):
+        self.idle_glow_enabled = enabled
+        self.set_armed(self.motion_armed)
+        self.status(idle_glow=bool(enabled and self.settings.get('idle_glow')))
 
     async def stop_audio(self):
         task = self.audio_only_task
@@ -466,6 +474,19 @@ class Controller:
     async def dark(self):
         await self.write_lights({identifier:{'on':False,'transitiontime':0}
                                  for identifier in self.settings['lights']})
+
+    async def idle_lights(self):
+        glow = self.settings.get('idle_glow', {}) if self.idle_glow_enabled else {}
+        if not glow:
+            await self.dark()
+            self.status(idle_glow=False)
+            return
+        if not set(glow) <= set(self.settings['lights']):
+            raise HueError('Idle glow contains an unselected light')
+        states={identifier:{'on':False,'transitiontime':0} for identifier in self.settings['lights']}
+        states.update({identifier:{**state,'transitiontime':0,'alert':'none'} for identifier,state in glow.items()})
+        await self.write_lights(states)
+        self.status(idle_glow=True)
 
     async def thunder(self, audio=None):
         if self.sound_override:
@@ -733,7 +754,7 @@ class Controller:
                         await observe(resources[0])
                     active = self.sequence_task and not self.sequence_task.done()
                     if not self.session and self.health.get('state') == 'idle' and not active and time.monotonic() - last_idle_off >= 5:
-                        await self.dark()
+                        await self.idle_lights()
                         last_idle_off = time.monotonic()
                     if failed:
                         self.activity('monitor', 'Motion polling recovered', source='poll')
@@ -783,7 +804,7 @@ class Controller:
         while True:
             try:
                 await self.refresh_host()
-                await self.dark()
+                await self.idle_lights()
                 self.status(state='idle')
                 break
             except (HueError, OSError, TimeoutError):

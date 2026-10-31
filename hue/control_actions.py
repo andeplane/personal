@@ -36,6 +36,11 @@ def _invalidate_audio(c):
 
 
 def _queue_lighting(c, action, enabled=None):
+    if c.settings.get('idle_glow'):
+        if action in ('stop','off'):
+            c.set_idle_glow(False)
+        elif action in ('start','flash','on') or (action=='arm' and enabled):
+            c.set_idle_glow(True)
     generation = getattr(c, 'control_generation', 0) + 1
     c.control_generation = generation
     c.pending_control = (generation, action, enabled)
@@ -88,6 +93,8 @@ async def _lighting_worker(c):
             elif action == 'arm':
                 c.set_armed(bool(enabled and c.health.get('requested_motion_armed') is True))
                 c.status(requested_motion_armed=None)
+                if c.settings.get('idle_glow'):
+                    await c.idle_lights()
         except asyncio.CancelledError:
             raise
         except Exception:

@@ -107,6 +107,7 @@ private struct ControlReply: Decodable {
     let requestedMotionArmed: Bool?
     let message: String?
     let audioError: String?
+    let idleGlow: Bool?
     let activity: [ActivityRecord]?
     let activityMore: Bool?
     let activityError: String?
@@ -114,6 +115,7 @@ private struct ControlReply: Decodable {
         case ok, state, phase, message, activity
         case motionArmed = "motion_armed", requestedMotionArmed = "requested_motion_armed"
         case audioError = "audio_error", activityMore = "activity_more", activityError = "activity_error"
+        case idleGlow = "idle_glow"
     }
 }
 
@@ -274,10 +276,11 @@ private final class ControlClient: @unchecked Sendable {
         motionChanging = reply.requestedMotionArmed != nil
         let raw = reply.state ?? "idle"
         running = ["starting","playing","warming","retrying"].contains(raw)
-        let names = ["idle":"Ready · scene lights off", "starting":"Preparing lights…", "playing":"Horror scene running",
+        let names = ["idle":"Idle · lights off", "starting":"Preparing lights…", "playing":"Horror scene running",
                      "stopping":"Stopping · going dark…", "failed":"Scene stopped after a problem", "retrying":"Reconnecting lights…",
                      "reconnecting":"Waiting for the lights…", "lights_on":"Lights on", "warming":"Preparing lights…"]
         state = names[raw] ?? raw.replacingOccurrences(of:"_",with:" ").capitalized
+        if raw == "idle", reply.idleGlow == true { state = "Idle · warm glow" }
         if raw == "playing" {
             switch reply.phase {
             case "storm": state = "Storm · white & purple lightning"

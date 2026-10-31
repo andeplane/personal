@@ -89,6 +89,19 @@ class HorrorScheduleTests(unittest.TestCase):
             for t,_,_ in events:
                 self.assertLessEqual(sum(len(states) for u,_,states in events if t<=u<t+1),10)
 
+    def test_indoor_pair_changes_together_and_returns_to_35_percent(self):
+        for seed in range(100):
+            events=continuous_scene_events(['a','b','c'],'m','c',random.Random(seed),['w'],89)
+            paired=[states for _,_,states in events if 'c' in states or 'w' in states]
+            self.assertTrue(paired)
+            for states in paired:
+                self.assertEqual(set(states),{'c','w'})
+                self.assertEqual(states['c']['bri'],states['w']['bri'])
+                self.assertIn(states['w']['bri'],(89,254))
+                if states['w']['bri']==89:
+                    self.assertEqual(states['c']['xy'],[.50,.42])
+                    self.assertEqual(states['w']['ct'],454)
+
     def test_aftermath_is_bounded_varied_and_volume_windows_match_voices(self):
         signatures=set()
         for seed in range(500):

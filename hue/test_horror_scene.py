@@ -44,6 +44,21 @@ class HorrorScheduleTests(unittest.TestCase):
             peaks = [s for _,_,s in events if any(v.get('bri')==254 and 'xy' in v for v in s.values())]
             self.assertGreaterEqual(len(peaks), 20)
 
+    def test_three_colour_bulbs_get_both_colours_without_exceeding_budget(self):
+        lamps=['a','b','c'];settings={'lights':[*lamps,'m'], 'scene_roles':{'flashers':lamps,'mask':'m'}}
+        self.assertEqual(roles(settings),(lamps,'m'))
+        for seed in range(500):
+            events=compact_events(lamps,'m',random.Random(seed))+aftermath_events(lamps,'m',random.Random(seed))
+            for t,_,_ in events:
+                self.assertLessEqual(sum(len(states) for u,_,states in events if t <= u < t+1),10)
+            for lamp in lamps:
+                colors=[states[lamp].get('xy') for _,_,states in events
+                        if lamp in states and states[lamp].get('bri')==254]
+                self.assertIn(WHITE,colors);self.assertIn(PURPLE,colors)
+            self.assertTrue(all('xy' not in states['m'] for _,_,states in events if 'm' in states))
+            test=strokes(lamps,4,rng=random.Random(seed))
+            self.assertEqual({key for _,states in test for key in states},set(lamps))
+
     def test_aftermath_is_bounded_varied_and_volume_windows_match_voices(self):
         signatures=set()
         for seed in range(500):

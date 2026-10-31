@@ -1,7 +1,7 @@
 """Role-based outdoor scene: thunder, mask reveal, thunder, scream finale.
 
 Only explicitly selected fixtures are written. The white-only mask uses CT;
-the two RGB lamps use independent white/purple strokes. The fast opening leads
+the RGB lamps use independent white/purple strokes. The fast opening leads
 into thirty seconds of varied scares; every exit returns the fixtures to dark.
 """
 import asyncio
@@ -38,11 +38,14 @@ def aftermath_events(flashers, mask, rng=None):
                                     (27.7,32.5,.44,.8), (33.3,37.8,.34,.47),
                                     (39,40.3,.45,.8)]:
         t = begin
-        number = rng.randrange(2)
+        number = rng.randrange(len(flashers))
+        colors = {lamp:rng.randrange(2) for lamp in flashers} if len(flashers) == 3 else None
         while t + .3 < end:
-            lamp = flashers[number % 2];number += 1
+            lamp = flashers[number % len(flashers)];number += 1
+            color = (WHITE if colors[lamp] % 2 == 0 else PURPLE) if colors is not None else (WHITE if rng.random() < .6 else PURPLE)
+            if colors is not None:colors[lamp] += 1
             events.append((t, None, {lamp: {'on': True, 'bri': 254,
-                           'xy': WHITE if rng.random() < .6 else PURPLE, 'transitiontime': 0, 'alert': 'none'}}))
+                           'xy': color, 'transitiontime': 0, 'alert': 'none'}}))
             events.append((t+rng.uniform(.20,.24), None,
                            {lamp: {'on': True, 'bri': 1, 'xy': PURPLE, 'transitiontime': 0}}))
             t += rng.uniform(lower,upper)
@@ -56,11 +59,13 @@ def compact_events(flashers, mask, rng=None):
               (5.5, 'storm', {mask: {'on': False, 'transitiontime': 0}}),
               (9.2, 'finale', {mask: {'on': True, 'bri': 254, 'ct': 454, 'transitiontime': 0}})]
     for begin, end in [(0, 2.55), (5.5, 9.15), (9.2, 13.7)]:
-        t = begin + .06
-        number = rng.randrange(2)
+        t = begin + (.20 if len(flashers) == 3 and begin == 9.2 else .06)
+        number = rng.randrange(len(flashers))
+        colors = {lamp:rng.randrange(2) for lamp in flashers} if len(flashers) == 3 else None
         while t + .25 < end:
-            lamp = flashers[number % 2]
-            color = WHITE if rng.random() < .65 else PURPLE
+            lamp = flashers[number % len(flashers)]
+            color = (WHITE if colors[lamp] % 2 == 0 else PURPLE) if colors is not None else (WHITE if rng.random() < .65 else PURPLE)
+            if colors is not None:colors[lamp] += 1
             # Alternate spatially; each lamp returns to an intense purple
             # accent or near-darkness before the other strikes.
             events.append((t, None, {lamp: {'on': True, 'bri': 254, 'xy': color, 'transitiontime': 0, 'alert': 'none'}}))
@@ -129,10 +134,10 @@ def prepare_compact_audio(library, tracks, rng=None):
 def roles(settings):
     value = settings.get('scene_roles', {})
     flashers, mask = value.get('flashers', []), value.get('mask')
-    if (len(flashers) != 2 or not isinstance(mask, str) or
-            len(set([*flashers, mask])) != 3 or
+    if (len(flashers) not in (2, 3) or not isinstance(mask, str) or
+            len(set([*flashers, mask])) != len(flashers) + 1 or
             set([*flashers, mask]) != set(settings['lights'])):
-        raise HueError('Horror scene requires exactly two colour lights and one mask')
+        raise HueError('Horror scene requires two or three colour lights and one mask')
     return flashers, mask
 
 
@@ -146,11 +151,22 @@ def warm_states(settings):
 def strokes(flashers, duration, cues=None, rng=None, finale=False):
     """Sparse, irregular independent strokes within the shared 10-write budget.
 
-    Each stroke uses four writes (two on, two dim). Starts are at least .78s
-    apart; independent lamp offsets and holds fit inside a .40s envelope.
-    This bounds rolling traffic at eight stroke writes per second.
+    The two-light profile uses four writes per stroke. The three-light profile
+    alternates individual lamps so the shared Bridge budget is still respected.
     """
     rng = rng or random.SystemRandom()
+    if len(flashers) == 3:
+        events = []
+        t = .12
+        number = rng.randrange(3)
+        while t + .3 < duration:
+            lamp = flashers[number % 3]
+            color = WHITE if (number // 3) % 2 == 0 else PURPLE
+            events.extend([(t, {lamp:{'on':True, 'bri':254, 'xy':color, 'transitiontime':0, 'alert':'none'}}),
+                           (t + .23, {lamp:{'on':True, 'bri':1, 'xy':PURPLE, 'transitiontime':0}})])
+            number += 1
+            t += rng.uniform(.40, .55)
+        return events
     starts = []
     source = [a for a, _, _ in cues] if cues is not None else []
     if cues is None:

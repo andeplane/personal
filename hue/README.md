@@ -3,7 +3,7 @@
 ## Outdoor mask scene
 
 With private setting `scene: "mask_reveal"`, Start and armed motion run the
-same role-based scene. `scene_roles.flashers` selects exactly two RGB lamps;
+same role-based scene. `scene_roles.flashers` selects two or three RGB lamps;
 `scene_roles.mask` selects a separate white-temperature lamp. Their union must
 match the dedicated group and selected light list. Actual device IDs stay in
 private configuration, with the previous configuration backed up before migration.
@@ -47,8 +47,8 @@ time and loads older pages on demand. No activity database is committed to Git.
 
 The top **Motion detection** switch controls sensor-triggered scenes directly;
 the user decides when to switch it on. The optional independently configured door
-bulb flashes white twice at roughly 25–35 second intervals and stays off between
-bursts, regardless of the motion switch. Its writes share the Bridge rate limit
+bulb produces random white flashes for 3–4 seconds every 1–2 minutes and stays off
+between bursts, regardless of the motion switch. Its writes share the Bridge rate limit
 with the scene and its bulb must not be one of the scene bulbs.
 
 Local tools for the existing Hue Bridge; Home Assistant is optional for the first

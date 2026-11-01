@@ -1,0 +1,27 @@
+// !$*UTF8*$!
+{
+ archiveVersion = 1;
+ classes = {};
+ objectVersion = 56;
+ objects = {
+  A00000000000000000000001 = {isa = PBXBuildFile; fileRef = A00000000000000000000002; };
+  A00000000000000000000002 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueHalloweenMobile/HueHalloweenMobile.swift; sourceTree = "<group>"; };
+  A00000000000000000000003 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HueHalloweenMobile/Info.plist; sourceTree = "<group>"; };
+  A00000000000000000000004 = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HueHalloweenMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+  A00000000000000000000005 = {isa = PBXGroup; children = (A00000000000000000000002,A00000000000000000000003,A00000000000000000000006); sourceTree = "<group>"; };
+  A00000000000000000000006 = {isa = PBXGroup; children = (A00000000000000000000004); name = Products; sourceTree = "<group>"; };
+  A00000000000000000000007 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A00000000000000000000001); runOnlyForDeploymentPostprocessing = 0; };
+  A00000000000000000000008 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+  A00000000000000000000009 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+  A0000000000000000000000A = {isa = PBXShellScriptBuildPhase; alwaysOutOfDate = 1; buildActionMask = 2147483647; files = (); inputPaths = ("$(HUE_CLIENT_CONFIG_PATH)"); name = "Copy private home pairing"; outputPaths = ("$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/client.json"); runOnlyForDeploymentPostprocessing = 0; shellPath = /bin/sh; shellScript = "set -eu\n/usr/bin/install -m 600 \"$HUE_CLIENT_CONFIG_PATH\" \"$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/client.json\"\n"; };
+  A0000000000000000000000B = {isa = PBXNativeTarget; buildConfigurationList = A0000000000000000000000C; buildPhases = (A00000000000000000000007,A00000000000000000000008,A00000000000000000000009,A0000000000000000000000A); buildRules = (); dependencies = (); name = HueHalloweenMobile; productName = HueHalloweenMobile; productReference = A00000000000000000000004; productType = "com.apple.product-type.application"; };
+  A0000000000000000000000C = {isa = XCConfigurationList; buildConfigurations = (A0000000000000000000000D,A0000000000000000000000E); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
+  A0000000000000000000000D = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; CODE_SIGN_IDENTITY = "Apple Development"; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = HueHalloweenMobile/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 18.0; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.andeplane.HueHalloweenMobile; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SUPPORTS_MACCATALYST = NO; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; ENABLE_USER_SCRIPT_SANDBOXING = NO; HUE_CLIENT_CONFIG_PATH = "$(HOME)/.config/hue-mobile/client.json"; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
+  A0000000000000000000000E = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; CODE_SIGN_IDENTITY = "Apple Development"; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = HueHalloweenMobile/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 18.0; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.andeplane.HueHalloweenMobile; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SUPPORTS_MACCATALYST = NO; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; ENABLE_USER_SCRIPT_SANDBOXING = NO; HUE_CLIENT_CONFIG_PATH = "$(HOME)/.config/hue-mobile/client.json"; SWIFT_OPTIMIZATION_LEVEL = "-O"; }; name = Release; };
+  A0000000000000000000000F = {isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = YES; LastSwiftUpdateCheck = 2700; LastUpgradeCheck = 2700; }; buildConfigurationList = A00000000000000000000010; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en,Base); mainGroup = A00000000000000000000005; productRefGroup = A00000000000000000000006; projectDirPath = ""; projectRoot = ""; targets = (A0000000000000000000000B); };
+  A00000000000000000000010 = {isa = XCConfigurationList; buildConfigurations = (A00000000000000000000011,A00000000000000000000012); defaultConfigurationIsVisible = 0; defaultConfigurationName = Debug; };
+  A00000000000000000000011 = {isa = XCBuildConfiguration; buildSettings = {CLANG_ENABLE_MODULES = YES; SWIFT_VERSION = 5.0; SDKROOT = iphoneos; }; name = Debug; };
+  A00000000000000000000012 = {isa = XCBuildConfiguration; buildSettings = {CLANG_ENABLE_MODULES = YES; SWIFT_VERSION = 5.0; SDKROOT = iphoneos; }; name = Release; };
+ };
+ rootObject = A0000000000000000000000F;
+}

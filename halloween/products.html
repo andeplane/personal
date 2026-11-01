@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#121316">
 <title>The Haunted Garden · Things worth buying</title><meta name="description" content="30 considered Halloween products for a small garden: spiders, graves, projection, lights and control. Source links, prices and a personal shortlist.">
-<link rel="canonical" href="https://andeplane.github.io/personal/halloween/products.html"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="products.css">
-<script src="products-data.js" defer></script><script src="product-images.js" defer></script><script src="products.js" defer></script>
+<link rel="canonical" href="https://andeplane.github.io/personal/halloween/products.html"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="products.css?v=89ffcc5e5b84">
+<script src="products-data.js" defer></script><script src="product-images.js?v=046243c13245" defer></script><script src="products.js?v=5731b75a6399" defer></script>
 </head>
 <body class="shopping">
 <a class="skip" href="#products">Skip to products</a>
@@ -17,5 +17,12 @@
 <aside class="garden-note"><span class="note-symbol">✦</span><div><h3>Measure before the big buys.</h3><p>The backyard photo will settle projector distance, mounting positions and how many metres of light and web we need. Imported mechanical props need a delivered Norway quote and confirmation of power, trigger and weather requirements.</p></div></aside>
 </main>
 <aside class="list-bar" aria-label="Shopping shortlist"><div><strong id="subtotal">Your list is empty</strong><span>Item estimates · currencies kept separate · shipping extra</span></div><button class="button subtle" id="view-list">View my list <span id="bar-count">0</span> →</button></aside>
-<footer><span class="footer-brand">The Haunted Garden</span><span>Research snapshot · 31 October 2026</span><span>Product photos belong to their linked sellers. Your list stays in this browser.</span></footer><div class="toast" id="product-toast" role="status" aria-live="polite"></div><noscript><p class="garden-note">Enable JavaScript to browse the product catalogue and source links.</p></noscript>
+<dialog id="product-gallery" aria-labelledby="gallery-title" aria-describedby="gallery-caption">
+  <header class="gallery-header"><div><p class="eyebrow">A CLOSER LOOK</p><h2 id="gallery-title"></h2></div><button id="gallery-close" aria-label="Close photos" autofocus>×</button></header>
+  <div class="gallery-stage"><img id="gallery-image" alt=""><button id="gallery-prev" class="gallery-arrow" aria-label="Previous photo">‹</button><button id="gallery-next" class="gallery-arrow" aria-label="Next photo">›</button><p id="gallery-error" hidden>This photo couldn’t load. Try another view or visit the shop below.</p></div>
+  <div class="gallery-info"><p id="gallery-caption"></p><span id="gallery-count" role="status" aria-live="polite"></span></div>
+  <div id="gallery-thumbnails" class="gallery-thumbnails" aria-label="Choose a product photo"></div>
+  <div class="gallery-footer"><a id="gallery-source" target="_blank" rel="noopener noreferrer"></a><a id="gallery-shop" class="button primary" target="_blank" rel="noopener noreferrer"></a></div>
+</dialog>
+<footer><span class="footer-brand">The Haunted Garden</span><span>Research snapshot · 31 October 2026</span><span>Product photos © their respective retailers and manufacturers. Your list stays in this browser.</span></footer><div class="toast" id="product-toast" role="status" aria-live="polite"></div><noscript><p class="garden-note">Enable JavaScript to browse the product catalogue and source links.</p></noscript>
 </body></html>

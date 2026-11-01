@@ -1,0 +1,1034 @@
+{
+  "downloaded": "2026-11-01",
+  "note": "Original retailer and manufacturer images, retained without image edits. Copyright belongs to the respective owners.",
+  "products": {
+    "lily": [
+      {
+        "src": "assets/products/lily-1.webp",
+        "caption": "Product photo",
+        "sourceName": "Proshop",
+        "sourcePage": "https://www.proshop.no/Smarthus/Philips-Hue-Outdoor-Lily-Spike-Spots-Basis-sett/2655389",
+        "sourceUrl": "https://www.proshop.no/Images/915x900/2655389_ea30efe1df22.jpg",
+        "width": 915,
+        "height": 900,
+        "bytes": 18288,
+        "sha256": "983fb7870522b2738614e75724a036f31393b88a81cf70f25d22ca20e1695a3a"
+      }
+    ],
+    "netting": [
+      {
+        "src": "assets/products/netting-1.png",
+        "caption": "Product photo",
+        "sourceName": "Trenton Mills",
+        "sourcePage": "https://www.trentonmills.com/us/products/beef-netting",
+        "sourceUrl": "https://api.trentonmills.com/uploads/1777315089130-bn-rolls.png",
+        "width": 232,
+        "height": 438,
+        "bytes": 92277,
+        "sha256": "0b4aab59b04a6592f651935d37f2b67199cdf8e85084e6e9bac7bbdc3b8134a7"
+      }
+    ],
+    "tarantula45": [
+      {
+        "src": "assets/products/tarantula45-1.jpg",
+        "caption": "Front view",
+        "sourceName": "Elliotts",
+        "sourcePage": "https://www.elliottsfancydress.co.uk/theme-fancy-dress/halloween/halloween-props-decorations/gigantic-latex-tarantula-45cm",
+        "sourceUrl": "https://www.elliottsfancydress.co.uk/media/catalog/product/cache/90066f2dac9a5ac408f96da391ad8a55/g/i/gigantic-latex-tarantula-45cm.jpg",
+        "width": 579,
+        "height": 800,
+        "bytes": 26956,
+        "sha256": "07e33c7a5efcc9102fff9ce15384994992bb2cf5406ecaac2b1af70bb5d367b1"
+      },
+      {
+        "src": "assets/products/tarantula45-2.jpg",
+        "caption": "Angled view",
+        "sourceName": "Elliotts",
+        "sourcePage": "https://www.elliottsfancydress.co.uk/theme-fancy-dress/halloween/halloween-props-decorations/gigantic-latex-tarantula-45cm",
+        "sourceUrl": "https://www.elliottsfancydress.co.uk/media/catalog/product/cache/0daeb07bb1d294c1f281fab47369d56a/g/i/gigantic-latex-tarantula-45cm-2.jpg",
+        "width": 579,
+        "height": 800,
+        "bytes": 35134,
+        "sha256": "d3d8ef6d53971feb80273d91c3d4dbf0ab54d2d53a7fc8e8821ba72ee95be6a5"
+      },
+      {
+        "src": "assets/products/tarantula45-3.jpg",
+        "caption": "Top view",
+        "sourceName": "Elliotts",
+        "sourcePage": "https://www.elliottsfancydress.co.uk/theme-fancy-dress/halloween/halloween-props-decorations/gigantic-latex-tarantula-45cm",
+        "sourceUrl": "https://www.elliottsfancydress.co.uk/media/catalog/product/cache/0daeb07bb1d294c1f281fab47369d56a/g/i/gigantic-latex-tarantula-45cm-3.jpg",
+        "width": 579,
+        "height": 800,
+        "bytes": 29484,
+        "sha256": "9c3c0490699834770c1193bfc5f5a5acc464c475fe4042405fe916d0c0b1cc81"
+      }
+    ],
+    "tarantula30": [
+      {
+        "src": "assets/products/tarantula30-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "Karneval Universe",
+        "sourcePage": "https://www.karneval-universe.de/products/riesige-horror-tarantel-30cm",
+        "sourceUrl": "https://www.karneval-universe.de/cdn/shop/files/horror-tarantel-30cm-horror-tarantula-riesige-spinne-als-halloween-deko-horror-deko-arachnophobie-57086-001.jpg?v=1782165369",
+        "width": 1027,
+        "height": 1280,
+        "bytes": 171585,
+        "sha256": "7ad2e368825be274d6bc76ba0d6818ed25d70df5c0b1672afdd0dde156df3bb2"
+      },
+      {
+        "src": "assets/products/tarantula30-2.jpg",
+        "caption": "Product view",
+        "sourceName": "Karneval Universe",
+        "sourcePage": "https://www.karneval-universe.de/products/riesige-horror-tarantel-30cm",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0832/5316/6323/files/horror-tarantel-30cm-horror-tarantula-riesige-spinne-als-halloween-deko-horror-deko-arachnophobie-57086-002.jpg?v=1782165369",
+        "width": 1027,
+        "height": 1280,
+        "bytes": 521437,
+        "sha256": "c4047ccc20d701e820e32f8ad2be6819aba3307f476f4b5e36728b23f562075d"
+      },
+      {
+        "src": "assets/products/tarantula30-3.jpg",
+        "caption": "Product view",
+        "sourceName": "Karneval Universe",
+        "sourcePage": "https://www.karneval-universe.de/products/riesige-horror-tarantel-30cm",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0832/5316/6323/files/horror-tarantel-30cm-horror-tarantula-riesige-spinne-als-halloween-deko-horror-deko-arachnophobie-57086-003.jpg?v=1782165369",
+        "width": 1027,
+        "height": 1280,
+        "bytes": 581770,
+        "sha256": "d97e1635ad65f68d5749da5a25b535bf3bdc560db352177db0d60923b6cc6ae3"
+      },
+      {
+        "src": "assets/products/tarantula30-4.jpg",
+        "caption": "Product view",
+        "sourceName": "Karneval Universe",
+        "sourcePage": "https://www.karneval-universe.de/products/riesige-horror-tarantel-30cm",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0832/5316/6323/files/horror-tarantel-30cm-horror-tarantula-riesige-spinne-als-halloween-deko-horror-deko-arachnophobie-57086-004.jpg?v=1782165369",
+        "width": 1027,
+        "height": 1280,
+        "bytes": 124020,
+        "sha256": "991e6d34518861a245020fdf6c29610634d78aef405fabfea0954271d94c8036"
+      },
+      {
+        "src": "assets/products/tarantula30-5.jpg",
+        "caption": "Product view",
+        "sourceName": "Karneval Universe",
+        "sourcePage": "https://www.karneval-universe.de/products/riesige-horror-tarantel-30cm",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0832/5316/6323/files/horror-tarantel-30cm-horror-tarantula-riesige-spinne-als-halloween-deko-horror-deko-arachnophobie-57086-005.jpg?v=1782165369",
+        "width": 1027,
+        "height": 1280,
+        "bytes": 137640,
+        "sha256": "ab5ffa29f1c85e2bc681b8be22ee122677c75da686c803adbfdf9145e5d24ba5"
+      }
+    ],
+    "alien-spider": [
+      {
+        "src": "assets/products/alien-spider-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/collections/aliens/products/alien-spider-prop",
+        "sourceUrl": "https://distortionsunlimited.com/cdn/shop/files/alien-spider-prop-hanging_1200x1200.jpg?v=1705027883",
+        "width": 1200,
+        "height": 1200,
+        "bytes": 219086,
+        "sha256": "93206abb4d2cf1b6fa66a97b616ab80d9019e4526aa0f16deea6c32899805544"
+      },
+      {
+        "src": "assets/products/alien-spider-2.jpg",
+        "caption": "Product view",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/collections/aliens/products/alien-spider-prop",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0507/1565/6392/files/alien-spider-halloween-prop-side.jpg?v=1705075357",
+        "width": 2586,
+        "height": 2947,
+        "bytes": 461545,
+        "sha256": "e91fa52fac27e62e48d93c371139cda95e41559fb76d007bc238e09370f5915c"
+      },
+      {
+        "src": "assets/products/alien-spider-3.jpg",
+        "caption": "Product view",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/collections/aliens/products/alien-spider-prop",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0507/1565/6392/files/alien-spider-prop-ground-2.jpg?v=1705075357",
+        "width": 2435,
+        "height": 2000,
+        "bytes": 539800,
+        "sha256": "c50180f21cbbeed8238fa21209617b0b867795d3caca0789eaf04be38402b475"
+      },
+      {
+        "src": "assets/products/alien-spider-4.jpg",
+        "caption": "Product view",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/collections/aliens/products/alien-spider-prop",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0507/1565/6392/files/alien-spider-ed-tom-thumb.jpg?v=1705075357",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 347926,
+        "sha256": "edac0230bd2936b3cb6258befcd539a96cdb79223deccb11bdc65723f3878bcc"
+      },
+      {
+        "src": "assets/products/alien-spider-5.jpg",
+        "caption": "Product view",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/collections/aliens/products/alien-spider-prop",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0507/1565/6392/files/alien-spider-face-blue.jpg?v=1705075357",
+        "width": 2000,
+        "height": 2659,
+        "bytes": 591390,
+        "sha256": "cd6e30c2561b14925e0e01ca7c8bb78f166b93c1a54374977f097a4c5c15516f"
+      },
+      {
+        "src": "assets/products/alien-spider-6.jpg",
+        "caption": "Product view",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/collections/aliens/products/alien-spider-prop",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0507/1565/6392/files/alien-spider-halloween-props.jpg?v=1705075357",
+        "width": 2678,
+        "height": 3726,
+        "bytes": 1050152,
+        "sha256": "01abad8b11ee7d2e45849b1051a0db9ed144721264637fc8baf1905d73cb620e"
+      },
+      {
+        "src": "assets/products/alien-spider-7.jpg",
+        "caption": "Product view",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/collections/aliens/products/alien-spider-prop",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0507/1565/6392/files/alien-spider-props-side-face.jpg?v=1705075357",
+        "width": 3439,
+        "height": 2721,
+        "bytes": 991390,
+        "sha256": "16f59cdb72bbad5515f64c28b4c50d2f0544dc89e7304f016b02e5e61ddb7461"
+      },
+      {
+        "src": "assets/products/alien-spider-8.jpg",
+        "caption": "Product view",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/collections/aliens/products/alien-spider-prop",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0507/1565/6392/files/alien-spider-halloween-prop-square.jpg?v=1705075357",
+        "width": 3088,
+        "height": 2959,
+        "bytes": 590239,
+        "sha256": "ae7d854a0c2ceb33fd650d433648c0f0845dc0969a22ed081cff03705bb9f4c2"
+      }
+    ],
+    "tombstone": [
+      {
+        "src": "assets/products/tombstone-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/products/tombstone-prop",
+        "sourceUrl": "https://distortionsunlimited.com/cdn/shop/files/Tombstone-Halloween-Prop_1200x1200.jpg?v=1783547274",
+        "width": 749,
+        "height": 749,
+        "bytes": 54156,
+        "sha256": "487d3c526419f999a116af04b71786c7d30600491d74699178fbcca1d115ef0a"
+      },
+      {
+        "src": "assets/products/tombstone-2.jpg",
+        "caption": "Product view",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/products/tombstone-prop",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0507/1565/6392/products/tipping-tombstone-front-web_d3939424-17b8-43a7-9a1a-068915c9e462.jpg?v=1608067361",
+        "width": 600,
+        "height": 749,
+        "bytes": 26559,
+        "sha256": "3c9129a778b59a2472dd4d308180363c6e9a8818190f9612921dd34589dd1e9f"
+      }
+    ],
+    "monument": [
+      {
+        "src": "assets/products/monument-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/products/monument-prop",
+        "sourceUrl": "https://distortionsunlimited.com/cdn/shop/files/Monument-Halloween-Prop_1200x1200.jpg?v=1783547258",
+        "width": 837,
+        "height": 837,
+        "bytes": 46809,
+        "sha256": "7101b6568865c348b39d4c068bcab076ab2690e6ce42e4dc69ea8896c39ed2ca"
+      },
+      {
+        "src": "assets/products/monument-2.jpg",
+        "caption": "Product view",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/products/monument-prop",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0507/1565/6392/products/moving_20-monument-web2_e236a6fa-7a3b-42f1-804f-408f790df853.jpg?v=1608067381",
+        "width": 600,
+        "height": 837,
+        "bytes": 20014,
+        "sha256": "67012c88bc5f9f5afa7430a96c56ce41e10bc8ca9c3afadc1caa43b22f4869b8"
+      }
+    ],
+    "tipping": [
+      {
+        "src": "assets/products/tipping-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/products/tipping-tombstone",
+        "sourceUrl": "https://distortionsunlimited.com/cdn/shop/files/tipping-tombstone-halloween-prop-sq_1200x1200.jpg?v=1758135266",
+        "width": 700,
+        "height": 700,
+        "bytes": 56361,
+        "sha256": "03ed7338b43717e5c43a7f2ce439be9889c89fdce89fa58f9a1f5214cc24ed97"
+      },
+      {
+        "src": "assets/products/tipping-2.jpg",
+        "caption": "Product view",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/products/tipping-tombstone",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0507/1565/6392/products/tipping-tombstone-front-web.jpg?v=1758135266",
+        "width": 600,
+        "height": 749,
+        "bytes": 26559,
+        "sha256": "3c9129a778b59a2472dd4d308180363c6e9a8818190f9612921dd34589dd1e9f"
+      },
+      {
+        "src": "assets/products/tipping-3.jpg",
+        "caption": "Product view",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/products/tipping-tombstone",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0507/1565/6392/products/tipping-tombstone-back-web.jpg?v=1758135266",
+        "width": 600,
+        "height": 731,
+        "bytes": 29534,
+        "sha256": "09374c4a37f25321e146420c452a6f0033940cf90520cc362b463bca3a1085d9"
+      }
+    ],
+    "grave-bob": [
+      {
+        "src": "assets/products/grave-bob-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/products/grave-buster-bob",
+        "sourceUrl": "https://distortionsunlimited.com/cdn/shop/files/Grave-Buster-Bob-Halloween-Frightronic_1200x1200.jpg?v=1783547274",
+        "width": 838,
+        "height": 838,
+        "bytes": 76426,
+        "sha256": "0aefb248a4d0ffea3417198d7e7575412aa3846fdbd8fdd32f8d32a0b3cc3812"
+      },
+      {
+        "src": "assets/products/grave-bob-2.jpg",
+        "caption": "Product view",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/products/grave-buster-bob",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0507/1565/6392/products/grave-buster-bob-zombie-web2.jpg?v=1608067277",
+        "width": 600,
+        "height": 838,
+        "bytes": 33006,
+        "sha256": "afdc0692339bba0e3ce05fda3076ac18d9a7aceea2c6f772f6fa0c99e974c53c"
+      },
+      {
+        "src": "assets/products/grave-bob-3.jpg",
+        "caption": "Product view",
+        "sourceName": "Distortions Unlimited",
+        "sourcePage": "https://distortionsunlimited.com/products/grave-buster-bob",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0507/1565/6392/products/grave-buster-bob-cu-web.jpg?v=1608067281",
+        "width": 700,
+        "height": 747,
+        "bytes": 54850,
+        "sha256": "821bef33a8c6fcc1377d5fd103978337649c8a4387716925638abd7543df3c89"
+      }
+    ],
+    "drop-motor": [
+      {
+        "src": "assets/products/drop-motor-1.jpg",
+        "caption": "Main product view",
+        "sourceName": "Steinigke / Europalms",
+        "sourcePage": "https://www.steinigke.de/mpn83316180-europalms-fall-motor-bis-15-kg.html",
+        "sourceUrl": "https://media.steinigke.de/images/71600/16/83316180a.jpg",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 47043,
+        "sha256": "cd9a8d300a3b7b4694bbc48d7b7d23649edf289ce9c14c4a7e2fd5fb0597f3c0"
+      },
+      {
+        "src": "assets/products/drop-motor-2.jpg",
+        "caption": "Extended cord",
+        "sourceName": "Steinigke / Europalms",
+        "sourcePage": "https://www.steinigke.de/mpn83316180-europalms-fall-motor-bis-15-kg.html",
+        "sourceUrl": "https://media.steinigke.de/images/71600/16/83316180b.jpg",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 18173,
+        "sha256": "7e78c14a0b74d99ef2b9249815dee90efc92bcfb00d2fb1f1c1b88ed09948054"
+      },
+      {
+        "src": "assets/products/drop-motor-3.jpg",
+        "caption": "Application example - spider not included",
+        "sourceName": "Steinigke / Europalms",
+        "sourcePage": "https://www.steinigke.de/mpn83316180-europalms-fall-motor-bis-15-kg.html",
+        "sourceUrl": "https://media.steinigke.de/images/71600/16/83316180d.jpg",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 34076,
+        "sha256": "66a5910323456a52dd3fff0bbcfe7200930d99a944c010439bff91f8029f721a"
+      },
+      {
+        "src": "assets/products/drop-motor-4.jpg",
+        "caption": "Remote activation control",
+        "sourceName": "Steinigke / Europalms",
+        "sourcePage": "https://www.steinigke.de/mpn83316180-europalms-fall-motor-bis-15-kg.html",
+        "sourceUrl": "https://media.steinigke.de/images/71600/16/83316180e.jpg",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 92266,
+        "sha256": "74fb4b8bf36281738720ed1db3f85b5c1ae5af1df03752b3af77289665c75634"
+      },
+      {
+        "src": "assets/products/drop-motor-5.jpg",
+        "caption": "Motor housing detail",
+        "sourceName": "Steinigke / Europalms",
+        "sourcePage": "https://www.steinigke.de/mpn83316180-europalms-fall-motor-bis-15-kg.html",
+        "sourceUrl": "https://media.steinigke.de/images/71600/16/83316180f.jpg",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 67577,
+        "sha256": "c9a00c9eb66e6b8c6ce9e0dc599ec152ced65a3999523f535ec1080f9613fa5e"
+      },
+      {
+        "src": "assets/products/drop-motor-6.jpg",
+        "caption": "Control detail",
+        "sourceName": "Steinigke / Europalms",
+        "sourcePage": "https://www.steinigke.de/mpn83316180-europalms-fall-motor-bis-15-kg.html",
+        "sourceUrl": "https://media.steinigke.de/images/71600/16/83316180g.jpg",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 56856,
+        "sha256": "1396347034bb93c22d32b3185beae45448dbc78e6bbefd776b34aaf5d841c57e"
+      },
+      {
+        "src": "assets/products/drop-motor-7.jpg",
+        "caption": "Motor controls",
+        "sourceName": "Steinigke / Europalms",
+        "sourcePage": "https://www.steinigke.de/mpn83316180-europalms-fall-motor-bis-15-kg.html",
+        "sourceUrl": "https://media.steinigke.de/images/71600/16/83316180h.jpg",
+        "width": 1600,
+        "height": 1200,
+        "bytes": 61580,
+        "sha256": "0e8443b7cb60e093d443338608e7b3582b920680e29536b8c7ed399ce2f996eb"
+      }
+    ],
+    "amarant": [
+      {
+        "src": "assets/products/amarant-1.webp",
+        "caption": "Product photo",
+        "sourceName": "Proshop",
+        "sourcePage": "https://www.proshop.no/Smarthus/Philips-Hue-Outdoor-Amarant-Floodlight/2916709",
+        "sourceUrl": "https://www.proshop.no/Images/915x900/2916709_ed49e510c026.jpg",
+        "width": 915,
+        "height": 900,
+        "bytes": 13240,
+        "sha256": "e0a1a8a6a7bfa2bfb2dd1039b4bda1960b1ac1e204f760a0856758f1aff763c5"
+      }
+    ],
+    "festavia": [
+      {
+        "src": "assets/products/festavia-1.webp",
+        "caption": "Product photo",
+        "sourceName": "Proshop",
+        "sourcePage": "https://www.proshop.no/Smarthus/Philips-Hue-Festavia-utendoers-lyslenker-250-lysdioder-hvit-og-fargestemning/3174960",
+        "sourceUrl": "https://www.proshop.no/Images/915x900/3174960_3b64a07ee047.jpg",
+        "width": 915,
+        "height": 900,
+        "bytes": 46004,
+        "sha256": "330a5d29f9ca3d48eb6a5dfb2df5a1bb4c08fdcacc64763882d340789bd75688"
+      }
+    ],
+    "twinkly": [
+      {
+        "src": "assets/products/twinkly-1.webp",
+        "caption": "Product photo",
+        "sourceName": "Proshop",
+        "sourcePage": "https://www.proshop.no/Smarthus/Twinkly-Strings-400-RGB-Lyskjede-32-m-16-millioner-farger-Generation-II/2810486",
+        "sourceUrl": "https://www.proshop.no/Images/915x900/2810486_ff7e342dbdb9.jpg",
+        "width": 915,
+        "height": 900,
+        "bytes": 61234,
+        "sha256": "83b34c2260dfa65de24b8fd34e4826cb6d7fc9f71f6a5fce110cb1734125d572"
+      }
+    ],
+    "icicle": [
+      {
+        "src": "assets/products/icicle-1.webp",
+        "caption": "Product photo",
+        "sourceName": "Proshop",
+        "sourcePage": "https://www.proshop.no/Smarthus/Philips-Hue-Festavia-istaplyskjede-250-lys/3508082",
+        "sourceUrl": "https://www.proshop.no/Images/915x900/3508082_8b86d8fcd121.png",
+        "width": 915,
+        "height": 900,
+        "bytes": 96082,
+        "sha256": "09f72edcafe6c314f7a3f9da801844e0a7e840729734853938a3aa45d216ae3e"
+      }
+    ],
+    "creepy-crawlies": [
+      {
+        "src": "assets/products/creepy-crawlies-1.png",
+        "caption": "Product photo",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/creepy-crawlies-2",
+        "sourceUrl": "https://atmosfx.com/cdn/shop/products/CreepyCrawlies24KKeyArtUpdate20220202_grande.png?v=1660172044",
+        "width": 600,
+        "height": 338,
+        "bytes": 452339,
+        "sha256": "b4698c5cb7b3c9befed835b5ba6ec469b5755b68fd2f32ffbefabde65d1b8f43"
+      },
+      {
+        "src": "assets/products/creepy-crawlies-2.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/creepy-crawlies-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/Creepy_Poster_eb81776f-af8d-42d7-bd23-02d992b90ce2.jpg?v=1665009361",
+        "width": 1024,
+        "height": 577,
+        "bytes": 117635,
+        "sha256": "3a1221c9251bf59148e1c616735942a022b6099ac05e8a7183ed726f3ac06a51"
+      },
+      {
+        "src": "assets/products/creepy-crawlies-3.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/creepy-crawlies-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/CC2_Key_Art_600x600_f26e2316-c624-4c5b-8df9-050624ca3d25.jpg?v=1665009361",
+        "width": 600,
+        "height": 600,
+        "bytes": 88298,
+        "sha256": "66e430cd2be101db4384c6be791d0ef4f74c52aa66426a4c9ec95cca59378b8d"
+      },
+      {
+        "src": "assets/products/creepy-crawlies-4.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/creepy-crawlies-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/CC2_-_Tarantulas_-_Window_TV_1b87e047-2f7f-4168-9121-d9013b5e9111.jpeg?v=1665009361",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 61652,
+        "sha256": "2a81c6d0aa9794e1d362ec772e18897e83386e3538c5624431d7a4e5bf932eda"
+      },
+      {
+        "src": "assets/products/creepy-crawlies-5.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/creepy-crawlies-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/CC2_-_Tarantulas_-_Wall_4b80e78a-d28c-41ac-9915-e9ffbd851258.jpeg?v=1665009361",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 137697,
+        "sha256": "cb20c1d0657a0963d558c85eefd9b77894dc1bc3f341091c437201d9152a55d2"
+      },
+      {
+        "src": "assets/products/creepy-crawlies-6.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/creepy-crawlies-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/CC2_-_Cockroaches_-_Window_TV_b54f3b0f-48a6-475b-b3a7-4e7a7f221e3c.jpeg?v=1665009361",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 48579,
+        "sha256": "fa058d8a5283bd0cc93d3d4fb2b4391341aea486da2f532dda9934a56d9aa280"
+      },
+      {
+        "src": "assets/products/creepy-crawlies-7.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/creepy-crawlies-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/CC2_-_Cockroaches_-_Wall_c72c3877-3e27-456a-80e7-bcaf6ebea02c.jpeg?v=1665009361",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 141249,
+        "sha256": "31610d5a581c6e3d6413f8c9683d06877a29722a84c3fab1c717f26bed7f9f8f"
+      },
+      {
+        "src": "assets/products/creepy-crawlies-8.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/creepy-crawlies-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/CC2_-_Rats_-_Window_TV_42f2cdc9-13c6-49e5-ac45-5c4bcfd9c843.jpeg?v=1665009361",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 28207,
+        "sha256": "3ab3720c8787366696fdf1f54df7ca2912f2bdd9f7fac9ed078782b5ca76f037"
+      }
+    ],
+    "epson": [
+      {
+        "src": "assets/products/epson-1.png",
+        "caption": "Product photo",
+        "sourceName": "Epson Norway",
+        "sourcePage": "https://www.epson.no/no_NO/produkter/projector/hjemmekino/co-fh02/p/35475",
+        "sourceUrl": "https://i8.amplience.net/i/epsonemear/35475-productpicture-int-co-fh02_main",
+        "width": 1500,
+        "height": 547,
+        "bytes": 954100,
+        "sha256": "ac497d056540a6736de199473d9909bddb44a3d961fba86b514bd1ecf967b472"
+      }
+    ],
+    "phantasms": [
+      {
+        "src": "assets/products/phantasms-1.png",
+        "caption": "Product photo",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/phantasms",
+        "sourceUrl": "https://atmosfx.com/cdn/shop/products/Phantasms4KKeyArtUpdate20220202_grande.png?v=1689369465",
+        "width": 600,
+        "height": 338,
+        "bytes": 312709,
+        "sha256": "979d4aa02f8db8fcb5cda80b4732a9fd212025e676865c9aa318cc0c84fde2bb"
+      },
+      {
+        "src": "assets/products/phantasms-2.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/phantasms",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/PHWindow.jpg?v=1696997202",
+        "width": 1024,
+        "height": 576,
+        "bytes": 119056,
+        "sha256": "bace90ecee0826151753a9bc80092e3edfbc61de219887b201d53bd5ccfb6374"
+      },
+      {
+        "src": "assets/products/phantasms-3.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/phantasms",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/PHTruck.jpg?v=1696997202",
+        "width": 1024,
+        "height": 576,
+        "bytes": 97774,
+        "sha256": "95c92344cc20c0e55fcccb43c2a15003d80fca9bc8c47aeeb43e23bdf50ec2fe"
+      },
+      {
+        "src": "assets/products/phantasms-4.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/phantasms",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/PHgiantskullUGC.jpg?v=1696997202",
+        "width": 1024,
+        "height": 576,
+        "bytes": 87438,
+        "sha256": "26ef6f0cb43e24ae86153f5393814a52fef5988d48c25d7032b959a3191322a4"
+      },
+      {
+        "src": "assets/products/phantasms-5.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/phantasms",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/WickedWraithUGC_34b35ad2-a326-4ac4-a2f7-cc429c6e59fb.jpg?v=1696997202",
+        "width": 1024,
+        "height": 576,
+        "bytes": 164337,
+        "sha256": "7420b567a93086ee526b2dfb85148f6e41961d50e0eb14cd5a0e9e5c2529c8b0"
+      },
+      {
+        "src": "assets/products/phantasms-6.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/phantasms",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/PHwraithUGC.jpg?v=1696997202",
+        "width": 1024,
+        "height": 576,
+        "bytes": 101429,
+        "sha256": "80cacea63aba5a74a62d756cb4abe76b7027b6902195dc008bffbda8d22318e6"
+      }
+    ],
+    "bone-chillers": [
+      {
+        "src": "assets/products/bone-chillers-1.png",
+        "caption": "Product photo",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/bone-chillers-2",
+        "sourceUrl": "https://atmosfx.com/cdn/shop/products/BoneChillers24KKeyArtUpdate20220203_grande.png?v=1660171874",
+        "width": 600,
+        "height": 338,
+        "bytes": 385436,
+        "sha256": "fbc7b146a9e8cec77259690e8f0f76b112b90379c1b91720fc7d0b1dd6443007"
+      },
+      {
+        "src": "assets/products/bone-chillers-2.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/bone-chillers-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/BC2_KeyArt_1024x576_51e720e9-0ae9-45fc-9a84-3b3544591032.jpg?v=1664490374",
+        "width": 1024,
+        "height": 576,
+        "bytes": 223727,
+        "sha256": "0672280b2d0c5cc89b5e6b7702c1baae6b809aebf12515588eb56c007cde62c2"
+      },
+      {
+        "src": "assets/products/bone-chillers-3.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/bone-chillers-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/BC2_Key_Art_576x576_d0fc3b76-5a65-4a84-a9dd-89e4c37c6a2e.jpg?v=1664490374",
+        "width": 576,
+        "height": 576,
+        "bytes": 132481,
+        "sha256": "7dd1db448e326a86e627100f04fb835e3811e31b07fccdd25ad1fad931aa6295"
+      },
+      {
+        "src": "assets/products/bone-chillers-4.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/bone-chillers-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/BC2OrganistUGC.jpg?v=1664490374",
+        "width": 1024,
+        "height": 576,
+        "bytes": 175693,
+        "sha256": "93aa76d709bc695f9c987f9cefd10b3ef1fbe6e77c08d81d161d5ef3241fd48a"
+      },
+      {
+        "src": "assets/products/bone-chillers-5.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/bone-chillers-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/BC2MardisUGC.jpg?v=1664490374",
+        "width": 1024,
+        "height": 576,
+        "bytes": 163256,
+        "sha256": "28c5803a6279770b0f9a54d72aa608d27e94aba94a1a54a12e0e01397cda0688"
+      },
+      {
+        "src": "assets/products/bone-chillers-6.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/bone-chillers-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/BC2GreenHouseUGC_b4fe5f8e-071b-449f-b18f-0ebe0db699e9.jpg?v=1664490374",
+        "width": 1024,
+        "height": 576,
+        "bytes": 100168,
+        "sha256": "0a19437ebfb64618ba826c7a80c0590abcbe0e3b1c6da710fb0d2c730049db1f"
+      },
+      {
+        "src": "assets/products/bone-chillers-7.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/bone-chillers-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/BC2DiggersUGC.jpg?v=1664490374",
+        "width": 1024,
+        "height": 576,
+        "bytes": 143858,
+        "sha256": "19d54839e80c6d60d0ccbec47bb322cf499de5e04c39be2dd6020937d5962b88"
+      },
+      {
+        "src": "assets/products/bone-chillers-8.jpg",
+        "caption": "Manufacturer artwork / projection example",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/bone-chillers-2",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/BC2TrioUGC.jpg?v=1664490374",
+        "width": 1024,
+        "height": 576,
+        "bytes": 72596,
+        "sha256": "d9af1f9e01d35f558d11daa975e08fcd626750040658ae09dbcea68df0fd2f4f"
+      }
+    ],
+    "hollusion": [
+      {
+        "src": "assets/products/hollusion-1.png",
+        "caption": "Product photo",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/hollusion-projection-material",
+        "sourceUrl": "https://atmosfx.com/cdn/shop/products/HPM_Hero_2022_grande.png?v=1712074985",
+        "width": 600,
+        "height": 338,
+        "bytes": 257667,
+        "sha256": "a84dd0b351dfbd91368e723abf473ccdadeb39a68935baf4592e90be5e9981b1"
+      },
+      {
+        "src": "assets/products/hollusion-2.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/hollusion-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/HPM_Hero_Jan_2023_WIP_R1copy_f46d2c2d-e1ec-4078-91e0-72163d0bd018.png?v=1712074985",
+        "width": 1024,
+        "height": 576,
+        "bytes": 644998,
+        "sha256": "ea500ba0541e68c2a4da6e50cea617362dfee3c6faef742a6b783a5993f0ce83"
+      },
+      {
+        "src": "assets/products/hollusion-3.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/hollusion-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/files/HPM_Hero_2023_SAHEcopy.png?v=1712074985",
+        "width": 1024,
+        "height": 576,
+        "bytes": 676868,
+        "sha256": "1ae9c1f671a02b0750eb9b4ddf6f1681b51aa9c0bc87dcd6d3fd532f4d4ab3aa"
+      },
+      {
+        "src": "assets/products/hollusion-4.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/hollusion-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/files/HPM_Hero_2023_TTcopy.png?v=1712074985",
+        "width": 1024,
+        "height": 576,
+        "bytes": 672107,
+        "sha256": "35647bf8bb1931eb6790cb256404ed544232dfe3c647fa72829508c64377f9c1"
+      },
+      {
+        "src": "assets/products/hollusion-5.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/hollusion-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/vlcsnap-2021-03-23-14h04m09s565.png?v=1704219855",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 1034055,
+        "sha256": "b991013f9464b7bb6e894ebc8098828b3d2b018fdb6e7b37d217d00dcbdf1ddd"
+      },
+      {
+        "src": "assets/products/hollusion-6.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/hollusion-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/HPM_In-Use_HE0.png?v=1698954801",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 1824201,
+        "sha256": "5cb1f7d71eb35748e08ef62bbb1b33d5b8126d6fdaec6bbac749ffa83f4f86de"
+      },
+      {
+        "src": "assets/products/hollusion-7.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/hollusion-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/HPM_In-Use_GA30.png?v=1698954801",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 2435110,
+        "sha256": "a2982a5f270a2a62ec834ff7981fef54481354e1d809acf57804377c56f42524"
+      },
+      {
+        "src": "assets/products/hollusion-8.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/hollusion-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/files/HPM_Hero_2023_HHcopy.png?v=1698954801",
+        "width": 1024,
+        "height": 576,
+        "bytes": 654355,
+        "sha256": "a4e99dc59ae605b7f5adebea74a22a4c57ff776ea1f229108ebe091a0cf88ea2"
+      }
+    ],
+    "window-screen": [
+      {
+        "src": "assets/products/window-screen-1.png",
+        "caption": "Product photo",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/window-projection-material",
+        "sourceUrl": "https://atmosfx.com/cdn/shop/products/WPM_Hero_2022_grande.png?v=1712075016",
+        "width": 600,
+        "height": 338,
+        "bytes": 290904,
+        "sha256": "8911c1f90ea2ca6ec06f44c9092ee7e5480de129f966f6708ee3c5c6c7569cf0"
+      },
+      {
+        "src": "assets/products/window-screen-2.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/window-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/WPM_Hero_Jan_2023_fee1c7c3-81b0-4360-981f-67f50c57d80c.png?v=1712075016",
+        "width": 1024,
+        "height": 576,
+        "bytes": 667987,
+        "sha256": "f63c7774afe1ca0aa87a700bcedd271c7b72be09dfdf9b1ff0a5f6dddc527902"
+      },
+      {
+        "src": "assets/products/window-screen-3.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/window-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/WPM_Hero_XMAS_2022_WIPcopy.png?v=1712075016",
+        "width": 1024,
+        "height": 576,
+        "bytes": 728086,
+        "sha256": "65357052601608d1bbe079f44d14120268eb2668a858dbd0474b6e500f000c0b"
+      },
+      {
+        "src": "assets/products/window-screen-4.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/window-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/files/WPM_Hero_2022_HTcopy.png?v=1712075016",
+        "width": 1024,
+        "height": 576,
+        "bytes": 609566,
+        "sha256": "3dd926ddcdd7142584ed8e27b30356d67bd80f36bed384b724f189a991abe632"
+      },
+      {
+        "src": "assets/products/window-screen-5.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/window-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/WPM_In-Use_HE0.png?v=1698954809",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 2096924,
+        "sha256": "29d4850e254d7c40ef0a818141dd5fe1c917885952568bd7ec12dbb8fb076765"
+      },
+      {
+        "src": "assets/products/window-screen-6.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/window-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/WPM_In-Use_HW0.png?v=1698954809",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 1134376,
+        "sha256": "b37b136b3cdd27d303155f8dfce8eb3715fa2cb87f0e47828ebe8941a1736aa5"
+      },
+      {
+        "src": "assets/products/window-screen-7.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/window-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/WPM_In-Use_ES0.png?v=1698954809",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 1168971,
+        "sha256": "9e6707226641ab6425ea92cd0a3b509041ad41416525ebd547b36b370919f28d"
+      },
+      {
+        "src": "assets/products/window-screen-8.png",
+        "caption": "Manufacturer example - projector and digital effects sold separately",
+        "sourceName": "AtmosFX",
+        "sourcePage": "https://atmosfx.com/products/window-projection-material",
+        "sourceUrl": "https://cdn.shopify.com/s/files/1/0267/0241/products/WPM_In-Use_GA30.png?v=1698954809",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 1656600,
+        "sha256": "ae49b617ef0c2dfc672435d01dcc39d1407054258819f2282936f593d6b8779f"
+      }
+    ],
+    "hurricane": [
+      {
+        "src": "assets/products/hurricane-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "Gear4music",
+        "sourcePage": "https://www.gear4music.no/no/PA-DJ-and-belysning/Chauvet-DJ-Hurricane-1600-Fog-Machine/1KT3",
+        "sourceUrl": "https://r2.gear4music.com/media/18/189189/1200/preview_1.jpg",
+        "width": 1200,
+        "height": 1200,
+        "bytes": 87385,
+        "sha256": "b57dfa985ca70d1dcacb99ff59dbf4ba6d7343b02e17aa0694de5867fef6ba77"
+      }
+    ],
+    "entour": [
+      {
+        "src": "assets/products/entour-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "Thomann Norway",
+        "sourcePage": "https://www.thomannmusic.no/adj_entour_chill.htm",
+        "sourceUrl": "https://www.thomann.de/thumb/opengraph/pics/prod/485006.jpg",
+        "width": 420,
+        "height": 305,
+        "bytes": 16262,
+        "sha256": "b9af9e1cf6f39059f62786b23b6f5ab1db56f9f2e76733c98e01825a9160a3a7"
+      }
+    ],
+    "fog-fluid": [
+      {
+        "src": "assets/products/fog-fluid-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "Gear4music",
+        "sourcePage": "https://www.gear4music.no/no/PA-DJ-and-belysning/Chauvet-High-Performance-Takevaeske-5-Liter/1KW3",
+        "sourceUrl": "https://r2.gear4music.com/media/18/187251/1200/preview.jpg",
+        "width": 1200,
+        "height": 1200,
+        "bytes": 91805,
+        "sha256": "784b57a531b1b16ae0b84b80fddcc124858c11501731e6f2386130ac0a9c4134"
+      }
+    ],
+    "river": [
+      {
+        "src": "assets/products/river-1.webp",
+        "caption": "Product photo",
+        "sourceName": "Foto.no",
+        "sourcePage": "https://www.foto.no/ecoflow/167843/ecoflow-river-3-plus",
+        "sourceUrl": "https://www.foto.no/thumbnails/ecoflow/efriver3plus-eu-cbox_1.640.webp?v=638784207919930000",
+        "width": 640,
+        "height": 640,
+        "bytes": 11726,
+        "sha256": "e3a9d36c06b75b0c29303594d55bc3322f6b2bf659b2df818c639e62ee252028"
+      }
+    ],
+    "shelly": [
+      {
+        "src": "assets/products/shelly-1.webp",
+        "caption": "Product photo",
+        "sourceName": "CS Megastore",
+        "sourcePage": "https://www.csmegastore.no/i/24028290/shelly-outdoor-plug-s-gen3-udend%C3%B8rs-mokka-50-m-30-m-ip44-tr%C3%A5dl%C3%B8s",
+        "sourceUrl": "https://csdam.net/data/jpg/720/480c44de/480c44de-a2e8-4906-88df-d1aa1c07319e.jpg?fs=43&bgcolor=white",
+        "width": 560,
+        "height": 420,
+        "bytes": 6622,
+        "sha256": "17f87caf88cbe6d885b474c2e64d2b5e24bc88aa9030cd0bbc2c5df202ad30cc"
+      }
+    ],
+    "safebox": [
+      {
+        "src": "assets/products/safebox-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "Clas Ohlson",
+        "sourcePage": "https://www.clasohlson.com/no/Brennenstuhl-beskyttelsesboks-for-skjoteledninger%2C-ekstra-stor/p/36-9586",
+        "sourceUrl": "https://images.clasohlson.com/medias/sys_master/h38/hc3/68917269037086.jpg",
+        "width": 1200,
+        "height": 381,
+        "bytes": 29550,
+        "sha256": "85eae9b6cce51f4151bfb41219ef03568cefa7727796b10dbcef4d58800e9c60"
+      }
+    ],
+    "picorelay": [
+      {
+        "src": "assets/products/picorelay-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "FrightProps",
+        "sourcePage": "https://www.frightprops.com/picorelay.html",
+        "sourceUrl": "https://www.frightprops.com/media/catalog/product/cache/6517c62f5899ad6aa0ba23ceb3eeff97/p/i/picorelay_-_copy.jpg",
+        "width": 265,
+        "height": 265,
+        "bytes": 11125,
+        "sha256": "0584a25e7e3502017bb2cbded722d610e47057ad5663d8b53b265dcfaf777449"
+      }
+    ],
+    "dmx": [
+      {
+        "src": "assets/products/dmx-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "Gear4music",
+        "sourcePage": "https://www.gear4music.no/no/PA-DJ-and-belysning/Enttec-DMX-USB-PRO-Interface/2Z73",
+        "sourceUrl": "https://r2.gear4music.com/media/47/475722/1200/preview.jpg",
+        "width": 1200,
+        "height": 1200,
+        "bytes": 91287,
+        "sha256": "e07ce1dace44fb8adb8a19206c7b8dccd7ffeb6dfebad4a976eefcc70189045f"
+      }
+    ],
+    "hue-psu": [
+      {
+        "src": "assets/products/hue-psu-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "Lampemesteren",
+        "sourcePage": "https://www.lampemesteren.no/p/100w-power-supply-hue-outdoor-ip67-philips-hue-70023912.html",
+        "sourceUrl": "https://lw-cdn.com/images/9D2E06026232/k_754a4a4b093ae92021dd3b4993be5dac;w_535;h_535;q_90/70023912.jpg",
+        "width": 535,
+        "height": 535,
+        "bytes": 10855,
+        "sha256": "519d90edbe05bf6047c62c99779dc5ff6f5ee2e74e00f429127a89893ab3dc67"
+      }
+    ],
+    "hue-extension": [
+      {
+        "src": "assets/products/hue-extension-1.jpg",
+        "caption": "Product photo",
+        "sourceName": "Philips Hue Norway",
+        "sourcePage": "https://www.philips-hue.com/no-no/p/tilbehor-utendors-5-m-skjoteledning/1742430PN",
+        "sourceUrl": "https://www.assets.signify.com/is/image/Signify/1736830PN-915006001601-RTP",
+        "width": 2400,
+        "height": 2400,
+        "bytes": 185935,
+        "sha256": "e5438442d162198cad1a6417d26c5f7fe15eb5b02265e70a5c474e862ec8fc84"
+      }
+    ]
+  }
+}

@@ -47,6 +47,7 @@ private struct ControlReply: Decodable {
     let state: String?
     let motionArmed: Bool?
     let requestedMotionArmed: Bool?
+    let audioEnabled: Bool?
     let audioState: String?
     let audioError: String?
     let idleGlow: Bool?
@@ -62,6 +63,7 @@ private struct ControlReply: Decodable {
         case ok, state, volume, message, clips, phase
         case motionArmed = "motion_armed"
         case requestedMotionArmed = "requested_motion_armed"
+        case audioEnabled = "audio_enabled"
         case audioState = "audio_state"
         case audioError = "audio_error"
         case idleGlow = "idle_glow"
@@ -76,6 +78,8 @@ private struct ControlReply: Decodable {
     @Published var connected = false
     @Published var busy = false
     @Published var pendingActions: Set<String> = []
+    @Published var soundEnabled = false
+    @Published var soundKnown = false
     @Published var armed = false
     @Published var sequenceActive = false
     @Published var previewState = ""
@@ -140,7 +144,7 @@ private struct ControlReply: Decodable {
     }
 
     private nonisolated static func request(_ action: String, value: String?) -> Data {
-        let actions: Set<String> = ["library","status","arm","start","stop","flash","thunder","on","off","volume","play","events"]
+        let actions: Set<String> = ["library","status","arm","sound","start","stop","flash","thunder","on","off","volume","play","events"]
         guard actions.contains(action) else { return Data() }
         let process = Process()
         process.executableURL = URL(fileURLWithPath:"/usr/bin/ssh")
@@ -298,6 +302,8 @@ private struct ControlReply: Decodable {
                 self.message = body.message ?? "The controller couldn’t complete that action."
                 return
             }
+            self.soundKnown = body.audioEnabled != nil
+            if let enabled = body.audioEnabled { self.soundEnabled = enabled }
             self.ingestActivity(body)
             let names = ["idle":"Idle · lights off", "starting":"Preparing lights…", "playing":"Horror scene running",
                          "thunder":"Playing sound", "lights_on":"Yellow lights on", "retrying":"Reconnecting lights…",
@@ -378,6 +384,18 @@ struct ControlView: View {
             }.padding(12)
                 .background(RoundedRectangle(cornerRadius:12).fill(controls.armed ? Color.green.opacity(0.09) : Color.secondary.opacity(0.06)))
                 .overlay(RoundedRectangle(cornerRadius:12).stroke(controls.armed ? Color.green.opacity(0.35) : Color.secondary.opacity(0.15),lineWidth:1))
+            HStack(spacing:12) {
+                VStack(alignment:.leading,spacing:3) {
+                    Label("Sound",systemImage:controls.soundEnabled ? "speaker.wave.2.fill":"speaker.slash.fill").font(.headline)
+                    Text(!controls.connected ? "Reconnecting…" : !controls.soundKnown ? "Controller update required" : controls.soundEnabled ? "Thunder, laughter & screams enabled" : "SILENT · lights only, including manual tests")
+                        .font(.caption).foregroundStyle(controls.soundEnabled ? Color.secondary : Color.orange)
+                }
+                Spacer()
+                Toggle("Sound",isOn:Binding(get:{controls.soundEnabled},set:{controls.command("sound",value:$0 ? "on":"off")}))
+                    .labelsHidden().toggleStyle(.switch).tint(.orange)
+                    .disabled(!controls.soundKnown || !controls.canSend("sound"))
+                Text(controls.soundEnabled ? "ON":"OFF").font(.headline.monospaced()).frame(width:34)
+            }.padding(12).background(RoundedRectangle(cornerRadius:12).fill(Color.orange.opacity(0.08)))
             HStack(spacing:12) {
                 Image(systemName:"cloud.bolt.rain.fill").font(.system(size:34)).foregroundStyle(.orange)
                 VStack(alignment:.leading,spacing:3) {

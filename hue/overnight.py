@@ -42,9 +42,12 @@ class Overnight:
     def report(self, c):
         c.status(overnight_enabled=self.enabled, overnight_until=iso(self.until),
                  overnight_next_at=iso(self.next_at) if self.enabled else None,
-                 audio_enabled=False)
+                 audio_enabled=bool(c.settings.get('audio_enabled', False)))
 
     async def run(self, c, sleep=asyncio.sleep):
+        if not self.enabled:
+            self.report(c)
+            return
         # A configuration mistake must never turn an overnight show into sound.
         if c.settings.get('audio_enabled') or c.sonos is not None:
             self.stop(c, 'Overnight refused: audio must be disabled')

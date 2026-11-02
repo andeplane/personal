@@ -19,7 +19,7 @@ def validate_command(body):
     action = body.get('action')
     if action in ('status', 'library', 'start', 'stop'):
         return {'action': action}
-    if action == 'arm' and isinstance(body.get('enabled'), bool):
+    if action in ('arm', 'sound') and isinstance(body.get('enabled'), bool):
         return {'action': action, 'enabled': body['enabled']}
     if action == 'events':
         before = body.get('before')

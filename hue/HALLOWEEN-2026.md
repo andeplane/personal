@@ -130,3 +130,16 @@ The final indoor-pair test reported matching brightness in all 32 samples:
 ten-write budget; the pair reserves both command slots together. This verifies
 commands and Bridge-reported state, not exact optical timing across bulb models.
 The outside-house placement has not had a fresh camera/microphone calibration.
+
+## Sound switch (November 2026)
+
+Both the Mac and iPhone apps show a controller-confirmed **Sound ON/OFF** switch
+near the top. OFF means all scenes and previews are lights-only; it also stops
+our current sound without cancelling the light sequence. ON enables sound for
+the next scene and cancels any silent overnight timer. Neither changes motion
+arming. The preference survives app and controller restarts.
+
+A new overnight schedule always starts silent, even if sound was previously ON.
+Afterwards use Sound ON in either app to resume audio; no SSH edit is needed.
+The controller logs sound changes. The CLI equivalent is `control.py sound on`
+or `control.py sound off`. Status replies always include `audio_enabled`.

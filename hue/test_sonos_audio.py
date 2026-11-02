@@ -35,6 +35,12 @@ class BackendTests(unittest.TestCase):
         for path in ('other.wav', '../secret.json'):
             with self.assertRaises(ValueError):self.audio._play(path)
 
+    def test_muted_policy_blocks_a_late_queued_play_without_touching_speaker(self):
+        self.audio.sound_allowed = lambda: False
+        self.audio._play('close-crack.wav')
+        self.speaker.play_uri.assert_not_called()
+        self.assertEqual(self.speaker.volume, 22)
+
     def test_explicit_volume_50_is_supported(self):
         self.audio.config['volume'] = 50
         self.audio._play('close-crack.wav')

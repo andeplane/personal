@@ -265,7 +265,7 @@ class Controller:
             from overnight import Overnight
             self.overnight = Overnight(settings['overnight_file'])
             # Keep the controller silent even after the timer expires. Audio
-            # requires an explicit configuration change and controller restart.
+            # can be explicitly enabled from the app; preferences are restored in open().
             self.settings['audio_enabled'] = False
         if settings.get('activity_file'):
             try:
@@ -298,6 +298,7 @@ class Controller:
             self.activity_started = True
             self.activity('scene', 'Scene started', source=self.activity_run)
         self.health.update(values, updated_at=datetime.now(timezone.utc).isoformat())
+        self.health['audio_enabled'] = bool(self.settings.get('audio_enabled', False))
         if self.settings.get('status_file'):
             path = Path(self.settings['status_file'])
             path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
@@ -387,9 +388,16 @@ class Controller:
             connector=aiohttp.TCPConnector(ssl=pin),
             headers={'hue-application-key': self.credentials['username']},
             timeout=aiohttp.ClientTimeout(total=10))
+        from sound_control import restore_sound, save_controls
+        saved = {}
+        control_state = self.settings.get('control_state_file')
+        if control_state and Path(control_state).exists():
+            saved = json.loads(Path(control_state).read_text())
+        restore_sound(self, saved)
         if self.settings.get('audio_enabled') and self.settings.get('audio_backend') == 'sonos':
             from sonos_audio import SonosAudio
             self.sonos = SonosAudio(self.settings['sonos_config'])
+            self.sonos.sound_allowed = lambda: bool(self.settings.get('audio_enabled', False))
             self.health['volume'] = self.sonos.config['volume']
         if self.settings.get('sound_library'):
             from sound_library import SoundLibrary
@@ -401,11 +409,9 @@ class Controller:
             await self.library.serve(self.settings['media_bind'], self.settings['media_port'])
             if self.sonos:
                 self.sonos.library = self.library
-        control_state = self.settings.get('control_state_file')
-        if control_state and Path(control_state).exists():
-            saved = json.loads(Path(control_state).read_text())
-            self.motion_armed = saved.get('motion_armed', True)
-            self.idle_glow_enabled = saved.get('idle_glow_enabled', True)
+        self.motion_armed = saved.get('motion_armed', True)
+        self.idle_glow_enabled = saved.get('idle_glow_enabled', True)
+        save_controls(self)
         self.status(motion_armed=self.motion_armed)
 
     def set_armed(self, enabled):
@@ -413,12 +419,8 @@ class Controller:
             self.activity('monitor', 'Automatic motion armed' if enabled else 'Automatic motion paused', source='manual')
         self.motion_armed = enabled
         self.status(motion_armed=enabled)
-        if self.settings.get('control_state_file'):
-            path = Path(self.settings['control_state_file'])
-            temp = path.with_suffix('.tmp')
-            temp.write_text(json.dumps({'motion_armed': enabled,'idle_glow_enabled':self.idle_glow_enabled}))
-            temp.chmod(0o600)
-            temp.replace(path)
+        from sound_control import save_controls
+        save_controls(self)
 
     def set_idle_glow(self, enabled):
         self.idle_glow_enabled = enabled

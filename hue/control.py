@@ -9,7 +9,7 @@ import sys
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action',choices=('status','start','stop','flash','thunder','on','off','arm','volume','library','events','play'))
+    parser.add_argument('action',choices=('status','start','stop','flash','thunder','on','off','arm','sound','volume','library','events','play'))
     parser.add_argument('value',nargs='?')
     args=parser.parse_args()
     command={'action':args.action}
@@ -23,8 +23,8 @@ def main():
         if args.value is not None:
             if not args.value.isdigit() or int(args.value) <= 0:parser.error('events needs a positive cursor')
             command['before'] = int(args.value)
-    elif args.action=='arm':
-        if args.value not in ('on','off'):parser.error('arm needs on or off')
+    elif args.action in ('arm','sound'):
+        if args.value not in ('on','off'):parser.error(args.action+' needs on or off')
         command['enabled']=args.value=='on'
     elif args.action=='volume':
         try:volume=int(args.value)

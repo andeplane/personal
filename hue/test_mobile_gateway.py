@@ -24,7 +24,7 @@ class MobileGatewayTests(unittest.IsolatedAsyncioTestCase):
         self.forward.assert_not_awaited()
 
     async def test_controls_and_log_pagination_are_forwarded(self):
-        for command in ({'action':'arm','enabled':True},{'action':'start'},
+        for command in ({'action':'arm','enabled':True},{'action':'sound','enabled':True},{'action':'sound','enabled':False},{'action':'start'},
                         {'action':'stop'},{'action':'library'},{'action':'events','before':123}):
             response=await self.client.post('/control',json=command,headers=self.headers)
             self.assertEqual(response.status,200)
@@ -32,7 +32,7 @@ class MobileGatewayTests(unittest.IsolatedAsyncioTestCase):
             self.forward.assert_awaited_with('/private/test.sock',command)
 
     async def test_invalid_commands_do_not_mutate_controller(self):
-        for command in ({'action':'volume','value':100},{'action':'arm','enabled':'true'},
+        for command in ({'action':'volume','value':100},{'action':'sound','enabled':'true'},{'action':'arm','enabled':'true'},
                         {'action':'events','before':False},{'action':'events','before':-1},['start']):
             response=await self.client.post('/control',json=command,headers=self.headers)
             self.assertEqual(response.status,400)

@@ -106,6 +106,7 @@ private struct ControlReply: Decodable {
     let motionArmed: Bool?
     let requestedMotionArmed: Bool?
     let message: String?
+    let audioEnabled: Bool?
     let audioError: String?
     let idleGlow: Bool?
     let activity: [ActivityRecord]?
@@ -114,6 +115,7 @@ private struct ControlReply: Decodable {
     enum CodingKeys: String, CodingKey {
         case ok, state, phase, message, activity
         case motionArmed = "motion_armed", requestedMotionArmed = "requested_motion_armed"
+        case audioEnabled = "audio_enabled"
         case audioError = "audio_error", activityMore = "activity_more", activityError = "activity_error"
         case idleGlow = "idle_glow"
     }
@@ -169,6 +171,8 @@ private final class ControlClient: @unchecked Sendable {
 @MainActor private final class Controls: ObservableObject {
     @Published var connected = false
     @Published var paired = false
+    @Published var soundEnabled = false
+    @Published var soundKnown = false
     @Published var motionArmed = false
     @Published var motionChanging = false
     @Published var pending: Set<String> = []
@@ -272,6 +276,8 @@ private final class ControlClient: @unchecked Sendable {
     }
     private func apply(_ reply: ControlReply) {
         connected = true;lastUpdated = Date()
+        soundKnown = reply.audioEnabled != nil
+        if let enabled = reply.audioEnabled { soundEnabled = enabled }
         if let armed = reply.motionArmed { motionArmed = armed }
         motionChanging = reply.requestedMotionArmed != nil
         let raw = reply.state ?? "idle"
@@ -319,6 +325,18 @@ private struct ContentView: View {
                             .font(.caption2).foregroundStyle(.secondary)
                     }.padding(16)
                         .background(controls.motionArmed ? Color.green.opacity(0.10) : Color.secondary.opacity(0.08),in:RoundedRectangle(cornerRadius:20))
+                    HStack(spacing:14) {
+                        VStack(alignment:.leading,spacing:5) {
+                            Label("Sound",systemImage:controls.soundEnabled ? "speaker.wave.2.fill":"speaker.slash.fill").font(.headline)
+                            Text(!controls.connected ? "Reconnecting…" : !controls.soundKnown ? "Controller update required" : controls.soundEnabled ? "Thunder, laughter & screams enabled" : "SILENT · lights only, including tests")
+                                .font(.caption).foregroundStyle(controls.soundEnabled ? Color.secondary : Color.orange)
+                        }
+                        Spacer(minLength:4)
+                        Toggle("Sound",isOn:Binding(get:{controls.soundEnabled},set:{controls.command("sound",enabled:$0)}))
+                            .labelsHidden().tint(.orange)
+                            .disabled(!controls.connected || !controls.soundKnown || controls.pending.contains("sound"))
+                        Text(controls.soundEnabled ? "ON":"OFF").font(.headline.monospaced()).frame(width:36)
+                    }.padding(16).background(Color.orange.opacity(0.08),in:RoundedRectangle(cornerRadius:20))
                     HStack(alignment:.top,spacing:12) {
                         Image(systemName:"cloud.bolt.rain.fill").font(.largeTitle).foregroundStyle(.orange)
                         VStack(alignment:.leading,spacing:6) {

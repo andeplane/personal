@@ -1,6 +1,6 @@
 # Hue Halloween for iPhone
 
-Native SwiftUI controls for motion on/off, the full horror scene, Stop & dark,
+Native SwiftUI controls for motion on/off, persistent Sound ON/OFF, the full horror scene, Stop & dark,
 and live activity with older-page loading. The app polls every two seconds while
 active and shows controller-confirmed state rather than assuming a command worked.
 After a long reconnect gap it restarts the contiguous latest activity page, so

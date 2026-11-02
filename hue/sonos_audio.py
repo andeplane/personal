@@ -41,6 +41,7 @@ class SonosAudio:
         self.applied_volume = None
         self.lock = threading.RLock()
         self.library = None
+        self.sound_allowed = lambda: True
 
     def _resolve(self):
         if self.speaker is not None and _can_connect(self.speaker.ip_address):
@@ -64,6 +65,8 @@ class SonosAudio:
             self._play_locked(path)
 
     def _play_locked(self, path):
+        if not self.sound_allowed():
+            return
         path = Path(path)
         if path.name not in ('close-crack.wav', 'rolling-crack.wav') and not (self.library and self.library.files.get(path.name) == path):
             raise ValueError('Only registered sound files may be played.')

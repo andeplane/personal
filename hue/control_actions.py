@@ -11,7 +11,8 @@ from pathlib import Path
 
 
 def _reply(c):
-    return {'ok': True, **c.health, 'motion_armed': c.motion_armed}
+    return {'ok': True, **c.health, 'motion_armed': c.motion_armed,
+            'audio_enabled': bool(c.settings.get('audio_enabled', False))}
 
 
 def _active(task):
@@ -204,7 +205,12 @@ async def dispatch(c, command):
         # lets the UI show the desired switch position without arming early.
         c.set_armed(False)
         _queue_lighting(c, action, enabled)
+    elif action == 'sound':
+        from sound_control import set_sound
+        await set_sound(c, command.get('enabled'))
     elif action == 'play':
+        if not c.settings.get('audio_enabled', bool(c.sonos)):
+            raise ValueError('Sound is off. Turn Sound on to preview sounds.')
         if not c.library or not c.sonos:
             raise ValueError('Sound library is not enabled')
         ids, mode = command.get('ids'), command.get('mode')

@@ -1,0 +1,78 @@
+{
+  "id": "enigma-left-frame-pla-pva-20261103-a1",
+  "title": "Enigma · M01/P01 complete left-frame cleanup and rod-fit trial",
+  "project": "Enigma Doublestep",
+  "printer": "Bambu Lab X2D",
+  "status": "planned",
+  "preparationState": "NORMAL_MAIN_PREPARATION_PASS_PHYSICAL_START_HOLD",
+  "recordedAt": "2026-11-03T14:35:52.875131+00:00",
+  "updatedAt": "2026-11-03T18:05:09.408260+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "plate": 1,
+  "parts": [
+    "M01/P01 · One complete left rotor support frame"
+  ],
+  "estimatedSeconds": 19605,
+  "actualSeconds": null,
+  "estimatedGrams": 82.1,
+  "actualGrams": null,
+  "estimatedMeters": 26.99,
+  "material": "Bambu PLA Basic red model · intended main physical 0; Bambu PVA body/interface support · intended secondary physical 1; installed feed mapping unverified",
+  "color": "#C12E1F",
+  "layerHeightMm": 0.2,
+  "firstLayerHeightMm": 0.2,
+  "nozzleMm": 0.4,
+  "layers": 211,
+  "preview": "assets/enigma-left-frame-pla-pva-20261103-a1/plan.png",
+  "layout": "assets/enigma-left-frame-pla-pva-20261103-a1/layout.png",
+  "snapshots": [],
+  "evidenceImages": [
+    {
+      "src": "assets/enigma-left-frame-pla-pva-20261103-a1/model-toolpaths.png",
+      "kind": "derived-toolpaths",
+      "caption": "Actual model and support toolpaths at critical layers; finite digital inspection only.",
+      "sha256": "cec7af5c6532775e7f901bcba675db7a6f3e3ee14db09b697fd5f47e2ef1dd0f"
+    },
+    {
+      "src": "assets/enigma-left-frame-pla-pva-20261103-a1/support-access.png",
+      "kind": "derived-toolpaths",
+      "caption": "Both-face permanent features and removable PVA support; physical cleanup unverified.",
+      "sha256": "bdca5c243f897891158ef58ae5ff1ffca4d32a4b0d73084cd55f8fcc47ce9d74"
+    },
+    {
+      "src": "assets/enigma-left-frame-pla-pva-20261103-a1/complete-plate.png",
+      "kind": "derived-toolpaths",
+      "caption": "Actual complete-plate toolpaths, including PVA support base and prime tower; no generated model-brim paths.",
+      "sha256": "f21e43abae6d4f7fba860686a8b0ac013e780f1306245a8f5330a5fd616747e7"
+    }
+  ],
+  "source": {
+    "filename": "M01_P01_FRAME_LEFT_FLAT_SLICED.3mf",
+    "sha256": "9f9d432eb74341fa61ef767e0711edffa549ccb12334a07d06cfc1a8bf515bf8",
+    "editableSha256": "811fec5a0660a884b05c1e2ede12ccbe2edf90cccad9925c1e57b94c7e22f3f3",
+    "gcodeSha256": "388e0bcebf44c7aea5b5572bc47602697720ba0d06df0aa97ab83909a41243ff",
+    "releaseCommit": "a09bce9a832d4eff9cd5250bab5229734f133895",
+    "releasePullRequest": "https://github.com/andeplane/openenigma/pull/212",
+    "currentMainVerified": "a09bce9a832d4eff9cd5250bab5229734f133895",
+    "guideFingerprint": "6a1097ce55eafc715842b891c81e4a87868a2e8f658a67873502ea3425bd0338"
+  },
+  "jobName": "mechanical-frame-left-pla-pva",
+  "notes": "Planned only; not uploaded or started. ONE unchanged complete native M01/P01 in reviewed flat placement, with full PVA supports, zero interface gaps, 0.2 mm layers, four walls, 30% gyroid, textured PEI and two 0.4 mm nozzles. Estimate: 45.62 g PLA and 36.48 g PVA. Although the profile requests an 8 mm model brim, actual G-code emits none; bed contact uses the PVA support base and separate tower, audited within plate bounds. Roughly 12 mm support beneath the broad body. Finite native/toolpath feature checks and exact mesh comparison do not prove adhesion, cleanup, bore fit or loaded operation. User reports right-frame cleanup and intended 5 mm rod fit not checked yet; physical start hold remains. Fresh printer ownership, bed/feed/material mapping and exact upload/readback checks required before any future authorized start. No camera or actual print measurements exist for this planned attempt. Normal preparation from clean, pushed, up-to-date main passed with all open PRs checked; unchanged audit-only PR189 remains unselected. All staged files match their pinned hashes and the successful exact-slice/auditor review. 82 affected tests passed on home-mini; the broader historical-job CI suite is separate.",
+  "physicalInspection": {
+    "rightFrameCleanupAndRodFit": "Not checked yet, per human",
+    "leftFrameCleanupVerified": false,
+    "leftFrameRodFitVerified": false,
+    "loadedOperationVerified": false
+  },
+  "printerStartAuthorized": false,
+  "preparationEvidence": {
+    "status": "NORMAL_CURRENT_MAIN_PREPARATION_PASS",
+    "receiptSha256": "f573fa31ab2a4c1f967d858c4ed1cee840ab0c3960bc984a1a5f5de69425e3d7",
+    "artifactReviewSha256": "af20d615a9442f8c148d24a7dc3ad1833e1addef791c6f70f39c3546fa00598d",
+    "stagedFilesHashVerified": true,
+    "exactSliceAndAuditorHashesMatchReviewedEvidence": true,
+    "printerUploaded": false,
+    "printerStartAuthorized": false
+  }
+}

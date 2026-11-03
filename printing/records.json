@@ -56,7 +56,8 @@
       "releaseCommit": "a09bce9a832d4eff9cd5250bab5229734f133895",
       "releasePullRequest": "https://github.com/andeplane/openenigma/pull/212",
       "currentMainVerified": "a09bce9a832d4eff9cd5250bab5229734f133895",
-      "guideFingerprint": "6a1097ce55eafc715842b891c81e4a87868a2e8f658a67873502ea3425bd0338"
+      "guideFingerprint": "6a1097ce55eafc715842b891c81e4a87868a2e8f658a67873502ea3425bd0338",
+      "file": "M01_P01_FRAME_LEFT_FLAT_SLICED.3mf"
     },
     "jobName": "mechanical-frame-left-pla-pva",
     "notes": "Planned only; not uploaded or started. ONE unchanged complete native M01/P01 in reviewed flat placement, with full PVA supports, zero interface gaps, 0.2 mm layers, four walls, 30% gyroid, textured PEI and two 0.4 mm nozzles. Estimate: 45.62 g PLA and 36.48 g PVA. Although the profile requests an 8 mm model brim, actual G-code emits none; bed contact uses the PVA support base and separate tower, audited within plate bounds. Roughly 12 mm support beneath the broad body. Finite native/toolpath feature checks and exact mesh comparison do not prove adhesion, cleanup, bore fit or loaded operation. User reports right-frame cleanup and intended 5 mm rod fit not checked yet; physical start hold remains. Fresh printer ownership, bed/feed/material mapping and exact upload/readback checks required before any future authorized start. No camera or actual print measurements exist for this planned attempt. Normal preparation from clean, pushed, up-to-date main passed with all open PRs checked; unchanged audit-only PR189 remains unselected. All staged files match their pinned hashes and the successful exact-slice/auditor review. 82 affected tests passed on home-mini; the broader historical-job CI suite is separate.",

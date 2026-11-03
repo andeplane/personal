@@ -143,3 +143,16 @@ A new overnight schedule always starts silent, even if sound was previously ON.
 Afterwards use Sound ON in either app to resume audio; no SSH edit is needed.
 The controller logs sound changes. The CLI equivalent is `control.py sound on`
 or `control.py sound off`. Status replies always include `audio_enabled`.
+
+## Guest room returned to normal lighting — 3 November 2026
+
+The two Guest room spots are detached from Halloween. Their earlier overnight
+mirroring setup above is historical: remove both from the controller's selected
+lights, colour mirrors, idle glow and its Hue light group. They must remain
+ordinary room lights controlled by the Hue app or wall switch. Do not add them
+back to flashes or automatic dark/reset commands without a new user request.
+
+The deployed controller selects only the two outdoor colour lamps, the mask and
+Stålampe. The Guest room's own Hue Room remains intact. Both spots use their
+normal safety power-on behaviour and were set to full warm-white brightness.
+Verified that the controller restart and Halloween Stop leave both spots on.

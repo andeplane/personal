@@ -3,11 +3,11 @@
   "title": "Enigma \u00b7 P01 revision M01 left-frame PLA/PVA trial",
   "project": "Enigma Doublestep",
   "printer": "Bambu Lab X2D",
-  "status": "planned",
-  "preparationState": "NORMAL_CURRENT_MAIN_AND_READBACK_PASS_PVA_DETECTION_HOLD",
+  "status": "printing",
+  "preparationState": "ACCEPTED_ONCE_PREPARING",
   "recordedAt": "2026-11-04T20:32:35.695423+00:00",
-  "updatedAt": "2026-11-04T20:36:57.175594+00:00",
-  "startedAt": null,
+  "updatedAt": "2026-11-04T20:56:03.901049+00:00",
+  "startedAt": "2026-11-04T20:54:58.049119+00:00",
   "finishedAt": null,
   "plate": 1,
   "parts": [
@@ -32,6 +32,12 @@
       "capturedAt": "2026-11-04T20:21:28.907256+00:00",
       "caption": "Pre-start camera: empty build area with four old rectangular marks. Human confirms no material on the plate; this is not a finished-print photo.",
       "sha256": "c06aa6f1301a8e9b6b5d96ba30184396cf88564aa47b083133ca96b0b07a03e7"
+    },
+    {
+      "src": "assets/enigma-left-frame-pla-pva-20261104-a1/preparing-205535.jpg",
+      "capturedAt": "2026-11-04T20:55:35.476831+00:00",
+      "caption": "Accepted left-frame job preparing; no deposition visible yet. Old rectangular bed marks remain.",
+      "sha256": "651a7d3aee3bd68656b3b0fb9bf6dea5f4f44e159330c4076d261693a6d312e5"
     }
   ],
   "evidenceImages": [
@@ -62,14 +68,14 @@
     "releaseCommit": "a09bce9a832d4eff9cd5250bab5229734f133895",
     "releasePullRequest": "https://github.com/andeplane/openenigma/pull/212",
     "currentMainVerified": "bba58ab15a9af88a1cd37861e8da95b4c0ef7294",
-    "guideFingerprint": "6a1097ce55eafc715842b891c81e4a87868a2e8f658a67873502ea3425bd0338",
+    "guideFingerprint": "6cb63c721c0deb79fbc102ebcc4c5939a3d40c93df110fcb6eb6f24376930703",
     "file": "M01_P01_FRAME_LEFT_FLAT_SLICED.3mf",
     "identityReleasePullRequest": "https://github.com/andeplane/openenigma/pull/213",
     "sliceGeometryUnchanged": true,
     "currentPreparationCommit": "bba58ab15a9af88a1cd37861e8da95b4c0ef7294"
   },
   "jobName": "mechanical-frame-left-pla-pva",
-  "notes": "New human-authorized November 4 attempt; November 3 preparation was never uploaded or started. Exact unchanged left-frame slice and native geometry remain from the reviewed earlier release. Current-main identity release binds P01 revision M01 explicitly; no CAD or slice bytes changed. Human confirms the entire bed is clear and actual PVA extrusion on the secondary nozzle. Camera outlines are old marks, per human. Pending final clean-main normal preparation, exact upload/readback and accepted job identity. Physical cleanup, 5 mm rod fit and loaded operation remain unverified. Current clean-main preparation passed on bba58ab1 with all121 staged files verified; unchanged audit-only PR189 remains unselected. The uniquely uploaded archive was downloaded and matches exact reviewed SHA256bytes. After the human extrusion check, AMS-HT reported its slot empty/no material; start is held for physical PVA reinsertion and fresh detection. No print-start command sent.",
+  "notes": "One complete P01 revision M01 left-frame cleanup and unloaded rod-fit trial. Current clean-main preparation passed on bba58ab1 with121 staged files verified. The native geometry and exact slice bytes are unchanged from reviewed PR212; PR213 adds the identity registry. Unique upload/readback matches reviewed slice SHA256. After brittle PVA broke during manual loading, the human removed the bad section and reloaded it. Secondary nozzle reported LOADED, AMS Assist/Engaged, printer IDLE/error0 before start. The same PVA spool now reports unknown remaining quantity and manual grey color metadata; earlier RFID estimated74percent of500g, not a new measurement. Start accepted once with matching file, plate1, MD5 and sequence11042040, task1097. Fresh camera shows preparation, not deposition. Physical cleanup,5mm rod fit and loaded operation remain unverified. No further starts authorized.",
   "physicalInspection": {
     "rightFrameCleanupAndRodFit": "Not checked yet, per human",
     "leftFrameCleanupVerified": false,
@@ -78,7 +84,7 @@
   },
   "printerStartAuthorized": true,
   "preparationEvidence": {
-    "status": "NORMAL_CURRENT_MAIN_AND_READBACK_PASS_PVA_DETECTION_HOLD",
+    "status": "ACCEPTED_ONCE_PREPARING",
     "currentMainCommit": "bba58ab15a9af88a1cd37861e8da95b4c0ef7294",
     "receiptSha256": "aca24ceb8a9ad13397695b7d54e1a789630ce7097e93822bbf1ac3774fc0306f",
     "artifactReviewSha256": "ec50c96b41261cebfec7c48e2b4263193c43a287f8af5dc9e451f8a7d52ccda1",
@@ -88,6 +94,16 @@
     "printerUploaded": true,
     "uploadReadbackIdentical": true,
     "printerStartAuthorized": true,
-    "printerStartSent": false
+    "printerStartSent": true
+  },
+  "acceptedJob": {
+    "subtask_name": "Enigma_P01_9f9d432e_20261104_a1.gcode",
+    "gcode_file": "/data/Metadata/plate_1.gcode",
+    "md5": "0d038dad5ab43c6e4f2be39c419191a8",
+    "task_id": "1097",
+    "observed_at": "2026-11-04T20:54:58.049119+00:00",
+    "sequenceId": "11042040",
+    "uploadedFile": "/Enigma_P01_9f9d432e_20261104_a1.gcode.3mf",
+    "printerState": "PREPARE"
   }
 }

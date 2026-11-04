@@ -1,11 +1,104 @@
 [
   {
+    "id": "enigma-left-frame-pla-pva-20261104-a1",
+    "title": "Enigma · P01 revision M01 left-frame PLA/PVA trial",
+    "project": "Enigma Doublestep",
+    "printer": "Bambu Lab X2D",
+    "status": "planned",
+    "preparationState": "NORMAL_CURRENT_MAIN_AND_READBACK_PASS_PVA_DETECTION_HOLD",
+    "recordedAt": "2026-11-04T20:32:35.695423+00:00",
+    "updatedAt": "2026-11-04T20:36:57.175594+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "plate": 1,
+    "parts": [
+      "P01 · revision M01 · One complete left rotor support frame"
+    ],
+    "estimatedSeconds": 19605,
+    "actualSeconds": null,
+    "estimatedGrams": 82.1,
+    "actualGrams": null,
+    "estimatedMeters": 26.99,
+    "material": "Bambu PLA Basic red model · main physical 0; Bambu PVA body/interface support · secondary physical 1; fresh installed mapping verified; human confirms PVA extrusion",
+    "color": "#C12E1F",
+    "layerHeightMm": 0.2,
+    "firstLayerHeightMm": 0.2,
+    "nozzleMm": 0.4,
+    "layers": 211,
+    "preview": "assets/enigma-left-frame-pla-pva-20261104-a1/plan.png",
+    "layout": "assets/enigma-left-frame-pla-pva-20261104-a1/layout.png",
+    "snapshots": [
+      {
+        "src": "assets/enigma-left-frame-pla-pva-20261104-a1/preflight-bed.jpg",
+        "capturedAt": "2026-11-04T20:21:28.907256+00:00",
+        "caption": "Pre-start camera: empty build area with four old rectangular marks. Human confirms no material on the plate; this is not a finished-print photo.",
+        "sha256": "c06aa6f1301a8e9b6b5d96ba30184396cf88564aa47b083133ca96b0b07a03e7"
+      }
+    ],
+    "evidenceImages": [
+      {
+        "src": "assets/enigma-left-frame-pla-pva-20261104-a1/model-toolpaths.png",
+        "kind": "derived-toolpaths",
+        "caption": "Actual model and support toolpaths at critical layers; finite digital inspection only.",
+        "sha256": "cec7af5c6532775e7f901bcba675db7a6f3e3ee14db09b697fd5f47e2ef1dd0f"
+      },
+      {
+        "src": "assets/enigma-left-frame-pla-pva-20261104-a1/support-access.png",
+        "kind": "derived-toolpaths",
+        "caption": "Both-face permanent features and removable PVA support; physical cleanup unverified.",
+        "sha256": "bdca5c243f897891158ef58ae5ff1ffca4d32a4b0d73084cd55f8fcc47ce9d74"
+      },
+      {
+        "src": "assets/enigma-left-frame-pla-pva-20261104-a1/complete-plate.png",
+        "kind": "derived-toolpaths",
+        "caption": "Actual complete-plate toolpaths, including PVA support base and prime tower; no generated model-brim paths.",
+        "sha256": "f21e43abae6d4f7fba860686a8b0ac013e780f1306245a8f5330a5fd616747e7"
+      }
+    ],
+    "source": {
+      "filename": "M01_P01_FRAME_LEFT_FLAT_SLICED.3mf",
+      "sha256": "9f9d432eb74341fa61ef767e0711edffa549ccb12334a07d06cfc1a8bf515bf8",
+      "editableSha256": "811fec5a0660a884b05c1e2ede12ccbe2edf90cccad9925c1e57b94c7e22f3f3",
+      "gcodeSha256": "388e0bcebf44c7aea5b5572bc47602697720ba0d06df0aa97ab83909a41243ff",
+      "releaseCommit": "a09bce9a832d4eff9cd5250bab5229734f133895",
+      "releasePullRequest": "https://github.com/andeplane/openenigma/pull/212",
+      "currentMainVerified": "bba58ab15a9af88a1cd37861e8da95b4c0ef7294",
+      "guideFingerprint": "6a1097ce55eafc715842b891c81e4a87868a2e8f658a67873502ea3425bd0338",
+      "file": "M01_P01_FRAME_LEFT_FLAT_SLICED.3mf",
+      "identityReleasePullRequest": "https://github.com/andeplane/openenigma/pull/213",
+      "sliceGeometryUnchanged": true,
+      "currentPreparationCommit": "bba58ab15a9af88a1cd37861e8da95b4c0ef7294"
+    },
+    "jobName": "mechanical-frame-left-pla-pva",
+    "notes": "New human-authorized November 4 attempt; November 3 preparation was never uploaded or started. Exact unchanged left-frame slice and native geometry remain from the reviewed earlier release. Current-main identity release binds P01 revision M01 explicitly; no CAD or slice bytes changed. Human confirms the entire bed is clear and actual PVA extrusion on the secondary nozzle. Camera outlines are old marks, per human. Pending final clean-main normal preparation, exact upload/readback and accepted job identity. Physical cleanup, 5 mm rod fit and loaded operation remain unverified. Current clean-main preparation passed on bba58ab1 with all121 staged files verified; unchanged audit-only PR189 remains unselected. The uniquely uploaded archive was downloaded and matches exact reviewed SHA256bytes. After the human extrusion check, AMS-HT reported its slot empty/no material; start is held for physical PVA reinsertion and fresh detection. No print-start command sent.",
+    "physicalInspection": {
+      "rightFrameCleanupAndRodFit": "Not checked yet, per human",
+      "leftFrameCleanupVerified": false,
+      "leftFrameRodFitVerified": false,
+      "loadedOperationVerified": false
+    },
+    "printerStartAuthorized": true,
+    "preparationEvidence": {
+      "status": "NORMAL_CURRENT_MAIN_AND_READBACK_PASS_PVA_DETECTION_HOLD",
+      "currentMainCommit": "bba58ab15a9af88a1cd37861e8da95b4c0ef7294",
+      "receiptSha256": "aca24ceb8a9ad13397695b7d54e1a789630ce7097e93822bbf1ac3774fc0306f",
+      "artifactReviewSha256": "ec50c96b41261cebfec7c48e2b4263193c43a287f8af5dc9e451f8a7d52ccda1",
+      "readbackAuditSha256": "d59b21dd72ce2bf51f8a900e02036a6802ecb04d061174a256a5fccf55baa695",
+      "stagedFilesHashVerified": true,
+      "stagedFileCount": 121,
+      "printerUploaded": true,
+      "uploadReadbackIdentical": true,
+      "printerStartAuthorized": true,
+      "printerStartSent": false
+    }
+  },
+  {
     "id": "enigma-left-frame-pla-pva-20261103-a1",
     "title": "Enigma · M01/P01 complete left-frame cleanup and rod-fit trial",
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
     "status": "planned",
-    "preparationState": "NORMAL_MAIN_PREPARATION_PASS_PHYSICAL_START_HOLD",
+    "preparationState": "SUPERSEDED_WITHOUT_UPLOAD_OR_PRINTER_START",
     "recordedAt": "2026-11-03T14:35:52.875131+00:00",
     "updatedAt": "2026-11-03T18:05:09.408260+00:00",
     "startedAt": null,
@@ -60,7 +153,7 @@
       "file": "M01_P01_FRAME_LEFT_FLAT_SLICED.3mf"
     },
     "jobName": "mechanical-frame-left-pla-pva",
-    "notes": "Planned only; not uploaded or started. ONE unchanged complete native M01/P01 in reviewed flat placement, with full PVA supports, zero interface gaps, 0.2 mm layers, four walls, 30% gyroid, textured PEI and two 0.4 mm nozzles. Estimate: 45.62 g PLA and 36.48 g PVA. Although the profile requests an 8 mm model brim, actual G-code emits none; bed contact uses the PVA support base and separate tower, audited within plate bounds. Roughly 12 mm support beneath the broad body. Finite native/toolpath feature checks and exact mesh comparison do not prove adhesion, cleanup, bore fit or loaded operation. User reports right-frame cleanup and intended 5 mm rod fit not checked yet; physical start hold remains. Fresh printer ownership, bed/feed/material mapping and exact upload/readback checks required before any future authorized start. No camera or actual print measurements exist for this planned attempt. Normal preparation from clean, pushed, up-to-date main passed with all open PRs checked; unchanged audit-only PR189 remains unselected. All staged files match their pinned hashes and the successful exact-slice/auditor review. 82 affected tests passed on home-mini; the broader historical-job CI suite is separate.",
+    "notes": "Planned only; not uploaded or started. ONE unchanged complete native M01/P01 in reviewed flat placement, with full PVA supports, zero interface gaps, 0.2 mm layers, four walls, 30% gyroid, textured PEI and two 0.4 mm nozzles. Estimate: 45.62 g PLA and 36.48 g PVA. Although the profile requests an 8 mm model brim, actual G-code emits none; bed contact uses the PVA support base and separate tower, audited within plate bounds. Roughly 12 mm support beneath the broad body. Finite native/toolpath feature checks and exact mesh comparison do not prove adhesion, cleanup, bore fit or loaded operation. User reports right-frame cleanup and intended 5 mm rod fit not checked yet; physical start hold remains. Fresh printer ownership, bed/feed/material mapping and exact upload/readback checks required before any future authorized start. No camera or actual print measurements exist for this planned attempt. Normal preparation from clean, pushed, up-to-date main passed with all open PRs checked; unchanged audit-only PR189 remains unselected. All staged files match their pinned hashes and the successful exact-slice/auditor review. 82 affected tests passed on home-mini; the broader historical-job CI suite is separate. This never-started preparation was superseded by the separately human-authorized November 4 run enigma-left-frame-pla-pva-20261104-a1; retain original digital source evidence and unknown actuals.",
     "physicalInspection": {
       "rightFrameCleanupAndRodFit": "Not checked yet, per human",
       "leftFrameCleanupVerified": false,

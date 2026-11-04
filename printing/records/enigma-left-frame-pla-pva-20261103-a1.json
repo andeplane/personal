@@ -1,24 +1,24 @@
 {
   "id": "enigma-left-frame-pla-pva-20261103-a1",
-  "title": "Enigma · M01/P01 complete left-frame cleanup and rod-fit trial",
+  "title": "Enigma \u00b7 M01/P01 complete left-frame cleanup and rod-fit trial",
   "project": "Enigma Doublestep",
   "printer": "Bambu Lab X2D",
   "status": "planned",
-  "preparationState": "NORMAL_MAIN_PREPARATION_PASS_PHYSICAL_START_HOLD",
+  "preparationState": "SUPERSEDED_WITHOUT_UPLOAD_OR_PRINTER_START",
   "recordedAt": "2026-11-03T14:35:52.875131+00:00",
   "updatedAt": "2026-11-03T18:05:09.408260+00:00",
   "startedAt": null,
   "finishedAt": null,
   "plate": 1,
   "parts": [
-    "M01/P01 · One complete left rotor support frame"
+    "M01/P01 \u00b7 One complete left rotor support frame"
   ],
   "estimatedSeconds": 19605,
   "actualSeconds": null,
   "estimatedGrams": 82.1,
   "actualGrams": null,
   "estimatedMeters": 26.99,
-  "material": "Bambu PLA Basic red model · intended main physical 0; Bambu PVA body/interface support · intended secondary physical 1; installed feed mapping unverified",
+  "material": "Bambu PLA Basic red model \u00b7 intended main physical 0; Bambu PVA body/interface support \u00b7 intended secondary physical 1; installed feed mapping unverified",
   "color": "#C12E1F",
   "layerHeightMm": 0.2,
   "firstLayerHeightMm": 0.2,
@@ -59,7 +59,7 @@
     "file": "M01_P01_FRAME_LEFT_FLAT_SLICED.3mf"
   },
   "jobName": "mechanical-frame-left-pla-pva",
-  "notes": "Planned only; not uploaded or started. ONE unchanged complete native M01/P01 in reviewed flat placement, with full PVA supports, zero interface gaps, 0.2 mm layers, four walls, 30% gyroid, textured PEI and two 0.4 mm nozzles. Estimate: 45.62 g PLA and 36.48 g PVA. Although the profile requests an 8 mm model brim, actual G-code emits none; bed contact uses the PVA support base and separate tower, audited within plate bounds. Roughly 12 mm support beneath the broad body. Finite native/toolpath feature checks and exact mesh comparison do not prove adhesion, cleanup, bore fit or loaded operation. User reports right-frame cleanup and intended 5 mm rod fit not checked yet; physical start hold remains. Fresh printer ownership, bed/feed/material mapping and exact upload/readback checks required before any future authorized start. No camera or actual print measurements exist for this planned attempt. Normal preparation from clean, pushed, up-to-date main passed with all open PRs checked; unchanged audit-only PR189 remains unselected. All staged files match their pinned hashes and the successful exact-slice/auditor review. 82 affected tests passed on home-mini; the broader historical-job CI suite is separate.",
+  "notes": "Planned only; not uploaded or started. ONE unchanged complete native M01/P01 in reviewed flat placement, with full PVA supports, zero interface gaps, 0.2 mm layers, four walls, 30% gyroid, textured PEI and two 0.4 mm nozzles. Estimate: 45.62 g PLA and 36.48 g PVA. Although the profile requests an 8 mm model brim, actual G-code emits none; bed contact uses the PVA support base and separate tower, audited within plate bounds. Roughly 12 mm support beneath the broad body. Finite native/toolpath feature checks and exact mesh comparison do not prove adhesion, cleanup, bore fit or loaded operation. User reports right-frame cleanup and intended 5 mm rod fit not checked yet; physical start hold remains. Fresh printer ownership, bed/feed/material mapping and exact upload/readback checks required before any future authorized start. No camera or actual print measurements exist for this planned attempt. Normal preparation from clean, pushed, up-to-date main passed with all open PRs checked; unchanged audit-only PR189 remains unselected. All staged files match their pinned hashes and the successful exact-slice/auditor review. 82 affected tests passed on home-mini; the broader historical-job CI suite is separate. This never-started preparation was superseded by the separately human-authorized November 4 run enigma-left-frame-pla-pva-20261104-a1; retain original digital source evidence and unknown actuals.",
   "physicalInspection": {
     "rightFrameCleanupAndRodFit": "Not checked yet, per human",
     "leftFrameCleanupVerified": false,

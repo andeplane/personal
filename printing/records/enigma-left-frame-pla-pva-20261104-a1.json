@@ -4,9 +4,9 @@
   "project": "Enigma Doublestep",
   "printer": "Bambu Lab X2D",
   "status": "printing",
-  "preparationState": "ACCEPTED_ONCE_PREPARING",
+  "preparationState": "RUNNING_PVA_FIRST_LAYER_OUTLINES_VIEWED",
   "recordedAt": "2026-11-04T20:32:35.695423+00:00",
-  "updatedAt": "2026-11-04T20:56:03.901049+00:00",
+  "updatedAt": "2026-11-04T21:09:43.060750+00:00",
   "startedAt": "2026-11-04T20:54:58.049119+00:00",
   "finishedAt": null,
   "plate": 1,
@@ -38,6 +38,12 @@
       "capturedAt": "2026-11-04T20:55:35.476831+00:00",
       "caption": "Accepted left-frame job preparing; no deposition visible yet. Old rectangular bed marks remain.",
       "sha256": "651a7d3aee3bd68656b3b0fb9bf6dea5f4f44e159330c4076d261693a6d312e5"
+    },
+    {
+      "src": "assets/enigma-left-frame-pla-pva-20261104-a1/pva-first-outlines-210908.jpg",
+      "capturedAt": "2026-11-04T21:09:08.477960+00:00",
+      "caption": "First fresh PVA support-base outlines on layer1; secondary PVA nozzle active. Partial first layer only; red prime/calibration deposits also visible.",
+      "sha256": "10ca6f67c953a2c5f6f8ffe5c9985a4460e0ad767b63d82e8ed8d0be6bdc462b"
     }
   ],
   "evidenceImages": [
@@ -75,7 +81,7 @@
     "currentPreparationCommit": "bba58ab15a9af88a1cd37861e8da95b4c0ef7294"
   },
   "jobName": "mechanical-frame-left-pla-pva",
-  "notes": "One complete P01 revision M01 left-frame cleanup and unloaded rod-fit trial. Current clean-main preparation passed on bba58ab1 with121 staged files verified. The native geometry and exact slice bytes are unchanged from reviewed PR212; PR213 adds the identity registry. Unique upload/readback matches reviewed slice SHA256. After brittle PVA broke during manual loading, the human removed the bad section and reloaded it. Secondary nozzle reported LOADED, AMS Assist/Engaged, printer IDLE/error0 before start. The same PVA spool now reports unknown remaining quantity and manual grey color metadata; earlier RFID estimated74percent of500g, not a new measurement. Start accepted once with matching file, plate1, MD5 and sequence11042040, task1097. Fresh camera shows preparation, not deposition. Physical cleanup,5mm rod fit and loaded operation remain unverified. No further starts authorized.",
+  "notes": "One complete P01 revision M01 left-frame cleanup and unloaded rod-fit trial. Current clean-main preparation passed on bba58ab1 with121 staged files verified. The native geometry and exact slice bytes are unchanged from reviewed PR212; PR213 adds the identity registry. Unique upload/readback matches reviewed slice SHA256. After brittle PVA broke during manual loading, the human removed the bad section and reloaded it. Secondary nozzle reported LOADED, AMS Assist/Engaged, printer IDLE/error0 before start. The same PVA spool now reports unknown remaining quantity and manual grey color metadata; earlier RFID estimated74percent of500g, not a new measurement. Start accepted once with matching file, plate1, MD5 and sequence11042040, task1097. The20:55:35UTC camera shows preparation, not deposition. Physical cleanup,5mm rod fit and loaded operation remain unverified. No further starts authorized. Fresh21:09:08UTC viewed camera shows new white/translucent PVA support-base perimeter and central circular outline, with secondary nozzle active240C and main nozzle cooling; layer1, task1097, print_error0. This proves initial PVA deposition, not complete adhesion, permanent frame quality or fit. Retained timestamped HMS entries have unknown descriptions; no active print_error.",
   "physicalInspection": {
     "rightFrameCleanupAndRodFit": "Not checked yet, per human",
     "leftFrameCleanupVerified": false,
@@ -105,5 +111,14 @@
     "sequenceId": "11042040",
     "uploadedFile": "/Enigma_P01_9f9d432e_20261104_a1.gcode.3mf",
     "printerState": "PREPARE"
+  },
+  "firstLayerEvidence": {
+    "observedAt": "2026-11-04T21:09:08.477960+00:00",
+    "layer": 1,
+    "totalLayers": 211,
+    "printError": 0,
+    "pvaDepositionViewed": true,
+    "completeBaseAdhesionVerified": false,
+    "physicalQualityVerified": false
   }
 }

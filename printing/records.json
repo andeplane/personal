@@ -7,7 +7,7 @@
     "status": "printing",
     "preparationState": "PRINTING_FIRST_PLA_AND_INITIAL_PVA_DEPOSITION_VIEWED",
     "recordedAt": "2026-11-05T07:28:31.808325+00:00",
-    "updatedAt": "2026-11-05T08:04:57.098945+00:00",
+    "updatedAt": "2026-11-05T08:08:04.912808+00:00",
     "startedAt": "2026-11-05T07:32:46.196416+00:00",
     "finishedAt": null,
     "plate": 1,
@@ -54,6 +54,12 @@
         "capturedAt": "2026-11-05T08:04:55.654936+00:00",
         "caption": "First pale PVA paths visible around the front-right red model region during secondary-nozzle use. Paths appear discontinuous in this frame; complete support-layer continuity and adhesion remain unverified.",
         "sha256": "33819d3aa8c5f80e3c060c836eb96d2f68c2fcb82df5f065cc392c7a808dd688"
+      },
+      {
+        "src": "assets/enigma-rotor-i-identified-pla-pva-20261105-a1/pva-progress-080804.jpg",
+        "capturedAt": "2026-11-05T08:08:04.912808+00:00",
+        "caption": "Pale PVA now visibly fills a broad support region around the front-right red model. Toolhead obscures part of region; no whole-layer/adhesion/cleanup qualification. Earlier initial path discontinuity remains preserved.",
+        "sha256": "5688ebfcc489099902946c3940a73de6f1a6f3c4ef1cb1f39b2f26d64a1331f3"
       }
     ],
     "evidenceImages": [
@@ -92,7 +98,7 @@
       "guideFingerprint": "fbd384b2916a6280ca2572e630ad08c047e92a6864af3b54049cc6b254fc11cc"
     },
     "jobName": "rotor-v2-pva-I",
-    "notes": "One complete representative rotor-I kit, five fresh parts, no reused ring. Human selected reviewed PR217 and reported printer free. Four walls,30percent gyroid,8mm outer brims where emitted,texturedPEI,fullPVA zero top/bottom contact gaps,prime tower. Estimates75.35gPLA+14.57gPVA; slicer total89.93g has independent rounding. II/III and multiplication remain held pending cleanup/identification/fit acceptance. P51 recesses only fixed standoffs; actual contact/elasticity/loadedoperation unverified. Physical quality,fit,stepping,electrical operation and printed ID legibility remain unqualified. Start accepted once with exact file/plate/G-codeMD5/mapping/sequence, task374. FirstacceptedPREPARE report retained previous211layercounter; not attributed to newrun. Fresh07:34:05UTC RUNNING layer0/122,stage11,error0 confirms preparation only, not deposition. Retained timestamped unknown HMS entries unchanged; no automatic clearing. Fresh camera confirms initial red PLA deposition at07:44:46UTC and initial pale PVA paths at08:04:55UTC. Secondary240/240 and main42/25 at08:04:57 are instantaneous temperatures only; visual deposition is separate evidence. Pale paths are discontinuous in the viewed first PVA frame, so complete support continuity/adhesion is not qualified. A newly observed retained HMS1800200000020025 describes AMS-HT feed resistance but carries an October31 timestamp before this run; active print_error remains0. Its historical timestamp does not qualify the present feed path, and no error was cleared. No physical inspection or measured usage added.",
+    "notes": "One complete representative rotor-I kit, five fresh parts, no reused ring. Human selected reviewed PR217 and reported printer free. Four walls,30percent gyroid,8mm outer brims where emitted,texturedPEI,fullPVA zero top/bottom contact gaps,prime tower. Estimates75.35gPLA+14.57gPVA; slicer total89.93g has independent rounding. II/III and multiplication remain held pending cleanup/identification/fit acceptance. P51 recesses only fixed standoffs; actual contact/elasticity/loadedoperation unverified. Physical quality,fit,stepping,electrical operation and printed ID legibility remain unqualified. Start accepted once with exact file/plate/G-codeMD5/mapping/sequence, task374. FirstacceptedPREPARE report retained previous211layercounter; not attributed to newrun. Fresh07:34:05UTC RUNNING layer0/122,stage11,error0 confirms preparation only, not deposition. Retained timestamped unknown HMS entries unchanged; no automatic clearing. Fresh camera confirms initial red PLA deposition at07:44:46UTC and initial pale PVA paths at08:04:55UTC. Secondary240/240 and main42/25 at08:04:57 are instantaneous temperatures only; visual deposition is separate evidence. Pale paths are discontinuous in the viewed first PVA frame, so complete support continuity/adhesion is not qualified. A newly observed retained HMS1800200000020025 describes AMS-HT feed resistance but carries an October31 timestamp before this run; active print_error remains0. Its historical timestamp does not qualify the present feed path, and no error was cleared. No physical inspection or measured usage added. Follow-up08:08:04UTC frame shows a broad pale PVA region filled around the red front-right model; the head obscures part, so full-layer/adhesion qualification remains false.",
     "physicalInspection": {
       "supportCleanupVerified": false,
       "partIdentityLegibilityVerified": false,

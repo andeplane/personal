@@ -1,5 +1,158 @@
 [
   {
+    "id": "hexscraper-bambu-petg-basic-20261105-a1",
+    "title": "HexScraper · Bambu PETG Basic · first attempt",
+    "project": "Printer tools",
+    "printer": "Bambu Lab X2D",
+    "status": "printing",
+    "recordedAt": "2026-11-05T16:52:19.720536+00:00",
+    "startedAt": "2026-11-05T16:47:30.678580+00:00",
+    "finishedAt": null,
+    "printDate": "2026-11-05",
+    "jobName": "HexScraper_PETGBasic_54633758_20261105_a1",
+    "plate": 1,
+    "parts": [
+      "One integrated HexScraper plastic print-bed scraper by visle (Printables 122894); no metal blade or purchased hardware"
+    ],
+    "estimatedSeconds": 8736,
+    "actualSeconds": null,
+    "estimatedGrams": 19.08,
+    "actualGrams": null,
+    "estimatedMeters": 6.35,
+    "material": "Bambu PETG Basic · GFG00 · human-confirmed gray spool in A4",
+    "color": "#8E9089",
+    "layerHeightMm": 0.12,
+    "nozzleMm": 0.4,
+    "layers": 53,
+    "preview": "assets/hexscraper-bambu-petg-basic-20261105-a1/preview.png",
+    "layout": "assets/hexscraper-bambu-petg-basic-20261105-a1/layout.png",
+    "snapshots": [
+      {
+        "src": "assets/hexscraper-bambu-petg-basic-20261105-a1/camera-before-start-163129.jpg",
+        "capturedAt": "2026-11-05T16:31:29.394136Z",
+        "sha256": "25ca19eb4fc1d3f50ed8520834d8c43172b29959c8e17c4751d09d9089f3f10a",
+        "caption": "Direct printer-camera capture earlier before the accepted print: textured plate visible with no model present. This saved frame predates the later Bambu Studio live view immediately before Send; that separate live view was inspected but not saved. Not a during-print or finished-part image."
+      },
+      {
+        "src": "assets/hexscraper-bambu-petg-basic-20261105-a1/camera-first-model-deposition.jpg",
+        "capturedAt": "2026-11-05T16:55:01.141857Z",
+        "sha256": "f4e5fd1e766ec452b0d24f74f2d38f3be1ed31f7f2b8a38158c88b741787c379",
+        "caption": "First gray model deposition actually viewed during the accepted HexScraper run. Fresh telemetry: RUNNING, layer 1/53, 4%, about 139 minutes remaining, no active print_error or HMS. Scraper outline and early internal paths visible; the head partly obscures the rear. This confirms deposition, not full layer adhesion, edge quality, strength, toughness or scraping usefulness."
+      }
+    ],
+    "evidenceImages": [
+      {
+        "src": "assets/hexscraper-bambu-petg-basic-20261105-a1/toolpath-review.png",
+        "kind": "actual-model-toolpaths",
+        "caption": "Actual final model-extrusion paths: first layer and cutting strip across model layers. G2/G3 arcs interpreted with center geometry. Supports/brims are not model features; commanded paths do not establish achieved adhesion or edge strength.",
+        "sha256": "eb9050f1cc21452f67b8a5ee498f7ca00b8e49ce1b22c3b8e2dc2039076ef524"
+      },
+      {
+        "src": "assets/hexscraper-bambu-petg-basic-20261105-a1/source-mesh.png",
+        "kind": "source-mesh-render",
+        "caption": "Actual original HexScraper geometry rendered for review: integrated grip and tapered plastic cutting head. No purchased blade. Geometry does not prove printed strength.",
+        "sha256": "4ea997ee63a07914bb62851d6797ba57377f6498c11b6eb9244abd0437e1804a"
+      }
+    ],
+    "source": {
+      "file": "HexScraper_BambuPETGBasic_X2D_N6.gcode.3mf",
+      "sha256": "5463375888eb86fb1066f11ff7c596721d44562f0280d862b5805d95b4c3d328",
+      "creator": "visle @visle",
+      "url": "https://www.printables.com/model/122894-hexscraper-printbed-scraper",
+      "license": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "originalFile": "hexScraper.3mf",
+      "originalSha256": "775b93a3bc027edd11d70d3a150cda6bcdf2c31d79c30ddbb52fc243262ef7fc",
+      "gcodeSha256": "7fde16920da6d102beb6313723581adbbb0794153bda1d76f2ad065f71c792ff",
+      "evidence": "Creator primary download retained privately; creator offers PETG print variant and recommends layers at most 0.15 mm. Original 3MF contains one geometry object and no embedded printer profile/G-code. Resolved official Bambu Studio 02.08.02.61 X2D 0.4 mm and Bambu PETG Basic profiles used; no foreign Prusa G-code used. Final exact slice retains all 20576 source triangles after translation [138.24998,135.0502686,3.24939] mm, maximum coordinate difference 0.0000129 mm. Geometry/process and actual model toolpaths independently reviewed. Exact final archive preview/top view extracted for this record."
+    },
+    "audit": {
+      "sourceTriangles": 20576,
+      "triangleRepairs": 0,
+      "maxCoordinateErrorMm": 1.2900000029958392e-05,
+      "translationMm": [
+        138.24998,
+        135.05026859999998,
+        3.24939
+      ],
+      "wallLoops": 5,
+      "infill": "40% gyroid",
+      "supports": false,
+      "firstLayerHeightMm": 0.2,
+      "bed": "Textured PEI Plate",
+      "bedC": 70,
+      "nozzleFirstLayerC": 245,
+      "nozzleSubsequentC": 250,
+      "logicalFilamentMap": 2,
+      "amsSlot": "A4 (AMS 0, slot 3)",
+      "physicalExtruder": 0,
+      "exportMetadataCorrection": {
+        "inputSha256": "c2836a86bfe9fdebef4005717f795d7abaf8d74b85da15871ea23ec1702c87c5",
+        "printerModelId": "N6",
+        "officialMachineModelSha256": "02db23de231242faf869775bb6b23ae3aab334b9fbac9991dd58d573717d03f6",
+        "scope": "Missing export printer_model_id corrected from empty to official X2D N6. Only slice_info XML semantics changed; all geometry, profile/settings and G-code member bytes unchanged. XML formatting also reserialized. Not a compatibility waiver."
+      },
+      "readback": {
+        "at": "2026-11-05T16:38:32.151070+00:00",
+        "identical": true,
+        "sha256": "5463375888eb86fb1066f11ff7c596721d44562f0280d862b5805d95b4c3d328"
+      },
+      "acceptedEvidence": {
+        "printerState": "RUNNING",
+        "observedAt": "2026-11-05T16:47:30.678580+00:00",
+        "currentLayer": 0,
+        "totalLayers": 53,
+        "printError": 0,
+        "remainingMinutes": 145
+      },
+      "firstModelDepositionViewed": true,
+      "resolvedProfileInputsSha256": {
+        "machine.json": "a940a102c8e7937aac47c3cba761b31ab3fd1f6ec350d8ae7aa9361fda5fcb6d",
+        "process.json": "eb4792ee5250d0799b096c83fb8e28c2edd7c8c82c4077c0e44db118e992c93d",
+        "filament.json": "82af9a3f52b5df5b1c1df459afb7669e75afb04eeb6e1d1b27f843c40b3c2538"
+      },
+      "officialProfileSourceSha256": {
+        "Bambu Lab X2D 0.4 nozzle.json": "dbcdaf090abba746b4f6f8d1323fdc299cec1ecd717c340214314e575d5884a6",
+        "fdm_bbl_3dp_002_common.json": "f7ce729c4f2d7ba7dd9b2328b8172ada496a8a4e7e41f5f0139e2692b0a106af",
+        "fdm_machine_common.json": "26ef8ee697849323e67d8e1a9026c175cebe3397e38c5091dddb5cd3fc52e94c",
+        "Bambu Lab X2D 0.4 nozzle template machine_start_gcode.json": "0f2a63c066aefde6dc4ee0c20bb1ebed29f0b85f07fd5203d56db2bcfb25052a",
+        "Bambu Lab X2D 0.4 nozzle template machine_end_gcode.json": "f53b22535ccbc639ffdd94c60306061513c98181d2098f9388a9b99644f294d5",
+        "Bambu Lab X2D 0.4 nozzle template layer_change_gcode.json": "f13bd5e29cdef156c4da6d26e9f1aab323cb053d9ab34875917c37d31fa74960",
+        "Bambu Lab X2D 0.4 nozzle template time_lapse_gcode.json": "65b30d1bfb5f2d5043e7da71cade5c1e561fa596029d9fcd0a171835a5e6a542",
+        "Bambu Lab X2D 0.4 nozzle template change_filament_gcode.json": "0c10a06ad5f6fb9062082b10edaab5ce465962db1dc2d6ffdccea0f0409748d1",
+        "0.12mm High Quality @BBL X2D.json": "fcf7686d996545a582873bfd38bf4399e0366e9cd5a831ee864e1e0f70c8d36f",
+        "fdm_process_dual_0.12_nozzle_0.4.json": "b2be712bc03497a1a0fc6a8495acde442f7e4a2989878030dea834f2c1c8c476",
+        "fdm_process_dual_common.json": "743303a5c3c1962f8c8d178d21e23fc409027ea48574017db51230eac72bd063",
+        "fdm_process_common.json": "d7981c4b92854f251b8697e1bb621c63fe393f263fb8024ab63c401525d543d7",
+        "Bambu PETG Basic @BBL X2D 0.4 nozzle.json": "b4e15132f508aa472edacc35c1c5684d09e9a3394f38b2d834ac60a5077d7883",
+        "Bambu PETG Basic @base.json": "25345e37ee61078940107143de8d2d1f295929cfbe3b586d208f215c9dad63aa",
+        "fdm_filament_pet.json": "3ed1b36367fe6df800103a9deaaa036f9d79c7afda3f3a17514dff23aa96c7d8",
+        "fdm_filament_common.json": "8c7105b7d59a28f600c43a946f067b8b4d707b9711c0bf6b88e9166e48878548",
+        "fdm_filament_template_direct_bowden_e3d.json": "cc518ebe128bf40be47e99030406b406f198764d6012a4689fbf2880784735df"
+      },
+      "firstDepositionEvidence": {
+        "observedAt": "2026-11-05T16:55:01.141857Z",
+        "printerState": "RUNNING",
+        "currentLayer": 1,
+        "totalLayers": 53,
+        "percent": 4,
+        "remainingMinutes": 139,
+        "printError": 0,
+        "activeHmsCount": 0,
+        "physicalExtruder0CurrentC": 245,
+        "physicalExtruder0TargetC": 245,
+        "physicalExtruder1CurrentC": 35,
+        "physicalExtruder1TargetC": 0,
+        "bedCurrentC": 70,
+        "bedTargetC": 70
+      },
+      "toolLabel": "Bambu Studio: Auxiliary Nozzle/Bowden",
+      "nativeQualityWarning": "PETG Basic on auxiliary nozzle: native Bambu Studio quality warning accepted for this utility trial; no strength qualification."
+    },
+    "notes": "User requested one PETG replacement scraper after the earlier PLA tool broke. Bambu PETG Basic gray in A4 was confirmed by the human, Bambu Studio material dialog and fresh raw AMS data; no spool metadata was rewritten. Source/settings/toolpath evidence is digital qualification only. Explicit upload mapping [3] selects A4 and actual slice logical map 2 selects physical extruder 0; Bambu Studio labels this Auxiliary Nozzle/Bowden. Its native quality warning for PETG Basic on the auxiliary nozzle was accepted for this utility trial; that acceptance does not qualify printed strength or toughness. Earlier digital candidates were rejected before acceptance: one had actual plate map 1 despite project map 2, and the corrected-map CLI export lacked its machine-model ID. A disconnected connector print call falsely returned success; subsequent raw telemetry and Bambu Studio proved that call had not started a job. After reconciliation, the exact hash-verified N6 archive was started once using Bambu Studio SD-card Send and Continue printing. Fresh direct MQTT accepted the new exact job RUNNING at layer 0/53 with no active print_error. startedAt is first observed acceptance, not an exact motor-start timestamp. At 16:55:01Z first gray model deposition was actually viewed and preserved, during RUNNING layer 1/53 at 4% with no active print_error or HMS. This confirms initial model deposition only; full layer adhesion and terminal camera evidence remain unverified. Actual finish, duration and grams remain unknown. Edge toughness, scraping performance and physical quality remain unverified. No further print starts are authorized.",
+    "updatedAt": "2026-11-05T17:01:17.084387+00:00"
+  },
+  {
     "id": "enigma-rotor-i-identified-pla-pva-20261105-a1",
     "title": "Enigma · marked rotor I · complete five-part PLA/PVA cleanup trial",
     "project": "Enigma Doublestep",
@@ -169,6 +322,54 @@
       "terminalCameraViewed": true,
       "physicalQualityVerified": false
     }
+  },
+  {
+    "id": "manual-scraper-grip-20261105-a1",
+    "title": "Manual Scraper Grip attempt · failed before model layers",
+    "project": "Printer tools",
+    "printer": "Bambu Lab X2D",
+    "status": "failed",
+    "recordedAt": "2026-11-05T16:52:19.720536+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "printDate": "2026-11-05",
+    "jobName": "Scraper Grip.3mf",
+    "plate": 1,
+    "parts": [
+      "Scraper Grip (printer-reported job name only; exact original inventory and geometry unavailable)"
+    ],
+    "estimatedSeconds": null,
+    "actualSeconds": null,
+    "estimatedGrams": null,
+    "actualGrams": null,
+    "estimatedMeters": null,
+    "material": "Unknown original manual-job material; newly installed PETG is not evidence of this attempt’s material",
+    "color": "#808080",
+    "layerHeightMm": null,
+    "nozzleMm": null,
+    "layers": 215,
+    "preview": null,
+    "layout": null,
+    "snapshots": [
+      {
+        "src": "assets/manual-scraper-grip-20261105-a1/camera-layer-zero-pause.jpg",
+        "capturedAt": "2026-11-05T15:08:08.527604+00:00",
+        "caption": "During a filament-loading PAUSE at layer 0/215: no model deposition visible. This is not a finished-part image or evidence of a broken printed scraper."
+      }
+    ],
+    "source": {
+      "file": "Scraper Grip.3mf (printer-reported name; original bytes unavailable)",
+      "sha256": null,
+      "evidence": "Original source/slice/profile and upload readback unavailable. Job name and reported plate identify the observed attempt only; they do not certify its geometry or material."
+    },
+    "terminalEvidence": {
+      "printerState": "FAILED",
+      "observedAt": "2026-11-05T16:24:50.947676+00:00",
+      "currentLayer": 0,
+      "totalLayers": 215,
+      "printError": 0
+    },
+    "notes": "Separate manually initiated attempt, distinct from completed Enigma rotor I and the later accepted HexScraper utility run. At 15:09Z the printer reported PAUSE, 0%, layer 0/215 and a left-extruder external-spool filament-loading request, including a prompt to feed filament into its PTFE tube. User clarified their earlier tube/spool wording meant a PETG spool; no physical tube-installation claim is inferred. Subsequent fresh direct telemetry at 16:24:50Z reported FAILED at layer 0/215, no active print_error, no remaining time. No model deposition was observed in the available pause camera. Actual initial start, exact finish, elapsed duration and filament usage were not reliably observed and remain null; the retained last-job wall clock/counter is not used to invent them. Original material and color are unknown; neutral gray is a display placeholder. No original slice preview or terminal camera exists in this record. An earlier 64-minute remaining indication during a loading pause is not treated as a reliable original slicer estimate. Historical HMS messages with unknown descriptions are not relabelled current diagnoses. No agent resume, cancellation or retry is claimed by this record."
   },
   {
     "id": "enigma-left-frame-pla-pva-20261104-a1",

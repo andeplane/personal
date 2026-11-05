@@ -1,0 +1,48 @@
+{
+  "id": "manual-scraper-grip-20261105-a1",
+  "title": "Manual Scraper Grip attempt · failed before model layers",
+  "project": "Printer tools",
+  "printer": "Bambu Lab X2D",
+  "status": "failed",
+  "recordedAt": "2026-11-05T16:52:19.720536+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "printDate": "2026-11-05",
+  "jobName": "Scraper Grip.3mf",
+  "plate": 1,
+  "parts": [
+    "Scraper Grip (printer-reported job name only; exact original inventory and geometry unavailable)"
+  ],
+  "estimatedSeconds": null,
+  "actualSeconds": null,
+  "estimatedGrams": null,
+  "actualGrams": null,
+  "estimatedMeters": null,
+  "material": "Unknown original manual-job material; newly installed PETG is not evidence of this attempt’s material",
+  "color": "#808080",
+  "layerHeightMm": null,
+  "nozzleMm": null,
+  "layers": 215,
+  "preview": null,
+  "layout": null,
+  "snapshots": [
+    {
+      "src": "assets/manual-scraper-grip-20261105-a1/camera-layer-zero-pause.jpg",
+      "capturedAt": "2026-11-05T15:08:08.527604+00:00",
+      "caption": "During a filament-loading PAUSE at layer 0/215: no model deposition visible. This is not a finished-part image or evidence of a broken printed scraper."
+    }
+  ],
+  "source": {
+    "file": "Scraper Grip.3mf (printer-reported name; original bytes unavailable)",
+    "sha256": null,
+    "evidence": "Original source/slice/profile and upload readback unavailable. Job name and reported plate identify the observed attempt only; they do not certify its geometry or material."
+  },
+  "terminalEvidence": {
+    "printerState": "FAILED",
+    "observedAt": "2026-11-05T16:24:50.947676+00:00",
+    "currentLayer": 0,
+    "totalLayers": 215,
+    "printError": 0
+  },
+  "notes": "Separate manually initiated attempt, distinct from completed Enigma rotor I and the later accepted HexScraper utility run. At 15:09Z the printer reported PAUSE, 0%, layer 0/215 and a left-extruder external-spool filament-loading request, including a prompt to feed filament into its PTFE tube. User clarified their earlier tube/spool wording meant a PETG spool; no physical tube-installation claim is inferred. Subsequent fresh direct telemetry at 16:24:50Z reported FAILED at layer 0/215, no active print_error, no remaining time. No model deposition was observed in the available pause camera. Actual initial start, exact finish, elapsed duration and filament usage were not reliably observed and remain null; the retained last-job wall clock/counter is not used to invent them. Original material and color are unknown; neutral gray is a display placeholder. No original slice preview or terminal camera exists in this record. An earlier 64-minute remaining indication during a loading pause is not treated as a reliable original slicer estimate. Historical HMS messages with unknown descriptions are not relabelled current diagnoses. No agent resume, cancellation or retry is claimed by this record."
+}

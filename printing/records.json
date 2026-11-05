@@ -4,10 +4,10 @@
     "title": "Enigma · marked rotor I · complete five-part PLA/PVA cleanup trial",
     "project": "Enigma Doublestep",
     "printer": "Bambu Lab X2D",
-    "status": "printing",
-    "preparationState": "PRINTING_FIRST_PLA_AND_INITIAL_PVA_DEPOSITION_VIEWED",
+    "status": "completed",
+    "preparationState": "PRINTED_PHYSICAL_CLEANUP_FEATURE_AND_FIT_INSPECTION_HOLD",
     "recordedAt": "2026-11-05T07:28:31.808325+00:00",
-    "updatedAt": "2026-11-05T08:08:04.912808+00:00",
+    "updatedAt": "2026-11-05T14:42:46.564980+00:00",
     "startedAt": "2026-11-05T07:32:46.196416+00:00",
     "finishedAt": null,
     "plate": 1,
@@ -60,6 +60,24 @@
         "capturedAt": "2026-11-05T08:08:04.912808+00:00",
         "caption": "Pale PVA now visibly fills a broad support region around the front-right red model. Toolhead obscures part of region; no whole-layer/adhesion/cleanup qualification. Earlier initial path discontinuity remains preserved.",
         "sha256": "5688ebfcc489099902946c3940a73de6f1a6f3c4ef1cb1f39b2f26d64a1331f3"
+      },
+      {
+        "src": "assets/enigma-rotor-i-identified-pla-pva-20261105-a1/progress-103307.jpg",
+        "capturedAt": "2026-11-05T10:33:07.097992+00:00",
+        "caption": "Red model features growing above pale PVA supports during printing. Head obscures part of the plate; hidden adhesion, fine features and cleanup remain unverified.",
+        "sha256": "eac5d731654f0baa7ca2398de555216aab7afc83a76f959b2e4c26e9f6e1a314"
+      },
+      {
+        "src": "assets/enigma-rotor-i-identified-pla-pva-20261105-a1/progress-123444.jpg",
+        "capturedAt": "2026-11-05T12:34:44.875262+00:00",
+        "caption": "Later printing view: taller red circular parts above pale PVA support, visible parts still on plate. Small support-edge wisps; this is not terminal completion or cleanup/fit evidence.",
+        "sha256": "1058e34231b9aca605b78307dbf32cdc3fe63fde411e5e09c3fe9a30bd6b74bd"
+      },
+      {
+        "src": "assets/enigma-rotor-i-identified-pla-pva-20261105-a1/finished-143058.jpg",
+        "capturedAt": "2026-11-05T14:30:58.440186+00:00",
+        "caption": "Fresh frame after exact task374 reported FINISH122/122,100percent,error0. Five red part forms remain on plate, numbered ring and toothed face visible; no obvious major tangle/displacement. Full permanent-feature count, hidden supports, cleanup, identity legibility, fit and operation remain unverified.",
+        "sha256": "c25b23d32c5950dc7708e8ddfe3caa0d4e273f837cbb77ea0c25007ab9b89df5"
       }
     ],
     "evidenceImages": [
@@ -98,7 +116,7 @@
       "guideFingerprint": "fbd384b2916a6280ca2572e630ad08c047e92a6864af3b54049cc6b254fc11cc"
     },
     "jobName": "rotor-v2-pva-I",
-    "notes": "One complete representative rotor-I kit, five fresh parts, no reused ring. Human selected reviewed PR217 and reported printer free. Four walls,30percent gyroid,8mm outer brims where emitted,texturedPEI,fullPVA zero top/bottom contact gaps,prime tower. Estimates75.35gPLA+14.57gPVA; slicer total89.93g has independent rounding. II/III and multiplication remain held pending cleanup/identification/fit acceptance. P51 recesses only fixed standoffs; actual contact/elasticity/loadedoperation unverified. Physical quality,fit,stepping,electrical operation and printed ID legibility remain unqualified. Start accepted once with exact file/plate/G-codeMD5/mapping/sequence, task374. FirstacceptedPREPARE report retained previous211layercounter; not attributed to newrun. Fresh07:34:05UTC RUNNING layer0/122,stage11,error0 confirms preparation only, not deposition. Retained timestamped unknown HMS entries unchanged; no automatic clearing. Fresh camera confirms initial red PLA deposition at07:44:46UTC and initial pale PVA paths at08:04:55UTC. Secondary240/240 and main42/25 at08:04:57 are instantaneous temperatures only; visual deposition is separate evidence. Pale paths are discontinuous in the viewed first PVA frame, so complete support continuity/adhesion is not qualified. A newly observed retained HMS1800200000020025 describes AMS-HT feed resistance but carries an October31 timestamp before this run; active print_error remains0. Its historical timestamp does not qualify the present feed path, and no error was cleared. No physical inspection or measured usage added. Follow-up08:08:04UTC frame shows a broad pale PVA region filled around the red front-right model; the head obscures part, so full-layer/adhesion qualification remains false.",
+    "notes": "One complete representative rotor-I kit, five fresh parts, no reused ring. Human selected reviewed PR217 and reported printer free. Four walls,30percent gyroid,8mm outer brims where emitted,texturedPEI,fullPVA zero top/bottom contact gaps,prime tower. Estimates75.35gPLA+14.57gPVA; slicer total89.93g has independent rounding. II/III and multiplication remain held pending cleanup/identification/fit acceptance. P51 recesses only fixed standoffs; actual contact/elasticity/loadedoperation unverified. Physical quality,fit,stepping,electrical operation and printed ID legibility remain unqualified. Start accepted once with exact file/plate/G-codeMD5/mapping/sequence, task374. FirstacceptedPREPARE report retained previous211layercounter; not attributed to newrun. Fresh07:34:05UTC RUNNING layer0/122,stage11,error0 confirms preparation only, not deposition. Retained timestamped unknown HMS entries unchanged; no automatic clearing. Fresh camera confirms initial red PLA deposition at07:44:46UTC and initial pale PVA paths at08:04:55UTC. Secondary240/240 and main42/25 at08:04:57 are instantaneous temperatures only; visual deposition is separate evidence. Pale paths are discontinuous in the viewed first PVA frame, so complete support continuity/adhesion is not qualified. A newly observed retained HMS1800200000020025 describes AMS-HT feed resistance but carries an October31 timestamp before this run; active print_error remains0. Its historical timestamp does not qualify the present feed path, and no error was cleared. No physical inspection or measured usage added. Follow-up08:08:04UTC frame shows a broad pale PVA region filled around the red front-right model; the head obscures part, so full-layer/adhesion qualification remains false. Printer first observed FINISH122/122,100percent,error0 at14:30:45UTC; lastRUNNING at14:29:43UTC. Exact finish time, actual print duration and measured filament usage remain unknown/null. Fresh14:30:58UTC camera was actually viewed and shows five part forms on the plate; no obvious major tangle/displacement. This is reported completion, not physical cleanup/feature/fit acceptance. The following two-P50 plate remains held for first-P50 support removal and permanent26teeth/holes/ID/unloadedfit inspection; no additional upload or start was sent. Source remains accepted e902, unchanged by latermain.",
     "physicalInspection": {
       "supportCleanupVerified": false,
       "partIdentityLegibilityVerified": false,
@@ -137,6 +155,19 @@
       "printError": 0,
       "pvaCompleteLayerVerified": false,
       "supportAdhesionVerified": false
+    },
+    "terminalEvidence": {
+      "printerState": "FINISH",
+      "observedAt": "2026-11-05T14:30:45.291407+00:00",
+      "layer": 122,
+      "totalLayers": 122,
+      "percent": 100,
+      "remainingMinutes": 0,
+      "printError": 0,
+      "lastRunningObservedAt": "2026-11-05T14:29:43.236024+00:00",
+      "exactFinishedAtKnown": false,
+      "terminalCameraViewed": true,
+      "physicalQualityVerified": false
     }
   },
   {

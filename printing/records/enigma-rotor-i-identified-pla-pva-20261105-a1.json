@@ -1,0 +1,112 @@
+{
+  "id": "enigma-rotor-i-identified-pla-pva-20261105-a1",
+  "title": "Enigma \u00b7 marked rotor I \u00b7 complete five-part PLA/PVA cleanup trial",
+  "project": "Enigma Doublestep",
+  "printer": "Bambu Lab X2D",
+  "status": "printing",
+  "preparationState": "ACCEPTED_ONCE_PREPARING_NO_DEPOSITION_PROOF",
+  "recordedAt": "2026-11-05T07:28:31.808325+00:00",
+  "updatedAt": "2026-11-05T07:32:46.196416+00:00",
+  "startedAt": "2026-11-05T07:32:46.196416+00:00",
+  "finishedAt": null,
+  "plate": 1,
+  "parts": [
+    "P48 M03 \u00b7 integrated body/thumbwheel/hub",
+    "P49 M03 \u00b7 blank cassette",
+    "P50 M02 \u00b7 ratchet faceplate",
+    "P51 M02 \u00b7 curved setting arm",
+    "P52-I M02 \u00b7 rotor I numbered/notched ring"
+  ],
+  "estimatedSeconds": 22976,
+  "actualSeconds": null,
+  "estimatedGrams": 89.93,
+  "actualGrams": null,
+  "estimatedMeters": null,
+  "material": "Red PLA main physical0 AMS0slot0; PVA secondary physical1 AMS128slot0; full PVA support body/interface",
+  "color": "#C12E1F",
+  "layerHeightMm": 0.2,
+  "firstLayerHeightMm": 0.2,
+  "nozzleMm": 0.4,
+  "preview": "assets/enigma-rotor-i-identified-pla-pva-20261105-a1/plan.png",
+  "layout": "assets/enigma-rotor-i-identified-pla-pva-20261105-a1/layout.png",
+  "snapshots": [
+    {
+      "src": "assets/enigma-rotor-i-identified-pla-pva-20261105-a1/preflight-073147.jpg",
+      "capturedAt": "2026-11-05T07:31:47.301400+00:00",
+      "caption": "Pre-start visible bed cleared of old frame/tower; old rectangular witness marks remain, confirmed not plastic previously. Human reports printerfree. This is not a finished-part photo.",
+      "sha256": "e45031c78cf9e5dc23fd84f285ec4e59c89b70e5ed9a78e8994feb53731e43b7"
+    },
+    {
+      "src": "assets/enigma-rotor-i-identified-pla-pva-20261105-a1/preparing-073341.jpg",
+      "capturedAt": "2026-11-05T07:33:41.122562+00:00",
+      "caption": "Accepted rotorI job preparing/calibrating, toolhead moving above plate. No new deposition yet; old witness marks remain.",
+      "sha256": "a8b495dab5fb6e0e3babb371aabff9a19720f86752f5495809cda288a6ace69b"
+    }
+  ],
+  "evidenceImages": [
+    {
+      "src": "assets/enigma-rotor-i-identified-pla-pva-20261105-a1/actual-first-layer-materials.png",
+      "kind": "derived-toolpaths",
+      "caption": "Actual model/PVA support/prime-tower/brim first-layer paths; colors are explanatory, not installed spool colors.",
+      "sha256": "d59b1280e6caba4443dc29a93868a345a9a8ae8aaa3bbd86e23f1bfe570183c0"
+    },
+    {
+      "src": "assets/enigma-rotor-i-identified-pla-pva-20261105-a1/actual-mark-toolpaths.png",
+      "kind": "derived-toolpaths",
+      "caption": "Actual part number and revision toolpaths; physical legibility after cleanup unverified.",
+      "sha256": "e4482360925f97fb7b00f733980db4cc0f723708af19fb5eebee31032f6c2ab3"
+    },
+    {
+      "src": "assets/enigma-rotor-i-identified-pla-pva-20261105-a1/critical-both-faces.png",
+      "kind": "derived-toolpaths",
+      "caption": "Both-face permanent geometry and removable process material review; physical cleanup/fit unverified.",
+      "sha256": "7d4cca56c7dd2880bbd0178e390706392e2300d6e159843275099700e5fbb108"
+    },
+    {
+      "src": "assets/enigma-rotor-i-identified-pla-pva-20261105-a1/actual-variant-notch.png",
+      "kind": "derived-toolpaths",
+      "caption": "Actual rotor-I notch sector against selected native variant; finite digital audit, not stepping proof.",
+      "sha256": "c996f29d86a9e7f099d661b7bd22561ba0d304ed12402934491158b2dc981cee"
+    }
+  ],
+  "source": {
+    "filename": "HELD_ROTOR_I_IDENTIFIED_PLA_PVA_SLICED.3mf",
+    "sha256": "f46e74fe982700f41645469792d2efa5d416d7dcb12a908a44bbe99c0ddbcbe1",
+    "editableSha256": "6bee39564273edbc5166aa9684322f58b678b3e6121d52872ef1d7515050d460",
+    "gcodeSha256": "ba931626a40d7f59f152a163a0f3c03de9b66be301f6fda618ee691be9b7ea0a",
+    "releaseCommit": "e9024f0638be9aec41fc70b21af3c6d0e96b841a",
+    "releasePullRequest": "https://github.com/andeplane/openenigma/pull/217",
+    "guideFingerprint": "fbd384b2916a6280ca2572e630ad08c047e92a6864af3b54049cc6b254fc11cc"
+  },
+  "jobName": "rotor-v2-pva-I",
+  "notes": "One complete representative rotor-I kit, five fresh parts, no reused ring. Human selected reviewed PR217 and reported printer free. Four walls,30percent gyroid,8mm outer brims where emitted,texturedPEI,fullPVA zero top/bottom contact gaps,prime tower. Estimates75.35gPLA+14.57gPVA; slicer total89.93g has independent rounding. II/III and multiplication remain held pending cleanup/identification/fit acceptance. P51 recesses only fixed standoffs; actual contact/elasticity/loadedoperation unverified. Physical quality,fit,stepping,electrical operation and printed ID legibility remain unqualified. Start accepted once with exact file/plate/G-codeMD5/mapping/sequence, task374. FirstacceptedPREPARE report retained previous211layercounter; not attributed to newrun. Fresh07:34:05UTC RUNNING layer0/122,stage11,error0 confirms preparation only, not deposition. Retained timestamped unknown HMS entries unchanged; no automatic clearing.",
+  "physicalInspection": {
+    "supportCleanupVerified": false,
+    "partIdentityLegibilityVerified": false,
+    "fitVerified": false,
+    "loadedOperationVerified": false,
+    "electricalOperationVerified": false
+  },
+  "printerStartAuthorized": true,
+  "layers": 122,
+  "acceptedJob": {
+    "subtask_name": "Enigma_RotorI_f46e74fe_20261105_a1.gcode",
+    "gcode_file": "/data/Metadata/plate_1.gcode",
+    "md5": "d2a749b5d9ca60e5e914da655c947a03",
+    "task_id": "374",
+    "observed_at": "2026-11-05T07:32:46.196416+00:00",
+    "sequenceId": "11050730",
+    "uploadedFile": "/Enigma_RotorI_f46e74fe_20261105_a1.gcode.3mf",
+    "printerState": "PREPARE"
+  },
+  "preparationEvidence": {
+    "normalCleanMainPrepare": "PASS",
+    "stagedFilesHashVerified": true,
+    "stagedFileCount": 108,
+    "uploadReadbackIdentical": true,
+    "readbackAudit": "UPLOADED_BYTES_MATCH_REVIEWED_ARTIFACT",
+    "runtimeAudit": "PASS_STATIC_SLICE_TO_RAW_AMS_BINDING",
+    "printerStartSent": true,
+    "currentMainCommit": "e9024f0638be9aec41fc70b21af3c6d0e96b841a"
+  }
+}

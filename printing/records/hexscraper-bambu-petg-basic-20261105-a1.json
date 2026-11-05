@@ -3,7 +3,7 @@
   "title": "HexScraper · Bambu PETG Basic · first attempt",
   "project": "Printer tools",
   "printer": "Bambu Lab X2D",
-  "status": "printing",
+  "status": "completed",
   "recordedAt": "2026-11-05T16:52:19.720536+00:00",
   "startedAt": "2026-11-05T16:47:30.678580+00:00",
   "finishedAt": null,
@@ -37,6 +37,24 @@
       "capturedAt": "2026-11-05T16:55:01.141857Z",
       "sha256": "f4e5fd1e766ec452b0d24f74f2d38f3be1ed31f7f2b8a38158c88b741787c379",
       "caption": "First gray model deposition actually viewed during the accepted HexScraper run. Fresh telemetry: RUNNING, layer 1/53, 4%, about 139 minutes remaining, no active print_error or HMS. Scraper outline and early internal paths visible; the head partly obscures the rear. This confirms deposition, not full layer adhesion, edge quality, strength, toughness or scraping usefulness."
+    },
+    {
+      "src": "assets/hexscraper-bambu-petg-basic-20261105-a1/camera-hourly-175759.jpg",
+      "capturedAt": "2026-11-05T17:57:59.995348+00:00",
+      "sha256": "058462465750fb7d139b42305aa44d70c9a3b0389eb3c41838b306460ae4ad2b",
+      "caption": "During the accepted HexScraper run: gray honeycomb grip and cutting head visible on the plate; moving head obscures the rear/left. No obvious large tangle or displaced model. Underside adhesion, edge quality, toughness and use remain unqualified."
+    },
+    {
+      "src": "assets/hexscraper-bambu-petg-basic-20261105-a1/camera-hourly-185625.jpg",
+      "capturedAt": "2026-11-05T18:56:25.548530+00:00",
+      "sha256": "10c2594c92358dd157aa822669b3a8c584a69236f0991aeac8fb9540f7959762",
+      "caption": "During the accepted HexScraper run: integrated gray body, honeycomb openings and sloped blade end visible on the plate; the head partly obscures the rear middle/right. No obvious large tangle or displaced model. Full underside adhesion, edge quality, toughness and practical use remain unqualified."
+    },
+    {
+      "src": "assets/hexscraper-bambu-petg-basic-20261105-a1/camera-terminal-193142.jpg",
+      "capturedAt": "2026-11-05T19:31:42.782930+00:00",
+      "sha256": "46c2d97e5c405084760fafb994e7f6463702c1e3c18962345b30ed71a167d945",
+      "caption": "After fresh FINISH telemetry at 100%, layer 53/53 with no active print_error or HMS: an intact-looking integrated gray honeycomb scraper and sloped blade remain on the plate, head parked clear. Fine loose string loops are visible; no obvious large tangle or displaced model. Printer completion and this image do not qualify underside adhesion, edge finish, strength, toughness or scraping usefulness."
     }
   ],
   "evidenceImages": [
@@ -148,6 +166,18 @@
     "toolLabel": "Bambu Studio: Auxiliary Nozzle/Bowden",
     "nativeQualityWarning": "PETG Basic on auxiliary nozzle: native Bambu Studio quality warning accepted for this utility trial; no strength qualification."
   },
-  "notes": "User requested one PETG replacement scraper after the earlier PLA tool broke. Bambu PETG Basic gray in A4 was confirmed by the human, Bambu Studio material dialog and fresh raw AMS data; no spool metadata was rewritten. Source/settings/toolpath evidence is digital qualification only. Explicit upload mapping [3] selects A4 and actual slice logical map 2 selects physical extruder 0; Bambu Studio labels this Auxiliary Nozzle/Bowden. Its native quality warning for PETG Basic on the auxiliary nozzle was accepted for this utility trial; that acceptance does not qualify printed strength or toughness. Earlier digital candidates were rejected before acceptance: one had actual plate map 1 despite project map 2, and the corrected-map CLI export lacked its machine-model ID. A disconnected connector print call falsely returned success; subsequent raw telemetry and Bambu Studio proved that call had not started a job. After reconciliation, the exact hash-verified N6 archive was started once using Bambu Studio SD-card Send and Continue printing. Fresh direct MQTT accepted the new exact job RUNNING at layer 0/53 with no active print_error. startedAt is first observed acceptance, not an exact motor-start timestamp. At 16:55:01Z first gray model deposition was actually viewed and preserved, during RUNNING layer 1/53 at 4% with no active print_error or HMS. This confirms initial model deposition only; full layer adhesion and terminal camera evidence remain unverified. Actual finish, duration and grams remain unknown. Edge toughness, scraping performance and physical quality remain unverified. No further print starts are authorized.",
-  "updatedAt": "2026-11-05T17:01:17.084387+00:00"
+  "notes": "User requested one PETG replacement scraper after the earlier PLA tool broke. Bambu PETG Basic gray in A4 was confirmed by the human, Bambu Studio material dialog and fresh raw AMS data; no spool metadata was rewritten. Source/settings/toolpath evidence is digital qualification only. Explicit upload mapping [3] selects A4 and actual slice logical map 2 selects physical extruder 0; Bambu Studio labels this Auxiliary Nozzle/Bowden. Its native quality warning for PETG Basic on the auxiliary nozzle was accepted for this utility trial; that acceptance does not qualify printed strength or toughness. Earlier digital candidates were rejected before acceptance: one had actual plate map 1 despite project map 2, and the corrected-map CLI export lacked its machine-model ID. A disconnected connector print call falsely returned success; subsequent raw telemetry and Bambu Studio proved that call had not started a job. After reconciliation, the exact hash-verified N6 archive was started once using Bambu Studio SD-card Send and Continue printing. Fresh direct MQTT accepted the new exact job RUNNING at layer 0/53 with no active print_error. startedAt is first observed acceptance, not an exact motor-start timestamp. At 16:55:01Z first gray model deposition was actually viewed and preserved, during RUNNING layer 1/53 at 4% with no active print_error or HMS. This confirms initial model deposition only; full layer adhesion remains unqualified. Hourly utility camera frames at 17:57:59Z and 18:56:25Z were viewed and preserved. Fresh telemetry first reported FINISH at 19:31:20Z, 100%, layer 53/53, with no active print_error or HMS; the preceding RUNNING observation was 19:26:19Z. The terminal camera at 19:31:42Z shows the intact-looking integrated scraper on the plate with fine string loops. Exact finish was between observations and was not directly observed; finishedAt and actualSeconds therefore remain null, with no inferred duration. Actual filament was not measured. Actual finish, duration and grams remain unknown. Edge toughness, scraping performance and physical quality remain unverified. No further print starts are authorized.",
+  "updatedAt": "2026-11-05T19:33:11.523776+00:00",
+  "terminalEvidence": {
+    "printerState": "FINISH",
+    "observedAt": "2026-11-05T19:31:20.330700+00:00",
+    "currentLayer": 53,
+    "totalLayers": 53,
+    "percent": 100,
+    "printError": 0,
+    "activeHmsCount": 0,
+    "lastRunningObservedAt": "2026-11-05T19:26:19.460891+00:00",
+    "exactFinishObserved": false,
+    "terminalCameraCapturedAt": "2026-11-05T19:31:42.782930+00:00"
+  }
 }

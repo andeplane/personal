@@ -1,0 +1,37 @@
+[
+  {
+    "file": "holbox-hero.webp",
+    "url": "https://cdn.mexicancaribbean.travel/wp-content/uploads/2024/09/Holbox-Hamacas_7_11zon-scaled.jpg",
+    "page": "https://mexicancaribbean.travel/destinations/isla-holbox",
+    "credit": "Mexican Caribbean Tourism Board",
+    "dimensions": [2200, 1467]
+  },
+  {
+    "file": "caracol-room.webp",
+    "url": "https://irp.cdn-website.com/effe3a22/dms3rep/multi/opt/MASTER+SUITE+KING+GARDEN+VIEW+-+TERRACE-94515889-1920w.jpg",
+    "page": "https://www.villascaracol.com/rooms",
+    "credit": "Villas Caracol",
+    "dimensions": [1900, 1267]
+  },
+  {
+    "file": "zentik-cave.webp",
+    "url": "https://irp.cdn-website.com/87191dad/dms3rep/multi/opt/cueva-vacia-1920w.jpg",
+    "page": "https://www.hotelzentik.com/la-cueva-zentik-hotel-valladolid",
+    "credit": "Zentik Project",
+    "dimensions": [1821, 1300]
+  },
+  {
+    "file": "cenote.webp",
+    "url": "https://yucatan.travel/wp-content/uploads/2021/03/Cenote-Xcanche-Cover.jpg",
+    "page": "https://yucatan.travel/en/experience/004-xcanche-cenote/",
+    "credit": "Yucat\u00e1n Tourism",
+    "dimensions": [1900, 1069]
+  },
+  {
+    "file": "diving.webp",
+    "url": "https://xicodivecenter.com/wp-content/uploads/2025/09/Discovery-Scuba-5.jpg",
+    "page": "https://xicodivecenter.com/discover-scuba-diving/",
+    "credit": "Xico Dive Center, Playa del Carmen",
+    "dimensions": [1170, 780]
+  }
+]

@@ -4,9 +4,9 @@
     "title": "Overnight rotor II kit + retained P50 B · six-part PLA/PVA trial",
     "project": "OpenEnigma",
     "printer": "Bambu Lab X2D",
-    "status": "paused",
+    "status": "printing",
     "recordedAt": "2026-11-05T22:15:36.940846+00:00",
-    "updatedAt": "2026-11-06T00:36:39.807847+00:00",
+    "updatedAt": "2026-11-06T19:06:55.019604+00:00",
     "startedAt": "2026-11-06T00:02:30.952788+00:00",
     "finishedAt": null,
     "printDate": "2026-11-06",
@@ -50,6 +50,12 @@
         "capturedAt": "2026-11-06T00:34:57.465299+00:00",
         "sha256": "dad6cfc2b11d715182db99eac9868125f511ee6af47dd5f82eddaa6c16c7b710",
         "caption": "After actual PAUSE for fresh AMS-HT feed resistance: head parked left, red first-layer parts and pale gray PVA support fill visible in the rear-right region, with small wisps. Initial PVA deposition is established; feed-path health, full adhesion, permanent-feature survival, cleanup and fit remain unqualified. The run is paused for physical resolution, not terminal failure."
+      },
+      {
+        "src": "assets/enigma-overnight-six-part-20261105-a1/running-again-190655.jpg",
+        "capturedAt": "2026-11-06T19:06:55.019604+00:00",
+        "sha256": "267a24e76ecc898bcd72315ff884e9119028f47d7a100a0c403df6891931e8f8",
+        "caption": "Read-only status check after monitoring ended: same accepted job observed RUNNING at layer 5/122 (16%). Raised red PLA forms and broad pale gray PVA support/brim are visible; the head occludes the right side. No obvious large tangle or displaced part visible. Full adhesion, feed-path resolution, cleanup, permanent features and fit remain unverified. Resume time and actor are unknown; no controller resume was sent."
       }
     ],
     "source": {
@@ -168,7 +174,7 @@
         "privateReceiptSha256": "cc8953530e11bd12738682ea6b87450fac36a1f8f74e7e2d417ca2cc717799d2"
       }
     },
-    "notes": "One complete five-role rotor-II plastic kit plus common P50 B retained for rotor III; six new parts total, preserving three total P50 faces including the earlier rotor-I face. Human authorized useful overnight printing. The prior rotor-I P50 cleanup/teeth/holes/markings and gentle unloaded fit were reported PASS by the human; that report is confined to the prior P50 and does not qualify new A/B, other parts, P51 contact lands, strength, loaded or electrical operation. Reviewed current-main release 292151 and normal preparation passed for this exact archived slice. Builder provenance from the earlier candidate is retained rather than relabelled as newly sliced on final main. Initial FTP transfer was rejected and the unique target was confirmed absent; internal SDK upload and full byte-identical readback then passed. One project_file start was published at 2026-11-06T00:02:04.152333Z, sequence 11052357. Fresh RUNNING for exact task 4018/plate 1 was first observed at 00:02:30.952788Z, layer 0/122, about 459 minutes remaining and print_error 0; startedAt is this first observation, not an exact motor-start timestamp. Post-start camera at 00:03:30Z was actually viewed: preparation/calibration only, no newly established model or PVA deposition. Two retained HMS entries with November 1 raw timestamps remain unknown and are being investigated without clearing. Actual finish, duration and measured usage remain null. New parts remain a prototype cleanup/identification/unloaded-fit trial; no physical strength, loaded/contact/P51-land or electrical behavior is qualified. No additional start is authorized. Follow-up at 2026-11-06T00:16:18Z: actual camera shows fresh red first-layer rings/lines at rear/right, including brim; the head obscures the rear. Initial PLA deposition is confirmed, but complete model adhesion and feature survival are not. Pale PVA deposition has not yet been established. Fresh preceding telemetry at 00:15:25Z identified the same accepted task 4018 RUNNING layer 1/122, about 451 minutes remaining and print_error 0. No new printer start or control was sent for this observation. At 2026-11-06T00:32Z a new AMS-HT A slot 1 feed-resistance warning 1800200000020025 appeared. Its ts_boot 33513074 is newer than the start baseline 31856729, so the skewed November 1 calendar timestamp does not make this a historical fault. The controller published exactly one guarded pause at 00:34:25.447482Z and fresh matching task 4018 telemetry verified PAUSE at 00:34:33.470266Z, layer 1/122, print_error 0. This is an ongoing paused run, not a failed or finished print. Fresh camera at 00:34:57Z establishes initial pale gray PVA support deposition beside red first-layer parts, with small wisps; it does not establish feed qualification, full adhesion, cleanup, feature survival or fit. A genuine physical spool/feed-path resolution is required. No automatic resume, error reset, cancellation, replacement or further start is authorized.",
+    "notes": "One complete five-role rotor-II plastic kit plus common P50 B retained for rotor III; six new parts total, preserving three total P50 faces including the earlier rotor-I face. Human authorized useful overnight printing. The prior rotor-I P50 cleanup/teeth/holes/markings and gentle unloaded fit were reported PASS by the human; that report is confined to the prior P50 and does not qualify new A/B, other parts, P51 contact lands, strength, loaded or electrical operation. Reviewed current-main release 292151 and normal preparation passed for this exact archived slice. Builder provenance from the earlier candidate is retained rather than relabelled as newly sliced on final main. Initial FTP transfer was rejected and the unique target was confirmed absent; internal SDK upload and full byte-identical readback then passed. One project_file start was published at 2026-11-06T00:02:04.152333Z, sequence 11052357. Fresh RUNNING for exact task 4018/plate 1 was first observed at 00:02:30.952788Z, layer 0/122, about 459 minutes remaining and print_error 0; startedAt is this first observation, not an exact motor-start timestamp. Post-start camera at 00:03:30Z was actually viewed: preparation/calibration only, no newly established model or PVA deposition. Two retained HMS entries with November 1 raw timestamps remain unknown and are being investigated without clearing. Actual finish, duration and measured usage remain null. New parts remain a prototype cleanup/identification/unloaded-fit trial; no physical strength, loaded/contact/P51-land or electrical behavior is qualified. No additional start is authorized. Follow-up at 2026-11-06T00:16:18Z: actual camera shows fresh red first-layer rings/lines at rear/right, including brim; the head obscures the rear. Initial PLA deposition is confirmed, but complete model adhesion and feature survival are not. Pale PVA deposition has not yet been established. Fresh preceding telemetry at 00:15:25Z identified the same accepted task 4018 RUNNING layer 1/122, about 451 minutes remaining and print_error 0. No new printer start or control was sent for this observation. At 2026-11-06T00:32Z a new AMS-HT A slot 1 feed-resistance warning 1800200000020025 appeared. Its ts_boot 33513074 is newer than the start baseline 31856729, so the skewed November 1 calendar timestamp does not make this a historical fault. The controller published exactly one guarded pause at 00:34:25.447482Z and fresh matching task 4018 telemetry verified PAUSE at 00:34:33.470266Z, layer 1/122, print_error 0. This is an ongoing paused run, not a failed or finished print. Fresh camera at 00:34:57Z establishes initial pale gray PVA support deposition beside red first-layer parts, with small wisps; it does not establish feed qualification, full adhesion, cleanup, feature survival or fit. A genuine physical spool/feed-path resolution is required. No automatic resume, error reset, cancellation, replacement or further start is authorized. Later monitoring could no longer reach telemetry or camera; the last confirmed PAUSE was at 07:35:37Z and the bounded monitor ended at 12:02:30Z without inferring completion or sending control. A user-requested read-only status probe at 19:06:36Z recovered the exact same accepted task 4018 RUNNING at layer 5/122, 16%, print_error 0, with a printer estimate of 384 minutes remaining. Resume time and actor are unknown; this controller sent no resume or new start. Bed was 55/55 C, physical tool 0 220/220 C and physical tool 1 230/230 C. The old feed-resistance HMS remains reported; telemetry does not establish human spool/feed-path resolution. Fresh camera at 19:06:55Z was actually viewed: raised red part forms and broad pale gray PVA support/brim, with no obvious large tangle or displacement; head and angle limit inspection. The same run continues. Historical pause/feed warnings and physical acceptance holds remain, and finish/duration/measured usage remain null. The ended monitor was not restarted.",
     "releaseJobId": "rotor-II-complete-plus-P50-B-pla-pva",
     "preparationEvidence": {
       "normalCleanMainPrepare": "PASS",
@@ -280,6 +286,36 @@
       "automaticResumeAuthorized": false,
       "automaticErrorResetAuthorized": false,
       "automaticCancelOrReplacementAuthorized": false
+    },
+    "resumedObservation": {
+      "observedAt": "2026-11-06T19:06:36.720700+00:00",
+      "printerState": "RUNNING",
+      "taskId": "4018",
+      "subtaskName": "Enigma_OvernightII_79d4def7_20261105_a1.gcode",
+      "currentLayer": 5,
+      "totalLayers": 122,
+      "percent": 16,
+      "remainingMinutesEstimate": 384,
+      "printError": 0,
+      "bedCurrentC": 55,
+      "bedTargetC": 55,
+      "physicalExtruder0CurrentC": 220,
+      "physicalExtruder0TargetC": 220,
+      "physicalExtruder1CurrentC": 230,
+      "physicalExtruder1TargetC": 230,
+      "resumedAt": null,
+      "resumeActor": null,
+      "controllerResumeSent": false,
+      "historicalFeedResistanceHmsStillReported": true,
+      "humanFeedPathResolutionVerified": false
+    },
+    "monitoringBoundary": {
+      "lastConfirmedPauseAt": "2026-11-06T07:35:37.231435+00:00",
+      "telemetryAndCameraUnreachableLater": true,
+      "monitorEndedAt": "2026-11-06T12:02:30Z",
+      "terminalStateInferred": false,
+      "oneUserRequestedReadOnlyProbeRecoveredAt": "2026-11-06T19:06:36.720700+00:00",
+      "monitorRestarted": false
     }
   },
   {

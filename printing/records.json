@@ -1,5 +1,227 @@
 [
   {
+    "id": "enigma-overnight-six-part-20261105-a1",
+    "title": "Overnight rotor II kit + retained P50 B · six-part PLA/PVA trial",
+    "project": "OpenEnigma",
+    "printer": "Bambu Lab X2D",
+    "status": "printing",
+    "recordedAt": "2026-11-05T22:15:36.940846+00:00",
+    "updatedAt": "2026-11-06T00:07:03.341823+00:00",
+    "startedAt": "2026-11-06T00:02:30.952788+00:00",
+    "finishedAt": null,
+    "printDate": "2026-11-06",
+    "jobName": "Enigma_OvernightII_79d4def7_20261105_a1.gcode",
+    "plate": 1,
+    "parts": [
+      "P48 M03 body/thumbwheel · rotor II · one fresh part",
+      "P49 M03 blank cassette · rotor II · one fresh part",
+      "P50 M02 ratchet face A · rotor II · one fresh part",
+      "P51 M02 setting arm · rotor II · one fresh part",
+      "P53-II M02 distinct numbered ring II · rotor II · one fresh part",
+      "P50 M02 ratchet face B · retained for rotor III · one extra fresh part"
+    ],
+    "estimatedSeconds": 27565,
+    "actualSeconds": null,
+    "estimatedGrams": 105.44,
+    "actualGrams": null,
+    "estimatedMeters": 34.74,
+    "material": "Red PLA physical 0 AMS 0 slot 0 + manual gray PVA physical 1 AMS 128 slot 0 · full PVA support",
+    "color": "#C12E1F",
+    "layerHeightMm": 0.2,
+    "nozzleMm": 0.4,
+    "layers": 122,
+    "preview": "assets/enigma-overnight-six-part-20261105-a1/preview.png",
+    "layout": "assets/enigma-overnight-six-part-20261105-a1/layout.png",
+    "snapshots": [
+      {
+        "src": "assets/enigma-overnight-six-part-20261105-a1/camera-post-start-000330.jpg",
+        "capturedAt": "2026-11-06T00:03:30.661474+00:00",
+        "sha256": "5b54dab2bc19c45acbf546525e9780bd4ab5abb19b31b279adcbba113c662190",
+        "caption": "Fresh post-start preparation/calibration after the exact new job was observed RUNNING at layer 0/122. Head and bed have moved; old flat witness marks remain. No newly deposited PLA model or PVA support established. Not a finished-part or first-material image."
+      }
+    ],
+    "source": {
+      "file": "OVERNIGHT_ROTOR_II_PLUS_P50_B_N6_SLICED.3mf",
+      "sha256": "79d4def75aeeed89c0170aee2f989483ae031202556ac583365f4a020b9086a9",
+      "gcodeSha256": "023cb58308fef1a01d9b860e0056284724ff7b707f786c7404b2d6083a51df8c",
+      "editableSha256": "4b77d28ecc1177b4646f68dacc41c47d4b38e934d8ddd977b9e068b4d13f883a",
+      "inventorySha256": "3f92744f27285bbba672e30392a17f6a20804b518a544b5be2a1716d8741bfe9",
+      "sourceCommit": "29215133622986b5e7cee83708d79627cbfe406f",
+      "candidateSourceBaseCommit": "fb507c17e19f0a5dd1e45c0e179c759f72226545",
+      "evidence": "Exact frozen candidate archive adopted by reviewed current main 29215133622986b5e7cee83708d79627cbfe406f and passed normal clean-main preparation (02). Candidate builder provenance remains fb507c17e19f0a5dd1e45c0e179c759f72226545; the slice was not newly created on clean 292151. Native-geometry ancestry and unchanged manufacturing profiles are preserved separately. Four critical-feature jobs and root/independent toolpath reviews passed; full six-part path bounds, brims and tower clearance passed. Exact final archive received internal SDK upload, full fresh download and official byte-identical readback audit. Actual preview/top extracted from that same archive; digital checks do not qualify physical fit/operation.",
+      "releaseCommit": "29215133622986b5e7cee83708d79627cbfe406f",
+      "sourceTree": "dd36a8c7ea21bdc54d5f9ddef6dff5299fce7e88"
+    },
+    "candidateAudit": {
+      "releaseState": "current_main_released_normal_prepare_pass_accepted_running",
+      "newParts": 6,
+      "completeRotorIIPlasticRoles": 5,
+      "extraP50Allocation": "B retained for rotor III; A allocated rotor II. Three total P50 faces including the prior rotor-I face; no additional fresh duplicate P50 intended.",
+      "estimatedPlaGrams": 86.77,
+      "estimatedPvaGrams": 18.67,
+      "wallLoops": 4,
+      "infill": "30% gyroid",
+      "outerBrimMm": 8,
+      "supports": "Full PVA with zero top and bottom contact gaps",
+      "tower": true,
+      "bed": "Textured PEI Plate",
+      "bedC": 55,
+      "plannedFilamentMaps": [
+        2,
+        1
+      ],
+      "plannedPhysicalMapping": {
+        "PLA": "physical 0, AMS 0 slot 0 red",
+        "PVA": "physical 1, AMS 128 slot 0 manual gray; pale slicer swatch is profile metadata"
+      },
+      "exportMetadataCorrection": {
+        "rejectedArchiveSha256": "4066bd382227d49d1c7c88b76ba7da1cf69babd00e35c3982a5c185853154e76",
+        "officialModelId": "N6",
+        "officialMachineModelSha256": "02db23de231242faf869775bb6b23ae3aab334b9fbac9991dd58d573717d03f6",
+        "onlySemanticChange": "Metadata/slice_info.config printer_model_id empty to N6; all other member/G-code/geometry bytes unchanged per candidate proof.",
+        "proofSha256": "3c8699db6ba3d38362b1679d9b2b34cc1feafb613bd9784991b278593d49af0e"
+      },
+      "inventory": [
+        {
+          "id": "P48_M03_BODY",
+          "role": "body",
+          "quantity": 1,
+          "allocation": "rotor II",
+          "sourceStlSha256": "e9615a9c2702867f3cf810264e370745e6ad01890b16ed0684e02d7372562ee2",
+          "sourceNativeSha256": "9fa68f29e2d02645676fdb29ddce6f8a51c4ff33427a48ff69386a52b481066b",
+          "newPartPhysicallyAccepted": false
+        },
+        {
+          "id": "P49_M03_BLANK_CASSETTE",
+          "role": "blank_cassette",
+          "quantity": 1,
+          "allocation": "rotor II",
+          "sourceStlSha256": "a51d16adea84c20b7959ea2b5fd45dd007b86ea191ae5ed67aac89ec7b7a67bd",
+          "sourceNativeSha256": "2b2e7b4b201fe143b5df782150e5a45c1c59db2c177c3dc669abf07bdc5d3cfa",
+          "newPartPhysicallyAccepted": false
+        },
+        {
+          "id": "P51_M02_RING_ARM",
+          "role": "ring_arm",
+          "quantity": 1,
+          "allocation": "rotor II",
+          "sourceStlSha256": "610f4a87b09bb688a91b9aa3a143a25844b15ce66670d8a1b6e18dee2f5dbb9d",
+          "sourceNativeSha256": "99626379fd37440cc6b14b8892a669244190915d6f0ee2d9da9c313ecc4539fa",
+          "newPartPhysicallyAccepted": false
+        },
+        {
+          "id": "P53-II_M02_NUMBERED_RING_II",
+          "role": "numbered_ring_II",
+          "quantity": 1,
+          "allocation": "rotor II",
+          "sourceStlSha256": "c6f953ca8ffe57cc60722cdd5356047dd3b05a0403011926e826326999a52d1f",
+          "sourceNativeSha256": "bc739288d7bee86f2349b81d9bf58d0388cbe5608a2950dc078f0bf15a9e0d6b",
+          "newPartPhysicallyAccepted": false
+        },
+        {
+          "id": "P50_M02_RATCHET_FACE_A",
+          "role": "ratchet_face",
+          "quantity": 1,
+          "allocation": "rotor II",
+          "sourceStlSha256": "9b4690f2c69e616ae115891ea169873a1fdd45244c4ce077562ada566ca4b0a1",
+          "sourceNativeSha256": "5409a8d50f615ca6ddc703e124fac1dea1f44df37cb77d36fad13e46521e968d",
+          "newPartPhysicallyAccepted": false
+        },
+        {
+          "id": "P50_M02_RATCHET_FACE_B",
+          "role": "ratchet_face",
+          "quantity": 1,
+          "allocation": "rotor III retained P50 B",
+          "sourceStlSha256": "9b4690f2c69e616ae115891ea169873a1fdd45244c4ce077562ada566ca4b0a1",
+          "sourceNativeSha256": "5409a8d50f615ca6ddc703e124fac1dea1f44df37cb77d36fad13e46521e968d",
+          "newPartPhysicallyAccepted": false
+        }
+      ],
+      "priorFirstP50HumanInspection": {
+        "part": "P50 M02 ratchet faceplate only",
+        "method": "human-reported inspection; not independently measured by agent",
+        "recordedAt": "2026-11-05T21:56:18.532880+00:00",
+        "inspectedAt": null,
+        "sourceRun": "enigma-rotor-i-identified-pla-pva-20261105-a1",
+        "sourceCommit": "e9024f0638be9aec41fc70b21af3c6d0e96b841a",
+        "sliceSha256": "f46e74fe982700f41645469792d2efa5d416d7dcb12a908a44bbe99c0ddbcbe1",
+        "acceptedTask": "374",
+        "cleanupReport": "it is clean",
+        "question": "Did its teeth/holes/markings survive and does it pass the gentle unloaded fit check?",
+        "answer": "Yes, features and fit are good",
+        "supportCleanupReportedPass": true,
+        "teethHolesMarkingsReportedPass": true,
+        "gentleUnloadedFitReportedPass": true,
+        "scope": "Only the first printed P50. Does not qualify the other four kit parts, P51 contact lands, strength, loaded operation or electrical behavior. Future faces A/B require their own identity/cleanup/permanent-feature and unloaded-fit inspection.",
+        "privateReceiptSha256": "cc8953530e11bd12738682ea6b87450fac36a1f8f74e7e2d417ca2cc717799d2"
+      }
+    },
+    "notes": "One complete five-role rotor-II plastic kit plus common P50 B retained for rotor III; six new parts total, preserving three total P50 faces including the earlier rotor-I face. Human authorized useful overnight printing. The prior rotor-I P50 cleanup/teeth/holes/markings and gentle unloaded fit were reported PASS by the human; that report is confined to the prior P50 and does not qualify new A/B, other parts, P51 contact lands, strength, loaded or electrical operation. Reviewed current-main release 292151 and normal preparation passed for this exact archived slice. Builder provenance from the earlier candidate is retained rather than relabelled as newly sliced on final main. Initial FTP transfer was rejected and the unique target was confirmed absent; internal SDK upload and full byte-identical readback then passed. One project_file start was published at 2026-11-06T00:02:04.152333Z, sequence 11052357. Fresh RUNNING for exact task 4018/plate 1 was first observed at 00:02:30.952788Z, layer 0/122, about 459 minutes remaining and print_error 0; startedAt is this first observation, not an exact motor-start timestamp. Post-start camera at 00:03:30Z was actually viewed: preparation/calibration only, no newly established model or PVA deposition. Two retained HMS entries with November 1 raw timestamps remain unknown and are being investigated without clearing. Actual finish, duration and measured usage remain null. New parts remain a prototype cleanup/identification/unloaded-fit trial; no physical strength, loaded/contact/P51-land or electrical behavior is qualified. No additional start is authorized.",
+    "releaseJobId": "rotor-II-complete-plus-P50-B-pla-pva",
+    "preparationEvidence": {
+      "normalCleanMainPrepare": "PASS",
+      "sourceCommit": "29215133622986b5e7cee83708d79627cbfe406f",
+      "sourceCheckedAt": "2026-11-05T23:53:37.928324+00:00",
+      "openPullRequestsChecked": [],
+      "readbackStatus": "UPLOADED_BYTES_MATCH_REVIEWED_ARTIFACT",
+      "readbackSlicedSha256": "79d4def75aeeed89c0170aee2f989483ae031202556ac583365f4a020b9086a9",
+      "readbackReceiptSha256": "5dd639704a1612078498222ff60af8944e1c940ea3aa13cac049cc9f10fe47db",
+      "criticalFeatureReviewRequired": true,
+      "criticalFeatureJobsPassed": 4,
+      "firstFTPTransfer": "Rejected553, unique target confirmed absent; no source change or start inferred. Internal SDK transfer/readback then passed.",
+      "printerStartAccepted": true
+    },
+    "acceptedEvidence": {
+      "firstRunningObservedAt": "2026-11-06T00:02:30.952788+00:00",
+      "printerState": "RUNNING",
+      "taskId": "4018",
+      "plate": 1,
+      "subtaskName": "Enigma_OvernightII_79d4def7_20261105_a1.gcode",
+      "sequenceId": "11052357",
+      "currentLayer": 0,
+      "totalLayers": 122,
+      "remainingMinutes": 459,
+      "printError": 0,
+      "stage": 13,
+      "modelDepositionViewed": false,
+      "pvaDepositionViewed": false,
+      "unknownRetainedHms": {
+        "count": 2,
+        "rawTimestamps": [
+          "20261101124710",
+          "20261101124715"
+        ],
+        "interpretation": "Unknown descriptions retained; no active print_error, chronology under investigation. No automatic clearing."
+      }
+    },
+    "evidenceImages": [
+      {
+        "src": "assets/enigma-overnight-six-part-20261105-a1/actual-first-layer-materials.png",
+        "kind": "derived-actual-toolpaths",
+        "caption": "Actual first-layer model/PVA support/brim/tower toolpaths for the exact combined slice; explanatory colors are not measured spool colors. Not evidence of physical deposition.",
+        "sha256": "732d75d732880089b063b82883ed83cb16003def5b290be9c040243a1cd81980"
+      },
+      {
+        "src": "assets/enigma-overnight-six-part-20261105-a1/actual-P50-26-teeth.png",
+        "kind": "derived-actual-toolpaths",
+        "caption": "Actual P50 A/B ratchet-tooth toolpath audit for this combined plate. Digital permanent-feature evidence only; new copies still need cleanup/feature/fit inspection.",
+        "sha256": "dd9c41f5309b1356ddca2d0d60c7c3068fb186ebcfe86bf4659df3e016a9dc5b"
+      },
+      {
+        "src": "assets/enigma-overnight-six-part-20261105-a1/P50-critical-both-faces.png",
+        "kind": "derived-actual-toolpaths",
+        "caption": "Both-face P50 model geometry and removable process material audit; physical cleanup and fit remain unqualified for these new A/B copies.",
+        "sha256": "a562cfabab4f32971538c7d73cdc0968e49a50ec25e866f18197c26c83c147f7"
+      },
+      {
+        "src": "assets/enigma-overnight-six-part-20261105-a1/actual-II-notch.png",
+        "kind": "derived-actual-toolpaths",
+        "caption": "Actual rotor-II numbered-ring notch sector versus selected variant. Finite digital toolpath review, not achieved stepping or physical feature acceptance.",
+        "sha256": "5e1384b896f1094f9beb2efbd0a243f8e14bf1319ba464d67f505bac07bb6cd4"
+      }
+    ]
+  },
+  {
     "id": "hexscraper-bambu-petg-basic-20261105-a1",
     "title": "HexScraper · Bambu PETG Basic · first attempt",
     "project": "Printer tools",
@@ -190,7 +412,7 @@
     "status": "completed",
     "preparationState": "PRINTED_PHYSICAL_CLEANUP_FEATURE_AND_FIT_INSPECTION_HOLD",
     "recordedAt": "2026-11-05T07:28:31.808325+00:00",
-    "updatedAt": "2026-11-05T14:42:46.564980+00:00",
+    "updatedAt": "2026-11-05T22:39:28.988718+00:00",
     "startedAt": "2026-11-05T07:32:46.196416+00:00",
     "finishedAt": null,
     "plate": 1,
@@ -299,7 +521,7 @@
       "guideFingerprint": "fbd384b2916a6280ca2572e630ad08c047e92a6864af3b54049cc6b254fc11cc"
     },
     "jobName": "rotor-v2-pva-I",
-    "notes": "One complete representative rotor-I kit, five fresh parts, no reused ring. Human selected reviewed PR217 and reported printer free. Four walls,30percent gyroid,8mm outer brims where emitted,texturedPEI,fullPVA zero top/bottom contact gaps,prime tower. Estimates75.35gPLA+14.57gPVA; slicer total89.93g has independent rounding. II/III and multiplication remain held pending cleanup/identification/fit acceptance. P51 recesses only fixed standoffs; actual contact/elasticity/loadedoperation unverified. Physical quality,fit,stepping,electrical operation and printed ID legibility remain unqualified. Start accepted once with exact file/plate/G-codeMD5/mapping/sequence, task374. FirstacceptedPREPARE report retained previous211layercounter; not attributed to newrun. Fresh07:34:05UTC RUNNING layer0/122,stage11,error0 confirms preparation only, not deposition. Retained timestamped unknown HMS entries unchanged; no automatic clearing. Fresh camera confirms initial red PLA deposition at07:44:46UTC and initial pale PVA paths at08:04:55UTC. Secondary240/240 and main42/25 at08:04:57 are instantaneous temperatures only; visual deposition is separate evidence. Pale paths are discontinuous in the viewed first PVA frame, so complete support continuity/adhesion is not qualified. A newly observed retained HMS1800200000020025 describes AMS-HT feed resistance but carries an October31 timestamp before this run; active print_error remains0. Its historical timestamp does not qualify the present feed path, and no error was cleared. No physical inspection or measured usage added. Follow-up08:08:04UTC frame shows a broad pale PVA region filled around the red front-right model; the head obscures part, so full-layer/adhesion qualification remains false. Printer first observed FINISH122/122,100percent,error0 at14:30:45UTC; lastRUNNING at14:29:43UTC. Exact finish time, actual print duration and measured filament usage remain unknown/null. Fresh14:30:58UTC camera was actually viewed and shows five part forms on the plate; no obvious major tangle/displacement. This is reported completion, not physical cleanup/feature/fit acceptance. The following two-P50 plate remains held for first-P50 support removal and permanent26teeth/holes/ID/unloadedfit inspection; no additional upload or start was sent. Source remains accepted e902, unchanged by latermain.",
+    "notes": "One complete representative rotor-I kit, five fresh parts, no reused ring. Human selected reviewed PR217 and reported printer free. Four walls,30percent gyroid,8mm outer brims where emitted,texturedPEI,fullPVA zero top/bottom contact gaps,prime tower. Estimates75.35gPLA+14.57gPVA; slicer total89.93g has independent rounding. II/III and multiplication remain held pending cleanup/identification/fit acceptance. P51 recesses only fixed standoffs; actual contact/elasticity/loadedoperation unverified. Physical quality,fit,stepping,electrical operation and printed ID legibility remain unqualified. Start accepted once with exact file/plate/G-codeMD5/mapping/sequence, task374. FirstacceptedPREPARE report retained previous211layercounter; not attributed to newrun. Fresh07:34:05UTC RUNNING layer0/122,stage11,error0 confirms preparation only, not deposition. Retained timestamped unknown HMS entries unchanged; no automatic clearing. Fresh camera confirms initial red PLA deposition at07:44:46UTC and initial pale PVA paths at08:04:55UTC. Secondary240/240 and main42/25 at08:04:57 are instantaneous temperatures only; visual deposition is separate evidence. Pale paths are discontinuous in the viewed first PVA frame, so complete support continuity/adhesion is not qualified. A newly observed retained HMS1800200000020025 describes AMS-HT feed resistance but carries an October31 timestamp before this run; active print_error remains0. Its historical timestamp does not qualify the present feed path, and no error was cleared. No physical inspection or measured usage added. Follow-up08:08:04UTC frame shows a broad pale PVA region filled around the red front-right model; the head obscures part, so full-layer/adhesion qualification remains false. Printer first observed FINISH122/122,100percent,error0 at14:30:45UTC; lastRUNNING at14:29:43UTC. Exact finish time, actual print duration and measured filament usage remain unknown/null. Fresh14:30:58UTC camera was actually viewed and shows five part forms on the plate; no obvious major tangle/displacement. This is reported completion, not physical cleanup/feature/fit acceptance. The following two-P50 plate remains held for first-P50 support removal and permanent26teeth/holes/ID/unloadedfit inspection; no additional upload or start was sent. Source remains accepted e902, unchanged by latermain. Later human report, recorded 2026-11-05T21:56:18Z: for the first printed P50 M02 only, the human said “it is clean” and answered “Yes, features and fit are good” to the specific teeth/holes/markings and gentle unloaded-fit question. This is a narrowly scoped human-reported pass, not an agent measurement or qualification of all five kit parts, P51 contact lands, strength, loaded operation or electrical behavior. Earlier captions and terminal observations retain their original as-observed scope. New P50 A/B still require their own inspections.",
     "physicalInspection": {
       "supportCleanupVerified": false,
       "partIdentityLegibilityVerified": false,
@@ -351,7 +573,27 @@
       "exactFinishedAtKnown": false,
       "terminalCameraViewed": true,
       "physicalQualityVerified": false
-    }
+    },
+    "partInspections": [
+      {
+        "part": "P50 M02 ratchet faceplate only",
+        "method": "human-reported inspection; not independently measured by agent",
+        "recordedAt": "2026-11-05T21:56:18.532880+00:00",
+        "inspectedAt": null,
+        "sourceRun": "enigma-rotor-i-identified-pla-pva-20261105-a1",
+        "sourceCommit": "e9024f0638be9aec41fc70b21af3c6d0e96b841a",
+        "sliceSha256": "f46e74fe982700f41645469792d2efa5d416d7dcb12a908a44bbe99c0ddbcbe1",
+        "acceptedTask": "374",
+        "cleanupReport": "it is clean",
+        "question": "Did its teeth/holes/markings survive and does it pass the gentle unloaded fit check?",
+        "answer": "Yes, features and fit are good",
+        "supportCleanupReportedPass": true,
+        "teethHolesMarkingsReportedPass": true,
+        "gentleUnloadedFitReportedPass": true,
+        "scope": "Only the first printed P50. Does not qualify the other four kit parts, P51 contact lands, strength, loaded operation or electrical behavior. Future faces A/B require their own identity/cleanup/permanent-feature and unloaded-fit inspection.",
+        "privateReceiptSha256": "cc8953530e11bd12738682ea6b87450fac36a1f8f74e7e2d417ca2cc717799d2"
+      }
+    ]
   },
   {
     "id": "manual-scraper-grip-20261105-a1",

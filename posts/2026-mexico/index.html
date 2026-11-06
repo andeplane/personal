@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="googlebot" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#0f2f44" />
+    <meta
+      name="description"
+      content="Anders and Ingrid’s relaxed Mexico trip: Holbox, Valladolid and a wedding by the sea. A personal planning guide."
+    />
+    <title>Mexico, just us · Anders & Ingrid</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2f44'/%3E%3Cpath d='M12 40q10-12 20 0t20 0M12 27q10-12 20 0t20 0' fill='none' stroke='%23b7e3df' stroke-width='4'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="vendor/leaflet.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="vendor/leaflet.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#route">Skip to the plan</a>
+    <header class="masthead">
+      <a class="wordmark" href="#top" aria-label="Mexico guide, back to top"
+        >México<span>Anders & Ingrid</span></a
+      >
+      <nav aria-label="Trip guide">
+        <a href="#route">Route</a><a href="#days">Days</a
+        ><a href="#experiences">Activities</a><a href="#stays">Stays</a
+        ><a class="nav-plan" href="#our-plan"
+          >Our plan <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+    </header>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-photo"
+          src="assets/holbox-hero.webp"
+          width="2200"
+          height="1467"
+          alt="Thatched beach shelter and colourful hammocks beside the shallow turquoise sea on Holbox"
+          fetchpriority="high"
+        />
+        <div class="hero-content">
+          <h1 id="hero-title">Mexico,<br /><em>just us.</em></h1>
+          <p>
+            Slow island mornings. A little Yucatán.<br />And a wedding by the
+            sea.
+          </p>
+          <div class="hero-bottom">
+            <span>28 November – 8 December 2026</span
+            ><a class="button button-light" href="#route"
+              >Explore our ten days <span aria-hidden="true">↓</span></a
+            >
+          </div>
+        </div>
+        <span class="photo-credit"
+          >Holbox · Mexican Caribbean Tourism Board</span
+        >
+      </section>
+      <div class="opening-note wrap">
+        <p>A trip for two, with room to do very little.</p>
+        <span>Planning draft · nothing newly booked</span>
+      </div>
+
+      <section id="route" class="section wrap" aria-labelledby="route-title">
+        <div class="section-intro">
+          <h2 id="route-title">Three places.<br />Plenty of time.</h2>
+          <div>
+            <p class="lead">
+              Start barefoot on Holbox, spend a little time inland, then settle
+              into the wedding coast. Keep the last two nights in the same place
+              if possible.
+            </p>
+            <p>
+              Ten nights away. Three bases if The Fives can extend your stay.
+              Most days have just one idea, and a lot of space around it.
+            </p>
+          </div>
+        </div>
+        <fieldset class="arrival-choice">
+          <legend>How do we want to arrive?</legend>
+          <div class="choice-grid">
+            <label
+              ><input type="radio" name="arrival" value="direct" checked /><span
+                ><strong>Straight to Holbox</strong
+                ><small
+                  >A long first evening, then three island nights and two
+                  inland.</small
+                ></span
+              ></label
+            >
+            <label
+              ><input type="radio" name="arrival" value="gentle" /><span
+                ><strong>Sleep in Cancún first</strong
+                ><small
+                  >An easier landing. Keep three island nights; shorten
+                  Valladolid to one.</small
+                ></span
+              ></label
+            >
+          </div>
+          <p id="arrival-note" class="arrival-note"></p>
+        </fieldset>
+        <div id="route-stops" class="route-stops" aria-live="polite"></div>
+        <div class="map-layout">
+          <div class="map-frame">
+            <div
+              id="trip-map"
+              role="region"
+              aria-label="Interactive map of the proposed route in the Yucatán Peninsula"
+            >
+              <p class="map-loading">The route is listed beside the map.</p>
+            </div>
+            <p class="map-caption">
+              Lines connect the stops; they are not driving directions. Map
+              tiles need internet.
+            </p>
+          </div>
+          <div class="place-explorer">
+            <div class="place-tabs" role="tablist" aria-label="Explore a base">
+              <button
+                id="place-tab-holbox"
+                role="tab"
+                aria-selected="true"
+                aria-controls="place-detail"
+                data-place="holbox"
+              >
+                Holbox</button
+              ><button
+                id="place-tab-valladolid"
+                role="tab"
+                aria-selected="false"
+                aria-controls="place-detail"
+                data-place="valladolid"
+                tabindex="-1"
+              >
+                Valladolid</button
+              ><button
+                id="place-tab-playa"
+                role="tab"
+                aria-selected="false"
+                aria-controls="place-detail"
+                data-place="playa"
+                tabindex="-1"
+              >
+                Wedding coast
+              </button>
+            </div>
+            <div
+              id="place-detail"
+              role="tabpanel"
+              tabindex="0"
+              aria-labelledby="place-tab-holbox"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="days"
+        class="days-section section"
+        aria-labelledby="days-title"
+      >
+        <div class="wrap">
+          <div class="section-intro">
+            <h2 id="days-title">A day at a time.</h2>
+            <div>
+              <p class="lead">A loose plan, with the afternoons left open.</p>
+              <p>
+                Choose a date. Optional outings follow your choices below, so
+                taking something out really makes space.
+              </p>
+            </div>
+          </div>
+          <div
+            id="day-tabs"
+            class="day-tabs"
+            role="tablist"
+            aria-label="Choose a day"
+          ></div>
+          <div
+            id="day-panel"
+            class="day-panel"
+            role="tabpanel"
+            tabindex="0"
+          ></div>
+          <div class="day-navigation">
+            <button id="previous-day" class="text-button" type="button">
+              ← Previous day</button
+            ><span id="day-position"></span
+            ><button id="next-day" class="text-button" type="button">
+              Next day →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="experiences"
+        class="section wrap"
+        aria-labelledby="experiences-title"
+      >
+        <div class="section-intro">
+          <h2 id="experiences-title">A little adventure.<br />A lot of us.</h2>
+          <div>
+            <p class="lead">
+              One underwater day, one inland outing, perhaps a sunrise paddle.
+              Everything else can wait.
+            </p>
+            <p>
+              Keep what sounds good. These are suggestions for two people;
+              availability has not been checked.
+            </p>
+          </div>
+        </div>
+        <article class="experience-row">
+          <div class="experience-copy">
+            <h3>Try the underwater world</h3>
+            <p>
+              Start with a beginner introduction in Playa del Carmen: theory,
+              confined-water practice and two ocean dives with an instructor.
+              Neither of you needs certification. This is an introduction,
+              rather than a qualification.
+            </p>
+            <p class="fact-line">Xico · 5–6 hours · MXN 5,500 for two</p>
+            <p class="small">
+              Pencil in Friday 4 December only if the wedding programme allows.
+              Otherwise consider Sunday 6, well rested. Keep Monday and Tuesday
+              free of scuba.
+            </p>
+            <div class="row-actions">
+              <button
+                class="choice-button"
+                type="button"
+                data-activity="diving"
+                aria-pressed="true"
+              >
+                <span class="choice-symbol" aria-hidden="true">✓</span
+                ><span class="choice-label">In our plan</span></button
+              ><a
+                href="https://xicodivecenter.com/discover-scuba-diving/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Xico’s introduction ↗</a
+              >
+            </div>
+          </div>
+          <figure>
+            <img
+              src="assets/diving.webp"
+              width="1170"
+              height="780"
+              alt="A small group of divers practising underwater with an instructor"
+              loading="lazy"
+            />
+            <figcaption>Photo: Xico Dive Center</figcaption>
+          </figure>
+        </article>
+        <article class="experience-row">
+          <div class="experience-copy">
+            <h3>Ruins, then a cool swim</h3>
+            <p>
+              Leave Valladolid early for Ek’ Balam, before the midday heat. Walk
+              the ruins, then choose the nearby forest path to Xcanché cenote
+              for a swim. Come back for the hotel pool and a long dinner.
+            </p>
+            <p class="fact-line">
+              One unhurried outing · entry and driver to quote
+            </p>
+            <p class="small" id="ruins-availability">
+              Fits the two-night Valladolid stay. Chichén Itzá is an alternative
+              if you especially want the famous pyramid; choose one ruin site.
+            </p>
+            <div class="row-actions">
+              <button
+                class="choice-button"
+                type="button"
+                data-activity="ruins"
+                aria-pressed="true"
+                aria-describedby="ruins-availability"
+              >
+                <span class="choice-symbol" aria-hidden="true">✓</span
+                ><span class="choice-label">In our plan</span></button
+              ><a
+                href="https://yucatan.travel/en/experience/004-xcanche-cenote/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Xcanché details ↗</a
+              >
+            </div>
+          </div>
+          <figure>
+            <img
+              src="assets/cenote.webp"
+              width="1900"
+              height="1069"
+              alt="Forest and a suspension bridge over the water at Xcanché cenote"
+              loading="lazy"
+            />
+            <figcaption>Photo: Yucatán Tourism</figcaption>
+          </figure>
+        </article>
+        <article class="experience-row experience-no-photo">
+          <div class="experience-copy">
+            <h3>A quiet sunrise on Holbox</h3>
+            <p>
+              A guided mangrove kayak from about 06:00–09:00. A good use of the
+              early mornings if jet lag has you awake anyway. Then breakfast, a
+              nap, and nowhere to be.
+            </p>
+            <p class="fact-line">
+              3 hours · MXN 2,000 for two · weather dependent
+            </p>
+            <div class="row-actions">
+              <button
+                class="choice-button"
+                type="button"
+                data-activity="kayak"
+                aria-pressed="false"
+              >
+                <span class="choice-symbol" aria-hidden="true">+</span
+                ><span class="choice-label">Add to our plan</span></button
+              ><a
+                href="https://www.kayakingholbox.com/en/kayaking-al-amanecer-holbox"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Sunrise kayak details ↗</a
+              >
+            </div>
+          </div>
+          <p class="quiet-note">
+            The default activity?<br /><em
+              >Find a lovely spot.<br />Order another drink.<br />Stay a little
+              longer.</em
+            >
+          </p>
+        </article>
+        <details class="research-detail">
+          <summary>
+            Beginner diving: compare the two researched operators
+          </summary>
+          <div class="detail-content">
+            <div class="table-scroll">
+              <table>
+                <caption>
+                  Published reference prices, checked 4 November 2026
+                </caption>
+                <thead>
+                  <tr>
+                    <th>Operator</th>
+                    <th>For two</th>
+                    <th>Time & format</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>
+                      <a
+                        href="https://xicodivecenter.com/discover-scuba-diving/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Xico ↗</a
+                      >
+                    </th>
+                    <td>MXN 5,500</td>
+                    <td>
+                      About 09:30–15:30; practice + two ocean dives. Gear,
+                      instructor, taxes and marina fees included.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <a
+                        href="https://tankha.com/courses/discover-diving"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Tank-Ha ↗</a
+                      >
+                    </th>
+                    <td>MXN 6,400 card<br />MXN 6,000 cash</td>
+                    <td>
+                      About 09:00–17:00; pool + two reef dives. Up to four
+                      students per instructor; ask for a private-instructor
+                      quote if preferred.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              A full Open Water course normally takes several days. For this
+              trip, try one day first. Complete the operator’s medical screening
+              before paying; some answers require a doctor’s clearance.
+              <a
+                href="https://www.padi.com/downloads"
+                target="_blank"
+                rel="noopener noreferrer"
+                >PADI forms ↗</a
+              >
+            </p>
+            <p>
+              Plan at least 24 hours from your final dive to flying, and follow
+              any longer interval set by the operator or dive computer. DAN’s
+              minimum after repetitive or multiday no-decompression diving is 18
+              hours.
+              <a
+                href="https://dan.org/health-medicine/health-resources/diseases-conditions/flying-after-diving/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >DAN guidance ↗</a
+              >
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <section
+        id="stays"
+        class="stays-section section"
+        aria-labelledby="stays-title"
+      >
+        <div class="wrap">
+          <div class="section-intro">
+            <h2 id="stays-title">Places to linger.</h2>
+            <div>
+              <p class="lead">A good room is part of the trip.</p>
+              <p>
+                These two small hotels suit slow mornings, pool time and
+                evenings together. Save a favourite, then check a direct quote
+                and cancellation terms. No live room prices or availability are
+                implied.
+              </p>
+            </div>
+          </div>
+          <article class="stay-row">
+            <figure>
+              <img
+                src="assets/caracol-room.webp"
+                width="1900"
+                height="1267"
+                alt="A private shaded terrace and sofa at Villas Caracol on Holbox"
+                loading="lazy"
+              />
+              <figcaption>Photo: Villas Caracol</figcaption>
+            </figure>
+            <div class="stay-copy">
+              <h3>Villas Caracol</h3>
+              <p class="location-label">Holbox · suggested stay</p>
+              <p>
+                A beachfront hotel with 16 suites and breakfast included. Ask
+                about a king suite with a terrace; some room types have a
+                Jacuzzi or plunge pool. Choose the room for privacy and comfort,
+                then leave the days mostly empty.
+              </p>
+              <p class="small" data-stay-dates="caracol"></p>
+              <div class="row-actions">
+                <button
+                  class="save-hotel"
+                  data-hotel="caracol"
+                  type="button"
+                  aria-pressed="false"
+                >
+                  <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path
+                      d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"
+                    /></svg
+                  ><span>Save hotel</span></button
+                ><a
+                  href="https://www.villascaracol.com/rooms"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Rooms & direct enquiry ↗</a
+                >
+              </div>
+            </div>
+          </article>
+          <article class="stay-row stay-reversed">
+            <figure>
+              <img
+                src="assets/zentik-cave.webp"
+                width="1821"
+                height="1300"
+                alt="Warm turquoise water and soft lighting in Zentik’s underground cave pool"
+                loading="lazy"
+              />
+              <figcaption>Photo: Zentik Project</figcaption>
+            </figure>
+            <div class="stay-copy">
+              <h3>Zentik Project</h3>
+              <p class="location-label">Valladolid · suggested stay</p>
+              <p>
+                Art, a leafy garden and just 12 cabin-style rooms. The
+                guest-only saltwater cave pool is open around the clock. A
+                lovely reason to return early from a morning outing and spend
+                the evening at the hotel.
+              </p>
+              <p class="small" data-stay-dates="zentik"></p>
+              <div class="row-actions">
+                <button
+                  class="save-hotel"
+                  data-hotel="zentik"
+                  type="button"
+                  aria-pressed="false"
+                >
+                  <svg aria-hidden="true" viewBox="0 0 24 24">
+                    <path
+                      d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"
+                    /></svg
+                  ><span>Save hotel</span></button
+                ><a
+                  href="https://www.hotelzentik.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Explore Zentik ↗</a
+                >
+              </div>
+            </div>
+          </article>
+          <div class="wedding-note">
+            <h3>The wedding base: The Fives Beach</h3>
+            <div>
+              <p>
+                Your email thread identifies The Fives Beach in Playa del
+                Carmen. <strong>3–6 December is the working assumption</strong>;
+                the dated stay confirmation still needs checking.
+              </p>
+              <p>
+                Ask to extend through Tuesday 8 December. Those extra two nights
+                are a suggestion, not a booking. Staying put would save a hotel
+                move after the wedding.
+                <a
+                  href="https://www.thefiveshotels.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Hotel’s official site ↗</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="practical"
+        class="section wrap"
+        aria-labelledby="practical-title"
+      >
+        <div class="section-intro">
+          <h2 id="practical-title">Keep the moving<br />parts simple.</h2>
+          <p class="lead">
+            Let someone else handle the first long transfer. Decide about a car
+            only for the inland part.
+          </p>
+        </div>
+        <div class="practical-grid">
+          <div>
+            <h3>Getting around</h3>
+            <p>
+              <strong>Airport → Holbox:</strong> ask the Holbox hotel to arrange
+              road transfer, ferry and island taxi together, with a
+              delayed-flight fallback. The road leg is roughly 2–3 hours; the
+              crossing about 20–30 minutes. The researched ferry timetable’s
+              last Chiquilá departure is 21:30; reconfirm before relying on it.
+            </p>
+            <p>
+              <strong>Holbox → Valladolid:</strong> ferry back to Chiquilá, then
+              a prebooked shuttle. The published shuttle reference is MXN 350
+              each, excluding ferry. Arrange a local driver for the ruins and
+              the onward transfer to Playa.
+            </p>
+            <p>
+              <strong>A car?</strong> Useful inland, but a Chiquilá pickup and
+              Playa drop-off has not been verified. Confirm a real rental offer
+              before building the route around it. No car is needed on Holbox;
+              walking, a bicycle or a golf-cart taxi works. Private visitor cars
+              stay on the mainland.
+            </p>
+            <p class="small">
+              Valladolid is one hour behind Holbox, Cancún and Playa. Confirm
+              whether transfer times are shown in departure or destination time.
+            </p>
+          </div>
+          <div>
+            <h3>Flights are already sorted</h3>
+            <dl class="flight-list">
+              <div>
+                <dt>Saturday 28 November</dt>
+                <dd>
+                  Oslo 06:05 → Amsterdam 08:05<br />Amsterdam 09:50 → Cancún
+                  15:05
+                </dd>
+              </div>
+              <div>
+                <dt>Tuesday 8 December</dt>
+                <dd>
+                  Cancún 16:55 → Amsterdam 08:30 +1<br />Amsterdam 09:55 → Oslo
+                  11:45
+                </dd>
+              </div>
+            </dl>
+            <p class="small">
+              KLM schedule from your ticket email. Oslo arrival is Wednesday 9
+              December. These are ticket times, not a live flight-status check.
+            </p>
+            <h3 class="secondary-heading">A few expectations</h3>
+            <p>
+              Holbox has golf-cart traffic, even though visitors leave their
+              cars behind. Beach conditions and boat trips depend on wind and
+              weather. Whale-shark season does not coincide with this trip.
+            </p>
+            <p>
+              This region is mostly flat. Think beach walks and forest paths,
+              rather than mountain hikes. Leave a windy day free for a long
+              lunch or the hotel pool.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="our-plan"
+        class="our-plan-section section"
+        aria-labelledby="our-plan-title"
+      >
+        <div class="wrap">
+          <div class="section-intro">
+            <h2 id="our-plan-title">Make it ours.</h2>
+            <div>
+              <p class="lead">A small shortlist, and a few things to settle.</p>
+              <p id="storage-status">
+                Your choices save in this browser. They are not shared or
+                booked.
+              </p>
+            </div>
+          </div>
+          <div class="plan-grid">
+            <div>
+              <h3>The plan we’re keeping</h3>
+              <p id="selected-route" class="selected-route"></p>
+              <ul id="selected-activities" class="selected-list"></ul>
+              <p id="activity-total" class="cost-note"></p>
+              <h3 class="secondary-heading">Hotel shortlist</h3>
+              <ul id="selected-hotels" class="selected-list"></ul>
+              <div class="export-actions">
+                <button
+                  id="copy-plan"
+                  class="button button-light"
+                  type="button"
+                >
+                  Copy itinerary</button
+                ><button
+                  id="download-plan"
+                  class="button button-outline"
+                  type="button"
+                >
+                  Download text</button
+                ><button id="print-plan" class="text-button" type="button">
+                  Print / save PDF ↗
+                </button>
+              </div>
+            </div>
+            <div>
+              <h3>Before we book anything else</h3>
+              <div class="checklist">
+                <label
+                  ><input type="checkbox" data-task="wedding" /><span
+                    >Confirm the wedding hotel’s exact check-in and check-out
+                    dates.</span
+                  ></label
+                >
+                <label
+                  ><input type="checkbox" data-task="arrival" /><span
+                    >Choose the arrival plan and confirm transfers with a
+                    late-flight fallback.</span
+                  ></label
+                >
+                <label
+                  ><input type="checkbox" data-task="hotels" /><span
+                    >Get direct hotel quotes and cancellation terms for Holbox
+                    and Valladolid.</span
+                  ></label
+                >
+                <label
+                  ><input type="checkbox" data-task="extension" /><span
+                    >Check whether The Fives can extend the stay for 6–8
+                    December.</span
+                  ></label
+                >
+                <label
+                  ><input type="checkbox" data-task="diving" /><span
+                    >Check wedding events before choosing a dive day; complete
+                    medical screening.</span
+                  ></label
+                >
+              </div>
+              <label class="notes-label" for="trip-notes">Our notes</label
+              ><textarea
+                id="trip-notes"
+                rows="4"
+                maxlength="3000"
+                placeholder="A room we like, a dinner idea, something to ask…"
+              ></textarea
+              ><span class="small notes-hint"
+                >Saved on this device with your other choices.</span
+              >
+            </div>
+          </div>
+          <p
+            id="action-status"
+            class="action-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </div>
+      </section>
+
+      <section
+        id="print-itinerary"
+        class="print-only wrap"
+        aria-label="Complete selected itinerary"
+      ></section>
+      <footer class="wrap footer">
+        <div class="footer-heading">
+          <span class="wordmark">México<span>A trip for two.</span></span>
+          <p>
+            A personal planning draft.<br />Research checked 4 November 2026.
+          </p>
+        </div>
+        <details class="research-detail">
+          <summary>Sources, photo credits & what still needs checking</summary>
+          <div class="detail-content sources">
+            <p>
+              Published prices are reference prices in Mexican pesos, not
+              date-specific quotes. Confirm availability, inclusions, transfer
+              times and cancellation terms directly. The wedding stay dates and
+              extra coastal nights remain provisional.
+            </p>
+            <ul>
+              <li>
+                <a
+                  href="https://mexicancaribbean.travel/destinations/isla-holbox"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Official Holbox destination guide</a
+                >
+                · island transport, beach ideas and seasonal context; hero
+                photograph.
+              </li>
+              <li>
+                <a
+                  href="https://www.holboxexpressferry.com/fares-departures"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Holbox Express ferry timetable</a
+                >
+                · reconfirm the last crossing.
+              </li>
+              <li>
+                <a
+                  href="https://www.villascaracol.com/rooms"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Villas Caracol rooms</a
+                >
+                and
+                <a
+                  href="https://www.villascaracol.com/contact"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >transfer information</a
+                >
+                · terrace photo.
+              </li>
+              <li>
+                <a
+                  href="https://www.hotelzentik.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Zentik Project</a
+                >
+                and
+                <a
+                  href="https://www.hotelzentik.com/la-cueva-zentik-hotel-valladolid"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >the cave pool</a
+                >
+                · cave photograph.
+              </li>
+              <li>
+                <a
+                  href="https://lugares.inah.gob.mx/es/node/5751"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >INAH: Ek’ Balam</a
+                >
+                · opens 08:00;
+                <a
+                  href="https://yucatan.travel/en/experience/004-xcanche-cenote/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Yucatán Tourism: Xcanché</a
+                >
+                · path and cenote photograph.
+              </li>
+              <li>
+                <a
+                  href="https://www.inah.gob.mx/zonas/146-zona-arqueologica-de-chichen-itza"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >INAH: Chichén Itzá</a
+                >
+                · an alternative to Ek’ Balam.
+              </li>
+              <li>
+                <a
+                  href="https://www.kayakingholbox.com/en/kayaking-al-amanecer-holbox"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Kayaking Holbox</a
+                >
+                · sunrise paddle, MXN 1,000 per person.
+              </li>
+              <li>
+                <a
+                  href="https://xicodivecenter.com/discover-scuba-diving/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Xico Dive Center</a
+                >
+                · MXN 2,750 per person; diving photograph.
+                <a
+                  href="https://tankha.com/courses/discover-diving"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Tank-Ha</a
+                >
+                · alternative introduction.
+              </li>
+              <li>
+                <a
+                  href="https://www.padi.com/downloads"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >PADI medical forms</a
+                >
+                and
+                <a
+                  href="https://dan.org/health-medicine/health-resources/diseases-conditions/flying-after-diving/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >DAN flying-after-diving guidance</a
+                >.
+              </li>
+              <li>
+                <a
+                  href="https://holboxshuttle.com/tickets/es/categoria-producto/shared-shuttle/chiquila-valladolid/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Chiquilá–Valladolid shuttle</a
+                >
+                · MXN 350 per person;
+                <a
+                  href="https://www.meetplaya.com/es/valladolid-transportation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Valladolid–Playa transfer route</a
+                >
+                · no quote verified.
+              </li>
+              <li>
+                <a
+                  href="https://www.cenam.mx/hora_oficial/default2.aspx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >CENAM official Mexican time</a
+                >;
+                <a
+                  href="https://www.thefiveshotels.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >The Fives Hotels</a
+                >.
+              </li>
+            </ul>
+            <p>
+              All photographs depict the places or activities, not Anders and
+              Ingrid. Original image sources are recorded in
+              <a href="assets/credits.json">the photo credits file</a>. The map
+              uses
+              <a
+                href="https://www.openstreetmap.org/copyright"
+                target="_blank"
+                rel="noopener noreferrer"
+                >OpenStreetMap contributors’ data</a
+              >
+              and Leaflet.
+            </p>
+          </div>
+        </details>
+        <p class="footer-end">
+          Made for slow mornings and the occasional adventure.
+        </p>
+      </footer>
+    </main>
+    <noscript
+      ><div class="no-script">
+        The guide and source links are readable without JavaScript. Enable
+        JavaScript to change the arrival plan, explore each day and save
+        choices.
+      </div></noscript
+    >
+  </body>
+</html>

@@ -54,6 +54,9 @@ jobs:
           node --check printing/printing.js
           git diff --exit-code -- printing/records.json
 
+      - name: Prepare no-index personal pages
+        run: python3 scripts/prepare-pages.py
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

@@ -1,0 +1,71 @@
+{
+  "id": "enigma-p57-m01-pla-20261107-a1",
+  "title": "P57 M01 rotor alignment dummy · unloaded PLA trial",
+  "project": "OpenEnigma",
+  "printer": "Bambu Lab X2D",
+  "jobName": "Enigma_P57M01_051fe1c7_20261107_a1.gcode",
+  "releaseJobId": "mechanical-alignment-dummy-pla",
+  "plate": 1,
+  "parts": [
+    "P57 M01 · unloaded rotor bore and axis alignment dummy"
+  ],
+  "material": "Bambu PLA Basic",
+  "color": "#C12E1F",
+  "nozzleMm": 0.4,
+  "layerHeightMm": 0.125,
+  "layers": 677,
+  "recordedAt": "2026-11-07T14:48:59.162587+00:00",
+  "updatedAt": "2026-11-07T14:56:58.411947+00:00",
+  "printDate": "2026-11-07",
+  "startedAt": "2026-11-07T14:50:06.414313+00:00",
+  "finishedAt": null,
+  "status": "printing",
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 3444,
+  "estimatedGrams": 5.37,
+  "estimatedMeters": 1.77,
+  "preview": "assets/enigma-p57-m01-pla-20261107-a1/preview.png",
+  "layout": "assets/enigma-p57-m01-pla-20261107-a1/top.png",
+  "snapshots": [
+    {
+      "src": "assets/enigma-p57-m01-pla-20261107-a1/camera-heating.jpg",
+      "capturedAt": "2026-11-07T14:50:08.259105+00:00",
+      "sha256": "4edd017572dbec65a21284a1cb83802c668e0e18458d1f11e8b3e1838748e3fe",
+      "caption": "Bed raised during heating after printer acceptance."
+    },
+    {
+      "src": "assets/enigma-p57-m01-pla-20261107-a1/early-pla.jpg",
+      "capturedAt": "2026-11-07T14:56:08.043062+00:00",
+      "sha256": "ca44758a829948fafa778a727de0dcf49117f9646f4bf5ab02ce00e9fecf9b64",
+      "caption": "Early red PLA deposition. The visible brim lies flat and the toolhead obscures the center."
+    }
+  ],
+  "source": {
+    "file": "P57-M01-N6-sliced.3mf",
+    "sha256": "051fe1c71bd37e9bd10249b4f9360c4267d2edc93c0d2ce435de0a9e1193c5c5",
+    "gcodeSha256": "3e9b11939efb3ebfe033b3b42bc55d24f5eae9e158f514de5bfeaaefa052fb44",
+    "editableSha256": "4d18469a170385aa4f780fa1c33a9ed7501ec7be3308c3a736a4d3b1a5c49f2d",
+    "sourceCommit": "22d0ba8c241c9a4d64b799d2603563f15c739cd4",
+    "evidence": "Exact P57 M01 selected slice, ordered deposition and normal clean-main staging passed. Independent byte-identical internal readback passed."
+  },
+  "preparationEvidence": {
+    "normalCleanMainPrepare": "PASS",
+    "sourceCommit": "22d0ba8c241c9a4d64b799d2603563f15c739cd4",
+    "sourceCheckedAt": "2026-11-07T12:02:28.663217+00:00",
+    "openPullRequestsChecked": [],
+    "readbackStatus": "UPLOADED_BYTES_MATCH_REVIEWED_ARTIFACT",
+    "readbackSlicedSha256": "051fe1c71bd37e9bd10249b4f9360c4267d2edc93c0d2ce435de0a9e1193c5c5",
+    "readbackReceiptSha256": "7de888844576e306f5cd6adebeb2857059f0b62a538322272cd043f77b0f77f3"
+  },
+  "notes": "One support-free PLA alignment dummy on textured PEI. The working shaft remains steel. Scope is unloaded rotor-bore and axis alignment. Physical fit, strength and loaded operation remain unverified.",
+  "acceptedEvidence": {
+    "firstRunningObservedAt": "2026-11-07T14:50:06.414313+00:00",
+    "printerState": "RUNNING",
+    "plate": 1,
+    "currentLayer": 0,
+    "totalLayers": 677,
+    "remainingMinutes": 57,
+    "printError": 0
+  }
+}

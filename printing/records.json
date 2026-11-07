@@ -1,5 +1,76 @@
 [
   {
+    "id": "enigma-p27-m02-pla-20261107-a1",
+    "title": "P27 M02 release cam · unloaded PLA trial",
+    "project": "OpenEnigma",
+    "printer": "Bambu Lab X2D",
+    "jobName": "Enigma_P27M02_4b962166_20261107_a1.gcode",
+    "releaseJobId": "mechanical-cam-pla",
+    "status": "printing",
+    "recordedAt": "2026-11-07T11:27:23.359832+00:00",
+    "updatedAt": "2026-11-07T11:30:06.400571+00:00",
+    "printDate": "2026-11-07",
+    "startedAt": "2026-11-07T11:23:09.406515+00:00",
+    "finishedAt": null,
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 2495,
+    "estimatedGrams": 3.96,
+    "estimatedMeters": 1.30677,
+    "material": "Bambu PLA Basic",
+    "color": "#C12E1F",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.08,
+    "plate": 1,
+    "layers": 86,
+    "parts": [
+      "P27 M02 reflector release cam · one fresh part"
+    ],
+    "source": {
+      "file": "P27-M02-PLA-MANUAL2-N6-SLICED.3mf",
+      "sha256": "4b96216624a2d04e9ce00ceceaac4c9d9f5e1b4e7338972632c087b7d97c8846",
+      "gcodeSha256": "ba486758fcfb2970eab6037b26f3127fd7d52f1505cfec431a653b29a949dcb6",
+      "editableSha256": "466c0d19c883b1f51f21f9c4af36aea4a7b3b52a9538e0a43bc33280bb1028a1",
+      "sourceCommit": "7224d42e5f6e4658169bb318880dc0b9df253db6",
+      "evidence": "Exact marked-cam native and toolpath review, normal clean-main preparation and independent byte-identical internal readback passed."
+    },
+    "preview": "assets/enigma-p27-m02-pla-20261107-a1/preview.png",
+    "layout": "assets/enigma-p27-m02-pla-20261107-a1/layout.png",
+    "snapshots": [
+      {
+        "src": "assets/enigma-p27-m02-pla-20261107-a1/camera-heating.jpg",
+        "capturedAt": "2026-11-07T11:23:06.956737+00:00",
+        "sha256": "aee2cc56e826102bf005e38694ac65185e0157822180334689b01d05995878ee",
+        "caption": "Bed rising for heating after the start command. No model deposition visible yet."
+      },
+      {
+        "src": "assets/enigma-p27-m02-pla-20261107-a1/first-pla.jpg",
+        "capturedAt": "2026-11-07T11:29:27.669327+00:00",
+        "sha256": "598de0ceea219d5331b9b03f9eaa85be9c0e8fa7ec7aeb5070dbcd2d20ce31e5",
+        "caption": "At layer 1 of 86, the camera shows red PLA forming the cam outline and a purge line at the right edge. The visible extrusion lies flat; the toolhead obscures part of the print."
+      }
+    ],
+    "notes": "Support-free PLA trial for unloaded journal, cap, and overall fit. Textured PEI, four walls, 30% gyroid. Fit, strength and loaded operation remain unverified. Observed RUNNING time is used for the start entry. Slicer duration and material are estimates.",
+    "acceptedEvidence": {
+      "firstRunningObservedAt": "2026-11-07T11:23:09.406515+00:00",
+      "printerState": "RUNNING",
+      "plate": 1,
+      "currentLayer": 0,
+      "totalLayers": 86,
+      "remainingMinutes": 41,
+      "printError": 0
+    },
+    "preparationEvidence": {
+      "normalCleanMainPrepare": "PASS",
+      "sourceCommit": "7224d42e5f6e4658169bb318880dc0b9df253db6",
+      "sourceCheckedAt": "2026-11-07T11:18:43.933254+00:00",
+      "openPullRequestsChecked": [],
+      "readbackStatus": "UPLOADED_BYTES_MATCH_REVIEWED_ARTIFACT",
+      "readbackSlicedSha256": "4b96216624a2d04e9ce00ceceaac4c9d9f5e1b4e7338972632c087b7d97c8846",
+      "readbackReceiptSha256": "3bfd6b26e18ad93749ae8cd29c78a8b727a8b1b0f4d0e75cc896a70ecb57187c"
+    }
+  },
+  {
     "id": "enigma-overnight-six-part-20261105-a1",
     "title": "Overnight rotor II kit + retained P50 B · six-part PLA/PVA trial",
     "project": "OpenEnigma",

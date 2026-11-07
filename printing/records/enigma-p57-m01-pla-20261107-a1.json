@@ -15,11 +15,11 @@
   "layerHeightMm": 0.125,
   "layers": 677,
   "recordedAt": "2026-11-07T14:48:59.162587+00:00",
-  "updatedAt": "2026-11-07T14:56:58.411947+00:00",
+  "updatedAt": "2026-11-07T15:54:48.442026+00:00",
   "printDate": "2026-11-07",
   "startedAt": "2026-11-07T14:50:06.414313+00:00",
   "finishedAt": null,
-  "status": "printing",
+  "status": "completed",
   "actualSeconds": null,
   "actualGrams": null,
   "estimatedSeconds": 3444,
@@ -39,6 +39,18 @@
       "capturedAt": "2026-11-07T14:56:08.043062+00:00",
       "sha256": "ca44758a829948fafa778a727de0dcf49117f9646f4bf5ab02ce00e9fecf9b64",
       "caption": "Early red PLA deposition. The visible brim lies flat and the toolhead obscures the center."
+    },
+    {
+      "src": "assets/enigma-p57-m01-pla-20261107-a1/camera-progress.jpg",
+      "capturedAt": "2026-11-07T15:39:58.649408+00:00",
+      "sha256": "714a6de04d5c93925f955a031e56644a2b696ec148c5ba7f169d2705a1c203ac",
+      "caption": "The red shaft stands upright while the toolhead deposits at its top. The visible brim lies flat."
+    },
+    {
+      "src": "assets/enigma-p57-m01-pla-20261107-a1/camera-completed.jpg",
+      "capturedAt": "2026-11-07T15:53:48.266903+00:00",
+      "sha256": "57b6388b1ab22b4db441af388ee9620b3efaa4eed92007b42d252eb508aeda93",
+      "caption": "After FINISH, the red shaft and brim stand in place with the toolhead parked."
     }
   ],
   "source": {
@@ -58,7 +70,7 @@
     "readbackSlicedSha256": "051fe1c71bd37e9bd10249b4f9360c4267d2edc93c0d2ce435de0a9e1193c5c5",
     "readbackReceiptSha256": "7de888844576e306f5cd6adebeb2857059f0b62a538322272cd043f77b0f77f3"
   },
-  "notes": "One support-free PLA alignment dummy on textured PEI. The working shaft remains steel. Scope is unloaded rotor-bore and axis alignment. Physical fit, strength and loaded operation remain unverified.",
+  "notes": "One support-free PLA alignment dummy on textured PEI. The working shaft remains steel. Scope is unloaded rotor-bore and axis alignment. Physical fit, strength and loaded operation remain unverified. The printer reported FINISH at 677 of 677 layers. The exact finish timestamp, elapsed time and measured material usage are unknown.",
   "acceptedEvidence": {
     "firstRunningObservedAt": "2026-11-07T14:50:06.414313+00:00",
     "printerState": "RUNNING",
@@ -67,5 +79,13 @@
     "totalLayers": 677,
     "remainingMinutes": 57,
     "printError": 0
+  },
+  "terminalEvidence": {
+    "observedAt": "2026-11-07T15:53:46.413654+00:00",
+    "printerState": "FINISH",
+    "currentLayer": 677,
+    "totalLayers": 677,
+    "printError": 0,
+    "percent": 100
   }
 }

@@ -1,0 +1,45 @@
+{
+  "id": "enigma-p14-m01-petg-20261107-a1",
+  "title": "P14 M01 middle indexer arm · PETG cleanup trial",
+  "project": "OpenEnigma",
+  "printer": "Bambu Lab X2D",
+  "jobName": "P14-M01-PETG-N6-SLICED.3mf",
+  "releaseJobId": "mechanical-middle-indexer-arm-petg",
+  "plate": 1,
+  "parts": [
+    "P14 M01 · middle indexer arm"
+  ],
+  "material": "Bambu PETG Basic with PETG supports",
+  "color": "#7F7E83",
+  "nozzleMm": 0.4,
+  "layerHeightMm": 0.125,
+  "layers": 79,
+  "recordedAt": "2026-11-07T15:20:35.662093+00:00",
+  "updatedAt": "2026-11-07T15:20:35.662093+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "status": "planned",
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 3017,
+  "estimatedGrams": 6.11,
+  "estimatedMeters": 2.03,
+  "preview": "assets/enigma-p14-m01-petg-20261107-a1/preview.png",
+  "layout": "assets/enigma-p14-m01-petg-20261107-a1/top.png",
+  "snapshots": [],
+  "source": {
+    "file": "P14-M01-PETG-N6-SLICED.3mf",
+    "sha256": "c088701e1631ad4c6dc00da544297993d13f6db88ef76c14305b4c9a5c5eb4fb",
+    "gcodeSha256": "5fd5dae6acc34b55b68d0817d7f1a6b27111a738d11463fa7498a59949dccf9f",
+    "editableSha256": "5b696f211b49082fddde39fea59293717d7876c0c27730627348d5d6602914a4",
+    "sourceCommit": "cdb5098f39ba25a8b6ee4835f38657eb51e0c5c3",
+    "evidence": "Exact native-bound P14 slice and local geometry, commanded paths, deposition and clean-main staging passed."
+  },
+  "preparationEvidence": {
+    "normalCleanMainPrepare": "PASS",
+    "sourceCommit": "cdb5098f39ba25a8b6ee4835f38657eb51e0c5c3",
+    "sourceCheckedAt": "2026-11-07T15:18:34.482292+00:00",
+    "openPullRequestsChecked": []
+  },
+  "notes": "One marked middle arm on textured PEI. The model and exterior supports use the same PETG spool. The trial covers support removal and unloaded journal, roller-bolt and washer-recess inspection. Physical fit and support removal remain unverified. Start requires a separate authorization and fresh printer and upload readback checks."
+}

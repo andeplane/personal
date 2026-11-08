@@ -1,0 +1,73 @@
+{
+  "id": "enigma-p43-p45-m02-petg-20261108-a1",
+  "title": "P43 and P45 M02 PETG spacers",
+  "project": "OpenEnigma",
+  "printer": "Bambu Lab X2D",
+  "jobName": "P43-P45-M02-PETG-N6-candidate.3mf",
+  "releaseJobId": "mechanical-indexer-spacers-petg",
+  "plate": 1,
+  "parts": [
+    "P43 M02 · spacer S2",
+    "P45 M02 · spacer S4"
+  ],
+  "material": "Bambu PETG Basic",
+  "color": "#7F7E83",
+  "nozzleMm": 0.4,
+  "layerHeightMm": 0.125,
+  "layers": 97,
+  "recordedAt": "2026-11-08T16:42:53.168616+00:00",
+  "updatedAt": "2026-11-08T17:16:06.654170+00:00",
+  "startedAt": "2026-11-08T16:47:58.530507+00:00",
+  "finishedAt": null,
+  "status": "completed",
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 1511,
+  "estimatedGrams": 1.0,
+  "estimatedMeters": 0.33,
+  "preview": "assets/enigma-p43-p45-m02-petg-20261108-a1/preview.png",
+  "layout": "assets/enigma-p43-p45-m02-petg-20261108-a1/top.png",
+  "snapshots": [
+    {
+      "src": "assets/enigma-p43-p45-m02-petg-20261108-a1/startup.jpg",
+      "capturedAt": "2026-11-08T16:50:39.505369+00:00",
+      "caption": "The printer is running its startup sequence. The raised plate shows no visible spacer deposition yet.",
+      "sha256": "aab2468c6ee1d997726febfd55d057ce52d21825896f7dfb4e18f30373d2cba3"
+    },
+    {
+      "src": "assets/enigma-p43-p45-m02-petg-20261108-a1/progress-layer-29.jpg",
+      "capturedAt": "2026-11-08T17:00:48.910624+00:00",
+      "caption": "One spacer and its flat brim are visible near the toolhead. The second spacer is not clearly visible from this angle.",
+      "sha256": "53a098313b58d1363d8ae4c793ddc0feb2f63f5780ba848240e256103f9a36c7"
+    },
+    {
+      "src": "assets/enigma-p43-p45-m02-petg-20261108-a1/completed.jpg",
+      "capturedAt": "2026-11-08T17:16:06.654170+00:00",
+      "caption": "Both spacers and their brims are visible upright with the head parked. Mark legibility, bore fit and other physical checks require inspection.",
+      "sha256": "0d64ca317027e5a012d6e188aaa0a215c83ce1469eeb86dc70921433113c1351"
+    }
+  ],
+  "source": {
+    "file": "P43-P45-M02-PETG-N6-candidate.3mf",
+    "sha256": "04740b6b2c38d9a369e78e9840e5f322cbd055c717507ea3ed391d700ab72deb",
+    "gcodeSha256": "5107f77b9b78c9f7c314bf9db3faeb79721604f08511bd3de6c3c81e87328f40",
+    "editableSha256": "48811213b570938014cae96a2c4b91e0369540013b79b91c72a5dfc3ea99b10d",
+    "sourceCommit": "dd697c938cf9c5f7090ece23a292d44ddfe0ee4b",
+    "evidence": "Exact local audit, clean-main staging and identical independent upload readback. Printer reported the exact plate running."
+  },
+  "preparationEvidence": {
+    "normalCleanMainPrepare": "PASS",
+    "sourceCommit": "dd697c938cf9c5f7090ece23a292d44ddfe0ee4b",
+    "sourceCheckedAt": "2026-11-08T16:42:53.168616+00:00",
+    "openPullRequestsChecked": []
+  },
+  "notes": "One of each marked spacer in gray PETG Basic on textured PEI. No supports, 8 mm brim. Inspect the permanent marks, both bores and unloaded fit after cooling. Physical fit and loaded operation remain unverified. The printer reported all 97 layers complete. Exact finish time, elapsed duration and measured material use are unknown.",
+  "terminalEvidence": {
+    "observedAt": "2026-11-08T17:16:04.261359+00:00",
+    "printerState": "FINISH",
+    "currentLayer": 97,
+    "totalLayers": 97,
+    "printError": 0,
+    "percent": 100
+  }
+}

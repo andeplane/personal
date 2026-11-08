@@ -3,7 +3,7 @@
   "title": "P14 M01 middle indexer arm · PETG cleanup trial",
   "project": "OpenEnigma",
   "printer": "Bambu Lab X2D",
-  "jobName": "P14-M01-PETG-N6-SLICED.3mf",
+  "jobName": "Enigma_P14M01_c088701e_20261108_a1.gcode",
   "releaseJobId": "mechanical-middle-indexer-arm-petg",
   "plate": 1,
   "parts": [
@@ -15,10 +15,10 @@
   "layerHeightMm": 0.125,
   "layers": 79,
   "recordedAt": "2026-11-07T15:20:35.662093+00:00",
-  "updatedAt": "2026-11-07T15:20:35.662093+00:00",
-  "startedAt": null,
+  "updatedAt": "2026-11-08T11:45:06.533358+00:00",
+  "startedAt": "2026-11-08T11:45:06.533358+00:00",
   "finishedAt": null,
-  "status": "planned",
+  "status": "printing",
   "actualSeconds": null,
   "actualGrams": null,
   "estimatedSeconds": 3017,
@@ -26,20 +26,38 @@
   "estimatedMeters": 2.03,
   "preview": "assets/enigma-p14-m01-petg-20261107-a1/preview.png",
   "layout": "assets/enigma-p14-m01-petg-20261107-a1/top.png",
-  "snapshots": [],
+  "snapshots": [
+    {
+      "src": "assets/enigma-p14-m01-petg-20261107-a1/camera-accepted.jpg",
+      "capturedAt": "2026-11-08T11:45:08.398582+00:00",
+      "sha256": "c32855c6d819c0993c3152ae73603eb08dee4d36c1ea0c41094f9a1cfaca8db2",
+      "caption": "The build surface and parked toolhead are visible as the printer accepts the P14 job. Model deposition has yet to begin."
+    }
+  ],
   "source": {
     "file": "P14-M01-PETG-N6-SLICED.3mf",
     "sha256": "c088701e1631ad4c6dc00da544297993d13f6db88ef76c14305b4c9a5c5eb4fb",
     "gcodeSha256": "5fd5dae6acc34b55b68d0817d7f1a6b27111a738d11463fa7498a59949dccf9f",
     "editableSha256": "5b696f211b49082fddde39fea59293717d7876c0c27730627348d5d6602914a4",
     "sourceCommit": "cdb5098f39ba25a8b6ee4835f38657eb51e0c5c3",
-    "evidence": "Exact native-bound P14 slice and local geometry, commanded paths, deposition and clean-main staging passed."
+    "evidence": "Exact native-bound P14 slice and local geometry, commanded paths, deposition and clean-main staging passed. The uploaded archive was downloaded independently and matched byte for byte."
   },
   "preparationEvidence": {
     "normalCleanMainPrepare": "PASS",
     "sourceCommit": "cdb5098f39ba25a8b6ee4835f38657eb51e0c5c3",
     "sourceCheckedAt": "2026-11-07T15:18:34.482292+00:00",
-    "openPullRequestsChecked": []
+    "openPullRequestsChecked": [],
+    "readbackStatus": "UPLOADED_BYTES_MATCH_REVIEWED_ARTIFACT",
+    "readbackSlicedSha256": "c088701e1631ad4c6dc00da544297993d13f6db88ef76c14305b4c9a5c5eb4fb",
+    "readbackReceiptSha256": "9ae9b257f71846b027bd86fe28eb0dcc76a925e00ea97aae8f7f5522a2a5e20d"
   },
-  "notes": "One marked middle arm on textured PEI. The model and exterior supports use the same PETG spool. The trial covers support removal and unloaded journal, roller-bolt and washer-recess inspection. Physical fit and support removal remain unverified. Start requires a separate authorization and fresh printer and upload readback checks."
+  "notes": "One marked middle arm on textured PEI. The model and exterior supports use the same PETG spool. The trial covers support removal and unloaded journal, roller-bolt and washer-recess inspection. Physical fit and support removal remain unverified.",
+  "printDate": "2026-11-08",
+  "acceptedEvidence": {
+    "firstRunningObservedAt": "2026-11-08T11:45:06.533358+00:00",
+    "printerState": "RUNNING",
+    "plate": 1,
+    "totalLayers": 79,
+    "printError": 0
+  }
 }

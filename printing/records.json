@@ -16,10 +16,10 @@
     "layerHeightMm": 0.125,
     "layers": 28,
     "recordedAt": "2026-11-08T11:59:29.560778+00:00",
-    "updatedAt": "2026-11-08T11:59:29.560778+00:00",
-    "startedAt": null,
+    "updatedAt": "2026-11-08T14:02:26.069453+00:00",
+    "startedAt": "2026-11-08T13:46:42.243518+00:00",
     "finishedAt": null,
-    "status": "planned",
+    "status": "completed",
     "actualSeconds": null,
     "actualGrams": null,
     "estimatedSeconds": 786,
@@ -27,14 +27,27 @@
     "estimatedMeters": 0.21,
     "preview": "assets/enigma-p11c-m01-petg-20261108-a1/preview.png",
     "layout": "assets/enigma-p11c-m01-petg-20261108-a1/top.png",
-    "snapshots": [],
+    "snapshots": [
+      {
+        "src": "assets/enigma-p11c-m01-petg-20261108-a1/first-layer.jpg",
+        "capturedAt": "2026-11-08T13:53:17.431267+00:00",
+        "caption": "Early PETG deposition. The camera shows pale brim lines beside the toolhead. The toolhead hides part of the layer.",
+        "sha256": "76f3e9ba3a44de57db95abeb89c6d9d451416c1836bc8617ac4e941e2dbda380"
+      },
+      {
+        "src": "assets/enigma-p11c-m01-petg-20261108-a1/completed.jpg",
+        "capturedAt": "2026-11-08T14:02:26.069453+00:00",
+        "sha256": "25f8a5a1c2f3e8266bcc72020f9d4585f78899c22b8f7e4c214215e53d9208b0",
+        "caption": "P11C cap and brim are visible on the bed with the toolhead parked after FINISH. Physical fit and the permanent mark require inspection."
+      }
+    ],
     "source": {
       "file": "P11C-M01-PETG-N6-SLICED.3mf",
       "sha256": "7d50982e75ba93b6344f716cd4d5e2a8f9cd570861ecc098eb5d1f12ba4d651f",
       "gcodeSha256": "185197377a1a41af164005f744deee166ec62efda581f6adc03a30c833ced333",
       "editableSha256": "d63790f8ed1e6191ec98a33a351ca380f99913daeddd69108b6178049cf32cf7",
       "sourceCommit": "229f42bd7a6bf786d744506b66aa1658fed96c79",
-      "evidence": "Local exact geometry, commanded paths, part identity and clean-main staging passed."
+      "evidence": "Local exact geometry, commanded paths, part identity and clean-main staging passed. The unique printer upload matched the reviewed bytes and the printer reported the exact plate running."
     },
     "preparationEvidence": {
       "normalCleanMainPrepare": "PASS",
@@ -42,7 +55,15 @@
       "sourceCheckedAt": "2026-11-08T11:57:37.882004+00:00",
       "openPullRequestsChecked": []
     },
-    "notes": "One marked lower clamp cap in PETG Basic on textured PEI. The plate uses an 8 mm brim and no supports. The trial covers the permanent mark, two M3 bolt openings and the unloaded spring-bar channel. Start requires its own authorization and fresh printer and upload readback checks."
+    "notes": "One marked lower clamp cap in gray PETG Basic on textured PEI. The plate uses an 8 mm brim and no supports. The trial covers the permanent mark, two M3 bolt openings and the unloaded spring-bar channel. Physical fit and loaded operation remain unverified. The printer reported all 28 layers finished. Exact finish time, elapsed time and measured material use remain unknown.",
+    "terminalEvidence": {
+      "observedAt": "2026-11-08T14:02:22.636002+00:00",
+      "printerState": "FINISH",
+      "currentLayer": 28,
+      "totalLayers": 28,
+      "printError": 0,
+      "percent": 100
+    }
   },
   {
     "id": "enigma-p14-m01-petg-20261107-a1",

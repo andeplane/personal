@@ -1,5 +1,50 @@
 [
   {
+    "id": "enigma-p11c-m01-petg-20261108-a1",
+    "title": "P11C M01 lower clamp cap · PETG fit trial",
+    "project": "OpenEnigma",
+    "printer": "Bambu Lab X2D",
+    "jobName": "P11C-M01-PETG-N6-SLICED.3mf",
+    "releaseJobId": "mechanical-middle-indexer-cap-petg",
+    "plate": 1,
+    "parts": [
+      "P11C M01 · lower clamp cap"
+    ],
+    "material": "Bambu PETG Basic",
+    "color": "#7F7E83",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.125,
+    "layers": 28,
+    "recordedAt": "2026-11-08T11:59:29.560778+00:00",
+    "updatedAt": "2026-11-08T11:59:29.560778+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "status": "planned",
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 786,
+    "estimatedGrams": 0.64,
+    "estimatedMeters": 0.21,
+    "preview": "assets/enigma-p11c-m01-petg-20261108-a1/preview.png",
+    "layout": "assets/enigma-p11c-m01-petg-20261108-a1/top.png",
+    "snapshots": [],
+    "source": {
+      "file": "P11C-M01-PETG-N6-SLICED.3mf",
+      "sha256": "7d50982e75ba93b6344f716cd4d5e2a8f9cd570861ecc098eb5d1f12ba4d651f",
+      "gcodeSha256": "185197377a1a41af164005f744deee166ec62efda581f6adc03a30c833ced333",
+      "editableSha256": "d63790f8ed1e6191ec98a33a351ca380f99913daeddd69108b6178049cf32cf7",
+      "sourceCommit": "229f42bd7a6bf786d744506b66aa1658fed96c79",
+      "evidence": "Local exact geometry, commanded paths, part identity and clean-main staging passed."
+    },
+    "preparationEvidence": {
+      "normalCleanMainPrepare": "PASS",
+      "sourceCommit": "229f42bd7a6bf786d744506b66aa1658fed96c79",
+      "sourceCheckedAt": "2026-11-08T11:57:37.882004+00:00",
+      "openPullRequestsChecked": []
+    },
+    "notes": "One marked lower clamp cap in PETG Basic on textured PEI. The plate uses an 8 mm brim and no supports. The trial covers the permanent mark, two M3 bolt openings and the unloaded spring-bar channel. Start requires its own authorization and fresh printer and upload readback checks."
+  },
+  {
     "id": "enigma-p14-m01-petg-20261107-a1",
     "title": "P14 M01 middle indexer arm · PETG cleanup trial",
     "project": "OpenEnigma",
@@ -16,10 +61,10 @@
     "layerHeightMm": 0.125,
     "layers": 79,
     "recordedAt": "2026-11-07T15:20:35.662093+00:00",
-    "updatedAt": "2026-11-08T11:45:06.533358+00:00",
+    "updatedAt": "2026-11-08T12:42:50.434801+00:00",
     "startedAt": "2026-11-08T11:45:06.533358+00:00",
     "finishedAt": null,
-    "status": "printing",
+    "status": "completed",
     "actualSeconds": null,
     "actualGrams": null,
     "estimatedSeconds": 3017,
@@ -33,6 +78,24 @@
         "capturedAt": "2026-11-08T11:45:08.398582+00:00",
         "sha256": "c32855c6d819c0993c3152ae73603eb08dee4d36c1ea0c41094f9a1cfaca8db2",
         "caption": "The build surface and parked toolhead are visible as the printer accepts the P14 job. Model deposition has yet to begin."
+      },
+      {
+        "src": "assets/enigma-p14-m01-petg-20261107-a1/camera-first-layer.jpg",
+        "capturedAt": "2026-11-08T11:51:49.358659+00:00",
+        "sha256": "24ec4e5afb417b4c2c6086dfb1899246951f94d06bd52727bddb6f4de4a8ddab",
+        "caption": "First visible PETG lines on the plate. The toolhead obscures part of the view."
+      },
+      {
+        "src": "assets/enigma-p14-m01-petg-20261107-a1/camera-progress.jpg",
+        "capturedAt": "2026-11-08T12:09:04.195532+00:00",
+        "sha256": "cd8e2ab509abe84e2d1c4965a1ae54cf84852668a4d7846de9546be20dbaf636",
+        "caption": "The arm and brim are in place during PETG deposition."
+      },
+      {
+        "src": "assets/enigma-p14-m01-petg-20261107-a1/camera-completed.jpg",
+        "capturedAt": "2026-11-08T12:41:36.078408+00:00",
+        "sha256": "0bc461b155a889ac8fd57141449d93859192d4990e31d0813d0a075e03fc9362",
+        "caption": "Arm, brim and exterior support in place after FINISH with the toolhead parked."
       }
     ],
     "source": {
@@ -52,7 +115,7 @@
       "readbackSlicedSha256": "c088701e1631ad4c6dc00da544297993d13f6db88ef76c14305b4c9a5c5eb4fb",
       "readbackReceiptSha256": "9ae9b257f71846b027bd86fe28eb0dcc76a925e00ea97aae8f7f5522a2a5e20d"
     },
-    "notes": "One marked middle arm on textured PEI. The model and exterior supports use the same PETG spool. The trial covers support removal and unloaded journal, roller-bolt and washer-recess inspection. Physical fit and support removal remain unverified.",
+    "notes": "One marked middle arm on textured PEI. The model and exterior supports use the same PETG spool. The trial covers support removal and unloaded journal, roller-bolt and washer-recess inspection. Physical fit and support removal remain unverified. The printer reported 79 of 79 layers complete. Exact finish time, elapsed time and measured material use remain unknown.",
     "printDate": "2026-11-08",
     "acceptedEvidence": {
       "firstRunningObservedAt": "2026-11-08T11:45:06.533358+00:00",
@@ -60,6 +123,14 @@
       "plate": 1,
       "totalLayers": 79,
       "printError": 0
+    },
+    "terminalEvidence": {
+      "observedAt": "2026-11-08T12:41:33.984927+00:00",
+      "printerState": "FINISH",
+      "currentLayer": 79,
+      "totalLayers": 79,
+      "printError": 0,
+      "percent": 100
     }
   },
   {

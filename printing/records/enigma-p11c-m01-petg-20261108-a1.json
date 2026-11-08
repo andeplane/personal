@@ -1,0 +1,45 @@
+{
+  "id": "enigma-p11c-m01-petg-20261108-a1",
+  "title": "P11C M01 lower clamp cap · PETG fit trial",
+  "project": "OpenEnigma",
+  "printer": "Bambu Lab X2D",
+  "jobName": "P11C-M01-PETG-N6-SLICED.3mf",
+  "releaseJobId": "mechanical-middle-indexer-cap-petg",
+  "plate": 1,
+  "parts": [
+    "P11C M01 · lower clamp cap"
+  ],
+  "material": "Bambu PETG Basic",
+  "color": "#7F7E83",
+  "nozzleMm": 0.4,
+  "layerHeightMm": 0.125,
+  "layers": 28,
+  "recordedAt": "2026-11-08T11:59:29.560778+00:00",
+  "updatedAt": "2026-11-08T11:59:29.560778+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "status": "planned",
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 786,
+  "estimatedGrams": 0.64,
+  "estimatedMeters": 0.21,
+  "preview": "assets/enigma-p11c-m01-petg-20261108-a1/preview.png",
+  "layout": "assets/enigma-p11c-m01-petg-20261108-a1/top.png",
+  "snapshots": [],
+  "source": {
+    "file": "P11C-M01-PETG-N6-SLICED.3mf",
+    "sha256": "7d50982e75ba93b6344f716cd4d5e2a8f9cd570861ecc098eb5d1f12ba4d651f",
+    "gcodeSha256": "185197377a1a41af164005f744deee166ec62efda581f6adc03a30c833ced333",
+    "editableSha256": "d63790f8ed1e6191ec98a33a351ca380f99913daeddd69108b6178049cf32cf7",
+    "sourceCommit": "229f42bd7a6bf786d744506b66aa1658fed96c79",
+    "evidence": "Local exact geometry, commanded paths, part identity and clean-main staging passed."
+  },
+  "preparationEvidence": {
+    "normalCleanMainPrepare": "PASS",
+    "sourceCommit": "229f42bd7a6bf786d744506b66aa1658fed96c79",
+    "sourceCheckedAt": "2026-11-08T11:57:37.882004+00:00",
+    "openPullRequestsChecked": []
+  },
+  "notes": "One marked lower clamp cap in PETG Basic on textured PEI. The plate uses an 8 mm brim and no supports. The trial covers the permanent mark, two M3 bolt openings and the unloaded spring-bar channel. Start requires its own authorization and fresh printer and upload readback checks."
+}

@@ -1,5 +1,68 @@
 [
   {
+    "id": "enigma-p23-m02-petg-20261108-a1",
+    "title": "OpenEnigma P23 M02 indexer roller",
+    "project": "OpenEnigma",
+    "printer": "Bambu Lab X2D",
+    "jobName": "Enigma_P23M02_8d5ca55b_20261108_a1.gcode",
+    "releaseJobId": "mechanical-indexer-roller-petg",
+    "plate": 1,
+    "parts": [
+      "P23 M02 · indexer roller"
+    ],
+    "material": "Bambu PETG Basic",
+    "color": "#7F7E83",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.125,
+    "layers": 42,
+    "recordedAt": "2026-11-08T19:01:14.042559+00:00",
+    "updatedAt": "2026-11-08T19:05:36.155814+00:00",
+    "startedAt": "2026-11-08T18:47:29.286896+00:00",
+    "finishedAt": null,
+    "status": "completed",
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 838,
+    "estimatedGrams": 0.46,
+    "estimatedMeters": 0.15,
+    "preview": "assets/enigma-p23-m02-petg-20261108-a1/preview.png",
+    "layout": "assets/enigma-p23-m02-petg-20261108-a1/top.png",
+    "snapshots": [
+      {
+        "src": "assets/enigma-p23-m02-petg-20261108-a1/progress-layer-34.jpg",
+        "capturedAt": "2026-11-08T19:00:36.558168+00:00",
+        "caption": "At layer 34 the roller is upright on its brim below the toolhead. The bore is obscured from this angle.",
+        "sha256": "ae9396cdc90185efb62134ec8b372483c44a4660bf95a45ab861ed8d4ee89985"
+      },
+      {
+        "src": "assets/enigma-p23-m02-petg-20261108-a1/completed.jpg",
+        "capturedAt": "2026-11-08T19:05:36.155814+00:00",
+        "caption": "Roller stands upright on its brim with the toolhead parked. A filament strand remains on the plate. Bore fit and mark legibility require inspection.",
+        "sha256": "a03e7f34b2276f0f1301498686511653a3ceabb577e8ecb32c14c41a6bddd59e"
+      }
+    ],
+    "source": {
+      "file": "P23-M02-PETG-N6-SLICED.3mf",
+      "sha256": "8d5ca55b657915befc2a1a82e3f10c2dd8df424915c2a70653473fdb399225e2",
+      "gcodeSha256": "cdd6f2017d6d84ceac0feac5867659fde0333317bdff9fe621c405d299bac4b6",
+      "editableSha256": "4f7748e066a53f431297e445d05a3ad97467a0a99ec7d4ceb99fd919122a4fe0",
+      "sourceCommit": "00eb2aabd23ec111ea1cafb60e0cb6bc4be98470",
+      "evidence": "Exact local audit, normal main staging, identical upload readback and exact live acceptance."
+    },
+    "preparationEvidence": {
+      "normalCleanMainPrepare": "PASS",
+      "sourceCommit": "00eb2aabd23ec111ea1cafb60e0cb6bc4be98470"
+    },
+    "notes": "One support-free roller for an unloaded fit trial. Gray PETG Basic in AMS A4, textured PEI, 0.25 mm first layer and 8 mm brim. Physical fit remains unverified.",
+    "terminalEvidence": {
+      "printerState": "FINISH",
+      "observedAt": "2026-11-08T19:05:34.356091+00:00",
+      "printError": 0,
+      "layer": 42,
+      "totalLayers": 42
+    }
+  },
+  {
     "id": "enigma-p43-p45-m02-petg-20261108-a1",
     "title": "P43 and P45 M02 PETG spacers",
     "project": "OpenEnigma",

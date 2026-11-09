@@ -19,7 +19,7 @@
     "layerHeightMm": 0.16,
     "layers": 187,
     "recordedAt": "2026-11-09T14:43:44.902983+00:00",
-    "updatedAt": "2026-11-09T18:20:41.925728+00:00",
+    "updatedAt": "2026-11-09T18:24:23.899354+00:00",
     "startedAt": "2026-11-09T18:14:38.533020+00:00",
     "finishedAt": null,
     "status": "printing",
@@ -36,6 +36,12 @@
         "capturedAt": "2026-11-09T18:18:48.093750+00:00",
         "caption": "The bed is raised and the toolhead is in the startup sequence. Model deposition is not visible yet.",
         "sha256": "0ed59b8b19564c572a8d0575042772434a66d672fe8ed93bcc5fb0f98d2a1bad"
+      },
+      {
+        "src": "assets/enigma-right-rocker-m02-petg-20261109-a1/layer-1.jpg",
+        "capturedAt": "2026-11-09T18:23:58.219203+00:00",
+        "caption": "The toolhead is depositing the first layer. Two small PETG footprints are visible at the back, and a loose strand is visible near the front-right edge.",
+        "sha256": "a628fea64e70eb3efc390e00753e394bbf842dfc6e909c3417312823358ae382"
       }
     ],
     "source": {

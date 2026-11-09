@@ -1,5 +1,133 @@
 [
   {
+    "id": "enigma-right-rocker-m02-petg-20261109-a1",
+    "title": "OpenEnigma M02 right rocker frame and pivot parts",
+    "project": "OpenEnigma",
+    "printer": "Bambu Lab X2D",
+    "jobName": "Enigma_RightRockerM02_1e8af9e4_20261109_a1.gcode",
+    "releaseJobId": "mechanical-right-rocker-petg",
+    "plate": 1,
+    "parts": [
+      "P34 M02 · right rocker frame",
+      "P35 M02 · right rocker arm",
+      "P37 M02 · right bearing",
+      "P38 M02 · right cap"
+    ],
+    "material": "Bambu PETG Basic",
+    "color": "#7F7E83",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.16,
+    "layers": 187,
+    "recordedAt": "2026-11-09T14:43:44.902983+00:00",
+    "updatedAt": "2026-11-09T14:43:44.902983+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "status": "planned",
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 32732,
+    "estimatedGrams": 107.69,
+    "estimatedMeters": 35.82,
+    "preview": "assets/enigma-right-rocker-m02-petg-20261109-a1/preview.png",
+    "layout": "assets/enigma-right-rocker-m02-petg-20261109-a1/top.png",
+    "snapshots": [],
+    "source": {
+      "file": "RIGHT_PETG_SLICED.3mf",
+      "sha256": "1e8af9e4a516275c460b5844f4127412c1b5e69c02964ea51211396491f68a47",
+      "gcodeSha256": "ff06ae42001a8cbe947e65d183b98931526b72867df8a2663c92f5fc7f2709a8",
+      "editableSha256": "8cd6dab640d8394981c0dceaeb855cfc30cf6b86e1a4c9fadec9481be5e0b6d8",
+      "sourceCommit": "58181c58ac0fa2669f68ee53b76303d3c529641b",
+      "evidence": "Normal main staging and exact archive and toolpath audit."
+    },
+    "preparationEvidence": {
+      "normalCleanMainPrepare": "PASS",
+      "sourceCommit": "58181c58ac0fa2669f68ee53b76303d3c529641b"
+    },
+    "notes": "Four parts for the right rocker and pivot fit trial. The slice uses same-material PETG supports, a 0.20 mm first layer and an 8 mm brim. Physical fit and cleanup await inspection."
+  },
+  {
+    "id": "enigma-left-frame-pivot-m02-petg-20261109-a1",
+    "title": "OpenEnigma M02 left rocker frame and stock-pin pivot",
+    "project": "OpenEnigma",
+    "printer": "Bambu Lab X2D",
+    "jobName": "Enigma_LeftFramePivotM02_627ed597_20261109_a1.gcode",
+    "releaseJobId": "mechanical-left-frame-pivot-petg",
+    "plate": 1,
+    "parts": [
+      "P29 M02 · left rocker frame",
+      "P32 M02 · pivot body",
+      "P33 M02 · pivot cap"
+    ],
+    "material": "Bambu PETG Basic",
+    "color": "#7F7E83",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.16,
+    "layers": 95,
+    "recordedAt": "2026-11-09T07:01:26.079136+00:00",
+    "updatedAt": "2026-11-09T15:03:25.958065+00:00",
+    "startedAt": "2026-11-09T06:58:34.611631+00:00",
+    "finishedAt": "2026-11-09T15:03:11.805734+00:00",
+    "status": "completed",
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 27682,
+    "estimatedGrams": 85.64,
+    "estimatedMeters": 28.48,
+    "preview": "assets/enigma-left-frame-pivot-m02-petg-20261109-a1/preview.png",
+    "layout": "assets/enigma-left-frame-pivot-m02-petg-20261109-a1/top.png",
+    "snapshots": [
+      {
+        "src": "assets/enigma-left-frame-pivot-m02-petg-20261109-a1/startup.jpg",
+        "capturedAt": "2026-11-09T06:59:33.878290+00:00",
+        "caption": "The printer raised the heated bed during startup. Model deposition is not visible yet.",
+        "sha256": "4ef1285808d59086f1ae9fd850e64131a7ff53e2d23b7a72e910fbd22b3c6282"
+      },
+      {
+        "src": "assets/enigma-left-frame-pivot-m02-petg-20261109-a1/layer-1.jpg",
+        "capturedAt": "2026-11-09T07:11:09.856385+00:00",
+        "sha256": "abc40c9089c7db3ca705f3e8a8d9ff1e829ec256b3280bf31075f60c7c26bc5c",
+        "caption": "At layer 1 the toolhead is laying down the light-gray outline and first-layer lines. The visible paths sit flat in this view."
+      },
+      {
+        "src": "assets/enigma-left-frame-pivot-m02-petg-20261109-a1/layer-19.jpg",
+        "capturedAt": "2026-11-09T09:15:35.059279+00:00",
+        "sha256": "d18ac465c8754ea2d1fe3df4a690ef8df008872e736b112ffd0e9e56f70becfb",
+        "caption": "At about 28%, the frame and visible brims remain seated. Loose filament loops are visible inside the frame and at the right edge."
+      },
+      {
+        "src": "assets/enigma-left-frame-pivot-m02-petg-20261109-a1/layer-72.jpg",
+        "capturedAt": "2026-11-09T14:41:16.786867+00:00",
+        "sha256": "11e0de473e68ea527d9fda065ead1b8ad038120f57b33c91d798062cace5ffe2",
+        "caption": "At 95%, the visible frame and front brims remain seated. The toolhead obscures the right side."
+      },
+      {
+        "src": "assets/enigma-left-frame-pivot-m02-petg-20261109-a1/completed.jpg",
+        "capturedAt": "2026-11-09T15:03:25.958065+00:00",
+        "sha256": "b8d75e26315ff899f632576d019e7f9633db6ea16e0ef85d852cd61cc4502cf4",
+        "caption": "After the printer reported completion, the frame and two smaller pivot parts remained on their brims. Loose filament strands and small scraps were visible on the plate."
+      }
+    ],
+    "source": {
+      "file": "LEFT_FRAME_AND_PIVOT_X2D.3mf",
+      "sha256": "627ed597528bf828e0ff075924bdd31989983a19e125080e4da85e0f99e4e8dd",
+      "gcodeSha256": "b7e940aabd4b0c3817e1506cdf15c27e5b62c4c075a908faac02c6c2acbba77d",
+      "editableSha256": "a661a6b50a86d553bc906c2e8242e8153296f47a1b823d091367f09b8d026439",
+      "sourceCommit": "83c7898d4621a27465ecd8ef234ab5d8504eb8d7",
+      "evidence": "Exact source audit, normal main staging, byte-identical upload readback and exact live acceptance."
+    },
+    "preparationEvidence": {
+      "normalCleanMainPrepare": "PASS",
+      "sourceCommit": "83c7898d4621a27465ecd8ef234ab5d8504eb8d7"
+    },
+    "notes": "One unloaded PETG cleanup and stock-pin fit trial. Same-material supports under the P29 shelf, 0.20 mm first layer and 8 mm brim. Physical cleanup and fit await inspection. The printer reported completion. The finish timestamp is the first verified terminal observation. Actual elapsed time and material usage were not measured.",
+    "terminalEvidence": {
+      "printerState": "FINISH",
+      "observedAt": "2026-11-09T15:03:11.805734+00:00",
+      "printError": 0,
+      "physicalFitVerified": false
+    }
+  },
+  {
     "id": "enigma-p23-m02-petg-20261108-a1",
     "title": "OpenEnigma P23 M02 indexer roller",
     "project": "OpenEnigma",

@@ -1,0 +1,46 @@
+{
+  "id": "enigma-right-rocker-m02-petg-20261109-a1",
+  "title": "OpenEnigma M02 right rocker frame and pivot parts",
+  "project": "OpenEnigma",
+  "printer": "Bambu Lab X2D",
+  "jobName": "Enigma_RightRockerM02_1e8af9e4_20261109_a1.gcode",
+  "releaseJobId": "mechanical-right-rocker-petg",
+  "plate": 1,
+  "parts": [
+    "P34 M02 · right rocker frame",
+    "P35 M02 · right rocker arm",
+    "P37 M02 · right bearing",
+    "P38 M02 · right cap"
+  ],
+  "material": "Bambu PETG Basic",
+  "color": "#7F7E83",
+  "nozzleMm": 0.4,
+  "layerHeightMm": 0.16,
+  "layers": 187,
+  "recordedAt": "2026-11-09T14:43:44.902983+00:00",
+  "updatedAt": "2026-11-09T14:43:44.902983+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "status": "planned",
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 32732,
+  "estimatedGrams": 107.69,
+  "estimatedMeters": 35.82,
+  "preview": "assets/enigma-right-rocker-m02-petg-20261109-a1/preview.png",
+  "layout": "assets/enigma-right-rocker-m02-petg-20261109-a1/top.png",
+  "snapshots": [],
+  "source": {
+    "file": "RIGHT_PETG_SLICED.3mf",
+    "sha256": "1e8af9e4a516275c460b5844f4127412c1b5e69c02964ea51211396491f68a47",
+    "gcodeSha256": "ff06ae42001a8cbe947e65d183b98931526b72867df8a2663c92f5fc7f2709a8",
+    "editableSha256": "8cd6dab640d8394981c0dceaeb855cfc30cf6b86e1a4c9fadec9481be5e0b6d8",
+    "sourceCommit": "58181c58ac0fa2669f68ee53b76303d3c529641b",
+    "evidence": "Normal main staging and exact archive and toolpath audit."
+  },
+  "preparationEvidence": {
+    "normalCleanMainPrepare": "PASS",
+    "sourceCommit": "58181c58ac0fa2669f68ee53b76303d3c529641b"
+  },
+  "notes": "Four parts for the right rocker and pivot fit trial. The slice uses same-material PETG supports, a 0.20 mm first layer and an 8 mm brim. Physical fit and cleanup await inspection."
+}

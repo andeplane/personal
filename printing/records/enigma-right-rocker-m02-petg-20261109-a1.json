@@ -18,10 +18,10 @@
   "layerHeightMm": 0.16,
   "layers": 187,
   "recordedAt": "2026-11-09T14:43:44.902983+00:00",
-  "updatedAt": "2026-11-09T14:43:44.902983+00:00",
-  "startedAt": null,
+  "updatedAt": "2026-11-09T18:24:23.899354+00:00",
+  "startedAt": "2026-11-09T18:14:38.533020+00:00",
   "finishedAt": null,
-  "status": "planned",
+  "status": "printing",
   "actualSeconds": null,
   "actualGrams": null,
   "estimatedSeconds": 32732,
@@ -29,14 +29,27 @@
   "estimatedMeters": 35.82,
   "preview": "assets/enigma-right-rocker-m02-petg-20261109-a1/preview.png",
   "layout": "assets/enigma-right-rocker-m02-petg-20261109-a1/top.png",
-  "snapshots": [],
+  "snapshots": [
+    {
+      "src": "assets/enigma-right-rocker-m02-petg-20261109-a1/startup.jpg",
+      "capturedAt": "2026-11-09T18:18:48.093750+00:00",
+      "caption": "The bed is raised and the toolhead is in the startup sequence. Model deposition is not visible yet.",
+      "sha256": "0ed59b8b19564c572a8d0575042772434a66d672fe8ed93bcc5fb0f98d2a1bad"
+    },
+    {
+      "src": "assets/enigma-right-rocker-m02-petg-20261109-a1/layer-1.jpg",
+      "capturedAt": "2026-11-09T18:23:58.219203+00:00",
+      "caption": "The toolhead is depositing the first layer. Two small PETG footprints are visible at the back, and a loose strand is visible near the front-right edge.",
+      "sha256": "a628fea64e70eb3efc390e00753e394bbf842dfc6e909c3417312823358ae382"
+    }
+  ],
   "source": {
     "file": "RIGHT_PETG_SLICED.3mf",
     "sha256": "1e8af9e4a516275c460b5844f4127412c1b5e69c02964ea51211396491f68a47",
     "gcodeSha256": "ff06ae42001a8cbe947e65d183b98931526b72867df8a2663c92f5fc7f2709a8",
     "editableSha256": "8cd6dab640d8394981c0dceaeb855cfc30cf6b86e1a4c9fadec9481be5e0b6d8",
     "sourceCommit": "58181c58ac0fa2669f68ee53b76303d3c529641b",
-    "evidence": "Normal main staging and exact archive and toolpath audit."
+    "evidence": "Normal main staging and exact archive and toolpath audit. The printer copy matched the reviewed file byte for byte. The printer then accepted the exact file and plate."
   },
   "preparationEvidence": {
     "normalCleanMainPrepare": "PASS",

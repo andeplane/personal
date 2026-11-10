@@ -19,11 +19,11 @@
     "layerHeightMm": 0.16,
     "layers": 187,
     "recordedAt": "2026-11-09T14:43:44.902983+00:00",
-    "updatedAt": "2026-11-09T18:24:23.899354+00:00",
+    "updatedAt": "2026-11-10T03:46:39.087964+00:00",
     "startedAt": "2026-11-09T18:14:38.533020+00:00",
-    "finishedAt": null,
-    "status": "printing",
-    "actualSeconds": null,
+    "finishedAt": "2026-11-10T03:43:53.938168+00:00",
+    "status": "completed",
+    "actualSeconds": 34155,
     "actualGrams": null,
     "estimatedSeconds": 32732,
     "estimatedGrams": 107.69,
@@ -42,6 +42,12 @@
         "capturedAt": "2026-11-09T18:23:58.219203+00:00",
         "caption": "The toolhead is depositing the first layer. Two small PETG footprints are visible at the back, and a loose strand is visible near the front-right edge.",
         "sha256": "a628fea64e70eb3efc390e00753e394bbf842dfc6e909c3417312823358ae382"
+      },
+      {
+        "src": "assets/enigma-right-rocker-m02-petg-20261109-a1/completion.jpg",
+        "capturedAt": "2026-11-10T03:46:39.087964+00:00",
+        "caption": "After the printer reported completion, the toolhead was parked and all four parts were still on the bed with supports and brims. A loose strand is visible in one frame opening.",
+        "sha256": "7c7b2432d64b9023dc5abfcd6a65d2bb76183bab2c87cec73c8cc6b10ce52bf5"
       }
     ],
     "source": {
@@ -56,7 +62,7 @@
       "normalCleanMainPrepare": "PASS",
       "sourceCommit": "58181c58ac0fa2669f68ee53b76303d3c529641b"
     },
-    "notes": "Four parts for the right rocker and pivot fit trial. The slice uses same-material PETG supports, a 0.20 mm first layer and an 8 mm brim. Physical fit and cleanup await inspection."
+    "notes": "Four parts for the right rocker and pivot fit trial. The slice uses same-material PETG supports, a 0.20 mm first layer and an 8 mm brim. Physical fit and cleanup await inspection. The printer reported FINISH at 187 of 187 layers with no error. Elapsed time is from observed acceptance to the first recorded FINISH state."
   },
   {
     "id": "enigma-left-frame-pivot-m02-petg-20261109-a1",

@@ -1,0 +1,57 @@
+{
+  "id": "enigma-p31-p36-p38-petg-pva-20261111-a1",
+  "title": "OpenEnigma P31 P36 and P38 M02 PETG with soluble PVA",
+  "project": "OpenEnigma",
+  "printer": "Bambu Lab X2D",
+  "jobName": "Enigma_P31_P36_P38_M02_16d60056_20261111_a1.gcode",
+  "releaseJobId": "mechanical-lamp-posts-petg-pva-reprint",
+  "plate": 1,
+  "parts": [
+    "P31 M02 \u00b7 front left lamp post",
+    "P36 M02 \u00b7 front right lamp post",
+    "P38 M02 \u00b7 right bearing cap"
+  ],
+  "material": "PETG Basic permanent parts; soluble PVA supports",
+  "color": "#7F7E83",
+  "nozzleMm": 0.4,
+  "layerHeightMm": 0.13,
+  "layers": 116,
+  "recordedAt": "2026-11-11T19:30:56.575593+00:00",
+  "updatedAt": "2026-11-11T20:48:58.628344+00:00",
+  "startedAt": "2026-11-11T20:25:07.143646+00:00",
+  "finishedAt": null,
+  "status": "paused",
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 18696,
+  "estimatedGrams": 54.79,
+  "estimatedMeters": 18.12,
+  "preview": "assets/enigma-p31-p36-p38-petg-pva-20261111-a1/preview.png",
+  "layout": "assets/enigma-p31-p36-p38-petg-pva-20261111-a1/top.png",
+  "snapshots": [
+    {
+      "src": "assets/enigma-p31-p36-p38-petg-pva-20261111-a1/camera-20261111T202622114900Z.jpg",
+      "capturedAt": "2026-11-11T20:26:22.114900+00:00",
+      "caption": "Accepted job in startup, layer 0/116; no model deposition visible. This is not a finished print."
+    },
+    {
+      "src": "assets/enigma-p31-p36-p38-petg-pva-20261111-a1/camera-20261111T203339428580Z.jpg",
+      "capturedAt": "2026-11-11T20:33:39.428580+00:00",
+      "caption": "Paused at layer 0 for orientation review after owner questioned the support-heavy bearing-cap pose. No finished parts visible."
+    }
+  ],
+  "source": {
+    "file": "Enigma_P31_P36_P38_M02_16d60056_20261111_a1.gcode.3mf",
+    "sha256": "16d6005659223fbb3595f2580e7e70b77fbedfe8c17bc86c2e42453326732c7e",
+    "gcodeSha256": "4ac53c5ff3447798e331ab9b42f9005244e6252d06d00ec856b373629d71423e",
+    "editableSha256": "e1edb363c5698deb6d1c7a37849a87012b41943802721afd41a38067f6ef07ed",
+    "sourceCommit": "4bb579aa7fba176516a28f8ea7d310f64111489b",
+    "evidence": "Normal source staging, exact artifact audit and identical upload readback passed; exact job accepted once and observed RUNNING before controller pause at layer 0/116."
+  },
+  "notes": "One each P31, P36 and P38 M02, PETG with PVA supports. Original cap pose had engraved broad face upward. Owner questioned support usage; controller paused before the first model layer to compare a broad-face-down replacement. No cancellation or replacement start has occurred. Estimated PETG 35.00 g and PVA 19.79 g; actual duration and filament remain unmeasured. Cleanup, dimensions, strength and fit unverified.",
+  "pauseEvidence": {
+    "printerState": "PAUSE",
+    "printError": 0,
+    "observedAt": "2026-11-11T20:30:59.113876+00:00"
+  }
+}

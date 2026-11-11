@@ -1,5 +1,94 @@
 [
   {
+    "id": "enigma-five-part-m02-petg-20261110-a1",
+    "title": "OpenEnigma M02 rear cover, left rocker arm, lamp posts and spacer",
+    "project": "OpenEnigma",
+    "printer": "Bambu Lab X2D",
+    "jobName": "Enigma_FivePartM02_94d2c9a3_20261110_a1.gcode",
+    "releaseJobId": "mechanical-five-part-petg-reserve",
+    "plate": 1,
+    "parts": [
+      "P25 M02 · marked rear cover",
+      "P30 M02 · left rocker arm",
+      "P31 M02 · front left lamp post",
+      "P36 M02 · front right lamp post",
+      "P47 M02 · spacer 6"
+    ],
+    "material": "Bambu PETG Basic",
+    "color": "#7F7E83",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.13,
+    "layers": 613,
+    "recordedAt": "2026-11-10T18:01:09.876818+00:00",
+    "updatedAt": "2026-11-11T07:09:52.517487+00:00",
+    "startedAt": "2026-11-10T17:56:54.671155+00:00",
+    "finishedAt": null,
+    "status": "completed",
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 35131,
+    "estimatedGrams": 75.92,
+    "estimatedMeters": 25.25,
+    "preview": "assets/enigma-five-part-m02-petg-20261110-a1/preview.png",
+    "layout": "assets/enigma-five-part-m02-petg-20261110-a1/top.png",
+    "snapshots": [
+      {
+        "src": "assets/enigma-five-part-m02-petg-20261110-a1/startup.jpg",
+        "capturedAt": "2026-11-10T17:57:23.483954+00:00",
+        "caption": "The accepted job was running its startup sequence. The bed was still empty and model deposition was not visible.",
+        "sha256": "76ed5bb487bea17272818aa08ed83fe7fd124c14e82ddde46022212874068e28"
+      },
+      {
+        "src": "assets/enigma-five-part-m02-petg-20261110-a1/first-layer.jpg",
+        "capturedAt": "2026-11-10T18:05:18.920752+00:00",
+        "sha256": "3376c56bba81b6cb0bae742c0c7a6938701554243559cf2081aaaace1243a989",
+        "caption": "The nozzle is at the plate and the first brim is visible on the left. The rest of the first layer is still in progress."
+      },
+      {
+        "src": "assets/enigma-five-part-m02-petg-20261110-a1/during-print.jpg",
+        "capturedAt": "2026-11-10T19:38:22.565580+00:00",
+        "caption": "All five PETG parts are visible during printing, with the toolhead over the center-left part.",
+        "sha256": "dd30b5f12eb80e48e0f97c80039e74e4cc64ac57c8abdf3df3afdadd77b6dd2e"
+      },
+      {
+        "src": "assets/enigma-five-part-m02-petg-20261110-a1/during-print-reconnected.jpg",
+        "capturedAt": "2026-11-10T20:54:13.189029+00:00",
+        "caption": "After camera access returned, all five PETG parts were in place and the toolhead was over the front-right part.",
+        "sha256": "853faf17bd06aa3c627ed68084f69e4ae69d6c17994356e368ef894e6d84cf13"
+      },
+      {
+        "src": "assets/enigma-five-part-m02-petg-20261110-a1/overnight-progress.jpg",
+        "capturedAt": "2026-11-10T23:12:58.055913+00:00",
+        "sha256": "47e99d70766cbcf3e4ba0388adfe21ca4e436ff819de13bd195e8cfb4e11a87b",
+        "caption": "All five parts and their support structures were visible during the overnight print."
+      },
+      {
+        "src": "assets/enigma-five-part-m02-petg-20261110-a1/terminal-parts-on-bed.jpg",
+        "capturedAt": "2026-11-11T07:07:13.221020+00:00",
+        "sha256": "e1a1e261d6c0b18edb4b487eeb4a82f4853459bc8d05a8d16bd86f6eb212b30b",
+        "caption": "After reported FINISH at all 613 layers, all five PETG forms remain on the bed with support structures. Cleanup, dimensions, and fit await physical inspection."
+      }
+    ],
+    "source": {
+      "file": "Enigma_FivePartM02_94d2c9a3_20261110_a1.gcode.3mf",
+      "sha256": "94d2c9a36cde0b74a8d6f80d145a560f7554db4b576b82a0f5a265a6628ade1f",
+      "gcodeSha256": "7702f134aeb379cc6a1285791d61dba381206e3589f22996b09e8faa53b07342",
+      "editableSha256": "53048fd85099262991176370814557ac1559159bf48ebb16ecceaf6dfdb94a2e",
+      "sourceCommit": "d6ea1c55b256adc411ee8b1ae8248d9bbc936321",
+      "evidence": "Normal main staging and exact geometry and toolpath audit. The printer copy matched the reviewed archive byte for byte before the printer accepted Plate 1."
+    },
+    "preparationEvidence": {
+      "normalCleanMainPrepare": "PASS",
+      "sourceCommit": "d6ea1c55b256adc411ee8b1ae8248d9bbc936321"
+    },
+    "notes": "One M02 support cleanup and unloaded fit trial. The rocker arm and lamp posts use same-material PETG supports. All five parts use outer brims on textured PEI. Physical cleanup and fit await inspection. The start time is printer acceptance. The printer first reported FINISH in the preserved watcher at 06:30 Oslo on 11 November and still reported FINISH at 08:07. The exact completion time and actual elapsed runtime were not preserved. All five forms remain on the bed in the terminal camera view. Cleanup, permanent features, and unloaded fit await inspection. Filament usage remains the slicer estimate.",
+    "firstTerminalObservedAt": "2026-11-11T05:30:42.973172+00:00",
+    "lastTerminalVerifiedAt": "2026-11-11T07:07:10.512288+00:00",
+    "terminalReportedLayers": 613,
+    "physicalCleanupVerified": false,
+    "physicalFitVerified": false
+  },
+  {
     "id": "enigma-right-rocker-m02-petg-20261109-a1",
     "title": "OpenEnigma M02 right rocker frame and pivot parts",
     "project": "OpenEnigma",

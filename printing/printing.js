@@ -1,24 +1,117 @@
-const statuses = {planned:'Planlagt', printing:'Skriver ut', paused:'På pause', completed:'Fullført', completed_partial:'Delvis avsluttet', failed:'Mislykket', cancelled:'Avbrutt'};
-const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const date = value => value ? new Intl.DateTimeFormat('nb-NO',{dateStyle:'medium',timeStyle:'short',timeZone:'Europe/Oslo'}).format(new Date(value)) : 'Ikke registrert';
-const duration = value => value == null ? 'Ikke registrert' : `${Math.floor(value/3600)} t ${Math.floor(value%3600/60)} min`;
-const number = value => value == null ? '—' : new Intl.NumberFormat('nb-NO',{maximumFractionDigits:1}).format(value);
-const asset = path => escapeHTML(path);
+const statuses = {
+  planned: "Planlagt",
+  printing: "Skriver ut",
+  paused: "På pause",
+  completed: "Fullført",
+  completed_partial: "Delvis avsluttet",
+  failed: "Mislykket",
+  cancelled: "Avbrutt",
+};
+const escapeHTML = (value) =>
+  String(value ?? "").replace(
+    /[&<>"']/g,
+    (c) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        c
+      ],
+  );
+const date = (value) =>
+  value
+    ? new Intl.DateTimeFormat("nb-NO", {
+        dateStyle: "medium",
+        timeStyle: "short",
+        timeZone: "Europe/Oslo",
+      }).format(new Date(value))
+    : "Ikke registrert";
+const duration = (value) =>
+  value == null
+    ? "Ikke registrert"
+    : `${Math.floor(value / 3600)} t ${Math.floor((value % 3600) / 60)} min`;
+const number = (value) =>
+  value == null
+    ? "—"
+    : new Intl.NumberFormat("nb-NO", { maximumFractionDigits: 1 }).format(
+        value,
+      );
+const asset = (path) => escapeHTML(path);
 function render(run) {
- const e=escapeHTML;
- const shots=run.snapshots.map(s=>`<figure><a href="${asset(s.src)}" target="_blank" rel="noopener"><img loading="lazy" src="${asset(s.src)}" alt="${e(s.caption)}"></a><figcaption>${e(date(s.capturedAt))}<br>${e(s.caption)}</figcaption></figure>`).join('');
- const thumbnail=run.preview ? `<img class="thumb" src="${asset(run.preview)}" alt="Platevisning">` : '<span class="thumb" role="img" aria-label="Slice mangler"></span>';
- const plateImage=(path,label,caption)=>path ? `<figure><a href="${asset(path)}" target="_blank" rel="noopener"><img loading="lazy" src="${asset(path)}" alt="${e(label)}"></a><figcaption>${e(caption)}</figcaption></figure>` : `<p class="small">${e(label)}: ikke generert ennå.</p>`;
- const extraImages=(run.evidenceImages??[]).map(s=>`<figure><a href="${asset(s.src)}" target="_blank" rel="noopener"><img loading="lazy" src="${asset(s.src)}" alt="${e(s.caption)}"></a><figcaption>${e(s.caption)}</figcaption></figure>`).join('');
- const printDate=run.printDate ? new Intl.DateTimeFormat('nb-NO',{dateStyle:'medium'}).format(new Date(run.printDate+'T12:00:00Z')) : date(run.recordedAt);
- return `<details class="run" id="${e(run.id)}"><summary class="row">${thumbnail}<span class="identity"><strong>${e(run.title)}</strong><span>${e(run.project)} · ${e(printDate)} · ${run.parts.length} deler</span></span><span class="row-metric">${e(duration(run.actualSeconds ?? run.estimatedSeconds))}<small>${run.actualSeconds == null ? 'estimert' : 'faktisk'}</small></span><span class="row-metric">${number(run.actualGrams ?? run.estimatedGrams)} g<small>${run.actualGrams == null ? 'estimert' : 'målt'}</small></span><span class="badge">${e(statuses[run.status])}</span><span class="chevron" aria-hidden="true">⌄</span></summary><div class="expanded"><p class="subtitle">${e(run.printer)} · Plate ${run.plate ?? 'ikke bekreftet'} · ${e(run.material)} · ${e(run.layerHeightMm)} mm lag</p><ul class="parts">${run.parts.map(p=>`<li>${e(p)}</li>`).join('')}</ul><p class="small">${e(run.notes)}</p><div class="gallery">${plateImage(run.preview,"Slicerens platevisning","Slicerens platevisning · grønn er visningsfarge")}${plateImage(run.layout,"Plateoppsett sett ovenfra","Plan · plateoppsett sett ovenfra")}${shots}${extraImages}</div>${run.snapshots.length ? '' : `<p class="small">${run.status==='planned' ? 'Kamerabilder finnes ikke ennå; jobben er ikke startet.' : 'Kamerabilder fra denne kjøringen er ikke bevart.'}</p>`}<div class="evidence"><p><strong>Faktisk printtid:</strong> ${e(duration(run.actualSeconds))} · <strong>Faktisk filament:</strong> ${run.actualGrams == null ? 'Ikke målt' : number(run.actualGrams)+' g'}</p><p>Start: ${e(date(run.startedAt))} · Slutt: ${e(date(run.finishedAt))}<br>Registrert: ${e(date(run.recordedAt))}<br>Dyse: ${e(run.nozzleMm)} mm · Lag: ${e(run.layers)} · Estimert lengde: ${number(run.estimatedMeters)} m</p><p>${e(run.source.evidence)}</p><p>Fil: ${e(run.source.file || run.source.filename)}<br>SHA-256: <code>${e(run.source.sha256 ?? 'Ikke bevart for denne kjøringen')}</code></p><a href="records/${e(run.id)}.json" download>Last ned denne posten (JSON) ↗</a></div></div></details>`;
+  const e = escapeHTML;
+  const shots = run.snapshots
+    .map(
+      (s) =>
+        `<figure><a href="${asset(s.src)}" target="_blank" rel="noopener"><img loading="lazy" src="${asset(s.src)}" alt="${e(s.caption)}"></a><figcaption>${e(date(s.capturedAt))}<br>${e(s.caption)}</figcaption></figure>`,
+    )
+    .join("");
+  const thumbnail = run.preview
+    ? `<img class="thumb" src="${asset(run.preview)}" alt="Platevisning">`
+    : '<span class="thumb" role="img" aria-label="Slice mangler"></span>';
+  const plateImage = (path, label, caption) =>
+    path
+      ? `<figure><a href="${asset(path)}" target="_blank" rel="noopener"><img loading="lazy" src="${asset(path)}" alt="${e(label)}"></a><figcaption>${e(caption)}</figcaption></figure>`
+      : `<p class="small">${e(label)}: ikke generert ennå.</p>`;
+  const extraImages = (run.evidenceImages ?? [])
+    .map(
+      (s) =>
+        `<figure><a href="${asset(s.src)}" target="_blank" rel="noopener"><img loading="lazy" src="${asset(s.src)}" alt="${e(s.caption)}"></a><figcaption>${e(s.caption)}</figcaption></figure>`,
+    )
+    .join("");
+  const printDate = run.printDate
+    ? new Intl.DateTimeFormat("nb-NO", { dateStyle: "medium" }).format(
+        new Date(run.printDate + "T12:00:00Z"),
+      )
+    : date(run.recordedAt);
+  return `<details class="run" id="${e(run.id)}"><summary class="row">${thumbnail}<span class="identity"><strong>${e(run.title)}</strong><span>${e(run.project)} · ${e(printDate)} · ${run.parts.length} deler</span></span><span class="row-metric">${e(duration(run.actualSeconds ?? run.estimatedSeconds))}<small>${run.actualSeconds == null ? "estimert" : "faktisk"}</small></span><span class="row-metric">${number(run.actualGrams ?? run.estimatedGrams)} g<small>${run.actualGrams == null ? "estimert" : "målt"}</small></span><span class="badge">${e(statuses[run.status])}</span><span class="chevron" aria-hidden="true">⌄</span></summary><div class="expanded"><p class="subtitle">${e(run.printer)} · Plate ${run.plate ?? "ikke bekreftet"} · ${e(run.material)} · ${e(run.layerHeightMm)} mm lag</p><ul class="parts">${run.parts.map((p) => `<li>${e(p)}</li>`).join("")}</ul><p class="small">${e(run.notes)}</p><div class="gallery">${plateImage(run.preview, "Slicerens platevisning", "Slicerens platevisning · grønn er visningsfarge")}${plateImage(run.layout, "Plateoppsett sett ovenfra", "Plan · plateoppsett sett ovenfra")}${shots}${extraImages}</div>${run.snapshots.length ? "" : `<p class="small">${run.status === "planned" ? "Kamerabilder finnes ikke ennå; jobben er ikke startet." : "Kamerabilder fra denne kjøringen er ikke bevart."}</p>`}<div class="evidence"><p><strong>Faktisk printtid:</strong> ${e(duration(run.actualSeconds))} · <strong>Faktisk filament:</strong> ${run.actualGrams == null ? "Ikke målt" : number(run.actualGrams) + " g"}</p><p>Start: ${e(date(run.startedAt))} · Slutt: ${e(date(run.finishedAt))}<br>Registrert: ${e(date(run.recordedAt))}<br>Dyse: ${e(run.nozzleMm)} mm · Lag: ${e(run.layers)} · Estimert lengde: ${number(run.estimatedMeters)} m</p><p>${e(run.source.evidence)}</p><p>Fil: ${e(run.source.file || run.source.filename)}<br>SHA-256: <code>${e(run.source.sha256 ?? "Ikke bevart for denne kjøringen")}</code></p><a href="records/${e(run.id)}.json" download>Last ned denne posten (JSON) ↗</a></div></div></details>`;
 }
-async function main(){
- const response=await fetch('records.json'); if(!response.ok) throw new Error('Kunne ikke hente printloggen');
- const runs=await response.json();
- document.querySelector('#totals').innerHTML=`<div class="stat"><strong>${runs.length}</strong><span>REGISTRERTE UTSKRIFTER</span></div><div class="stat"><strong>${runs.filter(r=>r.status==='completed').length}</strong><span>FULLFØRTE UTSKRIFTER</span></div><div class="stat"><strong>${number(runs.reduce((s,r)=>s+(r.estimatedGrams??0),0))} g</strong><span>FILAMENT · SLICERESTIMAT</span></div>`;
- document.querySelector('#project').innerHTML += [...new Set(runs.map(r=>r.project))].sort().map(p=>`<option value="${escapeHTML(p)}">${escapeHTML(p)}</option>`).join('');
- const update=()=>{const query=document.querySelector('#search').value.toLocaleLowerCase();const status=document.querySelector('#status').value;const matching=runs.filter(r=>(status==='all'||r.status===status)&&(document.querySelector('#project').value==='all'||r.project===document.querySelector('#project').value)&&[r.title,r.project,r.jobName,...r.parts].join(' ').toLocaleLowerCase().includes(query));document.querySelector('#prints').innerHTML=matching.map(render).join('');document.querySelector('#message').textContent=matching.length ? `${matching.length} ${matching.length===1?'utskrift':'utskrifter'} · nyeste først` : 'Ingen utskrifter passer søket.';};
- document.querySelector('#search').addEventListener('input',update);document.querySelector('#status').addEventListener('change',update);document.querySelector('#project').addEventListener('change',update);update();
+async function main() {
+  const response = await fetch("records.json");
+  if (!response.ok) throw new Error("Kunne ikke hente printloggen");
+  const runs = await response.json();
+  document.querySelector("#totals").innerHTML =
+    `<div class="stat"><strong>${runs.length}</strong><span>REGISTRERTE UTSKRIFTER</span></div><div class="stat"><strong>${runs.filter((r) => r.status === "completed").length}</strong><span>FULLFØRTE UTSKRIFTER</span></div><div class="stat"><strong>${number(runs.reduce((s, r) => s + (r.estimatedGrams ?? 0), 0))} g</strong><span>FILAMENT · SLICERESTIMAT</span></div>`;
+  document.querySelector("#project").innerHTML += [
+    ...new Set(runs.map((r) => r.project)),
+  ]
+    .sort()
+    .map((p) => `<option value="${escapeHTML(p)}">${escapeHTML(p)}</option>`)
+    .join("");
+  const update = () => {
+    const query = document.querySelector("#search").value.toLocaleLowerCase();
+    const status = document.querySelector("#status").value;
+    const matching = runs.filter(
+      (r) =>
+        (status === "all" || r.status === status) &&
+        (document.querySelector("#project").value === "all" ||
+          r.project === document.querySelector("#project").value) &&
+        [r.title, r.project, r.jobName, ...r.parts]
+          .join(" ")
+          .toLocaleLowerCase()
+          .includes(query),
+    );
+    document.querySelector("#prints").innerHTML = matching.map(render).join("");
+    document.querySelector("#message").textContent = matching.length
+      ? `${matching.length} ${matching.length === 1 ? "utskrift" : "utskrifter"} · nyeste først`
+      : "Ingen utskrifter passer søket.";
+  };
+  document.querySelector("#search").addEventListener("input", update);
+  document.querySelector("#status").addEventListener("change", update);
+  document.querySelector("#project").addEventListener("change", update);
+  update();
+  const requested = new URLSearchParams(location.search).get("run");
+  if (requested) {
+    const entry = document.getElementById(requested);
+    if (entry?.matches("details.run")) {
+      entry.open = true;
+      requestAnimationFrame(() => {
+        entry.scrollIntoView({ block: "start" });
+        entry.querySelector("summary").focus({ preventScroll: true });
+      });
+    } else {
+      document.querySelector("#message").textContent =
+        "Ukjent print-ID. Velg en utskrift fra listen.";
+    }
+  }
 }
-main().catch(()=>{document.querySelector('#message').textContent='Kunne ikke hente printloggen. Last siden på nytt.';});
+main().catch(() => {
+  document.querySelector("#message").textContent =
+    "Kunne ikke hente printloggen. Last siden på nytt.";
+});

@@ -1,0 +1,55 @@
+{
+  "id": "enigma-p31-p36-p38-petg-pva-cap-flat-20261111-a2",
+  "title": "OpenEnigma P31 P36 P38 M02 with cap face down",
+  "project": "OpenEnigma",
+  "printer": "Bambu Lab X2D",
+  "jobName": "Enigma_P31_P36_P38_M02_f7c21ffa_20261111_a2.gcode",
+  "releaseJobId": "mechanical-lamp-posts-petg-pva-reprint",
+  "plate": 1,
+  "parts": [
+    "P31 M02 \u00b7 front left lamp post",
+    "P36 M02 \u00b7 front right lamp post",
+    "P38 M02 \u00b7 right bearing cap"
+  ],
+  "material": "PETG Basic permanent parts; soluble PVA supports",
+  "color": "#7F7E83",
+  "nozzleMm": 0.4,
+  "layerHeightMm": 0.13,
+  "layers": 116,
+  "recordedAt": "2026-11-11T21:18:45.020801+00:00",
+  "updatedAt": "2026-11-11T21:18:45.020801+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "status": "planned",
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 16892,
+  "estimatedGrams": 47.07,
+  "estimatedMeters": 15.59,
+  "preview": "assets/enigma-p31-p36-p38-petg-pva-cap-flat-20261111-a2/preview.png",
+  "layout": "assets/enigma-p31-p36-p38-petg-pva-cap-flat-20261111-a2/top.png",
+  "snapshots": [],
+  "source": {
+    "file": "Enigma_P31_P36_P38_M02_f7c21ffa_20261111_a2.gcode.3mf",
+    "sha256": "f7c21ffa5fc30dbd4a88917829c9d60633b022f597491931bebbe6a4fee4dcba",
+    "gcodeSha256": "8b4754efb807a46138a0008dc178183d6f8a0beee031d298a7cae81910b501d6",
+    "editableSha256": "839a2c0003ec3220ec736e803f8dbbfa15ecf16ad11bc4e50d22368bb8e0dc2b",
+    "sourceCommit": "8b3922b7a54b867160b3eb2369d20ddeafd077dd",
+    "evidence": "Normal current-main staging and exact retained-mesh, native feature, material/settings and ordered nominal deposition checks passed. Upload/readback and printer acceptance remain pending."
+  },
+  "notes": "Normally staged revision after the owner questioned support usage. Exactly one each P31, P36 and P38 M02 with unchanged native geometry. P38 broad engraved face down, hollow post up; lamp-post poses retained. First-layer line width 0.35 mm; 0.13 mm normal layers, 3 walls, 100% concentric infill, PETG parts and soluble PVA support where needed. Estimated PETG 35.09 g and PVA 11.98 g; original plate estimated PVA 19.79 g. Original attempt a1 remains paused at layer zero. A front-left white-strand physical check, fresh preflight, upload and exact readback remain before this revision can start. This planned record is not a printer start or a physical acceptance.",
+  "evidenceImages": [
+    {
+      "src": "assets/enigma-p31-p36-p38-petg-pva-cap-flat-20261111-a2/first-layer.png",
+      "kind": "derived toolpath evidence",
+      "caption": "Actual first-layer PETG paths, PVA foundations and cap brim. P38 broad marked face down, hollow post up. Nominal geometry does not establish physical adhesion or cleanup.",
+      "sha256": "d80e5809a1658514320096e85d3b91d2a3eccacb3f861d5c942ff7533ffb947a"
+    },
+    {
+      "src": "assets/enigma-p31-p36-p38-petg-pva-cap-flat-20261111-a2/toolpaths.png",
+      "kind": "derived toolpath evidence",
+      "caption": "Actual model and PVA toolpaths at source-bound bore and lettering witnesses. Physical dimensions, legibility, cleanup and fit remain unverified.",
+      "sha256": "de7a4c45601283a19356ee367ba4268fe8f1da0fea4020cc12406765b587850d"
+    }
+  ]
+}

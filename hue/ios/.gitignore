@@ -1,0 +1,6 @@
+build/
+DerivedData/
+client.json
+*.xcconfig
+xcuserdata/
+*.xcuserstate

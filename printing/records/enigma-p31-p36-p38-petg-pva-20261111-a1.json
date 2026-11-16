@@ -17,10 +17,10 @@
   "layerHeightMm": 0.13,
   "layers": 116,
   "recordedAt": "2026-11-11T19:30:56.575593+00:00",
-  "updatedAt": "2026-11-11T20:48:58.628344+00:00",
+  "updatedAt": "2026-11-16T22:46:29.379503+00:00",
   "startedAt": "2026-11-11T20:25:07.143646+00:00",
   "finishedAt": null,
-  "status": "paused",
+  "status": "cancelled",
   "actualSeconds": null,
   "actualGrams": null,
   "estimatedSeconds": 18696,
@@ -48,10 +48,18 @@
     "sourceCommit": "4bb579aa7fba176516a28f8ea7d310f64111489b",
     "evidence": "Normal source staging, exact artifact audit and identical upload readback passed; exact job accepted once and observed RUNNING before controller pause at layer 0/116."
   },
-  "notes": "One each P31, P36 and P38 M02, PETG with PVA supports. Original cap pose had engraved broad face upward. Owner questioned support usage; controller paused before the first model layer to compare a broad-face-down replacement. No cancellation or replacement start has occurred. Estimated PETG 35.00 g and PVA 19.79 g; actual duration and filament remain unmeasured. Cleanup, dimensions, strength and fit unverified.",
+  "notes": "Previously paused before the first model layer for orientation review. On 16 November the owner reported stopping this old job in Bambu Studio. Subsequent telemetry reported FAILED with print_error 0 and the same old job identity; no restart was sent. Exact cancellation time, elapsed time and used material are unknown. No completed parts or usable stock credited. This retired-design attempt is separate from the new RDE print.",
   "pauseEvidence": {
     "printerState": "PAUSE",
     "printError": 0,
     "observedAt": "2026-11-11T20:30:59.113876+00:00"
+  },
+  "terminalObservedAt": "2026-11-16T22:05:46+00:00",
+  "terminalEvidence": {
+    "ownerReport": "Stopped in Bambu Studio",
+    "printerState": "FAILED",
+    "printError": 0,
+    "observedAt": "2026-11-16T22:05:46+00:00",
+    "finishedAtKnown": false
   }
 }

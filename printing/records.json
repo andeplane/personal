@@ -1,5 +1,123 @@
 [
   {
+    "id": "rde01-structure-tools-right-pla-20261116-a1",
+    "title": "ENIGMA R.D.E. machine one: battery base, tools and structural prototypes",
+    "project": "ENIGMA R.D.E.",
+    "printer": "Bambu Lab X2D",
+    "jobName": "RDE01_10parts_4f6201dc_1be0112db22d_20261116_a1.gcode.3mf",
+    "releaseJobId": "rde01-structure-tools-pla",
+    "plate": 1,
+    "parts": [
+      "ZG500096 STL-b2bf5982082493d2df39f9ae9b67127407e84fd4b47dd70bad8cd5c1a84c2329 · ZG500096 Battery Box Base HDM v9.stl · quantity 1",
+      "ZG600002 STL-d26499c4d9ee5d25b260c99dca75f7176cad89c576e9b21faeedf828e1e4dcb7 · ZG600002 Mounting Pin HDM v5.stl · quantity 1",
+      "ZG600004 STL-97f7dbcdb1b9264b0fc00f2bdf7fb62de3d39bb535e3ec46ed475f08a983a759 · ZG600004 Nut Wrench HDM v4.stl · quantity 1",
+      "ZG100005 STL-be8c07e531efcfbe6ea61cf984d53184d40cd1a1dda684fba26845c4a2f422b0 · ZG100005 Shaft Holder HDM v8.stl · quantity 1",
+      "ZG100039 STL-5b6df30f7eb856111e8941ee92c85d2ca11e13b305c892e4efcf7c2be22aff69 · ZG100039 Centering Device HDM v24.stl · quantity 1",
+      "ZG100057 STL-7b59970e05784a3eb55e617e274a86188e6e4cfb7bbc4bdb218abf6ce02e6389 · ZG100057 Sleeve HDM v4.stl · quantity 1",
+      "ZG100042 STL-a3a3f648be56bd1fae3f4ba693666adaa57e117ca08c9facab02401183d6c271 · ZG100042 Sleeve 6 HDM v4.stl · quantity 1",
+      "ZG100046 STL-1770dc661f7443dde667292969b252e186ac647c21bfb4ddfbc81d0613e8478e · ZG100046 Roll Centering Device HDM v24.stl · quantity 1",
+      "ZG100055 STL-8042e07659ab78113288de207befdaf40105aa119d029bd5a8f517746eb245fa · ZG100055 Spike HDM v24.stl · quantity 1",
+      "ZG100044 STL-8ed3b9048c8e565a9ee962bfeedc8af29207e158510fb3a88616a005fa68dea1 · ZG100044 Roll Lever HDM v4.stl · quantity 1"
+    ],
+    "partRevisions": [
+      {
+        "partNumber": "ZG500096",
+        "revision": "STL-b2bf5982082493d2df39f9ae9b67127407e84fd4b47dd70bad8cd5c1a84c2329",
+        "sourceFilename": "ZG500096 Battery Box Base HDM v9.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG600002",
+        "revision": "STL-d26499c4d9ee5d25b260c99dca75f7176cad89c576e9b21faeedf828e1e4dcb7",
+        "sourceFilename": "ZG600002 Mounting Pin HDM v5.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG600004",
+        "revision": "STL-97f7dbcdb1b9264b0fc00f2bdf7fb62de3d39bb535e3ec46ed475f08a983a759",
+        "sourceFilename": "ZG600004 Nut Wrench HDM v4.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100005",
+        "revision": "STL-be8c07e531efcfbe6ea61cf984d53184d40cd1a1dda684fba26845c4a2f422b0",
+        "sourceFilename": "ZG100005 Shaft Holder HDM v8.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100039",
+        "revision": "STL-5b6df30f7eb856111e8941ee92c85d2ca11e13b305c892e4efcf7c2be22aff69",
+        "sourceFilename": "ZG100039 Centering Device HDM v24.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100057",
+        "revision": "STL-7b59970e05784a3eb55e617e274a86188e6e4cfb7bbc4bdb218abf6ce02e6389",
+        "sourceFilename": "ZG100057 Sleeve HDM v4.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100042",
+        "revision": "STL-a3a3f648be56bd1fae3f4ba693666adaa57e117ca08c9facab02401183d6c271",
+        "sourceFilename": "ZG100042 Sleeve 6 HDM v4.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100046",
+        "revision": "STL-1770dc661f7443dde667292969b252e186ac647c21bfb4ddfbc81d0613e8478e",
+        "sourceFilename": "ZG100046 Roll Centering Device HDM v24.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100055",
+        "revision": "STL-8042e07659ab78113288de207befdaf40105aa119d029bd5a8f517746eb245fa",
+        "sourceFilename": "ZG100055 Spike HDM v24.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100044",
+        "revision": "STL-8ed3b9048c8e565a9ee962bfeedc8af29207e158510fb3a88616a005fa68dea1",
+        "sourceFilename": "ZG100044 Roll Lever HDM v4.stl",
+        "quantity": 1
+      }
+    ],
+    "material": "PLA Basic · right 0.4 mm nozzle · supports off",
+    "color": "#000000",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.15,
+    "layers": 696,
+    "recordedAt": "2026-11-16T22:46:29.379503+00:00",
+    "updatedAt": "2026-11-16T22:46:29.379503+00:00",
+    "startedAt": "2026-11-16T22:33:46.704888+00:00",
+    "finishedAt": null,
+    "status": "printing",
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 32731,
+    "estimatedGrams": 149.54,
+    "estimatedMeters": 50.13838,
+    "preview": "assets/rde01-structure-tools-right-pla-20261116-a1/actual-first-layer-toolpaths.png",
+    "layout": "assets/rde01-structure-tools-right-pla-20261116-a1/actual-first-layer-toolpaths.png",
+    "snapshots": [
+      {
+        "src": "assets/rde01-structure-tools-right-pla-20261116-a1/m4-camera-20261116T224324Z.jpg",
+        "capturedAt": "2026-11-16T22:43:24+00:00",
+        "caption": "During accepted RDE job, shortly after telemetry reached layer 1/696. Black filament on the textured plate is difficult to distinguish in this wide view; adhesion and finished quality are not certified."
+      }
+    ],
+    "source": {
+      "file": "RDE01_10parts_4f6201dc_1be0112db22d_20261116_a1.gcode.3mf",
+      "sha256": "1be0112db22ddc62d927bc53b79eef6b50fc2ebb3989e6d6cfb515432e7a0319",
+      "gcodeSha256": "27bcde197974f043dc0e5ccd4a1ef74be6a1adcf81c24e87be7a21087c8d6588",
+      "editableSha256": "f7dc75c572bf170a5c3347efda483f4711aafed3cbc37e86c8b1c6d0801f9f93",
+      "sourceCommit": "4f6201dc4e7381961f9daed91587af63a3322e4b",
+      "evidence": "Current main online gate, local guide synchronization and exact retained-mesh slice audit passed. M4 upload and download were identical; printer acknowledged exact file, MD5, plate 1 and AMS A3. Start sent once; PREPARE, RUNNING and layer 1 observed."
+    },
+    "notes": "First specimen of each selected part; no old-design stock credit. Slicer 02.08.02.61: 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm outer brims, 220 C nozzle / 55 C textured PEI. Both preview fields intentionally reference the actual first-layer GCode plot. Native 3MF PNG thumbnails are absent: headless rendering returned no bitmap. Cleanup, dimensions, strength and operation remain unverified. Actual time and filament are unmeasured. Start timestamp is observed acceptance, not first extrusion. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0.",
+    "previewCaption": "Actual first-layer GCode toolpaths for this exact slice; grey shows removable outer brims. This archive contains no native slicer PNG thumbnail.",
+    "layoutCaption": "The same exact first-layer toolpath plot, viewed from above; no separate native slicer bitmap was produced."
+  },
+  {
     "id": "enigma-p31-p36-p38-petg-pva-cap-flat-20261111-a2",
     "title": "OpenEnigma P31 P36 P38 M02 with cap face down",
     "project": "OpenEnigma",
@@ -73,10 +191,10 @@
     "layerHeightMm": 0.13,
     "layers": 116,
     "recordedAt": "2026-11-11T19:30:56.575593+00:00",
-    "updatedAt": "2026-11-11T20:48:58.628344+00:00",
+    "updatedAt": "2026-11-16T22:46:29.379503+00:00",
     "startedAt": "2026-11-11T20:25:07.143646+00:00",
     "finishedAt": null,
-    "status": "paused",
+    "status": "cancelled",
     "actualSeconds": null,
     "actualGrams": null,
     "estimatedSeconds": 18696,
@@ -104,11 +222,19 @@
       "sourceCommit": "4bb579aa7fba176516a28f8ea7d310f64111489b",
       "evidence": "Normal source staging, exact artifact audit and identical upload readback passed; exact job accepted once and observed RUNNING before controller pause at layer 0/116."
     },
-    "notes": "One each P31, P36 and P38 M02, PETG with PVA supports. Original cap pose had engraved broad face upward. Owner questioned support usage; controller paused before the first model layer to compare a broad-face-down replacement. No cancellation or replacement start has occurred. Estimated PETG 35.00 g and PVA 19.79 g; actual duration and filament remain unmeasured. Cleanup, dimensions, strength and fit unverified.",
+    "notes": "Previously paused before the first model layer for orientation review. On 16 November the owner reported stopping this old job in Bambu Studio. Subsequent telemetry reported FAILED with print_error 0 and the same old job identity; no restart was sent. Exact cancellation time, elapsed time and used material are unknown. No completed parts or usable stock credited. This retired-design attempt is separate from the new RDE print.",
     "pauseEvidence": {
       "printerState": "PAUSE",
       "printError": 0,
       "observedAt": "2026-11-11T20:30:59.113876+00:00"
+    },
+    "terminalObservedAt": "2026-11-16T22:05:46+00:00",
+    "terminalEvidence": {
+      "ownerReport": "Stopped in Bambu Studio",
+      "printerState": "FAILED",
+      "printError": 0,
+      "observedAt": "2026-11-16T22:05:46+00:00",
+      "finishedAtKnown": false
     }
   },
   {

@@ -74,6 +74,26 @@ test("duplicate delivery and multiple events in a batch preserve exact daily/mon
     (await store.activity("atomify", "2026-11-16", now)).monthlyAvailable,
     false,
   );
+  assert.equal(
+    (
+      await store.activity(
+        "atomify",
+        "2026-11-17",
+        Date.parse("2026-11-17T23:59:00Z"),
+      )
+    ).monthlyAvailable,
+    false,
+  );
+  assert.equal(
+    (
+      await store.activity(
+        "atomify",
+        "2026-11-30",
+        Date.parse("2026-11-30T23:59:00Z"),
+      )
+    ).monthlyAvailable,
+    true,
+  );
 });
 
 test("reused event id with changed content is rejected before committing quotas or aggregates", async () => {

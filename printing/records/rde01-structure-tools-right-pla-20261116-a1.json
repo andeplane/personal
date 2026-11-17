@@ -86,7 +86,7 @@
   "layerHeightMm": 0.15,
   "layers": 696,
   "recordedAt": "2026-11-16T22:46:29.379503+00:00",
-  "updatedAt": "2026-11-17T00:36:48.160664+00:00",
+  "updatedAt": "2026-11-17T13:43:45.668996+00:00",
   "startedAt": "2026-11-16T22:33:46.704888+00:00",
   "finishedAt": null,
   "status": "printing",
@@ -107,6 +107,16 @@
       "src": "assets/rde01-structure-tools-right-pla-20261116-a1/camera-20261117T003521Z.jpg",
       "capturedAt": "2026-11-17T00:35:23.695320+00:00",
       "caption": "During exact accepted job6370, around layer43/696. Visible deposited parts and toolhead; this frame does not establish cleanup, dimensions, strength or operation."
+    },
+    {
+      "src": "assets/rde01-structure-tools-right-pla-20261116-a1/paused-camera-20261117T133546Z.jpg",
+      "capturedAt": "2026-11-17T13:35:46.785988+00:00",
+      "caption": "During AMS-overload pause at81%; parts remain on bed. This frame does not prove the filament path or physical quality."
+    },
+    {
+      "src": "assets/rde01-structure-tools-right-pla-20261116-a1/resumed-camera.jpg",
+      "capturedAt": "2026-11-17T13:41:59.806173+00:00",
+      "caption": "After the authorized AMS resume; same job advanced beyond layer497. Parts remain on bed; no physical acceptance claimed."
     }
   ],
   "source": {
@@ -117,7 +127,7 @@
     "sourceCommit": "4f6201dc4e7381961f9daed91587af63a3322e4b",
     "evidence": "Current main online gate, local guide synchronization and exact retained-mesh slice audit passed. M4 upload and download were identical; printer acknowledged exact file, MD5, plate 1 and AMS A3. Start sent once; PREPARE, RUNNING and layer 1 observed."
   },
-  "notes": "First specimen of each selected part; no old-design stock credit. Slicer 02.08.02.61: 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm outer brims, 220 C nozzle / 55 C textured PEI. Both preview fields intentionally reference the actual first-layer GCode plot. Native 3MF PNG thumbnails are absent: headless rendering returned no bitmap. Cleanup, dimensions, strength and operation remain unverified. Actual time and filament are unmeasured. Start timestamp is observed acceptance, not first extrusion. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0.",
+  "notes": "First specimen of each selected part; no old-design stock credit. Slicer 02.08.02.61: 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm outer brims, 220 C nozzle / 55 C textured PEI. Both preview fields intentionally reference the actual first-layer GCode plot. Native 3MF PNG thumbnails are absent: headless rendering returned no bitmap. Cleanup, dimensions, strength and operation remain unverified. Actual time and filament are unmeasured. Start timestamp is observed acceptance, not first extrusion. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. On17November, observed PAUSE at81%, layer497/696 with AMS assist-motor overload (print_error117473296); actual pause onset is unknown. One owner-authorized AMS RESUME was sent at13:37:05UTC. Fresh telemetry at13:39:06UTC verified the same task6370 RUNNING, layer498,82%, print_error0; later layer502 observed. Same attempt continued, not a new print. Completion, actual duration/usage and physical quality remain unverified.",
   "previewCaption": "Actual first-layer GCode toolpaths for this exact slice; grey shows removable outer brims. This archive contains no native slicer PNG thumbnail.",
   "layoutCaption": "The same exact first-layer toolpath plot, viewed from above; no separate native slicer bitmap was produced."
 }

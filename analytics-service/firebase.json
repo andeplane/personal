@@ -1,0 +1,3 @@
+{
+  "firestore": [{ "database": "personal-analytics", "rules": "firestore.rules" }]
+}

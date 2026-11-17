@@ -1,0 +1,20 @@
+{
+  "name": "personal-fleet-analytics",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test test/*.test.js",
+    "format": "prettier --write src test scripts ../stats/*.js ../stats/*.css ../stats/*.html ../stats/sdk/*.js",
+    "lint": "prettier --check src test scripts ../stats/*.js ../stats/*.css ../stats/*.html ../stats/sdk/*.js"
+  },
+  "dependencies": {
+    "firebase-admin": "14.5.1"
+  },
+  "devDependencies": {
+    "prettier": "3.10.1"
+  }
+}

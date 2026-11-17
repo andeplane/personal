@@ -1,0 +1,15 @@
+{
+  "revision": "67d35a30651a3a5698cd46da49e006499b5258ed",
+  "scope": [
+    "src"
+  ],
+  "method": "Literal track/trackEvent/time_event calls; excludes tests. Computed names require manual review.",
+  "eventNames": [],
+  "callSites": [],
+  "computedEventContract": [
+    "Homepage.Page Viewed",
+    "Homepage.Demo Opened",
+    "Homepage.Outbound Link Clicked"
+  ],
+  "computedSource": "src/lib/analytics.ts EVENT_PREFIX plus page/link classification"
+}

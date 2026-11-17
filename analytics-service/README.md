@@ -131,7 +131,7 @@ abuse, but are not user authentication. Query access always requires the owner t
 
 ## API
 
-Public: `GET /healthz`, `GET /v1/config`, `POST /v1/events`.
+Public: `GET /health`, `GET /v1/config`, `POST /v1/events`.
 Authenticated: `GET /v1/me`, `/readyz`, `/v1/apps`, `/v1/query`, `/v1/session`.
 `/v1/query` accepts `from`, `to`, `appId`, `event`, `property`, `value`, `breakdown`
 and up to five repeated `step` parameters. Sessions additionally require `appId`
@@ -148,7 +148,7 @@ without storing property payloads or reading environment files. Computed names
 require manual review. Detailed private-repository inventory is kept in the
 operator's local output record, not published in this public repository.
 
-Fuse Games is federated now. Atomify Web, the homepage and AI Data Analytics still
+Fuse Games is federated now. Atomify Web, the homepage, AI Data Analytics and Particle Defence still
 need their Mixpanel transports replaced and app-specific validation/release.
 The native Atomify app and pirate games have published no-analytics statements;
 their product behavior and disclosure must be reconciled before enabling events.

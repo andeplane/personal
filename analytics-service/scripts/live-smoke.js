@@ -17,7 +17,7 @@ const request = (path, options) =>
     ...options,
     signal: AbortSignal.timeout(30_000),
   });
-assert.equal((await request("/healthz")).status, 200);
+assert.equal((await request("/health")).status, 200);
 report.checks.health = "passed";
 for (const path of [
   "/v1/me",

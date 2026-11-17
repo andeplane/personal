@@ -242,6 +242,8 @@ label select {
   color: var(--ink);
   border-color: var(--accent-warm);
 }
+.active-filters { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; padding: 14px 16px; margin: -8px 0 28px; border: 1px solid var(--line); border-radius: 7px; background: var(--line-soft); }
+.active-filters p { flex: 1 1 260px; margin: 0; color: var(--ink-soft); font-size: 13px; max-width: 75ch; }
 .summary {
   display: flex;
   flex-wrap: wrap;

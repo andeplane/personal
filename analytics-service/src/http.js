@@ -66,7 +66,7 @@ export function createAnalyticsServer({
         return;
       }
       const url = new URL(req.url, "http://analytics");
-      if (url.pathname === "/healthz" && req.method === "GET") {
+      if (["/health", "/healthz"].includes(url.pathname) && req.method === "GET") {
         send(200, { ok: true });
         return;
       }

@@ -51,7 +51,7 @@
           </button>
           <div id="apps"></div>
           <p class="fleet-note">
-            Each app has its own anonymous identities. A browser is not a
+            Each app has its own anonymous identities. An identity is not a
             verified person.
           </p>
         </aside>
@@ -66,11 +66,13 @@
             ><label>To <input id="to" name="to" type="date" required /></label>
             <button type="button" id="last-week">Last 7 days</button
             ><button type="button" id="last-month">Last 28 days</button
+            ><button type="button" id="last-years" hidden>Last 5 years</button
             ><button type="submit" class="primary">Apply dates</button>
           </form>
           <div id="query-status" class="notice" role="status" hidden></div>
           <nav class="tabs" aria-label="Investigations">
             <button data-tab="overview" aria-current="page">Overview</button
+            ><button data-tab="atomify" hidden>Atomify deepdive</button
             ><button data-tab="retention">Return cohorts</button
             ><button data-tab="funnels">Funnels</button
             ><button data-tab="sessions">Sessions</button
@@ -86,8 +88,8 @@
       </div>
     </main>
     <footer class="stats-footer">
-      First-party product analytics · Dates in UTC · Anonymous installations,
-      not people
+      First-party product analytics · Dates in UTC · App-scoped identities, not
+      people
     </footer>
   </body>
 </html>

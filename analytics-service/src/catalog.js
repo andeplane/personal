@@ -1,6 +1,18 @@
 // Public product metadata. No credentials or private event data belong here.
 export const apps = [
   {
+    id: "teslacode-legacy",
+    label: "TeslaCode · legacy",
+    family: "Tools",
+    status: "historical-source",
+  },
+  {
+    id: "unassigned",
+    label: "Unassigned history",
+    family: "Other",
+    status: "historical-source",
+  },
+  {
     id: "atomify",
     label: "Atomify Web",
     family: "Science",

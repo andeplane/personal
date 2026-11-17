@@ -4,6 +4,7 @@ import { getFirestore } from "firebase-admin/firestore";
 import { FirestoreStore } from "./store.js";
 import { createAnalyticsServer } from "./http.js";
 import { FuseSource } from "./fuse-source.js";
+import { Warehouse } from "./warehouse.js";
 
 const projectId = process.env.GOOGLE_CLOUD_PROJECT ?? "andershaf-87";
 const app = initializeApp({ projectId, credential: applicationDefault() });
@@ -23,6 +24,10 @@ const store =
     : primary;
 const server = createAnalyticsServer({
   store,
+  warehouse:
+    process.env.WAREHOUSE_ENABLED === "1"
+      ? new Warehouse({ projectId })
+      : undefined,
   verifyToken: (token) => getAuth(app).verifyIdToken(token, true),
   secret: process.env.ANALYTICS_PRIVACY_SECRET,
   origins: new Set(

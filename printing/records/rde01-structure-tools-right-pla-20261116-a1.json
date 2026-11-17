@@ -86,7 +86,7 @@
   "layerHeightMm": 0.15,
   "layers": 696,
   "recordedAt": "2026-11-16T22:46:29.379503+00:00",
-  "updatedAt": "2026-11-16T22:46:29.379503+00:00",
+  "updatedAt": "2026-11-17T00:36:48.160664+00:00",
   "startedAt": "2026-11-16T22:33:46.704888+00:00",
   "finishedAt": null,
   "status": "printing",
@@ -102,6 +102,11 @@
       "src": "assets/rde01-structure-tools-right-pla-20261116-a1/m4-camera-20261116T224324Z.jpg",
       "capturedAt": "2026-11-16T22:43:24+00:00",
       "caption": "During accepted RDE job, shortly after telemetry reached layer 1/696. Black filament on the textured plate is difficult to distinguish in this wide view; adhesion and finished quality are not certified."
+    },
+    {
+      "src": "assets/rde01-structure-tools-right-pla-20261116-a1/camera-20261117T003521Z.jpg",
+      "capturedAt": "2026-11-17T00:35:23.695320+00:00",
+      "caption": "During exact accepted job6370, around layer43/696. Visible deposited parts and toolhead; this frame does not establish cleanup, dimensions, strength or operation."
     }
   ],
   "source": {

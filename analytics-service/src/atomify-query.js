@@ -21,7 +21,7 @@ export function atomifyQuery(projectId) {
         APPROX_QUANTILES(IF(speed>=0,speed,NULL),100)[SAFE_OFFSET(95)] AS p95Speed,
         SUM(IF(timesteps>=0,timesteps,NULL)) AS timesteps
         FROM stops) AS performance,
-      ARRAY(SELECT AS STRUCT CAST(event_date AS STRING) AS day,COUNTIF(name='Simulation.Start') AS starts,COUNTIF(name='Simulation.Stop') AS stops,COUNTIF(name='Simulation.Stop' AND JSON_VALUE(properties.stopReason)='failed') AS failures FROM events GROUP BY event_date ORDER BY event_date) AS daily,
+      ARRAY(SELECT AS STRUCT CAST(day AS STRING) AS day,COUNTIF(e.name='Simulation.Start') AS starts,COUNTIF(e.name='Simulation.Stop') AS stops,COUNTIF(e.name='Simulation.Stop' AND JSON_VALUE(e.properties.stopReason)='failed') AS failures FROM UNNEST(GENERATE_DATE_ARRAY(@from,@to)) day LEFT JOIN events e ON e.event_date=day GROUP BY day ORDER BY day) AS daily,
       ARRAY(SELECT AS STRUCT COALESCE(JSON_VALUE(properties.exampleId),'(not recorded)') AS label,COUNT(*) AS events,COUNT(DISTINCT user_id) AS users FROM events WHERE name IN ('QuickRun.Start','Example.UseAsProject','Run.Start') GROUP BY label ORDER BY events DESC,label LIMIT 50) AS examples,
       ARRAY(SELECT AS STRUCT SPLIT(name,'.')[SAFE_OFFSET(0)] AS label,COUNT(*) AS events,COUNT(DISTINCT user_id) AS users FROM events GROUP BY label ORDER BY events DESC,label LIMIT 50) AS features,
       ARRAY(SELECT AS STRUCT b.label,COUNTIF(s.duration>=b.low AND s.duration<b.high) AS count FROM UNNEST([STRUCT('Under 1s' AS label,0.0 AS low,1.0 AS high),('1–9s',1.,10.),('10–59s',10.,60.),('1–4m',60.,300.),('5–29m',300.,1800.),('30m+',1800.,1e100)]) b LEFT JOIN stops s ON TRUE GROUP BY b.label,b.low ORDER BY b.low) AS durations,

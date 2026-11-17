@@ -207,7 +207,7 @@ export async function importWindow({
         jobId,
         location: WAREHOUSE_LOCATION,
         sourceFormat: "NEWLINE_DELIMITED_JSON",
-        schema: EVENT_SCHEMA,
+        schema: { fields: EVENT_SCHEMA },
         writeDisposition: "WRITE_APPEND",
         maxBadRecords: 0,
         ignoreUnknownValues: false,
@@ -321,16 +321,29 @@ export async function runImport({
   return results;
 }
 if (import.meta.url === `file://${process.argv[1]}`) {
-  let authClient;
-  if (process.env.OPERATOR_TOKEN_STDIN === "1") {
-    let token = "";
-    for await (const chunk of process.stdin) token += chunk;
-    authClient = new OAuth2Client();
-    authClient.setCredentials({ access_token: token.trim() });
-    token = "";
-  } else
-    authClient = await new GoogleAuth({
-      scopes: ["https://www.googleapis.com/auth/cloud-platform"],
-    }).getClient();
-  await runImport({ authClient });
+  try {
+    let authClient;
+    if (process.env.OPERATOR_TOKEN_STDIN === "1") {
+      let token = "";
+      for await (const chunk of process.stdin) token += chunk;
+      authClient = new OAuth2Client();
+      authClient.setCredentials({ access_token: token.trim() });
+      token = "";
+    } else
+      authClient = await new GoogleAuth({
+        scopes: ["https://www.googleapis.com/auth/cloud-platform"],
+      }).getClient();
+    await runImport({ authClient });
+  } catch (error) {
+    console.error(
+      JSON.stringify({
+        event: "analytics_job_failed",
+        code: String(error?.code ?? "unknown"),
+        reason: String(
+          error?.errors?.[0]?.reason ?? error?.status ?? "job-failed",
+        ),
+      }),
+    );
+    process.exitCode = 1;
+  }
 }

@@ -124,7 +124,7 @@ export async function syncSources({ authClient }) {
             .createLoadJob(file, {
               location: WAREHOUSE_LOCATION,
               sourceFormat: "NEWLINE_DELIMITED_JSON",
-              schema: EVENT_SCHEMA,
+              schema: { fields: EVENT_SCHEMA },
               writeDisposition: "WRITE_APPEND",
               maxBadRecords: 0,
             });
@@ -162,22 +162,36 @@ export async function syncSources({ authClient }) {
   return reports;
 }
 if (import.meta.url === `file://${process.argv[1]}`) {
-  let authClient;
-  if (process.env.OPERATOR_TOKEN_STDIN === "1") {
-    let token = "";
-    for await (const chunk of process.stdin) token += chunk;
-    authClient = new OAuth2Client();
-    authClient.setCredentials({ access_token: token.trim() });
-    token = "";
-  } else
-    authClient = await new GoogleAuth({
-      scopes: ["https://www.googleapis.com/auth/cloud-platform"],
-    }).getClient();
-  const bucket = new Storage({ projectId: "andershaf-87", authClient }).bucket(
-    ARCHIVE_BUCKET,
-  );
-  const result = await withLease(bucket, "source-sync", 70 * 60000, () =>
-    syncSources({ authClient }),
-  );
-  if (result?.skipped) console.log(JSON.stringify(result));
+  try {
+    let authClient;
+    if (process.env.OPERATOR_TOKEN_STDIN === "1") {
+      let token = "";
+      for await (const chunk of process.stdin) token += chunk;
+      authClient = new OAuth2Client();
+      authClient.setCredentials({ access_token: token.trim() });
+      token = "";
+    } else
+      authClient = await new GoogleAuth({
+        scopes: ["https://www.googleapis.com/auth/cloud-platform"],
+      }).getClient();
+    const bucket = new Storage({
+      projectId: "andershaf-87",
+      authClient,
+    }).bucket(ARCHIVE_BUCKET);
+    const result = await withLease(bucket, "source-sync", 70 * 60000, () =>
+      syncSources({ authClient }),
+    );
+    if (result?.skipped) console.log(JSON.stringify(result));
+  } catch (error) {
+    console.error(
+      JSON.stringify({
+        event: "analytics_job_failed",
+        code: String(error?.code ?? "unknown"),
+        reason: String(
+          error?.errors?.[0]?.reason ?? error?.status ?? "job-failed",
+        ),
+      }),
+    );
+    process.exitCode = 1;
+  }
 }

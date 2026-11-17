@@ -199,7 +199,7 @@ function overview(data) {
   const breakdown = `<label>Break down by<select id="breakdown">${["name", "appId", ...data.dimensions].map((key) => `<option value="${escape(key)}"${key === state.breakdown ? " selected" : ""}>${escape(key === "name" ? "Event" : key === "appId" ? "Application" : key)}</option>`).join("")}</select></label>`;
   const max = Math.max(1, ...data.groups.map((group) => group.events));
   const groups = table(
-    ["Dimension", "Events", "Installations", "Sessions"],
+    ["Dimension", "Events", "Identities", "Sessions"],
     data.groups.map(
       (group) =>
         `<tr><td>${escape(state.breakdown === "appId" ? appName(group.label) : group.label)}</td><td class="bar-cell">${number(group.events)}<div class="bar"><span style="width:${(group.events / max) * 100}%"></span></div></td><td>${number(group.users)}</td><td>${number(group.sessions)}</td></tr>`,
@@ -223,7 +223,7 @@ function overview(data) {
     .join("");
   const metricPicker = `<label>Daily measure<select id="chart-metric">${[
     ["events", "Events"],
-    ["users", "Active installations"],
+    ["users", "Active identities"],
     ["sessions", "Sessions"],
   ]
     .map(
@@ -231,14 +231,14 @@ function overview(data) {
         `<option value="${value}"${value === state.chartMetric ? " selected" : ""}>${label}</option>`,
     )
     .join("")}</select></label>`;
-  return `${summary}${section("Activity over time", metricPicker)}<p class="hint">Counts per UTC day. Active installations and sessions are distinct counts over the selected window, not a sum of daily uniques.</p>${chart(data.days, state.chartMetric)}<details><summary>Show exact daily data</summary>${table(
-    ["UTC day", "Events", "Installations", "Sessions"],
+  return `${summary}${section("Activity over time", metricPicker)}<p class="hint">Counts per UTC day. Active identities and sessions are distinct counts over the selected window, not a sum of daily uniques.</p>${chart(data.days, state.chartMetric)}<details><summary>Show exact daily data</summary>${table(
+    ["UTC day", "Events", "Identities", "Sessions"],
     data.days.map(
       (day) =>
         `<tr><td>${day.day}</td><td>${number(day.events)}</td><td>${number(day.users)}</td><td>${number(day.sessions)}</td></tr>`,
     ),
   )}</details><div class="distributions">${distributions}</div><p class="hint">Session span measures time between matching events in the window, not attention or total app runtime. Single-event sessions have a zero observed span.</p>${section("What people use", breakdown)}${groups}${section("Across the fleet")}${table(
-    ["Application", "Events", "Installations", "Sessions", "Last event"],
+    ["Application", "Events", "Identities", "Sessions", "Last event"],
     data.apps.map(
       (app) =>
         `<tr><td><button class="row-link" data-open-app="${escape(app.appId)}">${escape(appName(app.appId))}</button></td><td>${number(app.events)}</td><td>${number(app.users)}</td><td>${number(app.sessions)}</td><td>${date(app.lastSeen)}</td></tr>`,
@@ -363,10 +363,10 @@ function atomify(data) {
     )}</details>`;
 }
 function retention(data) {
-  return `${section("Do installations come back?")}<p class="hint">${escape(data.retentionScope)} Event and property filters do not scope these cohorts; the application and dates do.</p>${
+  return `${section("Do identities come back?")}<p class="hint">${escape(data.retentionScope)} Event and property filters do not scope these cohorts; the application and dates do.</p>${
     data.retention
       ? table(
-          ["Return day", "Eligible installations", "Returned", "Return rate"],
+          ["Return day", "Eligible identities", "Returned", "Return rate"],
           data.retention.map(
             (row) =>
               `<tr><td>Day ${row.day}</td><td>${number(row.eligible)}</td><td>${number(row.returned)}</td><td>${row.rate === null ? "Not enough follow-up" : `${(row.rate * 100).toFixed(1)}%`}</td></tr>`,
@@ -376,7 +376,7 @@ function retention(data) {
           "Return cohorts are unavailable.",
           "Shorten the window to obtain a complete read.",
         )
-  }<p class="hint">A different browser or device is a different installation. Days that have not fully elapsed never count as failures to return.</p>`;
+  }<p class="hint">Identities are scoped to each app; source-specific device or account rules may differ. Days that have not fully elapsed never count as failures to return.</p>`;
 }
 function funnels(data) {
   const currentApp = state.catalog.find((app) => app.id === state.appId);
@@ -388,7 +388,7 @@ function funnels(data) {
   return `${section("Where does the journey stop?")}<p class="hint">${escape(data.funnelScope)}</p>${form}${
     data.funnel?.length
       ? table(
-          ["Step", "Installations", "Of first step"],
+          ["Step", "Identities", "Of first step"],
           data.funnel.map(
             (step, index) =>
               `<tr><td>${index + 1}. ${escape(step.name)}</td><td>${number(step.users)}</td><td>${first ? `${((step.users / first) * 100).toFixed(1)}%` : "No starts"}</td></tr>`,
@@ -405,7 +405,7 @@ function sessionList(data) {
     data.sessions.length
       ? table(
           [
-            "Application / installation",
+            "Application / identity",
             "First seen in window",
             "Last seen",
             "Observed span",
@@ -430,7 +430,7 @@ function rawEvents(data) {
   return `${section("The events behind the numbers", '<button id="export-events">Export these events</button>')}${eventFilters(data)}<p class="hint">Showing the newest ${number(data.events.length)} matching events${data.complete ? ` of ${number(data.selectedCount)}` : " within the scanned sample"}. Narrow the app, dates or event/property filters to inspect other slices.</p>${
     data.events.length
       ? table(
-          ["UTC time", "Application", "Event", "Installation", "Properties"],
+          ["UTC time", "Application", "Event", "Identity", "Properties"],
           data.events.map(
             (row) =>
               `<tr><td>${date(row.occurredAt)}</td><td>${escape(appName(row.appId))}</td><td>${escape(row.name)}</td><td><code>${escape((row.userId ?? "unknown").slice(0, 12))}</code></td><td><details><summary>${Object.keys(row.properties).length} properties</summary><pre class="properties">${escape(JSON.stringify(row.properties, null, 2))}</pre></details></td></tr>`,
@@ -451,7 +451,7 @@ function coverage() {
     "inventory-pending": "Inventory pending",
     "historical-source": "Historical source",
   };
-  return `${section("What is connected?")}<p class="hint">A catalog entry is not evidence of delivery. Fuse Games is read directly from its existing first-party metrics collection; other apps appear here as their transports are migrated. ${state.data?.engine === "warehouse" ? "The source table below shows history actually present in this window; empty sources do not prove a completed import." : "Historical Mixpanel data has not been imported."}</p>${table(
+  return `${section("What is connected?")}<p class="hint">A catalog entry is not evidence of delivery. ${state.data?.engine === "warehouse" ? "This warehouse snapshot includes completed source synchronization batches and any imported history. Source synchronization runs separately from dashboard reads; the latest event date below is not proof that synchronization is current." : "Fuse Games is read directly from its existing first-party metrics collection; other apps appear here as their transports are migrated."} ${state.data?.engine === "warehouse" ? "The source table below shows history actually present in this window; empty sources do not prove a completed import." : "Historical Mixpanel data has not been imported."}</p>${table(
     ["Application", "Family", "Migration state", "Observed events in window"],
     state.catalog.map((app) => {
       const observed = state.data?.apps?.find((row) => row.appId === app.id);
@@ -545,7 +545,7 @@ async function openSession(appId, sessionId) {
     )
       return;
     $("#view").innerHTML =
-      `<button id="back-sessions">Back to sessions</button>${section(`${appName(appId)} · Session timeline`)}<p class="hint">${result.complete ? "All events for this session within the selected UTC window." : "Partial timeline from the newest scanned events. Shorten the date window."} Installation ${escape(result.events[0]?.userId?.slice(0, 12) ?? "unknown")}.</p><ol class="timeline">${result.events.map((event) => `<li><time datetime="${new Date(event.occurredAt).toISOString()}">${new Date(event.occurredAt).toISOString().slice(11, 19)}<br>${new Date(event.occurredAt).toISOString().slice(0, 10)}</time><div><strong>${escape(event.name)}</strong><pre class="properties">${escape(JSON.stringify(event.properties, null, 2))}</pre></div></li>`).join("")}</ol>`;
+      `<button id="back-sessions">Back to sessions</button>${section(`${appName(appId)} · Session timeline`)}<p class="hint">${result.complete ? "All events for this session within the selected UTC window." : "Partial timeline from the newest scanned events. Shorten the date window."} Identity ${escape(result.events[0]?.userId?.slice(0, 12) ?? "unknown")}.</p><ol class="timeline">${result.events.map((event) => `<li><time datetime="${new Date(event.occurredAt).toISOString()}">${new Date(event.occurredAt).toISOString().slice(11, 19)}<br>${new Date(event.occurredAt).toISOString().slice(0, 10)}</time><div><strong>${escape(event.name)}</strong><pre class="properties">${escape(JSON.stringify(event.properties, null, 2))}</pre></div></li>`).join("")}</ol>`;
     notify(
       result.complete
         ? ""
@@ -598,6 +598,8 @@ new ResizeObserver(() => {
   const current = $("#view .chart");
   if (current && state.tab === "overview" && state.data?.days)
     current.outerHTML = chart(state.data.days, state.chartMetric);
+  else if (current && state.tab === "atomify" && state.data?.atomify?.daily)
+    current.outerHTML = chart(state.data.atomify.daily, "starts");
 }).observe($("#view"));
 $("#filters").addEventListener("submit", (event) => {
   event.preventDefault();

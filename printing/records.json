@@ -111,7 +111,7 @@
     "layerHeightMm": 0.15,
     "layers": 173,
     "recordedAt": "2026-11-17T15:08:13.671873+00:00",
-    "updatedAt": "2026-11-17T15:08:13.671873+00:00",
+    "updatedAt": "2026-11-17T16:52:29.613299+00:00",
     "startedAt": null,
     "finishedAt": null,
     "status": "planned",
@@ -131,7 +131,7 @@
       "sourceCommit": "ba2179af257b090033b23a34c301942aa377aa74",
       "evidence": "Clean pushed current main, complete open-PR check, feedback/inventory check, normal online print gate and retained-mesh/profile/toolpath audit passed. Source geometry unchanged; no physical acceptance. Current printer FTPS rejected upload553 and the target was absent; these new files are staged on both Macs but not transferred or started."
     },
-    "notes": "Owner start 21:00–22:00 Oslo, 17 November;8h18m22s estimates finish 05:18–06:18 on 18 November, before 08:00. Adds both distinct rotor-shaft plugs and bracket to the earlier proposal. Black PLA Basic A3; right 0.4 mm; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm outer brims; supports off; cap bridge_angle90. Exact dates/inventory are selected in CURRENT_DESIGN.workshop_strategy. Estimates are not actual usage or guaranteed finish times. Both image fields intentionally use actual first-layer GCode; no native PNG was produced. Grey paths are removable brims; purple, where present, removable same-PLA support. Cleanup, fit, strength and function remain unverified. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest,397ca89,CC BY-NC-SA4.0.",
+    "notes": "Owner start 21:00–22:00 Oslo, 17 November;8h18m22s estimates finish 05:18–06:18 on 18 November, before 08:00. Adds both distinct rotor-shaft plugs and bracket to the earlier proposal. Black PLA Basic A3; right 0.4 mm; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm outer brims; supports off; cap bridge_angle90. Exact dates/inventory are selected in CURRENT_DESIGN.workshop_strategy. Estimates are not actual usage or guaranteed finish times. Both image fields intentionally use actual first-layer GCode; no native PNG was produced. Grey paths are removable brims; purple, where present, removable same-PLA support. Cleanup, fit, strength and function remain unverified. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest,397ca89,CC BY-NC-SA4.0. Owner authorized starting immediately after clearing the bed on 17 November. The upload was rejected (FTPS 553), and an exact-path lookup confirmed the intended file absent. Bambu Studio also reported external-storage read error 17. No start command was sent; this remains a planned, unstarted plate pending storage recovery and byte-identical upload readback.",
     "previewCaption": "Actual first-layer GCode for this exact slice; grey is removable brim, purple is removable same-PLA support. No native slicer bitmap was produced.",
     "layoutCaption": "The same exact first-layer GCode plot viewed from above; a separate native layout bitmap is unavailable.",
     "parts": [
@@ -388,10 +388,10 @@
     "layerHeightMm": 0.15,
     "layers": 696,
     "recordedAt": "2026-11-16T22:46:29.379503+00:00",
-    "updatedAt": "2026-11-17T13:43:45.668996+00:00",
+    "updatedAt": "2026-11-17T16:52:29.613299+00:00",
     "startedAt": "2026-11-16T22:33:46.704888+00:00",
     "finishedAt": null,
-    "status": "printing",
+    "status": "cancelled",
     "actualSeconds": null,
     "actualGrams": null,
     "estimatedSeconds": 32731,
@@ -419,6 +419,11 @@
         "src": "assets/rde01-structure-tools-right-pla-20261116-a1/resumed-camera.jpg",
         "capturedAt": "2026-11-17T13:41:59.806173+00:00",
         "caption": "After the authorized AMS resume; same job advanced beyond layer497. Parts remain on bed; no physical acceptance claimed."
+      },
+      {
+        "src": "assets/rde01-structure-tools-right-pla-20261116-a1/bed-cleared-20261117T163729Z.jpg",
+        "capturedAt": "2026-11-17T16:37:29.155334+00:00",
+        "caption": "After the owner removed the parts. The bed is empty; this does not show finished-part quality. The printer was still paused at the final layer with a filament-retraction fault."
       }
     ],
     "source": {
@@ -429,7 +434,7 @@
       "sourceCommit": "4f6201dc4e7381961f9daed91587af63a3322e4b",
       "evidence": "Current main online gate, local guide synchronization and exact retained-mesh slice audit passed. M4 upload and download were identical; printer acknowledged exact file, MD5, plate 1 and AMS A3. Start sent once; PREPARE, RUNNING and layer 1 observed."
     },
-    "notes": "First specimen of each selected part; no old-design stock credit. Slicer 02.08.02.61: 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm outer brims, 220 C nozzle / 55 C textured PEI. Both preview fields intentionally reference the actual first-layer GCode plot. Native 3MF PNG thumbnails are absent: headless rendering returned no bitmap. Cleanup, dimensions, strength and operation remain unverified. Actual time and filament are unmeasured. Start timestamp is observed acceptance, not first extrusion. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. On17November, observed PAUSE at81%, layer497/696 with AMS assist-motor overload (print_error117473296); actual pause onset is unknown. One owner-authorized AMS RESUME was sent at13:37:05UTC. Fresh telemetry at13:39:06UTC verified the same task6370 RUNNING, layer498,82%, print_error0; later layer502 observed. Same attempt continued, not a new print. Completion, actual duration/usage and physical quality remain unverified.",
+    "notes": "First specimen of each selected part; no old-design stock credit. Slicer 02.08.02.61: 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm outer brims, 220 C nozzle / 55 C textured PEI. Both preview fields intentionally reference the actual first-layer GCode plot. Native 3MF PNG thumbnails are absent: headless rendering returned no bitmap. Cleanup, dimensions, strength and operation remain unverified. Actual time and filament are unmeasured. Start timestamp is observed acceptance, not first extrusion. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. On17November, observed PAUSE at81%, layer497/696 with AMS assist-motor overload (print_error117473296); actual pause onset is unknown. One owner-authorized AMS RESUME was sent at13:37:05UTC. Fresh telemetry at13:39:06UTC verified the same task6370 RUNNING, layer498,82%, print_error0; later layer502 observed. Same attempt continued, not a new print. Completion, actual duration/usage and physical quality remain unverified. On 17 November at 16:37 UTC, fresh telemetry reported PAUSE at 99%, layer 696/696, zero estimated minutes remaining and a filament-retraction fault. The owner had already removed the parts and requested the next print. The controller sent one stop command; the printer then reported FAILED with task-cancelled error. This is recorded as cancelled, not a verified successful completion. Final-layer deposition, cleanup, strength and fit remain unverified. Exact terminal timestamp and active printing duration are not established.",
     "previewCaption": "Actual first-layer GCode toolpaths for this exact slice; grey shows removable outer brims. This archive contains no native slicer PNG thumbnail.",
     "layoutCaption": "The same exact first-layer toolpath plot, viewed from above; no separate native slicer bitmap was produced."
   },

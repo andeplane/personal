@@ -344,9 +344,14 @@ function coverage() {
 function render() {
   const data = state.data;
   if (!data) return;
-  const filters = [state.event ? `Event: ${state.event}` : '', state.property ? `${state.property} equals ${state.value}` : ''].filter(Boolean);
-  $('#active-filters').hidden = filters.length === 0;
-  $('#filter-description').textContent = filters.length ? `${filters.join(' · ')}. Applies to Overview, Raw events and the session list. Return cohorts and funnels use the app and dates independently.` : '';
+  const filters = [
+    state.event ? `Event: ${state.event}` : "",
+    state.property ? `${state.property} equals ${state.value}` : "",
+  ].filter(Boolean);
+  $("#active-filters").hidden = filters.length === 0;
+  $("#filter-description").textContent = filters.length
+    ? `${filters.join(" · ")}. Applies to Overview, Raw events and the session list. Return cohorts and funnels use the app and dates independently.`
+    : "";
   if (
     ![
       "overview",
@@ -397,7 +402,13 @@ async function openSession(appId, sessionId) {
       sessionId,
     });
     const result = await api("/v1/session", params);
-    if (generation !== state.generation || detail !== detailGeneration || state.tab !== 'sessions' || !authUser) return;
+    if (
+      generation !== state.generation ||
+      detail !== detailGeneration ||
+      state.tab !== "sessions" ||
+      !authUser
+    )
+      return;
     $("#view").innerHTML =
       `<button id="back-sessions">Back to sessions</button>${section(`${appName(appId)} · Session timeline`)}<p class="hint">${result.complete ? "All events for this session within the selected UTC window." : "Partial timeline from the newest scanned events. Shorten the date window."} Installation ${escape(result.events[0]?.userId.slice(0, 12) ?? "unknown")}.</p><ol class="timeline">${result.events.map((event) => `<li><time datetime="${new Date(event.occurredAt).toISOString()}">${new Date(event.occurredAt).toISOString().slice(11, 19)}<br>${new Date(event.occurredAt).toISOString().slice(0, 10)}</time><div><strong>${escape(event.name)}</strong><pre class="properties">${escape(JSON.stringify(event.properties, null, 2))}</pre></div></li>`).join("")}</ol>`;
     notify(
@@ -407,7 +418,12 @@ async function openSession(appId, sessionId) {
       !result.complete,
     );
   } catch (error) {
-    if (generation === state.generation && detail === detailGeneration && state.tab === 'sessions') notify(error.message, true);
+    if (
+      generation === state.generation &&
+      detail === detailGeneration &&
+      state.tab === "sessions"
+    )
+      notify(error.message, true);
   }
 }
 function chooseApp(id) {
@@ -425,21 +441,28 @@ $(".tabs").addEventListener("click", (event) => {
   if (button) {
     detailGeneration++;
     state.tab = button.dataset.tab;
-    if ($('#view').getAttribute('aria-busy') !== 'true') notify(state.data?.complete === false ? 'This window exceeds the raw query limit. Shorten the dates for complete results.' : '', state.data?.complete === false);
+    if ($("#view").getAttribute("aria-busy") !== "true")
+      notify(
+        state.data?.complete === false
+          ? "This window exceeds the raw query limit. Shorten the dates for complete results."
+          : "",
+        state.data?.complete === false,
+      );
     if (state.data) {
       render();
       updateUrl();
     }
   }
 });
-$('#clear-active-filters').addEventListener('click', () => {
-  state.event = state.property = state.value = '';
+$("#clear-active-filters").addEventListener("click", () => {
+  state.event = state.property = state.value = "";
   void load();
 });
 new ResizeObserver(() => {
-  const current = $('#view .chart');
-  if (current && state.tab === 'overview' && state.data?.days) current.outerHTML = chart(state.data.days, state.chartMetric);
-}).observe($('#view'));
+  const current = $("#view .chart");
+  if (current && state.tab === "overview" && state.data?.days)
+    current.outerHTML = chart(state.data.days, state.chartMetric);
+}).observe($("#view"));
 $("#filters").addEventListener("submit", (event) => {
   event.preventDefault();
   state.event = state.property = state.value = "";

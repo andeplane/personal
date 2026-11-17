@@ -65,7 +65,7 @@
   "layerHeightMm": 0.15,
   "layers": 173,
   "recordedAt": "2026-11-17T00:37:39.613694+00:00",
-  "updatedAt": "2026-11-17T00:37:39.613694+00:00",
+  "updatedAt": "2026-11-17T13:43:45.668996+00:00",
   "startedAt": null,
   "finishedAt": null,
   "status": "planned",
@@ -85,7 +85,7 @@
     "sourceCommit": "b652c92dcb88781ecc9ad8fe51edf18be0d52cd3",
     "evidence": "Current clean pushed main online print gate, exact retained-mesh/profile comparison and 74 finite toolpath sections reviewed. Not uploaded or started. Current task6370 must finish; fresh bed, runtime material/mapping and identical upload readback required."
   },
-  "notes": "Seven needed first-machine prototype pieces. 8h11m17s /136.05g are slicer estimates, not measured usage. Black PLA Basic, right0.4mm nozzle, 0.15mm layers (0.20 first), 3 walls,15% infill,5mm outer brims,220C nozzle/55C texturedPEI, supports off. Grinder cap bridge_angle90 is explicit and compared in editable/slice metadata. Exact jobName is a proposed unique name, not accepted printer identity. No native slicer bitmap; both preview fields show exact first-layer GCode plot. Cleanup, fit, strength and function are unverified. Upstream HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision397ca89, CC BY-NC-SA4.0.",
+  "notes": "Seven needed first-machine prototype pieces. 8h11m17s /136.05g are slicer estimates, not measured usage. Black PLA Basic, right0.4mm nozzle, 0.15mm layers (0.20 first), 3 walls,15% infill,5mm outer brims,220C nozzle/55C texturedPEI, supports off. Grinder cap bridge_angle90 is explicit and compared in editable/slice metadata. Exact jobName is a proposed unique name, not accepted printer identity. No native slicer bitmap; both preview fields show exact first-layer GCode plot. Cleanup, fit, strength and function are unverified. Upstream HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision397ca89, CC BY-NC-SA4.0. Revalidated from current main b652c92d on17November. Owner reserves manual start21:00\u201322:00Europe/Oslo on17November; slicer-estimated finish05:11\u201306:11 on18November, deadline07:00. File prepared on M4 and mini; attempted legacy FTPS upload rejected553. Target file confirmed absent, not retried; official-transfer probe could not connect. Not uploaded or started. Storage transfer/readback, current-job terminal, bed clearance and live black-PLA/material/nozzle mapping checks remain required.",
   "previewCaption": "Actual first-layer GCode toolpaths for this exact slice; grey shows removable outer brims. This archive contains no native slicer PNG thumbnail.",
   "layoutCaption": "The same exact first-layer toolpath plot, viewed from above; no separate native slicer bitmap was produced."
 }

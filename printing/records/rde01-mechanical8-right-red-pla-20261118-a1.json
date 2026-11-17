@@ -1,0 +1,98 @@
+{
+  "id": "rde01-mechanical8-right-red-pla-20261118-a1",
+  "title": "ENIGMA R.D.E.: eight mechanical and key-stem specimens for Joachim",
+  "project": "ENIGMA R.D.E.",
+  "printer": "Bambu Lab X2D",
+  "jobName": "RDE01_MECHANICAL8_ba2179af_bb1238558f13_20261118.gcode.3mf",
+  "releaseJobId": "rde01-rotor-stepping-pla",
+  "plate": 1,
+  "material": "PLA Basic \u00b7 right 0.4 mm \u00b7 same-PLA normal support cleanup trial",
+  "color": "#C12E1F",
+  "nozzleMm": 0.4,
+  "layerHeightMm": 0.15,
+  "layers": 1004,
+  "recordedAt": "2026-11-17T15:08:13.671873+00:00",
+  "updatedAt": "2026-11-17T15:08:13.671873+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "status": "planned",
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 25420.0,
+  "estimatedGrams": 92.85,
+  "estimatedMeters": 31.13,
+  "preview": "assets/rde01-mechanical8-right-red-pla-20261118-a1/actual-first-layer-toolpaths.png",
+  "layout": "assets/rde01-mechanical8-right-red-pla-20261118-a1/actual-first-layer-toolpaths.png",
+  "snapshots": [],
+  "source": {
+    "file": "RDE01_MECHANICAL8_ba2179af_bb1238558f13_20261118.gcode.3mf",
+    "sha256": "bb1238558f13ad261a1f67829d6d7ab4ee19273e82e73e657e3fb87f07230637",
+    "gcodeSha256": "7a32bf158cb2ff5edaace630df6c84f905405d7cd1decf84d9f464105c212b42",
+    "editableSha256": "8bd7b40ca963368863c51fcd6c62e88d9453edeef5035a839318b3d6c40aacf4",
+    "sourceCommit": "ba2179af257b090033b23a34c301942aa377aa74",
+    "evidence": "Clean pushed current main, complete open-PR check, feedback/inventory check, normal online print gate and retained-mesh/profile/toolpath audit passed. Source geometry unchanged; no physical acceptance. Current printer FTPS rejected upload553 and the target was absent; these new files are staged on both Macs but not transferred or started."
+  },
+  "notes": "Owner start 08:00\u201308:15 Oslo, 18 November;7h3m40s estimates finish 15:03\u201315:18, leaving cleanup time before Joachim at 17:00. Right and left-front compensator pieces, toothed wheel, both drivers and one of each key-stem length. Red PLA Basic A1; right 0.4 mm; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm brims. Declared same-PLA normal supports with 0.20 mm Z / 0.35 mm XY clearance; inspect physical removal and permanent teeth/webs/bores before repeats. No complete rotor/stepping function; source core/ring/clamp/trident holds and other missing parts remain. Exact dates/inventory are selected in CURRENT_DESIGN.workshop_strategy. Estimates are not actual usage or guaranteed finish times. Both image fields intentionally use actual first-layer GCode; no native PNG was produced. Grey paths are removable brims; purple, where present, removable same-PLA support. Cleanup, fit, strength and function remain unverified. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest,397ca89,CC BY-NC-SA4.0.",
+  "previewCaption": "Actual first-layer GCode for this exact slice; grey is removable brim, purple is removable same-PLA support. No native slicer bitmap was produced.",
+  "layoutCaption": "The same exact first-layer GCode plot viewed from above; a separate native layout bitmap is unavailable.",
+  "parts": [
+    "ZG100003 STL-b56400e3db9365f779c449e0b062493f40e0ff0bbd9ee9d0176d10d56da7300d \u00b7 ZG100003 Compensator HDM v19 - right.stl \u00b7 quantity 1",
+    "ZG100003 STL-8055b87ea5d4963e7d4fa175f039221d11aca91349d260c83715e5362db22766 \u00b7 ZG100003 Compensator HDM v19 - left front.stl \u00b7 quantity 1",
+    "ZG400014 STL-b2f0dd8e2210c9601d63db6f5eff3be5153af92449dd7b004b6e0b9e036bb864 \u00b7 ZG400014 Toothed Wheel HDM v2.stl \u00b7 quantity 1",
+    "ZG100035 STL-804f30660d28bfd2e2df5dd258d63ed49080693c85b0b0844472a9a44c8f7c4b \u00b7 ZG100035 Driver Thin HDM v8.stl \u00b7 quantity 1",
+    "ZG100036 STL-ebdda6d69ad3fde92d24af1245ea34f422a39e119dd775a208312ff8c7540650 \u00b7 ZG100036 Driver Thick HDM v8.stl \u00b7 quantity 1",
+    "ZG100025 STL-bee27cc49332d3cd261896302309e708c1ba5307f199703a93842da2906686bd \u00b7 ZG100025 Button Short HDM v5.stl \u00b7 quantity 1",
+    "ZG100030 STL-8cb45afd4bd37c518a213d05a7510c4142704cc16f78fc66a4cbe9bd64e90230 \u00b7 ZG100030 Button Medium HDM v18.stl \u00b7 quantity 1",
+    "ZG100031 STL-df02b85c71a1dab6f313e27fbb8c1521c760659eb1bd68adf1e270943fd26a5f \u00b7 ZG100031 Button Long HDM v6.stl \u00b7 quantity 1"
+  ],
+  "partRevisions": [
+    {
+      "partNumber": "ZG100003",
+      "revision": "STL-b56400e3db9365f779c449e0b062493f40e0ff0bbd9ee9d0176d10d56da7300d",
+      "sourceFilename": "ZG100003 Compensator HDM v19 - right.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG100003",
+      "revision": "STL-8055b87ea5d4963e7d4fa175f039221d11aca91349d260c83715e5362db22766",
+      "sourceFilename": "ZG100003 Compensator HDM v19 - left front.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG400014",
+      "revision": "STL-b2f0dd8e2210c9601d63db6f5eff3be5153af92449dd7b004b6e0b9e036bb864",
+      "sourceFilename": "ZG400014 Toothed Wheel HDM v2.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG100035",
+      "revision": "STL-804f30660d28bfd2e2df5dd258d63ed49080693c85b0b0844472a9a44c8f7c4b",
+      "sourceFilename": "ZG100035 Driver Thin HDM v8.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG100036",
+      "revision": "STL-ebdda6d69ad3fde92d24af1245ea34f422a39e119dd775a208312ff8c7540650",
+      "sourceFilename": "ZG100036 Driver Thick HDM v8.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG100025",
+      "revision": "STL-bee27cc49332d3cd261896302309e708c1ba5307f199703a93842da2906686bd",
+      "sourceFilename": "ZG100025 Button Short HDM v5.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG100030",
+      "revision": "STL-8cb45afd4bd37c518a213d05a7510c4142704cc16f78fc66a4cbe9bd64e90230",
+      "sourceFilename": "ZG100030 Button Medium HDM v18.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG100031",
+      "revision": "STL-df02b85c71a1dab6f313e27fbb8c1521c760659eb1bd68adf1e270943fd26a5f",
+      "sourceFilename": "ZG100031 Button Long HDM v6.stl",
+      "quantity": 1
+    }
+  ]
+}

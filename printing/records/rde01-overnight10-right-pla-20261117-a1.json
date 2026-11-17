@@ -1,0 +1,112 @@
+{
+  "id": "rde01-overnight10-right-pla-20261117-a1",
+  "title": "ENIGMA R.D.E.: ten-piece overnight plate before the workshop",
+  "project": "ENIGMA R.D.E.",
+  "printer": "Bambu Lab X2D",
+  "jobName": "RDE01_OVERNIGHT10_ba2179af_af7e66daa1c4_20261117.gcode.3mf",
+  "releaseJobId": "rde01-next-pla",
+  "plate": 1,
+  "material": "PLA Basic \u00b7 right 0.4 mm \u00b7 supports off",
+  "color": "#000000",
+  "nozzleMm": 0.4,
+  "layerHeightMm": 0.15,
+  "layers": 173,
+  "recordedAt": "2026-11-17T15:08:13.671873+00:00",
+  "updatedAt": "2026-11-17T15:08:13.671873+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "status": "planned",
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 29902.0,
+  "estimatedGrams": 136.83,
+  "estimatedMeters": 45.88,
+  "preview": "assets/rde01-overnight10-right-pla-20261117-a1/actual-first-layer-toolpaths.png",
+  "layout": "assets/rde01-overnight10-right-pla-20261117-a1/actual-first-layer-toolpaths.png",
+  "snapshots": [],
+  "source": {
+    "file": "RDE01_OVERNIGHT10_ba2179af_af7e66daa1c4_20261117.gcode.3mf",
+    "sha256": "af7e66daa1c46a9d25c0a082e5b3fe7cf4b3fd8b1619fa1f32ac54d9d022411a",
+    "gcodeSha256": "2f618fbe8e78b42925d4493d60fc628039da2bae762ef75ab3230db67cb15a7a",
+    "editableSha256": "bbe4527d1d267157963d4cd67f71360db23f0f9a693078d25a1555257e1fcb5e",
+    "sourceCommit": "ba2179af257b090033b23a34c301942aa377aa74",
+    "evidence": "Clean pushed current main, complete open-PR check, feedback/inventory check, normal online print gate and retained-mesh/profile/toolpath audit passed. Source geometry unchanged; no physical acceptance. Current printer FTPS rejected upload553 and the target was absent; these new files are staged on both Macs but not transferred or started."
+  },
+  "notes": "Owner start 21:00\u201322:00 Oslo, 17 November;8h18m22s estimates finish 05:18\u201306:18 on 18 November, before 08:00. Adds both distinct rotor-shaft plugs and bracket to the earlier proposal. Black PLA Basic A3; right 0.4 mm; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm outer brims; supports off; cap bridge_angle90. Exact dates/inventory are selected in CURRENT_DESIGN.workshop_strategy. Estimates are not actual usage or guaranteed finish times. Both image fields intentionally use actual first-layer GCode; no native PNG was produced. Grey paths are removable brims; purple, where present, removable same-PLA support. Cleanup, fit, strength and function remain unverified. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest,397ca89,CC BY-NC-SA4.0.",
+  "previewCaption": "Actual first-layer GCode for this exact slice; grey is removable brim, purple is removable same-PLA support. No native slicer bitmap was produced.",
+  "layoutCaption": "The same exact first-layer GCode plot viewed from above; a separate native layout bitmap is unavailable.",
+  "parts": [
+    "ZG100020 STL-bd416dc265f97272d1dde89d05530b027e34020a2b977077c3b93f97fd3bfc13 \u00b7 ZG100020 Contactor Plate HDM v6.stl \u00b7 quantity 1",
+    "ZG100022 STL-8e8a9e61192e84e2c3cd77e574a322ac36e2445ca631a5ff794a046773c0337a \u00b7 ZG100022 Segment Plate HDM v11.stl \u00b7 quantity 1",
+    "ZG500097 STL-2fbbd779c8468dc25c3331ec714d26de8bfb46888a3245f7648812bca93a881a \u00b7 ZG500097 Battery Box Cover HDM v9.stl \u00b7 quantity 1",
+    "ZG600001 STL-d69f261d655aa80dcab233dbf84c2934488714e0f96f3835f6726499dce6a469 \u00b7 ZG600001 Grinder HDM v10 - cap.stl \u00b7 quantity 1",
+    "ZG600001 STL-89196d2bb9b48994ee6d2ce6a33ccde6d33e5bc590b55c3d25e11ade009b3a35 \u00b7 ZG600001 Grinder HDM v10 - base.stl \u00b7 quantity 1",
+    "ZG100098 STL-c7ac76421c7fb4547ac3a914ce914907dcfb9c68d3e77b181a90031dd6afa8c5 \u00b7 ZG100098 Access Roll PCB HDM v8.stl \u00b7 quantity 1",
+    "ZG400931 STL-d5d8d812a50da7a99f3baf8b9be8e385016f2f7e2734dcc0d53f4965dc29b0e6 \u00b7 ZG400931 Bushing PCB HDM v3.stl \u00b7 quantity 1",
+    "ZG400004 STL-79b42f18921f83c0ac47446abea414c6a79ff8b8ccf098ee62309ac96f751837 \u00b7 ZG400004 Roll Shaft HDM v9 - plug right.stl \u00b7 quantity 1",
+    "ZG400004 STL-712f1d2d3b579513eefb246262b58eb5227173f9793f2ea6a807f9392e7ebb61 \u00b7 ZG400004 Roll Shaft HDM v9 - plug left.stl \u00b7 quantity 1",
+    "ZG400005 STL-f7c8dcf5adb8e07596d01fdf0a61b5b7525b2522b77e16a16e96c74b8befe041 \u00b7 ZG400005 Bracket HDM v9.stl \u00b7 quantity 1"
+  ],
+  "partRevisions": [
+    {
+      "partNumber": "ZG100020",
+      "revision": "STL-bd416dc265f97272d1dde89d05530b027e34020a2b977077c3b93f97fd3bfc13",
+      "sourceFilename": "ZG100020 Contactor Plate HDM v6.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG100022",
+      "revision": "STL-8e8a9e61192e84e2c3cd77e574a322ac36e2445ca631a5ff794a046773c0337a",
+      "sourceFilename": "ZG100022 Segment Plate HDM v11.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG500097",
+      "revision": "STL-2fbbd779c8468dc25c3331ec714d26de8bfb46888a3245f7648812bca93a881a",
+      "sourceFilename": "ZG500097 Battery Box Cover HDM v9.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG600001",
+      "revision": "STL-d69f261d655aa80dcab233dbf84c2934488714e0f96f3835f6726499dce6a469",
+      "sourceFilename": "ZG600001 Grinder HDM v10 - cap.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG600001",
+      "revision": "STL-89196d2bb9b48994ee6d2ce6a33ccde6d33e5bc590b55c3d25e11ade009b3a35",
+      "sourceFilename": "ZG600001 Grinder HDM v10 - base.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG100098",
+      "revision": "STL-c7ac76421c7fb4547ac3a914ce914907dcfb9c68d3e77b181a90031dd6afa8c5",
+      "sourceFilename": "ZG100098 Access Roll PCB HDM v8.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG400931",
+      "revision": "STL-d5d8d812a50da7a99f3baf8b9be8e385016f2f7e2734dcc0d53f4965dc29b0e6",
+      "sourceFilename": "ZG400931 Bushing PCB HDM v3.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG400004",
+      "revision": "STL-79b42f18921f83c0ac47446abea414c6a79ff8b8ccf098ee62309ac96f751837",
+      "sourceFilename": "ZG400004 Roll Shaft HDM v9 - plug right.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG400004",
+      "revision": "STL-712f1d2d3b579513eefb246262b58eb5227173f9793f2ea6a807f9392e7ebb61",
+      "sourceFilename": "ZG400004 Roll Shaft HDM v9 - plug left.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG400005",
+      "revision": "STL-f7c8dcf5adb8e07596d01fdf0a61b5b7525b2522b77e16a16e96c74b8befe041",
+      "sourceFilename": "ZG400005 Bracket HDM v9.stl",
+      "quantity": 1
+    }
+  ]
+}

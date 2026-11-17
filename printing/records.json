@@ -1,5 +1,215 @@
 [
   {
+    "id": "rde01-mechanical8-right-red-pla-20261118-a1",
+    "title": "ENIGMA R.D.E.: eight mechanical and key-stem specimens for Joachim",
+    "project": "ENIGMA R.D.E.",
+    "printer": "Bambu Lab X2D",
+    "jobName": "RDE01_MECHANICAL8_ba2179af_bb1238558f13_20261118.gcode.3mf",
+    "releaseJobId": "rde01-rotor-stepping-pla",
+    "plate": 1,
+    "material": "PLA Basic · right 0.4 mm · same-PLA normal support cleanup trial",
+    "color": "#C12E1F",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.15,
+    "layers": 1004,
+    "recordedAt": "2026-11-17T15:08:13.671873+00:00",
+    "updatedAt": "2026-11-17T15:08:13.671873+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "status": "planned",
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 25420.0,
+    "estimatedGrams": 92.85,
+    "estimatedMeters": 31.13,
+    "preview": "assets/rde01-mechanical8-right-red-pla-20261118-a1/actual-first-layer-toolpaths.png",
+    "layout": "assets/rde01-mechanical8-right-red-pla-20261118-a1/actual-first-layer-toolpaths.png",
+    "snapshots": [],
+    "source": {
+      "file": "RDE01_MECHANICAL8_ba2179af_bb1238558f13_20261118.gcode.3mf",
+      "sha256": "bb1238558f13ad261a1f67829d6d7ab4ee19273e82e73e657e3fb87f07230637",
+      "gcodeSha256": "7a32bf158cb2ff5edaace630df6c84f905405d7cd1decf84d9f464105c212b42",
+      "editableSha256": "8bd7b40ca963368863c51fcd6c62e88d9453edeef5035a839318b3d6c40aacf4",
+      "sourceCommit": "ba2179af257b090033b23a34c301942aa377aa74",
+      "evidence": "Clean pushed current main, complete open-PR check, feedback/inventory check, normal online print gate and retained-mesh/profile/toolpath audit passed. Source geometry unchanged; no physical acceptance. Current printer FTPS rejected upload553 and the target was absent; these new files are staged on both Macs but not transferred or started."
+    },
+    "notes": "Owner start 08:00–08:15 Oslo, 18 November;7h3m40s estimates finish 15:03–15:18, leaving cleanup time before Joachim at 17:00. Right and left-front compensator pieces, toothed wheel, both drivers and one of each key-stem length. Red PLA Basic A1; right 0.4 mm; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm brims. Declared same-PLA normal supports with 0.20 mm Z / 0.35 mm XY clearance; inspect physical removal and permanent teeth/webs/bores before repeats. No complete rotor/stepping function; source core/ring/clamp/trident holds and other missing parts remain. Exact dates/inventory are selected in CURRENT_DESIGN.workshop_strategy. Estimates are not actual usage or guaranteed finish times. Both image fields intentionally use actual first-layer GCode; no native PNG was produced. Grey paths are removable brims; purple, where present, removable same-PLA support. Cleanup, fit, strength and function remain unverified. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest,397ca89,CC BY-NC-SA4.0.",
+    "previewCaption": "Actual first-layer GCode for this exact slice; grey is removable brim, purple is removable same-PLA support. No native slicer bitmap was produced.",
+    "layoutCaption": "The same exact first-layer GCode plot viewed from above; a separate native layout bitmap is unavailable.",
+    "parts": [
+      "ZG100003 STL-b56400e3db9365f779c449e0b062493f40e0ff0bbd9ee9d0176d10d56da7300d · ZG100003 Compensator HDM v19 - right.stl · quantity 1",
+      "ZG100003 STL-8055b87ea5d4963e7d4fa175f039221d11aca91349d260c83715e5362db22766 · ZG100003 Compensator HDM v19 - left front.stl · quantity 1",
+      "ZG400014 STL-b2f0dd8e2210c9601d63db6f5eff3be5153af92449dd7b004b6e0b9e036bb864 · ZG400014 Toothed Wheel HDM v2.stl · quantity 1",
+      "ZG100035 STL-804f30660d28bfd2e2df5dd258d63ed49080693c85b0b0844472a9a44c8f7c4b · ZG100035 Driver Thin HDM v8.stl · quantity 1",
+      "ZG100036 STL-ebdda6d69ad3fde92d24af1245ea34f422a39e119dd775a208312ff8c7540650 · ZG100036 Driver Thick HDM v8.stl · quantity 1",
+      "ZG100025 STL-bee27cc49332d3cd261896302309e708c1ba5307f199703a93842da2906686bd · ZG100025 Button Short HDM v5.stl · quantity 1",
+      "ZG100030 STL-8cb45afd4bd37c518a213d05a7510c4142704cc16f78fc66a4cbe9bd64e90230 · ZG100030 Button Medium HDM v18.stl · quantity 1",
+      "ZG100031 STL-df02b85c71a1dab6f313e27fbb8c1521c760659eb1bd68adf1e270943fd26a5f · ZG100031 Button Long HDM v6.stl · quantity 1"
+    ],
+    "partRevisions": [
+      {
+        "partNumber": "ZG100003",
+        "revision": "STL-b56400e3db9365f779c449e0b062493f40e0ff0bbd9ee9d0176d10d56da7300d",
+        "sourceFilename": "ZG100003 Compensator HDM v19 - right.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100003",
+        "revision": "STL-8055b87ea5d4963e7d4fa175f039221d11aca91349d260c83715e5362db22766",
+        "sourceFilename": "ZG100003 Compensator HDM v19 - left front.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG400014",
+        "revision": "STL-b2f0dd8e2210c9601d63db6f5eff3be5153af92449dd7b004b6e0b9e036bb864",
+        "sourceFilename": "ZG400014 Toothed Wheel HDM v2.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100035",
+        "revision": "STL-804f30660d28bfd2e2df5dd258d63ed49080693c85b0b0844472a9a44c8f7c4b",
+        "sourceFilename": "ZG100035 Driver Thin HDM v8.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100036",
+        "revision": "STL-ebdda6d69ad3fde92d24af1245ea34f422a39e119dd775a208312ff8c7540650",
+        "sourceFilename": "ZG100036 Driver Thick HDM v8.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100025",
+        "revision": "STL-bee27cc49332d3cd261896302309e708c1ba5307f199703a93842da2906686bd",
+        "sourceFilename": "ZG100025 Button Short HDM v5.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100030",
+        "revision": "STL-8cb45afd4bd37c518a213d05a7510c4142704cc16f78fc66a4cbe9bd64e90230",
+        "sourceFilename": "ZG100030 Button Medium HDM v18.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100031",
+        "revision": "STL-df02b85c71a1dab6f313e27fbb8c1521c760659eb1bd68adf1e270943fd26a5f",
+        "sourceFilename": "ZG100031 Button Long HDM v6.stl",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "rde01-overnight10-right-pla-20261117-a1",
+    "title": "ENIGMA R.D.E.: ten-piece overnight plate before the workshop",
+    "project": "ENIGMA R.D.E.",
+    "printer": "Bambu Lab X2D",
+    "jobName": "RDE01_OVERNIGHT10_ba2179af_af7e66daa1c4_20261117.gcode.3mf",
+    "releaseJobId": "rde01-next-pla",
+    "plate": 1,
+    "material": "PLA Basic · right 0.4 mm · supports off",
+    "color": "#000000",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.15,
+    "layers": 173,
+    "recordedAt": "2026-11-17T15:08:13.671873+00:00",
+    "updatedAt": "2026-11-17T15:08:13.671873+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "status": "planned",
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 29902.0,
+    "estimatedGrams": 136.83,
+    "estimatedMeters": 45.88,
+    "preview": "assets/rde01-overnight10-right-pla-20261117-a1/actual-first-layer-toolpaths.png",
+    "layout": "assets/rde01-overnight10-right-pla-20261117-a1/actual-first-layer-toolpaths.png",
+    "snapshots": [],
+    "source": {
+      "file": "RDE01_OVERNIGHT10_ba2179af_af7e66daa1c4_20261117.gcode.3mf",
+      "sha256": "af7e66daa1c46a9d25c0a082e5b3fe7cf4b3fd8b1619fa1f32ac54d9d022411a",
+      "gcodeSha256": "2f618fbe8e78b42925d4493d60fc628039da2bae762ef75ab3230db67cb15a7a",
+      "editableSha256": "bbe4527d1d267157963d4cd67f71360db23f0f9a693078d25a1555257e1fcb5e",
+      "sourceCommit": "ba2179af257b090033b23a34c301942aa377aa74",
+      "evidence": "Clean pushed current main, complete open-PR check, feedback/inventory check, normal online print gate and retained-mesh/profile/toolpath audit passed. Source geometry unchanged; no physical acceptance. Current printer FTPS rejected upload553 and the target was absent; these new files are staged on both Macs but not transferred or started."
+    },
+    "notes": "Owner start 21:00–22:00 Oslo, 17 November;8h18m22s estimates finish 05:18–06:18 on 18 November, before 08:00. Adds both distinct rotor-shaft plugs and bracket to the earlier proposal. Black PLA Basic A3; right 0.4 mm; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm outer brims; supports off; cap bridge_angle90. Exact dates/inventory are selected in CURRENT_DESIGN.workshop_strategy. Estimates are not actual usage or guaranteed finish times. Both image fields intentionally use actual first-layer GCode; no native PNG was produced. Grey paths are removable brims; purple, where present, removable same-PLA support. Cleanup, fit, strength and function remain unverified. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest,397ca89,CC BY-NC-SA4.0.",
+    "previewCaption": "Actual first-layer GCode for this exact slice; grey is removable brim, purple is removable same-PLA support. No native slicer bitmap was produced.",
+    "layoutCaption": "The same exact first-layer GCode plot viewed from above; a separate native layout bitmap is unavailable.",
+    "parts": [
+      "ZG100020 STL-bd416dc265f97272d1dde89d05530b027e34020a2b977077c3b93f97fd3bfc13 · ZG100020 Contactor Plate HDM v6.stl · quantity 1",
+      "ZG100022 STL-8e8a9e61192e84e2c3cd77e574a322ac36e2445ca631a5ff794a046773c0337a · ZG100022 Segment Plate HDM v11.stl · quantity 1",
+      "ZG500097 STL-2fbbd779c8468dc25c3331ec714d26de8bfb46888a3245f7648812bca93a881a · ZG500097 Battery Box Cover HDM v9.stl · quantity 1",
+      "ZG600001 STL-d69f261d655aa80dcab233dbf84c2934488714e0f96f3835f6726499dce6a469 · ZG600001 Grinder HDM v10 - cap.stl · quantity 1",
+      "ZG600001 STL-89196d2bb9b48994ee6d2ce6a33ccde6d33e5bc590b55c3d25e11ade009b3a35 · ZG600001 Grinder HDM v10 - base.stl · quantity 1",
+      "ZG100098 STL-c7ac76421c7fb4547ac3a914ce914907dcfb9c68d3e77b181a90031dd6afa8c5 · ZG100098 Access Roll PCB HDM v8.stl · quantity 1",
+      "ZG400931 STL-d5d8d812a50da7a99f3baf8b9be8e385016f2f7e2734dcc0d53f4965dc29b0e6 · ZG400931 Bushing PCB HDM v3.stl · quantity 1",
+      "ZG400004 STL-79b42f18921f83c0ac47446abea414c6a79ff8b8ccf098ee62309ac96f751837 · ZG400004 Roll Shaft HDM v9 - plug right.stl · quantity 1",
+      "ZG400004 STL-712f1d2d3b579513eefb246262b58eb5227173f9793f2ea6a807f9392e7ebb61 · ZG400004 Roll Shaft HDM v9 - plug left.stl · quantity 1",
+      "ZG400005 STL-f7c8dcf5adb8e07596d01fdf0a61b5b7525b2522b77e16a16e96c74b8befe041 · ZG400005 Bracket HDM v9.stl · quantity 1"
+    ],
+    "partRevisions": [
+      {
+        "partNumber": "ZG100020",
+        "revision": "STL-bd416dc265f97272d1dde89d05530b027e34020a2b977077c3b93f97fd3bfc13",
+        "sourceFilename": "ZG100020 Contactor Plate HDM v6.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100022",
+        "revision": "STL-8e8a9e61192e84e2c3cd77e574a322ac36e2445ca631a5ff794a046773c0337a",
+        "sourceFilename": "ZG100022 Segment Plate HDM v11.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG500097",
+        "revision": "STL-2fbbd779c8468dc25c3331ec714d26de8bfb46888a3245f7648812bca93a881a",
+        "sourceFilename": "ZG500097 Battery Box Cover HDM v9.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG600001",
+        "revision": "STL-d69f261d655aa80dcab233dbf84c2934488714e0f96f3835f6726499dce6a469",
+        "sourceFilename": "ZG600001 Grinder HDM v10 - cap.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG600001",
+        "revision": "STL-89196d2bb9b48994ee6d2ce6a33ccde6d33e5bc590b55c3d25e11ade009b3a35",
+        "sourceFilename": "ZG600001 Grinder HDM v10 - base.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100098",
+        "revision": "STL-c7ac76421c7fb4547ac3a914ce914907dcfb9c68d3e77b181a90031dd6afa8c5",
+        "sourceFilename": "ZG100098 Access Roll PCB HDM v8.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG400931",
+        "revision": "STL-d5d8d812a50da7a99f3baf8b9be8e385016f2f7e2734dcc0d53f4965dc29b0e6",
+        "sourceFilename": "ZG400931 Bushing PCB HDM v3.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG400004",
+        "revision": "STL-79b42f18921f83c0ac47446abea414c6a79ff8b8ccf098ee62309ac96f751837",
+        "sourceFilename": "ZG400004 Roll Shaft HDM v9 - plug right.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG400004",
+        "revision": "STL-712f1d2d3b579513eefb246262b58eb5227173f9793f2ea6a807f9392e7ebb61",
+        "sourceFilename": "ZG400004 Roll Shaft HDM v9 - plug left.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG400005",
+        "revision": "STL-f7c8dcf5adb8e07596d01fdf0a61b5b7525b2522b77e16a16e96c74b8befe041",
+        "sourceFilename": "ZG400005 Bracket HDM v9.stl",
+        "quantity": 1
+      }
+    ]
+  },
+  {
     "id": "rde01-next-right-pla-20261117-a1",
     "title": "ENIGMA R.D.E. machine one: following seven-part prototype plate",
     "project": "ENIGMA R.D.E.",
@@ -66,10 +276,10 @@
     "layerHeightMm": 0.15,
     "layers": 173,
     "recordedAt": "2026-11-17T00:37:39.613694+00:00",
-    "updatedAt": "2026-11-17T13:43:45.668996+00:00",
+    "updatedAt": "2026-11-17T15:08:13.671873+00:00",
     "startedAt": null,
     "finishedAt": null,
-    "status": "planned",
+    "status": "cancelled",
     "actualSeconds": null,
     "actualGrams": null,
     "estimatedSeconds": 29477.0,
@@ -86,7 +296,7 @@
       "sourceCommit": "b652c92dcb88781ecc9ad8fe51edf18be0d52cd3",
       "evidence": "Current clean pushed main online print gate, exact retained-mesh/profile comparison and 74 finite toolpath sections reviewed. Not uploaded or started. Current task6370 must finish; fresh bed, runtime material/mapping and identical upload readback required."
     },
-    "notes": "Seven needed first-machine prototype pieces. 8h11m17s /136.05g are slicer estimates, not measured usage. Black PLA Basic, right0.4mm nozzle, 0.15mm layers (0.20 first), 3 walls,15% infill,5mm outer brims,220C nozzle/55C texturedPEI, supports off. Grinder cap bridge_angle90 is explicit and compared in editable/slice metadata. Exact jobName is a proposed unique name, not accepted printer identity. No native slicer bitmap; both preview fields show exact first-layer GCode plot. Cleanup, fit, strength and function are unverified. Upstream HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision397ca89, CC BY-NC-SA4.0. Revalidated from current main b652c92d on17November. Owner reserves manual start21:00–22:00Europe/Oslo on17November; slicer-estimated finish05:11–06:11 on18November, deadline07:00. File prepared on M4 and mini; attempted legacy FTPS upload rejected553. Target file confirmed absent, not retried; official-transfer probe could not connect. Not uploaded or started. Storage transfer/readback, current-job terminal, bed clearance and live black-PLA/material/nozzle mapping checks remain required.",
+    "notes": "Seven needed first-machine prototype pieces. 8h11m17s /136.05g are slicer estimates, not measured usage. Black PLA Basic, right 0.4 mm nozzle, 0.15mm layers (0.20 first), 3 walls,15% infill, 5 mm outer brims,220C nozzle/55C texturedPEI, supports off. Grinder cap bridge_angle90 is explicit and compared in editable/slice metadata. Exact jobName is a proposed unique name, not accepted printer identity. No native slicer bitmap; both preview fields show exact first-layer GCode plot. Cleanup, fit, strength and function are unverified. Upstream HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision397ca89, CC BY-NC-SA4.0. Revalidated from current main b652c92d on 17 November. Owner reserves manual start 21:00–22:00Europe/Oslo on 17 November; slicer-estimated finish05:11–06:11 on18November, deadline07:00. File prepared on M4 and mini; attempted legacy FTPS upload rejected553. Target file confirmed absent, not retried; official-transfer probe could not connect. Not uploaded or started. Storage transfer/readback, current-job terminal, bed clearance and live black-PLA/material/nozzle mapping checks remain required. Superseded while still planned by the ten-piece overnight selection on 17 November. This seven-piece proposal was never accepted or started by the printer; cancelled is a planning status here, not a physical failed/cancelled print. Retained for history.",
     "previewCaption": "Actual first-layer GCode toolpaths for this exact slice; grey shows removable outer brims. This archive contains no native slicer PNG thumbnail.",
     "layoutCaption": "The same exact first-layer toolpath plot, viewed from above; no separate native slicer bitmap was produced."
   },

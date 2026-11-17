@@ -162,7 +162,11 @@ export class FirestoreStore {
       Date.UTC(Number(to.slice(0, 4)), Number(to.slice(5, 7)), 1),
     ).getTime();
     const currentDay = new Date(now).toISOString().slice(0, 10);
-    const mayUseMonth = end === monthEnd || to === currentDay;
+    // A client may be five minutes ahead. Near UTC midnight, a current-month
+    // counter can already contain tomorrow's first activity. Use the bounded
+    // exact raw window until the date rolls over rather than overstate MAU.
+    const mayUseMonth =
+      end === monthEnd || (to === currentDay && end > now + 300_000);
     const refs = ids.flatMap((id) => [
       this.db.collection("summaries").doc(`${id}_day_${to}`),
       this.db.collection("summaries").doc(`${id}_month_${month}`),

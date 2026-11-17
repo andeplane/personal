@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-17T15:05:34.456398+00:00",
+  "title": "Design System: Anders Hafreager · Personal tools",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Accent",
+        "canonical": "#0e5f74",
+        "tonalRamp": [
+          "oklch(15% 0.0274 220.98)",
+          "oklch(26% 0.0509 220.98)",
+          "oklch(38% 0.0666 220.98)",
+          "oklch(49% 0.0783 220.98)",
+          "oklch(61% 0.0783 220.98)",
+          "oklch(72% 0.0666 220.98)",
+          "oklch(84% 0.0470 220.98)",
+          "oklch(95% 0.0196 220.98)"
+        ]
+      },
+      "accent-warm": {
+        "role": "primary",
+        "displayName": "Accent Warm",
+        "canonical": "#b4761b",
+        "tonalRamp": [
+          "oklch(15% 0.0436 70.24)",
+          "oklch(26% 0.0810 70.24)",
+          "oklch(38% 0.1060 70.24)",
+          "oklch(49% 0.1247 70.24)",
+          "oklch(61% 0.1247 70.24)",
+          "oklch(72% 0.1060 70.24)",
+          "oklch(84% 0.0748 70.24)",
+          "oklch(95% 0.0312 70.24)"
+        ]
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "Bg",
+        "canonical": "#f4f6f5",
+        "tonalRamp": [
+          "oklch(15% 0.0009 165.08)",
+          "oklch(26% 0.0016 165.08)",
+          "oklch(38% 0.0021 165.08)",
+          "oklch(49% 0.0025 165.08)",
+          "oklch(61% 0.0025 165.08)",
+          "oklch(72% 0.0021 165.08)",
+          "oklch(84% 0.0015 165.08)",
+          "oklch(95% 0.0006 165.08)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#16232a",
+        "tonalRamp": [
+          "oklch(15% 0.0078 232.37)",
+          "oklch(26% 0.0146 232.37)",
+          "oklch(38% 0.0190 232.37)",
+          "oklch(49% 0.0224 232.37)",
+          "oklch(61% 0.0224 232.37)",
+          "oklch(72% 0.0190 232.37)",
+          "oklch(84% 0.0134 232.37)",
+          "oklch(95% 0.0056 232.37)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "canonical": "#55696f",
+        "tonalRamp": [
+          "oklch(15% 0.0090 217.92)",
+          "oklch(26% 0.0168 217.92)",
+          "oklch(38% 0.0219 217.92)",
+          "oklch(49% 0.0258 217.92)",
+          "oklch(61% 0.0258 217.92)",
+          "oklch(72% 0.0219 217.92)",
+          "oklch(84% 0.0155 217.92)",
+          "oklch(95% 0.0064 217.92)"
+        ]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card",
+        "canonical": "#fff",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(26% 0.0000 89.88)",
+          "oklch(38% 0.0000 89.88)",
+          "oklch(49% 0.0000 89.88)",
+          "oklch(61% 0.0000 89.88)",
+          "oklch(72% 0.0000 89.88)",
+          "oklch(84% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "#d9e2df",
+        "tonalRamp": [
+          "oklch(15% 0.0037 174.25)",
+          "oklch(26% 0.0068 174.25)",
+          "oklch(38% 0.0089 174.25)",
+          "oklch(49% 0.0105 174.25)",
+          "oklch(61% 0.0105 174.25)",
+          "oklch(72% 0.0089 174.25)",
+          "oklch(84% 0.0063 174.25)",
+          "oklch(95% 0.0026 174.25)"
+        ]
+      },
+      "line-soft": {
+        "role": "neutral",
+        "displayName": "Line Soft",
+        "canonical": "#e8efec",
+        "tonalRamp": [
+          "oklch(15% 0.0030 168.75)",
+          "oklch(26% 0.0055 168.75)",
+          "oklch(38% 0.0072 168.75)",
+          "oklch(49% 0.0084 168.75)",
+          "oklch(61% 0.0084 168.75)",
+          "oklch(72% 0.0072 168.75)",
+          "oklch(84% 0.0051 168.75)",
+          "oklch(95% 0.0021 168.75)"
+        ]
+      },
+      "dark-accent": {
+        "role": "primary",
+        "displayName": "Dark Accent",
+        "canonical": "#5cadc5",
+        "tonalRamp": [
+          "oklch(15% 0.0303 219.46)",
+          "oklch(26% 0.0562 219.46)",
+          "oklch(38% 0.0735 219.46)",
+          "oklch(49% 0.0864 219.46)",
+          "oklch(61% 0.0864 219.46)",
+          "oklch(72% 0.0735 219.46)",
+          "oklch(84% 0.0519 219.46)",
+          "oklch(95% 0.0216 219.46)"
+        ]
+      },
+      "dark-accent-warm": {
+        "role": "primary",
+        "displayName": "Dark Accent Warm",
+        "canonical": "#e0aa4c",
+        "tonalRamp": [
+          "oklch(15% 0.0444 78.67)",
+          "oklch(26% 0.0825 78.67)",
+          "oklch(38% 0.1079 78.67)",
+          "oklch(49% 0.1269 78.67)",
+          "oklch(61% 0.1269 78.67)",
+          "oklch(72% 0.1079 78.67)",
+          "oklch(84% 0.0761 78.67)",
+          "oklch(95% 0.0317 78.67)"
+        ]
+      },
+      "dark-bg": {
+        "role": "neutral",
+        "displayName": "Dark Bg",
+        "canonical": "#0b161b",
+        "tonalRamp": [
+          "oklch(15% 0.0066 228.28)",
+          "oklch(26% 0.0123 228.28)",
+          "oklch(38% 0.0160 228.28)",
+          "oklch(49% 0.0189 228.28)",
+          "oklch(61% 0.0189 228.28)",
+          "oklch(72% 0.0160 228.28)",
+          "oklch(84% 0.0113 228.28)",
+          "oklch(95% 0.0047 228.28)"
+        ]
+      },
+      "dark-ink": {
+        "role": "neutral",
+        "displayName": "Dark Ink",
+        "canonical": "#e7efec",
+        "tonalRamp": [
+          "oklch(15% 0.0033 171.79)",
+          "oklch(26% 0.0061 171.79)",
+          "oklch(38% 0.0080 171.79)",
+          "oklch(49% 0.0094 171.79)",
+          "oklch(61% 0.0094 171.79)",
+          "oklch(72% 0.0080 171.79)",
+          "oklch(84% 0.0056 171.79)",
+          "oklch(95% 0.0023 171.79)"
+        ]
+      },
+      "dark-ink-soft": {
+        "role": "neutral",
+        "displayName": "Dark Ink Soft",
+        "canonical": "#9ab3b1",
+        "tonalRamp": [
+          "oklch(15% 0.0097 190.68)",
+          "oklch(26% 0.0180 190.68)",
+          "oklch(38% 0.0235 190.68)",
+          "oklch(49% 0.0276 190.68)",
+          "oklch(61% 0.0276 190.68)",
+          "oklch(72% 0.0235 190.68)",
+          "oklch(84% 0.0166 190.68)",
+          "oklch(95% 0.0069 190.68)"
+        ]
+      },
+      "dark-card": {
+        "role": "neutral",
+        "displayName": "Dark Card",
+        "canonical": "#101f26",
+        "tonalRamp": [
+          "oklch(15% 0.0086 229.23)",
+          "oklch(26% 0.0160 229.23)",
+          "oklch(38% 0.0209 229.23)",
+          "oklch(49% 0.0246 229.23)",
+          "oklch(61% 0.0246 229.23)",
+          "oklch(72% 0.0209 229.23)",
+          "oklch(84% 0.0148 229.23)",
+          "oklch(95% 0.0061 229.23)"
+        ]
+      },
+      "dark-line": {
+        "role": "neutral",
+        "displayName": "Dark Line",
+        "canonical": "#223b44",
+        "tonalRamp": [
+          "oklch(15% 0.0121 222.92)",
+          "oklch(26% 0.0225 222.92)",
+          "oklch(38% 0.0295 222.92)",
+          "oklch(49% 0.0347 222.92)",
+          "oklch(61% 0.0347 222.92)",
+          "oklch(72% 0.0295 222.92)",
+          "oklch(84% 0.0208 222.92)",
+          "oklch(95% 0.0087 222.92)"
+        ]
+      },
+      "dark-line-soft": {
+        "role": "neutral",
+        "displayName": "Dark Line Soft",
+        "canonical": "#18303a",
+        "tonalRamp": [
+          "oklch(15% 0.0123 226.90)",
+          "oklch(26% 0.0228 226.90)",
+          "oklch(38% 0.0298 226.90)",
+          "oklch(49% 0.0351 226.90)",
+          "oklch(61% 0.0351 226.90)",
+          "oklch(72% 0.0298 226.90)",
+          "oklch(84% 0.0210 226.90)",
+          "oklch(95% 0.0088 226.90)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Public site title."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project card heading."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Public reading prose."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Technical metadata."
+      },
+      "workspace-body": {
+        "displayName": "Workspace Body",
+        "purpose": "Compact analytical UI."
+      },
+      "workspace-title": {
+        "displayName": "Workspace Title",
+        "purpose": "Investigation title."
+      },
+      "workspace-section": {
+        "displayName": "Workspace Section",
+        "purpose": "Analytical section heading."
+      },
+      "workspace-count": {
+        "displayName": "Workspace Count",
+        "purpose": "Headline measurements with tabular numerals."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shared-card",
+        "value": "0 1px 2px rgba(22,35,42,.05), 0 8px 26px rgba(22,35,42,.07)",
+        "purpose": "Public project cards and site links."
+      },
+      {
+        "name": "shared-card-dark",
+        "value": "0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.4)",
+        "purpose": "Dark system-preference card depth."
+      },
+      {
+        "name": "current-tab",
+        "value": "inset 0 -2px var(--accent)",
+        "purpose": "Location underline, not surface elevation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "site-link",
+        "value": "border-color .15s, transform .15s",
+        "purpose": "Link hover feedback."
+      },
+      {
+        "name": "project-image",
+        "value": "transform .5s cubic-bezier(.2,.7,.3,1)",
+        "purpose": "Hover-capable image scale; disabled under reduced motion."
+      },
+      {
+        "name": "workspace-arrival",
+        "value": ".35s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Clip/blur arrival only when reduced motion is not requested."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "workspace-navigation",
+        "value": "900px"
+      },
+      {
+        "name": "distribution-stack",
+        "value": "650px"
+      },
+      {
+        "name": "mobile",
+        "value": "600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main workspace action.",
+      "html": "<button class=\"ds-primary\">Apply dates</button>",
+      "css": ".ds-primary{font-family:var(--f-display,'Avenir Next','Segoe UI',Futura,'Trebuchet MS',sans-serif);font-size:15px;line-height:1.5;min-height:44px;border:1px solid var(--line,#d9e2df);border-radius:7px;padding:8px 12px;background:var(--card,#fff);color:var(--ink,#16232a);background:var(--accent,#0e5f74);border-color:var(--accent,#0e5f74);color:var(--card,#fff);font-weight:600;cursor:pointer}.ds-primary:hover{filter:brightness(.9)}.ds-primary:focus-visible{outline:3px solid var(--accent-warm,#b4761b);outline-offset:3px;}.ds-primary:disabled{opacity:.6;cursor:wait}@media(prefers-color-scheme:dark){.ds-primary{color:#0b161b}}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Date presets and secondary actions.",
+      "html": "<button class=\"ds-secondary\">Last 7 days</button>",
+      "css": ".ds-secondary{font-family:var(--f-display,'Avenir Next','Segoe UI',Futura,'Trebuchet MS',sans-serif);font-size:15px;line-height:1.5;min-height:44px;border:1px solid var(--line,#d9e2df);border-radius:7px;padding:8px 12px;background:var(--card,#fff);color:var(--ink,#16232a);font-weight:600;cursor:pointer}.ds-secondary:hover{border-color:var(--accent,#0e5f74);background:var(--line-soft,#e8efec)}.ds-secondary:focus-visible{outline:3px solid var(--accent-warm,#b4761b);outline-offset:3px;}.ds-secondary:disabled{opacity:.6;cursor:wait}"
+    },
+    {
+      "name": "Labeled field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Native field with stacked label.",
+      "html": "<label class=\"ds-label\">From<input class=\"ds-field\" type=\"date\" value=\"2026-11-01\"></label>",
+      "css": ".ds-label{font-family:var(--f-display,'Avenir Next','Segoe UI',Futura,'Trebuchet MS',sans-serif);font-size:15px;line-height:1.5;display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:600;color:var(--ink-soft,#55696f)}.ds-field{font-family:var(--f-display,'Avenir Next','Segoe UI',Futura,'Trebuchet MS',sans-serif);font-size:15px;line-height:1.5;min-height:44px;border:1px solid var(--line,#d9e2df);border-radius:7px;padding:8px 12px;background:var(--card,#fff);color:var(--ink,#16232a);font-size:14px;font-weight:400;max-width:100%;font-variant-numeric:tabular-nums;caret-color:var(--accent,#0e5f74)}.ds-field:focus-visible{outline:3px solid var(--accent-warm,#b4761b);outline-offset:3px;}"
+    },
+    {
+      "name": "App navigation",
+      "kind": "nav",
+      "refersTo": "navigation-selected",
+      "description": "Selected and unselected application choices.",
+      "html": "<nav class=\"ds-apps\" aria-label=\"Applications\"><button class=\"ds-app ds-selected\" aria-current=\"page\">All applications</button><button class=\"ds-app\">Homepage</button></nav>",
+      "css": ".ds-apps{display:flex;gap:8px;flex-wrap:wrap}.ds-app{font-family:var(--f-display,'Avenir Next','Segoe UI',Futura,'Trebuchet MS',sans-serif);font-size:15px;line-height:1.5;min-height:44px;border:1px solid var(--line,#d9e2df);border-radius:7px;padding:8px 12px;background:var(--card,#fff);color:var(--ink,#16232a);border:0;background:transparent;padding:11px 12px;font-weight:600;cursor:pointer}.ds-app.ds-selected{background:var(--line-soft,#e8efec);color:var(--accent,#0e5f74)}.ds-app:hover{background:var(--line-soft,#e8efec)}.ds-app:focus-visible{outline:3px solid var(--accent-warm,#b4761b);outline-offset:3px;}"
+    },
+    {
+      "name": "Project tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Public index content metadata.",
+      "html": "<span class=\"ds-tag\">Web</span>",
+      "css": ".ds-tag{font-family:var(--f-mono,ui-monospace,'SF Mono',Menlo,Consolas,monospace);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft,#55696f);border:1px solid var(--line,#d9e2df);border-radius:999px;padding:3px 9px}"
+    },
+    {
+      "name": "Project card",
+      "kind": "card",
+      "refersTo": "post-card",
+      "description": "Reading surface for a personal project.",
+      "html": "<article class=\"ds-card\"><h3 class=\"ds-title\"><a class=\"ds-project-link\" href=\"#project\">A personal project</a></h3><p class=\"ds-copy\">Notes and tools from things I build.</p></article>",
+      "css": ".ds-card{background:var(--card,#fff);border:1px solid var(--line,#d9e2df);border-radius:10px;overflow:hidden;box-shadow:var(--shadow,0 1px 2px rgba(22,35,42,.05),0 8px 26px rgba(22,35,42,.07));padding:20px 22px 22px;color:var(--ink,#16232a)}.ds-title{font-family:var(--f-display,'Avenir Next','Segoe UI',Futura,'Trebuchet MS',sans-serif);font-size:clamp(21px,3.4vw,26px);font-weight:800;letter-spacing:-.01em;line-height:1.2;margin:0}.ds-project-link{color:inherit;text-decoration:none}.ds-project-link:hover{color:var(--accent,#0e5f74)}.ds-project-link:focus-visible{outline:2px solid var(--accent-warm,#b4761b);outline-offset:3px}.ds-copy{font:17px/1.6 var(--f-body,'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif);max-width:62ch;margin:12px 0 0}"
+    },
+    {
+      "name": "Filter scope notice",
+      "kind": "custom",
+      "refersTo": "notice",
+      "description": "Applied filter context and clear action.",
+      "html": "<div class=\"ds-notice\"><p class=\"ds-scope\">Event filters apply to the current investigation.</p><button class=\"ds-clear\">Clear event filters</button></div>",
+      "css": ".ds-notice{font-family:var(--f-display,'Avenir Next','Segoe UI',Futura,'Trebuchet MS',sans-serif);font-size:15px;line-height:1.5;display:flex;align-items:center;flex-wrap:wrap;gap:16px;padding:14px 16px;border:1px solid var(--line,#d9e2df);border-radius:7px;background:var(--line-soft,#e8efec)}.ds-scope{flex:1 1 260px;margin:0;color:var(--ink-soft,#55696f);font-size:13px;max-width:75ch}.ds-clear{font-family:var(--f-display,'Avenir Next','Segoe UI',Futura,'Trebuchet MS',sans-serif);font-size:15px;line-height:1.5;min-height:44px;border:1px solid var(--line,#d9e2df);border-radius:7px;padding:8px 12px;background:var(--card,#fff);color:var(--ink,#16232a);font-weight:600;cursor:pointer}.ds-clear:hover{border-color:var(--accent,#0e5f74);background:var(--line-soft,#e8efec)}.ds-clear:focus-visible{outline:3px solid var(--accent-warm,#b4761b);outline-offset:3px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Personal tools",
+    "overview": "An established personal site for finding Anders’s projects and tools. Its pale sage ground, deep ink, teal links and serif reading text create a restrained, readable setting for project work. The analytics workspace inherits that identity and uses the existing display stack for compact forms, tables and measurements.\n\nThis is a record of the implemented system, not a replacement identity. The source authority is assets/style.css; stats/stats.css supplies the denser workspace rules. Both follow the operating system’s light/dark preference. No raster assets were introduced by the statistics extension.",
+    "keyCharacteristics": [
+      "Sage-tinted ground, ink foregrounds and teal interaction.",
+      "Display sans for hierarchy, reading serif for prose, mono for technical metadata.",
+      "Fine borders, gently rounded surfaces and restrained depth.",
+      "Responsive navigation, readable measurements and visible investigation state."
+    ],
+    "rules": [
+      {
+        "name": "The Inherited Color Rule",
+        "body": "Use the shared semantic colors for backgrounds, text, controls and chart marks; dark mode changes their values together.",
+        "section": "colors"
+      },
+      {
+        "name": "The Role Continuity Rule",
+        "body": "Keep the existing display, reading and metadata stacks in their established roles; the statistics workspace uses the display stack for compact analytical content.",
+        "section": "typography"
+      },
+      {
+        "name": "The Surface Depth Rule",
+        "body": "Project cards and site links carry the shared shadow. Workspace controls, notices and charts use borders and tonal separation.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do inherit both light and dark semantic colors from the shared stylesheet.",
+      "Do use tabular numerals for analytical counts, tables, timestamps and numerical controls.",
+      "Do keep filter scope visible with a clear action when event filters are applied.",
+      "Do adapt chart geometry to available width, retain readable labels and provide exact values in a table.",
+      "Do retain visible focus, wrapping forms and horizontally accessible navigation on narrow screens."
+    ],
+    "donts": [
+      "Don't introduce a new palette or type family for another personal-tool route.",
+      "Don't turn a stale session response into the visible result after its investigation context changes.",
+      "Don't shrink a fixed desktop chart wholesale until its labels become unreadable.",
+      "Don't use elevation on every workspace section; ordinary sections are separated by spacing and fine rules."
+    ]
+  }
+}

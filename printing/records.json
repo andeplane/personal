@@ -1,5 +1,96 @@
 [
   {
+    "id": "rde01-next-right-pla-20261117-a1",
+    "title": "ENIGMA R.D.E. machine one: following seven-part prototype plate",
+    "project": "ENIGMA R.D.E.",
+    "printer": "Bambu Lab X2D",
+    "jobName": "RDE01_next_b652c92d_6a7896323919_20261117_a1.gcode.3mf",
+    "releaseJobId": "rde01-next-pla",
+    "plate": 1,
+    "parts": [
+      "ZG100020 STL-bd416dc265f97272d1dde89d05530b027e34020a2b977077c3b93f97fd3bfc13 · ZG100020 Contactor Plate HDM v6.stl · quantity 1",
+      "ZG100022 STL-8e8a9e61192e84e2c3cd77e574a322ac36e2445ca631a5ff794a046773c0337a · ZG100022 Segment Plate HDM v11.stl · quantity 1",
+      "ZG500097 STL-2fbbd779c8468dc25c3331ec714d26de8bfb46888a3245f7648812bca93a881a · ZG500097 Battery Box Cover HDM v9.stl · quantity 1",
+      "ZG600001 STL-d69f261d655aa80dcab233dbf84c2934488714e0f96f3835f6726499dce6a469 · ZG600001 Grinder HDM v10 - cap.stl · quantity 1",
+      "ZG600001 STL-89196d2bb9b48994ee6d2ce6a33ccde6d33e5bc590b55c3d25e11ade009b3a35 · ZG600001 Grinder HDM v10 - base.stl · quantity 1",
+      "ZG100098 STL-c7ac76421c7fb4547ac3a914ce914907dcfb9c68d3e77b181a90031dd6afa8c5 · ZG100098 Access Roll PCB HDM v8.stl · quantity 1",
+      "ZG400931 STL-d5d8d812a50da7a99f3baf8b9be8e385016f2f7e2734dcc0d53f4965dc29b0e6 · ZG400931 Bushing PCB HDM v3.stl · quantity 1"
+    ],
+    "partRevisions": [
+      {
+        "partNumber": "ZG100020",
+        "revision": "STL-bd416dc265f97272d1dde89d05530b027e34020a2b977077c3b93f97fd3bfc13",
+        "sourceFilename": "ZG100020 Contactor Plate HDM v6.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100022",
+        "revision": "STL-8e8a9e61192e84e2c3cd77e574a322ac36e2445ca631a5ff794a046773c0337a",
+        "sourceFilename": "ZG100022 Segment Plate HDM v11.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG500097",
+        "revision": "STL-2fbbd779c8468dc25c3331ec714d26de8bfb46888a3245f7648812bca93a881a",
+        "sourceFilename": "ZG500097 Battery Box Cover HDM v9.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG600001",
+        "revision": "STL-d69f261d655aa80dcab233dbf84c2934488714e0f96f3835f6726499dce6a469",
+        "sourceFilename": "ZG600001 Grinder HDM v10 - cap.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG600001",
+        "revision": "STL-89196d2bb9b48994ee6d2ce6a33ccde6d33e5bc590b55c3d25e11ade009b3a35",
+        "sourceFilename": "ZG600001 Grinder HDM v10 - base.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100098",
+        "revision": "STL-c7ac76421c7fb4547ac3a914ce914907dcfb9c68d3e77b181a90031dd6afa8c5",
+        "sourceFilename": "ZG100098 Access Roll PCB HDM v8.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG400931",
+        "revision": "STL-d5d8d812a50da7a99f3baf8b9be8e385016f2f7e2734dcc0d53f4965dc29b0e6",
+        "sourceFilename": "ZG400931 Bushing PCB HDM v3.stl",
+        "quantity": 1
+      }
+    ],
+    "material": "PLA Basic · right 0.4 mm nozzle · supports off",
+    "color": "#000000",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.15,
+    "layers": 173,
+    "recordedAt": "2026-11-17T00:37:39.613694+00:00",
+    "updatedAt": "2026-11-17T00:37:39.613694+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "status": "planned",
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 29477.0,
+    "estimatedGrams": 136.05,
+    "estimatedMeters": 45.61,
+    "preview": "assets/rde01-next-right-pla-20261117-a1/actual-first-layer-toolpaths.png",
+    "layout": "assets/rde01-next-right-pla-20261117-a1/actual-first-layer-toolpaths.png",
+    "snapshots": [],
+    "source": {
+      "file": "RDE01_BATTERY_TOOLS_SLICED.3mf",
+      "sha256": "6a7896323919818c7845df8ec28565473c2af188e50118575e2f0bd27da5e38c",
+      "gcodeSha256": "cf3a68e2bd18686c8b573cd267ab8bef33b3f1982c27cf125e4b9c54b3267968",
+      "editableSha256": "33a9b64850437eb5234f39e282a524093c2af9ea164de08e4f883d6f980401d6",
+      "sourceCommit": "b652c92dcb88781ecc9ad8fe51edf18be0d52cd3",
+      "evidence": "Current clean pushed main online print gate, exact retained-mesh/profile comparison and 74 finite toolpath sections reviewed. Not uploaded or started. Current task6370 must finish; fresh bed, runtime material/mapping and identical upload readback required."
+    },
+    "notes": "Seven needed first-machine prototype pieces. 8h11m17s /136.05g are slicer estimates, not measured usage. Black PLA Basic, right0.4mm nozzle, 0.15mm layers (0.20 first), 3 walls,15% infill,5mm outer brims,220C nozzle/55C texturedPEI, supports off. Grinder cap bridge_angle90 is explicit and compared in editable/slice metadata. Exact jobName is a proposed unique name, not accepted printer identity. No native slicer bitmap; both preview fields show exact first-layer GCode plot. Cleanup, fit, strength and function are unverified. Upstream HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision397ca89, CC BY-NC-SA4.0.",
+    "previewCaption": "Actual first-layer GCode toolpaths for this exact slice; grey shows removable outer brims. This archive contains no native slicer PNG thumbnail.",
+    "layoutCaption": "The same exact first-layer toolpath plot, viewed from above; no separate native slicer bitmap was produced."
+  },
+  {
     "id": "rde01-structure-tools-right-pla-20261116-a1",
     "title": "ENIGMA R.D.E. machine one: battery base, tools and structural prototypes",
     "project": "ENIGMA R.D.E.",
@@ -87,7 +178,7 @@
     "layerHeightMm": 0.15,
     "layers": 696,
     "recordedAt": "2026-11-16T22:46:29.379503+00:00",
-    "updatedAt": "2026-11-16T22:46:29.379503+00:00",
+    "updatedAt": "2026-11-17T00:36:48.160664+00:00",
     "startedAt": "2026-11-16T22:33:46.704888+00:00",
     "finishedAt": null,
     "status": "printing",
@@ -103,6 +194,11 @@
         "src": "assets/rde01-structure-tools-right-pla-20261116-a1/m4-camera-20261116T224324Z.jpg",
         "capturedAt": "2026-11-16T22:43:24+00:00",
         "caption": "During accepted RDE job, shortly after telemetry reached layer 1/696. Black filament on the textured plate is difficult to distinguish in this wide view; adhesion and finished quality are not certified."
+      },
+      {
+        "src": "assets/rde01-structure-tools-right-pla-20261116-a1/camera-20261117T003521Z.jpg",
+        "capturedAt": "2026-11-17T00:35:23.695320+00:00",
+        "caption": "During exact accepted job6370, around layer43/696. Visible deposited parts and toolhead; this frame does not establish cleanup, dimensions, strength or operation."
       }
     ],
     "source": {

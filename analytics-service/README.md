@@ -22,7 +22,7 @@ No private telemetry is embedded in the static site or source repository.
 - Privacy HMAC key: Secret Manager `personal-analytics-privacy`, pinned version 1;
   no value is committed. Changing it creates new pseudonymous identities and is a
   deliberate migration, not routine deployment.
-- Cloud Run scales to zero, caps at two instances, uses 256 MiB/one vCPU and a
+- Cloud Run scales to zero, caps at two instances across revisions, uses 512 MiB/one vCPU and a
   30-second request timeout. The dedicated named database is billed separately;
   this does not promise a free tier. Durable admission caps ingestion at 50,000
   attempted events/day, 2,000/minute globally and 200/minute per client address.

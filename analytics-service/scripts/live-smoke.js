@@ -51,7 +51,11 @@ const response = await fetch(
   `https://identitytoolkit.googleapis.com/v1/accounts:signInWithIdp?key=${encodeURIComponent(config.firebase.apiKey)}`,
   {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Origin: "https://andeplane.github.io",
+      Referer: "https://andeplane.github.io/personal/stats/",
+    },
     body: JSON.stringify({
       postBody: new URLSearchParams({
         providerId: "google.com",
@@ -72,7 +76,7 @@ if (
   identity.email !== "andershaf@gmail.com"
 )
   throw new Error(
-    "Google owner exchange did not succeed; no credential response was logged",
+    `Google owner exchange did not succeed (${identity.error?.message?.match(/^[A-Z_]+/)?.[0] ?? "NO_OWNER_TOKEN"}); no credential response was logged`,
   );
 const headers = { Authorization: `Bearer ${identity.idToken}` };
 const me = await request("/v1/me", { headers });

@@ -15,7 +15,7 @@ gcloud builds submit . --config=scripts/cloudbuild.yaml \
 gcloud run deploy personal-analytics --image="$image" \
   --project=andershaf-87 --region=europe-west1 --account=andershaf@gmail.com \
   --service-account=personal-analytics-runtime@andershaf-87.iam.gserviceaccount.com \
-  --min-instances=0 --max-instances=2 --concurrency=40 --cpu=1 --memory=256Mi \
+  --min=0 --max=2 --min-instances=0 --max-instances=2 --concurrency=40 --cpu=1 --memory=512Mi \
   --timeout=30 --allow-unauthenticated \
   --set-env-vars=GOOGLE_CLOUD_PROJECT=andershaf-87,FIRESTORE_DATABASE_ID=personal-analytics,ALLOWED_ORIGINS=https://andeplane.github.io,FUSE_SOURCE_ENABLED=1 \
   --set-secrets=ANALYTICS_PRIVACY_SECRET=personal-analytics-privacy:1 \

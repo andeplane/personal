@@ -60,10 +60,15 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Stage public site files
+        run: |
+          mkdir -p "$RUNNER_TEMP/personal-site"
+          rsync -a --exclude=.git --exclude=.github --exclude=.impeccable --exclude=analytics-service --exclude=PRODUCT.md --exclude=DESIGN.md --exclude=node_modules ./ "$RUNNER_TEMP/personal-site/"
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: ${{ runner.temp }}/personal-site
 
       - name: Deploy
         id: deployment

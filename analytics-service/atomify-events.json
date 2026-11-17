@@ -1,0 +1,314 @@
+{
+  "revision": "7a23b7b35530758656308560a63c0e2959c3184e",
+  "scope": [
+    "src"
+  ],
+  "method": "Literal track/trackEvent/time_event calls; excludes tests. Computed names require manual review.",
+  "eventNames": [
+    "About.Open",
+    "Example.UseAsProject",
+    "Examples.Fetch",
+    "File.Create",
+    "File.Delete",
+    "File.Rename",
+    "File.Upload",
+    "Help.Open",
+    "InputScript.Set",
+    "Modifier.Show",
+    "Notebook.Open",
+    "Page.Load",
+    "Project.Delete",
+    "Project.Duplicate",
+    "Project.Export",
+    "Project.Import",
+    "Project.New",
+    "Project.Open",
+    "Project.Rename",
+    "Project.SavedFromQuickRun",
+    "QuickRun.Start",
+    "Run.Finish",
+    "Run.Start",
+    "Settings.Render.BondRadius",
+    "Settings.Render.ColorBy",
+    "Settings.Render.Colormap",
+    "Settings.Render.ParticleRadius",
+    "Settings.Render.ShowSimulationBox",
+    "Settings.Storage.Persist",
+    "Simulation.New",
+    "Simulation.Start",
+    "Simulation.Stop",
+    "SimulationSpeed.Change",
+    "SimulationSummary.Collapse",
+    "SimulationSummary.Expand",
+    "SimulationSummary.ShowLess",
+    "SimulationSummary.ShowMore",
+    "Sweep.Create",
+    "Theme.Change",
+    "Tour.Replay",
+    "Tour.Start",
+    "UIUpdateFrequency.Change",
+    "WASM.Load"
+  ],
+  "callSites": [
+    {
+      "event": "WASM.Load",
+      "path": "src/components/Simulation.tsx",
+      "line": 173
+    },
+    {
+      "event": "WASM.Load",
+      "path": "src/components/Simulation.tsx",
+      "line": 204
+    },
+    {
+      "event": "SimulationSpeed.Change",
+      "path": "src/components/SimulationSummary.tsx",
+      "line": 41
+    },
+    {
+      "event": "SimulationSummary.ShowMore",
+      "path": "src/components/SimulationSummary.tsx",
+      "line": 48
+    },
+    {
+      "event": "SimulationSummary.Expand",
+      "path": "src/components/SimulationSummary.tsx",
+      "line": 55
+    },
+    {
+      "event": "SimulationSummary.Collapse",
+      "path": "src/components/SimulationSummary.tsx",
+      "line": 62
+    },
+    {
+      "event": "SimulationSummary.ShowLess",
+      "path": "src/components/SimulationSummaryContent.tsx",
+      "line": 33
+    },
+    {
+      "event": "SimulationSpeed.Change",
+      "path": "src/components/SimulationSummaryContent.tsx",
+      "line": 94
+    },
+    {
+      "event": "UIUpdateFrequency.Change",
+      "path": "src/components/SimulationSummaryContent.tsx",
+      "line": 101
+    },
+    {
+      "event": "Modifier.Show",
+      "path": "src/components/SimulationSummaryContent.tsx",
+      "line": 141
+    },
+    {
+      "event": "Modifier.Show",
+      "path": "src/components/SimulationSummaryContent.tsx",
+      "line": 181
+    },
+    {
+      "event": "Modifier.Show",
+      "path": "src/components/SimulationSummaryContent.tsx",
+      "line": 221
+    },
+    {
+      "event": "Settings.Render.ShowSimulationBox",
+      "path": "src/components/SimulationSummaryContent.tsx",
+      "line": 311
+    },
+    {
+      "event": "SimulationSummary.ShowMore",
+      "path": "src/containers/View.tsx",
+      "line": 464
+    },
+    {
+      "event": "SimulationSummary.ShowLess",
+      "path": "src/containers/View.tsx",
+      "line": 471
+    },
+    {
+      "event": "Simulation.New",
+      "path": "src/engine/RunController.ts",
+      "line": 477
+    },
+    {
+      "event": "Simulation.Start",
+      "path": "src/engine/RunController.ts",
+      "line": 494
+    },
+    {
+      "event": "Simulation.Stop",
+      "path": "src/engine/RunController.ts",
+      "line": 495
+    },
+    {
+      "event": "Simulation.Stop",
+      "path": "src/engine/RunController.ts",
+      "line": 552
+    },
+    {
+      "event": "Examples.Fetch",
+      "path": "src/hooks/useExamples.ts",
+      "line": 105
+    },
+    {
+      "event": "Page.Load",
+      "path": "src/index.tsx",
+      "line": 20
+    },
+    {
+      "event": "Settings.Render.ColorBy",
+      "path": "src/modifiers/ColorModifierSettings.tsx",
+      "line": 54
+    },
+    {
+      "event": "Settings.Render.ColorBy",
+      "path": "src/modifiers/ColorModifierSettings.tsx",
+      "line": 60
+    },
+    {
+      "event": "Settings.Render.Colormap",
+      "path": "src/modifiers/ColorModifierSettings.tsx",
+      "line": 130
+    },
+    {
+      "event": "File.Upload",
+      "path": "src/shell/FilesTab.tsx",
+      "line": 188
+    },
+    {
+      "event": "File.Create",
+      "path": "src/shell/FilesTab.tsx",
+      "line": 524
+    },
+    {
+      "event": "Notebook.Open",
+      "path": "src/shell/NotebookTab.tsx",
+      "line": 64
+    },
+    {
+      "event": "QuickRun.Start",
+      "path": "src/shell/Shell.tsx",
+      "line": 342
+    },
+    {
+      "event": "Example.UseAsProject",
+      "path": "src/shell/Shell.tsx",
+      "line": 371
+    },
+    {
+      "event": "Theme.Change",
+      "path": "src/shell/Sidebar.tsx",
+      "line": 135
+    },
+    {
+      "event": "Help.Open",
+      "path": "src/shell/Sidebar.tsx",
+      "line": 464
+    },
+    {
+      "event": "About.Open",
+      "path": "src/shell/Sidebar.tsx",
+      "line": 473
+    },
+    {
+      "event": "Tour.Replay",
+      "path": "src/shell/Sidebar.tsx",
+      "line": 484
+    },
+    {
+      "event": "Theme.Change",
+      "path": "src/shell/modals/SettingsModal.tsx",
+      "line": 35
+    },
+    {
+      "event": "Settings.Storage.Persist",
+      "path": "src/shell/modals/SettingsModal.tsx",
+      "line": 99
+    },
+    {
+      "event": "Tour.Start",
+      "path": "src/shell/tour/TourController.tsx",
+      "line": 187
+    },
+    {
+      "event": "Project.Export",
+      "path": "src/store/projects/archive.ts",
+      "line": 51
+    },
+    {
+      "event": "Project.Import",
+      "path": "src/store/projects/archive.ts",
+      "line": 167
+    },
+    {
+      "event": "File.Delete",
+      "path": "src/store/projects/files.ts",
+      "line": 153
+    },
+    {
+      "event": "File.Rename",
+      "path": "src/store/projects/files.ts",
+      "line": 171
+    },
+    {
+      "event": "InputScript.Set",
+      "path": "src/store/projects/files.ts",
+      "line": 191
+    },
+    {
+      "event": "Project.Open",
+      "path": "src/store/projects/library.ts",
+      "line": 79
+    },
+    {
+      "event": "Project.New",
+      "path": "src/store/projects/library.ts",
+      "line": 150
+    },
+    {
+      "event": "Project.Rename",
+      "path": "src/store/projects/library.ts",
+      "line": 175
+    },
+    {
+      "event": "Project.Duplicate",
+      "path": "src/store/projects/library.ts",
+      "line": 231
+    },
+    {
+      "event": "Project.Delete",
+      "path": "src/store/projects/library.ts",
+      "line": 242
+    },
+    {
+      "event": "Project.SavedFromQuickRun",
+      "path": "src/store/projects/library.ts",
+      "line": 288
+    },
+    {
+      "event": "Sweep.Create",
+      "path": "src/store/projects/runs.ts",
+      "line": 51
+    },
+    {
+      "event": "Run.Start",
+      "path": "src/store/projects/runs.ts",
+      "line": 234
+    },
+    {
+      "event": "Run.Finish",
+      "path": "src/store/projects/runs.ts",
+      "line": 270
+    },
+    {
+      "event": "Settings.Render.BondRadius",
+      "path": "src/store/render.ts",
+      "line": 46
+    },
+    {
+      "event": "Settings.Render.ParticleRadius",
+      "path": "src/store/render.ts",
+      "line": 50
+    }
+  ]
+}

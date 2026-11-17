@@ -1,0 +1,65 @@
+{
+  "revision": "0f78660abfef362b1e9008547139147410e10785",
+  "scope": [
+    "src"
+  ],
+  "method": "Literal track/trackEvent/time_event calls; excludes tests. Computed names require manual review.",
+  "eventNames": [
+    "chat_message",
+    "example_click",
+    "file_upload",
+    "llm_call",
+    "llm_error",
+    "new_conversation",
+    "remove_dataframe",
+    "tool_call",
+    "tool_error"
+  ],
+  "callSites": [
+    {
+      "event": "llm_call",
+      "path": "src/lib/analytics.ts",
+      "line": 145
+    },
+    {
+      "event": "tool_call",
+      "path": "src/lib/analytics.ts",
+      "line": 156
+    },
+    {
+      "event": "tool_error",
+      "path": "src/lib/analytics.ts",
+      "line": 167
+    },
+    {
+      "event": "llm_error",
+      "path": "src/lib/analytics.ts",
+      "line": 176
+    },
+    {
+      "event": "chat_message",
+      "path": "src/lib/analytics.ts",
+      "line": 184
+    },
+    {
+      "event": "file_upload",
+      "path": "src/lib/analytics.ts",
+      "line": 192
+    },
+    {
+      "event": "example_click",
+      "path": "src/lib/analytics.ts",
+      "line": 202
+    },
+    {
+      "event": "new_conversation",
+      "path": "src/lib/analytics.ts",
+      "line": 209
+    },
+    {
+      "event": "remove_dataframe",
+      "path": "src/lib/analytics.ts",
+      "line": 213
+    }
+  ]
+}

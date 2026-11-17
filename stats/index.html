@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#f4f6f5" />
+    <title>App statistics · Anders Hafreager</title>
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="stylesheet" href="stats.css" />
+    <script type="module" src="stats.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#content">Skip to analytics</a>
+    <header class="app-header">
+      <a class="home" href="../"
+        >Anders Hafreager <span>/ App statistics</span></a
+      >
+      <div class="account">
+        <span id="account-label">Private workspace</span
+        ><button id="sign-out" hidden>Sign out</button>
+      </div>
+    </header>
+    <main id="content">
+      <section id="sign-in-panel" class="entry">
+        <div class="entry-copy">
+          <h1>A closer look at<br />the things I build.</h1>
+          <p>
+            One workspace for app usage, the journeys through each product, and
+            the details behind the numbers.
+          </p>
+        </div>
+        <div class="entry-access">
+          <h2>Your apps. Your data.</h2>
+          <p>
+            Sign in with <strong>andershaf@gmail.com</strong> to explore the
+            fleet.
+          </p>
+          <button id="sign-in" class="primary">Continue with Google</button>
+          <p id="auth-status" role="status">
+            Access is checked by the analytics service on every request.
+          </p>
+        </div>
+      </section>
+      <div id="workspace" hidden>
+        <aside class="fleet">
+          <h2>App fleet</h2>
+          <button class="app-choice selected" data-app="">
+            All applications
+          </button>
+          <div id="apps"></div>
+          <p class="fleet-note">
+            Each app has its own anonymous identities. A browser is not a
+            verified person.
+          </p>
+        </aside>
+        <div class="investigation">
+          <div class="page-title">
+            <h1 id="page-title">All applications</h1>
+            <p id="freshness">Choose a date window to begin.</p>
+          </div>
+          <form id="filters" class="filters">
+            <label
+              >From <input id="from" name="from" type="date" required /></label
+            ><label>To <input id="to" name="to" type="date" required /></label>
+            <button type="button" id="last-week">Last 7 days</button
+            ><button type="button" id="last-month">Last 28 days</button
+            ><button type="submit" class="primary">Apply dates</button>
+          </form>
+          <div id="query-status" class="notice" role="status" hidden></div>
+          <nav class="tabs" aria-label="Investigations">
+            <button data-tab="overview" aria-current="page">Overview</button
+            ><button data-tab="retention">Return cohorts</button
+            ><button data-tab="funnels">Funnels</button
+            ><button data-tab="sessions">Sessions</button
+            ><button data-tab="events">Raw events</button
+            ><button data-tab="coverage">Coverage</button>
+          </nav>
+          <section id="view" aria-live="polite" aria-busy="false"></section>
+        </div>
+      </div>
+    </main>
+    <footer class="stats-footer">
+      First-party product analytics · Dates in UTC · Anonymous installations,
+      not people
+    </footer>
+  </body>
+</html>

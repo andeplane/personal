@@ -1,0 +1,26 @@
+name: Validate fleet analytics
+on:
+  pull_request:
+    paths: ['stats/**', 'analytics-service/**', '.github/workflows/analytics.yml']
+  push:
+    branches: [main]
+    paths: ['stats/**', 'analytics-service/**', '.github/workflows/analytics.yml']
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: analytics-service/package-lock.json
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+        working-directory: analytics-service
+      - run: npm test
+        working-directory: analytics-service
+      - run: npm run lint
+        working-directory: analytics-service
+      - run: node --check stats/stats.js && node --check stats/sdk/analytics.js

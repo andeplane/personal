@@ -1,0 +1,88 @@
+// Public product metadata. No credentials or private event data belong here.
+export const apps = [
+  {
+    id: "atomify",
+    label: "Atomify Web",
+    family: "Science",
+    status: "migration-pending",
+    prefix: "",
+    start: "Simulation.Start",
+    finish: "Simulation.Stop",
+  },
+  {
+    id: "atomify-metal",
+    label: "Atomify Metal",
+    family: "Science",
+    status: "instrumentation-pending",
+  },
+  {
+    id: "atomify-vision",
+    label: "Atomify Vision Pro",
+    family: "Science",
+    status: "instrumentation-pending",
+  },
+  {
+    id: "broadside",
+    label: "Broadside",
+    family: "Games",
+    status: "no-analytics-promise",
+  },
+  {
+    id: "captain-calculus",
+    label: "Captain Calculus",
+    family: "Games",
+    status: "no-analytics-promise",
+  },
+  {
+    id: "captain-reader",
+    label: "Captain Reader",
+    family: "Games",
+    status: "instrumentation-pending",
+  },
+  {
+    id: "fuse-games",
+    label: "Fuse Games",
+    family: "Games",
+    status: "existing-first-party",
+    prefix: "fuse.",
+    start: "fuse.Round Started",
+    finish: "fuse.Round Ended",
+  },
+  {
+    id: "workalong",
+    label: "Workalong",
+    family: "Tools",
+    status: "instrumentation-pending",
+  },
+  {
+    id: "homepage",
+    label: "Homepage",
+    family: "Web",
+    status: "migration-pending",
+    prefix: "Homepage.",
+    start: "Homepage.Page Viewed",
+    finish: "Homepage.Demo Opened",
+  },
+  {
+    id: "ai-data-analytics",
+    label: "AI Data Analytics",
+    family: "Tools",
+    status: "migration-pending",
+  },
+  {
+    id: "particle-defence",
+    label: "Particle Defence",
+    family: "Games",
+    status: "migration-pending",
+    prefix: "ParticleDefence.",
+    start: "ParticleDefence.Game.Started",
+    finish: "ParticleDefence.Game.Ended",
+  },
+  {
+    id: "swarmbell",
+    label: "Swarmbell",
+    family: "Tools",
+    status: "instrumentation-pending",
+  },
+];
+export const appIds = new Set(apps.map((app) => app.id));

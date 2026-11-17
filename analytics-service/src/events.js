@@ -113,7 +113,7 @@ export function requireOwner(claims) {
   return { email: claims.email, uid: claims.uid };
 }
 
-export function dateRange(params, now) {
+export function dateRange(params, now, maxDays = 90) {
   const from =
     params.get("from") ?? new Date(now - 27 * DAY).toISOString().slice(0, 10);
   const to = params.get("to") ?? new Date(now).toISOString().slice(0, 10);
@@ -125,7 +125,10 @@ export function dateRange(params, now) {
     throw new HttpError(400, "Use valid YYYY-MM-DD dates");
   const start = Date.parse(from),
     end = Date.parse(to) + DAY;
-  if (start >= end || end - start > 90 * DAY || end > now + DAY)
-    throw new HttpError(400, "Choose a past date range of at most 90 days");
+  if (start >= end || end - start > maxDays * DAY || end > now + DAY)
+    throw new HttpError(
+      400,
+      `Choose a past date range of at most ${maxDays} days`,
+    );
   return { from, to, start, end };
 }

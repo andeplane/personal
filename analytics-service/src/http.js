@@ -34,6 +34,7 @@ export function createAnalyticsServer({
   secret,
   origins,
   firebaseConfig,
+  warehouse,
   clock = Date.now,
 }) {
   if (!secret || secret.length < 32)
@@ -153,7 +154,7 @@ export function createAnalyticsServer({
           (key !== "step" && url.searchParams.getAll(key).length > 1)
         )
           throw new HttpError(400, "Invalid query parameters");
-      const range = dateRange(url.searchParams, now),
+      const range = dateRange(url.searchParams, now, warehouse ? 3660 : 90),
         appId = url.searchParams.get("appId") ?? "";
       if (appId && !appIds.has(appId)) throw new HttpError(400, "Unknown app");
       const text = (key) => {
@@ -166,12 +167,26 @@ export function createAnalyticsServer({
         const sessionId = text("sessionId");
         if (!appId || !/^[a-f0-9]{32}$/.test(sessionId))
           throw new HttpError(400, "Choose an app and session");
-        send(200, await store.session(appId, sessionId, range));
+        send(200, await (warehouse ?? store).session(appId, sessionId, range));
         return;
       }
       const funnel = url.searchParams.getAll("step");
       if (funnel.length > 5 || funnel.some((step) => step.length > 96))
         throw new HttpError(400, "Use up to five bounded funnel steps");
+      if (warehouse) {
+        send(
+          200,
+          await warehouse.analyze(range, {
+            appId,
+            eventName: text("event"),
+            property: text("property"),
+            value: text("value"),
+            breakdown: text("breakdown") || "name",
+            funnel,
+          }),
+        );
+        return;
+      }
       const result = await store.query(range, appId);
       const monthStart = Date.parse(range.to.slice(0, 7) + "-01");
       const unfiltered = !text("event") && !text("property");

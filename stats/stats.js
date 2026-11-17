@@ -161,7 +161,7 @@ function chart(days, metric) {
   ]
     .map(
       (i) =>
-        `<text x="${x(i)}" y="${height - 12}" text-anchor="${i === 0 ? "start" : i === days.length - 1 ? "end" : "middle"}">${escape(days[i].day.slice(5))}</text>`,
+        `<text x="${x(i)}" y="${height - 12}" text-anchor="${i === 0 ? "start" : i === days.length - 1 ? "end" : "middle"}">${escape(days.length > 365 ? days[i].day : days[i].day.slice(5))}</text>`,
     )
     .join("");
   return `<div class="chart"><svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Daily ${escape(metric)} counts. Exact values are available in the daily data table below.">${ticks}<polygon class="area" points="${left},${y(0)} ${points} ${x(days.length - 1)},${y(0)}"/><polyline class="line" points="${points}"/>${labels}</svg></div>`;
@@ -179,7 +179,7 @@ function overview(data) {
     )
     .join(
       "",
-    )}</dl><p class="hint">MAU: ${data.active.mauFrom} through ${data.active.mauTo}. Counts represent anonymous installations, scoped to each app.${data.active.mau === null ? " The monthly read exceeded the query limit; shorten the date scope before interpreting MAU." : ""}</p>`;
+    )}</dl><p class="hint">MAU: ${data.active.mauFrom} through ${data.active.mauTo}. Counts represent app-scoped identities.${data.engine === "warehouse" ? ` ${number(data.summary?.eventsWithoutIdentity)} events lack identity and are excluded from user and inferred-session counts. ${number(data.inferredSessions)} sessions use a 30-minute inactivity rule.` : ""}${data.active.mau === null ? " The monthly read exceeded the query limit; shorten the date scope before interpreting MAU." : ""}</p>`;
   if (!data.complete)
     return (
       summary +
@@ -245,6 +245,123 @@ function overview(data) {
     ),
   )}`;
 }
+function atomify(data) {
+  const report = data.atomify;
+  if (!report)
+    return empty(
+      "Atomify history is being connected.",
+      "The detailed report becomes available when the historical warehouse is enabled. Overview continues to show connected sources.",
+    );
+  const stats = report.performance,
+    usage = report.usage;
+  const measured = (value) =>
+    value === null
+      ? "Not recorded"
+      : Number(value).toLocaleString("en-GB", { maximumFractionDigits: 1 });
+  const histogram = (title, bins) => {
+    const total = bins.reduce((sum, bin) => sum + bin.count, 0);
+    return `<div>${section(title)}${table(
+      ["Range", "Stops", "Share"],
+      bins.map(
+        (bin) =>
+          `<tr><td>${escape(bin.label)}</td><td class="bar-cell">${number(bin.count)}<div class="bar"><span style="width:${total ? (bin.count / total) * 100 : 0}%"></span></div></td><td>${total ? ((bin.count / total) * 100).toFixed(1) : "0.0"}%</td></tr>`,
+      ),
+    )}</div>`;
+  };
+  const usageRows = [
+    ["Simulation starts", usage.simulationStarts],
+    ["Simulation stops", usage.simulationStops],
+    ["Project runs started", usage.runStarts],
+    ["Project runs finished", usage.runFinishes],
+    ["Projects created", usage.projectsCreated],
+    ["Examples adopted as projects", usage.examplesAdopted],
+    ["Quick runs", usage.quickRuns],
+    ["Sweeps created", usage.sweeps],
+  ];
+  return `${section("Inside Atomify")}<p class="hint">Uses Atomify and the selected UTC dates, independently of event/property filters. Starts and stops are separate observed event counts; a stop/start ratio is not a completion rate. Older versions may not have recorded performance or outcome fields.</p>${table(
+    ["Activity", "Events"],
+    usageRows.map(
+      ([label, count]) =>
+        `<tr><td>${escape(label)}</td><td>${number(count)}</td></tr>`,
+    ),
+  )}
+    ${report.daily.length ? section("Simulation starts over time") + chart(report.daily, "starts") : ""}
+    ${section("Simulation outcomes")}${
+      report.outcomes.length
+        ? table(
+            ["Reported stop reason", "Stops"],
+            report.outcomes.map(
+              (row) =>
+                `<tr><td>${escape(row.label)}</td><td>${number(row.events)}</td></tr>`,
+            ),
+          )
+        : empty(
+            "No simulation stops in this window.",
+            "Try a wider date range.",
+          )
+    }
+    ${section("Simulation performance")}<p class="hint">Measured on Simulation.Stop events only. Percentiles are approximate; missing measurements stay missing. Timesteps and particle counts describe the reported simulation, not unique scientific work.</p>
+    ${table(
+      ["Measurement", "Value", "Stops with measurement"],
+      [
+        [
+          "Duration · mean",
+          `${measured(stats.averageDuration)} s`,
+          stats.durationSamples,
+        ],
+        [
+          "Duration · median",
+          `${measured(stats.medianDuration)} s`,
+          stats.durationSamples,
+        ],
+        [
+          "Duration · 95th percentile",
+          `${measured(stats.p95Duration)} s`,
+          stats.durationSamples,
+        ],
+        [
+          "Speed · median",
+          `${measured(stats.medianSpeed)} steps/s`,
+          stats.speedSamples,
+        ],
+        [
+          "Speed · 95th percentile",
+          `${measured(stats.p95Speed)} steps/s`,
+          stats.speedSamples,
+        ],
+        [
+          "Largest simulation",
+          `${measured(stats.maxAtoms)} particles`,
+          stats.atomSamples,
+        ],
+      ].map(
+        ([label, value, samples]) =>
+          `<tr><td>${escape(label)}</td><td>${samples ? escape(value) : "Not recorded"}</td><td>${number(samples)} / ${number(stats.stops)}</td></tr>`,
+      ),
+    )}
+    <div class="distributions">${histogram("How long simulations run", report.durations)}${histogram("Simulation size", report.sizes)}</div>
+    ${section("Examples people try")}<p class="hint">Quick runs, adopting an example and project-run starts. One journey can emit several of these events; counts describe interactions.</p>${table(
+      ["Example ID", "Interactions", "Identities"],
+      report.examples.map(
+        (row) =>
+          `<tr><td>${escape(row.label)}</td><td>${number(row.events)}</td><td>${number(row.users)}</td></tr>`,
+      ),
+    )}
+    ${section("Feature families")}${table(
+      ["Feature", "Events", "Identities"],
+      report.features.map(
+        (row) =>
+          `<tr><td>${escape(row.label)}</td><td>${number(row.events)}</td><td>${number(row.users)}</td></tr>`,
+      ),
+    )}
+    <details><summary>Exact daily simulation activity</summary>${table(
+      ["UTC day", "Starts", "Stops", "Reported failures"],
+      report.daily.map(
+        (row) =>
+          `<tr><td>${escape(row.day)}</td><td>${number(row.starts)}</td><td>${number(row.stops)}</td><td>${number(row.failures)}</td></tr>`,
+      ),
+    )}</details>`;
+}
 function retention(data) {
   return `${section("Do installations come back?")}<p class="hint">${escape(data.retentionScope)} Event and property filters do not scope these cohorts; the application and dates do.</p>${
     data.retention
@@ -284,7 +401,7 @@ function funnels(data) {
   }`;
 }
 function sessionList(data) {
-  return `${section("Sessions worth a closer look")}<p class="hint">Newest 100 sessions containing events that match this selection. The span is time between observed events, not measured attention or total app runtime.</p>${
+  return `<p class="hint">${escape(data.sessionScope ?? "Sessions use the identifiers reported by each app.")}</p>${section("Sessions worth a closer look")}<p class="hint">Newest 100 sessions containing events that match this selection. The span is time between observed events, not measured attention or total app runtime.</p>${
     data.sessions.length
       ? table(
           [
@@ -297,7 +414,7 @@ function sessionList(data) {
           ],
           data.sessions.map(
             (row) =>
-              `<tr><td>${escape(appName(row.appId))}<br><code>${escape(row.userId.slice(0, 12))}</code></td><td>${date(row.first)}</td><td>${date(row.last)}</td><td>${Math.round((row.last - row.first) / 60_000)} min</td><td>${number(row.events)}</td><td><button class="row-action" data-session="${escape(row.sessionId)}" data-session-app="${escape(row.appId)}">Open timeline</button></td></tr>`,
+              `<tr><td>${escape(appName(row.appId))}<br><code>${escape((row.userId ?? "unknown").slice(0, 12))}</code></td><td>${date(row.first)}</td><td>${date(row.last)}</td><td>${Math.round((row.last - row.first) / 60_000)} min</td><td>${number(row.events)}${row.inferred ? " · inferred" : ""}</td><td><button class="row-action" data-session="${escape(row.sessionId)}" data-session-app="${escape(row.appId)}">Open timeline</button></td></tr>`,
           ),
         )
       : empty(
@@ -316,7 +433,7 @@ function rawEvents(data) {
           ["UTC time", "Application", "Event", "Installation", "Properties"],
           data.events.map(
             (row) =>
-              `<tr><td>${date(row.occurredAt)}</td><td>${escape(appName(row.appId))}</td><td>${escape(row.name)}</td><td><code>${escape(row.userId.slice(0, 12))}</code></td><td><details><summary>${Object.keys(row.properties).length} properties</summary><pre class="properties">${escape(JSON.stringify(row.properties, null, 2))}</pre></details></td></tr>`,
+              `<tr><td>${date(row.occurredAt)}</td><td>${escape(appName(row.appId))}</td><td>${escape(row.name)}</td><td><code>${escape((row.userId ?? "unknown").slice(0, 12))}</code></td><td><details><summary>${Object.keys(row.properties).length} properties</summary><pre class="properties">${escape(JSON.stringify(row.properties, null, 2))}</pre></details></td></tr>`,
           ),
         )
       : empty(
@@ -332,14 +449,26 @@ function coverage() {
     "existing-first-party": "Existing first-party service",
     "no-analytics-promise": "Published no-analytics promise",
     "inventory-pending": "Inventory pending",
+    "historical-source": "Historical source",
   };
-  return `${section("What is connected?")}<p class="hint">A catalog entry is not evidence of delivery. Fuse Games is read directly from its existing first-party metrics collection; other apps appear here as their transports are migrated. Historical Mixpanel data has not been imported.</p>${table(
+  return `${section("What is connected?")}<p class="hint">A catalog entry is not evidence of delivery. Fuse Games is read directly from its existing first-party metrics collection; other apps appear here as their transports are migrated. ${state.data?.engine === "warehouse" ? "The source table below shows history actually present in this window; empty sources do not prove a completed import." : "Historical Mixpanel data has not been imported."}</p>${table(
     ["Application", "Family", "Migration state", "Observed events in window"],
     state.catalog.map((app) => {
       const observed = state.data?.apps?.find((row) => row.appId === app.id);
       return `<tr><td><button class="row-link" data-open-app="${escape(app.id)}">${escape(app.label)}</button></td><td>${escape(app.family)}</td><td><span class="status-label">${escape(labels[app.status] ?? app.status)}</span></td><td>${observed ? number(observed.events) : "Not observed in window"}</td></tr>`;
     }),
-  )}<p class="hint">The pirate games currently publish a no-analytics privacy promise. Adding telemetry requires updating that product behavior and its disclosure together. Workalong is the rebranded TeslaCode product; legacy Mixpanel instrumentation is not treated as current coverage.</p>`;
+  )}${
+    state.data?.sources?.length
+      ? section("Sources in this window") +
+        table(
+          ["Source", "Project", "Events", "First day", "Last day"],
+          state.data.sources.map(
+            (row) =>
+              `<tr><td>${escape(row.source)}</td><td>${escape(row.projectId)}</td><td>${number(row.events)}</td><td>${escape(row.firstDay)}</td><td>${escape(row.lastDay)}</td></tr>`,
+          ),
+        )
+      : ""
+  }<p class="hint">The pirate games currently publish a no-analytics privacy promise. Adding telemetry requires updating that product behavior and its disclosure together. Workalong is the rebranded TeslaCode product; legacy Mixpanel instrumentation is not treated as current coverage.</p>`;
 }
 function render() {
   const data = state.data;
@@ -355,6 +484,7 @@ function render() {
   if (
     ![
       "overview",
+      "atomify",
       "retention",
       "funnels",
       "sessions",
@@ -380,8 +510,13 @@ function render() {
       button.setAttribute("aria-current", "page");
     else button.removeAttribute("aria-current");
   });
+  $("[data-tab=atomify]").hidden = state.appId !== "atomify";
+  $("#last-years").hidden = data.engine !== "warehouse";
+  if (state.tab === "atomify" && state.appId !== "atomify")
+    state.tab = "overview";
   const views = {
     overview,
+    atomify,
     retention,
     funnels,
     sessions: sessionList,
@@ -410,7 +545,7 @@ async function openSession(appId, sessionId) {
     )
       return;
     $("#view").innerHTML =
-      `<button id="back-sessions">Back to sessions</button>${section(`${appName(appId)} · Session timeline`)}<p class="hint">${result.complete ? "All events for this session within the selected UTC window." : "Partial timeline from the newest scanned events. Shorten the date window."} Installation ${escape(result.events[0]?.userId.slice(0, 12) ?? "unknown")}.</p><ol class="timeline">${result.events.map((event) => `<li><time datetime="${new Date(event.occurredAt).toISOString()}">${new Date(event.occurredAt).toISOString().slice(11, 19)}<br>${new Date(event.occurredAt).toISOString().slice(0, 10)}</time><div><strong>${escape(event.name)}</strong><pre class="properties">${escape(JSON.stringify(event.properties, null, 2))}</pre></div></li>`).join("")}</ol>`;
+      `<button id="back-sessions">Back to sessions</button>${section(`${appName(appId)} · Session timeline`)}<p class="hint">${result.complete ? "All events for this session within the selected UTC window." : "Partial timeline from the newest scanned events. Shorten the date window."} Installation ${escape(result.events[0]?.userId?.slice(0, 12) ?? "unknown")}.</p><ol class="timeline">${result.events.map((event) => `<li><time datetime="${new Date(event.occurredAt).toISOString()}">${new Date(event.occurredAt).toISOString().slice(11, 19)}<br>${new Date(event.occurredAt).toISOString().slice(0, 10)}</time><div><strong>${escape(event.name)}</strong><pre class="properties">${escape(JSON.stringify(event.properties, null, 2))}</pre></div></li>`).join("")}</ol>`;
     notify(
       result.complete
         ? ""
@@ -428,6 +563,7 @@ async function openSession(appId, sessionId) {
 }
 function chooseApp(id) {
   state.appId = id;
+  if (state.tab === "atomify" && id !== "atomify") state.tab = "overview";
   state.event = state.property = state.value = "";
   state.funnel = [];
   void load();
@@ -470,6 +606,10 @@ $("#filters").addEventListener("submit", (event) => {
 });
 $("#last-week").addEventListener("click", () => {
   setWindow(7);
+  void load();
+});
+$("#last-years").addEventListener("click", () => {
+  setWindow(1827);
   void load();
 });
 $("#last-month").addEventListener("click", () => {

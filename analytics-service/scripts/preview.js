@@ -5,6 +5,7 @@ import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { createAnalyticsServer } from "../src/http.js";
 import { DAY } from "../src/events.js";
+import { analyze, activeSummary } from "../src/analysis.js";
 
 const root = fileURLToPath(new URL("../../", import.meta.url));
 const today = Date.parse(new Date().toISOString().slice(0, 10));
@@ -39,6 +40,14 @@ for (let day = 0; day < 28; day++) {
           feature: ["editor", "examples", "library"][user % 3],
           platform: user % 4 === 0 ? "mobile" : "desktop",
           durationSeconds: step === names.length - 1 ? 40 + user * 12 : null,
+          ...(appId === "atomify"
+            ? {
+                numAtoms: 1024 * (user + 1),
+                timestepsPerSecond: 100 + user * 12,
+                stopReason: user % 5 === 0 ? "failed" : "completed",
+                exampleId: ["lj-liquid", "water", "crystal"][user % 3],
+              }
+            : {}),
           ...(appId === "fuse-games"
             ? { gameId: ["fusemania", "fuse-riders"][user % 2], played: true }
             : {}),
@@ -72,6 +81,132 @@ const store = {
 };
 const api = createAnalyticsServer({
   store,
+  warehouse: {
+    async analyze(range, filters) {
+      const selected = await store.query(range),
+        month = await store.query({
+          ...range,
+          start: Date.parse(range.to.slice(0, 7) + "-01"),
+        });
+      const data = analyze(selected.events, {
+        range,
+        complete: true,
+        ...filters,
+      });
+      const rows = selected.events.filter((row) => row.appId === "atomify"),
+        stops = rows.filter((row) => row.name === "Simulation.Stop");
+      const count = (name) => rows.filter((row) => row.name === name).length;
+      const groups = (values, key) =>
+        [...new Set(values.map(key))].map((label) => ({
+          label,
+          events: values.filter((row) => key(row) === label).length,
+          users: new Set(
+            values.filter((row) => key(row) === label).map((row) => row.userId),
+          ).size,
+        }));
+      return {
+        ...data,
+        engine: "warehouse",
+        active: activeSummary({ selected, month, range, ...filters }),
+        inferredSessions: 0,
+        sources: [
+          {
+            source: "synthetic",
+            projectId: "preview-only",
+            events: selected.events.length,
+            firstDay: range.from,
+            lastDay: range.to,
+          },
+        ],
+        atomify:
+          filters.appId === "atomify"
+            ? {
+                usage: {
+                  simulationStarts: count("Simulation.Start"),
+                  simulationStops: stops.length,
+                  runStarts: 0,
+                  runFinishes: 0,
+                  projectsCreated: 0,
+                  examplesAdopted: 0,
+                  quickRuns: 0,
+                  sweeps: 0,
+                },
+                outcomes: groups(stops, (row) => row.properties.stopReason),
+                performance: {
+                  stops: stops.length,
+                  durationSamples: stops.length,
+                  averageDuration: stops.length
+                    ? stops.reduce(
+                        (sum, row) => sum + row.properties.durationSeconds,
+                        0,
+                      ) / stops.length
+                    : null,
+                  medianDuration: 148,
+                  p95Duration: 280,
+                  atomSamples: stops.length,
+                  maxAtoms: 22528,
+                  speedSamples: stops.length,
+                  medianSpeed: 244,
+                  p95Speed: 352,
+                },
+                daily: data.days.map((day) => ({
+                  ...day,
+                  starts: rows.filter(
+                    (row) =>
+                      row.name === "Simulation.Start" &&
+                      new Date(row.occurredAt)
+                        .toISOString()
+                        .startsWith(day.day),
+                  ).length,
+                  stops: stops.filter((row) =>
+                    new Date(row.occurredAt).toISOString().startsWith(day.day),
+                  ).length,
+                  failures: 0,
+                })),
+                examples: groups(rows, (row) => row.properties.exampleId),
+                features: groups(rows, (row) => row.name.split(".")[0]),
+                durations: [
+                  {
+                    label: "Under 1m",
+                    count: stops.filter(
+                      (row) => row.properties.durationSeconds < 60,
+                    ).length,
+                  },
+                  {
+                    label: "1–4m",
+                    count: stops.filter(
+                      (row) =>
+                        row.properties.durationSeconds >= 60 &&
+                        row.properties.durationSeconds < 300,
+                    ).length,
+                  },
+                  {
+                    label: "5m+",
+                    count: stops.filter(
+                      (row) => row.properties.durationSeconds >= 300,
+                    ).length,
+                  },
+                ],
+                sizes: [
+                  {
+                    label: "Under 10k",
+                    count: stops.filter(
+                      (row) => row.properties.numAtoms < 10000,
+                    ).length,
+                  },
+                  {
+                    label: "10k+",
+                    count: stops.filter(
+                      (row) => row.properties.numAtoms >= 10000,
+                    ).length,
+                  },
+                ],
+              }
+            : null,
+      };
+    },
+    session: (...args) => store.session(...args),
+  },
   verifyToken: async (token) => {
     if (token !== "synthetic-owner-token-for-local-preview")
       throw new Error("Invalid preview token");

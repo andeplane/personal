@@ -1,7 +1,7 @@
 [
   {
     "id": "rde01-mechanical8-right-red-pla-20261118-a1",
-    "title": "ENIGMA R.D.E.: eight mechanical and key-stem specimens for Joachim",
+    "title": "ENIGMA R.D.E. machine one: overnight mechanical and key-stem trials",
     "project": "ENIGMA R.D.E.",
     "printer": "Bambu Lab X2D",
     "jobName": "RDE01_MECHANICAL8_ba2179af_bb1238558f13_20261118.gcode.3mf",
@@ -13,10 +13,10 @@
     "layerHeightMm": 0.15,
     "layers": 1004,
     "recordedAt": "2026-11-17T15:08:13.671873+00:00",
-    "updatedAt": "2026-11-17T15:08:13.671873+00:00",
-    "startedAt": null,
+    "updatedAt": "2026-11-18T00:00:36.292153+00:00",
+    "startedAt": "2026-11-17T23:44:20.671797+00:00",
     "finishedAt": null,
-    "status": "planned",
+    "status": "printing",
     "actualSeconds": null,
     "actualGrams": null,
     "estimatedSeconds": 25420.0,
@@ -24,16 +24,22 @@
     "estimatedMeters": 31.13,
     "preview": "assets/rde01-mechanical8-right-red-pla-20261118-a1/actual-first-layer-toolpaths.png",
     "layout": "assets/rde01-mechanical8-right-red-pla-20261118-a1/actual-first-layer-toolpaths.png",
-    "snapshots": [],
+    "snapshots": [
+      {
+        "src": "assets/rde01-mechanical8-right-red-pla-20261118-a1/first-layer-20261117T235818Z.jpg",
+        "capturedAt": "2026-11-17T23:58:20.240747+00:00",
+        "caption": "During accepted mechanical trial, while telemetry reported layer1/993. Red first-layer toolpaths are visible on the bed. This wide view does not prove fine-feature quality, support cleanup, fit or strength."
+      }
+    ],
     "source": {
       "file": "RDE01_MECHANICAL8_ba2179af_bb1238558f13_20261118.gcode.3mf",
       "sha256": "bb1238558f13ad261a1f67829d6d7ab4ee19273e82e73e657e3fb87f07230637",
       "gcodeSha256": "7a32bf158cb2ff5edaace630df6c84f905405d7cd1decf84d9f464105c212b42",
       "editableSha256": "8bd7b40ca963368863c51fcd6c62e88d9453edeef5035a839318b3d6c40aacf4",
       "sourceCommit": "ba2179af257b090033b23a34c301942aa377aa74",
-      "evidence": "Clean pushed current main, complete open-PR check, feedback/inventory check, normal online print gate and retained-mesh/profile/toolpath audit passed. Source geometry unchanged; no physical acceptance. Current printer FTPS rejected upload553 and the target was absent; these new files are staged on both Macs but not transferred or started."
+      "evidence": "Clean pushed current main, complete open-PR check, feedback/inventory check, normal online print gate and retained-mesh/profile/toolpath audit passed. Source geometry unchanged; no physical acceptance. Current printer FTPS rejected upload553 and the target was absent; these new files are staged on both Macs but not transferred or started. After storage recovery, the exact file was uploaded and downloaded to a new path. SHA-256 readback matched bb1238558f13ad261a1f67829d6d7ab4ee19273e82e73e657e3fb87f07230637. The printer acknowledged SUCCESS for this file and plate1 with AMS mapping[0], then the same job reached layer1/993 with print_error0. The MCP project metadata parser returned no project info, so the explicit mapping came from the audited 3MF filament1 plus live red PLA A1 on the right nozzle. The acceptance reply did not echo a file MD5; identity is bound by exact readback bytes and accepted file/plate, not by a title alone."
     },
-    "notes": "Owner start 08:00–08:15 Oslo, 18 November;7h3m40s estimates finish 15:03–15:18, leaving cleanup time before Joachim at 17:00. Right and left-front compensator pieces, toothed wheel, both drivers and one of each key-stem length. Red PLA Basic A1; right 0.4 mm; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm brims. Declared same-PLA normal supports with 0.20 mm Z / 0.35 mm XY clearance; inspect physical removal and permanent teeth/webs/bores before repeats. No complete rotor/stepping function; source core/ring/clamp/trident holds and other missing parts remain. Exact dates/inventory are selected in CURRENT_DESIGN.workshop_strategy. Estimates are not actual usage or guaranteed finish times. Both image fields intentionally use actual first-layer GCode; no native PNG was produced. Grey paths are removable brims; purple, where present, removable same-PLA support. Cleanup, fit, strength and function remain unverified. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest,397ca89,CC BY-NC-SA4.0.",
+    "notes": "Owner start 08:00–08:15 Oslo, 18 November;7h3m40s estimates finish 15:03–15:18, leaving cleanup time before Joachim at 17:00. Right and left-front compensator pieces, toothed wheel, both drivers and one of each key-stem length. Red PLA Basic A1; right 0.4 mm; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm brims. Declared same-PLA normal supports with 0.20 mm Z / 0.35 mm XY clearance; inspect physical removal and permanent teeth/webs/bores before repeats. No complete rotor/stepping function; source core/ring/clamp/trident holds and other missing parts remain. Exact dates/inventory are selected in CURRENT_DESIGN.workshop_strategy. Estimates are not actual usage or guaranteed finish times. Both image fields intentionally use actual first-layer GCode; no native PNG was produced. Grey paths are removable brims; purple, where present, removable same-PLA support. Cleanup, fit, strength and function remain unverified. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest,397ca89,CC BY-NC-SA4.0. Schedule changed after midnight storage recovery: this plate starts first, before the ten-piece black PLA day plate. Accepted start is observed printer acceptance, not first extrusion. Bed leveling on, flow calibration off, timelapse off. At the first-layer check, the same job was printing layer1/993, with415estimated minutes remaining. No physical cleanup, fit, strength or electrical operation has been accepted.",
     "previewCaption": "Actual first-layer GCode for this exact slice; grey is removable brim, purple is removable same-PLA support. No native slicer bitmap was produced.",
     "layoutCaption": "The same exact first-layer GCode plot viewed from above; a separate native layout bitmap is unavailable.",
     "parts": [
@@ -99,7 +105,7 @@
   },
   {
     "id": "rde01-overnight10-right-pla-20261117-a1",
-    "title": "ENIGMA R.D.E.: ten-piece overnight plate before the workshop",
+    "title": "ENIGMA R.D.E. machine one: next ten-piece black PLA day plate",
     "project": "ENIGMA R.D.E.",
     "printer": "Bambu Lab X2D",
     "jobName": "RDE01_OVERNIGHT10_ba2179af_af7e66daa1c4_20261117.gcode.3mf",
@@ -111,7 +117,7 @@
     "layerHeightMm": 0.15,
     "layers": 173,
     "recordedAt": "2026-11-17T15:08:13.671873+00:00",
-    "updatedAt": "2026-11-17T16:52:29.613299+00:00",
+    "updatedAt": "2026-11-17T23:55:52.307073+00:00",
     "startedAt": null,
     "finishedAt": null,
     "status": "planned",
@@ -131,7 +137,7 @@
       "sourceCommit": "ba2179af257b090033b23a34c301942aa377aa74",
       "evidence": "Clean pushed current main, complete open-PR check, feedback/inventory check, normal online print gate and retained-mesh/profile/toolpath audit passed. Source geometry unchanged; no physical acceptance. Current printer FTPS rejected upload553 and the target was absent; these new files are staged on both Macs but not transferred or started."
     },
-    "notes": "Owner start 21:00–22:00 Oslo, 17 November;8h18m22s estimates finish 05:18–06:18 on 18 November, before 08:00. Adds both distinct rotor-shaft plugs and bracket to the earlier proposal. Black PLA Basic A3; right 0.4 mm; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm outer brims; supports off; cap bridge_angle90. Exact dates/inventory are selected in CURRENT_DESIGN.workshop_strategy. Estimates are not actual usage or guaranteed finish times. Both image fields intentionally use actual first-layer GCode; no native PNG was produced. Grey paths are removable brims; purple, where present, removable same-PLA support. Cleanup, fit, strength and function remain unverified. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest,397ca89,CC BY-NC-SA4.0. Owner authorized starting immediately after clearing the bed on 17 November. The upload was rejected (FTPS 553), and an exact-path lookup confirmed the intended file absent. Bambu Studio also reported external-storage read error 17. No start command was sent; this remains a planned, unstarted plate pending storage recovery and byte-identical upload readback.",
+    "notes": "Owner start 21:00–22:00 Oslo, 17 November;8h18m22s estimates finish 05:18–06:18 on 18 November, before 08:00. Adds both distinct rotor-shaft plugs and bracket to the earlier proposal. Black PLA Basic A3; right 0.4 mm; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm outer brims; supports off; cap bridge_angle90. Exact dates/inventory are selected in CURRENT_DESIGN.workshop_strategy. Estimates are not actual usage or guaranteed finish times. Both image fields intentionally use actual first-layer GCode; no native PNG was produced. Grey paths are removable brims; purple, where present, removable same-PLA support. Cleanup, fit, strength and function remain unverified. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest,397ca89,CC BY-NC-SA4.0. Owner authorized starting immediately after clearing the bed on 17 November. The upload was rejected (FTPS 553), and an exact-path lookup confirmed the intended file absent. Bambu Studio also reported external-storage read error 17. No start command was sent; this remains a planned, unstarted plate pending storage recovery and byte-identical upload readback. Revised18November schedule: the red mechanical trial was accepted overnight first. This ten-piece file remains unstarted and is next after the morning bed clearing, targeted08:00-08:10Oslo. Its8h18m22s slicer estimate gives16:18-16:28finish before the17:00visit; actual startup, cooldown and physical cleanup still need margin. The earlier transfer rejection is historical; storage later recovered for the distinct red plate.",
     "previewCaption": "Actual first-layer GCode for this exact slice; grey is removable brim, purple is removable same-PLA support. No native slicer bitmap was produced.",
     "layoutCaption": "The same exact first-layer GCode plot viewed from above; a separate native layout bitmap is unavailable.",
     "parts": [

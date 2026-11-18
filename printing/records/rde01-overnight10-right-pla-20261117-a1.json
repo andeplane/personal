@@ -12,10 +12,10 @@
   "layerHeightMm": 0.15,
   "layers": 173,
   "recordedAt": "2026-11-17T15:08:13.671873+00:00",
-  "updatedAt": "2026-11-18T00:06:00.742209+00:00",
-  "startedAt": null,
+  "updatedAt": "2026-11-18T08:44:48.909098+00:00",
+  "startedAt": "2026-11-18T08:42:19.410462+00:00",
   "finishedAt": null,
-  "status": "planned",
+  "status": "printing",
   "actualSeconds": null,
   "actualGrams": null,
   "estimatedSeconds": 29902.0,
@@ -23,7 +23,13 @@
   "estimatedMeters": 45.88,
   "preview": "assets/rde01-overnight10-right-pla-20261117-a1/actual-first-layer-toolpaths.png",
   "layout": "assets/rde01-overnight10-right-pla-20261117-a1/actual-first-layer-toolpaths.png",
-  "snapshots": [],
+  "snapshots": [
+    {
+      "src": "assets/rde01-overnight10-right-pla-20261117-a1/startup-20261118T084259Z.jpg",
+      "capturedAt": "2026-11-18T08:42:59.088480+00:00",
+      "caption": "After printer acceptance during preparation. The clear plate is visible before deposition."
+    }
+  ],
   "source": {
     "file": "RDE01_DAY10_8d64872c_af7e66daa1c4_20261118.gcode.3mf",
     "sha256": "af7e66daa1c46a9d25c0a082e5b3fe7cf4b3fd8b1619fa1f32ac54d9d022411a",
@@ -32,7 +38,7 @@
     "sourceCommit": "8d64872c1018d262ab79f265bf37d91afa23aff4",
     "evidence": "Clean pushed current main, complete open-PR check, feedback/inventory check, normal online print gate and retained-mesh/profile/toolpath audit passed. Source geometry unchanged; no physical acceptance. Current printer FTPS rejected upload553 and the target was absent; these new files are staged on both Macs but not transferred or started. Re-prepared through the normal online gate and retained-mesh audit on clean pushed current main8d64872c after the schedule-only update. Exact slice bytes, meshes, process and quantities are unchanged."
   },
-  "notes": "Next after the red mechanical trial and morning bed clearing, targeted 08:00-08:10 Oslo on 18 November. Slicer estimate: 8 h 18 m 22 s, giving 16:18-16:28 finish; allow startup, cooldown and cleanup before Joachim at 17:00. One specimen per selected role. Black PLA Basic A3; right 0.4 mm nozzle; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm brims and 220 C / 55 C textured PEI. Supports off; grinder-cap bridge angle 90 retained. Both previews show actual first-layer GCode, with grey removable brims; no native slicer PNG was produced. Re-prepared and audited on current main 8d64872c; slice bytes and process are unchanged. Earlier upload error 553 delayed the unstarted evening proposal; storage later recovered. This day plate is uploaded; its downloaded copy passed byte-identical SHA-256 comparison. Fresh source, bed and material checks remain mandatory before its own start. No second job start or physical qualification is claimed. Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0.",
+  "notes": "Next after the red mechanical trial and morning bed clearing, targeted 08:00-08:10 Oslo on 18 November. Slicer estimate: 8 h 18 m 22 s, giving 16:18-16:28 finish; allow startup, cooldown and cleanup before Joachim at 17:00. One specimen per selected role. Black PLA Basic A3; right 0.4 mm nozzle; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm brims and 220 C / 55 C textured PEI. Supports off; grinder-cap bridge angle 90 retained. Both previews show actual first-layer GCode, with grey removable brims; no native slicer PNG was produced. Re-prepared and audited on current main 8d64872c; slice bytes and process are unchanged. Earlier upload error 553 delayed the unstarted evening proposal; storage later recovered. This day plate is uploaded; its downloaded copy passed byte-identical SHA-256 comparison. Fresh source, bed and material checks remain mandatory before its own start.  Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. The owner requested the next print at the morning handoff. At 09:42 Oslo time the printer accepted the byte-verified file and plate 1 with black PLA A3, then reported RUNNING during preparation. The 8 h 18 m estimate puts completion around 18:00 Oslo time.",
   "previewCaption": "Actual first-layer GCode for this exact slice; grey is removable brim, purple is removable same-PLA support. No native slicer bitmap was produced.",
   "layoutCaption": "The same exact first-layer GCode plot viewed from above; a separate native layout bitmap is unavailable.",
   "parts": [

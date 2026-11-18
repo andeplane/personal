@@ -1,5 +1,68 @@
 [
   {
+    "id": "rde01-compensator-socket-right-pla-20261118-a1",
+    "title": "ENIGMA R.D.E. machine one: compensator, socket bar and switch knob trial",
+    "project": "ENIGMA R.D.E.",
+    "printer": "Bambu Lab X2D",
+    "jobName": "RDE01_COMP_SOCKET_ab6c1e75_a409df404ac7_20261118.gcode.3mf",
+    "releaseJobId": "rde01-compensator-socket-pla",
+    "plate": 1,
+    "material": "PLA Basic · right 0.4 mm · compensator supports only",
+    "color": "#000000",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.15,
+    "layers": 125,
+    "recordedAt": "2026-11-18T10:05:55.774677+00:00",
+    "updatedAt": "2026-11-18T10:05:55.774677+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "status": "planned",
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 25883,
+    "estimatedGrams": 105.74,
+    "estimatedMeters": 35.45,
+    "preview": "assets/rde01-compensator-socket-right-pla-20261118-a1/actual-first-layer-toolpaths.png",
+    "layout": "assets/rde01-compensator-socket-right-pla-20261118-a1/actual-first-layer-toolpaths.png",
+    "snapshots": [],
+    "source": {
+      "file": "RDE01_COMP_SOCKET_ab6c1e75_a409df404ac7_20261118.gcode.3mf",
+      "sha256": "a409df404ac72309f0abd126552fe6ad9a6a94bebc2e036d92dffceb10715740",
+      "gcodeSha256": "bd84620cd386e0c92ec21b96988cf2e27a23a04fc9c2091641d2f84898a59c5b",
+      "editableSha256": "c4a8e9d149438c306ff206a4e5654a14fe212b526388fc3d2a09b5b09c5801bd",
+      "sourceCommit": "ab6c1e75eeda2c4581ab6f3ef0398ef0be4ea4c4",
+      "evidence": "Prepared on current main after checking all open PRs and relevant inventory feedback. Exact retained-mesh artifact audit passed. The downloaded printer copy matched the reviewed archive byte for byte."
+    },
+    "notes": "One rear-left compensator, one socket bar and one single-colour switch knob fit sample. Black PLA Basic A3, right 0.4 mm nozzle, 0.15 mm layers (0.20 mm first), three walls, 15% infill, 5 mm brims and 220 °C / 55 °C textured PEI. Supports on the compensator only. Socket-bar bridge direction 90°. The knob still needs a contrasting indicator for the final assembly. Staged for after the current print and bed clearance. Physical fit is pending. Geometry from HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0.",
+    "previewCaption": "Actual first-layer toolpaths from the reviewed slice, including removable adhesion and support paths.",
+    "layoutCaption": "The same toolpath plot viewed from above.",
+    "parts": [
+      "ZG100003 STL-663c4ae552f5387a4799fb0f32024bbb54fee226c6688928a41a921d5c4d48ac · ZG100003 Compensator HDM v19 - left back.stl · quantity 1",
+      "ZG100902 STL-117cefe59d06985090f7b0d5c65b9b8d33e721920b5ad623820751b65b7be251 · ZG100902 Socket Bar Assembly HDM v11.stl · quantity 1",
+      "ZG500099 STL-3010a076e943bf5ef4f9605204c861f2e7ae6b24ceae3c3ec37a76d5fe71317f · ZG500099 Switch Knob HDM v3.stl · quantity 1"
+    ],
+    "partRevisions": [
+      {
+        "partNumber": "ZG100003",
+        "revision": "STL-663c4ae552f5387a4799fb0f32024bbb54fee226c6688928a41a921d5c4d48ac",
+        "sourceFilename": "ZG100003 Compensator HDM v19 - left back.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG100902",
+        "revision": "STL-117cefe59d06985090f7b0d5c65b9b8d33e721920b5ad623820751b65b7be251",
+        "sourceFilename": "ZG100902 Socket Bar Assembly HDM v11.stl",
+        "quantity": 1
+      },
+      {
+        "partNumber": "ZG500099",
+        "revision": "STL-3010a076e943bf5ef4f9605204c861f2e7ae6b24ceae3c3ec37a76d5fe71317f",
+        "sourceFilename": "ZG500099 Switch Knob HDM v3.stl",
+        "quantity": 1
+      }
+    ]
+  },
+  {
     "id": "rde01-overnight10-right-pla-20261117-a1",
     "title": "ENIGMA R.D.E. machine one: next ten-piece black PLA day plate",
     "project": "ENIGMA R.D.E.",
@@ -13,7 +76,7 @@
     "layerHeightMm": 0.15,
     "layers": 173,
     "recordedAt": "2026-11-17T15:08:13.671873+00:00",
-    "updatedAt": "2026-11-18T08:44:48.909098+00:00",
+    "updatedAt": "2026-11-18T09:57:13.940521+00:00",
     "startedAt": "2026-11-18T08:42:19.410462+00:00",
     "finishedAt": null,
     "status": "printing",
@@ -29,6 +92,11 @@
         "src": "assets/rde01-overnight10-right-pla-20261117-a1/startup-20261118T084259Z.jpg",
         "capturedAt": "2026-11-18T08:42:59.088480+00:00",
         "caption": "After printer acceptance during preparation. The clear plate is visible before deposition."
+      },
+      {
+        "src": "assets/rde01-overnight10-right-pla-20261117-a1/first-layer-20261118T085841Z.jpg",
+        "capturedAt": "2026-11-18T08:58:41.032033+00:00",
+        "caption": "During the verified day-plate run on layer 1. Black toolpaths have low contrast against the bed in this view."
       }
     ],
     "source": {
@@ -37,7 +105,7 @@
       "gcodeSha256": "2f618fbe8e78b42925d4493d60fc628039da2bae762ef75ab3230db67cb15a7a",
       "editableSha256": "bbe4527d1d267157963d4cd67f71360db23f0f9a693078d25a1555257e1fcb5e",
       "sourceCommit": "8d64872c1018d262ab79f265bf37d91afa23aff4",
-      "evidence": "Clean pushed current main, complete open-PR check, feedback/inventory check, normal online print gate and retained-mesh/profile/toolpath audit passed. Source geometry unchanged; no physical acceptance. Current printer FTPS rejected upload553 and the target was absent; these new files are staged on both Macs but not transferred or started. Re-prepared through the normal online gate and retained-mesh audit on clean pushed current main8d64872c after the schedule-only update. Exact slice bytes, meshes, process and quantities are unchanged."
+      "evidence": "Prepared on clean pushed main 8d64872c after checking open PRs and inventory feedback. The exact retained-mesh slice passed the artifact audit. The printer copy matched the reviewed SHA-256 during the fresh downloaded-byte check. The printer then acknowledged the unique file and plate 1 with AMS A3."
     },
     "notes": "Next after the red mechanical trial and morning bed clearing, targeted 08:00-08:10 Oslo on 18 November. Slicer estimate: 8 h 18 m 22 s, giving 16:18-16:28 finish; allow startup, cooldown and cleanup before Joachim at 17:00. One specimen per selected role. Black PLA Basic A3; right 0.4 mm nozzle; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm brims and 220 C / 55 C textured PEI. Supports off; grinder-cap bridge angle 90 retained. Both previews show actual first-layer GCode, with grey removable brims; no native slicer PNG was produced. Re-prepared and audited on current main 8d64872c; slice bytes and process are unchanged. Earlier upload error 553 delayed the unstarted evening proposal; storage later recovered. This day plate is uploaded; its downloaded copy passed byte-identical SHA-256 comparison. Fresh source, bed and material checks remain mandatory before its own start.  Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. The owner requested the next print at the morning handoff. At 09:42 Oslo time the printer accepted the byte-verified file and plate 1 with black PLA A3, then reported RUNNING during preparation. The 8 h 18 m estimate puts completion around 18:00 Oslo time.",
     "previewCaption": "Actual first-layer GCode for this exact slice; grey is removable brim, purple is removable same-PLA support. No native slicer bitmap was produced.",

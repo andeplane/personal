@@ -1,0 +1,63 @@
+{
+  "id": "rde01-compensator-socket-right-pla-20261118-a1",
+  "title": "ENIGMA R.D.E. machine one: compensator, socket bar and switch knob trial",
+  "project": "ENIGMA R.D.E.",
+  "printer": "Bambu Lab X2D",
+  "jobName": "RDE01_COMP_SOCKET_ab6c1e75_a409df404ac7_20261118.gcode.3mf",
+  "releaseJobId": "rde01-compensator-socket-pla",
+  "plate": 1,
+  "material": "PLA Basic · right 0.4 mm · compensator supports only",
+  "color": "#000000",
+  "nozzleMm": 0.4,
+  "layerHeightMm": 0.15,
+  "layers": 125,
+  "recordedAt": "2026-11-18T10:05:55.774677+00:00",
+  "updatedAt": "2026-11-18T10:05:55.774677+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "status": "planned",
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 25883,
+  "estimatedGrams": 105.74,
+  "estimatedMeters": 35.45,
+  "preview": "assets/rde01-compensator-socket-right-pla-20261118-a1/actual-first-layer-toolpaths.png",
+  "layout": "assets/rde01-compensator-socket-right-pla-20261118-a1/actual-first-layer-toolpaths.png",
+  "snapshots": [],
+  "source": {
+    "file": "RDE01_COMP_SOCKET_ab6c1e75_a409df404ac7_20261118.gcode.3mf",
+    "sha256": "a409df404ac72309f0abd126552fe6ad9a6a94bebc2e036d92dffceb10715740",
+    "gcodeSha256": "bd84620cd386e0c92ec21b96988cf2e27a23a04fc9c2091641d2f84898a59c5b",
+    "editableSha256": "c4a8e9d149438c306ff206a4e5654a14fe212b526388fc3d2a09b5b09c5801bd",
+    "sourceCommit": "ab6c1e75eeda2c4581ab6f3ef0398ef0be4ea4c4",
+    "evidence": "Prepared on current main after checking all open PRs and relevant inventory feedback. Exact retained-mesh artifact audit passed. The downloaded printer copy matched the reviewed archive byte for byte."
+  },
+  "notes": "One rear-left compensator, one socket bar and one single-colour switch knob fit sample. Black PLA Basic A3, right 0.4 mm nozzle, 0.15 mm layers (0.20 mm first), three walls, 15% infill, 5 mm brims and 220 °C / 55 °C textured PEI. Supports on the compensator only. Socket-bar bridge direction 90°. The knob still needs a contrasting indicator for the final assembly. Staged for after the current print and bed clearance. Physical fit is pending. Geometry from HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0.",
+  "previewCaption": "Actual first-layer toolpaths from the reviewed slice, including removable adhesion and support paths.",
+  "layoutCaption": "The same toolpath plot viewed from above.",
+  "parts": [
+    "ZG100003 STL-663c4ae552f5387a4799fb0f32024bbb54fee226c6688928a41a921d5c4d48ac · ZG100003 Compensator HDM v19 - left back.stl · quantity 1",
+    "ZG100902 STL-117cefe59d06985090f7b0d5c65b9b8d33e721920b5ad623820751b65b7be251 · ZG100902 Socket Bar Assembly HDM v11.stl · quantity 1",
+    "ZG500099 STL-3010a076e943bf5ef4f9605204c861f2e7ae6b24ceae3c3ec37a76d5fe71317f · ZG500099 Switch Knob HDM v3.stl · quantity 1"
+  ],
+  "partRevisions": [
+    {
+      "partNumber": "ZG100003",
+      "revision": "STL-663c4ae552f5387a4799fb0f32024bbb54fee226c6688928a41a921d5c4d48ac",
+      "sourceFilename": "ZG100003 Compensator HDM v19 - left back.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG100902",
+      "revision": "STL-117cefe59d06985090f7b0d5c65b9b8d33e721920b5ad623820751b65b7be251",
+      "sourceFilename": "ZG100902 Socket Bar Assembly HDM v11.stl",
+      "quantity": 1
+    },
+    {
+      "partNumber": "ZG500099",
+      "revision": "STL-3010a076e943bf5ef4f9605204c861f2e7ae6b24ceae3c3ec37a76d5fe71317f",
+      "sourceFilename": "ZG500099 Switch Knob HDM v3.stl",
+      "quantity": 1
+    }
+  ]
+}

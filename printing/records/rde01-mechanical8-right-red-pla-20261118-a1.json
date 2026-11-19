@@ -6,13 +6,13 @@
   "jobName": "RDE01_MECHANICAL8_ba2179af_bb1238558f13_20261118.gcode.3mf",
   "releaseJobId": "rde01-rotor-stepping-pla",
   "plate": 1,
-  "material": "PLA Basic \u00b7 right 0.4 mm \u00b7 same-PLA normal support cleanup trial",
+  "material": "PLA Basic · right 0.4 mm · same-PLA normal support cleanup trial",
   "color": "#C12E1F",
   "nozzleMm": 0.4,
   "layerHeightMm": 0.15,
   "layers": 1004,
   "recordedAt": "2026-11-17T15:08:13.671873+00:00",
-  "updatedAt": "2026-11-18T08:44:48.909098+00:00",
+  "updatedAt": "2026-11-19T17:50:21.641146+00:00",
   "startedAt": "2026-11-17T23:44:20.671797+00:00",
   "finishedAt": null,
   "status": "failed",
@@ -43,67 +43,76 @@
     "sourceCommit": "ba2179af257b090033b23a34c301942aa377aa74",
     "evidence": "Clean pushed current main, complete open-PR check, feedback/inventory check, normal online print gate and retained-mesh/profile/toolpath audit passed. Source geometry unchanged; no physical acceptance. Current printer FTPS rejected upload553 and the target was absent; these new files are staged on both Macs but not transferred or started. After storage recovery, the exact file was uploaded and downloaded to a new path. SHA-256 readback matched bb1238558f13ad261a1f67829d6d7ab4ee19273e82e73e657e3fb87f07230637. The printer acknowledged SUCCESS for this file and plate1 with AMS mapping[0], then the same job reached layer1/993 with print_error0. The MCP project metadata parser returned no project info, so the explicit mapping came from the audited 3MF filament1 plus live red PLA A1 on the right nozzle. The acceptance reply did not echo a file MD5; identity is bound by exact readback bytes and accepted file/plate, not by a title alone."
   },
-  "notes": "Accepted 18 November at 00:44 Oslo after storage recovery, before the ten-piece black PLA day plate. Slicer estimate: 7 h 3 m 40 s; the 08:00 target has little startup/cooldown margin. Right and left-front compensator pieces, toothed wheel, both drivers and one of each key-stem length. Red PLA Basic A1; right 0.4 mm nozzle; 0.15 mm layers (0.20 first), 3 walls, 15% infill and 5 mm brims. Same-PLA normal supports use 0.20 mm top Z and 0.35 mm XY clearance. Inspect cleanup, permanent teeth, webs and bores before repeats. Core/ring/clamp/trident holds and other missing parts prevent a complete working rotor or stepping demonstration. Source: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. Both preview fields show actual first-layer GCode: grey removable brims and purple PLA supports where present. Native slicer PNGs were not produced. Bed leveling on; flow calibration and timelapse off. The accepted job reached layer 1/993 with no active error. The start timestamp is printer acceptance, not first extrusion. Actual duration/filament, cleanup, fit, strength and electrical function remain unverified. The printer reached 993 of 993 layers and paused at 99% with a filament retraction fault. FAILED was observed at 09:34 Oslo time. The parts were already off the plate when the terminal camera frame was captured. Final deposition, cleanup and fit are unverified.",
+  "notes": "Accepted 18 November at 00:44 Oslo after storage recovery, before the ten-piece black PLA day plate. Slicer estimate: 7 h 3 m 40 s; the 08:00 target has little startup/cooldown margin. Right and left-front compensator pieces, toothed wheel, both drivers and one of each key-stem length. Red PLA Basic A1; right 0.4 mm nozzle; 0.15 mm layers (0.20 first), 3 walls, 15% infill and 5 mm brims. Same-PLA normal supports use 0.20 mm top Z and 0.35 mm XY clearance. Inspect cleanup, permanent teeth, webs and bores before repeats. Core/ring/clamp/trident holds and other missing parts prevent a complete working rotor or stepping demonstration. Source: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. Both preview fields show actual first-layer GCode: grey removable brims and purple PLA supports where present. Native slicer PNGs were not produced. Bed leveling on; flow calibration and timelapse off. The accepted job reached layer 1/993 with no active error. The start timestamp is printer acceptance, not first extrusion. Actual duration/filament, cleanup, fit, strength and electrical function remain unverified. The printer reached 993 of 993 layers and paused at 99% with a filament retraction fault. FAILED was observed at 09:34 Oslo time. The parts were already off the plate when the terminal camera frame was captured. Final deposition, cleanup and fit are unverified. The supported pieces, including the toothed wheel, require PVA reprints for RDE-01. This failed attempt is retained as history.",
   "previewCaption": "Actual first-layer GCode for this exact slice; grey is removable brim, purple is removable same-PLA support. No native slicer bitmap was produced.",
   "layoutCaption": "The same exact first-layer GCode plot viewed from above; a separate native layout bitmap is unavailable.",
   "parts": [
-    "ZG100003 STL-b56400e3db9365f779c449e0b062493f40e0ff0bbd9ee9d0176d10d56da7300d \u00b7 ZG100003 Compensator HDM v19 - right.stl \u00b7 quantity 1",
-    "ZG100003 STL-8055b87ea5d4963e7d4fa175f039221d11aca91349d260c83715e5362db22766 \u00b7 ZG100003 Compensator HDM v19 - left front.stl \u00b7 quantity 1",
-    "ZG400014 STL-b2f0dd8e2210c9601d63db6f5eff3be5153af92449dd7b004b6e0b9e036bb864 \u00b7 ZG400014 Toothed Wheel HDM v2.stl \u00b7 quantity 1",
-    "ZG100035 STL-804f30660d28bfd2e2df5dd258d63ed49080693c85b0b0844472a9a44c8f7c4b \u00b7 ZG100035 Driver Thin HDM v8.stl \u00b7 quantity 1",
-    "ZG100036 STL-ebdda6d69ad3fde92d24af1245ea34f422a39e119dd775a208312ff8c7540650 \u00b7 ZG100036 Driver Thick HDM v8.stl \u00b7 quantity 1",
-    "ZG100025 STL-bee27cc49332d3cd261896302309e708c1ba5307f199703a93842da2906686bd \u00b7 ZG100025 Button Short HDM v5.stl \u00b7 quantity 1",
-    "ZG100030 STL-8cb45afd4bd37c518a213d05a7510c4142704cc16f78fc66a4cbe9bd64e90230 \u00b7 ZG100030 Button Medium HDM v18.stl \u00b7 quantity 1",
-    "ZG100031 STL-df02b85c71a1dab6f313e27fbb8c1521c760659eb1bd68adf1e270943fd26a5f \u00b7 ZG100031 Button Long HDM v6.stl \u00b7 quantity 1"
+    "ZG100003 STL-b56400e3db9365f779c449e0b062493f40e0ff0bbd9ee9d0176d10d56da7300d · ZG100003 Compensator HDM v19 - right.stl · quantity 1",
+    "ZG100003 STL-8055b87ea5d4963e7d4fa175f039221d11aca91349d260c83715e5362db22766 · ZG100003 Compensator HDM v19 - left front.stl · quantity 1",
+    "ZG400014 STL-b2f0dd8e2210c9601d63db6f5eff3be5153af92449dd7b004b6e0b9e036bb864 · ZG400014 Toothed Wheel HDM v2.stl · quantity 1",
+    "ZG100035 STL-804f30660d28bfd2e2df5dd258d63ed49080693c85b0b0844472a9a44c8f7c4b · ZG100035 Driver Thin HDM v8.stl · quantity 1",
+    "ZG100036 STL-ebdda6d69ad3fde92d24af1245ea34f422a39e119dd775a208312ff8c7540650 · ZG100036 Driver Thick HDM v8.stl · quantity 1",
+    "ZG100025 STL-bee27cc49332d3cd261896302309e708c1ba5307f199703a93842da2906686bd · ZG100025 Button Short HDM v5.stl · quantity 1",
+    "ZG100030 STL-8cb45afd4bd37c518a213d05a7510c4142704cc16f78fc66a4cbe9bd64e90230 · ZG100030 Button Medium HDM v18.stl · quantity 1",
+    "ZG100031 STL-df02b85c71a1dab6f313e27fbb8c1521c760659eb1bd68adf1e270943fd26a5f · ZG100031 Button Long HDM v6.stl · quantity 1"
   ],
   "partRevisions": [
     {
       "partNumber": "ZG100003",
       "revision": "STL-b56400e3db9365f779c449e0b062493f40e0ff0bbd9ee9d0176d10d56da7300d",
       "sourceFilename": "ZG100003 Compensator HDM v19 - right.stl",
-      "quantity": 1
+      "quantity": 1,
+      "supportMaterial": "PLA"
     },
     {
       "partNumber": "ZG100003",
       "revision": "STL-8055b87ea5d4963e7d4fa175f039221d11aca91349d260c83715e5362db22766",
       "sourceFilename": "ZG100003 Compensator HDM v19 - left front.stl",
-      "quantity": 1
+      "quantity": 1,
+      "supportMaterial": "PLA"
     },
     {
       "partNumber": "ZG400014",
       "revision": "STL-b2f0dd8e2210c9601d63db6f5eff3be5153af92449dd7b004b6e0b9e036bb864",
       "sourceFilename": "ZG400014 Toothed Wheel HDM v2.stl",
-      "quantity": 1
+      "quantity": 1,
+      "supportMaterial": "PLA"
     },
     {
       "partNumber": "ZG100035",
       "revision": "STL-804f30660d28bfd2e2df5dd258d63ed49080693c85b0b0844472a9a44c8f7c4b",
       "sourceFilename": "ZG100035 Driver Thin HDM v8.stl",
-      "quantity": 1
+      "quantity": 1,
+      "supportMaterial": "none"
     },
     {
       "partNumber": "ZG100036",
       "revision": "STL-ebdda6d69ad3fde92d24af1245ea34f422a39e119dd775a208312ff8c7540650",
       "sourceFilename": "ZG100036 Driver Thick HDM v8.stl",
-      "quantity": 1
+      "quantity": 1,
+      "supportMaterial": "PLA"
     },
     {
       "partNumber": "ZG100025",
       "revision": "STL-bee27cc49332d3cd261896302309e708c1ba5307f199703a93842da2906686bd",
       "sourceFilename": "ZG100025 Button Short HDM v5.stl",
-      "quantity": 1
+      "quantity": 1,
+      "supportMaterial": "PLA"
     },
     {
       "partNumber": "ZG100030",
       "revision": "STL-8cb45afd4bd37c518a213d05a7510c4142704cc16f78fc66a4cbe9bd64e90230",
       "sourceFilename": "ZG100030 Button Medium HDM v18.stl",
-      "quantity": 1
+      "quantity": 1,
+      "supportMaterial": "PLA"
     },
     {
       "partNumber": "ZG100031",
       "revision": "STL-df02b85c71a1dab6f313e27fbb8c1521c760659eb1bd68adf1e270943fd26a5f",
       "sourceFilename": "ZG100031 Button Long HDM v6.stl",
-      "quantity": 1
+      "quantity": 1,
+      "supportMaterial": "PLA"
     }
-  ]
+  ],
+  "buildId": "RDE-01"
 }

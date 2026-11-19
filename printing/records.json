@@ -1,5 +1,72 @@
 [
   {
+    "id": "rde01-cabinet-reserve-right-red-pla-20261119-a1",
+    "buildId": "RDE-01",
+    "project": "ENIGMA R.D.E.",
+    "printer": "Bambu Lab X2D",
+    "title": "ENIGMA R.D.E. machine one: red letter grille and both back panels",
+    "jobName": "RDE01_CABINET_f5b97008_5b2fb78f8b8b_20261118.gcode.3mf",
+    "releaseJobId": "rde01-cabinet-reserve-pla",
+    "plate": 1,
+    "material": "Red PLA Basic AMS A1 · right 0.4 mm · supports off",
+    "color": "#C12E1F",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.15,
+    "layers": 57,
+    "recordedAt": "2026-11-19T17:50:21.641146+00:00",
+    "updatedAt": "2026-11-19T17:50:21.641146+00:00",
+    "startedAt": null,
+    "finishedAt": null,
+    "status": "planned",
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 19257,
+    "estimatedGrams": 101.24,
+    "estimatedMeters": 33.94,
+    "preview": "assets/rde01-cabinet-reserve-right-red-pla-20261119-a1/actual-first-layer-toolpaths.png",
+    "layout": "assets/rde01-cabinet-reserve-right-red-pla-20261119-a1/actual-first-layer-toolpaths.png",
+    "previewCaption": "Exact first-layer toolpaths with removable brims. The two back panels are distinct source files.",
+    "layoutCaption": "Exact first-layer toolpaths with removable brims. The two back panels are distinct source files.",
+    "snapshots": [],
+    "partRevisions": [
+      {
+        "partNumber": "ZG500098",
+        "sourceFilename": "ZG500098 Letter Grill HDM v54.stl",
+        "revision": "STL-0bb10e9ea4ca021680fefdb1dc0f2cf6db36e73e0fd60a7aff2096403b3f1c7d",
+        "quantity": 1,
+        "supportMaterial": "none"
+      },
+      {
+        "partNumber": "ZG500090",
+        "sourceFilename": "ZG500090 Back Plate HDM v11 - right.stl",
+        "revision": "STL-d35fffcd3d63c80d6d4609530be5c456facb4e81007d8f2d7f07731a93624cd7",
+        "quantity": 1,
+        "supportMaterial": "none"
+      },
+      {
+        "partNumber": "ZG500090",
+        "sourceFilename": "ZG500090 Back Plate HDM v11 - left.stl",
+        "revision": "STL-aeddb520a433fc78969ecfc7214db051b840c7de7c2d26a8db1fdf6555a23af8",
+        "quantity": 1,
+        "supportMaterial": "none"
+      }
+    ],
+    "parts": [
+      "ZG500098 STL-0bb10e9ea4ca021680fefdb1dc0f2cf6db36e73e0fd60a7aff2096403b3f1c7d · ZG500098 Letter Grill HDM v54.stl · quantity 1",
+      "ZG500090 STL-d35fffcd3d63c80d6d4609530be5c456facb4e81007d8f2d7f07731a93624cd7 · ZG500090 Back Plate HDM v11 - right.stl · quantity 1",
+      "ZG500090 STL-aeddb520a433fc78969ecfc7214db051b840c7de7c2d26a8db1fdf6555a23af8 · ZG500090 Back Plate HDM v11 - left.stl · quantity 1"
+    ],
+    "source": {
+      "file": "RDE01_CABINET_f5b97008_5b2fb78f8b8b_20261118.gcode.3mf",
+      "sha256": "5b2fb78f8b8b42d594931d7146f795c7421721d7acc56342b4e1ed63e0c688e3",
+      "gcodeSha256": "5d0c7e8f04e809e11ddc1cc7418138ef27c762f944b355b49d9b8b55ddfe661e",
+      "editableSha256": "aa25b7382047f8bae042e59a89b8d306b7644e6fdab871cdd998d2e40f5c71de",
+      "sourceCommit": "f5b97008eeb7b79818d256fb9c9d00496f961e14",
+      "evidence": "Reviewed retained meshes, toolpaths and supports-off process. Uploaded and verified readback. No start observed."
+    },
+    "notes": "Prepared as the next RDE-01 cabinet fit plate. One letter grille and one of each back panel. Red PLA Basic AMS A1, textured PEI 55 °C, nozzle 220 °C, 0.15 mm layers (0.20 mm first), three walls, 15% infill and 5 mm brims. Supports are off. The print uses red instead of the manual’s black cabinet colour. The original red archive is held for dispatch because it lacks the newly required carved part numbers. A marked successor requires a fresh audit."
+  },
+  {
     "id": "rde01-compensator-socket-right-pla-20261118-a1",
     "title": "ENIGMA R.D.E. machine one: compensator, socket bar and switch knob trial",
     "project": "ENIGMA R.D.E.",
@@ -13,7 +80,7 @@
     "layerHeightMm": 0.15,
     "layers": 125,
     "recordedAt": "2026-11-18T10:05:55.774677+00:00",
-    "updatedAt": "2026-11-18T10:05:55.774677+00:00",
+    "updatedAt": "2026-11-19T17:50:21.641146+00:00",
     "startedAt": null,
     "finishedAt": null,
     "status": "planned",
@@ -33,7 +100,7 @@
       "sourceCommit": "ab6c1e75eeda2c4581ab6f3ef0398ef0be4ea4c4",
       "evidence": "Prepared on current main after checking all open PRs and relevant inventory feedback. Exact retained-mesh artifact audit passed. The downloaded printer copy matched the reviewed archive byte for byte."
     },
-    "notes": "One rear-left compensator, one socket bar and one single-colour switch knob fit sample. Black PLA Basic A3, right 0.4 mm nozzle, 0.15 mm layers (0.20 mm first), three walls, 15% infill, 5 mm brims and 220 °C / 55 °C textured PEI. Supports on the compensator only. Socket-bar bridge direction 90°. The knob still needs a contrasting indicator for the final assembly. Staged for after the current print and bed clearance. Physical fit is pending. Geometry from HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0.",
+    "notes": "One rear-left compensator, one socket bar and one single-colour switch knob fit sample. Black PLA Basic A3, right 0.4 mm nozzle, 0.15 mm layers (0.20 mm first), three walls, 15% infill, 5 mm brims and 220 °C / 55 °C textured PEI. Supports on the compensator only. Socket-bar bridge direction 90°. The knob still needs a contrasting indicator for the final assembly. Staged for after the current print and bed clearance. Physical fit is pending. Geometry from HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. Superseded for dispatch on 19 November. A3 is empty and the same-PLA compensator supports do not meet the new PVA build requirement.",
     "previewCaption": "Actual first-layer toolpaths from the reviewed slice, including removable adhesion and support paths.",
     "layoutCaption": "The same toolpath plot viewed from above.",
     "parts": [
@@ -60,7 +127,8 @@
         "sourceFilename": "ZG500099 Switch Knob HDM v3.stl",
         "quantity": 1
       }
-    ]
+    ],
+    "buildId": "RDE-01"
   },
   {
     "id": "rde01-overnight10-right-pla-20261117-a1",
@@ -76,10 +144,10 @@
     "layerHeightMm": 0.15,
     "layers": 173,
     "recordedAt": "2026-11-17T15:08:13.671873+00:00",
-    "updatedAt": "2026-11-18T09:57:13.940521+00:00",
+    "updatedAt": "2026-11-19T17:50:21.641146+00:00",
     "startedAt": "2026-11-18T08:42:19.410462+00:00",
     "finishedAt": null,
-    "status": "printing",
+    "status": "completed",
     "actualSeconds": null,
     "actualGrams": null,
     "estimatedSeconds": 29902.0,
@@ -97,6 +165,11 @@
         "src": "assets/rde01-overnight10-right-pla-20261117-a1/first-layer-20261118T085841Z.jpg",
         "capturedAt": "2026-11-18T08:58:41.032033+00:00",
         "caption": "During the verified day-plate run on layer 1. Black toolpaths have low contrast against the bed in this view."
+      },
+      {
+        "src": "assets/rde01-overnight10-right-pla-20261117-a1/after-finish-20261119.jpg",
+        "capturedAt": "2026-11-19T17:48:58Z",
+        "caption": "Camera after FINISH was observed. The bed is empty and the parts are already off the plate."
       }
     ],
     "source": {
@@ -107,7 +180,7 @@
       "sourceCommit": "8d64872c1018d262ab79f265bf37d91afa23aff4",
       "evidence": "Prepared on clean pushed main 8d64872c after checking open PRs and inventory feedback. The exact retained-mesh slice passed the artifact audit. The printer copy matched the reviewed SHA-256 during the fresh downloaded-byte check. The printer then acknowledged the unique file and plate 1 with AMS A3."
     },
-    "notes": "Next after the red mechanical trial and morning bed clearing, targeted 08:00-08:10 Oslo on 18 November. Slicer estimate: 8 h 18 m 22 s, giving 16:18-16:28 finish; allow startup, cooldown and cleanup before Joachim at 17:00. One specimen per selected role. Black PLA Basic A3; right 0.4 mm nozzle; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm brims and 220 C / 55 C textured PEI. Supports off; grinder-cap bridge angle 90 retained. Both previews show actual first-layer GCode, with grey removable brims; no native slicer PNG was produced. Re-prepared and audited on current main 8d64872c; slice bytes and process are unchanged. Earlier upload error 553 delayed the unstarted evening proposal; storage later recovered. This day plate is uploaded; its downloaded copy passed byte-identical SHA-256 comparison. Fresh source, bed and material checks remain mandatory before its own start.  Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. The owner requested the next print at the morning handoff. At 09:42 Oslo time the printer accepted the byte-verified file and plate 1 with black PLA A3, then reported RUNNING during preparation. The 8 h 18 m estimate puts completion around 18:00 Oslo time.",
+    "notes": "Next after the red mechanical trial and morning bed clearing, targeted 08:00-08:10 Oslo on 18 November. Slicer estimate: 8 h 18 m 22 s, giving 16:18-16:28 finish; allow startup, cooldown and cleanup before Joachim at 17:00. One specimen per selected role. Black PLA Basic A3; right 0.4 mm nozzle; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm brims and 220 C / 55 C textured PEI. Supports off; grinder-cap bridge angle 90 retained. Both previews show actual first-layer GCode, with grey removable brims; no native slicer PNG was produced. Re-prepared and audited on current main 8d64872c; slice bytes and process are unchanged. Earlier upload error 553 delayed the unstarted evening proposal; storage later recovered. This day plate is uploaded; its downloaded copy passed byte-identical SHA-256 comparison. Fresh source, bed and material checks remain mandatory before its own start.  Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. The owner requested the next print at the morning handoff. At 09:42 Oslo time the printer accepted the byte-verified file and plate 1 with black PLA A3, then reported RUNNING during preparation. The 8 h 18 m estimate puts completion around 18:00 Oslo time. The same accepted file and plate later reported FINISH at 173/173 layers with no skipped objects. The first complete observation was on 19 November. The exact finish time, active printing duration, filament used and off-bed part quality are unverified.",
     "previewCaption": "Actual first-layer GCode for this exact slice; grey is removable brim, purple is removable same-PLA support. No native slicer bitmap was produced.",
     "layoutCaption": "The same exact first-layer GCode plot viewed from above; a separate native layout bitmap is unavailable.",
     "parts": [
@@ -183,7 +256,14 @@
         "sourceFilename": "ZG400005 Bracket HDM v9.stl",
         "quantity": 1
       }
-    ]
+    ],
+    "buildId": "RDE-01",
+    "terminalEvidence": {
+      "printerState": "FINISH",
+      "observedAt": "2026-11-19T17:48:58Z",
+      "layers": 173,
+      "skippedParts": []
+    }
   },
   {
     "id": "rde01-mechanical8-right-red-pla-20261118-a1",
@@ -199,7 +279,7 @@
     "layerHeightMm": 0.15,
     "layers": 1004,
     "recordedAt": "2026-11-17T15:08:13.671873+00:00",
-    "updatedAt": "2026-11-18T08:44:48.909098+00:00",
+    "updatedAt": "2026-11-19T17:50:21.641146+00:00",
     "startedAt": "2026-11-17T23:44:20.671797+00:00",
     "finishedAt": null,
     "status": "failed",
@@ -230,7 +310,7 @@
       "sourceCommit": "ba2179af257b090033b23a34c301942aa377aa74",
       "evidence": "Clean pushed current main, complete open-PR check, feedback/inventory check, normal online print gate and retained-mesh/profile/toolpath audit passed. Source geometry unchanged; no physical acceptance. Current printer FTPS rejected upload553 and the target was absent; these new files are staged on both Macs but not transferred or started. After storage recovery, the exact file was uploaded and downloaded to a new path. SHA-256 readback matched bb1238558f13ad261a1f67829d6d7ab4ee19273e82e73e657e3fb87f07230637. The printer acknowledged SUCCESS for this file and plate1 with AMS mapping[0], then the same job reached layer1/993 with print_error0. The MCP project metadata parser returned no project info, so the explicit mapping came from the audited 3MF filament1 plus live red PLA A1 on the right nozzle. The acceptance reply did not echo a file MD5; identity is bound by exact readback bytes and accepted file/plate, not by a title alone."
     },
-    "notes": "Accepted 18 November at 00:44 Oslo after storage recovery, before the ten-piece black PLA day plate. Slicer estimate: 7 h 3 m 40 s; the 08:00 target has little startup/cooldown margin. Right and left-front compensator pieces, toothed wheel, both drivers and one of each key-stem length. Red PLA Basic A1; right 0.4 mm nozzle; 0.15 mm layers (0.20 first), 3 walls, 15% infill and 5 mm brims. Same-PLA normal supports use 0.20 mm top Z and 0.35 mm XY clearance. Inspect cleanup, permanent teeth, webs and bores before repeats. Core/ring/clamp/trident holds and other missing parts prevent a complete working rotor or stepping demonstration. Source: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. Both preview fields show actual first-layer GCode: grey removable brims and purple PLA supports where present. Native slicer PNGs were not produced. Bed leveling on; flow calibration and timelapse off. The accepted job reached layer 1/993 with no active error. The start timestamp is printer acceptance, not first extrusion. Actual duration/filament, cleanup, fit, strength and electrical function remain unverified. The printer reached 993 of 993 layers and paused at 99% with a filament retraction fault. FAILED was observed at 09:34 Oslo time. The parts were already off the plate when the terminal camera frame was captured. Final deposition, cleanup and fit are unverified.",
+    "notes": "Accepted 18 November at 00:44 Oslo after storage recovery, before the ten-piece black PLA day plate. Slicer estimate: 7 h 3 m 40 s; the 08:00 target has little startup/cooldown margin. Right and left-front compensator pieces, toothed wheel, both drivers and one of each key-stem length. Red PLA Basic A1; right 0.4 mm nozzle; 0.15 mm layers (0.20 first), 3 walls, 15% infill and 5 mm brims. Same-PLA normal supports use 0.20 mm top Z and 0.35 mm XY clearance. Inspect cleanup, permanent teeth, webs and bores before repeats. Core/ring/clamp/trident holds and other missing parts prevent a complete working rotor or stepping demonstration. Source: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. Both preview fields show actual first-layer GCode: grey removable brims and purple PLA supports where present. Native slicer PNGs were not produced. Bed leveling on; flow calibration and timelapse off. The accepted job reached layer 1/993 with no active error. The start timestamp is printer acceptance, not first extrusion. Actual duration/filament, cleanup, fit, strength and electrical function remain unverified. The printer reached 993 of 993 layers and paused at 99% with a filament retraction fault. FAILED was observed at 09:34 Oslo time. The parts were already off the plate when the terminal camera frame was captured. Final deposition, cleanup and fit are unverified. The supported pieces, including the toothed wheel, require PVA reprints for RDE-01. This failed attempt is retained as history.",
     "previewCaption": "Actual first-layer GCode for this exact slice; grey is removable brim, purple is removable same-PLA support. No native slicer bitmap was produced.",
     "layoutCaption": "The same exact first-layer GCode plot viewed from above; a separate native layout bitmap is unavailable.",
     "parts": [
@@ -248,51 +328,60 @@
         "partNumber": "ZG100003",
         "revision": "STL-b56400e3db9365f779c449e0b062493f40e0ff0bbd9ee9d0176d10d56da7300d",
         "sourceFilename": "ZG100003 Compensator HDM v19 - right.stl",
-        "quantity": 1
+        "quantity": 1,
+        "supportMaterial": "PLA"
       },
       {
         "partNumber": "ZG100003",
         "revision": "STL-8055b87ea5d4963e7d4fa175f039221d11aca91349d260c83715e5362db22766",
         "sourceFilename": "ZG100003 Compensator HDM v19 - left front.stl",
-        "quantity": 1
+        "quantity": 1,
+        "supportMaterial": "PLA"
       },
       {
         "partNumber": "ZG400014",
         "revision": "STL-b2f0dd8e2210c9601d63db6f5eff3be5153af92449dd7b004b6e0b9e036bb864",
         "sourceFilename": "ZG400014 Toothed Wheel HDM v2.stl",
-        "quantity": 1
+        "quantity": 1,
+        "supportMaterial": "PLA"
       },
       {
         "partNumber": "ZG100035",
         "revision": "STL-804f30660d28bfd2e2df5dd258d63ed49080693c85b0b0844472a9a44c8f7c4b",
         "sourceFilename": "ZG100035 Driver Thin HDM v8.stl",
-        "quantity": 1
+        "quantity": 1,
+        "supportMaterial": "none"
       },
       {
         "partNumber": "ZG100036",
         "revision": "STL-ebdda6d69ad3fde92d24af1245ea34f422a39e119dd775a208312ff8c7540650",
         "sourceFilename": "ZG100036 Driver Thick HDM v8.stl",
-        "quantity": 1
+        "quantity": 1,
+        "supportMaterial": "PLA"
       },
       {
         "partNumber": "ZG100025",
         "revision": "STL-bee27cc49332d3cd261896302309e708c1ba5307f199703a93842da2906686bd",
         "sourceFilename": "ZG100025 Button Short HDM v5.stl",
-        "quantity": 1
+        "quantity": 1,
+        "supportMaterial": "PLA"
       },
       {
         "partNumber": "ZG100030",
         "revision": "STL-8cb45afd4bd37c518a213d05a7510c4142704cc16f78fc66a4cbe9bd64e90230",
         "sourceFilename": "ZG100030 Button Medium HDM v18.stl",
-        "quantity": 1
+        "quantity": 1,
+        "supportMaterial": "PLA"
       },
       {
         "partNumber": "ZG100031",
         "revision": "STL-df02b85c71a1dab6f313e27fbb8c1521c760659eb1bd68adf1e270943fd26a5f",
         "sourceFilename": "ZG100031 Button Long HDM v6.stl",
-        "quantity": 1
+        "quantity": 1,
+        "supportMaterial": "PLA"
       }
-    ]
+    ],
+    "buildId": "RDE-01"
   },
   {
     "id": "rde01-next-right-pla-20261117-a1",

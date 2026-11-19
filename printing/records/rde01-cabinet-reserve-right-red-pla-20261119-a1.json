@@ -1,0 +1,67 @@
+{
+  "id": "rde01-cabinet-reserve-right-red-pla-20261119-a1",
+  "buildId": "RDE-01",
+  "project": "ENIGMA R.D.E.",
+  "printer": "Bambu Lab X2D",
+  "title": "ENIGMA R.D.E. machine one: red letter grille and both back panels",
+  "jobName": "RDE01_CABINET_f5b97008_5b2fb78f8b8b_20261118.gcode.3mf",
+  "releaseJobId": "rde01-cabinet-reserve-pla",
+  "plate": 1,
+  "material": "Red PLA Basic AMS A1 · right 0.4 mm · supports off",
+  "color": "#C12E1F",
+  "nozzleMm": 0.4,
+  "layerHeightMm": 0.15,
+  "layers": 57,
+  "recordedAt": "2026-11-19T17:50:21.641146+00:00",
+  "updatedAt": "2026-11-19T17:50:21.641146+00:00",
+  "startedAt": null,
+  "finishedAt": null,
+  "status": "planned",
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 19257,
+  "estimatedGrams": 101.24,
+  "estimatedMeters": 33.94,
+  "preview": "assets/rde01-cabinet-reserve-right-red-pla-20261119-a1/actual-first-layer-toolpaths.png",
+  "layout": "assets/rde01-cabinet-reserve-right-red-pla-20261119-a1/actual-first-layer-toolpaths.png",
+  "previewCaption": "Exact first-layer toolpaths with removable brims. The two back panels are distinct source files.",
+  "layoutCaption": "Exact first-layer toolpaths with removable brims. The two back panels are distinct source files.",
+  "snapshots": [],
+  "partRevisions": [
+    {
+      "partNumber": "ZG500098",
+      "sourceFilename": "ZG500098 Letter Grill HDM v54.stl",
+      "revision": "STL-0bb10e9ea4ca021680fefdb1dc0f2cf6db36e73e0fd60a7aff2096403b3f1c7d",
+      "quantity": 1,
+      "supportMaterial": "none"
+    },
+    {
+      "partNumber": "ZG500090",
+      "sourceFilename": "ZG500090 Back Plate HDM v11 - right.stl",
+      "revision": "STL-d35fffcd3d63c80d6d4609530be5c456facb4e81007d8f2d7f07731a93624cd7",
+      "quantity": 1,
+      "supportMaterial": "none"
+    },
+    {
+      "partNumber": "ZG500090",
+      "sourceFilename": "ZG500090 Back Plate HDM v11 - left.stl",
+      "revision": "STL-aeddb520a433fc78969ecfc7214db051b840c7de7c2d26a8db1fdf6555a23af8",
+      "quantity": 1,
+      "supportMaterial": "none"
+    }
+  ],
+  "parts": [
+    "ZG500098 STL-0bb10e9ea4ca021680fefdb1dc0f2cf6db36e73e0fd60a7aff2096403b3f1c7d · ZG500098 Letter Grill HDM v54.stl · quantity 1",
+    "ZG500090 STL-d35fffcd3d63c80d6d4609530be5c456facb4e81007d8f2d7f07731a93624cd7 · ZG500090 Back Plate HDM v11 - right.stl · quantity 1",
+    "ZG500090 STL-aeddb520a433fc78969ecfc7214db051b840c7de7c2d26a8db1fdf6555a23af8 · ZG500090 Back Plate HDM v11 - left.stl · quantity 1"
+  ],
+  "source": {
+    "file": "RDE01_CABINET_f5b97008_5b2fb78f8b8b_20261118.gcode.3mf",
+    "sha256": "5b2fb78f8b8b42d594931d7146f795c7421721d7acc56342b4e1ed63e0c688e3",
+    "gcodeSha256": "5d0c7e8f04e809e11ddc1cc7418138ef27c762f944b355b49d9b8b55ddfe661e",
+    "editableSha256": "aa25b7382047f8bae042e59a89b8d306b7644e6fdab871cdd998d2e40f5c71de",
+    "sourceCommit": "f5b97008eeb7b79818d256fb9c9d00496f961e14",
+    "evidence": "Reviewed retained meshes, toolpaths and supports-off process. Uploaded and verified readback. No start observed."
+  },
+  "notes": "Prepared as the next RDE-01 cabinet fit plate. One letter grille and one of each back panel. Red PLA Basic AMS A1, textured PEI 55 °C, nozzle 220 °C, 0.15 mm layers (0.20 mm first), three walls, 15% infill and 5 mm brims. Supports are off. The print uses red instead of the manual’s black cabinet colour. The original red archive is held for dispatch because it lacks the newly required carved part numbers. A marked successor requires a fresh audit."
+}

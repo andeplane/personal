@@ -6,16 +6,16 @@
   "jobName": "RDE01_DAY10_8d64872c_af7e66daa1c4_20261118.gcode.3mf",
   "releaseJobId": "rde01-next-pla",
   "plate": 1,
-  "material": "PLA Basic \u00b7 right 0.4 mm \u00b7 supports off",
+  "material": "PLA Basic · right 0.4 mm · supports off",
   "color": "#000000",
   "nozzleMm": 0.4,
   "layerHeightMm": 0.15,
   "layers": 173,
   "recordedAt": "2026-11-17T15:08:13.671873+00:00",
-  "updatedAt": "2026-11-18T09:57:13.940521+00:00",
+  "updatedAt": "2026-11-19T17:50:21.641146+00:00",
   "startedAt": "2026-11-18T08:42:19.410462+00:00",
   "finishedAt": null,
-  "status": "printing",
+  "status": "completed",
   "actualSeconds": null,
   "actualGrams": null,
   "estimatedSeconds": 29902.0,
@@ -33,6 +33,11 @@
       "src": "assets/rde01-overnight10-right-pla-20261117-a1/first-layer-20261118T085841Z.jpg",
       "capturedAt": "2026-11-18T08:58:41.032033+00:00",
       "caption": "During the verified day-plate run on layer 1. Black toolpaths have low contrast against the bed in this view."
+    },
+    {
+      "src": "assets/rde01-overnight10-right-pla-20261117-a1/after-finish-20261119.jpg",
+      "capturedAt": "2026-11-19T17:48:58Z",
+      "caption": "Camera after FINISH was observed. The bed is empty and the parts are already off the plate."
     }
   ],
   "source": {
@@ -43,20 +48,20 @@
     "sourceCommit": "8d64872c1018d262ab79f265bf37d91afa23aff4",
     "evidence": "Prepared on clean pushed main 8d64872c after checking open PRs and inventory feedback. The exact retained-mesh slice passed the artifact audit. The printer copy matched the reviewed SHA-256 during the fresh downloaded-byte check. The printer then acknowledged the unique file and plate 1 with AMS A3."
   },
-  "notes": "Next after the red mechanical trial and morning bed clearing, targeted 08:00-08:10 Oslo on 18 November. Slicer estimate: 8 h 18 m 22 s, giving 16:18-16:28 finish; allow startup, cooldown and cleanup before Joachim at 17:00. One specimen per selected role. Black PLA Basic A3; right 0.4 mm nozzle; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm brims and 220 C / 55 C textured PEI. Supports off; grinder-cap bridge angle 90 retained. Both previews show actual first-layer GCode, with grey removable brims; no native slicer PNG was produced. Re-prepared and audited on current main 8d64872c; slice bytes and process are unchanged. Earlier upload error 553 delayed the unstarted evening proposal; storage later recovered. This day plate is uploaded; its downloaded copy passed byte-identical SHA-256 comparison. Fresh source, bed and material checks remain mandatory before its own start.  Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. The owner requested the next print at the morning handoff. At 09:42 Oslo time the printer accepted the byte-verified file and plate 1 with black PLA A3, then reported RUNNING during preparation. The 8 h 18 m estimate puts completion around 18:00 Oslo time.",
+  "notes": "Next after the red mechanical trial and morning bed clearing, targeted 08:00-08:10 Oslo on 18 November. Slicer estimate: 8 h 18 m 22 s, giving 16:18-16:28 finish; allow startup, cooldown and cleanup before Joachim at 17:00. One specimen per selected role. Black PLA Basic A3; right 0.4 mm nozzle; 0.15 mm layers (0.20 first), 3 walls, 15% infill, 5 mm brims and 220 C / 55 C textured PEI. Supports off; grinder-cap bridge angle 90 retained. Both previews show actual first-layer GCode, with grey removable brims; no native slicer PNG was produced. Re-prepared and audited on current main 8d64872c; slice bytes and process are unchanged. Earlier upload error 553 delayed the unstarted evening proposal; storage later recovered. This day plate is uploaded; its downloaded copy passed byte-identical SHA-256 comparison. Fresh source, bed and material checks remain mandatory before its own start.  Geometry: HdM Project ENIGMA R.D.E., Prof. Dr. Simon Wiest, revision 397ca89, CC BY-NC-SA 4.0. The owner requested the next print at the morning handoff. At 09:42 Oslo time the printer accepted the byte-verified file and plate 1 with black PLA A3, then reported RUNNING during preparation. The 8 h 18 m estimate puts completion around 18:00 Oslo time. The same accepted file and plate later reported FINISH at 173/173 layers with no skipped objects. The first complete observation was on 19 November. The exact finish time, active printing duration, filament used and off-bed part quality are unverified.",
   "previewCaption": "Actual first-layer GCode for this exact slice; grey is removable brim, purple is removable same-PLA support. No native slicer bitmap was produced.",
   "layoutCaption": "The same exact first-layer GCode plot viewed from above; a separate native layout bitmap is unavailable.",
   "parts": [
-    "ZG100020 STL-bd416dc265f97272d1dde89d05530b027e34020a2b977077c3b93f97fd3bfc13 \u00b7 ZG100020 Contactor Plate HDM v6.stl \u00b7 quantity 1",
-    "ZG100022 STL-8e8a9e61192e84e2c3cd77e574a322ac36e2445ca631a5ff794a046773c0337a \u00b7 ZG100022 Segment Plate HDM v11.stl \u00b7 quantity 1",
-    "ZG500097 STL-2fbbd779c8468dc25c3331ec714d26de8bfb46888a3245f7648812bca93a881a \u00b7 ZG500097 Battery Box Cover HDM v9.stl \u00b7 quantity 1",
-    "ZG600001 STL-d69f261d655aa80dcab233dbf84c2934488714e0f96f3835f6726499dce6a469 \u00b7 ZG600001 Grinder HDM v10 - cap.stl \u00b7 quantity 1",
-    "ZG600001 STL-89196d2bb9b48994ee6d2ce6a33ccde6d33e5bc590b55c3d25e11ade009b3a35 \u00b7 ZG600001 Grinder HDM v10 - base.stl \u00b7 quantity 1",
-    "ZG100098 STL-c7ac76421c7fb4547ac3a914ce914907dcfb9c68d3e77b181a90031dd6afa8c5 \u00b7 ZG100098 Access Roll PCB HDM v8.stl \u00b7 quantity 1",
-    "ZG400931 STL-d5d8d812a50da7a99f3baf8b9be8e385016f2f7e2734dcc0d53f4965dc29b0e6 \u00b7 ZG400931 Bushing PCB HDM v3.stl \u00b7 quantity 1",
-    "ZG400004 STL-79b42f18921f83c0ac47446abea414c6a79ff8b8ccf098ee62309ac96f751837 \u00b7 ZG400004 Roll Shaft HDM v9 - plug right.stl \u00b7 quantity 1",
-    "ZG400004 STL-712f1d2d3b579513eefb246262b58eb5227173f9793f2ea6a807f9392e7ebb61 \u00b7 ZG400004 Roll Shaft HDM v9 - plug left.stl \u00b7 quantity 1",
-    "ZG400005 STL-f7c8dcf5adb8e07596d01fdf0a61b5b7525b2522b77e16a16e96c74b8befe041 \u00b7 ZG400005 Bracket HDM v9.stl \u00b7 quantity 1"
+    "ZG100020 STL-bd416dc265f97272d1dde89d05530b027e34020a2b977077c3b93f97fd3bfc13 · ZG100020 Contactor Plate HDM v6.stl · quantity 1",
+    "ZG100022 STL-8e8a9e61192e84e2c3cd77e574a322ac36e2445ca631a5ff794a046773c0337a · ZG100022 Segment Plate HDM v11.stl · quantity 1",
+    "ZG500097 STL-2fbbd779c8468dc25c3331ec714d26de8bfb46888a3245f7648812bca93a881a · ZG500097 Battery Box Cover HDM v9.stl · quantity 1",
+    "ZG600001 STL-d69f261d655aa80dcab233dbf84c2934488714e0f96f3835f6726499dce6a469 · ZG600001 Grinder HDM v10 - cap.stl · quantity 1",
+    "ZG600001 STL-89196d2bb9b48994ee6d2ce6a33ccde6d33e5bc590b55c3d25e11ade009b3a35 · ZG600001 Grinder HDM v10 - base.stl · quantity 1",
+    "ZG100098 STL-c7ac76421c7fb4547ac3a914ce914907dcfb9c68d3e77b181a90031dd6afa8c5 · ZG100098 Access Roll PCB HDM v8.stl · quantity 1",
+    "ZG400931 STL-d5d8d812a50da7a99f3baf8b9be8e385016f2f7e2734dcc0d53f4965dc29b0e6 · ZG400931 Bushing PCB HDM v3.stl · quantity 1",
+    "ZG400004 STL-79b42f18921f83c0ac47446abea414c6a79ff8b8ccf098ee62309ac96f751837 · ZG400004 Roll Shaft HDM v9 - plug right.stl · quantity 1",
+    "ZG400004 STL-712f1d2d3b579513eefb246262b58eb5227173f9793f2ea6a807f9392e7ebb61 · ZG400004 Roll Shaft HDM v9 - plug left.stl · quantity 1",
+    "ZG400005 STL-f7c8dcf5adb8e07596d01fdf0a61b5b7525b2522b77e16a16e96c74b8befe041 · ZG400005 Bracket HDM v9.stl · quantity 1"
   ],
   "partRevisions": [
     {
@@ -119,5 +124,12 @@
       "sourceFilename": "ZG400005 Bracket HDM v9.stl",
       "quantity": 1
     }
-  ]
+  ],
+  "buildId": "RDE-01",
+  "terminalEvidence": {
+    "printerState": "FINISH",
+    "observedAt": "2026-11-19T17:48:58Z",
+    "layers": 173,
+    "skippedParts": []
+  }
 }

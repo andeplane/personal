@@ -67,6 +67,19 @@ class CleanupTests(unittest.IsolatedAsyncioTestCase):
 
 
 class LightningTests(unittest.TestCase):
+    def test_white_flash_has_full_power_plateau_and_background_is_yellow(self):
+        self.assertEqual(intensity(0.16, [(0.15, 0.35, 1)]), 1)
+        self.assertEqual(intensity(0.25, [(0.15, 0.35, 1)]), 1)
+        self.assertGreater(STEADY[0], STEADY[1])
+        self.assertGreater(STEADY[1], STEADY[2])
+        self.assertGreater(ANCHOR[0], ANCHOR[1])
+        self.assertGreater(ANCHOR[1], ANCHOR[2])
+        plan = sequence(random.Random(1))
+        patterns = lightning_patterns(plan, [0, 1], random.Random(1))
+        colors = [frame_at(2.5+t/50, plan, patterns, [0, 1])[1] for t in range(200)]
+        self.assertIn((65535, 65535, 65535), colors)
+        self.assertIn((0, 0, 0), colors)
+
     def test_no_extra_cooldown_after_sequence_finishes(self):
         gate = MotionGate()
         gate.update(False, 0)
@@ -104,10 +117,10 @@ class LightningTests(unittest.TestCase):
             self.assertNotEqual(patterns[2][1], patterns[4][1])
             for bulbs in patterns.values():
                 for strikes in bulbs.values():
-                    self.assertEqual(len(strikes), 4)
+                    self.assertTrue(4 <= len(strikes) <= 8)
                     for start, end, peak in strikes:
                         self.assertTrue(0 <= start < end <= 4)
-                        self.assertTrue(0.45 <= peak <= 1)
+                        self.assertEqual(peak, 1)
 
     def test_startup_presence_does_not_trigger(self):
         gate = MotionGate(cooldown=30)
@@ -141,6 +154,19 @@ class LightningTests(unittest.TestCase):
         gate.update(False, 351)
         self.assertTrue(gate.update(True, 352))
 
+    def test_tiny_fade_values_cannot_reexpand_to_white_in_sdk(self):
+        self.assertEqual(color_at(.199999, [('lightning', 1)], {0:{0:[(0,.2,1)]}}, 0), (0,0,0))
+
+    def test_every_automatic_thunder_tail_can_finish_before_lights_off(self):
+        for seed in range(100):
+            plan = sequence(random.Random(seed))
+            elapsed = 0
+            total = sum(duration for _, duration in plan)
+            for mode, duration in plan:
+                if mode == 'lightning':
+                    self.assertGreaterEqual(total-elapsed, 11.5)
+                elapsed += duration
+
     def test_storm_timing_and_random_intervals(self):
         for seed in range(100):
             plan = sequence(random.Random(seed))
@@ -152,7 +178,7 @@ class LightningTests(unittest.TestCase):
                 if mode == 'lightning':
                     self.assertEqual(duration, 4)
                     self.assertEqual(plan[n-1][0], 'steady')
-                    self.assertTrue(20 <= plan[n-1][1] <= 40)
+                    self.assertTrue(8 <= plan[n-1][1] <= 15)
             self.assertEqual(color_at(0.1, plan), STEADY)
             self.assertIsNone(color_at(sum(d for _, d in plan) + 0.01, plan))
 

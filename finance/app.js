@@ -232,7 +232,8 @@ function start({accounts, transactions, expectedBills = []}) {
     detail.hidden = !bills.length;
     if (bills.length) {
       const latest = bills[0];
-      detail.textContent = `${bills.length} recurring payment${bills.length === 1 ? "" : "s"} in this selection · Average per payment ${kr(-sum(bills) / bills.length)} · Latest payment ${kr(-latest.amount)} on ${latest.date}`;
+      const totalPaid = -sum(bills);
+      detail.textContent = `${bills.length} recurring payment${bills.length === 1 ? "" : "s"} in this selection · Total paid ${kr(totalPaid)} · Average per payment ${kr(totalPaid / bills.length)} · Latest payment ${kr(-latest.amount)} on ${latest.date}`;
     }
     byId("more").hidden = visibleCount >= results.length;
   }

@@ -1,0 +1,58 @@
+{
+  "id": "rde01-baseplate-iv-pva-20261122-a1",
+  "buildId": "RDE-01",
+  "project": "ENIGMA R.D.E.",
+  "printer": "Bambu Lab X2D",
+  "title": "Machine 1 A04 Baseplate quadrant IV, engraved PLA with PVA supports",
+  "jobName": "RDE01_A04_20261122_55bc71d0_A1.gcode.3mf",
+  "releaseJobId": "rde01-baseplate-iv-pva",
+  "plate": 1,
+  "material": "Black PLA · PVA support body and interface",
+  "color": "#000000",
+  "nozzleMm": 0.4,
+  "layerHeightMm": 0.15,
+  "layers": 713,
+  "recordedAt": "2026-11-22T19:09:12.001307+00:00",
+  "updatedAt": "2026-11-22T21:05:51.419214+00:00",
+  "startedAt": "2026-11-22T21:04:36.877Z",
+  "finishedAt": null,
+  "status": "printing",
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 24394,
+  "estimatedGrams": 115.81,
+  "estimatedMeters": 38.78,
+  "preview": "assets/rde01-baseplate-iv-pva-20261122-a1/plate_1.png",
+  "layout": "assets/rde01-baseplate-iv-pva-20261122-a1/top_1.png",
+  "previewCaption": "Plate 1 slicer preview extracted from byte-verified printer readback.",
+  "layoutCaption": "Plate 1 top view extracted from byte-verified printer readback.",
+  "snapshots": [
+    {
+      "src": "assets/rde01-baseplate-iv-pva-20261122-a1/startup-camera.jpg",
+      "capturedAt": "2026-11-22T21:04:48+00:00",
+      "caption": "Camera frame during printer startup before the first deposited layer was verified."
+    }
+  ],
+  "partRevisions": [
+    {
+      "partNumber": "ZG100901",
+      "sourceFilename": "ZG100901 Base Plate HDM v23 - IV.stl",
+      "revision": "STL-d729b367e2033c2a12ec9ab138f72bc78df83ff55413e0852161d67d76b53659",
+      "quantity": 1,
+      "supportMaterial": "PVA"
+    }
+  ],
+  "parts": [
+    "A04 · ZG100901 Base Plate HDM v23 - IV.stl · engraved quadrant · quantity 1"
+  ],
+  "source": {
+    "file": "RDE01_A04_20261122_55bc71d0_A1.gcode.3mf",
+    "sha256": "55bc71d048b0a2a35eefaceee26447251e77e593e66b7dca2506912c5c223fd1",
+    "gcodeSha256": "e5820f4c338ec55a431836cfbd03c25610a6a5a7eed3ce43265e71a23885f226",
+    "editableSha256": "7d6580c6fafd9f69541e25439ad732c243e80bf8a0dfa96083a2bd40c4a155ee",
+    "sourceCommit": "8827988b66efe0c155e97d463b736ad121e80a84",
+    "engravedStlSha256": "30af6f9483c167380a104c4de76fe53f9807e8d82fcd68ccd4f79ced64a91406",
+    "evidence": "Selected geometry and slice reviewed. Exact archived bytes verified by reading the file back from printer storage. Printer accepted plate 1 reporting the same archive MD5 and the requested dual-material mapping. Live telemetry reported RUNNING."
+  },
+  "notes": "Textured PEI, 0.15 mm layers, 15% infill and 5 mm outer brim. Slicer estimate 109.82 g black PLA and 5.99 g PVA. This is a fit and support-cleanup trial."
+}

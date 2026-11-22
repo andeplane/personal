@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; form-action 'none'; base-uri 'none'; object-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bolig Finance</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="referrer" content="no-referrer">
+  <script type="module" src="unlock.js"></script>
+</head>
+<body>
+<main id="gate" class="shell">
+  <h1>Personal finance</h1>
+  <form id="unlock-form">
+    <label for="password">Password</label>
+    <input id="password" type="password" autocomplete="current-password" required>
+    <button id="unlock" type="submit" disabled>Unlock</button>
+    <p id="unlock-status" role="status" aria-live="polite"></p>
+  </form>
+  <noscript>Enable JavaScript to unlock the finance overview.</noscript>
+</main>
+
+<div id="finance-app" hidden>
+  <header class="top">
+    <div class="shell top-inner">
+      <a class="brand" href="#overview">Bolig <span>Finance</span></a>
+      <nav aria-label="Finance sections">
+        <a href="#overview" aria-current="page">Overview</a>
+        <a href="#budget">Budget</a>
+      </nav>
+      <button type="button" id="lock">Lock</button>
+    </div>
+  </header>
+  <main class="shell">
+    <section id="budget" hidden>
+      <h1>Budget</h1>
+      <p>Budget targets will live here. The <a href="#overview">overview</a> shows actual spending by category.</p>
+    </section>
+    <section id="overview">
+      <h1>Overview</h1>
+      <p class="lede">Booked activity across the three DNB shared accounts <span id="coverage"></span></p>
+      <p id="load-error" hidden role="alert">Transaction data is missing. Run the finance refresh or restore <code>data.js</code>.</p>
+      <noscript>Enable JavaScript to filter the finance overview.</noscript>
+      <div id="overview-content" hidden>
+        <div class="filters">
+          <label>Account <select id="account"><option value="">All accounts</option></select></label>
+          <label>Period <select id="period"><option value="">All time</option></select></label>
+          <label>Show amounts as
+            <select id="basis">
+              <option value="monthly">Monthly average</option>
+              <option value="yearly">Yearly estimate</option>
+              <option value="total">Period total</option>
+            </select>
+          </label>
+        </div>
+        <p id="account-coverage" class="coverage" aria-live="polite"></p>
+        <h2 id="summary-heading">Monthly averages</h2>
+        <p id="basis-note" class="note" role="status"></p>
+        <dl class="summary" aria-labelledby="summary-heading">
+          <div><dt>Spending</dt><dd id="total-spent"></dd></div>
+          <div><dt>Recurring</dt><dd id="recurring-spent"></dd></div>
+          <div><dt>Non-recurring</dt><dd id="other-spent"></dd></div>
+          <div><dt>Net cash flow</dt><dd id="net-cash"></dd></div>
+        </dl>
+        <section class="split">
+          <div>
+            <h2 id="category-heading">Monthly spending by category</h2>
+            <p class="note">Select a category to see its transactions for the selected period.</p>
+            <div class="table-wrap">
+              <table aria-label="Spending by category">
+                <thead><tr><th scope="col">Category</th><th scope="col">Recurring</th><th scope="col">Non-recurring</th><th scope="col">Total</th></tr></thead>
+                <tbody id="categories"></tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <h2>Monthly cash flow</h2>
+            <p class="note">Spending excludes transfers. Net includes transfers when viewing a single account.</p>
+            <div class="table-wrap monthly">
+              <table aria-label="Monthly cash flow">
+                <thead><tr><th scope="col">Month</th><th scope="col">Spending</th><th scope="col">Net</th></tr></thead>
+                <tbody id="months"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section class="ledger" aria-labelledby="ledger-title">
+          <h2 id="ledger-title" tabindex="-1">Transactions</h2>
+          <div class="filters">
+            <label>Category <select id="category"><option value="">All categories</option></select></label>
+            <label>Recurrence <select id="recurrence"><option value="">All transactions</option><option value="recurring">Recurring</option><option value="non-recurring">Non-recurring</option></select></label>
+          </div>
+          <p id="ledger-count" class="note" role="status"></p>
+          <div class="table-wrap">
+            <table aria-label="Transactions">
+              <thead><tr><th scope="col">Date</th><th scope="col">Account</th><th scope="col">Description</th><th scope="col">Category</th><th scope="col">Cadence</th><th scope="col">Amount</th></tr></thead>
+              <tbody id="transactions"></tbody>
+            </table>
+          </div>
+          <button id="more" type="button" hidden>Show more transactions</button>
+        </section>
+        <section aria-labelledby="contributors-title">
+          <h2 id="contributors-title">Monthly contributions</h2>
+          <p class="note">Contributor assignments use transfer-number mappings where available.</p>
+          <div class="table-wrap contributions">
+            <table aria-label="Contributions">
+              <thead><tr><th scope="col">Contributor</th><th scope="col">Deposits</th></tr></thead>
+              <tbody id="contributors"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

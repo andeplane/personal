@@ -1,0 +1,93 @@
+:root {
+  color-scheme: light dark;
+  --paper: #faf9f5;
+  --surface: #fffefa;
+  --ink: #24271f;
+  --muted: #575c50;
+  --line: #dce0d3;
+  --accent: #355b42;
+  --wash: #e8efe5;
+  --negative: #973d31;
+  font: 15px/1.5 system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1a211b;
+    --surface: #202923;
+    --ink: #eff3eb;
+    --muted: #bac7b9;
+    --line: #3f5042;
+    --accent: #a8d8b1;
+    --wash: #2d4234;
+    --negative: #ffac9d;
+  }
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; }
+.shell { max-width: 1280px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 44px); }
+.top { border-bottom: 1px solid var(--line); background: var(--surface); }
+.top-inner { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+.brand { color: var(--ink); font-weight: 760; text-decoration: none; }
+.brand span { color: var(--muted); font-weight: 500; }
+nav { display: flex; gap: 1.15rem; }
+nav a { padding: .95rem .15rem .8rem; color: var(--muted); border-bottom: 3px solid transparent; text-decoration: none; }
+nav a[aria-current] { color: var(--accent); border-color: var(--accent); font-weight: 700; }
+a { color: var(--accent); text-underline-offset: .18em; }
+main { padding-block: 2.15rem 4rem; }
+h1, h2 { letter-spacing: -.024em; line-height: 1.2; }
+h1 { font-size: 2.25rem; margin: 0; }
+h2 { font-size: 1.25rem; margin: 1.9rem 0 .35rem; }
+.lede, .note, .coverage { color: var(--muted); margin: .35rem 0 1rem; }
+.lede, .coverage { max-width: 78ch; }
+.filters { display: flex; flex-wrap: wrap; gap: .65rem 1rem; margin-block: 1rem .6rem; }
+.filters label { display: grid; gap: .25rem; font-size: .87rem; font-weight: 650; }
+select, button { font: inherit; color: inherit; }
+select, #more {
+  min-height: 2.65rem; padding: .48rem .65rem; border: 1px solid var(--line);
+  border-radius: 6px; background: var(--surface);
+}
+select:hover, #more:hover { border-color: var(--accent); }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem 1rem; padding: 1.1rem 0; margin: 1.15rem 0 0; border-block: 1px solid var(--line); }
+.summary dt { color: var(--muted); font-size: .86rem; }
+.summary dd { margin: .2rem 0 0; font-weight: 720; font-size: 1.32rem; font-variant-numeric: tabular-nums; }
+.split { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 2rem; }
+.table-wrap { overflow: auto; border: 1px solid var(--line); border-radius: 10px; }
+table { background: var(--surface); border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { padding: .52rem .65rem; text-align: left; border-bottom: 1px solid var(--line); }
+th { font-size: .83rem; color: var(--muted); background: var(--paper); }
+tr:last-child td { border-bottom: 0; }
+td.num { text-align: right; white-space: nowrap; }
+td.negative { color: var(--negative); }
+td:first-child { white-space: nowrap; }
+.desc { min-width: 12rem; overflow-wrap: anywhere; }
+th:last-child, .split th:not(:first-child) { text-align: right; }
+.category-button { padding: .15rem 0; border: 0; background: transparent; color: var(--accent); text-align: left; }
+.category-button:hover { text-decoration: underline; }
+.monthly { max-height: 28rem; }
+.monthly th { position: sticky; top: 0; }
+.contributions { max-width: 34rem; }
+#more { margin-top: .75rem; }
+::selection { background: var(--wash); color: var(--ink); }
+@media (max-width: 860px) {
+  .split { grid-template-columns: 1fr; gap: 0; }
+}
+@media (max-width: 560px) {
+  .summary { grid-template-columns: 1fr 1fr; }
+  .summary dd { font-size: 1.12rem; }
+  select { max-width: min(100%, 18rem); }
+}
+
+#gate { max-width: 32rem; padding-top: min(16vh, 7rem); }
+#unlock-form { display: grid; gap: .6rem; margin-top: 1.5rem; }
+#unlock-form label { font-weight: 650; }
+#unlock-form input, #unlock, #lock { min-height: 44px; border: 1px solid var(--line); border-radius: 6px; padding: .6rem .8rem; font: inherit; }
+#unlock-form input, #lock { background: var(--surface); color: var(--ink); }
+#unlock { background: var(--accent); color: var(--paper); font-weight: 650; }
+#unlock:disabled { opacity: .65; cursor: wait; }
+#unlock-status { margin: .3rem 0; }
+#lock { margin-left: auto; }

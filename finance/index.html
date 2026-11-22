@@ -45,7 +45,7 @@
       <div id="overview-content" hidden>
         <div class="filters">
           <label>Account <select id="account"><option value="">All accounts</option></select></label>
-          <label>Period <select id="period"><option value="">All time</option></select></label>
+          <label>Booking period <select id="period"><option value="">All time</option></select></label>
           <label>Show amounts as
             <select id="basis">
               <option value="monthly">Monthly average</option>
@@ -55,6 +55,27 @@
           </label>
         </div>
         <p id="account-coverage" class="coverage" aria-live="polite"></p>
+        <section class="forecast" aria-labelledby="forecast-title">
+          <h2 id="forecast-title">Expected monthly bills</h2>
+          <p class="forecast-value" id="forecast-total"></p>
+          <p class="note" id="forecast-scope"></p>
+          <details id="bill-register">
+            <summary>Review recurring payments <span id="move-count"></span></summary>
+            <div class="filters">
+              <label>Show bills <select id="bill-filter">
+                <option value="current">In the monthly estimate</option>
+                <option value="move">To move to the bills account</option>
+                <option value="check">Need confirmation</option>
+              </select></label>
+            </div>
+            <div class="table-wrap">
+              <table aria-label="Recurring payment register">
+                <thead><tr><th scope="col">Bill</th><th scope="col">Last paid from</th><th scope="col">Latest payment</th><th scope="col">Monthly estimate</th></tr></thead>
+                <tbody id="bills"></tbody>
+              </table>
+            </div>
+          </details>
+        </section>
         <h2 id="summary-heading">Monthly averages</h2>
         <p id="basis-note" class="note" role="status"></p>
         <dl class="summary" aria-labelledby="summary-heading">
@@ -63,13 +84,39 @@
           <div><dt>Non-recurring</dt><dd id="other-spent"></dd></div>
           <div><dt>Net cash flow</dt><dd id="net-cash"></dd></div>
         </dl>
+        <section class="trend" aria-labelledby="trend-title">
+          <h2 id="trend-title">Monthly spending by category</h2>
+          <p class="note">Actual booked NOK, including partial months. Select a bar for its breakdown.</p>
+          <details id="chart-options">
+            <summary>Choose chart categories</summary>
+            <fieldset id="chart-choices"><legend>Categories to compare</legend></fieldset>
+          </details>
+          <div id="chart-legend" aria-label="Displayed categories"></div>
+          <div class="chart-scroll" tabindex="0" aria-label="Monthly stacked spending chart">
+            <div id="chart-bars"></div>
+          </div>
+          <p id="chart-detail" role="status" class="note"></p>
+        </section>
         <section class="split">
           <div>
             <h2 id="category-heading">Monthly spending by category</h2>
-            <p class="note">Select a category to see its transactions for the selected period.</p>
+            <div class="spending-actions" role="group" aria-label="Review spending">
+              <button type="button" id="all-spending" aria-pressed="true">All spending</button>
+              <button type="button" id="flexible-spending" aria-pressed="false">Non-recurring</button>
+              <button type="button" id="review-fees">Review fees</button>
+            </div>
+            <p id="spending-note" class="note">Select a category to see individual payments for the selected period.</p>
+            <p id="category-basis" class="note"></p>
             <div class="table-wrap">
               <table aria-label="Spending by category">
-                <thead><tr><th scope="col">Category</th><th scope="col">Recurring</th><th scope="col">Non-recurring</th><th scope="col">Total</th></tr></thead>
+                <thead class="sortable"><tr>
+                  <th scope="col"><button type="button" data-sort="name">Category <span aria-hidden="true"></span></button></th>
+                  <th scope="col"><button type="button" data-sort="recurring">Recurring <span aria-hidden="true"></span></button></th>
+                  <th scope="col"><button type="button" data-sort="other">Non-recurring <span aria-hidden="true"></span></button></th>
+                  <th scope="col" aria-sort="descending"><button type="button" data-sort="monthly">Monthly average <span aria-hidden="true"></span></button></th>
+                  <th scope="col" id="yearly-column" hidden><button type="button" data-sort="yearly">Yearly estimate <span aria-hidden="true"></span></button></th>
+                  <th scope="col"><button type="button" data-sort="total">Period total <span aria-hidden="true"></span></button></th>
+                </tr></thead>
                 <tbody id="categories"></tbody>
               </table>
             </div>
@@ -92,6 +139,7 @@
             <label>Recurrence <select id="recurrence"><option value="">All transactions</option><option value="recurring">Recurring</option><option value="non-recurring">Non-recurring</option></select></label>
           </div>
           <p id="ledger-count" class="note" role="status"></p>
+          <p id="payment-detail" class="note" hidden></p>
           <div class="table-wrap">
             <table aria-label="Transactions">
               <thead><tr><th scope="col">Date</th><th scope="col">Account</th><th scope="col">Description</th><th scope="col">Category</th><th scope="col">Cadence</th><th scope="col">Amount</th></tr></thead>

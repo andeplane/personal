@@ -36,6 +36,9 @@ function start({accounts, transactions, expectedBills = []}) {
   const accountNames = new Map(accounts.map(item => [item.id, item.name]));
   const format = new Intl.NumberFormat("en-GB", {style: "currency", currency: "NOK", currencyDisplay: "code"});
   const monthFormat = new Intl.DateTimeFormat("en-GB", {month: "short", timeZone: "UTC"});
+  const monthTitle = new Intl.DateTimeFormat("en-GB", {month: "long", year: "numeric", timeZone: "UTC"});
+  const decimalNok = new Intl.NumberFormat("en-GB", {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  const share = new Intl.NumberFormat("en-GB", {style: "percent", maximumFractionDigits: 1});
   const kr = value => format.format(value / 100);
   const sum = rows => rows.reduce((total, row) => total + row.amount, 0);
   const isRecurring = row => row.cadence === "Recurring";
@@ -95,6 +98,36 @@ function start({accounts, transactions, expectedBills = []}) {
     return [...groups.entries()];
   }
 
+  const dialog = byId("month-dialog");
+  byId("close-month").addEventListener("click", () => dialog.close());
+  dialog.addEventListener("click", event => {
+    if (event.target !== dialog) return;
+    const box = dialog.getBoundingClientRect();
+    if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close();
+  });
+
+  function openMonth(month) {
+    const rows = selected.filter(row => row.date.startsWith(month));
+    const expenses = rows.filter(isExpense);
+    const total = -sum(expenses) || 0;
+    const categories = group(expenses, row => row.category)
+      .map(([name, items]) => ({name, spent: -sum(items)}))
+      .sort((a, b) => b.spent - a.spent || a.name.localeCompare(b.name, "en"));
+    byId("month-title").textContent = monthTitle.format(new Date(month + "-01T00:00:00Z"));
+    byId("month-account").textContent = accountNames.get(account.value) || "All accounts";
+    byId("month-spent").textContent = kr(total);
+    byId("month-count").textContent = String(rows.length);
+    fill("month-categories", categories.map(({name, spent}) => [
+      cell(name), cell(decimalNok.format(spent / 100), "num"), cell(share.format(spent / total), "num"),
+    ]), 3, "No booked spending this month.");
+    fill("month-transactions", rows.reverse().map(row => [
+      cellWithDetail(row.description, [row.date, accountNames.get(row.account), row.category, row.cadence].join(" · ")),
+      numberCell(row.amount, true),
+    ]), 2, "No transactions were booked this month.");
+    dialog.showModal();
+    dialog.querySelector(".month-content").scrollTop = 0;
+  }
+
   function updateChart(rows, chartMonths) {
     const series = group(rows, row => row.category).sort((a, b) => sum(a[1]) - sum(b[1]));
     if (!customChart) chartCategories = new Set(series.slice(0, 4).map(([name]) => name));
@@ -131,7 +164,7 @@ function start({accounts, transactions, expectedBills = []}) {
       const detail = byId("chart-detail");
       legend.replaceChildren();
       bars.replaceChildren();
-      if (!names.length) {
+      if (!chartMonths.length || (!names.length && series.length)) {
         detail.textContent = series.length ? "Choose a category with spending in this selection." : "No booked spending in this selection.";
         return;
       }
@@ -157,7 +190,9 @@ function start({accounts, transactions, expectedBills = []}) {
       function inspect(month, index) {
         chartMonth = month;
         for (const bar of bars.querySelectorAll("button")) bar.setAttribute("aria-pressed", String(bar.dataset.month === month));
-        detail.textContent = [month, "Total " + kr(totals[index]), ...names.map((name, i) => name + " " + kr(values[index][i]))].join(" · ");
+        detail.textContent = names.length
+          ? [month, "Displayed " + kr(totals[index]), ...names.map((name, i) => name + " " + kr(values[index][i]))].join(" · ")
+          : "No booked spending in this selection. Select a month to see its transactions.";
       }
       chartMonths.forEach((month, index) => {
         const bar = document.createElement("button");
@@ -165,6 +200,8 @@ function start({accounts, transactions, expectedBills = []}) {
         bar.className = "month-bar";
         bar.dataset.month = month;
         bar.setAttribute("aria-label", month + ", " + kr(totals[index]));
+        bar.setAttribute("aria-haspopup", "dialog");
+        bar.setAttribute("aria-controls", "month-dialog");
         const stack = document.createElement("span");
         stack.className = "stack";
         names.forEach((name, i) => {
@@ -177,7 +214,11 @@ function start({accounts, transactions, expectedBills = []}) {
         const label = document.createElement("small");
         label.append(monthFormat.format(new Date(month + "-01T00:00:00Z")), document.createElement("br"), month.slice(0, 4));
         bar.append(stack, label);
-        bar.addEventListener("click", () => inspect(month, index));
+        bar.addEventListener("click", () => {
+          inspect(month, index);
+          bar.focus({preventScroll: true});
+          openMonth(month);
+        });
         bars.append(bar);
       });
       if (chartMonth) inspect(chartMonth, chartMonths.indexOf(chartMonth));
@@ -185,7 +226,7 @@ function start({accounts, transactions, expectedBills = []}) {
     render();
   }
 
-  function billCell(main, detail, className) {
+  function cellWithDetail(main, detail, className) {
     const td = cell(main, className);
     const note = document.createElement("small");
     note.textContent = detail;
@@ -208,10 +249,10 @@ function start({accounts, transactions, expectedBills = []}) {
     byId("forecast-scope").textContent = `Monthly equivalent of current bills as of ${latestSnapshot}. Based on the last paying account. ${check.length} need confirmation and are outside the estimate.`;
     byId("move-count").textContent = `${move.length} to move`;
     fill("bills", shown.map(bill => [
-      billCell(bill.name, bill.category),
+      cellWithDetail(bill.name, bill.category),
       cell(accountNames.get(bill.account)),
-      billCell(kr(bill.lastAmount), bill.lastDate, "num"),
-      billCell(bill.monthly === null ? "—" : kr(bill.monthly), bill.basis, "num"),
+      cellWithDetail(kr(bill.lastAmount), bill.lastDate, "num"),
+      cellWithDetail(bill.monthly === null ? "—" : kr(bill.monthly), bill.basis, "num"),
     ]), 4, mode === "move" ? "All estimated bills in this selection were last paid from the bills account." :
       mode === "check" ? "No bills need confirmation in this selection." : "No estimated bills for this account.");
   }
@@ -293,7 +334,7 @@ function start({accounts, transactions, expectedBills = []}) {
     const included = new Set(fullMonths);
     const summaryRows = totals ? selected : selected.filter(row => included.has(row.date.slice(0, 7)));
     const displayed = amount => totals ? amount : amount / count * (yearly ? 12 : 1);
-    const summaryMoney = amount => kr(displayed(amount));
+    const summaryMoney = amount => kr(displayed(amount)).replace("\u00a0", " ");
     const timeLabel = totals ? "Period" : yearly ? "Estimated yearly" : "Average monthly";
     byId("summary-heading").textContent = totals ? "Booked period totals" : yearly ? "Booked spending, annualized" : "Booked monthly averages";
     byId("category-heading").textContent = "Spending by category";

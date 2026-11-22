@@ -86,7 +86,7 @@
         </dl>
         <section class="trend" aria-labelledby="trend-title">
           <h2 id="trend-title">Monthly spending by category</h2>
-          <p class="note">Actual booked NOK, including partial months. Select a bar for its breakdown.</p>
+          <p class="note">Actual booked NOK, including partial months. Select a month for all spending categories and transactions.</p>
           <details id="chart-options">
             <summary>Choose chart categories</summary>
             <fieldset id="chart-choices"><legend>Categories to compare</legend></fieldset>
@@ -97,6 +97,28 @@
           </div>
           <p id="chart-detail" role="status" class="note"></p>
         </section>
+        <dialog id="month-dialog" aria-labelledby="month-title">
+          <header class="month-header">
+            <div>
+              <h2 id="month-title"></h2>
+              <p id="month-account"></p>
+            </div>
+            <button type="button" id="close-month" autofocus>Close</button>
+          </header>
+          <div class="month-content" tabindex="0" role="region" aria-label="Monthly spending and transactions">
+            <h3>Spending by category</h3>
+            <table class="month-breakdown" aria-label="Category share of booked spending">
+              <thead><tr><th scope="col">Category</th><th scope="col">Spent (NOK)</th><th scope="col">Share</th></tr></thead>
+              <tbody id="month-categories"></tbody>
+              <tfoot><tr><th scope="row">Total spending</th><td id="month-spent" class="num" colspan="2"></td></tr></tfoot>
+            </table>
+            <h3>Transactions <span id="month-count"></span></h3>
+            <table class="month-ledger" aria-label="All booked transactions for this month">
+              <thead><tr><th scope="col">Transaction</th><th scope="col">Amount</th></tr></thead>
+              <tbody id="month-transactions"></tbody>
+            </table>
+          </div>
+        </dialog>
         <section class="split">
           <div>
             <h2 id="category-heading">Monthly spending by category</h2>

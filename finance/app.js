@@ -193,8 +193,12 @@ function start({accounts, transactions, expectedBills = []}) {
     return td;
   }
 
+  function billsForAccount() {
+    return expectedBills.filter(bill => !account.value || bill.account === account.value);
+  }
+
   function updateForecast() {
-    const scope = expectedBills.filter(bill => !account.value || bill.account === account.value);
+    const scope = billsForAccount();
     const active = scope.filter(bill => bill.monthly !== null);
     const move = active.filter(bill => bill.account !== "faste-utgifter");
     const check = scope.filter(bill => bill.monthly === null);
@@ -238,6 +242,7 @@ function start({accounts, transactions, expectedBills = []}) {
     categoryAmounts.sort((a, b) => {
       const byName = a.name.localeCompare(b.name, "en");
       if (sortKey === "name") return sign * byName;
+      if ((a[sortKey] === null) !== (b[sortKey] === null)) return a[sortKey] === null ? 1 : -1;
       return sign * (a[sortKey] - b[sortKey]) || byName;
     });
     for (const button of sortButtons) {
@@ -257,7 +262,8 @@ function start({accounts, transactions, expectedBills = []}) {
         updateLedger();
         byId("ledger-title").focus();
       });
-      const cells = [cell(choose), numberCell(recurring), numberCell(other), monthly === null ? cell("—", "num") : numberCell(monthly)];
+      const cells = [cell(choose), recurring === null ? cell("—", "num") : numberCell(recurring),
+        numberCell(other), monthly === null ? cell("—", "num") : numberCell(monthly)];
       if (showYear) cells.push(numberCell(yearly));
       cells.push(numberCell(total));
       return cells;
@@ -290,7 +296,7 @@ function start({accounts, transactions, expectedBills = []}) {
     const timeLabel = totals ? "Period" : yearly ? "Estimated yearly" : "Average monthly";
     byId("summary-heading").textContent = totals ? "Booked period totals" : yearly ? "Booked spending, annualized" : "Booked monthly averages";
     byId("category-heading").textContent = "Spending by category";
-    byId("category-basis").textContent = `Recurring and non-recurring columns show ${totals ? "booked totals" : yearly ? "annualized amounts" : "monthly averages"}. Period totals include partial months.`;
+    byId("category-basis").textContent = `Recurring per month uses the bill estimates as of ${latestSnapshot}, assigned to the last paying account. A dash means no estimate is available. Non-recurring shows ${totals ? "booked totals" : yearly ? "annualized booked spending" : "booked monthly averages"}. Period totals include partial months.`;
     byId("contributors-title").textContent = `${timeLabel} contributions`;
     let note = "Includes all booked activity in the selected period.";
     if (partialOnly) {
@@ -309,21 +315,30 @@ function start({accounts, transactions, expectedBills = []}) {
     byId("other-spent").textContent = summaryMoney(spent - recurring);
     byId("net-cash").textContent = summaryMoney(net(summaryRows));
 
+    const currentMonthly = new Map();
+    for (const bill of billsForAccount()) {
+      if (bill.monthly !== null) {
+        currentMonthly.set(bill.category, (currentMonthly.get(bill.category) || 0) + bill.monthly);
+      }
+    }
     const previousCategory = category.value;
-    const names = [...new Set(selected.map(row => row.category))].sort();
+    const names = [...new Set([...selected.map(row => row.category), ...currentMonthly.keys()])].sort();
     category.replaceChildren(new Option("All categories", ""));
     for (const name of names) category.add(new Option(name, name));
     if (names.includes(previousCategory)) category.value = previousCategory;
-    byId("review-fees").disabled = !names.includes("Collections and fees");
+    byId("review-fees").disabled = !selected.some(row => row.category === "Collections and fees");
 
     const periodExpenses = selected.filter(isExpense);
-    categoryAmounts = group(periodExpenses, row => row.category).map(([name, rows]) => {
+    const bookedCategories = new Map(group(periodExpenses, row => row.category));
+    const spendingCategories = new Set([...bookedCategories.keys(), ...currentMonthly.keys()]);
+    categoryAmounts = [...spendingCategories].map(name => {
+      const rows = bookedCategories.get(name) || [];
       const complete = rows.filter(row => included.has(row.date.slice(0, 7)));
       const basisRows = totals ? rows : complete;
-      const recurring = -sum(basisRows.filter(isRecurring)) || 0;
+      const other = -sum(basisRows.filter(row => !isRecurring(row))) || 0;
       const monthly = count ? (-sum(complete) || 0) / count : null;
-      return {name, recurring: displayed(recurring), other: displayed(-sum(basisRows) - recurring || 0),
-        periodOther: -sum(rows.filter(row => !isRecurring(row))), total: -sum(rows), monthly, yearly: monthly * 12};
+      return {name, recurring: currentMonthly.get(name) ?? null, other: displayed(other),
+        periodOther: -sum(rows.filter(row => !isRecurring(row))), total: -sum(rows) || 0, monthly, yearly: monthly * 12};
     });
     byId("yearly-column").hidden = !yearly;
     if ((sortKey === "yearly" && !yearly) || (sortKey === "monthly" && !count)) sortKey = "total";

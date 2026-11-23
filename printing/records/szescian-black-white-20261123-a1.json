@@ -11,7 +11,7 @@
   "layerHeightMm": 0.2,
   "layers": 639,
   "recordedAt": "2026-11-23T20:35:30+00:00",
-  "updatedAt": "2026-11-23T20:35:30+00:00",
+  "updatedAt": "2026-11-23T20:57:18+00:00",
   "status": "planned",
   "startedAt": null,
   "finishedAt": null,
@@ -30,12 +30,12 @@
   "snapshots": [],
   "source": {
     "file": "szescian-black-white.gcode.3mf",
-    "sha256": "cb463e3b0f497acd72cf55e6969966f89072a9fa97d15bc85907cdaf4537a005",
-    "gcodeSha256": "75e881a9a2f8697d09917f3dfdd81704d263a74a8137f615a4e848ec583c2777",
-    "editableSha256": "4c5236e1b0f26910d1593099422d3d0417937d07343527d4cb308fa5c3a04d98",
+    "sha256": "c9b9cf031b2c07f376ca16353850a86b798cd70ff21a77b08360915e7a35ea33",
+    "gcodeSha256": "9d691d5b5c04f95e2e5a3cf40e130ddb40398c22acb1e0f041a65032b258441e",
+    "editableSha256": "fb9813c15c157ec6231cea7bc6121c2b6f68cf6d858526ecc9e8eda72bd3203a",
     "originalFilename": "Sześcian.3mf",
     "originalSha256": "94d8ab4a555afb2c8235993c4edfefe7d9077851a1d9a42ee7e981a3ecc603c7",
-    "evidence": "Native Bambu Studio slice, embedded G-code checksum and color, nozzle, supports and prime tower checked."
+    "evidence": "Native re-slice with logical-to-physical nozzle routing checked against live X2D AMS telemetry. Verified internal G-code checksum, color assignments, PLA tree supports and prime tower."
   },
-  "notes": "Prepared Plate 1 only, with the original Montaż pose and no off-plate objects. Black and white PLA both route to the auxiliary nozzle. Black PLA supplies the tree supports. Physical slot mapping, bed clearance and print outcome remain pending."
+  "notes": "Planned Plate 1 with one Montaż frame. Both colors use the auxiliary 0.4 mm nozzle. Live telemetry identified black PLA in A3 and white PLA in A2 before connectivity dropped. Bed clearance and printer-side readback are pending. The earlier planned file was superseded before any upload or start."
 }

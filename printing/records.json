@@ -1,5 +1,46 @@
 [
   {
+    "id": "szescian-black-white-20261123-a1",
+    "project": "Sześcian",
+    "printer": "Bambu Lab X2D",
+    "title": "Sześcian black-and-white frame",
+    "jobName": "szescian-black-white.gcode.3mf",
+    "plate": 1,
+    "material": "Black and white PLA · black PLA tree supports · auxiliary 0.4 mm",
+    "color": "#000000",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.2,
+    "layers": 639,
+    "recordedAt": "2026-11-23T20:35:30+00:00",
+    "updatedAt": "2026-11-23T20:35:30+00:00",
+    "status": "planned",
+    "startedAt": null,
+    "finishedAt": null,
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 9547,
+    "estimatedGrams": 26.25,
+    "estimatedMeters": 8.8,
+    "parts": [
+      "1 × Montaż frame with black body and 12 white checker details"
+    ],
+    "preview": "assets/szescian-black-white-20261123-a1/plate.png",
+    "layout": "assets/szescian-black-white-20261123-a1/top.png",
+    "previewCaption": "Native slicer thumbnail for the exact prepared Plate 1.",
+    "layoutCaption": "Native slicer top view for the exact prepared Plate 1.",
+    "snapshots": [],
+    "source": {
+      "file": "szescian-black-white.gcode.3mf",
+      "sha256": "cb463e3b0f497acd72cf55e6969966f89072a9fa97d15bc85907cdaf4537a005",
+      "gcodeSha256": "75e881a9a2f8697d09917f3dfdd81704d263a74a8137f615a4e848ec583c2777",
+      "editableSha256": "4c5236e1b0f26910d1593099422d3d0417937d07343527d4cb308fa5c3a04d98",
+      "originalFilename": "Sześcian.3mf",
+      "originalSha256": "94d8ab4a555afb2c8235993c4edfefe7d9077851a1d9a42ee7e981a3ecc603c7",
+      "evidence": "Native Bambu Studio slice, embedded G-code checksum and color, nozzle, supports and prime tower checked."
+    },
+    "notes": "Prepared Plate 1 only, with the original Montaż pose and no off-plate objects. Black and white PLA both route to the auxiliary nozzle. Black PLA supplies the tree supports. Physical slot mapping, bed clearance and print outcome remain pending."
+  },
+  {
     "id": "rde01-baseplate-iv-pva-20261122-a1",
     "buildId": "RDE-01",
     "project": "ENIGMA R.D.E.",

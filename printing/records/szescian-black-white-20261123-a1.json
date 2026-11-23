@@ -3,7 +3,7 @@
   "project": "Sześcian",
   "printer": "Bambu Lab X2D",
   "title": "Sześcian black-and-white frame",
-  "jobName": "szescian-black-white.gcode.3mf",
+  "jobName": "szescian-plate1-c9b9cf031b2c.gcode.3mf",
   "plate": 1,
   "material": "Black and white PLA · black PLA tree supports · auxiliary 0.4 mm",
   "color": "#000000",
@@ -11,9 +11,9 @@
   "layerHeightMm": 0.2,
   "layers": 639,
   "recordedAt": "2026-11-23T20:35:30+00:00",
-  "updatedAt": "2026-11-23T20:57:18+00:00",
-  "status": "planned",
-  "startedAt": null,
+  "updatedAt": "2026-11-23T22:03:41.234951+00:00",
+  "status": "printing",
+  "startedAt": "2026-11-23T22:02:49.696683+00:00",
   "finishedAt": null,
   "actualSeconds": null,
   "actualGrams": null,
@@ -27,7 +27,13 @@
   "layout": "assets/szescian-black-white-20261123-a1/top.png",
   "previewCaption": "Native slicer thumbnail for the exact prepared Plate 1.",
   "layoutCaption": "Native slicer top view for the exact prepared Plate 1.",
-  "snapshots": [],
+  "snapshots": [
+    {
+      "src": "assets/szescian-black-white-20261123-a1/start-camera.jpg",
+      "capturedAt": "2026-11-23T22:03:41.234951+00:00",
+      "caption": "X2D camera during initial preparation, before first-layer extrusion."
+    }
+  ],
   "source": {
     "file": "szescian-black-white.gcode.3mf",
     "sha256": "c9b9cf031b2c07f376ca16353850a86b798cd70ff21a77b08360915e7a35ea33",
@@ -37,5 +43,5 @@
     "originalSha256": "94d8ab4a555afb2c8235993c4edfefe7d9077851a1d9a42ee7e981a3ecc603c7",
     "evidence": "Native re-slice with logical-to-physical nozzle routing checked against live X2D AMS telemetry. Verified internal G-code checksum, color assignments, PLA tree supports and prime tower."
   },
-  "notes": "Planned Plate 1 with one Montaż frame. Both colors use the auxiliary 0.4 mm nozzle. Live telemetry identified black PLA in A3 and white PLA in A2 before connectivity dropped. Bed clearance and printer-side readback are pending. The earlier planned file was superseded before any upload or start."
+  "notes": "The X2D accepted Plate 1 after a byte-identical upload/readback on reseated external storage. Black PLA from A3 and white PLA from A2 on the auxiliary 0.4 mm nozzle. Black PLA tree supports and prime tower. The operator identified the visible bed patch as glue. First-layer and terminal checks pending."
 }

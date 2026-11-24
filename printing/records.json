@@ -1,5 +1,62 @@
 [
   {
+    "id": "rde01-baseplate-iii-pva-20261124-a1",
+    "buildId": "RDE-01",
+    "project": "ENIGMA R.D.E.",
+    "printer": "Bambu Lab X2D",
+    "title": "Machine 1 A03 Baseplate quadrant III, engraved PLA with PVA supports",
+    "jobName": "RDE01_A03_20261124_58a4fdbd_A3.gcode.3mf",
+    "releaseJobId": "rde01-baseplate-iii-pva",
+    "plate": 1,
+    "material": "Black PLA · PVA support body and interface",
+    "color": "#000000",
+    "nozzleMm": 0.4,
+    "layerHeightMm": 0.15,
+    "layers": 713,
+    "recordedAt": "2026-11-24T10:38:43.713243+00:00",
+    "updatedAt": "2026-11-24T10:42:41.513494+00:00",
+    "startedAt": "2026-11-24T10:40:36.126954+00:00",
+    "finishedAt": null,
+    "status": "printing",
+    "actualSeconds": null,
+    "actualGrams": null,
+    "estimatedSeconds": 20982,
+    "estimatedGrams": 98.13,
+    "estimatedMeters": 32.88,
+    "preview": "assets/rde01-baseplate-iii-pva-20261124-a1/first-layer-toolpaths.png",
+    "layout": "assets/rde01-baseplate-iii-pva-20261124-a1/first-layer-toolpaths.png",
+    "previewCaption": "Nominal first-layer extrusion paths derived from the reviewed A03 slice. Grey is the brim, and the right block is the prime tower.",
+    "layoutCaption": "Plate layout derived from the reviewed A03 slice.",
+    "snapshots": [
+      {
+        "caption": "Camera during startup, before printing the first layer.",
+        "capturedAt": "2026-11-24T10:41:00Z",
+        "src": "assets/rde01-baseplate-iii-pva-20261124-a1/startup-104100z.jpg"
+      }
+    ],
+    "partRevisions": [
+      {
+        "partNumber": "ZG100901",
+        "sourceFilename": "ZG100901 Base Plate HDM v23 - III.stl",
+        "revision": "STL-74fddf4afef920f2346aa6e2db89999371983e0bbbbe83e6ff7b254d8d34ba2d",
+        "quantity": 1,
+        "supportMaterial": "PVA"
+      }
+    ],
+    "parts": [
+      "A03 · ZG100901 Base Plate HDM v23 - III.stl · engraved quadrant · quantity 1"
+    ],
+    "source": {
+      "file": "RDE01_A03_20261124_58a4fdbd_A3.gcode.3mf",
+      "sha256": "58a4fdbd35107e9bcbbdc23a17d2a38f2914690554783d4873ca8fb57fedb986",
+      "gcodeSha256": "26b84e53eef3c476f5d15e0810f7b15acb6a754875adb5f40d9b7e4727d55976",
+      "editableSha256": "b533c4dfa68adcda12384594f14b03da8343f04bf26664cc20110fc3daa21996",
+      "sourceCommit": "80e742400980939602a21041be56cc605b4e06be",
+      "evidence": "Editable/sliced geometry reviewed. Printer internal cache readback matched the sliced archive SHA-256. Printer accepted plate 1, archive MD5 35E1FAB72A9734CB212C4AC6A98E6DDF, and both AMS mappings. Exact job observed RUNNING at 10:42:41 UTC."
+    },
+    "notes": "Textured PEI, 0.15 mm layers, 15% infill and a 5 mm outer brim. Estimated 95.17 g black PLA and 2.96 g PVA. The owner confirmed the bed marks were glue."
+  },
+  {
     "id": "szescian-black-white-20261123-a1",
     "project": "Sześcian",
     "printer": "Bambu Lab X2D",

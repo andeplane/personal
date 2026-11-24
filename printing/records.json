@@ -71,10 +71,10 @@
     "layerHeightMm": 0.15,
     "layers": 713,
     "recordedAt": "2026-11-22T19:09:12.001307+00:00",
-    "updatedAt": "2026-11-24T06:11:00.608815+00:00",
+    "updatedAt": "2026-11-24T08:24:32.112753+00:00",
     "startedAt": "2026-11-22T21:04:36.877Z",
     "finishedAt": null,
-    "status": "paused",
+    "status": "completed",
     "actualSeconds": null,
     "actualGrams": null,
     "estimatedSeconds": 24394,
@@ -115,13 +115,18 @@
       "editableSha256": "7d6580c6fafd9f69541e25439ad732c243e80bf8a0dfa96083a2bd40c4a155ee",
       "sourceCommit": "8827988b66efe0c155e97d463b736ad121e80a84",
       "engravedStlSha256": "30af6f9483c167380a104c4de76fe53f9807e8d82fcd68ccd4f79ced64a91406",
-      "evidence": "Selected geometry and slice reviewed. Exact archived bytes verified by reading the file back from printer storage. Printer accepted plate 1 reporting the same archive MD5 and the requested dual-material mapping. Live telemetry reported RUNNING. Last observed A04 state was PAUSE at 78%, layer 208 of 713. On 24 November the printer reported a different job at FINISH; no terminal report for A04 was captured."
+      "evidence": "Selected geometry and slice reviewed. Exact archived bytes verified by reading the file back from printer storage. Printer accepted plate 1 reporting the same archive MD5 and the requested dual-material mapping. Live telemetry reported RUNNING. Last observed A04 state was PAUSE at 78%, layer 208 of 713. On 24 November the printer reported a different job at FINISH; no terminal report for A04 was captured. The owner subsequently confirmed A04 completed."
     },
-    "notes": "Textured PEI, 0.15 mm layers, 15% infill and 5 mm outer brim. Slicer estimate 109.82 g black PLA and 5.99 g PVA. This is a fit and support-cleanup trial. Loose pale strands were visible beside the partially built quadrant. The cause and final outcome are unverified. Physical cleanup and fit remain unverified.",
+    "notes": "Textured PEI, 0.15 mm layers, 15% infill and 5 mm outer brim. Slicer estimate 109.82 g black PLA and 5.99 g PVA. This is a fit and support-cleanup trial. Loose pale strands were visible beside the partially built quadrant. The cause of the pause is unverified. Physical cleanup and fit remain unverified.",
     "pauseEvidence": {
       "printerState": "PAUSE",
       "printError": 50364419,
       "observedAt": "2026-11-23T06:05:54.136211+00:00"
+    },
+    "completionEvidence": {
+      "kind": "owner_confirmed",
+      "observedAt": "2026-11-24T08:24:32.112753+00:00",
+      "detail": "The owner confirmed in chat that A04 completed. Exact finish time, actual consumption, support removal and fit remain unverified."
     }
   },
   {

@@ -12,8 +12,8 @@
     "layerHeightMm": 0.2,
     "layers": 639,
     "recordedAt": "2026-11-23T20:35:30+00:00",
-    "updatedAt": "2026-11-23T22:03:41.234951+00:00",
-    "status": "printing",
+    "updatedAt": "2026-11-24T00:54:26.754525+00:00",
+    "status": "completed",
     "startedAt": "2026-11-23T22:02:49.696683+00:00",
     "finishedAt": null,
     "actualSeconds": null,
@@ -33,6 +33,16 @@
         "src": "assets/szescian-black-white-20261123-a1/start-camera.jpg",
         "capturedAt": "2026-11-23T22:03:41.234951+00:00",
         "caption": "X2D camera during initial preparation, before first-layer extrusion."
+      },
+      {
+        "src": "assets/szescian-black-white-20261123-a1/midprint.jpg",
+        "capturedAt": "2026-11-24T00:04:56.153599+00:00",
+        "caption": "Black frame and both white checker patterns visible during printing."
+      },
+      {
+        "src": "assets/szescian-black-white-20261123-a1/finished.jpg",
+        "capturedAt": "2026-11-24T00:54:26.754525+00:00",
+        "caption": "Camera capture after the printer reported FINISH. The frame is on the bed with supports still attached."
       }
     ],
     "source": {
@@ -44,7 +54,7 @@
       "originalSha256": "94d8ab4a555afb2c8235993c4edfefe7d9077851a1d9a42ee7e981a3ecc603c7",
       "evidence": "Native re-slice with logical-to-physical nozzle routing checked against live X2D AMS telemetry. Verified internal G-code checksum, color assignments, PLA tree supports and prime tower."
     },
-    "notes": "The X2D accepted Plate 1 after a byte-identical upload/readback on reseated external storage. Black PLA from A3 and white PLA from A2 on the auxiliary 0.4 mm nozzle. Black PLA tree supports and prime tower. The operator identified the visible bed patch as glue. First-layer and terminal checks pending."
+    "notes": "The X2D reported FINISH at 2026-11-24 00:54:13 UTC with 639 of 639 layers and print_error 0. The exact finish transition was between the last RUNNING observation at 00:52:59 UTC and the FINISH observation. Several 30-minute checks missed telemetry during intermittent LAN outages. Camera evidence shows the black frame and white checker patterns. Fit, support removal and measured filament use remain unverified."
   },
   {
     "id": "rde01-baseplate-iv-pva-20261122-a1",

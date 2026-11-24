@@ -13,10 +13,10 @@
   "layerHeightMm": 0.15,
   "layers": 713,
   "recordedAt": "2026-11-24T10:38:43.713243+00:00",
-  "updatedAt": "2026-11-24T10:42:41.513494+00:00",
+  "updatedAt": "2026-11-24T19:39:06.002222+00:00",
   "startedAt": "2026-11-24T10:40:36.126954+00:00",
-  "finishedAt": null,
-  "status": "printing",
+  "finishedAt": "2026-11-24T19:33:27.199585+00:00",
+  "status": "completed",
   "actualSeconds": null,
   "actualGrams": null,
   "estimatedSeconds": 20982,
@@ -31,6 +31,11 @@
       "caption": "Camera during startup, before printing the first layer.",
       "capturedAt": "2026-11-24T10:41:00Z",
       "src": "assets/rde01-baseplate-iii-pva-20261124-a1/startup-104100z.jpg"
+    },
+    {
+      "src": "assets/rde01-baseplate-iii-pva-20261124-a1/after-removal-193404z.jpg",
+      "capturedAt": "2026-11-24T19:34:04Z",
+      "caption": "Post-run camera view after the user reported clearing the plate. The printed part is off the bed."
     }
   ],
   "partRevisions": [
@@ -51,7 +56,7 @@
     "gcodeSha256": "26b84e53eef3c476f5d15e0810f7b15acb6a754875adb5f40d9b7e4727d55976",
     "editableSha256": "b533c4dfa68adcda12384594f14b03da8343f04bf26664cc20110fc3daa21996",
     "sourceCommit": "80e742400980939602a21041be56cc605b4e06be",
-    "evidence": "Editable/sliced geometry reviewed. Printer internal cache readback matched the sliced archive SHA-256. Printer accepted plate 1, archive MD5 35E1FAB72A9734CB212C4AC6A98E6DDF, and both AMS mappings. Exact job observed RUNNING at 10:42:41 UTC."
+    "evidence": "Editable/sliced geometry reviewed. Printer internal cache readback matched the sliced archive SHA-256. Printer accepted plate 1, archive MD5 35E1FAB72A9734CB212C4AC6A98E6DDF, and both AMS mappings. Exact job observed RUNNING at 10:42:41 UTC. A direct status check first observed FINISH at 19:33:27 UTC, with 713/713 layers and no active error. Exact finish time and deposited mass were unavailable."
   },
-  "notes": "Textured PEI, 0.15 mm layers, 15% infill and a 5 mm outer brim. Estimated 95.17 g black PLA and 2.96 g PVA. The owner confirmed the bed marks were glue."
+  "notes": "Textured PEI, 0.15 mm layers, 15% infill and a 5 mm outer brim. Estimated 95.17 g black PLA and 2.96 g PVA. The owner confirmed the bed marks were glue. Printer completion observed. Support cleanup, engraved label and physical fit remain unverified."
 }

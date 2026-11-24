@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -66,9 +67,30 @@ jobs:
           rsync -a --exclude=.git --exclude=.github --exclude=.impeccable --exclude=analytics-service --exclude=PRODUCT.md --exclude=DESIGN.md --exclude=node_modules ./ "$RUNNER_TEMP/personal-site/"
 
       - name: Upload site
+        id: upload
         uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ runner.temp }}/personal-site
+
+      - name: Wait for the Pages artifact to be listed
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
+        run: |
+          test -n "$ARTIFACT_ID"
+          for attempt in {1..12}; do
+            if listed=$(gh api --method GET \
+              "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" \
+              -f name=github-pages --jq '.artifacts[] | select(.expired == false) | .id') &&
+              printf '%s\n' "$listed" | grep -Fxq "$ARTIFACT_ID"; then
+              echo "Pages artifact $ARTIFACT_ID is visible to the deploy action."
+              exit 0
+            fi
+            echo "Waiting for artifact $ARTIFACT_ID to be listed ($attempt/12)."
+            sleep 5
+          done
+          echo "::error::The upload succeeded, but the Pages artifact is still missing from the workflow run."
+          exit 1
 
       - name: Deploy
         id: deployment

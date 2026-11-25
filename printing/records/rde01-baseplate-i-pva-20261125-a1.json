@@ -1,0 +1,57 @@
+{
+  "id": "rde01-baseplate-i-pva-20261125-a1",
+  "buildId": "RDE-01",
+  "project": "ENIGMA R.D.E.",
+  "printer": "Bambu Lab X2D",
+  "title": "Machine 1 A01 Baseplate quadrant I, revised prime-tower trial",
+  "jobName": "RDE01_A01_20261125_61308637_A1.gcode.3mf",
+  "releaseJobId": "rde01-baseplate-i-pva",
+  "plate": 1,
+  "material": "Black PLA · PVA support body and interface",
+  "color": "#000000",
+  "nozzleMm": 0.4,
+  "layerHeightMm": 0.2,
+  "layers": 575,
+  "recordedAt": "2026-11-25T10:01:34.042423+00:00",
+  "updatedAt": "2026-11-25T10:04:35.510754+00:00",
+  "startedAt": "2026-11-25T10:04:35.510754+00:00",
+  "finishedAt": null,
+  "status": "printing",
+  "actualSeconds": null,
+  "actualGrams": null,
+  "estimatedSeconds": 36083,
+  "estimatedGrams": 172.74,
+  "estimatedMeters": 57.73,
+  "preview": "assets/rde01-baseplate-i-pva-20261125-a1/first-layer.png",
+  "layout": "assets/rde01-baseplate-i-pva-20261125-a1/first-layer.png",
+  "previewCaption": "Actual first-layer extrusion paths of the numbered A01 plate.",
+  "layoutCaption": "Top-down first-layer toolpaths from the exact A01 slice.",
+  "snapshots": [
+    {
+      "src": "assets/rde01-baseplate-i-pva-20261125-a1/a01-before-print-20261125T100313Z.jpg",
+      "capturedAt": "2026-11-25T10:03:13Z",
+      "caption": "Printer camera before starting A01, after the previous part was removed."
+    }
+  ],
+  "partRevisions": [
+    {
+      "partNumber": "ZG100901",
+      "sourceFilename": "ZG100901 Base Plate HDM v23 - I.stl",
+      "revision": "STL-286a133424a52b065ea4ff6d79508c2584342f3a665ee36f84f9375a94820886",
+      "quantity": 1,
+      "supportMaterial": "PVA"
+    }
+  ],
+  "parts": [
+    "A01 · ZG100901 Base Plate HDM v23 - I.stl · engraved quadrant · quantity 1"
+  ],
+  "source": {
+    "file": "RDE01_A01_20261125_61308637_A1.gcode.3mf",
+    "sha256": "61308637ffca03daa18cafa2112a825b432bd8d92efb622874b708692af37251",
+    "gcodeSha256": "9d407bf100b1a3ae3f3992f25acf8a938a0174c42a072ef21e28b1b50c08809f",
+    "editableSha256": "2197fe949296c3b7e45863380c47f878df09ef5ccda16b6f211cbaf6e1ea487d",
+    "sourceCommit": "f545254d635cb8e35ab23cc4ddb404428e5fa966",
+    "evidence": "Exact geometry, placement, part number, cavity and PVA extrusion checks passed. Exact bytes were read back from internal storage. The X2D acknowledged the named plate, matching MD5 and material mapping, then reported RUNNING."
+  },
+  "notes": "One owner-authorized trial with an 8 mm prime-tower brim and 45 mm/s tower speed limit. Physical tower stability and cleanup remain under trial."
+}

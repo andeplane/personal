@@ -32,10 +32,11 @@ class SoundtrackTests(unittest.TestCase):
             source = lookup[tracks[index]]
             self.assertNotEqual(bulbs[1], bulbs[2])
             for cues in bulbs.values():
-                for cue, original in zip(cues, source['strikes']):
-                    self.assertLessEqual(abs(cue[0]-original[0]), 0.025001)
+                for original in source['strikes']:
+                    self.assertLessEqual(min(abs(cue[0]-original[0]) for cue in cues), 0.025001)
+                for cue in cues:
                     self.assertTrue(0 <= cue[0] < cue[1] <= 4)
-                    self.assertTrue(0 < cue[2] <= 1)
+                    self.assertEqual(cue[2], 1)
 
     def test_catalog_cannot_escape_audio_directory(self):
         with tempfile.TemporaryDirectory() as directory:

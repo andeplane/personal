@@ -31,5 +31,14 @@ python3 hue/prepare_recorded_thunder.py INPUT_FOLDER hue/audio
 The private `lightning.json` may select `thunder_catalog` as an absolute path to
 this catalog while keeping `audio_enabled: false`. That uses the recordings'
 flash cues with no playback. Enabling audio is a separate commissioning step.
-Current automatic playback support is local macOS `afplay`; Sonos transport is
-not yet implemented. Its latency must be checked on the actual speaker.
+Playback can use local macOS `afplay` or the explicitly selected Sonos backend.
+Its latency must be checked on the actual speaker.
+
+
+## Longer rumble tails
+
+The separate [full-length catalog](full/README.md) contains five 9.9–11.5-second
+thunder recordings with four-second flash cues. It allows the white lightning
+to end quickly while the recorded rumble continues. The legacy catalog above
+retains its strict four-second WAV format. Controller selection, end-of-storm
+tail time and speaker calibration are handled separately.

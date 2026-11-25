@@ -44,7 +44,8 @@
       "sourceFilename": "ZG100901 Base Plate HDM v23 - III.stl",
       "revision": "STL-74fddf4afef920f2346aa6e2db89999371983e0bbbbe83e6ff7b254d8d34ba2d",
       "quantity": 1,
-      "supportMaterial": "PVA"
+      "supportMaterial": "PVA",
+      "carvedPartNumber": "A03"
     }
   ],
   "parts": [

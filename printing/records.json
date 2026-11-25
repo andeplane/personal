@@ -32,6 +32,11 @@
         "src": "assets/rde01-baseplate-i-pva-20261125-a1/a01-before-print-20261125T100313Z.jpg",
         "capturedAt": "2026-11-25T10:03:13Z",
         "caption": "Printer camera before starting A01, after the previous part was removed."
+      },
+      {
+        "src": "assets/rde01-baseplate-i-pva-20261125-a1/in-progress-20261125T154449Z.jpg",
+        "capturedAt": "2026-11-25T15:44:49Z",
+        "caption": "A01 during printing. The base and uprights are visible, and the prime tower at the rear right is still standing."
       }
     ],
     "partRevisions": [
@@ -40,7 +45,8 @@
         "sourceFilename": "ZG100901 Base Plate HDM v23 - I.stl",
         "revision": "STL-286a133424a52b065ea4ff6d79508c2584342f3a665ee36f84f9375a94820886",
         "quantity": 1,
-        "supportMaterial": "PVA"
+        "supportMaterial": "PVA",
+        "carvedPartNumber": "A01"
       }
     ],
     "parts": [
@@ -169,7 +175,8 @@
         "sourceFilename": "ZG100901 Base Plate HDM v23 - III.stl",
         "revision": "STL-74fddf4afef920f2346aa6e2db89999371983e0bbbbe83e6ff7b254d8d34ba2d",
         "quantity": 1,
-        "supportMaterial": "PVA"
+        "supportMaterial": "PVA",
+        "carvedPartNumber": "A03"
       }
     ],
     "parts": [
@@ -288,7 +295,8 @@
         "sourceFilename": "ZG100901 Base Plate HDM v23 - IV.stl",
         "revision": "STL-d729b367e2033c2a12ec9ab138f72bc78df83ff55413e0852161d67d76b53659",
         "quantity": 1,
-        "supportMaterial": "PVA"
+        "supportMaterial": "PVA",
+        "carvedPartNumber": "A04"
       }
     ],
     "parts": [

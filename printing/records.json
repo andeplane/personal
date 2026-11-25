@@ -14,10 +14,10 @@
     "layerHeightMm": 0.2,
     "layers": 575,
     "recordedAt": "2026-11-24T20:18:12.443773+00:00",
-    "updatedAt": "2026-11-24T20:18:42.112407+00:00",
+    "updatedAt": "2026-11-25T07:56:05Z",
     "startedAt": "2026-11-24T20:18:12.443773+00:00",
     "finishedAt": null,
-    "status": "printing",
+    "status": "failed",
     "actualSeconds": null,
     "actualGrams": null,
     "estimatedSeconds": 33747,
@@ -32,6 +32,16 @@
         "src": "assets/rde01-baseplate-ii-pva-20261124-a1/in-progress-20261124T201848Z.jpg",
         "caption": "Printer camera after the exact A02 job was accepted.",
         "capturedAt": "2026-11-24T20:18:48+00:00"
+      },
+      {
+        "src": "assets/rde01-baseplate-ii-pva-20261124-a1/paused-20261125T050303Z.jpg",
+        "capturedAt": "2026-11-25T05:03:03Z",
+        "caption": "A02 during the first detected pause, with loose filament around the upright and across the plate."
+      },
+      {
+        "src": "assets/rde01-baseplate-ii-pva-20261124-a1/a01-bed-check-20261125T075605Z.jpg",
+        "capturedAt": "2026-11-25T07:56:05Z",
+        "caption": "Post-run camera view after the part had been removed."
       }
     ],
     "partRevisions": [
@@ -52,9 +62,9 @@
       "gcodeSha256": "2cd8459ca69cec7e008950f4da684d3c52e08d15f8ea2230fb2403af2d80c855",
       "editableSha256": "cc289143120292ed12107c457ca4ecec9ffabade55ae4f4e16c2bd5001e682ef",
       "sourceCommit": "0cb2c35bad6fa02be4890168656e3bf0bc7f3610",
-      "evidence": "Exact mesh and slicer paths reviewed. The printer returned matching archive bytes from the internal cache and accepted the exact MD5 and both filament mappings. The same job entered RUNNING."
+      "evidence": "Exact mesh and slicer paths reviewed. The printer returned matching archive bytes from the internal cache and accepted the exact MD5 and both filament mappings. The same job entered RUNNING. Watcher recorded pause code 0300-8003 and terminal code 0300-400C. The exact moment the run ended is unavailable."
     },
-    "notes": "Black PLA 153.64 g and PVA 28.11 g estimated. The original cavity geometry is preserved and targeted slicer annotations exclude PVA inside. The owner instructed the controller to stop on observed PVA lifting or loose material."
+    "notes": "Black PLA 153.64 g and PVA 28.11 g estimated. The original cavity geometry is preserved and targeted slicer annotations exclude PVA inside. The owner instructed the controller to stop on observed PVA lifting or loose material. The printer first paused at layer 519, later reached layer 554 of 575 (98%), and was first observed in FAILED at 07:33:24 UTC. Photos show loose strands consistent with PVA. The owner is keeping the part for a fit check. Actual time, material usage and fit were not verified."
   },
   {
     "id": "rde01-baseplate-iii-pva-20261124-a1",

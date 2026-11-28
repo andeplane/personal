@@ -64,7 +64,7 @@ jobs:
       - name: Stage public site files
         run: |
           mkdir -p "$RUNNER_TEMP/personal-site"
-          rsync -a --exclude=.git --exclude=.github --exclude=.impeccable --exclude=analytics-service --exclude=PRODUCT.md --exclude=DESIGN.md --exclude=node_modules ./ "$RUNNER_TEMP/personal-site/"
+          rsync -a --exclude=.git --exclude=.github --exclude=.impeccable --exclude=analytics-service --exclude=lanes --exclude=PRODUCT.md --exclude=DESIGN.md --exclude=node_modules ./ "$RUNNER_TEMP/personal-site/"
 
       - name: Upload site
         id: upload

@@ -61,6 +61,10 @@ kontrollert vinduslys. Tilgangsnøkler lagres utenfor repoet.
 
 [Reiseplan for Ingrid og Anders](https://andeplane.github.io/personal/posts/2026-mexico/) — Holbox, Valladolid og bryllup ved Playa del Carmen. Valg, favoritter og notater lagres i nettleseren; de sendes ikke til en server. Forslag og foreløpige datoer er merket i guiden.
 
+## Lanes
+
+[Lanes](lanes/README.md) — et TypeScript-bibliotek der hvert felt i én typet objektgraf sier hvor det lagres og hvem som får se det, med en Google Docs-lignende demo. Trenger en server (`npm start` i `lanes/`) og publiseres ikke med Pages.
+
 ## Søkemotorer
 
 Personlige sider skal ikke indekseres. Forsiden og Mexico-guiden har no-index-metadata i kildefilene. Pages-kjøringen bruker `python3 scripts/prepare-pages.py` etter de eksisterende byggesjekkene for å sette og kontrollere samme metadata på alle HTML-filene i publiseringsartefakten, også genererte sider. Dette endrer bare søkemetadata; garasjens modellkilder og bildefingeravtrykk beholdes i Git. `python3 scripts/prepare-pages.py --check` kontrollerer ferdig preparerte filer. Direkte lenker er fortsatt tilgjengelige.

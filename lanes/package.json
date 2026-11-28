@@ -1,0 +1,26 @@
+{
+  "name": "lanes",
+  "private": true,
+  "type": "module",
+  "description": "One typed object graph whose fields declare where they live and who may see them. A TypeScript study of the OP architecture.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "tsx app/server.ts",
+    "dev": "tsx watch app/server.ts",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "e2e": "node test/e2e.mjs"
+  },
+  "dependencies": {
+    "ws": "8.23.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/ws": "^8.5.0",
+    "esbuild": "0.28.2",
+    "tsx": "4.23.15",
+    "typescript": "^5.6.0"
+  }
+}
